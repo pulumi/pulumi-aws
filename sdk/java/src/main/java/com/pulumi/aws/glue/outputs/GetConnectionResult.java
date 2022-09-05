@@ -13,18 +13,18 @@ import java.util.Objects;
 @CustomType
 public final class GetConnectionResult {
     /**
-     * @return The ARN of the Glue Connection.
+     * @return ARN of the Glue Connection.
      * 
      */
     private String arn;
     /**
-     * @return The catalog ID of the Glue Connection.
+     * @return Catalog ID of the Glue Connection.
      * 
      */
     private String catalogId;
     private Map<String,String> connectionProperties;
     /**
-     * @return The type of Glue Connection.
+     * @return Type of Glue Connection.
      * 
      */
     private String connectionType;
@@ -40,7 +40,7 @@ public final class GetConnectionResult {
      */
     private List<String> matchCriterias;
     /**
-     * @return The name of the Glue Connection.
+     * @return Name of the Glue Connection.
      * 
      */
     private String name;
@@ -50,21 +50,21 @@ public final class GetConnectionResult {
      */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     private Map<String,String> tags;
 
     private GetConnectionResult() {}
     /**
-     * @return The ARN of the Glue Connection.
+     * @return ARN of the Glue Connection.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The catalog ID of the Glue Connection.
+     * @return Catalog ID of the Glue Connection.
      * 
      */
     public String catalogId() {
@@ -74,7 +74,7 @@ public final class GetConnectionResult {
         return this.connectionProperties;
     }
     /**
-     * @return The type of Glue Connection.
+     * @return Type of Glue Connection.
      * 
      */
     public String connectionType() {
@@ -98,7 +98,7 @@ public final class GetConnectionResult {
         return this.matchCriterias;
     }
     /**
-     * @return The name of the Glue Connection.
+     * @return Name of the Glue Connection.
      * 
      */
     public String name() {
@@ -112,7 +112,7 @@ public final class GetConnectionResult {
         return this.physicalConnectionRequirements;
     }
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {

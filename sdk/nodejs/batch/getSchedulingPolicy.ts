@@ -36,7 +36,7 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
  */
 export interface GetSchedulingPolicyArgs {
     /**
-     * The Amazon Resource Name (ARN) of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn: string;
     /**
@@ -56,7 +56,7 @@ export interface GetSchedulingPolicyResult {
      */
     readonly id: string;
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      */
     readonly name: string;
     /**
@@ -74,7 +74,7 @@ export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, o
  */
 export interface GetSchedulingPolicyOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn: pulumi.Input<string>;
     /**

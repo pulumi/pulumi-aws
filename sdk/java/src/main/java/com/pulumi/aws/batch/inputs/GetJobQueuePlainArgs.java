@@ -16,14 +16,14 @@ public final class GetJobQueuePlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetJobQueuePlainArgs Empty = new GetJobQueuePlainArgs();
 
     /**
-     * The name of the job queue.
+     * Name of the job queue.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the job queue.
+     * @return Name of the job queue.
      * 
      */
     public String name() {
@@ -71,7 +71,7 @@ public final class GetJobQueuePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the job queue.
+         * @param name Name of the job queue.
          * 
          * @return builder
          * 

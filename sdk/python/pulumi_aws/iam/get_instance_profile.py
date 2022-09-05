@@ -51,7 +51,7 @@ class GetInstanceProfileResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) specifying the instance profile.
+        ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -59,8 +59,7 @@ class GetInstanceProfileResult:
     @pulumi.getter(name="createDate")
     def create_date(self) -> str:
         """
-        The string representation of the date the instance profile
-        was created.
+        String representation of the date the instance profile was created.
         """
         return pulumi.get(self, "create_date")
 
@@ -81,7 +80,7 @@ class GetInstanceProfileResult:
     @pulumi.getter
     def path(self) -> str:
         """
-        The path to the instance profile.
+        Path to the instance profile.
         """
         return pulumi.get(self, "path")
 
@@ -89,7 +88,7 @@ class GetInstanceProfileResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The role arn associated with this instance profile.
+        Role ARN associated with this instance profile.
         """
         return pulumi.get(self, "role_arn")
 
@@ -97,7 +96,7 @@ class GetInstanceProfileResult:
     @pulumi.getter(name="roleId")
     def role_id(self) -> str:
         """
-        The role id associated with this instance profile.
+        Role ID associated with this instance profile.
         """
         return pulumi.get(self, "role_id")
 
@@ -105,7 +104,7 @@ class GetInstanceProfileResult:
     @pulumi.getter(name="roleName")
     def role_name(self) -> str:
         """
-        The role name associated with this instance profile.
+        Role name associated with this instance profile.
         """
         return pulumi.get(self, "role_name")
 
@@ -143,7 +142,7 @@ def get_instance_profile(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly IAM instance profile name to match.
+    :param str name: Friendly IAM instance profile name to match.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -179,6 +178,6 @@ def get_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly IAM instance profile name to match.
+    :param str name: Friendly IAM instance profile name to match.
     """
     ...

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Specifies the ARN for the queue.
+        /// ARN for the queue.
         /// </summary>
         public readonly string? QueueArn;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly string QueueId;
         /// <summary>
-        /// Specifies the name for the queue.
+        /// Name for the queue.
         /// </summary>
         public readonly string? QueueName;
 

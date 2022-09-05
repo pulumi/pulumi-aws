@@ -13,14 +13,14 @@ public final class GetLaunchConfigurationPlainArgs extends com.pulumi.resources.
     public static final GetLaunchConfigurationPlainArgs Empty = new GetLaunchConfigurationPlainArgs();
 
     /**
-     * The name of the launch configuration.
+     * Name of the launch configuration.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the launch configuration.
+     * @return Name of the launch configuration.
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetLaunchConfigurationPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the launch configuration.
+         * @param name Name of the launch configuration.
          * 
          * @return builder
          * 

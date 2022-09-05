@@ -16,14 +16,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
     public static final PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs();
 
     /**
-     * The metric type.
+     * Metric type.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return The metric type.
+     * @return Metric type.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -71,7 +71,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
         }
 
         /**
-         * @param predefinedMetricType The metric type.
+         * @param predefinedMetricType Metric type.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
         }
 
         /**
-         * @param predefinedMetricType The metric type.
+         * @param predefinedMetricType Metric type.
          * 
          * @return builder
          * 

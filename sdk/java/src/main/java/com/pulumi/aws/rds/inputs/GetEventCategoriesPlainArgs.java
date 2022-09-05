@@ -15,14 +15,14 @@ public final class GetEventCategoriesPlainArgs extends com.pulumi.resources.Invo
     public static final GetEventCategoriesPlainArgs Empty = new GetEventCategoriesPlainArgs();
 
     /**
-     * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      * 
      */
     @Import(name="sourceType")
     private @Nullable String sourceType;
 
     /**
-     * @return The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * @return Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      * 
      */
     public Optional<String> sourceType() {
@@ -54,7 +54,7 @@ public final class GetEventCategoriesPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param sourceType The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+         * @param sourceType Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
          * 
          * @return builder
          * 

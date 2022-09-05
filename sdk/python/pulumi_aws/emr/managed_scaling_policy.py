@@ -20,7 +20,7 @@ class ManagedScalingPolicyArgs:
                  compute_limits: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]):
         """
         The set of arguments for constructing a ManagedScalingPolicy resource.
-        :param pulumi.Input[str] cluster_id: The id of the EMR cluster
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -30,7 +30,7 @@ class ManagedScalingPolicyArgs:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[str]:
         """
-        The id of the EMR cluster
+        ID of the EMR cluster
         """
         return pulumi.get(self, "cluster_id")
 
@@ -58,7 +58,7 @@ class _ManagedScalingPolicyState:
                  compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None):
         """
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
-        :param pulumi.Input[str] cluster_id: The id of the EMR cluster
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         if cluster_id is not None:
@@ -70,7 +70,7 @@ class _ManagedScalingPolicyState:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the EMR cluster
+        ID of the EMR cluster
         """
         return pulumi.get(self, "cluster_id")
 
@@ -138,7 +138,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_id: The id of the EMR cluster
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedScalingPolicyComputeLimitArgs']]]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         ...
@@ -235,7 +235,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_id: The id of the EMR cluster
+        :param pulumi.Input[str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedScalingPolicyComputeLimitArgs']]]] compute_limits: Configuration block with compute limit settings. Described below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -250,7 +250,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
         """
-        The id of the EMR cluster
+        ID of the EMR cluster
         """
         return pulumi.get(self, "cluster_id")
 

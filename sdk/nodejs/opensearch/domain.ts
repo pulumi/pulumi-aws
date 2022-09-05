@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * }
  * `)});
  * ```
- * ### Log Publishing to CloudWatch Logs
+ * ### Log publishing to CloudWatch Logs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -170,6 +170,83 @@ import * as utilities from "../utilities";
  *     },
  * }, {
  *     dependsOn: [exampleServiceLinkedRole],
+ * });
+ * ```
+ * ### Enabling fine-grained access control on an existing domain
+ *
+ * This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+ * ### First apply
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.Domain("example", {
+ *     advancedSecurityOptions: {
+ *         anonymousAuthEnabled: true,
+ *         enabled: false,
+ *         internalUserDatabaseEnabled: true,
+ *         masterUserOptions: {
+ *             masterUserName: "example",
+ *             masterUserPassword: "Barbarbarbar1!",
+ *         },
+ *     },
+ *     clusterConfig: {
+ *         instanceType: "r5.large.search",
+ *     },
+ *     domainEndpointOptions: {
+ *         enforceHttps: true,
+ *         tlsSecurityPolicy: "Policy-Min-TLS-1-2-2019-07",
+ *     },
+ *     ebsOptions: {
+ *         ebsEnabled: true,
+ *         volumeSize: 10,
+ *     },
+ *     encryptAtRest: {
+ *         enabled: true,
+ *     },
+ *     engineVersion: "Elasticsearch_7.1",
+ *     nodeToNodeEncryption: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * ### Second apply
+ *
+ * Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.Domain("example", {
+ *     advancedSecurityOptions: {
+ *         anonymousAuthEnabled: true,
+ *         enabled: true,
+ *         internalUserDatabaseEnabled: true,
+ *         masterUserOptions: {
+ *             masterUserName: "example",
+ *             masterUserPassword: "Barbarbarbar1!",
+ *         },
+ *     },
+ *     clusterConfig: {
+ *         instanceType: "r5.large.search",
+ *     },
+ *     domainEndpointOptions: {
+ *         enforceHttps: true,
+ *         tlsSecurityPolicy: "Policy-Min-TLS-1-2-2019-07",
+ *     },
+ *     ebsOptions: {
+ *         ebsEnabled: true,
+ *         volumeSize: 10,
+ *     },
+ *     encryptAtRest: {
+ *         enabled: true,
+ *     },
+ *     engineVersion: "Elasticsearch_7.1",
+ *     nodeToNodeEncryption: {
+ *         enabled: true,
+ *     },
  * });
  * ```
  *
@@ -278,6 +355,9 @@ export class Domain extends pulumi.CustomResource {
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.opensearch.DomainSnapshotOptions | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -421,6 +501,9 @@ export interface DomainState {
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -486,6 +569,9 @@ export interface DomainArgs {
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.

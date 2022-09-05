@@ -15,14 +15,14 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetLocalDiskPlainArgs Empty = new GetLocalDiskPlainArgs();
 
     /**
-     * The device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
      * 
      */
     @Import(name="diskNode")
     private @Nullable String diskNode;
 
     /**
-     * @return The device node of the local disk to retrieve. For example, `/dev/sdb`.
+     * @return Device node of the local disk to retrieve. For example, `/dev/sdb`.
      * 
      */
     public Optional<String> diskNode() {
@@ -30,14 +30,14 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      * 
      */
     @Import(name="diskPath")
     private @Nullable String diskPath;
 
     /**
-     * @return The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     * @return Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      * 
      */
     public Optional<String> diskPath() {
@@ -45,14 +45,14 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn", required=true)
     private String gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public String gatewayArn() {
@@ -86,7 +86,7 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param diskNode The device node of the local disk to retrieve. For example, `/dev/sdb`.
+         * @param diskNode Device node of the local disk to retrieve. For example, `/dev/sdb`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param diskPath The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+         * @param diskPath Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 

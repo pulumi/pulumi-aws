@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetIntentResult {
     /**
-     * @return The ARN of the Lex intent.
+     * @return ARN of the Lex intent.
      * 
      */
     private String arn;
@@ -23,12 +23,12 @@ public final class GetIntentResult {
      */
     private String checksum;
     /**
-     * @return The date when the intent version was created.
+     * @return Date when the intent version was created.
      * 
      */
     private String createdDate;
     /**
-     * @return A description of the intent.
+     * @return Description of the intent.
      * 
      */
     private String description;
@@ -38,12 +38,12 @@ public final class GetIntentResult {
      */
     private String id;
     /**
-     * @return The date when the $LATEST version of this intent was updated.
+     * @return Date when the $LATEST version of this intent was updated.
      * 
      */
     private String lastUpdatedDate;
     /**
-     * @return The name of the intent, not case sensitive.
+     * @return Name of the intent, not case sensitive.
      * 
      */
     private String name;
@@ -56,14 +56,14 @@ public final class GetIntentResult {
      */
     private String parentIntentSignature;
     /**
-     * @return The version of the bot.
+     * @return Version of the bot.
      * 
      */
     private @Nullable String version;
 
     private GetIntentResult() {}
     /**
-     * @return The ARN of the Lex intent.
+     * @return ARN of the Lex intent.
      * 
      */
     public String arn() {
@@ -78,14 +78,14 @@ public final class GetIntentResult {
         return this.checksum;
     }
     /**
-     * @return The date when the intent version was created.
+     * @return Date when the intent version was created.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return A description of the intent.
+     * @return Description of the intent.
      * 
      */
     public String description() {
@@ -99,14 +99,14 @@ public final class GetIntentResult {
         return this.id;
     }
     /**
-     * @return The date when the $LATEST version of this intent was updated.
+     * @return Date when the $LATEST version of this intent was updated.
      * 
      */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * @return The name of the intent, not case sensitive.
+     * @return Name of the intent, not case sensitive.
      * 
      */
     public String name() {
@@ -123,7 +123,7 @@ public final class GetIntentResult {
         return this.parentIntentSignature;
     }
     /**
-     * @return The version of the bot.
+     * @return Version of the bot.
      * 
      */
     public Optional<String> version() {

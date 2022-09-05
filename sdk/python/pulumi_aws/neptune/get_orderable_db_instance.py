@@ -198,7 +198,7 @@ class GetOrderableDbInstanceResult:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
         """
-        The storage type for a DB instance.
+        Storage type for a DB instance.
         """
         return pulumi.get(self, "storage_type")
 

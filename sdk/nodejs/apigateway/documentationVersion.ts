@@ -67,15 +67,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the API documentation version.
+     * Description of the API documentation version.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     public readonly restApiId!: pulumi.Output<string>;
     /**
-     * The version identifier of the API documentation snapshot.
+     * Version identifier of the API documentation snapshot.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -117,15 +117,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
  */
 export interface DocumentationVersionState {
     /**
-     * The description of the API documentation version.
+     * Description of the API documentation version.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApiId?: pulumi.Input<string>;
     /**
-     * The version identifier of the API documentation snapshot.
+     * Version identifier of the API documentation snapshot.
      */
     version?: pulumi.Input<string>;
 }
@@ -135,15 +135,15 @@ export interface DocumentationVersionState {
  */
 export interface DocumentationVersionArgs {
     /**
-     * The description of the API documentation version.
+     * Description of the API documentation version.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApiId: pulumi.Input<string>;
     /**
-     * The version identifier of the API documentation snapshot.
+     * Version identifier of the API documentation snapshot.
      */
     version: pulumi.Input<string>;
 }

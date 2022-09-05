@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetMeshResult {
     /**
-     * @return The ARN of the service mesh.
+     * @return ARN of the service mesh.
      * 
      */
     private String arn;
     /**
-     * @return The creation date of the service mesh.
+     * @return Creation date of the service mesh.
      * 
      */
     private String createdDate;
@@ -28,38 +28,38 @@ public final class GetMeshResult {
      */
     private String id;
     /**
-     * @return The last update date of the service mesh.
+     * @return Last update date of the service mesh.
      * 
      */
     private String lastUpdatedDate;
     private String meshOwner;
     private String name;
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     private String resourceOwner;
     /**
-     * @return The service mesh specification.
+     * @return Service mesh specification.
      * 
      */
     private List<GetMeshSpec> specs;
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     private Map<String,String> tags;
 
     private GetMeshResult() {}
     /**
-     * @return The ARN of the service mesh.
+     * @return ARN of the service mesh.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The creation date of the service mesh.
+     * @return Creation date of the service mesh.
      * 
      */
     public String createdDate() {
@@ -73,7 +73,7 @@ public final class GetMeshResult {
         return this.id;
     }
     /**
-     * @return The last update date of the service mesh.
+     * @return Last update date of the service mesh.
      * 
      */
     public String lastUpdatedDate() {
@@ -86,21 +86,21 @@ public final class GetMeshResult {
         return this.name;
     }
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public String resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * @return The service mesh specification.
+     * @return Service mesh specification.
      * 
      */
     public List<GetMeshSpec> specs() {
         return this.specs;
     }
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     public Map<String,String> tags() {

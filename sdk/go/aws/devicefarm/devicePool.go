@@ -71,7 +71,8 @@ type DevicePool struct {
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Type    pulumi.StringOutput    `pulumi:"type"`
 }
@@ -124,7 +125,8 @@ type devicePoolState struct {
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Type    *string           `pulumi:"type"`
 }
@@ -143,7 +145,8 @@ type DevicePoolState struct {
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	Type    pulumi.StringPtrInput
 }
@@ -305,6 +308,7 @@ func (o DevicePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DevicePoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

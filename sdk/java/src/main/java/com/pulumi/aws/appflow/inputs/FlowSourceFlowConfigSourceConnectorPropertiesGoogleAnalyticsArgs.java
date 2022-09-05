@@ -14,14 +14,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsA
     public static final FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs();
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -53,7 +53,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsA
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsA
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

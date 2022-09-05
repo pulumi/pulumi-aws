@@ -51,7 +51,7 @@ class GetReleaseLabelsResult:
     @pulumi.getter(name="releaseLabels")
     def release_labels(self) -> Sequence[str]:
         """
-        The returned release labels.
+        Returned release labels.
         """
         return pulumi.get(self, "release_labels")
 

@@ -64,6 +64,7 @@ class _HsmClientCertificateState:
         :param pulumi.Input[str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,6 +128,9 @@ class _HsmClientCertificateState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -252,6 +256,7 @@ class HsmClientCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,5 +304,8 @@ class HsmClientCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

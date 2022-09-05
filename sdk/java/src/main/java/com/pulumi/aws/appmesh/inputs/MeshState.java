@@ -18,14 +18,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     public static final MeshState Empty = new MeshState();
 
     /**
-     * The ARN of the service mesh.
+     * ARN of the service mesh.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the service mesh.
+     * @return ARN of the service mesh.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation date of the service mesh.
+     * Creation date of the service mesh.
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The creation date of the service mesh.
+     * @return Creation date of the service mesh.
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -48,14 +48,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last update date of the service mesh.
+     * Last update date of the service mesh.
      * 
      */
     @Import(name="lastUpdatedDate")
     private @Nullable Output<String> lastUpdatedDate;
 
     /**
-     * @return The last update date of the service mesh.
+     * @return Last update date of the service mesh.
      * 
      */
     public Optional<Output<String>> lastUpdatedDate() {
@@ -63,14 +63,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID of the service mesh&#39;s owner.
+     * AWS account ID of the service mesh&#39;s owner.
      * 
      */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner.
+     * @return AWS account ID of the service mesh&#39;s owner.
      * 
      */
     public Optional<Output<String>> meshOwner() {
@@ -78,14 +78,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * @return Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource owner&#39;s AWS account ID.
+     * Resource owner&#39;s AWS account ID.
      * 
      */
     @Import(name="resourceOwner")
     private @Nullable Output<String> resourceOwner;
 
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public Optional<Output<String>> resourceOwner() {
@@ -108,14 +108,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<MeshSpecArgs> spec;
 
     /**
-     * @return The service mesh specification to apply.
+     * @return Service mesh specification to apply.
      * 
      */
     public Optional<Output<MeshSpecArgs>> spec() {
@@ -123,14 +123,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -138,14 +138,14 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -185,7 +185,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the service mesh.
+         * @param arn ARN of the service mesh.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the service mesh.
+         * @param arn ARN of the service mesh.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the service mesh.
+         * @param createdDate Creation date of the service mesh.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the service mesh.
+         * @param createdDate Creation date of the service mesh.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the service mesh.
+         * @param lastUpdatedDate Last update date of the service mesh.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the service mesh.
+         * @param lastUpdatedDate Last update date of the service mesh.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the service mesh. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the service mesh. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the service mesh. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the service mesh. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceOwner The resource owner&#39;s AWS account ID.
+         * @param resourceOwner Resource owner&#39;s AWS account ID.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceOwner The resource owner&#39;s AWS account ID.
+         * @param resourceOwner Resource owner&#39;s AWS account ID.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The service mesh specification to apply.
+         * @param spec Service mesh specification to apply.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The service mesh specification to apply.
+         * @param spec Service mesh specification to apply.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class MeshState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

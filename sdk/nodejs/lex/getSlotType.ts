@@ -37,11 +37,11 @@ export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetSlotTypeArgs {
     /**
-     * The name of the slot type. The name is case sensitive.
+     * Name of the slot type. The name is case sensitive.
      */
     name: string;
     /**
-     * The version of the slot type.
+     * Version of the slot type.
      */
     version?: string;
 }
@@ -56,15 +56,15 @@ export interface GetSlotTypeResult {
      */
     readonly checksum: string;
     /**
-     * The date when the slot type version was created.
+     * Date when the slot type version was created.
      */
     readonly createdDate: string;
     /**
-     * A description of the slot type.
+     * Description of the slot type.
      */
     readonly description: string;
     /**
-     * A set of EnumerationValue objects that defines the values that
+     * Set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      */
@@ -74,11 +74,11 @@ export interface GetSlotTypeResult {
      */
     readonly id: string;
     /**
-     * The date when the $LATEST version of this slot type was updated.
+     * Date when the $LATEST version of this slot type was updated.
      */
     readonly lastUpdatedDate: string;
     /**
-     * The name of the slot type. The name is not case sensitive.
+     * Name of the slot type. The name is not case sensitive.
      */
     readonly name: string;
     /**
@@ -89,7 +89,7 @@ export interface GetSlotTypeResult {
      */
     readonly valueSelectionStrategy: string;
     /**
-     * The version of the slot type.
+     * Version of the slot type.
      */
     readonly version?: string;
 }
@@ -103,11 +103,11 @@ export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.Inv
  */
 export interface GetSlotTypeOutputArgs {
     /**
-     * The name of the slot type. The name is case sensitive.
+     * Name of the slot type. The name is case sensitive.
      */
     name: pulumi.Input<string>;
     /**
-     * The version of the slot type.
+     * Version of the slot type.
      */
     version?: pulumi.Input<string>;
 }

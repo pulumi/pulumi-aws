@@ -56,11 +56,11 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The domain name that AppSync provides.
+     * Domain name that AppSync provides.
      */
     public /*out*/ readonly appsyncDomainName!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      */
     public readonly certificateArn!: pulumi.Output<string>;
     /**
@@ -68,11 +68,11 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The domain name.
+     * Domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The ID of your Amazon Route 53 hosted zone.
+     * ID of your Amazon Route 53 hosted zone.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
 
@@ -118,11 +118,11 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameState {
     /**
-     * The domain name that AppSync provides.
+     * Domain name that AppSync provides.
      */
     appsyncDomainName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      */
     certificateArn?: pulumi.Input<string>;
     /**
@@ -130,11 +130,11 @@ export interface DomainNameState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The domain name.
+     * Domain name.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The ID of your Amazon Route 53 hosted zone.
+     * ID of your Amazon Route 53 hosted zone.
      */
     hostedZoneId?: pulumi.Input<string>;
 }
@@ -144,7 +144,7 @@ export interface DomainNameState {
  */
 export interface DomainNameArgs {
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      */
     certificateArn: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface DomainNameArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The domain name.
+     * Domain name.
      */
     domainName: pulumi.Input<string>;
 }

@@ -67,7 +67,7 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getZone.
 type LookupZoneArgs struct {
-	// The Hosted Zone name of the desired Hosted Zone.
+	// Hosted Zone name of the desired Hosted Zone.
 	Name *string `pulumi:"name"`
 	// Used with `name` field to get a private Hosted Zone.
 	PrivateZone *bool `pulumi:"privateZone"`
@@ -77,17 +77,17 @@ type LookupZoneArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId *string `pulumi:"vpcId"`
-	// The Hosted Zone id of the desired Hosted Zone.
+	// Hosted Zone id of the desired Hosted Zone.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
 // A collection of values returned by getZone.
 type LookupZoneResult struct {
-	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	// ARN of the Hosted Zone.
 	Arn string `pulumi:"arn"`
 	// Caller Reference of the Hosted Zone.
 	CallerReference string `pulumi:"callerReference"`
-	// The comment field of the Hosted Zone.
+	// Comment field of the Hosted Zone.
 	Comment string `pulumi:"comment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -96,7 +96,7 @@ type LookupZoneResult struct {
 	// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
 	LinkedServicePrincipal string `pulumi:"linkedServicePrincipal"`
 	Name                   string `pulumi:"name"`
-	// The list of DNS name servers for the Hosted Zone.
+	// List of DNS name servers for the Hosted Zone.
 	NameServers []string `pulumi:"nameServers"`
 	PrivateZone *bool    `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
@@ -121,7 +121,7 @@ func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getZone.
 type LookupZoneOutputArgs struct {
-	// The Hosted Zone name of the desired Hosted Zone.
+	// Hosted Zone name of the desired Hosted Zone.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Used with `name` field to get a private Hosted Zone.
 	PrivateZone pulumi.BoolPtrInput `pulumi:"privateZone"`
@@ -131,7 +131,7 @@ type LookupZoneOutputArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
-	// The Hosted Zone id of the desired Hosted Zone.
+	// Hosted Zone id of the desired Hosted Zone.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 
@@ -154,7 +154,7 @@ func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Hosted Zone.
+// ARN of the Hosted Zone.
 func (o LookupZoneResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o LookupZoneResultOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-// The comment field of the Hosted Zone.
+// Comment field of the Hosted Zone.
 func (o LookupZoneResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Comment }).(pulumi.StringOutput)
 }
@@ -188,7 +188,7 @@ func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of DNS name servers for the Hosted Zone.
+// List of DNS name servers for the Hosted Zone.
 func (o LookupZoneResultOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
 }

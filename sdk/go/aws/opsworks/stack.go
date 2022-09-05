@@ -112,7 +112,7 @@ type Stack struct {
 	// Boolean value controlling whether the standard OpsWorks
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput `pulumi:"useOpsworksSecurityGroups"`
-	// The id of the VPC that this stack belongs to.
+	// ID of the VPC that this stack belongs to.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -207,7 +207,7 @@ type stackState struct {
 	// Boolean value controlling whether the standard OpsWorks
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
-	// The id of the VPC that this stack belongs to.
+	// ID of the VPC that this stack belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -265,7 +265,7 @@ type StackState struct {
 	// Boolean value controlling whether the standard OpsWorks
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
-	// The id of the VPC that this stack belongs to.
+	// ID of the VPC that this stack belongs to.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -323,7 +323,7 @@ type stackArgs struct {
 	// Boolean value controlling whether the standard OpsWorks
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
-	// The id of the VPC that this stack belongs to.
+	// ID of the VPC that this stack belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -378,7 +378,7 @@ type StackArgs struct {
 	// Boolean value controlling whether the standard OpsWorks
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
-	// The id of the VPC that this stack belongs to.
+	// ID of the VPC that this stack belongs to.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -594,7 +594,7 @@ func (o StackOutput) UseOpsworksSecurityGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.BoolPtrOutput { return v.UseOpsworksSecurityGroups }).(pulumi.BoolPtrOutput)
 }
 
-// The id of the VPC that this stack belongs to.
+// ID of the VPC that this stack belongs to.
 func (o StackOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

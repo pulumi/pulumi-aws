@@ -244,25 +244,25 @@ import (
 type VirtualNode struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the virtual node.
+	// ARN of the virtual node.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The creation date of the virtual node.
+	// Creation date of the virtual node.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The last update date of the virtual node.
+	// Last update date of the virtual node.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// The virtual node specification to apply.
+	// Virtual node specification to apply.
 	Spec VirtualNodeSpecOutput `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -301,48 +301,48 @@ func GetVirtualNode(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNode resources.
 type virtualNodeState struct {
-	// The ARN of the virtual node.
+	// ARN of the virtual node.
 	Arn *string `pulumi:"arn"`
-	// The creation date of the virtual node.
+	// Creation date of the virtual node.
 	CreatedDate *string `pulumi:"createdDate"`
-	// The last update date of the virtual node.
+	// Last update date of the virtual node.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// The virtual node specification to apply.
+	// Virtual node specification to apply.
 	Spec *VirtualNodeSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VirtualNodeState struct {
-	// The ARN of the virtual node.
+	// ARN of the virtual node.
 	Arn pulumi.StringPtrInput
-	// The creation date of the virtual node.
+	// Creation date of the virtual node.
 	CreatedDate pulumi.StringPtrInput
-	// The last update date of the virtual node.
+	// Last update date of the virtual node.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// The virtual node specification to apply.
+	// Virtual node specification to apply.
 	Spec VirtualNodeSpecPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -351,29 +351,29 @@ func (VirtualNodeState) ElementType() reflect.Type {
 }
 
 type virtualNodeArgs struct {
-	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The virtual node specification to apply.
+	// Virtual node specification to apply.
 	Spec VirtualNodeSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualNode resource.
 type VirtualNodeArgs struct {
-	// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The virtual node specification to apply.
+	// Virtual node specification to apply.
 	Spec VirtualNodeSpecInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -464,52 +464,52 @@ func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The ARN of the virtual node.
+// ARN of the virtual node.
 func (o VirtualNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The creation date of the virtual node.
+// Creation date of the virtual node.
 func (o VirtualNodeOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The last update date of the virtual node.
+// Last update date of the virtual node.
 func (o VirtualNodeOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
 func (o VirtualNodeOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o VirtualNodeOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// The name to use for the virtual node. Must be between 1 and 255 characters in length.
+// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 func (o VirtualNodeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource owner's AWS account ID.
+// Resource owner's AWS account ID.
 func (o VirtualNodeOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The virtual node specification to apply.
+// Virtual node specification to apply.
 func (o VirtualNodeOutput) Spec() VirtualNodeSpecOutput {
 	return o.ApplyT(func(v *VirtualNode) VirtualNodeSpecOutput { return v.Spec }).(VirtualNodeSpecOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualNodeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualNodeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

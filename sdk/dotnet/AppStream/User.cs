@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the user in the user pool is enabled.
+        /// Whether the user in the user pool is enabled.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the user in the user pool is enabled.
+        /// Whether the user in the user pool is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// Specifies whether the user in the user pool is enabled.
+        /// Whether the user in the user pool is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

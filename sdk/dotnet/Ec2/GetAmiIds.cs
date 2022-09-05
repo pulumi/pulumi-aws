@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// A regex string to apply to the AMI list returned
+        /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API.
         /// This filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// A regex string to apply to the AMI list returned
+        /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API.
         /// This filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other

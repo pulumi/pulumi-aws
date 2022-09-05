@@ -131,42 +131,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/dataSource:DataSource")
 public class DataSource extends com.pulumi.resources.CustomResource {
     /**
-     * The API ID for the GraphQL API for the data source.
+     * API ID for the GraphQL API for the data source.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API ID for the GraphQL API for the data source.
+     * @return API ID for the GraphQL API for the data source.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The ARN
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A description of the data source.
+     * Description of the data source.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the data source.
+     * @return Description of the data source.
      * 
      */
     public Output<Optional<String>> description() {
@@ -229,14 +229,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaConfig);
     }
     /**
-     * A user-supplied name for the data source.
+     * User-supplied name for the data source.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A user-supplied name for the data source.
+     * @return User-supplied name for the data source.
      * 
      */
     public Output<String> name() {
@@ -257,28 +257,28 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.relationalDatabaseConfig);
     }
     /**
-     * The IAM service role ARN for the data source.
+     * IAM service role ARN for the data source.
      * 
      */
     @Export(name="serviceRoleArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceRoleArn;
 
     /**
-     * @return The IAM service role ARN for the data source.
+     * @return IAM service role ARN for the data source.
      * 
      */
     public Output<Optional<String>> serviceRoleArn() {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
     public Output<String> type() {

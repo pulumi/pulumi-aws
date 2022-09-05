@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTableLocalSecondaryIndex {
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     private String name;
@@ -21,7 +21,7 @@ public final class GetTableLocalSecondaryIndex {
 
     private GetTableLocalSecondaryIndex() {}
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     public String name() {

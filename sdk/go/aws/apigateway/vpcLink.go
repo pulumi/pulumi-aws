@@ -29,15 +29,15 @@ type VpcLink struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the VPC link.
+	// Description of the VPC link.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name used to label and identify the VPC link.
+	// Name used to label and identify the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
 
@@ -74,29 +74,29 @@ func GetVpcLink(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VpcLink resources.
 type vpcLinkState struct {
 	Arn *string `pulumi:"arn"`
-	// The description of the VPC link.
+	// Description of the VPC link.
 	Description *string `pulumi:"description"`
-	// The name used to label and identify the VPC link.
+	// Name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn *string `pulumi:"targetArn"`
 }
 
 type VpcLinkState struct {
 	Arn pulumi.StringPtrInput
-	// The description of the VPC link.
+	// Description of the VPC link.
 	Description pulumi.StringPtrInput
-	// The name used to label and identify the VPC link.
+	// Name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringPtrInput
 }
 
@@ -105,25 +105,25 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	// The description of the VPC link.
+	// Description of the VPC link.
 	Description *string `pulumi:"description"`
-	// The name used to label and identify the VPC link.
+	// Name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn string `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	// The description of the VPC link.
+	// Description of the VPC link.
 	Description pulumi.StringPtrInput
-	// The name used to label and identify the VPC link.
+	// Name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+	// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringInput
 }
 
@@ -218,27 +218,27 @@ func (o VpcLinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the VPC link.
+// Description of the VPC link.
 func (o VpcLinkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name used to label and identify the VPC link.
+// Name used to label and identify the VPC link.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcLinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+// List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 func (o VpcLinkOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

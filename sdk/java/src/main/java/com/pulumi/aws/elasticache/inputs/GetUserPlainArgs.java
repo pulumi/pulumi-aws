@@ -17,14 +17,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      * 
      */
     @Import(name="accessString")
     private @Nullable String accessString;
 
     /**
-     * @return A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     * @return String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      * 
      */
     public Optional<String> accessString() {
@@ -53,14 +53,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The identifier for the user.
+     * Identifier for the user.
      * 
      */
     @Import(name="userId", required=true)
     private String userId;
 
     /**
-     * @return The identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     public String userId() {
@@ -68,14 +68,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The user name of the user.
+     * User name of the user.
      * 
      */
     @Import(name="userName")
     private @Nullable String userName;
 
     /**
-     * @return The user name of the user.
+     * @return User name of the user.
      * 
      */
     public Optional<String> userName() {
@@ -112,7 +112,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessString A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+         * @param accessString String for what access a user possesses within the associated ElastiCache replication groups or clusters.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userId The identifier for the user.
+         * @param userId Identifier for the user.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userName The user name of the user.
+         * @param userName User name of the user.
          * 
          * @return builder
          * 

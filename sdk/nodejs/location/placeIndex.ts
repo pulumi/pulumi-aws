@@ -81,6 +81,9 @@ export class PlaceIndex extends pulumi.CustomResource {
      */
     public readonly indexName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
@@ -161,6 +164,9 @@ export interface PlaceIndexState {
      */
     indexName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.

@@ -92,7 +92,7 @@ class GetOrganizationResult:
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> str:
         """
-        The FeatureSet of the organization.
+        FeatureSet of the organization.
         """
         return pulumi.get(self, "feature_set")
 
@@ -108,7 +108,7 @@ class GetOrganizationResult:
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+        ARN of the account that is designated as the master account for the organization.
         """
         return pulumi.get(self, "master_account_arn")
 
@@ -124,7 +124,7 @@ class GetOrganizationResult:
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> str:
         """
-        The unique identifier (ID) of the master account of an organization.
+        Unique identifier (ID) of the master account of an organization.
         """
         return pulumi.get(self, "master_account_id")
 

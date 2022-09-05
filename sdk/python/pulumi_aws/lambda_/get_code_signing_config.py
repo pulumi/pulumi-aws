@@ -86,7 +86,7 @@ class GetCodeSigningConfigResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The date and time that the code signing configuration was last modified.
+        Date and time that the code signing configuration was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -131,7 +131,7 @@ def get_code_signing_config(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the code signing configuration.
+    :param str arn: ARN of the code signing configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -166,6 +166,6 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the code signing configuration.
+    :param str arn: ARN of the code signing configuration.
     """
     ...

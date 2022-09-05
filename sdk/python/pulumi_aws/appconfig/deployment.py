@@ -23,13 +23,13 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
+        :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -45,7 +45,7 @@ class DeploymentArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -57,7 +57,7 @@ class DeploymentArgs:
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[str]:
         """
-        The configuration profile ID. Must be between 4 and 7 characters in length.
+        Configuration profile ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "configuration_profile_id")
 
@@ -69,7 +69,7 @@ class DeploymentArgs:
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> pulumi.Input[str]:
         """
-        The configuration version to deploy. Can be at most 1024 characters.
+        Configuration version to deploy. Can be at most 1024 characters.
         """
         return pulumi.get(self, "configuration_version")
 
@@ -81,7 +81,7 @@ class DeploymentArgs:
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Input[str]:
         """
-        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 
@@ -93,7 +93,7 @@ class DeploymentArgs:
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[str]:
         """
-        The environment ID. Must be between 4 and 7 characters in length.
+        Environment ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "environment_id")
 
@@ -105,7 +105,7 @@ class DeploymentArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the deployment. Can be at most 1024 characters.
+        Description of the deployment. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -117,7 +117,7 @@ class DeploymentArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -142,17 +142,17 @@ class _DeploymentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Deployment.
-        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[int] deployment_number: The deployment number.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] state: The state of the deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Deployment.
+        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
+        :param pulumi.Input[int] deployment_number: Deployment number.
+        :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
+        :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] state: State of the deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -181,7 +181,7 @@ class _DeploymentState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -193,7 +193,7 @@ class _DeploymentState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Deployment.
+        ARN of the AppConfig Deployment.
         """
         return pulumi.get(self, "arn")
 
@@ -205,7 +205,7 @@ class _DeploymentState:
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration profile ID. Must be between 4 and 7 characters in length.
+        Configuration profile ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "configuration_profile_id")
 
@@ -217,7 +217,7 @@ class _DeploymentState:
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration version to deploy. Can be at most 1024 characters.
+        Configuration version to deploy. Can be at most 1024 characters.
         """
         return pulumi.get(self, "configuration_version")
 
@@ -229,7 +229,7 @@ class _DeploymentState:
     @pulumi.getter(name="deploymentNumber")
     def deployment_number(self) -> Optional[pulumi.Input[int]]:
         """
-        The deployment number.
+        Deployment number.
         """
         return pulumi.get(self, "deployment_number")
 
@@ -241,7 +241,7 @@ class _DeploymentState:
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 
@@ -253,7 +253,7 @@ class _DeploymentState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the deployment. Can be at most 1024 characters.
+        Description of the deployment. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -265,7 +265,7 @@ class _DeploymentState:
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The environment ID. Must be between 4 and 7 characters in length.
+        Environment ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "environment_id")
 
@@ -277,7 +277,7 @@ class _DeploymentState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of the deployment.
+        State of the deployment.
         """
         return pulumi.get(self, "state")
 
@@ -289,7 +289,7 @@ class _DeploymentState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -301,7 +301,7 @@ class _DeploymentState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -354,13 +354,13 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
+        :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
+        :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -477,17 +477,17 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Deployment.
-        :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[int] deployment_number: The deployment number.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] state: The state of the deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Deployment.
+        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
+        :param pulumi.Input[int] deployment_number: Deployment number.
+        :param pulumi.Input[str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
+        :param pulumi.Input[str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] state: State of the deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -510,7 +510,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -518,7 +518,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Deployment.
+        ARN of the AppConfig Deployment.
         """
         return pulumi.get(self, "arn")
 
@@ -526,7 +526,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[str]:
         """
-        The configuration profile ID. Must be between 4 and 7 characters in length.
+        Configuration profile ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "configuration_profile_id")
 
@@ -534,7 +534,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> pulumi.Output[str]:
         """
-        The configuration version to deploy. Can be at most 1024 characters.
+        Configuration version to deploy. Can be at most 1024 characters.
         """
         return pulumi.get(self, "configuration_version")
 
@@ -542,7 +542,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentNumber")
     def deployment_number(self) -> pulumi.Output[int]:
         """
-        The deployment number.
+        Deployment number.
         """
         return pulumi.get(self, "deployment_number")
 
@@ -550,7 +550,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Output[str]:
         """
-        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 
@@ -558,7 +558,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the deployment. Can be at most 1024 characters.
+        Description of the deployment. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -566,7 +566,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[str]:
         """
-        The environment ID. Must be between 4 and 7 characters in length.
+        Environment ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "environment_id")
 
@@ -574,7 +574,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
-        The state of the deployment.
+        State of the deployment.
         """
         return pulumi.get(self, "state")
 
@@ -582,7 +582,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -590,7 +590,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

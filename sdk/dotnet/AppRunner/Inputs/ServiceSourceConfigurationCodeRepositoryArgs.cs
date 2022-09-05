@@ -19,13 +19,13 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs>? CodeConfiguration { get; set; }
 
         /// <summary>
-        /// The location of the repository that contains the source code.
+        /// Location of the repository that contains the source code.
         /// </summary>
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 
         /// <summary>
-        /// The version that should be used within the source code repository. See Source Code Version below for more details.
+        /// Version that should be used within the source code repository. See Source Code Version below for more details.
         /// </summary>
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;

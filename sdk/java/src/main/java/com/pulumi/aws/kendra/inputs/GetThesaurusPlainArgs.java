@@ -16,14 +16,14 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetThesaurusPlainArgs Empty = new GetThesaurusPlainArgs();
 
     /**
-     * The identifier of the index that contains the Thesaurus.
+     * Identifier of the index that contains the Thesaurus.
      * 
      */
     @Import(name="indexId", required=true)
     private String indexId;
 
     /**
-     * @return The identifier of the index that contains the Thesaurus.
+     * @return Identifier of the index that contains the Thesaurus.
      * 
      */
     public String indexId() {
@@ -46,14 +46,14 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The identifier of the Thesaurus.
+     * Identifier of the Thesaurus.
      * 
      */
     @Import(name="thesaurusId", required=true)
     private String thesaurusId;
 
     /**
-     * @return The identifier of the Thesaurus.
+     * @return Identifier of the Thesaurus.
      * 
      */
     public String thesaurusId() {
@@ -87,7 +87,7 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param indexId The identifier of the index that contains the Thesaurus.
+         * @param indexId Identifier of the index that contains the Thesaurus.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param thesaurusId The identifier of the Thesaurus.
+         * @param thesaurusId Identifier of the Thesaurus.
          * 
          * @return builder
          * 

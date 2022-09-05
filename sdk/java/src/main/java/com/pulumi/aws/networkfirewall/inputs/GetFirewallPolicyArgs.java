@@ -17,14 +17,14 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     public static final GetFirewallPolicyArgs Empty = new GetFirewallPolicyArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the firewall policy.
+     * ARN of the firewall policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall policy.
+     * @return ARN of the firewall policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The descriptive name of the firewall policy.
+     * Descriptive name of the firewall policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The descriptive name of the firewall policy.
+     * @return Descriptive name of the firewall policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -88,7 +88,7 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the firewall policy.
+         * @param arn ARN of the firewall policy.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the firewall policy.
+         * @param arn ARN of the firewall policy.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The descriptive name of the firewall policy.
+         * @param name Descriptive name of the firewall policy.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The descriptive name of the firewall policy.
+         * @param name Descriptive name of the firewall policy.
          * 
          * @return builder
          * 

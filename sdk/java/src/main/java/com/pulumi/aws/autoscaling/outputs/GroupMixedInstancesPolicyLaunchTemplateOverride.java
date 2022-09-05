@@ -29,7 +29,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
      */
     private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification;
     /**
-     * @return The number of capacity units, which gives the instance type a proportional weight to other instance types.
+     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
     private @Nullable String weightedCapacity;
@@ -57,7 +57,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
         return Optional.ofNullable(this.launchTemplateSpecification);
     }
     /**
-     * @return The number of capacity units, which gives the instance type a proportional weight to other instance types.
+     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
     public Optional<String> weightedCapacity() {

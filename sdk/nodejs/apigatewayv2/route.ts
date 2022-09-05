@@ -82,7 +82,7 @@ export class Route extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -90,18 +90,18 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
     public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * The authorization type for the route.
+     * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
     public readonly authorizationType!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
     public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
@@ -109,19 +109,19 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The operation name for the route. Must be between 1 and 64 characters in length.
+     * Operation name for the route. Must be between 1 and 64 characters in length.
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
-     * The request models for the route. Supported only for WebSocket APIs.
+     * Request models for the route. Supported only for WebSocket APIs.
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs.
      */
     public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
     /**
-     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     public readonly routeKey!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly routeResponseSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
     public readonly target!: pulumi.Output<string | undefined>;
 
@@ -189,7 +189,7 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -197,18 +197,18 @@ export interface RouteState {
      */
     apiKeyRequired?: pulumi.Input<boolean>;
     /**
-     * The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The authorization type for the route.
+     * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
     authorizerId?: pulumi.Input<string>;
     /**
@@ -216,19 +216,19 @@ export interface RouteState {
      */
     modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The operation name for the route. Must be between 1 and 64 characters in length.
+     * Operation name for the route. Must be between 1 and 64 characters in length.
      */
     operationName?: pulumi.Input<string>;
     /**
-     * The request models for the route. Supported only for WebSocket APIs.
+     * Request models for the route. Supported only for WebSocket APIs.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs.
      */
     requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
     /**
-     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     routeKey?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface RouteState {
      */
     routeResponseSelectionExpression?: pulumi.Input<string>;
     /**
-     * The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
     target?: pulumi.Input<string>;
 }
@@ -246,7 +246,7 @@ export interface RouteState {
  */
 export interface RouteArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -254,18 +254,18 @@ export interface RouteArgs {
      */
     apiKeyRequired?: pulumi.Input<boolean>;
     /**
-     * The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The authorization type for the route.
+     * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
     authorizerId?: pulumi.Input<string>;
     /**
@@ -273,19 +273,19 @@ export interface RouteArgs {
      */
     modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The operation name for the route. Must be between 1 and 64 characters in length.
+     * Operation name for the route. Must be between 1 and 64 characters in length.
      */
     operationName?: pulumi.Input<string>;
     /**
-     * The request models for the route. Supported only for WebSocket APIs.
+     * Request models for the route. Supported only for WebSocket APIs.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs.
      */
     requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
     /**
-     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
     routeKey: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface RouteArgs {
      */
     routeResponseSelectionExpression?: pulumi.Input<string>;
     /**
-     * The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
     target?: pulumi.Input<string>;
 }

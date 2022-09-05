@@ -56,7 +56,7 @@ class GetExportResult:
     @pulumi.getter
     def body(self) -> str:
         """
-        The id of the API.
+        ID of the API.
         """
         return pulumi.get(self, "body")
 
@@ -132,12 +132,12 @@ def get_export(api_id: Optional[str] = None,
     ```
 
 
-    :param str api_id: The API identifier.
-    :param str export_version: The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-    :param bool include_extensions: Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-    :param str output_type: The output type of the exported definition file. Valid values are `JSON` and `YAML`.
-    :param str specification: The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-    :param str stage_name: The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+    :param str api_id: API identifier.
+    :param str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+    :param bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+    :param str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+    :param str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -183,11 +183,11 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str api_id: The API identifier.
-    :param str export_version: The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-    :param bool include_extensions: Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-    :param str output_type: The output type of the exported definition file. Valid values are `JSON` and `YAML`.
-    :param str specification: The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-    :param str stage_name: The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+    :param str api_id: API identifier.
+    :param str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+    :param bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+    :param str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+    :param str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
     ...

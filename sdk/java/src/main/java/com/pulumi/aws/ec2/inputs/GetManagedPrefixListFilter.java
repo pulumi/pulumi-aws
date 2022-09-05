@@ -14,14 +14,14 @@ public final class GetManagedPrefixListFilter extends com.pulumi.resources.Invok
     public static final GetManagedPrefixListFilter Empty = new GetManagedPrefixListFilter();
 
     /**
-     * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetManagedPrefixListFilter extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         * @param name Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
          * 
          * @return builder
          * 

@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetFaqArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the FAQ.
+        /// Identifier of the FAQ.
         /// </summary>
         [Input("faqId", required: true)]
         public string FaqId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the index that contains the FAQ.
+        /// Identifier of the index that contains the FAQ.
         /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetFaqInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the FAQ.
+        /// Identifier of the FAQ.
         /// </summary>
         [Input("faqId", required: true)]
         public Input<string> FaqId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the index that contains the FAQ.
+        /// Identifier of the index that contains the FAQ.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
@@ -138,15 +138,15 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetFaqResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the FAQ.
+        /// ARN of the FAQ.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The Unix datetime that the faq was created.
+        /// Unix datetime that the faq was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the FAQ.
+        /// Description of the FAQ.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Kendra
         public readonly string ErrorMessage;
         public readonly string FaqId;
         /// <summary>
-        /// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        /// File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         /// </summary>
         public readonly string FileFormat;
         /// <summary>
@@ -164,23 +164,23 @@ namespace Pulumi.Aws.Kendra
         public readonly string Id;
         public readonly string IndexId;
         /// <summary>
-        /// The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        /// Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         /// </summary>
         public readonly string LanguageCode;
         /// <summary>
-        /// Specifies the name of the FAQ.
+        /// Name of the FAQ.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The S3 location of the FAQ input data. Detailed below.
+        /// S3 location of the FAQ input data. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFaqS3PathResult> S3Paths;
         /// <summary>
-        /// The status of the FAQ. It is ready to use when the status is ACTIVE.
+        /// Status of the FAQ. It is ready to use when the status is ACTIVE.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The date and time that the FAQ was last updated.
+        /// Date and time that the FAQ was last updated.
         /// </summary>
         public readonly string UpdatedAt;
 

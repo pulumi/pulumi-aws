@@ -32,14 +32,14 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
     }
 
     /**
-     * The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+     * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
      * 
      */
     @Import(name="configurationSource", required=true)
     private Output<String> configurationSource;
 
     /**
-     * @return The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
      * 
      */
     public Output<String> configurationSource() {
@@ -93,7 +93,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
         }
 
         /**
-         * @param configurationSource The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         * @param configurationSource Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
         }
 
         /**
-         * @param configurationSource The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         * @param configurationSource Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
          * 
          * @return builder
          * 

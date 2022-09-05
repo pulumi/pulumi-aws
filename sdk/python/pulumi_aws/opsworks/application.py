@@ -35,7 +35,7 @@ class ApplicationArgs:
                  ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
@@ -90,7 +90,7 @@ class ApplicationArgs:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
         """
-        The id of the stack the application will belong to.
+        ID of the stack the application will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -328,7 +328,7 @@ class _ApplicationState:
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
-        :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
         if app_sources is not None:
@@ -550,7 +550,7 @@ class _ApplicationState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the stack the application will belong to.
+        ID of the stack the application will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -657,7 +657,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
-        :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
         ...
@@ -823,7 +823,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
-        :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -973,7 +973,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        The id of the stack the application will belong to.
+        ID of the stack the application will belong to.
         """
         return pulumi.get(self, "stack_id")
 

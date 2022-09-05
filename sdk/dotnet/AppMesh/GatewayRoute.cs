@@ -68,67 +68,67 @@ namespace Pulumi.Aws.AppMesh
     public partial class GatewayRoute : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the gateway route.
+        /// ARN of the gateway route.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The creation date of the gateway route.
+        /// Creation date of the gateway route.
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The last update date of the gateway route.
+        /// Last update date of the gateway route.
         /// </summary>
         [Output("lastUpdatedDate")]
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+        /// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("meshName")]
         public Output<string> MeshName { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Output("meshOwner")]
         public Output<string> MeshOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         [Output("resourceOwner")]
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The gateway route specification to apply.
+        /// Gateway route specification to apply.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.GatewayRouteSpec> Spec { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("virtualGatewayName")]
         public Output<string> VirtualGatewayName { get; private set; } = null!;
@@ -180,25 +180,25 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GatewayRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+        /// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The gateway route specification to apply.
+        /// Gateway route specification to apply.
         /// </summary>
         [Input("spec", required: true)]
         public Input<Inputs.GatewayRouteSpecArgs> Spec { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualGatewayName", required: true)]
         public Input<string> VirtualGatewayName { get; set; } = null!;
@@ -230,49 +230,49 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GatewayRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the gateway route.
+        /// ARN of the gateway route.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The creation date of the gateway route.
+        /// Creation date of the gateway route.
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The last update date of the gateway route.
+        /// Last update date of the gateway route.
         /// </summary>
         [Input("lastUpdatedDate")]
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+        /// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("meshName")]
         public Input<string>? MeshName { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         [Input("resourceOwner")]
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// The gateway route specification to apply.
+        /// Gateway route specification to apply.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.GatewayRouteSpecGetArgs>? Spec { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.AppMesh
         }
 
         /// <summary>
-        /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+        /// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualGatewayName")]
         public Input<string>? VirtualGatewayName { get; set; }

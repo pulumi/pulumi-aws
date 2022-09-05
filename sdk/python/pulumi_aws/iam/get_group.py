@@ -46,7 +46,7 @@ class GetGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) specifying the iam user.
+        User ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -54,7 +54,7 @@ class GetGroupResult:
     @pulumi.getter(name="groupId")
     def group_id(self) -> str:
         """
-        The stable and unique string identifying the group.
+        Stable and unique string identifying the group.
         """
         return pulumi.get(self, "group_id")
 
@@ -75,7 +75,7 @@ class GetGroupResult:
     @pulumi.getter
     def path(self) -> str:
         """
-        The path to the iam user.
+        Path to the IAM user.
         """
         return pulumi.get(self, "path")
 
@@ -83,7 +83,7 @@ class GetGroupResult:
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetGroupUserResult']:
         """
-        List of objects containing group member information. See supported fields below.
+        List of objects containing group member information. See below.
         """
         return pulumi.get(self, "users")
 
@@ -119,7 +119,7 @@ def get_group(group_name: Optional[str] = None,
     ```
 
 
-    :param str group_name: The friendly IAM group name to match.
+    :param str group_name: Friendly IAM group name to match.
     """
     __args__ = dict()
     __args__['groupName'] = group_name
@@ -153,6 +153,6 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str group_name: The friendly IAM group name to match.
+    :param str group_name: Friendly IAM group name to match.
     """
     ...

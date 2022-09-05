@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GatewayRouteSpecGrpcRouteActionTarget {
     /**
-     * @return The virtual service gateway route target.
+     * @return Virtual service gateway route target.
      * 
      */
     private GatewayRouteSpecGrpcRouteActionTargetVirtualService virtualService;
 
     private GatewayRouteSpecGrpcRouteActionTarget() {}
     /**
-     * @return The virtual service gateway route target.
+     * @return Virtual service gateway route target.
      * 
      */
     public GatewayRouteSpecGrpcRouteActionTargetVirtualService virtualService() {

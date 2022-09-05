@@ -429,28 +429,28 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalAuthenticationProviders);
     }
     /**
-     * The ARN
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     @Export(name="authenticationType", type=String.class, parameters={})
     private Output<String> authenticationType;
 
     /**
-     * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     public Output<String> authenticationType() {
@@ -485,14 +485,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logConfig);
     }
     /**
-     * A user-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphqlApi.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A user-supplied name for the GraphqlApi.
+     * @return User-supplied name for the GraphqlApi.
      * 
      */
     public Output<String> name() {
@@ -513,42 +513,42 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.openidConnectConfig);
     }
     /**
-     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
     @Export(name="schema", type=String.class, parameters={})
     private Output</* @Nullable */ String> schema;
 
     /**
-     * @return The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * @return Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Output<Optional<String>> schema() {
         return Codegen.optional(this.schema);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -569,14 +569,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.uris;
     }
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     @Export(name="userPoolConfig", type=GraphQLApiUserPoolConfig.class, parameters={})
     private Output</* @Nullable */ GraphQLApiUserPoolConfig> userPoolConfig;
 
     /**
-     * @return The Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     public Output<Optional<GraphQLApiUserPoolConfig>> userPoolConfig() {

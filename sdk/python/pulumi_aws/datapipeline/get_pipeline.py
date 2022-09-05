@@ -71,7 +71,7 @@ class GetPipelineResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -106,7 +106,7 @@ def get_pipeline(pipeline_id: Optional[str] = None,
 
 
     :param str pipeline_id: ID of the pipeline.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
@@ -140,6 +140,6 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str pipeline_id: ID of the pipeline.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

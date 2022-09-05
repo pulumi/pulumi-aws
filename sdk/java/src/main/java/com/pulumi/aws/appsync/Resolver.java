@@ -143,140 +143,140 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/resolver:Resolver")
 public class Resolver extends com.pulumi.resources.CustomResource {
     /**
-     * The API ID for the GraphQL API.
+     * API ID for the GraphQL API.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API ID for the GraphQL API.
+     * @return API ID for the GraphQL API.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The ARN
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The CachingConfig.
+     * CachingConfig.
      * 
      */
     @Export(name="cachingConfig", type=ResolverCachingConfig.class, parameters={})
     private Output</* @Nullable */ ResolverCachingConfig> cachingConfig;
 
     /**
-     * @return The CachingConfig.
+     * @return CachingConfig.
      * 
      */
     public Output<Optional<ResolverCachingConfig>> cachingConfig() {
         return Codegen.optional(this.cachingConfig);
     }
     /**
-     * The data source name.
+     * Data source name.
      * 
      */
     @Export(name="dataSource", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataSource;
 
     /**
-     * @return The data source name.
+     * @return Data source name.
      * 
      */
     public Output<Optional<String>> dataSource() {
         return Codegen.optional(this.dataSource);
     }
     /**
-     * The field name from the schema defined in the GraphQL API.
+     * Field name from the schema defined in the GraphQL API.
      * 
      */
     @Export(name="field", type=String.class, parameters={})
     private Output<String> field;
 
     /**
-     * @return The field name from the schema defined in the GraphQL API.
+     * @return Field name from the schema defined in the GraphQL API.
      * 
      */
     public Output<String> field() {
         return this.field;
     }
     /**
-     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
     @Export(name="kind", type=String.class, parameters={})
     private Output</* @Nullable */ String> kind;
 
     /**
-     * @return The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * @return Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
     public Output<Optional<String>> kind() {
         return Codegen.optional(this.kind);
     }
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     @Export(name="maxBatchSize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxBatchSize;
 
     /**
-     * @return The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     public Output<Optional<Integer>> maxBatchSize() {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * The PipelineConfig.
+     * PipelineConfig.
      * 
      */
     @Export(name="pipelineConfig", type=ResolverPipelineConfig.class, parameters={})
     private Output</* @Nullable */ ResolverPipelineConfig> pipelineConfig;
 
     /**
-     * @return The PipelineConfig.
+     * @return PipelineConfig.
      * 
      */
     public Output<Optional<ResolverPipelineConfig>> pipelineConfig() {
         return Codegen.optional(this.pipelineConfig);
     }
     /**
-     * The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     @Export(name="requestTemplate", type=String.class, parameters={})
     private Output</* @Nullable */ String> requestTemplate;
 
     /**
-     * @return The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * @return Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     public Output<Optional<String>> requestTemplate() {
         return Codegen.optional(this.requestTemplate);
     }
     /**
-     * The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     @Export(name="responseTemplate", type=String.class, parameters={})
     private Output</* @Nullable */ String> responseTemplate;
 
     /**
-     * @return The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * @return Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     public Output<Optional<String>> responseTemplate() {
@@ -297,14 +297,14 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.syncConfig);
     }
     /**
-     * The type name from the schema defined in the GraphQL API.
+     * Type name from the schema defined in the GraphQL API.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type name from the schema defined in the GraphQL API.
+     * @return Type name from the schema defined in the GraphQL API.
      * 
      */
     public Output<String> type() {

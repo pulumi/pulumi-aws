@@ -16,14 +16,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
     public static final FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs();
 
     /**
-     * The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+     * File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
     @Import(name="s3InputFileType")
     private @Nullable Output<String> s3InputFileType;
 
     /**
-     * @return The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+     * @return File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
     public Optional<Output<String>> s3InputFileType() {
@@ -55,7 +55,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
         }
 
         /**
-         * @param s3InputFileType The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+         * @param s3InputFileType File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
         }
 
         /**
-         * @param s3InputFileType The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+         * @param s3InputFileType File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
          * 
          * @return builder
          * 

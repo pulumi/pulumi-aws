@@ -62,6 +62,21 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
     }
 
     /**
+     * The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    @Import(name="targetCapacityUnitType")
+    private @Nullable Output<String> targetCapacityUnitType;
+
+    /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    public Optional<Output<String>> targetCapacityUnitType() {
+        return Optional.ofNullable(this.targetCapacityUnitType);
+    }
+
+    /**
      * The number of units to request, filled using `default_target_capacity_type`.
      * 
      */
@@ -82,6 +97,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
         this.defaultTargetCapacityType = $.defaultTargetCapacityType;
         this.onDemandTargetCapacity = $.onDemandTargetCapacity;
         this.spotTargetCapacity = $.spotTargetCapacity;
+        this.targetCapacityUnitType = $.targetCapacityUnitType;
         this.totalTargetCapacity = $.totalTargetCapacity;
     }
 
@@ -164,6 +180,27 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
          */
         public Builder spotTargetCapacity(Integer spotTargetCapacity) {
             return spotTargetCapacity(Output.of(spotTargetCapacity));
+        }
+
+        /**
+         * @param targetCapacityUnitType The unit for the target capacity. This can only be done with `instance_requirements` defined
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityUnitType(@Nullable Output<String> targetCapacityUnitType) {
+            $.targetCapacityUnitType = targetCapacityUnitType;
+            return this;
+        }
+
+        /**
+         * @param targetCapacityUnitType The unit for the target capacity. This can only be done with `instance_requirements` defined
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityUnitType(String targetCapacityUnitType) {
+            return targetCapacityUnitType(Output.of(targetCapacityUnitType));
         }
 
         /**

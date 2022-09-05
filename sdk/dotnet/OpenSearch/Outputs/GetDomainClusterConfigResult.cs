@@ -42,7 +42,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly int WarmCount;
         /// <summary>
-        /// Indicates warm storage is enabled.
+        /// Warm storage is enabled.
         /// </summary>
         public readonly bool? WarmEnabled;
         /// <summary>

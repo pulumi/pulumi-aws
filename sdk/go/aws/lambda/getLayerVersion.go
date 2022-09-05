@@ -63,32 +63,32 @@ type LookupLayerVersionArgs struct {
 
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
-	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
+	// ARN of the Lambda Layer with version.
 	Arn                    string  `pulumi:"arn"`
 	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
 	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	CompatibleRuntime       *string  `pulumi:"compatibleRuntime"`
-	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
-	// The date this resource was created.
+	// Date this resource was created.
 	CreatedDate string `pulumi:"createdDate"`
 	// Description of the specific Lambda Layer version.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
+	// ARN of the Lambda Layer without version.
 	LayerArn  string `pulumi:"layerArn"`
 	LayerName string `pulumi:"layerName"`
 	// License info associated with the specific Lambda Layer version.
 	LicenseInfo string `pulumi:"licenseInfo"`
-	// The Amazon Resource Name (ARN) of a signing job.
+	// ARN of a signing job.
 	SigningJobArn string `pulumi:"signingJobArn"`
-	// The Amazon Resource Name (ARN) for a signing profile version.
+	// The ARN for a signing profile version.
 	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
-	// The size in bytes of the function .zip file.
+	// Size in bytes of the function .zip file.
 	SourceCodeSize int `pulumi:"sourceCodeSize"`
 	// This Lamba Layer version.
 	Version int `pulumi:"version"`
@@ -138,7 +138,7 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Lambda Layer with version.
+// ARN of the Lambda Layer with version.
 func (o LookupLayerVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -156,12 +156,12 @@ func (o LookupLayerVersionResultOutput) CompatibleRuntime() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.CompatibleRuntime }).(pulumi.StringPtrOutput)
 }
 
-// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
 func (o LookupLayerVersionResultOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) []string { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
 }
 
-// The date this resource was created.
+// Date this resource was created.
 func (o LookupLayerVersionResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -176,7 +176,7 @@ func (o LookupLayerVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda Layer without version.
+// ARN of the Lambda Layer without version.
 func (o LookupLayerVersionResultOutput) LayerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LayerArn }).(pulumi.StringOutput)
 }
@@ -190,12 +190,12 @@ func (o LookupLayerVersionResultOutput) LicenseInfo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LicenseInfo }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a signing job.
+// ARN of a signing job.
 func (o LookupLayerVersionResultOutput) SigningJobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SigningJobArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for a signing profile version.
+// The ARN for a signing profile version.
 func (o LookupLayerVersionResultOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
@@ -205,7 +205,7 @@ func (o LookupLayerVersionResultOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
 }
 
-// The size in bytes of the function .zip file.
+// Size in bytes of the function .zip file.
 func (o LookupLayerVersionResultOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
 }

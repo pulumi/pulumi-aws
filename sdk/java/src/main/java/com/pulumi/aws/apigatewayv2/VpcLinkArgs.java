@@ -18,14 +18,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcLinkArgs Empty = new VpcLinkArgs();
 
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * @return Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -105,7 +105,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the VPC Link. Must be between 1 and 128 characters in length.
+         * @param name Name of the VPC Link. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the VPC Link. Must be between 1 and 128 characters in length.
+         * @param name Name of the VPC Link. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

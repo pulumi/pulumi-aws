@@ -16,14 +16,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterArgs Empty = new GetClusterArgs();
 
     /**
-     * The id of Cloud HSM v2 cluster.
+     * ID of Cloud HSM v2 cluster.
      * 
      */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
     /**
-     * @return The id of Cloud HSM v2 cluster.
+     * @return ID of Cloud HSM v2 cluster.
      * 
      */
     public Output<String> clusterId() {
@@ -31,14 +31,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The state of the cluster to be found.
+     * State of the cluster to be found.
      * 
      */
     @Import(name="clusterState")
     private @Nullable Output<String> clusterState;
 
     /**
-     * @return The state of the cluster to be found.
+     * @return State of the cluster to be found.
      * 
      */
     public Optional<Output<String>> clusterState() {
@@ -71,7 +71,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterId The id of Cloud HSM v2 cluster.
+         * @param clusterId ID of Cloud HSM v2 cluster.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterId The id of Cloud HSM v2 cluster.
+         * @param clusterId ID of Cloud HSM v2 cluster.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterState The state of the cluster to be found.
+         * @param clusterState State of the cluster to be found.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterState The state of the cluster to be found.
+         * @param clusterState State of the cluster to be found.
          * 
          * @return builder
          * 

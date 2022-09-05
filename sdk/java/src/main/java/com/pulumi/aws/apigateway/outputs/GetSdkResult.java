@@ -12,17 +12,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSdkResult {
     /**
-     * @return The SDK as a string.
+     * @return SDK as a string.
      * 
      */
     private String body;
     /**
-     * @return The content-disposition header value in the HTTP response.
+     * @return Content-disposition header value in the HTTP response.
      * 
      */
     private String contentDisposition;
     /**
-     * @return The content-type header value in the HTTP response.
+     * @return Content-type header value in the HTTP response.
      * 
      */
     private String contentType;
@@ -38,21 +38,21 @@ public final class GetSdkResult {
 
     private GetSdkResult() {}
     /**
-     * @return The SDK as a string.
+     * @return SDK as a string.
      * 
      */
     public String body() {
         return this.body;
     }
     /**
-     * @return The content-disposition header value in the HTTP response.
+     * @return Content-disposition header value in the HTTP response.
      * 
      */
     public String contentDisposition() {
         return this.contentDisposition;
     }
     /**
-     * @return The content-type header value in the HTTP response.
+     * @return Content-type header value in the HTTP response.
      * 
      */
     public String contentType() {

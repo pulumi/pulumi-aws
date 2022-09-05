@@ -18,14 +18,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     public static final RouteArgs Empty = new RouteArgs();
 
     /**
-     * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="meshName", required=true)
     private Output<String> meshName;
 
     /**
-     * @return The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+     * @return Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> meshName() {
@@ -33,14 +33,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Optional<Output<String>> meshOwner() {
@@ -48,14 +48,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name to use for the route. Must be between 1 and 255 characters in length.
+     * Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name to use for the route. Must be between 1 and 255 characters in length.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The route specification to apply.
+     * Route specification to apply.
      * 
      */
     @Import(name="spec", required=true)
     private Output<RouteSpecArgs> spec;
 
     /**
-     * @return The route specification to apply.
+     * @return Route specification to apply.
      * 
      */
     public Output<RouteSpecArgs> spec() {
@@ -78,14 +78,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,14 +93,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+     * Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="virtualRouterName", required=true)
     private Output<String> virtualRouterName;
 
     /**
-     * @return The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> virtualRouterName() {
@@ -137,7 +137,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshName The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+         * @param meshName Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshName The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
+         * @param meshName Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the route. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the route. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The route specification to apply.
+         * @param spec Route specification to apply.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The route specification to apply.
+         * @param spec Route specification to apply.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualRouterName The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+         * @param virtualRouterName Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualRouterName The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
+         * @param virtualRouterName Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

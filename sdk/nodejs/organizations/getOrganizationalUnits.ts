@@ -36,7 +36,7 @@ export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: 
  */
 export interface GetOrganizationalUnitsArgs {
     /**
-     * The parent ID of the organizational unit.
+     * Parent ID of the organizational unit.
      */
     parentId: string;
 }
@@ -65,7 +65,7 @@ export function getOrganizationalUnitsOutput(args: GetOrganizationalUnitsOutputA
  */
 export interface GetOrganizationalUnitsOutputArgs {
     /**
-     * The parent ID of the organizational unit.
+     * Parent ID of the organizational unit.
      */
     parentId: pulumi.Input<string>;
 }

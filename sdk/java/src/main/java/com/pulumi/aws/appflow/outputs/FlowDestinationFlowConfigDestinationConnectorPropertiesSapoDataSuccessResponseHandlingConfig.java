@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
     /**
-     * @return The Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name where the source files are stored.
      * 
      */
     private @Nullable String bucketName;
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     private @Nullable String bucketPrefix;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig() {}
     /**
-     * @return The Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name where the source files are stored.
      * 
      */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     public Optional<String> bucketPrefix() {

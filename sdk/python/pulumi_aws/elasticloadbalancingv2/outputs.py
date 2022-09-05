@@ -1748,7 +1748,7 @@ class LoadBalancerSubnetMapping(dict):
                  outpost_id: Optional[str] = None,
                  private_ipv4_address: Optional[str] = None):
         """
-        :param str subnet_id: The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+        :param str subnet_id: ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         :param str allocation_id: The allocation ID of the Elastic IP address.
         :param str ipv6_address: An ipv6 address within the subnet to assign to the internet-facing load balancer.
         :param str private_ipv4_address: A private ipv4 address within the subnet to assign to the internal-facing load balancer.
@@ -1767,7 +1767,7 @@ class LoadBalancerSubnetMapping(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+        ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         return pulumi.get(self, "subnet_id")
 

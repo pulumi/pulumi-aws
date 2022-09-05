@@ -19,7 +19,7 @@ public final class TrailAdvancedEventSelector {
      */
     private List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors;
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return Name of the advanced event selector.
      * 
      */
     private @Nullable String name;
@@ -33,7 +33,7 @@ public final class TrailAdvancedEventSelector {
         return this.fieldSelectors;
     }
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return Name of the advanced event selector.
      * 
      */
     public Optional<String> name() {

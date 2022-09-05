@@ -17,14 +17,14 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetQueueArgs Empty = new GetQueueArgs();
 
     /**
-     * The name of the queue to match.
+     * Name of the queue to match.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the queue to match.
+     * @return Name of the queue to match.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the queue to match.
+         * @param name Name of the queue to match.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the queue to match.
+         * @param name Name of the queue to match.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetQueueArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

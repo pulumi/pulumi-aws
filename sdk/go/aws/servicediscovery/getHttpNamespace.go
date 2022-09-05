@@ -46,24 +46,24 @@ func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opt
 
 // A collection of arguments for invoking getHttpNamespace.
 type LookupHttpNamespaceArgs struct {
-	// The name of the http namespace.
+	// Name of the http namespace.
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getHttpNamespace.
 type LookupHttpNamespaceResult struct {
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+	// ARN that Amazon Route 53 assigns to the namespace when you create it.
 	Arn string `pulumi:"arn"`
-	// The description that you specify for the namespace when you create it.
+	// Description that you specify for the namespace when you create it.
 	Description string `pulumi:"description"`
-	// The name of an HTTP namespace.
+	// Name of an HTTP namespace.
 	HttpName string `pulumi:"httpName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -82,9 +82,9 @@ func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutp
 
 // A collection of arguments for invoking getHttpNamespace.
 type LookupHttpNamespaceOutputArgs struct {
-	// The name of the http namespace.
+	// Name of the http namespace.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -107,17 +107,17 @@ func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutputWithCo
 	return o
 }
 
-// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+// ARN that Amazon Route 53 assigns to the namespace when you create it.
 func (o LookupHttpNamespaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description that you specify for the namespace when you create it.
+// Description that you specify for the namespace when you create it.
 func (o LookupHttpNamespaceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The name of an HTTP namespace.
+// Name of an HTTP namespace.
 func (o LookupHttpNamespaceResultOutput) HttpName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.HttpName }).(pulumi.StringOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupHttpNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupHttpNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

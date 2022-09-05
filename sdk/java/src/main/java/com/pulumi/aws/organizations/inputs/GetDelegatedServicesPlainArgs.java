@@ -13,14 +13,14 @@ public final class GetDelegatedServicesPlainArgs extends com.pulumi.resources.In
     public static final GetDelegatedServicesPlainArgs Empty = new GetDelegatedServicesPlainArgs();
 
     /**
-     * The account ID number of a delegated administrator account in the organization.
+     * Account ID number of a delegated administrator account in the organization.
      * 
      */
     @Import(name="accountId", required=true)
     private String accountId;
 
     /**
-     * @return The account ID number of a delegated administrator account in the organization.
+     * @return Account ID number of a delegated administrator account in the organization.
      * 
      */
     public String accountId() {
@@ -52,7 +52,7 @@ public final class GetDelegatedServicesPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param accountId The account ID number of a delegated administrator account in the organization.
+         * @param accountId Account ID number of a delegated administrator account in the organization.
          * 
          * @return builder
          * 

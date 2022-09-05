@@ -72,13 +72,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the specific connection to retrieve.
+        /// ID of the specific connection to retrieve.
         /// </summary>
         [Input("connectionId", required: true)]
         public string ConnectionId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Global Network of the connection to retrieve.
+        /// ID of the Global Network of the connection to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the specific connection to retrieve.
+        /// ID of the specific connection to retrieve.
         /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Global Network of the connection to retrieve.
+        /// ID of the Global Network of the connection to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
@@ -138,24 +138,24 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetConnectionResult
     {
         /// <summary>
-        /// The ARN of the connection.
+        /// ARN of the connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The ID of the second device in the connection.
+        /// ID of the second device in the connection.
         /// </summary>
         public readonly string ConnectedDeviceId;
         /// <summary>
-        /// The ID of the link for the second device.
+        /// ID of the link for the second device.
         /// </summary>
         public readonly string ConnectedLinkId;
         public readonly string ConnectionId;
         /// <summary>
-        /// A description of the connection.
+        /// Description of the connection.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The ID of the first device in the connection.
+        /// ID of the first device in the connection.
         /// </summary>
         public readonly string DeviceId;
         public readonly string GlobalNetworkId;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the link for the first device.
+        /// ID of the link for the first device.
         /// </summary>
         public readonly string LinkId;
         /// <summary>

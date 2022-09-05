@@ -50,22 +50,22 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
-	// The name of the queue to match.
+	// Name of the queue to match.
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
-	// The Amazon Resource Name (ARN) of the queue.
+	// ARN of the queue.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The URL of the queue.
+	// URL of the queue.
 	Url string `pulumi:"url"`
 }
 
@@ -84,9 +84,9 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
-	// The name of the queue to match.
+	// Name of the queue to match.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -109,7 +109,7 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the queue.
+// ARN of the queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -123,12 +123,12 @@ func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The URL of the queue.
+// URL of the queue.
 func (o LookupQueueResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Url }).(pulumi.StringOutput)
 }

@@ -100,7 +100,10 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the transit gateway route table for the attachment.
      */
@@ -143,7 +146,6 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             }
             resourceInputs["peeringId"] = args ? args.peeringId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayRouteTableArn"] = args ? args.transitGatewayRouteTableArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
@@ -155,6 +157,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitGatewayRouteTableAttachment.__pulumiType, name, resourceInputs, opts);
@@ -210,6 +213,9 @@ export interface TransitGatewayRouteTableAttachmentState {
      */
     state?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the transit gateway route table for the attachment.
@@ -226,7 +232,6 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      */
     peeringId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the transit gateway route table for the attachment.
      */

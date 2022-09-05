@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class GetVpcFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the field to filter by, as defined by
+        /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         /// </summary>
         [Input("name", required: true)]

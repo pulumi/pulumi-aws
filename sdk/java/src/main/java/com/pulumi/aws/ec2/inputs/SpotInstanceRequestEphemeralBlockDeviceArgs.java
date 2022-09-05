@@ -17,14 +17,14 @@ public final class SpotInstanceRequestEphemeralBlockDeviceArgs extends com.pulum
     public static final SpotInstanceRequestEphemeralBlockDeviceArgs Empty = new SpotInstanceRequestEphemeralBlockDeviceArgs();
 
     /**
-     * The name of the block device to mount on the instance.
+     * Name of the block device to mount on the instance.
      * 
      */
     @Import(name="deviceName", required=true)
     private Output<String> deviceName;
 
     /**
-     * @return The name of the block device to mount on the instance.
+     * @return Name of the block device to mount on the instance.
      * 
      */
     public Output<String> deviceName() {
@@ -88,7 +88,7 @@ public final class SpotInstanceRequestEphemeralBlockDeviceArgs extends com.pulum
         }
 
         /**
-         * @param deviceName The name of the block device to mount on the instance.
+         * @param deviceName Name of the block device to mount on the instance.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class SpotInstanceRequestEphemeralBlockDeviceArgs extends com.pulum
         }
 
         /**
-         * @param deviceName The name of the block device to mount on the instance.
+         * @param deviceName Name of the block device to mount on the instance.
          * 
          * @return builder
          * 

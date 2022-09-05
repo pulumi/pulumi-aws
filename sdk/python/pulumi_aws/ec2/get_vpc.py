@@ -77,7 +77,7 @@ class GetVpcResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of VPC
+        ARN of VPC
         """
         return pulumi.get(self, "arn")
 
@@ -85,7 +85,7 @@ class GetVpcResult:
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
         """
-        The CIDR block for the association.
+        CIDR block for the association.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -134,7 +134,7 @@ class GetVpcResult:
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> str:
         """
-        The allowed tenancy of instances launched into the
+        Allowed tenancy of instances launched into the
         selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         """
         return pulumi.get(self, "instance_tenancy")
@@ -143,7 +143,7 @@ class GetVpcResult:
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> str:
         """
-        The association ID for the IPv6 CIDR block.
+        Association ID for the IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_association_id")
 
@@ -151,7 +151,7 @@ class GetVpcResult:
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> str:
         """
-        The IPv6 CIDR block.
+        IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -159,7 +159,7 @@ class GetVpcResult:
     @pulumi.getter(name="mainRouteTableId")
     def main_route_table_id(self) -> str:
         """
-        The ID of the main route table associated with this VPC.
+        ID of the main route table associated with this VPC.
         """
         return pulumi.get(self, "main_route_table_id")
 
@@ -167,7 +167,7 @@ class GetVpcResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the VPC.
+        ID of the AWS account that owns the VPC.
         """
         return pulumi.get(self, "owner_id")
 
@@ -175,7 +175,7 @@ class GetVpcResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The State of the association.
+        State of the association.
         """
         return pulumi.get(self, "state")
 
@@ -225,15 +225,15 @@ def get_vpc(cidr_block: Optional[str] = None,
     VPC.
 
 
-    :param str cidr_block: The cidr block of the desired VPC.
+    :param str cidr_block: Cidr block of the desired VPC.
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.
-    :param str dhcp_options_id: The DHCP options id of the desired VPC.
+    :param str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific VPC to retrieve.
-    :param str state: The current state of the desired VPC.
+    :param str id: ID of the specific VPC to retrieve.
+    :param str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC.
     """
     __args__ = dict()
@@ -283,15 +283,15 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
     VPC.
 
 
-    :param str cidr_block: The cidr block of the desired VPC.
+    :param str cidr_block: Cidr block of the desired VPC.
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.
-    :param str dhcp_options_id: The DHCP options id of the desired VPC.
+    :param str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific VPC to retrieve.
-    :param str state: The current state of the desired VPC.
+    :param str id: ID of the specific VPC to retrieve.
+    :param str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC.
     """
     ...

@@ -58,18 +58,19 @@ import (
 type EventIntegration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Event Integration.
+	// ARN of the Event Integration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the description of the Event Integration.
+	// Description of the Event Integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilter EventIntegrationEventFilterOutput `pulumi:"eventFilter"`
-	// Specifies the EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus pulumi.StringOutput `pulumi:"eventbridgeBus"`
-	// Specifies the name of the Event Integration.
+	// Name of the Event Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -108,34 +109,36 @@ func GetEventIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventIntegration resources.
 type eventIntegrationState struct {
-	// The Amazon Resource Name (ARN) of the Event Integration.
+	// ARN of the Event Integration.
 	Arn *string `pulumi:"arn"`
-	// Specifies the description of the Event Integration.
+	// Description of the Event Integration.
 	Description *string `pulumi:"description"`
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilter *EventIntegrationEventFilter `pulumi:"eventFilter"`
-	// Specifies the EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus *string `pulumi:"eventbridgeBus"`
-	// Specifies the name of the Event Integration.
+	// Name of the Event Integration.
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type EventIntegrationState struct {
-	// The Amazon Resource Name (ARN) of the Event Integration.
+	// ARN of the Event Integration.
 	Arn pulumi.StringPtrInput
-	// Specifies the description of the Event Integration.
+	// Description of the Event Integration.
 	Description pulumi.StringPtrInput
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilter EventIntegrationEventFilterPtrInput
-	// Specifies the EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus pulumi.StringPtrInput
-	// Specifies the name of the Event Integration.
+	// Name of the Event Integration.
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -144,13 +147,13 @@ func (EventIntegrationState) ElementType() reflect.Type {
 }
 
 type eventIntegrationArgs struct {
-	// Specifies the description of the Event Integration.
+	// Description of the Event Integration.
 	Description *string `pulumi:"description"`
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilter EventIntegrationEventFilter `pulumi:"eventFilter"`
-	// Specifies the EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus string `pulumi:"eventbridgeBus"`
-	// Specifies the name of the Event Integration.
+	// Name of the Event Integration.
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -158,13 +161,13 @@ type eventIntegrationArgs struct {
 
 // The set of arguments for constructing a EventIntegration resource.
 type EventIntegrationArgs struct {
-	// Specifies the description of the Event Integration.
+	// Description of the Event Integration.
 	Description pulumi.StringPtrInput
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilter EventIntegrationEventFilterInput
-	// Specifies the EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus pulumi.StringInput
-	// Specifies the name of the Event Integration.
+	// Name of the Event Integration.
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -257,27 +260,27 @@ func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Event Integration.
+// ARN of the Event Integration.
 func (o EventIntegrationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Event Integration.
+// Description of the Event Integration.
 func (o EventIntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 func (o EventIntegrationOutput) EventFilter() EventIntegrationEventFilterOutput {
 	return o.ApplyT(func(v *EventIntegration) EventIntegrationEventFilterOutput { return v.EventFilter }).(EventIntegrationEventFilterOutput)
 }
 
-// Specifies the EventBridge bus.
+// EventBridge bus.
 func (o EventIntegrationOutput) EventbridgeBus() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.EventbridgeBus }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Event Integration.
+// Name of the Event Integration.
 func (o EventIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -287,6 +290,7 @@ func (o EventIntegrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventIntegrationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -15,7 +15,7 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
     public static final RouteSpecGrpcRouteActionArgs Empty = new RouteSpecGrpcRouteActionArgs();
 
     /**
-     * The targets that traffic is routed to when a request matches the route.
+     * Targets that traffic is routed to when a request matches the route.
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
@@ -23,7 +23,7 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
     private Output<List<RouteSpecGrpcRouteActionWeightedTargetArgs>> weightedTargets;
 
     /**
-     * @return The targets that traffic is routed to when a request matches the route.
+     * @return Targets that traffic is routed to when a request matches the route.
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
@@ -56,7 +56,7 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param weightedTargets The targets that traffic is routed to when a request matches the route.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
          * You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder
@@ -68,7 +68,7 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param weightedTargets The targets that traffic is routed to when a request matches the route.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
          * You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder
@@ -79,7 +79,7 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param weightedTargets The targets that traffic is routed to when a request matches the route.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
          * You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder

@@ -31,12 +31,12 @@ export interface GetRouteTablesArgs {
      */
     filters?: inputs.ec2.GetRouteTablesFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
      */
     tags?: {[key: string]: string};
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId?: string;
 }
@@ -51,7 +51,7 @@ export interface GetRouteTablesResult {
      */
     readonly id: string;
     /**
-     * A list of all the route table ids found.
+     * List of all the route table ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -71,12 +71,12 @@ export interface GetRouteTablesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTablesFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId?: pulumi.Input<string>;
 }

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetMeshSpec {
     /**
-     * @return The egress filter rules for the service mesh.
+     * @return Egress filter rules for the service mesh.
      * 
      */
     private List<GetMeshSpecEgressFilter> egressFilters;
 
     private GetMeshSpec() {}
     /**
-     * @return The egress filter rules for the service mesh.
+     * @return Egress filter rules for the service mesh.
      * 
      */
     public List<GetMeshSpecEgressFilter> egressFilters() {

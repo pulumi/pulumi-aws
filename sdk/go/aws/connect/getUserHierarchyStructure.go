@@ -54,7 +54,7 @@ type LookupUserHierarchyStructureArgs struct {
 
 // A collection of values returned by getUserHierarchyStructure.
 type LookupUserHierarchyStructureResult struct {
-	// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+	// Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 	HierarchyStructures []GetUserHierarchyStructureHierarchyStructure `pulumi:"hierarchyStructures"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -99,7 +99,7 @@ func (o LookupUserHierarchyStructureResultOutput) ToLookupUserHierarchyStructure
 	return o
 }
 
-// A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+// Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
 func (o LookupUserHierarchyStructureResultOutput) HierarchyStructures() GetUserHierarchyStructureHierarchyStructureArrayOutput {
 	return o.ApplyT(func(v LookupUserHierarchyStructureResult) []GetUserHierarchyStructureHierarchyStructure {
 		return v.HierarchyStructures

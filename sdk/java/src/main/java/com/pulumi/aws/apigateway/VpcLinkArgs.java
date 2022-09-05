@@ -17,14 +17,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcLinkArgs Empty = new VpcLinkArgs();
 
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the VPC link.
+     * @return Description of the VPC link.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name used to label and identify the VPC link.
+     * Name used to label and identify the VPC link.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name used to label and identify the VPC link.
+     * @return Name used to label and identify the VPC link.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -62,14 +62,14 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
     /**
-     * @return The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     public Output<String> targetArn() {
@@ -104,7 +104,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the VPC link.
+         * @param description Description of the VPC link.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the VPC link.
+         * @param description Description of the VPC link.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name used to label and identify the VPC link.
+         * @param name Name used to label and identify the VPC link.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name used to label and identify the VPC link.
+         * @param name Name used to label and identify the VPC link.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+         * @param targetArn List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+         * @param targetArn List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
          * 
          * @return builder
          * 

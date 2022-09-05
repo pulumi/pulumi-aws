@@ -14,14 +14,14 @@ public final class GetSubnetFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetSubnetFilter Empty = new GetSubnetFilter();
 
     /**
-     * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetSubnetFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * 
          * @return builder
          * 

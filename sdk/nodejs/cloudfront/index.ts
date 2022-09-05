@@ -21,6 +21,7 @@ export * from "./getRealtimeLogConfig";
 export * from "./getResponseHeadersPolicy";
 export * from "./keyGroup";
 export * from "./monitoringSubscription";
+export * from "./originAccessControl";
 export * from "./originAccessIdentity";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
@@ -35,6 +36,7 @@ import { FieldLevelEncryptionProfile } from "./fieldLevelEncryptionProfile";
 import { Function } from "./function";
 import { KeyGroup } from "./keyGroup";
 import { MonitoringSubscription } from "./monitoringSubscription";
+import { OriginAccessControl } from "./originAccessControl";
 import { OriginAccessIdentity } from "./originAccessIdentity";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
@@ -59,6 +61,8 @@ const _module = {
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
+            case "aws:cloudfront/originAccessControl:OriginAccessControl":
+                return new OriginAccessControl(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessIdentity:OriginAccessIdentity":
                 return new OriginAccessIdentity(name, <any>undefined, { urn })
             case "aws:cloudfront/originRequestPolicy:OriginRequestPolicy":
@@ -81,6 +85,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionPro
 pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessControl", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)

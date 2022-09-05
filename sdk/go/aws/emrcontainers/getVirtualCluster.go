@@ -52,23 +52,23 @@ func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, o
 type LookupVirtualClusterArgs struct {
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the cluster.
+	// ID of the cluster.
 	VirtualClusterId string `pulumi:"virtualClusterId"`
 }
 
 // A collection of values returned by getVirtualCluster.
 type LookupVirtualClusterResult struct {
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
 	ContainerProviders []GetVirtualClusterContainerProvider `pulumi:"containerProviders"`
-	// The Unix epoch time stamp in seconds for when the cluster was created.
+	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the cluster.
+	// Name of the cluster.
 	Name string `pulumi:"name"`
-	// The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+	// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
 	State string `pulumi:"state"`
 	// Key-value mapping of resource tags.
 	Tags             map[string]string `pulumi:"tags"`
@@ -92,7 +92,7 @@ func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOu
 type LookupVirtualClusterOutputArgs struct {
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The ID of the cluster.
+	// ID of the cluster.
 	VirtualClusterId pulumi.StringInput `pulumi:"virtualClusterId"`
 }
 
@@ -115,7 +115,7 @@ func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the cluster.
+// ARN of the cluster.
 func (o LookupVirtualClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -125,7 +125,7 @@ func (o LookupVirtualClusterResultOutput) ContainerProviders() GetVirtualCluster
 	return o.ApplyT(func(v LookupVirtualClusterResult) []GetVirtualClusterContainerProvider { return v.ContainerProviders }).(GetVirtualClusterContainerProviderArrayOutput)
 }
 
-// The Unix epoch time stamp in seconds for when the cluster was created.
+// Unix epoch time stamp in seconds for when the cluster was created.
 func (o LookupVirtualClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -135,12 +135,12 @@ func (o LookupVirtualClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the cluster.
+// Name of the cluster.
 func (o LookupVirtualClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
 func (o LookupVirtualClusterResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.State }).(pulumi.StringOutput)
 }

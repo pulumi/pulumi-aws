@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .endpoint_access import *
 from .namespace import *
 from .workgroup import *
 from ._inputs import *

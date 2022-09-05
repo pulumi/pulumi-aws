@@ -37,7 +37,7 @@ export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetJobQueueArgs {
     /**
-     * The name of the job queue.
+     * Name of the job queue.
      */
     name: string;
     /**
@@ -51,7 +51,7 @@ export interface GetJobQueueArgs {
  */
 export interface GetJobQueueResult {
     /**
-     * The ARN of the job queue.
+     * ARN of the job queue.
      */
     readonly arn: string;
     /**
@@ -67,7 +67,7 @@ export interface GetJobQueueResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The priority of the job queue. Job queues with a higher priority are evaluated first when
+     * Priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.
      */
     readonly priority: number;
@@ -80,11 +80,11 @@ export interface GetJobQueueResult {
      */
     readonly state: string;
     /**
-     * The current status of the job queue (for example, `CREATING` or `VALID`).
+     * Current status of the job queue (for example, `CREATING` or `VALID`).
      */
     readonly status: string;
     /**
-     * A short, human-readable string to provide additional details about the current status
+     * Short, human-readable string to provide additional details about the current status
      * of the job queue.
      */
     readonly statusReason: string;
@@ -103,7 +103,7 @@ export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.Inv
  */
 export interface GetJobQueueOutputArgs {
     /**
-     * The name of the job queue.
+     * Name of the job queue.
      */
     name: pulumi.Input<string>;
     /**

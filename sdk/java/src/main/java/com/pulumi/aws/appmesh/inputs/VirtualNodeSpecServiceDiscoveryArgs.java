@@ -17,14 +17,14 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
     public static final VirtualNodeSpecServiceDiscoveryArgs Empty = new VirtualNodeSpecServiceDiscoveryArgs();
 
     /**
-     * Specifies any AWS Cloud Map information for the virtual node.
+     * Any AWS Cloud Map information for the virtual node.
      * 
      */
     @Import(name="awsCloudMap")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs> awsCloudMap;
 
     /**
-     * @return Specifies any AWS Cloud Map information for the virtual node.
+     * @return Any AWS Cloud Map information for the virtual node.
      * 
      */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs>> awsCloudMap() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the DNS service name for the virtual node.
+     * DNS service name for the virtual node.
      * 
      */
     @Import(name="dns")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryDnsArgs> dns;
 
     /**
-     * @return Specifies the DNS service name for the virtual node.
+     * @return DNS service name for the virtual node.
      * 
      */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryDnsArgs>> dns() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
         }
 
         /**
-         * @param awsCloudMap Specifies any AWS Cloud Map information for the virtual node.
+         * @param awsCloudMap Any AWS Cloud Map information for the virtual node.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
         }
 
         /**
-         * @param awsCloudMap Specifies any AWS Cloud Map information for the virtual node.
+         * @param awsCloudMap Any AWS Cloud Map information for the virtual node.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dns Specifies the DNS service name for the virtual node.
+         * @param dns DNS service name for the virtual node.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dns Specifies the DNS service name for the virtual node.
+         * @param dns DNS service name for the virtual node.
          * 
          * @return builder
          * 

@@ -164,13 +164,13 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The full path to the object inside the bucket
+        /// Full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.S3
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the object.
+        /// Map of tags assigned to the object.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -205,13 +205,13 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The full path to the object inside the bucket
+        /// Full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the object.
+        /// Map of tags assigned to the object.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -257,19 +257,19 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly bool BucketKeyEnabled;
         /// <summary>
-        /// Specifies caching behavior along the request/reply chain.
+        /// Caching behavior along the request/reply chain.
         /// </summary>
         public readonly string CacheControl;
         /// <summary>
-        /// Specifies presentational information for the object.
+        /// Presentational information for the object.
         /// </summary>
         public readonly string ContentDisposition;
         /// <summary>
-        /// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+        /// What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
         /// </summary>
         public readonly string ContentEncoding;
         /// <summary>
-        /// The language the content is in.
+        /// Language the content is in.
         /// </summary>
         public readonly string ContentLanguage;
         /// <summary>
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly int ContentLength;
         /// <summary>
-        /// A standard MIME type describing the format of the object data.
+        /// Standard MIME type describing the format of the object data.
         /// </summary>
         public readonly string ContentType;
         /// <summary>
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Expiration;
         /// <summary>
-        /// The date and time at which the object is no longer cacheable.
+        /// Date and time at which the object is no longer cacheable.
         /// </summary>
         public readonly string Expires;
         /// <summary>
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// A map of metadata stored with the object in S3
+        /// Map of metadata stored with the object in S3
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string ObjectLockLegalHoldStatus;
         /// <summary>
-        /// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+        /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
         /// </summary>
         public readonly string ObjectLockMode;
         /// <summary>
@@ -331,11 +331,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string StorageClass;
         /// <summary>
-        /// A map of tags assigned to the object.
+        /// Map of tags assigned to the object.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The latest version ID of the object returned.
+        /// Latest version ID of the object returned.
         /// </summary>
         public readonly string VersionId;
         /// <summary>

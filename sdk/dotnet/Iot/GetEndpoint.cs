@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Iot
     public sealed class GetEndpointResult
     {
         /// <summary>
-        /// The endpoint based on `endpoint_type`:
+        /// Endpoint based on `endpoint_type`:
         /// * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
         /// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
         /// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`

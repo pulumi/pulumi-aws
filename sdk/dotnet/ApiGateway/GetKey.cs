@@ -72,7 +72,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the API Key to look up.
+        /// ID of the API Key to look up.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.ApiGateway
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the API Key to look up.
+        /// ID of the API Key to look up.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -126,15 +126,15 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetKeyResult
     {
         /// <summary>
-        /// The date and time when the API Key was created.
+        /// Date and time when the API Key was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// The description of the API Key.
+        /// Description of the API Key.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies whether the API Key is enabled.
+        /// Whether the API Key is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date and time when the API Key was last updated.
+        /// Date and time when the API Key was last updated.
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

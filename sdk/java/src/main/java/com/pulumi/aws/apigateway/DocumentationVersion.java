@@ -78,42 +78,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/documentationVersion:DocumentationVersion")
 public class DocumentationVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The description of the API documentation version.
+     * Description of the API documentation version.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the API documentation version.
+     * @return Description of the API documentation version.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Export(name="restApiId", type=String.class, parameters={})
     private Output<String> restApiId;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Output<String> restApiId() {
         return this.restApiId;
     }
     /**
-     * The version identifier of the API documentation snapshot.
+     * Version identifier of the API documentation snapshot.
      * 
      */
     @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
-     * @return The version identifier of the API documentation snapshot.
+     * @return Version identifier of the API documentation snapshot.
      * 
      */
     public Output<String> version() {

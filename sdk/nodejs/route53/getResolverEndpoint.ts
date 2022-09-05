@@ -57,7 +57,7 @@ export interface GetResolverEndpointArgs {
      */
     filters?: inputs.route53.GetResolverEndpointFilter[];
     /**
-     * The ID of the Route53 Resolver Endpoint.
+     * ID of the Route53 Resolver Endpoint.
      */
     resolverEndpointId?: string;
 }
@@ -95,7 +95,7 @@ export interface GetResolverEndpointOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
     /**
-     * The ID of the Route53 Resolver Endpoint.
+     * ID of the Route53 Resolver Endpoint.
      */
     resolverEndpointId?: pulumi.Input<string>;
 }

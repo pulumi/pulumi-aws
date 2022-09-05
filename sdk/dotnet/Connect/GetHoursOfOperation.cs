@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Hours of Operation.
+        /// Map of tags to assign to the Hours of Operation.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Hours of Operation.
+        /// Map of tags to assign to the Hours of Operation.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,19 +190,19 @@ namespace Pulumi.Aws.Connect
     public sealed class GetHoursOfOperationResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// ARN of the Hours of Operation.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+        /// Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHoursOfOperationConfigResult> Configs;
         /// <summary>
-        /// Specifies the description of the Hours of Operation.
+        /// Description of the Hours of Operation.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+        /// (**Deprecated**) ARN of the Hours of Operation.
         /// </summary>
         public readonly string HoursOfOperationArn;
         /// <summary>
@@ -214,19 +214,19 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
+        /// Identifier of the hosting Amazon Connect Instance.
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
-        /// Specifies the name of the Hours of Operation.
+        /// Name of the Hours of Operation.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A map of tags to assign to the Hours of Operation.
+        /// Map of tags to assign to the Hours of Operation.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Specifies the time zone of the Hours of Operation.
+        /// Time zone of the Hours of Operation.
         /// </summary>
         public readonly string TimeZone;
 

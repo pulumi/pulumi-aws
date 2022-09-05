@@ -30,7 +30,7 @@ export interface GetUserArgs {
      */
     filters: inputs.identitystore.GetUserFilter[];
     /**
-     * The Identity Store ID associated with the Single Sign-On Instance.
+     * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: string;
     /**
@@ -51,7 +51,7 @@ export interface GetUserResult {
     readonly identityStoreId: string;
     readonly userId: string;
     /**
-     * The user's user name value.
+     * User's user name value.
      */
     readonly userName: string;
 }
@@ -69,7 +69,7 @@ export interface GetUserOutputArgs {
      */
     filters: pulumi.Input<pulumi.Input<inputs.identitystore.GetUserFilterArgs>[]>;
     /**
-     * The Identity Store ID associated with the Single Sign-On Instance.
+     * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: pulumi.Input<string>;
     /**

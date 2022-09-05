@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyPairFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetKeyPairFilter {
 
     private GetKeyPairFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
      * 
      */
     public String name() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+        /// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualServiceName", required: true)]
         public Input<string> VirtualServiceName { get; set; } = null!;

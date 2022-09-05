@@ -115,6 +115,7 @@ class _SecurityProfileState:
         :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -231,6 +232,9 @@ class _SecurityProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -395,6 +399,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -475,5 +480,8 @@ class SecurityProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

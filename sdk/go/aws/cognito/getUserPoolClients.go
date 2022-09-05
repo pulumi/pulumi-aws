@@ -48,7 +48,7 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
-	// The Cognito user pool ID.
+	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -78,7 +78,7 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
-	// The Cognito user pool ID.
+	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 

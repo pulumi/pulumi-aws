@@ -14,14 +14,14 @@ public final class DatabaseAclConfigurationArgs extends com.pulumi.resources.Res
     public static final DatabaseAclConfigurationArgs Empty = new DatabaseAclConfigurationArgs();
 
     /**
-     * The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+     * Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
     @Import(name="s3AclOption", required=true)
     private Output<String> s3AclOption;
 
     /**
-     * @return The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
     public Output<String> s3AclOption() {
@@ -53,7 +53,7 @@ public final class DatabaseAclConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param s3AclOption The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class DatabaseAclConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param s3AclOption The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
          * 
          * @return builder
          * 

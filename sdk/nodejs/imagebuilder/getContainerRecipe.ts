@@ -36,7 +36,7 @@ export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.I
  */
 export interface GetContainerRecipeArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     arn: string;
     /**
@@ -115,7 +115,7 @@ export interface GetContainerRecipeResult {
      */
     readonly version: string;
     /**
-     * The working directory used during build and test workflows.
+     * Working directory used during build and test workflows.
      */
     readonly workingDirectory: string;
 }
@@ -129,7 +129,7 @@ export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opt
  */
 export interface GetContainerRecipeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     arn: pulumi.Input<string>;
     /**

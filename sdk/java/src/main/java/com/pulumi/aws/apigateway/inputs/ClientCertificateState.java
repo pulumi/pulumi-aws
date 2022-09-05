@@ -17,14 +17,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     public static final ClientCertificateState Empty = new ClientCertificateState();
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The date when the client certificate was created.
+     * Date when the client certificate was created.
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The date when the client certificate was created.
+     * @return Date when the client certificate was created.
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -47,14 +47,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The description of the client certificate.
+     * Description of the client certificate.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the client certificate.
+     * @return Description of the client certificate.
      * 
      */
     public Optional<Output<String>> description() {
@@ -62,14 +62,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The date when the client certificate will expire.
+     * Date when the client certificate will expire.
      * 
      */
     @Import(name="expirationDate")
     private @Nullable Output<String> expirationDate;
 
     /**
-     * @return The date when the client certificate will expire.
+     * @return Date when the client certificate will expire.
      * 
      */
     public Optional<Output<String>> expirationDate() {
@@ -107,14 +107,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -152,7 +152,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createdDate The date when the client certificate was created.
+         * @param createdDate Date when the client certificate was created.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createdDate The date when the client certificate was created.
+         * @param createdDate Date when the client certificate was created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description The description of the client certificate.
+         * @param description Description of the client certificate.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description The description of the client certificate.
+         * @param description Description of the client certificate.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expirationDate The date when the client certificate will expire.
+         * @param expirationDate Date when the client certificate will expire.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expirationDate The date when the client certificate will expire.
+         * @param expirationDate Date when the client certificate will expire.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

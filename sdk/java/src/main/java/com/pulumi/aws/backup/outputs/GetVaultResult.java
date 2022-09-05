@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVaultResult {
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     private String arn;
@@ -22,13 +22,13 @@ public final class GetVaultResult {
      */
     private String id;
     /**
-     * @return The server-side encryption key that is used to protect your backups.
+     * @return Server-side encryption key that is used to protect your backups.
      * 
      */
     private String kmsKeyArn;
     private String name;
     /**
-     * @return The number of recovery points that are stored in a backup vault.
+     * @return Number of recovery points that are stored in a backup vault.
      * 
      */
     private Integer recoveryPoints;
@@ -40,7 +40,7 @@ public final class GetVaultResult {
 
     private GetVaultResult() {}
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public String arn() {
@@ -54,7 +54,7 @@ public final class GetVaultResult {
         return this.id;
     }
     /**
-     * @return The server-side encryption key that is used to protect your backups.
+     * @return Server-side encryption key that is used to protect your backups.
      * 
      */
     public String kmsKeyArn() {
@@ -64,7 +64,7 @@ public final class GetVaultResult {
         return this.name;
     }
     /**
-     * @return The number of recovery points that are stored in a backup vault.
+     * @return Number of recovery points that are stored in a backup vault.
      * 
      */
     public Integer recoveryPoints() {

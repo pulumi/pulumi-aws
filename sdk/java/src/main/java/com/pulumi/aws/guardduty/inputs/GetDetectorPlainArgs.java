@@ -15,14 +15,14 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetDetectorPlainArgs Empty = new GetDetectorPlainArgs();
 
     /**
-     * The ID of the detector.
+     * ID of the detector.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the detector.
+     * @return ID of the detector.
      * 
      */
     public Optional<String> id() {
@@ -54,7 +54,7 @@ public final class GetDetectorPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param id The ID of the detector.
+         * @param id ID of the detector.
          * 
          * @return builder
          * 

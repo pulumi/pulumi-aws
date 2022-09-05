@@ -50,7 +50,7 @@ export interface GetAliasArgs {
  */
 export interface GetAliasResult {
     /**
-     * The Amazon Resource Name (ARN) identifying the Lambda function alias.
+     * ARN identifying the Lambda function alias.
      */
     readonly arn: string;
     /**
@@ -67,7 +67,7 @@ export interface GetAliasResult {
      */
     readonly id: string;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
      */
     readonly invokeArn: string;
     readonly name: string;

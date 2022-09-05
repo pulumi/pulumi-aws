@@ -19,14 +19,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy extends com.pulu
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicy Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
 
     /**
-     * The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     @Import(name="action", required=true)
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
 
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public GetCoreNetworkPolicyDocumentAttachmentPolicyAction action() {
@@ -122,7 +122,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy extends com.pulu
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 

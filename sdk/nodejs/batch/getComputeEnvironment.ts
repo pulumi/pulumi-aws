@@ -36,7 +36,7 @@ export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pu
  */
 export interface GetComputeEnvironmentArgs {
     /**
-     * The name of the Batch Compute Environment
+     * Name of the Batch Compute Environment
      */
     computeEnvironmentName: string;
     /**
@@ -50,12 +50,12 @@ export interface GetComputeEnvironmentArgs {
  */
 export interface GetComputeEnvironmentResult {
     /**
-     * The ARN of the compute environment.
+     * ARN of the compute environment.
      */
     readonly arn: string;
     readonly computeEnvironmentName: string;
     /**
-     * The ARN of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
     readonly ecsClusterArn: string;
     /**
@@ -63,19 +63,19 @@ export interface GetComputeEnvironmentResult {
      */
     readonly id: string;
     /**
-     * The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     readonly serviceRole: string;
     /**
-     * The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+     * State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      */
     readonly state: string;
     /**
-     * The current status of the compute environment (for example, `CREATING` or `VALID`).
+     * Current status of the compute environment (for example, `CREATING` or `VALID`).
      */
     readonly status: string;
     /**
-     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     * Short, human-readable string to provide additional details about the current status of the compute environment.
      */
     readonly statusReason: string;
     /**
@@ -83,7 +83,7 @@ export interface GetComputeEnvironmentResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+     * Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
 }
@@ -97,7 +97,7 @@ export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArg
  */
 export interface GetComputeEnvironmentOutputArgs {
     /**
-     * The name of the Batch Compute Environment
+     * Name of the Batch Compute Environment
      */
     computeEnvironmentName: pulumi.Input<string>;
     /**

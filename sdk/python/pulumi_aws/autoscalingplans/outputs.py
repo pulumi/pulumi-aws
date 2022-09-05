@@ -46,8 +46,8 @@ class ScalingPlanApplicationSource(dict):
                  cloudformation_stack_arn: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.ScalingPlanApplicationSourceTagFilter']] = None):
         """
-        :param str cloudformation_stack_arn: The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-        :param Sequence['ScalingPlanApplicationSourceTagFilterArgs'] tag_filters: A set of tags.
+        :param str cloudformation_stack_arn: ARN of a AWS CloudFormation stack.
+        :param Sequence['ScalingPlanApplicationSourceTagFilterArgs'] tag_filters: Set of tags.
         """
         if cloudformation_stack_arn is not None:
             pulumi.set(__self__, "cloudformation_stack_arn", cloudformation_stack_arn)
@@ -58,7 +58,7 @@ class ScalingPlanApplicationSource(dict):
     @pulumi.getter(name="cloudformationStackArn")
     def cloudformation_stack_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+        ARN of a AWS CloudFormation stack.
         """
         return pulumi.get(self, "cloudformation_stack_arn")
 
@@ -66,7 +66,7 @@ class ScalingPlanApplicationSource(dict):
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.ScalingPlanApplicationSourceTagFilter']]:
         """
-        A set of tags.
+        Set of tags.
         """
         return pulumi.get(self, "tag_filters")
 
@@ -77,8 +77,8 @@ class ScalingPlanApplicationSourceTagFilter(dict):
                  key: str,
                  values: Optional[Sequence[str]] = None):
         """
-        :param str key: The tag key.
-        :param Sequence[str] values: The tag values.
+        :param str key: Tag key.
+        :param Sequence[str] values: Tag values.
         """
         pulumi.set(__self__, "key", key)
         if values is not None:
@@ -88,7 +88,7 @@ class ScalingPlanApplicationSourceTagFilter(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The tag key.
+        Tag key.
         """
         return pulumi.get(self, "key")
 
@@ -96,7 +96,7 @@ class ScalingPlanApplicationSourceTagFilter(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        The tag values.
+        Tag values.
         """
         return pulumi.get(self, "values")
 
@@ -162,24 +162,24 @@ class ScalingPlanScalingInstruction(dict):
                  scaling_policy_update_behavior: Optional[str] = None,
                  scheduled_action_buffer_time: Optional[int] = None):
         """
-        :param int max_capacity: The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
-        :param int min_capacity: The minimum capacity of the resource.
-        :param str resource_id: The ID of the resource. This string consists of the resource type and unique identifier.
-        :param str scalable_dimension: The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
-        :param str service_namespace: The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
-        :param Sequence['ScalingPlanScalingInstructionTargetTrackingConfigurationArgs'] target_tracking_configurations: The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+        :param int max_capacity: Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+        :param int min_capacity: Minimum capacity of the resource.
+        :param str resource_id: ID of the resource. This string consists of the resource type and unique identifier.
+        :param str scalable_dimension: Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+        :param str service_namespace: Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+        :param Sequence['ScalingPlanScalingInstructionTargetTrackingConfigurationArgs'] target_tracking_configurations: Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
-        :param 'ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+        :param 'ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         :param bool disable_dynamic_scaling: Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
-        :param 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs' predefined_load_metric_specification: The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+        :param 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs' predefined_load_metric_specification: Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         :param str predictive_scaling_max_capacity_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
                Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
-        :param int predictive_scaling_max_capacity_buffer: The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
-        :param str predictive_scaling_mode: The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+        :param int predictive_scaling_max_capacity_buffer: Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+        :param str predictive_scaling_mode: Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
         :param str scaling_policy_update_behavior: Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
-        :param int scheduled_action_buffer_time: The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+        :param int scheduled_action_buffer_time: Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -208,7 +208,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> int:
         """
-        The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+        Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -216,7 +216,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> int:
         """
-        The minimum capacity of the resource.
+        Minimum capacity of the resource.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -224,7 +224,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
-        The ID of the resource. This string consists of the resource type and unique identifier.
+        ID of the resource. This string consists of the resource type and unique identifier.
         """
         return pulumi.get(self, "resource_id")
 
@@ -232,7 +232,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="scalableDimension")
     def scalable_dimension(self) -> str:
         """
-        The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+        Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
         """
         return pulumi.get(self, "scalable_dimension")
 
@@ -240,7 +240,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="serviceNamespace")
     def service_namespace(self) -> str:
         """
-        The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+        Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
         """
         return pulumi.get(self, "service_namespace")
 
@@ -248,7 +248,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="targetTrackingConfigurations")
     def target_tracking_configurations(self) -> Sequence['outputs.ScalingPlanScalingInstructionTargetTrackingConfiguration']:
         """
-        The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+        Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
         """
         return pulumi.get(self, "target_tracking_configurations")
@@ -257,7 +257,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="customizedLoadMetricSpecification")
     def customized_load_metric_specification(self) -> Optional['outputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecification']:
         """
-        The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+        Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         """
         return pulumi.get(self, "customized_load_metric_specification")
@@ -274,7 +274,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="predefinedLoadMetricSpecification")
     def predefined_load_metric_specification(self) -> Optional['outputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecification']:
         """
-        The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+        Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         """
         return pulumi.get(self, "predefined_load_metric_specification")
@@ -292,7 +292,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="predictiveScalingMaxCapacityBuffer")
     def predictive_scaling_max_capacity_buffer(self) -> Optional[int]:
         """
-        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+        Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
         """
         return pulumi.get(self, "predictive_scaling_max_capacity_buffer")
 
@@ -300,7 +300,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="predictiveScalingMode")
     def predictive_scaling_mode(self) -> Optional[str]:
         """
-        The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+        Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
         """
         return pulumi.get(self, "predictive_scaling_mode")
 
@@ -316,7 +316,7 @@ class ScalingPlanScalingInstruction(dict):
     @pulumi.getter(name="scheduledActionBufferTime")
     def scheduled_action_buffer_time(self) -> Optional[int]:
         """
-        The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+        Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
         """
         return pulumi.get(self, "scheduled_action_buffer_time")
 
@@ -347,11 +347,11 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
                  dimensions: Optional[Mapping[str, str]] = None,
                  unit: Optional[str] = None):
         """
-        :param str metric_name: The name of the metric.
-        :param str namespace: The namespace of the metric.
-        :param str statistic: The statistic of the metric. Currently, the value must always be `Sum`.
-        :param Mapping[str, str] dimensions: The dimensions of the metric.
-        :param str unit: The unit of the metric.
+        :param str metric_name: Name of the metric.
+        :param str namespace: Namespace of the metric.
+        :param str statistic: Statistic of the metric. Currently, the value must always be `Sum`.
+        :param Mapping[str, str] dimensions: Dimensions of the metric.
+        :param str unit: Unit of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -365,7 +365,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
         """
-        The name of the metric.
+        Name of the metric.
         """
         return pulumi.get(self, "metric_name")
 
@@ -373,7 +373,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @pulumi.getter
     def namespace(self) -> str:
         """
-        The namespace of the metric.
+        Namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 
@@ -381,7 +381,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @pulumi.getter
     def statistic(self) -> str:
         """
-        The statistic of the metric. Currently, the value must always be `Sum`.
+        Statistic of the metric. Currently, the value must always be `Sum`.
         """
         return pulumi.get(self, "statistic")
 
@@ -389,7 +389,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @pulumi.getter
     def dimensions(self) -> Optional[Mapping[str, str]]:
         """
-        The dimensions of the metric.
+        Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -397,7 +397,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit of the metric.
+        Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
@@ -427,7 +427,7 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
                  predefined_load_metric_type: str,
                  resource_label: Optional[str] = None):
         """
-        :param str predefined_load_metric_type: The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+        :param str predefined_load_metric_type: Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
         :param str resource_label: Identifies the resource associated with the metric type.
         """
         pulumi.set(__self__, "predefined_load_metric_type", predefined_load_metric_type)
@@ -438,7 +438,7 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
     @pulumi.getter(name="predefinedLoadMetricType")
     def predefined_load_metric_type(self) -> str:
         """
-        The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+        Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
         """
         return pulumi.get(self, "predefined_load_metric_type")
 
@@ -491,17 +491,17 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
                  scale_in_cooldown: Optional[int] = None,
                  scale_out_cooldown: Optional[int] = None):
         """
-        :param float target_value: The target value for the metric.
-        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+        :param float target_value: Target value for the metric.
+        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         :param bool disable_scale_in: Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
-        :param int estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+        :param int estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
                This value is used only if the resource is an Auto Scaling group.
-        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs' predefined_scaling_metric_specification: A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs' predefined_scaling_metric_specification: Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-        :param int scale_in_cooldown: The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        :param int scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
                This value is not used if the scalable resource is an Auto Scaling group.
-        :param int scale_out_cooldown: The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        :param int scale_out_cooldown: Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
                This value is not used if the scalable resource is an Auto Scaling group.
         """
         pulumi.set(__self__, "target_value", target_value)
@@ -522,7 +522,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="targetValue")
     def target_value(self) -> float:
         """
-        The target value for the metric.
+        Target value for the metric.
         """
         return pulumi.get(self, "target_value")
 
@@ -530,7 +530,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="customizedScalingMetricSpecification")
     def customized_scaling_metric_specification(self) -> Optional['outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification']:
         """
-        A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+        Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         """
         return pulumi.get(self, "customized_scaling_metric_specification")
@@ -547,7 +547,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[int]:
         """
-        The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+        Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
         This value is used only if the resource is an Auto Scaling group.
         """
         return pulumi.get(self, "estimated_instance_warmup")
@@ -556,7 +556,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="predefinedScalingMetricSpecification")
     def predefined_scaling_metric_specification(self) -> Optional['outputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification']:
         """
-        A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+        Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
         """
         return pulumi.get(self, "predefined_scaling_metric_specification")
@@ -565,7 +565,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="scaleInCooldown")
     def scale_in_cooldown(self) -> Optional[int]:
         """
-        The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         This value is not used if the scalable resource is an Auto Scaling group.
         """
         return pulumi.get(self, "scale_in_cooldown")
@@ -574,7 +574,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @pulumi.getter(name="scaleOutCooldown")
     def scale_out_cooldown(self) -> Optional[int]:
         """
-        The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
         This value is not used if the scalable resource is an Auto Scaling group.
         """
         return pulumi.get(self, "scale_out_cooldown")
@@ -606,11 +606,11 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
                  dimensions: Optional[Mapping[str, str]] = None,
                  unit: Optional[str] = None):
         """
-        :param str metric_name: The name of the metric.
-        :param str namespace: The namespace of the metric.
-        :param str statistic: The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
-        :param Mapping[str, str] dimensions: The dimensions of the metric.
-        :param str unit: The unit of the metric.
+        :param str metric_name: Name of the metric.
+        :param str namespace: Namespace of the metric.
+        :param str statistic: Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+        :param Mapping[str, str] dimensions: Dimensions of the metric.
+        :param str unit: Unit of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -624,7 +624,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
         """
-        The name of the metric.
+        Name of the metric.
         """
         return pulumi.get(self, "metric_name")
 
@@ -632,7 +632,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     @pulumi.getter
     def namespace(self) -> str:
         """
-        The namespace of the metric.
+        Namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 
@@ -640,7 +640,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     @pulumi.getter
     def statistic(self) -> str:
         """
-        The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+        Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
         """
         return pulumi.get(self, "statistic")
 
@@ -648,7 +648,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     @pulumi.getter
     def dimensions(self) -> Optional[Mapping[str, str]]:
         """
-        The dimensions of the metric.
+        Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -656,7 +656,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit of the metric.
+        Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
@@ -686,7 +686,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
                  predefined_scaling_metric_type: str,
                  resource_label: Optional[str] = None):
         """
-        :param str predefined_scaling_metric_type: The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+        :param str predefined_scaling_metric_type: Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
         :param str resource_label: Identifies the resource associated with the metric type.
         """
         pulumi.set(__self__, "predefined_scaling_metric_type", predefined_scaling_metric_type)
@@ -697,7 +697,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
     @pulumi.getter(name="predefinedScalingMetricType")
     def predefined_scaling_metric_type(self) -> str:
         """
-        The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+        Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
         """
         return pulumi.get(self, "predefined_scaling_metric_type")
 

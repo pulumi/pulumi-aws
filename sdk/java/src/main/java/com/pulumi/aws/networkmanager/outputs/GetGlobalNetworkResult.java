@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetGlobalNetworkResult {
     /**
-     * @return The ARN of the global network.
+     * @return ARN of the global network.
      * 
      */
     private String arn;
     /**
-     * @return The description of the global network.
+     * @return Description of the global network.
      * 
      */
     private String description;
@@ -27,21 +27,21 @@ public final class GetGlobalNetworkResult {
      */
     private String id;
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     private Map<String,String> tags;
 
     private GetGlobalNetworkResult() {}
     /**
-     * @return The ARN of the global network.
+     * @return ARN of the global network.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the global network.
+     * @return Description of the global network.
      * 
      */
     public String description() {
@@ -58,7 +58,7 @@ public final class GetGlobalNetworkResult {
         return this.id;
     }
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     public Map<String,String> tags() {

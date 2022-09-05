@@ -13,14 +13,14 @@ public final class GetRuleGroupPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetRuleGroupPlainArgs Empty = new GetRuleGroupPlainArgs();
 
     /**
-     * The name of the WAFv2 Rule Group.
+     * Name of the WAFv2 Rule Group.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the WAFv2 Rule Group.
+     * @return Name of the WAFv2 Rule Group.
      * 
      */
     public String name() {
@@ -68,7 +68,7 @@ public final class GetRuleGroupPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The name of the WAFv2 Rule Group.
+         * @param name Name of the WAFv2 Rule Group.
          * 
          * @return builder
          * 

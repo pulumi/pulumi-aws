@@ -13,14 +13,14 @@ public final class GetClusterAuthPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetClusterAuthPlainArgs Empty = new GetClusterAuthPlainArgs();
 
     /**
-     * The name of the cluster
+     * Name of the cluster
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the cluster
+     * @return Name of the cluster
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetClusterAuthPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The name of the cluster
+         * @param name Name of the cluster
          * 
          * @return builder
          * 

@@ -89,7 +89,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the network interface.
+        ARN of the network interface.
         """
         return pulumi.get(self, "arn")
 
@@ -97,7 +97,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetNetworkInterfaceAssociationResult']:
         """
-        The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+        Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         """
         return pulumi.get(self, "associations")
 
@@ -110,7 +110,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The Availability Zone.
+        Availability Zone.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -136,7 +136,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> str:
         """
-        The type of interface.
+        Type of interface.
         """
         return pulumi.get(self, "interface_type")
 
@@ -152,7 +152,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> str:
         """
-        The MAC address.
+        MAC address.
         """
         return pulumi.get(self, "mac_address")
 
@@ -160,7 +160,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -168,7 +168,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The AWS account ID of the owner of the network interface.
+        AWS account ID of the owner of the network interface.
         """
         return pulumi.get(self, "owner_id")
 
@@ -176,7 +176,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> str:
         """
-        The private DNS name.
+        Private DNS name.
         """
         return pulumi.get(self, "private_dns_name")
 
@@ -184,7 +184,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
         """
-        The private IPv4 address of the network interface within the subnet.
+        Private IPv4 address of the network interface within the subnet.
         """
         return pulumi.get(self, "private_ip")
 
@@ -192,7 +192,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[str]:
         """
-        The private IPv4 addresses associated with the network interface.
+        Private IPv4 addresses associated with the network interface.
         """
         return pulumi.get(self, "private_ips")
 
@@ -200,7 +200,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="requesterId")
     def requester_id(self) -> str:
         """
-        The ID of the entity that launched the instance on your behalf.
+        ID of the entity that launched the instance on your behalf.
         """
         return pulumi.get(self, "requester_id")
 
@@ -208,7 +208,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
         """
-        The list of security groups for the network interface.
+        List of security groups for the network interface.
         """
         return pulumi.get(self, "security_groups")
 
@@ -216,7 +216,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The ID of the subnet.
+        ID of the subnet.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -232,7 +232,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -283,7 +283,7 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-    :param str id: The identifier for the network interface.
+    :param str id: Identifier for the network interface.
     :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """
     __args__ = dict()
@@ -335,7 +335,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
-    :param str id: The identifier for the network interface.
+    :param str id: Identifier for the network interface.
     :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """
     ...

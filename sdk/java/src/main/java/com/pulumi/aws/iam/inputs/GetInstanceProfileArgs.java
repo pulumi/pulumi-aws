@@ -14,14 +14,14 @@ public final class GetInstanceProfileArgs extends com.pulumi.resources.InvokeArg
     public static final GetInstanceProfileArgs Empty = new GetInstanceProfileArgs();
 
     /**
-     * The friendly IAM instance profile name to match.
+     * Friendly IAM instance profile name to match.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The friendly IAM instance profile name to match.
+     * @return Friendly IAM instance profile name to match.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetInstanceProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The friendly IAM instance profile name to match.
+         * @param name Friendly IAM instance profile name to match.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetInstanceProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The friendly IAM instance profile name to match.
+         * @param name Friendly IAM instance profile name to match.
          * 
          * @return builder
          * 

@@ -72,7 +72,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+        /// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+        /// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -127,11 +127,11 @@ namespace Pulumi.Aws.ImageBuilder
     {
         public readonly string Arn;
         /// <summary>
-        /// Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+        /// Build version ARN of the image. This will always have the `#.#.#/#` suffix.
         /// </summary>
         public readonly string BuildVersionArn;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         public readonly string ContainerRecipeArn;
         /// <summary>
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string DateCreated;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
         public readonly string DistributionConfigurationArn;
         /// <summary>
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         public readonly string ImageRecipeArn;
         /// <summary>
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageImageTestsConfigurationResult> ImageTestsConfigurations;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
         public readonly string InfrastructureConfigurationArn;
         /// <summary>

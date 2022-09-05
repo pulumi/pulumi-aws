@@ -35,7 +35,7 @@ export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionS
  */
 export interface GetDataCatalogEncryptionSettingsArgs {
     /**
-     * The ID of the Data Catalog. This is typically the AWS account ID.
+     * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: string;
 }
@@ -64,7 +64,7 @@ export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncry
  */
 export interface GetDataCatalogEncryptionSettingsOutputArgs {
     /**
-     * The ID of the Data Catalog. This is typically the AWS account ID.
+     * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: pulumi.Input<string>;
 }

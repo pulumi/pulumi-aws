@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Msk
     public sealed class GetClusterResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>

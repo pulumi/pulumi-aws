@@ -59,15 +59,15 @@ export interface GetManagedPrefixListArgs {
      */
     filters?: inputs.ec2.GetManagedPrefixListFilter[];
     /**
-     * The ID of the prefix list to select.
+     * ID of the prefix list to select.
      */
     id?: string;
     /**
-     * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      */
     name?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -77,20 +77,20 @@ export interface GetManagedPrefixListArgs {
  */
 export interface GetManagedPrefixListResult {
     /**
-     * The address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+     * Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      */
     readonly addressFamily: string;
     /**
-     * The ARN of the selected prefix list.
+     * ARN of the selected prefix list.
      */
     readonly arn: string;
     /**
-     * The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+     * Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      */
     readonly entries: outputs.ec2.GetManagedPrefixListEntry[];
     readonly filters?: outputs.ec2.GetManagedPrefixListFilter[];
     /**
-     * The ID of the selected prefix list.
+     * ID of the selected prefix list.
      */
     readonly id: string;
     /**
@@ -98,15 +98,15 @@ export interface GetManagedPrefixListResult {
      */
     readonly maxEntries: number;
     /**
-     * The name of the selected prefix list.
+     * Name of the selected prefix list.
      */
     readonly name: string;
     /**
-     * The Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+     * Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      */
     readonly ownerId: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     readonly version: number;
@@ -125,15 +125,15 @@ export interface GetManagedPrefixListOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListFilterArgs>[]>;
     /**
-     * The ID of the prefix list to select.
+     * ID of the prefix list to select.
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

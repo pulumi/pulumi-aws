@@ -100,9 +100,9 @@ def get_apis(name: Optional[str] = None,
     ```
 
 
-    :param str name: The API name.
-    :param str protocol_type: The API protocol.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str name: API name.
+    :param str protocol_type: API protocol.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired APIs.
     """
     __args__ = dict()
@@ -138,9 +138,9 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str name: The API name.
-    :param str protocol_type: The API protocol.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str name: API name.
+    :param str protocol_type: API protocol.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired APIs.
     """
     ...

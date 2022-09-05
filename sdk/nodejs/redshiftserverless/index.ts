@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./endpointAccess";
 export * from "./namespace";
 export * from "./workgroup";
 
 // Import resources to register:
+import { EndpointAccess } from "./endpointAccess";
 import { Namespace } from "./namespace";
 import { Workgroup } from "./workgroup";
 
@@ -16,6 +18,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:redshiftserverless/endpointAccess:EndpointAccess":
+                return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshiftserverless/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
             case "aws:redshiftserverless/workgroup:Workgroup":
@@ -25,5 +29,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "redshiftserverless/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/workgroup", _module)

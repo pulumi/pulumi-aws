@@ -70,7 +70,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster subnet group for which information is requested.
+        /// Name of the cluster subnet group for which information is requested.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.RedShift
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags associated to the Subnet Group
+        /// Tags associated to the Subnet Group
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster subnet group for which information is requested.
+        /// Name of the cluster subnet group for which information is requested.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags associated to the Subnet Group
+        /// Tags associated to the Subnet Group
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetSubnetGroupResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+        /// ARN of the Redshift Subnet Group name.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the Redshift Subnet group.
+        /// Description of the Redshift Subnet group.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The tags associated to the Subnet Group
+        /// Tags associated to the Subnet Group
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

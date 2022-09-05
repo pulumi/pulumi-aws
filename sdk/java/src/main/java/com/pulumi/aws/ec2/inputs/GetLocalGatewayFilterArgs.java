@@ -15,7 +15,7 @@ public final class GetLocalGatewayFilterArgs extends com.pulumi.resources.Resour
     public static final GetLocalGatewayFilterArgs Empty = new GetLocalGatewayFilterArgs();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
      * 
      */
@@ -23,7 +23,7 @@ public final class GetLocalGatewayFilterArgs extends com.pulumi.resources.Resour
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
      * 
      */
@@ -74,7 +74,7 @@ public final class GetLocalGatewayFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class GetLocalGatewayFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
          * 
          * @return builder

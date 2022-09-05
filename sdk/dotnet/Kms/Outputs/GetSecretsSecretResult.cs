@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kms.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GrantTokens;
         /// <summary>
-        /// The name to export this secret under in the attributes.
+        /// Name to export this secret under in the attributes.
         /// </summary>
         public readonly string Name;
         /// <summary>

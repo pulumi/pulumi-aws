@@ -34,7 +34,7 @@ export interface GetGroupArgs {
      */
     groupId?: string;
     /**
-     * The Identity Store ID associated with the Single Sign-On Instance.
+     * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: string;
 }
@@ -44,7 +44,7 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
-     * The group's display name value.
+     * Group's display name value.
      */
     readonly displayName: string;
     readonly filters: outputs.identitystore.GetGroupFilter[];
@@ -73,7 +73,7 @@ export interface GetGroupOutputArgs {
      */
     groupId?: pulumi.Input<string>;
     /**
-     * The Identity Store ID associated with the Single Sign-On Instance.
+     * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: pulumi.Input<string>;
 }

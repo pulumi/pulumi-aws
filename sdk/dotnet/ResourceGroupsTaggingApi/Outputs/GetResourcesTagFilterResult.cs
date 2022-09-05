@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The optional part of a key-value pair that make up a tag.
+        /// Optional part of a key-value pair that make up a tag.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

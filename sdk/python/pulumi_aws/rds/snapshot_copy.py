@@ -206,6 +206,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
@@ -482,6 +483,9 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -747,6 +751,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
@@ -929,6 +934,9 @@ class SnapshotCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

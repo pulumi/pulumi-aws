@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class FunctionSyncConfigLambdaConflictHandlerConfig
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        /// ARN for the Lambda function to use as the Conflict Handler.
         /// </summary>
         public readonly string? LambdaConflictHandlerArn;
 

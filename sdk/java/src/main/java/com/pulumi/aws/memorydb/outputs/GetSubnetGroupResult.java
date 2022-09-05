@@ -33,12 +33,12 @@ public final class GetSubnetGroupResult {
      */
     private List<String> subnetIds;
     /**
-     * @return A map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the subnet group.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The VPC in which the subnet group exists.
+     * @return VPC in which the subnet group exists.
      * 
      */
     private String vpcId;
@@ -76,14 +76,14 @@ public final class GetSubnetGroupResult {
         return this.subnetIds;
     }
     /**
-     * @return A map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the subnet group.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The VPC in which the subnet group exists.
+     * @return VPC in which the subnet group exists.
      * 
      */
     public String vpcId() {

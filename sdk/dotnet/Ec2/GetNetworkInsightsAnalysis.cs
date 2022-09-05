@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Network Insights Analysis to select.
+        /// ID of the Network Insights Analysis to select.
         /// </summary>
         [Input("networkInsightsAnalysisId")]
         public string? NetworkInsightsAnalysisId { get; set; }
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Network Insights Analysis to select.
+        /// ID of the Network Insights Analysis to select.
         /// </summary>
         [Input("networkInsightsAnalysisId")]
         public Input<string>? NetworkInsightsAnalysisId { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisAlternatePathHintResult> AlternatePathHints;
         /// <summary>
-        /// The ARN of the selected Network Insights Analysis.
+        /// ARN of the selected Network Insights Analysis.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationResult> Explanations;
         /// <summary>
-        /// The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+        /// ARNs of the AWS resources that the path must traverse.
         /// </summary>
         public readonly ImmutableArray<string> FilterInArns;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisFilterResult> Filters;
@@ -178,20 +178,20 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisReturnPathComponentResult> ReturnPathComponents;
         /// <summary>
-        /// The date/time the analysis was started.
+        /// Date/time the analysis was started.
         /// </summary>
         public readonly string StartDate;
         /// <summary>
-        /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A message to provide more context when the `status` is `failed`.
+        /// Message to provide more context when the `status` is `failed`.
         /// </summary>
         public readonly string StatusMessage;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The warning message.
+        /// Warning message.
         /// </summary>
         public readonly string WarningMessage;
 

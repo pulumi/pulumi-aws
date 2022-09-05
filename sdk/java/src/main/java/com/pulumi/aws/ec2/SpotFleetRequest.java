@@ -340,6 +340,20 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
         return this.targetCapacity;
     }
     /**
+     * The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    @Export(name="targetCapacityUnitType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> targetCapacityUnitType;
+
+    /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    public Output<Optional<String>> targetCapacityUnitType() {
+        return Codegen.optional(this.targetCapacityUnitType);
+    }
+    /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */

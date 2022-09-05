@@ -46,7 +46,7 @@ class RailsAppLayerArgs:
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RailsAppLayer resource.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[str] app_server: Keyword for the app server to use. Defaults to "apache_passenger".
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -129,7 +129,7 @@ class RailsAppLayerArgs:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -498,7 +498,7 @@ class _RailsAppLayerState:
         :param pulumi.Input[str] passenger_version: The version of Passenger to use. Defaults to "4.0.46".
         :param pulumi.Input[str] ruby_version: The version of Ruby to use. Defaults to "2.0.0".
         :param pulumi.Input[str] rubygems_version: The version of RubyGems to use. Defaults to "2.2.2".
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -851,7 +851,7 @@ class _RailsAppLayerState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -974,7 +974,7 @@ class RailsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] passenger_version: The version of Passenger to use. Defaults to "4.0.46".
         :param pulumi.Input[str] ruby_version: The version of Ruby to use. Defaults to "2.0.0".
         :param pulumi.Input[str] rubygems_version: The version of RubyGems to use. Defaults to "2.2.2".
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -1147,7 +1147,7 @@ class RailsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] passenger_version: The version of Passenger to use. Defaults to "4.0.46".
         :param pulumi.Input[str] ruby_version: The version of Ruby to use. Defaults to "2.0.0".
         :param pulumi.Input[str] rubygems_version: The version of RubyGems to use. Defaults to "2.2.2".
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1375,7 +1375,7 @@ class RailsAppLayer(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 

@@ -50,13 +50,13 @@ func GetInstanceProfiles(ctx *pulumi.Context, args *GetInstanceProfilesArgs, opt
 
 // A collection of arguments for invoking getInstanceProfiles.
 type GetInstanceProfilesArgs struct {
-	// The IAM role name.
+	// IAM role name.
 	RoleName string `pulumi:"roleName"`
 }
 
 // A collection of values returned by getInstanceProfiles.
 type GetInstanceProfilesResult struct {
-	// Set of Amazon Resource Name (ARN) specifying the instance profile.
+	// Set of ARNs of instance profiles.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -82,7 +82,7 @@ func GetInstanceProfilesOutput(ctx *pulumi.Context, args GetInstanceProfilesOutp
 
 // A collection of arguments for invoking getInstanceProfiles.
 type GetInstanceProfilesOutputArgs struct {
-	// The IAM role name.
+	// IAM role name.
 	RoleName pulumi.StringInput `pulumi:"roleName"`
 }
 
@@ -105,7 +105,7 @@ func (o GetInstanceProfilesResultOutput) ToGetInstanceProfilesResultOutputWithCo
 	return o
 }
 
-// Set of Amazon Resource Name (ARN) specifying the instance profile.
+// Set of ARNs of instance profiles.
 func (o GetInstanceProfilesResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceProfilesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

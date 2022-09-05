@@ -17,7 +17,7 @@ public final class WorkgroupConfigurationEngineVersion {
      */
     private @Nullable String effectiveEngineVersion;
     /**
-     * @return The requested engine version. Defaults to `AUTO`.
+     * @return Requested engine version. Defaults to `AUTO`.
      * 
      */
     private @Nullable String selectedEngineVersion;
@@ -31,7 +31,7 @@ public final class WorkgroupConfigurationEngineVersion {
         return Optional.ofNullable(this.effectiveEngineVersion);
     }
     /**
-     * @return The requested engine version. Defaults to `AUTO`.
+     * @return Requested engine version. Defaults to `AUTO`.
      * 
      */
     public Optional<String> selectedEngineVersion() {

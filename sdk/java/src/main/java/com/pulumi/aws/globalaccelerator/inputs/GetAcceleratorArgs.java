@@ -17,14 +17,14 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAcceleratorArgs Empty = new GetAcceleratorArgs();
 
     /**
-     * The full ARN of the Global Accelerator.
+     * Full ARN of the Global Accelerator.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The full ARN of the Global Accelerator.
+     * @return Full ARN of the Global Accelerator.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique name of the Global Accelerator.
+     * Unique name of the Global Accelerator.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name of the Global Accelerator.
+     * @return Unique name of the Global Accelerator.
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,7 +80,7 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The full ARN of the Global Accelerator.
+         * @param arn Full ARN of the Global Accelerator.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The full ARN of the Global Accelerator.
+         * @param arn Full ARN of the Global Accelerator.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the Global Accelerator.
+         * @param name Unique name of the Global Accelerator.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the Global Accelerator.
+         * @param name Unique name of the Global Accelerator.
          * 
          * @return builder
          * 

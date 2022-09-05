@@ -74,7 +74,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Dedicated Host.
+        ARN of the Dedicated Host.
         """
         return pulumi.get(self, "arn")
 
@@ -90,7 +90,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The Availability Zone of the Dedicated Host.
+        Availability Zone of the Dedicated Host.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -98,7 +98,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def cores(self) -> int:
         """
-        The number of cores on the Dedicated Host.
+        Number of cores on the Dedicated Host.
         """
         return pulumi.get(self, "cores")
 
@@ -116,7 +116,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> str:
         """
-        Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+        Whether host recovery is enabled or disabled for the Dedicated Host.
         """
         return pulumi.get(self, "host_recovery")
 
@@ -132,7 +132,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> str:
         """
-        The instance family supported by the Dedicated Host. For example, "m5".
+        Instance family supported by the Dedicated Host. For example, "m5".
         """
         return pulumi.get(self, "instance_family")
 
@@ -140,7 +140,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
         """
         return pulumi.get(self, "instance_type")
 
@@ -148,7 +148,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+        ARN of the AWS Outpost on which the Dedicated Host is allocated.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -156,7 +156,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the Dedicated Host.
+        ID of the AWS account that owns the Dedicated Host.
         """
         return pulumi.get(self, "owner_id")
 
@@ -164,7 +164,7 @@ class GetDedicatedHostResult:
     @pulumi.getter
     def sockets(self) -> int:
         """
-        The number of sockets on the Dedicated Host.
+        Number of sockets on the Dedicated Host.
         """
         return pulumi.get(self, "sockets")
 
@@ -177,7 +177,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="totalVcpus")
     def total_vcpus(self) -> int:
         """
-        The total number of vCPUs on the Dedicated Host.
+        Total number of vCPUs on the Dedicated Host.
         """
         return pulumi.get(self, "total_vcpus")
 
@@ -227,7 +227,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
 
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
-    :param str host_id: The ID of the Dedicated Host.
+    :param str host_id: ID of the Dedicated Host.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -277,6 +277,6 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
-    :param str host_id: The ID of the Dedicated Host.
+    :param str host_id: ID of the Dedicated Host.
     """
     ...

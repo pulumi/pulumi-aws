@@ -36,11 +36,11 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetApiArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: string;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     tags?: {[key: string]: string};
 }
@@ -50,7 +50,7 @@ export interface GetApiArgs {
  */
 export interface GetApiResult {
     /**
-     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
     readonly apiEndpoint: string;
     readonly apiId: string;
@@ -60,16 +60,16 @@ export interface GetApiResult {
      */
     readonly apiKeySelectionExpression: string;
     /**
-     * The ARN of the API.
+     * ARN of the API.
      */
     readonly arn: string;
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      */
     readonly corsConfigurations: outputs.apigatewayv2.GetApiCorsConfiguration[];
     /**
-     * The description of the API.
+     * Description of the API.
      */
     readonly description: string;
     /**
@@ -87,11 +87,11 @@ export interface GetApiResult {
      */
     readonly id: string;
     /**
-     * The name of the API.
+     * Name of the API.
      */
     readonly name: string;
     /**
-     * The API protocol.
+     * API protocol.
      */
     readonly protocolType: string;
     /**
@@ -99,11 +99,11 @@ export interface GetApiResult {
      */
     readonly routeSelectionExpression: string;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     readonly tags: {[key: string]: string};
     /**
-     * A version identifier for the API.
+     * Version identifier for the API.
      */
     readonly version: string;
 }
@@ -117,11 +117,11 @@ export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetApiOutputArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

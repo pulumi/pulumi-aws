@@ -16,14 +16,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
     /**
-     * The id of the specific connection to retrieve.
+     * ID of the specific connection to retrieve.
      * 
      */
     @Import(name="connectionId", required=true)
     private String connectionId;
 
     /**
-     * @return The id of the specific connection to retrieve.
+     * @return ID of the specific connection to retrieve.
      * 
      */
     public String connectionId() {
@@ -31,14 +31,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The ID of the Global Network of the connection to retrieve.
+     * ID of the Global Network of the connection to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the connection to retrieve.
+     * @return ID of the Global Network of the connection to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -87,7 +87,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param connectionId The id of the specific connection to retrieve.
+         * @param connectionId ID of the specific connection to retrieve.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the connection to retrieve.
+         * @param globalNetworkId ID of the Global Network of the connection to retrieve.
          * 
          * @return builder
          * 

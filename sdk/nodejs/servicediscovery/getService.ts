@@ -38,15 +38,15 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetServiceArgs {
     /**
-     * The name of the service.
+     * Name of the service.
      */
     name: string;
     /**
-     * The ID of the namespace that the service belongs to.
+     * ID of the namespace that the service belongs to.
      */
     namespaceId: string;
     /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: {[key: string]: string};
 }
@@ -56,19 +56,19 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * The ARN of the service.
+     * ARN of the service.
      */
     readonly arn: string;
     /**
-     * The description of the service.
+     * Description of the service.
      */
     readonly description: string;
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
     readonly dnsConfigs: outputs.servicediscovery.GetServiceDnsConfig[];
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
     readonly healthCheckConfigs: outputs.servicediscovery.GetServiceHealthCheckConfig[];
     /**
@@ -81,15 +81,15 @@ export interface GetServiceResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * ID of the namespace to use for DNS configuration.
      */
     readonly namespaceId: string;
     /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     readonly tagsAll: {[key: string]: string};
 }
@@ -103,15 +103,15 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
  */
 export interface GetServiceOutputArgs {
     /**
-     * The name of the service.
+     * Name of the service.
      */
     name: pulumi.Input<string>;
     /**
-     * The ID of the namespace that the service belongs to.
+     * ID of the namespace that the service belongs to.
      */
     namespaceId: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

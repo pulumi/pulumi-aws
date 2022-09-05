@@ -142,7 +142,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly sslConfigurations!: pulumi.Output<outputs.opsworks.ApplicationSslConfiguration[] | undefined>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -276,7 +276,7 @@ export interface ApplicationState {
      */
     sslConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.ApplicationSslConfiguration>[]>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -350,7 +350,7 @@ export interface ApplicationArgs {
      */
     sslConfigurations?: pulumi.Input<pulumi.Input<inputs.opsworks.ApplicationSslConfiguration>[]>;
     /**
-     * The id of the stack the application will belong to.
+     * ID of the stack the application will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

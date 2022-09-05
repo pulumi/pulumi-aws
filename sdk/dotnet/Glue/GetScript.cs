@@ -571,7 +571,7 @@ namespace Pulumi.Aws.Glue
         private List<Inputs.GetScriptDagEdgeArgs>? _dagEdges;
 
         /// <summary>
-        /// A list of the edges in the DAG. Defined below.
+        /// List of the edges in the DAG. Defined below.
         /// </summary>
         public List<Inputs.GetScriptDagEdgeArgs> DagEdges
         {
@@ -583,7 +583,7 @@ namespace Pulumi.Aws.Glue
         private List<Inputs.GetScriptDagNodeArgs>? _dagNodes;
 
         /// <summary>
-        /// A list of the nodes in the DAG. Defined below.
+        /// List of the nodes in the DAG. Defined below.
         /// </summary>
         public List<Inputs.GetScriptDagNodeArgs> DagNodes
         {
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+        /// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
         /// </summary>
         [Input("language")]
         public string? Language { get; set; }
@@ -609,7 +609,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.GetScriptDagEdgeInputArgs>? _dagEdges;
 
         /// <summary>
-        /// A list of the edges in the DAG. Defined below.
+        /// List of the edges in the DAG. Defined below.
         /// </summary>
         public InputList<Inputs.GetScriptDagEdgeInputArgs> DagEdges
         {
@@ -621,7 +621,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.GetScriptDagNodeInputArgs>? _dagNodes;
 
         /// <summary>
-        /// A list of the nodes in the DAG. Defined below.
+        /// List of the nodes in the DAG. Defined below.
         /// </summary>
         public InputList<Inputs.GetScriptDagNodeInputArgs> DagNodes
         {
@@ -630,7 +630,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+        /// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
@@ -653,11 +653,11 @@ namespace Pulumi.Aws.Glue
         public readonly string Id;
         public readonly string? Language;
         /// <summary>
-        /// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+        /// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         /// </summary>
         public readonly string PythonScript;
         /// <summary>
-        /// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+        /// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         /// </summary>
         public readonly string ScalaCode;
 

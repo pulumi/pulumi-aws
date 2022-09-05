@@ -42,7 +42,7 @@ export interface GetTransitGatewayRouteTablesArgs {
      */
     filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      */
     tags?: {[key: string]: string};
@@ -77,7 +77,7 @@ export interface GetTransitGatewayRouteTablesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetTransitGatewayRouteTablesFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

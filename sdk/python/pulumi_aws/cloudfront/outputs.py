@@ -855,7 +855,7 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
                that specifies how CloudFront handles cookies (maximum one).
         :param bool query_string: Indicates whether you want CloudFront to forward
                query strings to the origin that is associated with this cache behavior.
-        :param Sequence[str] headers: Specifies the Headers, if any, that you want
+        :param Sequence[str] headers: Headers, if any, that you want
                CloudFront to vary upon for this cache behavior. Specify `*` to include all
                headers.
         :param Sequence[str] query_string_cache_keys: When specified, along with a value of
@@ -892,7 +892,7 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
     @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
         """
-        Specifies the Headers, if any, that you want
+        Headers, if any, that you want
         CloudFront to vary upon for this cache behavior. Specify `*` to include all
         headers.
         """
@@ -933,7 +933,7 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
                  forward: str,
                  whitelisted_names: Optional[Sequence[str]] = None):
         """
-        :param str forward: Specifies whether you want CloudFront to forward
+        :param str forward: Whether you want CloudFront to forward
                cookies to the origin that is associated with this cache behavior. You can
                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
                subsequent `whitelisted_names`
@@ -949,7 +949,7 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
     @pulumi.getter
     def forward(self) -> str:
         """
-        Specifies whether you want CloudFront to forward
+        Whether you want CloudFront to forward
         cookies to the origin that is associated with this cache behavior. You can
         specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
         subsequent `whitelisted_names`
@@ -1528,7 +1528,7 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
                that specifies how CloudFront handles cookies (maximum one).
         :param bool query_string: Indicates whether you want CloudFront to forward
                query strings to the origin that is associated with this cache behavior.
-        :param Sequence[str] headers: Specifies the Headers, if any, that you want
+        :param Sequence[str] headers: Headers, if any, that you want
                CloudFront to vary upon for this cache behavior. Specify `*` to include all
                headers.
         :param Sequence[str] query_string_cache_keys: When specified, along with a value of
@@ -1565,7 +1565,7 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
     @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
         """
-        Specifies the Headers, if any, that you want
+        Headers, if any, that you want
         CloudFront to vary upon for this cache behavior. Specify `*` to include all
         headers.
         """
@@ -1606,7 +1606,7 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
                  forward: str,
                  whitelisted_names: Optional[Sequence[str]] = None):
         """
-        :param str forward: Specifies whether you want CloudFront to forward
+        :param str forward: Whether you want CloudFront to forward
                cookies to the origin that is associated with this cache behavior. You can
                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
                subsequent `whitelisted_names`
@@ -1622,7 +1622,7 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
     @pulumi.getter
     def forward(self) -> str:
         """
-        Specifies whether you want CloudFront to forward
+        Whether you want CloudFront to forward
         cookies to the origin that is associated with this cache behavior. You can
         specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
         subsequent `whitelisted_names`
@@ -1771,6 +1771,8 @@ class DistributionOrigin(dict):
             suggest = "custom_headers"
         elif key == "customOriginConfig":
             suggest = "custom_origin_config"
+        elif key == "originAccessControlId":
+            suggest = "origin_access_control_id"
         elif key == "originPath":
             suggest = "origin_path"
         elif key == "originShield":
@@ -1796,6 +1798,7 @@ class DistributionOrigin(dict):
                  connection_timeout: Optional[int] = None,
                  custom_headers: Optional[Sequence['outputs.DistributionOriginCustomHeader']] = None,
                  custom_origin_config: Optional['outputs.DistributionOriginCustomOriginConfig'] = None,
+                 origin_access_control_id: Optional[str] = None,
                  origin_path: Optional[str] = None,
                  origin_shield: Optional['outputs.DistributionOriginOriginShield'] = None,
                  s3_origin_config: Optional['outputs.DistributionOriginS3OriginConfig'] = None):
@@ -1811,6 +1814,7 @@ class DistributionOrigin(dict):
         :param 'DistributionOriginCustomOriginConfigArgs' custom_origin_config: The CloudFront custom
                origin configuration information. If an S3
                origin is required, use `s3_origin_config` instead.
+        :param str origin_access_control_id: The unique identifier of an origin access control for this origin.
         :param str origin_path: An optional element that causes CloudFront to
                request your content from a directory in your Amazon S3 bucket or your
                custom origin.
@@ -1830,6 +1834,8 @@ class DistributionOrigin(dict):
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_origin_config is not None:
             pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+        if origin_access_control_id is not None:
+            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
         if origin_path is not None:
             pulumi.set(__self__, "origin_path", origin_path)
         if origin_shield is not None:
@@ -1889,6 +1895,14 @@ class DistributionOrigin(dict):
         origin is required, use `s3_origin_config` instead.
         """
         return pulumi.get(self, "custom_origin_config")
+
+    @property
+    @pulumi.getter(name="originAccessControlId")
+    def origin_access_control_id(self) -> Optional[str]:
+        """
+        The unique identifier of an origin access control for this origin.
+        """
+        return pulumi.get(self, "origin_access_control_id")
 
     @property
     @pulumi.getter(name="originPath")
@@ -3455,7 +3469,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
                  value: str):
         """
         :param str header: The HTTP response header name.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         :param str value: The value for the HTTP response header.
         """
         pulumi.set(__self__, "header", header)
@@ -3474,7 +3488,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3617,7 +3631,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
                  override: bool):
         """
         :param str content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
@@ -3634,7 +3648,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3644,7 +3658,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     def __init__(__self__, *,
                  override: bool):
         """
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "override", override)
 
@@ -3652,7 +3666,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3681,7 +3695,7 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
                  override: bool):
         """
         :param str frame_option: The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
@@ -3698,7 +3712,7 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3726,7 +3740,7 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
                  override: bool,
                  referrer_policy: str):
         """
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         :param str referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
         pulumi.set(__self__, "override", override)
@@ -3736,7 +3750,7 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3777,9 +3791,9 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
                  preload: Optional[bool] = None):
         """
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param bool include_subdomains: A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        :param bool preload: A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool include_subdomains: Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+        :param bool preload: Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         """
         pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
         pulumi.set(__self__, "override", override)
@@ -3800,7 +3814,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3808,7 +3822,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @pulumi.getter(name="includeSubdomains")
     def include_subdomains(self) -> Optional[bool]:
         """
-        A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+        Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
         """
         return pulumi.get(self, "include_subdomains")
 
@@ -3816,7 +3830,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @pulumi.getter
     def preload(self) -> Optional[bool]:
         """
-        A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         """
         return pulumi.get(self, "preload")
 
@@ -3848,9 +3862,9 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
                  mode_block: Optional[bool] = None,
                  report_uri: Optional[str] = None):
         """
-        :param bool override: A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         :param bool protection: A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
-        :param bool mode_block: A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+        :param bool mode_block: Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         :param str report_uri: A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
         """
         pulumi.set(__self__, "override", override)
@@ -3864,7 +3878,7 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3880,7 +3894,7 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
     @pulumi.getter(name="modeBlock")
     def mode_block(self) -> Optional[bool]:
         """
-        A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+        Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         """
         return pulumi.get(self, "mode_block")
 
@@ -3916,7 +3930,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
                  enabled: bool,
                  sampling_rate: float):
         """
-        :param bool enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param bool enabled: A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3926,7 +3940,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         """
         return pulumi.get(self, "enabled")
 
@@ -4035,7 +4049,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieR
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        :param Sequence[str] items: List of item names (`cookies`, `headers`, or `query_strings`).
         """
         pulumi.set(__self__, "items", items)
 
@@ -4043,7 +4057,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieR
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        A list of item names (`cookies`, `headers`, or `query_strings`).
+        List of item names (`cookies`, `headers`, or `query_strings`).
         """
         return pulumi.get(self, "items")
 
@@ -4082,7 +4096,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderR
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        :param Sequence[str] items: List of item names (`cookies`, `headers`, or `query_strings`).
         """
         pulumi.set(__self__, "items", items)
 
@@ -4090,7 +4104,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderR
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        A list of item names (`cookies`, `headers`, or `query_strings`).
+        List of item names (`cookies`, `headers`, or `query_strings`).
         """
         return pulumi.get(self, "items")
 
@@ -4129,7 +4143,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQu
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        :param Sequence[str] items: List of item names (`cookies`, `headers`, or `query_strings`).
         """
         pulumi.set(__self__, "items", items)
 
@@ -4137,7 +4151,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQu
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        A list of item names (`cookies`, `headers`, or `query_strings`).
+        List of item names (`cookies`, `headers`, or `query_strings`).
         """
         return pulumi.get(self, "items")
 
@@ -4241,8 +4255,8 @@ class GetRealtimeLogConfigEndpointResult(dict):
                  kinesis_stream_configs: Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult'],
                  stream_type: str):
         """
-        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_configs: (Required) The Amazon Kinesis data stream configuration.
-        :param str stream_type: (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_configs: (Required) Amazon Kinesis data stream configuration.
+        :param str stream_type: (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         """
         pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
         pulumi.set(__self__, "stream_type", stream_type)
@@ -4251,7 +4265,7 @@ class GetRealtimeLogConfigEndpointResult(dict):
     @pulumi.getter(name="kinesisStreamConfigs")
     def kinesis_stream_configs(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult']:
         """
-        (Required) The Amazon Kinesis data stream configuration.
+        (Required) Amazon Kinesis data stream configuration.
         """
         return pulumi.get(self, "kinesis_stream_configs")
 
@@ -4259,7 +4273,7 @@ class GetRealtimeLogConfigEndpointResult(dict):
     @pulumi.getter(name="streamType")
     def stream_type(self) -> str:
         """
-        (Required) The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         """
         return pulumi.get(self, "stream_type")
 
@@ -4270,9 +4284,9 @@ class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
                  role_arn: str,
                  stream_arn: str):
         """
-        :param str role_arn: (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        :param str role_arn: (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
                See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-        :param str stream_arn: (Required) The ARN of the Kinesis data stream.
+        :param str stream_arn: (Required) ARN of the Kinesis data stream.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stream_arn", stream_arn)
@@ -4281,7 +4295,7 @@ class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
         See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
         """
         return pulumi.get(self, "role_arn")
@@ -4290,7 +4304,7 @@ class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         """
-        (Required) The ARN of the Kinesis data stream.
+        (Required) ARN of the Kinesis data stream.
         """
         return pulumi.get(self, "stream_arn")
 
@@ -4442,9 +4456,9 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
                  override: bool,
                  value: str):
         """
-        :param str header: The HTTP response header name.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param str value: The value for the HTTP response header.
+        :param str header: HTTP response header name.
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param str value: Value for the HTTP response header.
         """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "override", override)
@@ -4454,7 +4468,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     @pulumi.getter
     def header(self) -> str:
         """
-        The HTTP response header name.
+        HTTP response header name.
         """
         return pulumi.get(self, "header")
 
@@ -4462,7 +4476,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4470,7 +4484,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value for the HTTP response header.
+        Value for the HTTP response header.
         """
         return pulumi.get(self, "value")
 
@@ -4487,8 +4501,8 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
         """
         :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs'] content_security_policies: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
         :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs'] content_type_options: A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs'] frame_options: A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs'] referrer_policies: The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs'] frame_options: Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs'] referrer_policies: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs'] strict_transport_securities: Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
         :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs'] xss_protections: Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
         """
@@ -4519,7 +4533,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
     @pulumi.getter(name="frameOptions")
     def frame_options(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult']:
         """
-        A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
         """
         return pulumi.get(self, "frame_options")
 
@@ -4527,7 +4541,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
     @pulumi.getter(name="referrerPolicies")
     def referrer_policies(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult']:
         """
-        The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
         return pulumi.get(self, "referrer_policies")
 
@@ -4555,7 +4569,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(d
                  override: bool):
         """
         :param str content_security_policy: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
@@ -4572,7 +4586,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(d
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4582,7 +4596,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict)
     def __init__(__self__, *,
                  override: bool):
         """
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "override", override)
 
@@ -4590,7 +4604,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict)
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4601,8 +4615,8 @@ class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
                  frame_option: str,
                  override: bool):
         """
-        :param str frame_option: The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param str frame_option: Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
@@ -4611,7 +4625,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
     @pulumi.getter(name="frameOption")
     def frame_option(self) -> str:
         """
-        The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+        Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
         """
         return pulumi.get(self, "frame_option")
 
@@ -4619,7 +4633,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4630,8 +4644,8 @@ class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
                  override: bool,
                  referrer_policy: str):
         """
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param str referrer_policy: The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param str referrer_policy: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "referrer_policy", referrer_policy)
@@ -4640,7 +4654,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4648,7 +4662,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> str:
         """
-        The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
         return pulumi.get(self, "referrer_policy")
 
@@ -4662,9 +4676,9 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
                  preload: bool):
         """
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        :param bool include_subdomains: A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param bool preload: A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        :param bool include_subdomains: Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool preload: Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
         """
         pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
         pulumi.set(__self__, "include_subdomains", include_subdomains)
@@ -4683,7 +4697,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
     @pulumi.getter(name="includeSubdomains")
     def include_subdomains(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
         """
         return pulumi.get(self, "include_subdomains")
 
@@ -4691,7 +4705,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4699,7 +4713,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
     @pulumi.getter
     def preload(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
         """
         return pulumi.get(self, "preload")
 
@@ -4712,10 +4726,10 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
                  protection: bool,
                  report_uri: str):
         """
-        :param bool mode_block: A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-        :param bool override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param bool protection: A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
-        :param str report_uri: A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+        :param bool mode_block: Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+        :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool protection: Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+        :param str report_uri: Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
         """
         pulumi.set(__self__, "mode_block", mode_block)
         pulumi.set(__self__, "override", override)
@@ -4726,7 +4740,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     @pulumi.getter(name="modeBlock")
     def mode_block(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+        Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
         """
         return pulumi.get(self, "mode_block")
 
@@ -4734,7 +4748,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4742,7 +4756,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     @pulumi.getter
     def protection(self) -> bool:
         """
-        A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+        Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
         """
         return pulumi.get(self, "protection")
 
@@ -4750,7 +4764,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     @pulumi.getter(name="reportUri")
     def report_uri(self) -> str:
         """
-        A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+        Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
         """
         return pulumi.get(self, "report_uri")
 
@@ -4761,8 +4775,8 @@ class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
                  enabled: bool,
                  sampling_rate: float):
         """
-        :param bool enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+        :param bool enabled: Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param float sampling_rate: Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "sampling_rate", sampling_rate)
@@ -4771,7 +4785,7 @@ class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         """
         return pulumi.get(self, "enabled")
 
@@ -4779,7 +4793,7 @@ class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> float:
         """
-        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+        Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
         """
         return pulumi.get(self, "sampling_rate")
 

@@ -31,14 +31,14 @@ public final class GetFileSystemPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The ID that identifies the file system (e.g., fs-ccfc0d65).
+     * ID that identifies the file system (e.g., fs-ccfc0d65).
      * 
      */
     @Import(name="fileSystemId")
     private @Nullable String fileSystemId;
 
     /**
-     * @return The ID that identifies the file system (e.g., fs-ccfc0d65).
+     * @return ID that identifies the file system (e.g., fs-ccfc0d65).
      * 
      */
     public Optional<String> fileSystemId() {
@@ -98,7 +98,7 @@ public final class GetFileSystemPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param fileSystemId The ID that identifies the file system (e.g., fs-ccfc0d65).
+         * @param fileSystemId ID that identifies the file system (e.g., fs-ccfc0d65).
          * 
          * @return builder
          * 

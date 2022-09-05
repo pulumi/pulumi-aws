@@ -14,14 +14,14 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
     public static final RouteSpecHttpRouteMatchHeaderMatchRangeArgs Empty = new RouteSpecHttpRouteMatchHeaderMatchRangeArgs();
 
     /**
-     * The end of the range.
+     * End of the range.
      * 
      */
     @Import(name="end", required=true)
     private Output<Integer> end;
 
     /**
-     * @return The end of the range.
+     * @return End of the range.
      * 
      */
     public Output<Integer> end() {
@@ -29,14 +29,14 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
     }
 
     /**
-     * The start of the range.
+     * Start of the range.
      * 
      */
     @Import(name="start", required=true)
     private Output<Integer> start;
 
     /**
-     * @return The start of the range.
+     * @return Start of the range.
      * 
      */
     public Output<Integer> start() {
@@ -69,7 +69,7 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
         }
 
         /**
-         * @param end The end of the range.
+         * @param end End of the range.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
         }
 
         /**
-         * @param end The end of the range.
+         * @param end End of the range.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
         }
 
         /**
-         * @param start The start of the range.
+         * @param start Start of the range.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RouteSpecHttpRouteMatchHeaderMatchRangeArgs extends com.pulum
         }
 
         /**
-         * @param start The start of the range.
+         * @param start Start of the range.
          * 
          * @return builder
          * 

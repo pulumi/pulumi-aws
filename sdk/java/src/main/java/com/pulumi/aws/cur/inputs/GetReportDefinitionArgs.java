@@ -14,14 +14,14 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
     public static final GetReportDefinitionArgs Empty = new GetReportDefinitionArgs();
 
     /**
-     * The name of the report definition to match.
+     * Name of the report definition to match.
      * 
      */
     @Import(name="reportName", required=true)
     private Output<String> reportName;
 
     /**
-     * @return The name of the report definition to match.
+     * @return Name of the report definition to match.
      * 
      */
     public Output<String> reportName() {
@@ -53,7 +53,7 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param reportName The name of the report definition to match.
+         * @param reportName Name of the report definition to match.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param reportName The name of the report definition to match.
+         * @param reportName Name of the report definition to match.
          * 
          * @return builder
          * 

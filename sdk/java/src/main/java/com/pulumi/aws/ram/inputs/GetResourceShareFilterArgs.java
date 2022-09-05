@@ -15,14 +15,14 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
     public static final GetResourceShareFilterArgs Empty = new GetResourceShareFilterArgs();
 
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The value of the tag key.
+     * Value of the tag key.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return The value of the tag key.
+     * @return Value of the tag key.
      * 
      */
     public Output<List<String>> values() {
@@ -70,7 +70,7 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values The value of the tag key.
+         * @param values Value of the tag key.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values The value of the tag key.
+         * @param values Value of the tag key.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values The value of the tag key.
+         * @param values Value of the tag key.
          * 
          * @return builder
          * 

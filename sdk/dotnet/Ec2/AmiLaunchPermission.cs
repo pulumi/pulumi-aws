@@ -79,31 +79,31 @@ namespace Pulumi.Aws.Ec2
     public partial class AmiLaunchPermission : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the launch permission.
+        /// AWS account ID for the launch permission.
         /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
         [Output("group")]
         public Output<string?> Group { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AMI.
+        /// ID of the AMI.
         /// </summary>
         [Output("imageId")]
         public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an organization for the launch permission.
+        /// ARN of an organization for the launch permission.
         /// </summary>
         [Output("organizationArn")]
         public Output<string?> OrganizationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an organizational unit for the launch permission.
+        /// ARN of an organizational unit for the launch permission.
         /// </summary>
         [Output("organizationalUnitArn")]
         public Output<string?> OrganizationalUnitArn { get; private set; } = null!;
@@ -155,31 +155,31 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiLaunchPermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the launch permission.
+        /// AWS account ID for the launch permission.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// The ID of the AMI.
+        /// ID of the AMI.
         /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of an organization for the launch permission.
+        /// ARN of an organization for the launch permission.
         /// </summary>
         [Input("organizationArn")]
         public Input<string>? OrganizationArn { get; set; }
 
         /// <summary>
-        /// The ARN of an organizational unit for the launch permission.
+        /// ARN of an organizational unit for the launch permission.
         /// </summary>
         [Input("organizationalUnitArn")]
         public Input<string>? OrganizationalUnitArn { get; set; }
@@ -193,31 +193,31 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiLaunchPermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the launch permission.
+        /// AWS account ID for the launch permission.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// The ID of the AMI.
+        /// ID of the AMI.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// The ARN of an organization for the launch permission.
+        /// ARN of an organization for the launch permission.
         /// </summary>
         [Input("organizationArn")]
         public Input<string>? OrganizationArn { get; set; }
 
         /// <summary>
-        /// The ARN of an organizational unit for the launch permission.
+        /// ARN of an organizational unit for the launch permission.
         /// </summary>
         [Input("organizationalUnitArn")]
         public Input<string>? OrganizationalUnitArn { get; set; }

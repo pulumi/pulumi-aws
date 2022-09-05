@@ -100,6 +100,7 @@ class _WorkflowState:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -177,6 +178,9 @@ class _WorkflowState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -323,6 +327,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,5 +384,8 @@ class Workflow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

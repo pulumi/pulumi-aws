@@ -16,14 +16,14 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
     public static final ScheduledActionScalableTargetActionArgs Empty = new ScheduledActionScalableTargetActionArgs();
 
     /**
-     * The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+     * Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
      * 
      */
     @Import(name="maxCapacity")
     private @Nullable Output<Integer> maxCapacity;
 
     /**
-     * @return The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+     * @return Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
      * 
      */
     public Optional<Output<Integer>> maxCapacity() {
@@ -31,14 +31,14 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
     }
 
     /**
-     * The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+     * Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
      * 
      */
     @Import(name="minCapacity")
     private @Nullable Output<Integer> minCapacity;
 
     /**
-     * @return The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+     * @return Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
      * 
      */
     public Optional<Output<Integer>> minCapacity() {
@@ -71,7 +71,7 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
         }
 
         /**
-         * @param maxCapacity The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+         * @param maxCapacity Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
         }
 
         /**
-         * @param maxCapacity The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+         * @param maxCapacity Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
         }
 
         /**
-         * @param minCapacity The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+         * @param minCapacity Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ScheduledActionScalableTargetActionArgs extends com.pulumi.re
         }
 
         /**
-         * @param minCapacity The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+         * @param minCapacity Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
          * 
          * @return builder
          * 

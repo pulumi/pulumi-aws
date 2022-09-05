@@ -70,7 +70,7 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the DynamoDB table.
+        /// Name of the DynamoDB table.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the DynamoDB table.
+        /// Name of the DynamoDB table.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

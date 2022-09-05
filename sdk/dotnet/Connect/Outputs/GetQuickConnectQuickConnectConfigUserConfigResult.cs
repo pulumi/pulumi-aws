@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetQuickConnectQuickConnectConfigUserConfigResult
     {
         /// <summary>
-        /// Specifies the identifier of the contact flow.
+        /// Identifier of the contact flow.
         /// </summary>
         public readonly string ContactFlowId;
         /// <summary>
-        /// Specifies the identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         public readonly string UserId;
 

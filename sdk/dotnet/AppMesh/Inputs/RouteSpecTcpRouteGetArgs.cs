@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecTcpRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take if a match is determined.
+        /// Action to take if a match is determined.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RouteSpecTcpRouteActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The types of timeouts.
+        /// Types of timeouts.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.RouteSpecTcpRouteTimeoutGetArgs>? Timeout { get; set; }

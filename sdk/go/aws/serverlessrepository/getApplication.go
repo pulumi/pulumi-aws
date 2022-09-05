@@ -56,26 +56,26 @@ func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulum
 
 // A collection of arguments for invoking getApplication.
 type GetApplicationArgs struct {
-	// The ARN of the application.
+	// ARN of the application.
 	ApplicationId string `pulumi:"applicationId"`
-	// The requested version of the application. By default, retrieves the latest version.
+	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
 }
 
 // A collection of values returned by getApplication.
 type GetApplicationResult struct {
-	// The ARN of the application.
+	// ARN of the application.
 	ApplicationId string `pulumi:"applicationId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the application.
+	// Name of the application.
 	Name string `pulumi:"name"`
 	// A list of capabilities describing the permissions needed to deploy the application.
 	RequiredCapabilities []string `pulumi:"requiredCapabilities"`
 	SemanticVersion      string   `pulumi:"semanticVersion"`
-	// A URL pointing to the source code of the application version.
+	// URL pointing to the source code of the application version.
 	SourceCodeUrl string `pulumi:"sourceCodeUrl"`
-	// A URL pointing to the Cloud Formation template for the application version.
+	// URL pointing to the Cloud Formation template for the application version.
 	TemplateUrl string `pulumi:"templateUrl"`
 }
 
@@ -94,9 +94,9 @@ func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, op
 
 // A collection of arguments for invoking getApplication.
 type GetApplicationOutputArgs struct {
-	// The ARN of the application.
+	// ARN of the application.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// The requested version of the application. By default, retrieves the latest version.
+	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
 }
 
@@ -119,7 +119,7 @@ func (o GetApplicationResultOutput) ToGetApplicationResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the application.
+// ARN of the application.
 func (o GetApplicationResultOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -129,7 +129,7 @@ func (o GetApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the application.
+// Name of the application.
 func (o GetApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -143,12 +143,12 @@ func (o GetApplicationResultOutput) SemanticVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.SemanticVersion }).(pulumi.StringOutput)
 }
 
-// A URL pointing to the source code of the application version.
+// URL pointing to the source code of the application version.
 func (o GetApplicationResultOutput) SourceCodeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.SourceCodeUrl }).(pulumi.StringOutput)
 }
 
-// A URL pointing to the Cloud Formation template for the application version.
+// URL pointing to the Cloud Formation template for the application version.
 func (o GetApplicationResultOutput) TemplateUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationResult) string { return v.TemplateUrl }).(pulumi.StringOutput)
 }

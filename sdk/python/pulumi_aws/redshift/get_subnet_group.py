@@ -45,7 +45,7 @@ class GetSubnetGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+        ARN of the Redshift Subnet Group name.
         """
         return pulumi.get(self, "arn")
 
@@ -53,7 +53,7 @@ class GetSubnetGroupResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the Redshift Subnet group.
+        Description of the Redshift Subnet group.
         """
         return pulumi.get(self, "description")
 
@@ -82,7 +82,7 @@ class GetSubnetGroupResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags associated to the Subnet Group
+        Tags associated to the Subnet Group
         """
         return pulumi.get(self, "tags")
 
@@ -117,8 +117,8 @@ def get_subnet_group(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the cluster subnet group for which information is requested.
-    :param Mapping[str, str] tags: The tags associated to the Subnet Group
+    :param str name: Name of the cluster subnet group for which information is requested.
+    :param Mapping[str, str] tags: Tags associated to the Subnet Group
     """
     __args__ = dict()
     __args__['name'] = name
@@ -152,7 +152,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the cluster subnet group for which information is requested.
-    :param Mapping[str, str] tags: The tags associated to the Subnet Group
+    :param str name: Name of the cluster subnet group for which information is requested.
+    :param Mapping[str, str] tags: Tags associated to the Subnet Group
     """
     ...

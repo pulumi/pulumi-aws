@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     public sealed class GetMulticastDomainFilterResult
     {
         /// <summary>
-        /// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        /// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
         /// </summary>
         public readonly string Name;
         /// <summary>

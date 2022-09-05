@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
     /**
-     * @return The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
     /**
-     * @return Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     private @Nullable String fileType;
@@ -31,14 +31,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig() {}
     /**
-     * @return The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig> aggregationConfig() {
         return Optional.ofNullable(this.aggregationConfig);
     }
     /**
-     * @return Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     public Optional<String> fileType() {

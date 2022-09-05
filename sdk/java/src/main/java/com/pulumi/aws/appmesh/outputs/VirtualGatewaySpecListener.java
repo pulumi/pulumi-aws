@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecListener {
     /**
-     * @return The connection pool information for the listener.
+     * @return Connection pool information for the listener.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
     /**
-     * @return The health check information for the listener.
+     * @return Health check information for the listener.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     private VirtualGatewaySpecListenerPortMapping portMapping;
     /**
-     * @return The Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener
      * 
      */
     private @Nullable VirtualGatewaySpecListenerTls tls;
 
     private VirtualGatewaySpecListener() {}
     /**
-     * @return The connection pool information for the listener.
+     * @return Connection pool information for the listener.
      * 
      */
     public Optional<VirtualGatewaySpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
     /**
-     * @return The health check information for the listener.
+     * @return Health check information for the listener.
      * 
      */
     public Optional<VirtualGatewaySpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     public VirtualGatewaySpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
     /**
-     * @return The Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener
      * 
      */
     public Optional<VirtualGatewaySpecListenerTls> tls() {

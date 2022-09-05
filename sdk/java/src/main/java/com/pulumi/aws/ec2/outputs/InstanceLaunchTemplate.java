@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceLaunchTemplate {
     /**
-     * @return The ID of the launch template. Conflicts with `name`.
+     * @return ID of the launch template. Conflicts with `name`.
      * 
      */
     private @Nullable String id;
     /**
-     * @return The name of the launch template. Conflicts with `id`.
+     * @return Name of the launch template. Conflicts with `id`.
      * 
      */
     private @Nullable String name;
@@ -29,14 +29,14 @@ public final class InstanceLaunchTemplate {
 
     private InstanceLaunchTemplate() {}
     /**
-     * @return The ID of the launch template. Conflicts with `name`.
+     * @return ID of the launch template. Conflicts with `name`.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the launch template. Conflicts with `id`.
+     * @return Name of the launch template. Conflicts with `id`.
      * 
      */
     public Optional<String> name() {

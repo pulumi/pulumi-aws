@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetLogGroupResult {
     /**
-     * @return The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
     private String arn;
     /**
-     * @return The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+     * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * 
      */
     private Integer creationTime;
@@ -27,32 +27,32 @@ public final class GetLogGroupResult {
      */
     private String id;
     /**
-     * @return The ARN of the KMS Key to use when encrypting log data.
+     * @return ARN of the KMS Key to use when encrypting log data.
      * 
      */
     private String kmsKeyId;
     private String name;
     /**
-     * @return The number of days log events retained in the specified log group.
+     * @return Number of days log events retained in the specified log group.
      * 
      */
     private Integer retentionInDays;
     /**
-     * @return A map of tags to assign to the resource.
+     * @return Map of tags to assign to the resource.
      * 
      */
     private Map<String,String> tags;
 
     private GetLogGroupResult() {}
     /**
-     * @return The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+     * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      * 
      */
     public Integer creationTime() {
@@ -66,7 +66,7 @@ public final class GetLogGroupResult {
         return this.id;
     }
     /**
-     * @return The ARN of the KMS Key to use when encrypting log data.
+     * @return ARN of the KMS Key to use when encrypting log data.
      * 
      */
     public String kmsKeyId() {
@@ -76,14 +76,14 @@ public final class GetLogGroupResult {
         return this.name;
     }
     /**
-     * @return The number of days log events retained in the specified log group.
+     * @return Number of days log events retained in the specified log group.
      * 
      */
     public Integer retentionInDays() {
         return this.retentionInDays;
     }
     /**
-     * @return A map of tags to assign to the resource.
+     * @return Map of tags to assign to the resource.
      * 
      */
     public Map<String,String> tags() {

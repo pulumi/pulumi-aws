@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Organizations.Outputs
     public sealed class GetDelegatedAdministratorsDelegatedAdministratorResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
+        /// The ARN of the delegated administrator's account.
         /// </summary>
         public readonly string Arn;
         /// <summary>

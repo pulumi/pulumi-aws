@@ -22,11 +22,11 @@ class IntegrationResponseArgs:
                  template_selection_expression: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
-        :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
-        :param pulumi.Input[str] integration_response_key: The integration response key.
+        :param pulumi.Input[str] api_id: API identifier.
+        :param pulumi.Input[str] integration_id: Identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: Integration response key.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -43,7 +43,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -55,7 +55,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Input[str]:
         """
-        The identifier of the `apigatewayv2.Integration`.
+        Identifier of the `apigatewayv2.Integration`.
         """
         return pulumi.get(self, "integration_id")
 
@@ -67,7 +67,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Input[str]:
         """
-        The integration response key.
+        Integration response key.
         """
         return pulumi.get(self, "integration_response_key")
 
@@ -91,7 +91,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         """
         return pulumi.get(self, "response_templates")
 
@@ -123,11 +123,11 @@ class _IntegrationResponseState:
                  template_selection_expression: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IntegrationResponse resources.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
-        :param pulumi.Input[str] integration_response_key: The integration response key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[str] integration_id: Identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: Integration response key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         if api_id is not None:
@@ -147,7 +147,7 @@ class _IntegrationResponseState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -171,7 +171,7 @@ class _IntegrationResponseState:
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the `apigatewayv2.Integration`.
+        Identifier of the `apigatewayv2.Integration`.
         """
         return pulumi.get(self, "integration_id")
 
@@ -183,7 +183,7 @@ class _IntegrationResponseState:
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The integration response key.
+        Integration response key.
         """
         return pulumi.get(self, "integration_response_key")
 
@@ -195,7 +195,7 @@ class _IntegrationResponseState:
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         """
         return pulumi.get(self, "response_templates")
 
@@ -255,11 +255,11 @@ class IntegrationResponse(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
-        :param pulumi.Input[str] integration_response_key: The integration response key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[str] integration_id: Identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: Integration response key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         ...
@@ -358,11 +358,11 @@ class IntegrationResponse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
-        :param pulumi.Input[str] integration_response_key: The integration response key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        :param pulumi.Input[str] integration_id: Identifier of the `apigatewayv2.Integration`.
+        :param pulumi.Input[str] integration_response_key: Integration response key.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -381,7 +381,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -397,7 +397,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="integrationId")
     def integration_id(self) -> pulumi.Output[str]:
         """
-        The identifier of the `apigatewayv2.Integration`.
+        Identifier of the `apigatewayv2.Integration`.
         """
         return pulumi.get(self, "integration_id")
 
@@ -405,7 +405,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="integrationResponseKey")
     def integration_response_key(self) -> pulumi.Output[str]:
         """
-        The integration response key.
+        Integration response key.
         """
         return pulumi.get(self, "integration_response_key")
 
@@ -413,7 +413,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         """
         return pulumi.get(self, "response_templates")
 

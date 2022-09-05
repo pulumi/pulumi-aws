@@ -312,7 +312,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     ```
 
 
-    :param str cluster_identifier: The cluster identifier of the RDS cluster.
+    :param str cluster_identifier: Cluster identifier of the RDS cluster.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -369,6 +369,6 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_identifier: The cluster identifier of the RDS cluster.
+    :param str cluster_identifier: Cluster identifier of the RDS cluster.
     """
     ...

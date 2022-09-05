@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool> AutoDeployed { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
@@ -118,13 +118,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? AutoDeployed { get; set; }
 
         /// <summary>
-        /// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         public InputMap<string> Triggers
         {

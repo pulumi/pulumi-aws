@@ -17,14 +17,14 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiIdsPlainArgs Empty = new GetAmiIdsPlainArgs();
 
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetAmiIdsFilter> filters;
 
     /**
-     * @return A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * @return Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      * 
      */
     public Optional<List<GetAmiIdsFilter>> filters() {
@@ -32,14 +32,14 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of autoscaling group names
+     * List of autoscaling group names
      * 
      */
     @Import(name="names")
     private @Nullable List<String> names;
 
     /**
-     * @return A list of autoscaling group names
+     * @return List of autoscaling group names
      * 
      */
     public Optional<List<String>> names() {
@@ -72,7 +72,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param names A list of autoscaling group names
+         * @param names List of autoscaling group names
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param names A list of autoscaling group names
+         * @param names List of autoscaling group names
          * 
          * @return builder
          * 

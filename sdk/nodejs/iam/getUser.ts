@@ -41,7 +41,7 @@ export interface GetUserArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The friendly IAM user name to match.
+     * Friendly IAM user name to match.
      */
     userName: string;
 }
@@ -51,7 +51,7 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS for this user.
+     * ARN assigned by AWS for this user.
      */
     readonly arn: string;
     /**
@@ -71,11 +71,11 @@ export interface GetUserResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The unique ID assigned by AWS for this user.
+     * Unique ID assigned by AWS for this user.
      */
     readonly userId: string;
     /**
-     * The name associated to this User
+     * Name associated to this User
      */
     readonly userName: string;
 }
@@ -93,7 +93,7 @@ export interface GetUserOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The friendly IAM user name to match.
+     * Friendly IAM user name to match.
      */
     userName: pulumi.Input<string>;
 }

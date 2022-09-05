@@ -74,13 +74,13 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class GetRepositoryEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain that contains the repository.
+        /// Name of the domain that contains the repository.
         /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
         /// <summary>
-        /// The account number of the AWS account that owns the domain.
+        /// Account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
         public string? DomainOwner { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.CodeArtifact
         public string Format { get; set; } = null!;
 
         /// <summary>
-        /// The name of the repository.
+        /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class GetRepositoryEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the domain that contains the repository.
+        /// Name of the domain that contains the repository.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// The account number of the AWS account that owns the domain.
+        /// Account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The name of the repository.
+        /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CodeArtifact
         public readonly string Id;
         public readonly string Repository;
         /// <summary>
-        /// The URL of the returned endpoint.
+        /// URL of the returned endpoint.
         /// </summary>
         public readonly string RepositoryEndpoint;
 

@@ -69,7 +69,7 @@ class GetArnResult:
     @pulumi.getter
     def partition(self) -> str:
         """
-        The partition that the resource is in.
+        Partition that the resource is in.
         """
         return pulumi.get(self, "partition")
 
@@ -77,7 +77,7 @@ class GetArnResult:
     @pulumi.getter
     def region(self) -> str:
         """
-        The region the resource resides in.
+        Region the resource resides in.
         Note that the ARNs for some resources do not require a region, so this component might be omitted.
         """
         return pulumi.get(self, "region")
@@ -86,7 +86,7 @@ class GetArnResult:
     @pulumi.getter
     def resource(self) -> str:
         """
-        The content of this part of the ARN varies by service.
+        Content of this part of the ARN varies by service.
         It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
         """
         return pulumi.get(self, "resource")
@@ -118,7 +118,7 @@ class AwaitableGetArnResult(GetArnResult):
 def get_arn(arn: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArnResult:
     """
-    Parses an Amazon Resource Name (ARN) into its constituent parts.
+    Parses an ARN into its constituent parts.
 
     ## Example Usage
 
@@ -130,7 +130,7 @@ def get_arn(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The ARN to parse.
+    :param str arn: ARN to parse.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -151,7 +151,7 @@ def get_arn(arn: Optional[str] = None,
 def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArnResult]:
     """
-    Parses an Amazon Resource Name (ARN) into its constituent parts.
+    Parses an ARN into its constituent parts.
 
     ## Example Usage
 
@@ -163,6 +163,6 @@ def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: The ARN to parse.
+    :param str arn: ARN to parse.
     """
     ...

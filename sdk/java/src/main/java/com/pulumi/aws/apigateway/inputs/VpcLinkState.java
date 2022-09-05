@@ -24,14 +24,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the VPC link.
+     * @return Description of the VPC link.
      * 
      */
     public Optional<Output<String>> description() {
@@ -39,14 +39,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name used to label and identify the VPC link.
+     * Name used to label and identify the VPC link.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name used to label and identify the VPC link.
+     * @return Name used to label and identify the VPC link.
      * 
      */
     public Optional<Output<String>> name() {
@@ -54,14 +54,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -69,14 +69,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -84,14 +84,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -137,7 +137,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the VPC link.
+         * @param description Description of the VPC link.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the VPC link.
+         * @param description Description of the VPC link.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name used to label and identify the VPC link.
+         * @param name Name used to label and identify the VPC link.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name used to label and identify the VPC link.
+         * @param name Name used to label and identify the VPC link.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+         * @param targetArn List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+         * @param targetArn List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
          * 
          * @return builder
          * 

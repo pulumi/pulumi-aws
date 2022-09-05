@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSubnetFilter {
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetSubnetFilter {
 
     private GetSubnetFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     public String name() {

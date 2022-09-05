@@ -49,7 +49,7 @@ func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTyp
 
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeArgs struct {
-	// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
 	Arn *string `pulumi:"arn"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type *string `pulumi:"type"`
@@ -70,7 +70,7 @@ type LookupCloudFormationTypeResult struct {
 	Description string `pulumi:"description"`
 	// URL of the documentation for the CloudFormation Type.
 	DocumentationUrl string `pulumi:"documentationUrl"`
-	// Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+	// ARN of the IAM Role used to register the CloudFormation Type.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -107,7 +107,7 @@ func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormati
 
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeOutputArgs struct {
-	// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -160,7 +160,7 @@ func (o LookupCloudFormationTypeResultOutput) DocumentationUrl() pulumi.StringOu
 	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.DocumentationUrl }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+// ARN of the IAM Role used to register the CloudFormation Type.
 func (o LookupCloudFormationTypeResultOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }

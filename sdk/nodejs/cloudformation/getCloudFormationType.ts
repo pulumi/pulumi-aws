@@ -40,7 +40,7 @@ export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: p
  */
 export interface GetCloudFormationTypeArgs {
     /**
-     * Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: string;
     /**
@@ -79,7 +79,7 @@ export interface GetCloudFormationTypeResult {
      */
     readonly documentationUrl: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+     * ARN of the IAM Role used to register the CloudFormation Type.
      */
     readonly executionRoleArn: string;
     /**
@@ -125,7 +125,7 @@ export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputAr
  */
 export interface GetCloudFormationTypeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: pulumi.Input<string>;
     /**

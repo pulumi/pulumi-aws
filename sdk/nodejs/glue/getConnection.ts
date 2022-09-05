@@ -36,12 +36,12 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetConnectionArgs {
     /**
-     * A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: string;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: {[key: string]: string};
 }
@@ -51,16 +51,16 @@ export interface GetConnectionArgs {
  */
 export interface GetConnectionResult {
     /**
-     * The ARN of the Glue Connection.
+     * ARN of the Glue Connection.
      */
     readonly arn: string;
     /**
-     * The catalog ID of the Glue Connection.
+     * Catalog ID of the Glue Connection.
      */
     readonly catalogId: string;
     readonly connectionProperties: {[key: string]: string};
     /**
-     * The type of Glue Connection.
+     * Type of Glue Connection.
      */
     readonly connectionType: string;
     /**
@@ -73,7 +73,7 @@ export interface GetConnectionResult {
      */
     readonly matchCriterias: string[];
     /**
-     * The name of the Glue Connection.
+     * Name of the Glue Connection.
      */
     readonly name: string;
     /**
@@ -81,7 +81,7 @@ export interface GetConnectionResult {
      */
     readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     readonly tags: {[key: string]: string};
 }
@@ -95,12 +95,12 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  */
 export interface GetConnectionOutputArgs {
     /**
-     * A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: pulumi.Input<string>;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

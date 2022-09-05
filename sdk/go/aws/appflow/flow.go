@@ -174,15 +174,15 @@ import (
 type Flow struct {
 	pulumi.CustomResourceState
 
-	// The flow's Amazon Resource Name (ARN).
+	// Flow's ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the flow you want to create.
+	// Description of the flow you want to create.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
-	// The name of the flow.
+	// Name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigOutput `pulumi:"sourceFlowConfig"`
@@ -237,15 +237,15 @@ func GetFlow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Flow resources.
 type flowState struct {
-	// The flow's Amazon Resource Name (ARN).
+	// Flow's ARN.
 	Arn *string `pulumi:"arn"`
-	// A description of the flow you want to create.
+	// Description of the flow you want to create.
 	Description *string `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
-	// The name of the flow.
+	// Name of the flow.
 	Name *string `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig *FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
@@ -260,15 +260,15 @@ type flowState struct {
 }
 
 type FlowState struct {
-	// The flow's Amazon Resource Name (ARN).
+	// Flow's ARN.
 	Arn pulumi.StringPtrInput
-	// A description of the flow you want to create.
+	// Description of the flow you want to create.
 	Description pulumi.StringPtrInput
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
-	// The name of the flow.
+	// Name of the flow.
 	Name pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigPtrInput
@@ -287,13 +287,13 @@ func (FlowState) ElementType() reflect.Type {
 }
 
 type flowArgs struct {
-	// A description of the flow you want to create.
+	// Description of the flow you want to create.
 	Description *string `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
-	// The name of the flow.
+	// Name of the flow.
 	Name *string `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
@@ -307,13 +307,13 @@ type flowArgs struct {
 
 // The set of arguments for constructing a Flow resource.
 type FlowArgs struct {
-	// A description of the flow you want to create.
+	// Description of the flow you want to create.
 	Description pulumi.StringPtrInput
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
-	// The name of the flow.
+	// Name of the flow.
 	Name pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 	SourceFlowConfig FlowSourceFlowConfigInput
@@ -412,12 +412,12 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
 }
 
-// The flow's Amazon Resource Name (ARN).
+// Flow's ARN.
 func (o FlowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the flow you want to create.
+// Description of the flow you want to create.
 func (o FlowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -427,12 +427,12 @@ func (o FlowOutput) DestinationFlowConfigs() FlowDestinationFlowConfigArrayOutpu
 	return o.ApplyT(func(v *Flow) FlowDestinationFlowConfigArrayOutput { return v.DestinationFlowConfigs }).(FlowDestinationFlowConfigArrayOutput)
 }
 
-// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 func (o FlowOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }
 
-// The name of the flow.
+// Name of the flow.
 func (o FlowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

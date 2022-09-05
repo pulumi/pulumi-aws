@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RDS database subnet group.
+        /// Name of the RDS database subnet group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RDS database subnet group.
+        /// Name of the RDS database subnet group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSubnetGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB subnet group.
+        /// ARN for the DB subnet group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -17,7 +17,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting 
      */
     private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption> connectionPasswordEncryptions;
     /**
-     * @return Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+     * @return Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
      * 
      */
     private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest> encryptionAtRests;
@@ -31,7 +31,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting 
         return this.connectionPasswordEncryptions;
     }
     /**
-     * @return Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+     * @return Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
      * 
      */
     public List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest> encryptionAtRests() {

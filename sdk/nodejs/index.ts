@@ -140,6 +140,7 @@ import * as location from "./location";
 import * as macie from "./macie";
 import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
+import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
 import * as memorydb from "./memorydb";
@@ -314,6 +315,7 @@ export {
     macie,
     macie2,
     mediaconvert,
+    medialive,
     mediapackage,
     mediastore,
     memorydb,

@@ -20,6 +20,179 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a security group resource.
+ * 
+ * &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently
+ * provides both a standalone Security Group Rule resource (a single `ingress` or
+ * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+ * defined in-line. At this time you cannot use a Security Group with in-line rules
+ * in conjunction with any Security Group Rule resources. Doing so will cause
+ * a conflict of rule settings and will overwrite rules.
+ * 
+ * &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+ * 
+ * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+ * 
+ * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
+ *             .description(&#34;Allow TLS inbound traffic&#34;)
+ *             .vpcId(aws_vpc.main().id())
+ *             .ingress(SecurityGroupIngressArgs.builder()
+ *                 .description(&#34;TLS from VPC&#34;)
+ *                 .fromPort(443)
+ *                 .toPort(443)
+ *                 .protocol(&#34;tcp&#34;)
+ *                 .cidrBlocks(aws_vpc.main().cidr_block())
+ *                 .ipv6CidrBlocks(aws_vpc.main().ipv6_cidr_block())
+ *                 .build())
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * &gt; **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .fromPort(0)
+ *                 .ipv6CidrBlocks(&#34;::/0&#34;)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .toPort(0)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Usage With Prefix List IDs
+ * 
+ * Prefix Lists are either managed by AWS internally, or created by the customer using a
+ * Prefix List resource. Prefix Lists provided by
+ * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+ * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
+ * 
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .egress(SecurityGroupEgressArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .protocol(&#34;-1&#34;)
+ *                 .prefixListIds(myEndpoint.prefixListId())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * ### Change of name or name-prefix value
+ * 
+ * Security Group&#39;s Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sgWithChangeableName = new SecurityGroup(&#34;sgWithChangeableName&#34;);
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Security Groups can be imported using the `security group id`, e.g.,

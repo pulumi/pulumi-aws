@@ -35,7 +35,7 @@ class GetActiveReceiptRuleSetResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The SES receipt rule set ARN.
+        SES receipt rule set ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -51,7 +51,7 @@ class GetActiveReceiptRuleSetResult:
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> str:
         """
-        The name of the rule set
+        Name of the rule set
         """
         return pulumi.get(self, "rule_set_name")
 

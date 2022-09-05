@@ -48,11 +48,11 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
-	// The name of the ECR Repository.
+	// Name of the ECR Repository.
 	Name string `pulumi:"name"`
-	// The registry ID where the repository was created.
+	// Registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -70,9 +70,9 @@ type LookupRepositoryResult struct {
 	ImageTagMutability string `pulumi:"imageTagMutability"`
 	Name               string `pulumi:"name"`
 	RegistryId         string `pulumi:"registryId"`
-	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+	// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -91,11 +91,11 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
-	// The name of the ECR Repository.
+	// Name of the ECR Repository.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The registry ID where the repository was created.
+	// Registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -155,12 +155,12 @@ func (o LookupRepositoryResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 func (o LookupRepositoryResultOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupRepositoryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

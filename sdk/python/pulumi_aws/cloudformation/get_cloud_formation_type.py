@@ -116,7 +116,7 @@ class GetCloudFormationTypeResult:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+        ARN of the IAM Role used to register the CloudFormation Type.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -241,7 +241,7 @@ def get_cloud_formation_type(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
     :param str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param str version_id: Identifier of the CloudFormation Type version.
@@ -294,7 +294,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
     :param str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param str version_id: Identifier of the CloudFormation Type version.

@@ -17,14 +17,14 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRepositoryArgs Empty = new GetRepositoryArgs();
 
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the ECR Repository.
+     * @return Name of the ECR Repository.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The registry ID where the repository was created.
+     * Registry ID where the repository was created.
      * 
      */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
     /**
-     * @return The registry ID where the repository was created.
+     * @return Registry ID where the repository was created.
      * 
      */
     public Optional<Output<String>> registryId() {
@@ -47,14 +47,14 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -88,7 +88,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the ECR Repository.
+         * @param name Name of the ECR Repository.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the ECR Repository.
+         * @param name Name of the ECR Repository.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param registryId The registry ID where the repository was created.
+         * @param registryId Registry ID where the repository was created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param registryId The registry ID where the repository was created.
+         * @param registryId Registry ID where the repository was created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetRepositoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

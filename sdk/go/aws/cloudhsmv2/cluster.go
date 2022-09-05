@@ -49,7 +49,7 @@ type Cluster struct {
 	HsmType pulumi.StringOutput `pulumi:"hsmType"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// The id of Cloud HSM v2 cluster backup to be restored.
+	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrOutput `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -111,7 +111,7 @@ type clusterState struct {
 	HsmType *string `pulumi:"hsmType"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// The id of Cloud HSM v2 cluster backup to be restored.
+	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -139,7 +139,7 @@ type ClusterState struct {
 	HsmType pulumi.StringPtrInput
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringPtrInput
-	// The id of Cloud HSM v2 cluster backup to be restored.
+	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrInput
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
@@ -158,7 +158,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
 	HsmType string `pulumi:"hsmType"`
-	// The id of Cloud HSM v2 cluster backup to be restored.
+	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -170,7 +170,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
 	HsmType pulumi.StringInput
-	// The id of Cloud HSM v2 cluster backup to be restored.
+	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrInput
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
@@ -295,7 +295,7 @@ func (o ClusterOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
-// The id of Cloud HSM v2 cluster backup to be restored.
+// ID of Cloud HSM v2 cluster backup to be restored.
 func (o ClusterOutput) SourceBackupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SourceBackupIdentifier }).(pulumi.StringPtrOutput)
 }

@@ -47,7 +47,7 @@ export interface GetEipsArgs {
      */
     filters?: inputs.ec2.GetEipsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */
     tags?: {[key: string]: string};
 }
@@ -57,7 +57,7 @@ export interface GetEipsArgs {
  */
 export interface GetEipsResult {
     /**
-     * A list of all the allocation IDs for address for use with EC2-VPC.
+     * List of all the allocation IDs for address for use with EC2-VPC.
      */
     readonly allocationIds: string[];
     readonly filters?: outputs.ec2.GetEipsFilter[];
@@ -66,7 +66,7 @@ export interface GetEipsResult {
      */
     readonly id: string;
     /**
-     * A list of all the Elastic IP addresses.
+     * List of all the Elastic IP addresses.
      */
     readonly publicIps: string[];
     readonly tags: {[key: string]: string};
@@ -85,7 +85,7 @@ export interface GetEipsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetEipsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,14 +16,14 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetCachePolicyArgs Empty = new GetCachePolicyArgs();
 
     /**
-     * The identifier for the cache policy.
+     * Identifier for the cache policy.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The identifier for the cache policy.
+     * @return Identifier for the cache policy.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A unique name to identify the cache policy.
+     * Unique name to identify the cache policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique name to identify the cache policy.
+     * @return Unique name to identify the cache policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The identifier for the cache policy.
+         * @param id Identifier for the cache policy.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The identifier for the cache policy.
+         * @param id Identifier for the cache policy.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name A unique name to identify the cache policy.
+         * @param name Unique name to identify the cache policy.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetCachePolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name A unique name to identify the cache policy.
+         * @param name Unique name to identify the cache policy.
          * 
          * @return builder
          * 

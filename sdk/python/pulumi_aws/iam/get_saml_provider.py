@@ -69,7 +69,7 @@ class GetSamlProviderResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the provider.
+        Name of the provider.
         """
         return pulumi.get(self, "name")
 
@@ -85,7 +85,7 @@ class GetSamlProviderResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags attached to the SAML provider.
+        Tags attached to the SAML provider.
         """
         return pulumi.get(self, "tags")
 
@@ -93,7 +93,7 @@ class GetSamlProviderResult:
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> str:
         """
-        The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
+        Expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
         """
         return pulumi.get(self, "valid_until")
 
@@ -131,8 +131,8 @@ def get_saml_provider(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The ARN assigned by AWS for the provider.
-    :param Mapping[str, str] tags: The tags attached to the SAML provider.
+    :param str arn: ARN assigned by AWS for the provider.
+    :param Mapping[str, str] tags: Tags attached to the SAML provider.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -169,7 +169,7 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: The ARN assigned by AWS for the provider.
-    :param Mapping[str, str] tags: The tags attached to the SAML provider.
+    :param str arn: ARN assigned by AWS for the provider.
+    :param Mapping[str, str] tags: Tags attached to the SAML provider.
     """
     ...

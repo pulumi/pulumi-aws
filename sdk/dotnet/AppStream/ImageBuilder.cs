@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppStream
         public Output<ImmutableArray<Outputs.ImageBuilderAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder.
+        /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
         [Output("appstreamAgentVersion")]
         public Output<string> AppstreamAgentVersion { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> ImageName { get; private set; } = null!;
 
         /// <summary>
-        /// The instance type to use when launching the image builder.
+        /// Instance type to use when launching the image builder.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.AppStream
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.AppStream
         }
 
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder.
+        /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
         [Input("appstreamAgentVersion")]
         public Input<string>? AppstreamAgentVersion { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? ImageName { get; set; }
 
         /// <summary>
-        /// The instance type to use when launching the image builder.
+        /// Instance type to use when launching the image builder.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.AppStream
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.AppStream
         }
 
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder.
+        /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
         [Input("appstreamAgentVersion")]
         public Input<string>? AppstreamAgentVersion { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? ImageName { get; set; }
 
         /// <summary>
-        /// The instance type to use when launching the image builder.
+        /// Instance type to use when launching the image builder.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.AppStream
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.AppStream
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

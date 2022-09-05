@@ -126,11 +126,11 @@ import (
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	// The API ID for the GraphQL API for the data source.
+	// API ID for the GraphQL API for the data source.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ARN
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the data source.
+	// Description of the data source.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// DynamoDB settings. See below
 	DynamodbConfig DataSourceDynamodbConfigPtrOutput `pulumi:"dynamodbConfig"`
@@ -140,13 +140,13 @@ type DataSource struct {
 	HttpConfig DataSourceHttpConfigPtrOutput `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
 	LambdaConfig DataSourceLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
-	// A user-supplied name for the data source.
+	// User-supplied name for the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
-	// The IAM service role ARN for the data source.
+	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
-	// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -185,11 +185,11 @@ func GetDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
-	// The API ID for the GraphQL API for the data source.
+	// API ID for the GraphQL API for the data source.
 	ApiId *string `pulumi:"apiId"`
-	// The ARN
+	// ARN
 	Arn *string `pulumi:"arn"`
-	// A description of the data source.
+	// Description of the data source.
 	Description *string `pulumi:"description"`
 	// DynamoDB settings. See below
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
@@ -199,22 +199,22 @@ type dataSourceState struct {
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
-	// A user-supplied name for the data source.
+	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// The IAM service role ARN for the data source.
+	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type *string `pulumi:"type"`
 }
 
 type DataSourceState struct {
-	// The API ID for the GraphQL API for the data source.
+	// API ID for the GraphQL API for the data source.
 	ApiId pulumi.StringPtrInput
-	// The ARN
+	// ARN
 	Arn pulumi.StringPtrInput
-	// A description of the data source.
+	// Description of the data source.
 	Description pulumi.StringPtrInput
 	// DynamoDB settings. See below
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
@@ -224,13 +224,13 @@ type DataSourceState struct {
 	HttpConfig DataSourceHttpConfigPtrInput
 	// AWS Lambda settings. See below
 	LambdaConfig DataSourceLambdaConfigPtrInput
-	// A user-supplied name for the data source.
+	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// The IAM service role ARN for the data source.
+	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -239,9 +239,9 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// The API ID for the GraphQL API for the data source.
+	// API ID for the GraphQL API for the data source.
 	ApiId string `pulumi:"apiId"`
-	// A description of the data source.
+	// Description of the data source.
 	Description *string `pulumi:"description"`
 	// DynamoDB settings. See below
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
@@ -251,21 +251,21 @@ type dataSourceArgs struct {
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
-	// A user-supplied name for the data source.
+	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// The IAM service role ARN for the data source.
+	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// The API ID for the GraphQL API for the data source.
+	// API ID for the GraphQL API for the data source.
 	ApiId pulumi.StringInput
-	// A description of the data source.
+	// Description of the data source.
 	Description pulumi.StringPtrInput
 	// DynamoDB settings. See below
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
@@ -275,13 +275,13 @@ type DataSourceArgs struct {
 	HttpConfig DataSourceHttpConfigPtrInput
 	// AWS Lambda settings. See below
 	LambdaConfig DataSourceLambdaConfigPtrInput
-	// A user-supplied name for the data source.
+	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// The IAM service role ARN for the data source.
+	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 	Type pulumi.StringInput
 }
 
@@ -372,17 +372,17 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
-// The API ID for the GraphQL API for the data source.
+// API ID for the GraphQL API for the data source.
 func (o DataSourceOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The ARN
+// ARN
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the data source.
+// Description of the data source.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -407,7 +407,7 @@ func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceLambdaConfigPtrOutput { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
 }
 
-// A user-supplied name for the data source.
+// User-supplied name for the data source.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -417,12 +417,12 @@ func (o DataSourceOutput) RelationalDatabaseConfig() DataSourceRelationalDatabas
 	return o.ApplyT(func(v *DataSource) DataSourceRelationalDatabaseConfigPtrOutput { return v.RelationalDatabaseConfig }).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// The IAM service role ARN for the data source.
+// IAM service role ARN for the data source.
 func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

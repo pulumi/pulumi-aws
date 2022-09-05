@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly bool? DetailedMetricsEnabled;
         /// <summary>
-        /// The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        /// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
         /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         public readonly string? LoggingLevel;
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string RouteKey;
         /// <summary>
-        /// The throttling burst limit for the route.
+        /// Throttling burst limit for the route.
         /// </summary>
         public readonly int? ThrottlingBurstLimit;
         /// <summary>
-        /// The throttling rate limit for the route.
+        /// Throttling rate limit for the route.
         /// </summary>
         public readonly double? ThrottlingRateLimit;
 

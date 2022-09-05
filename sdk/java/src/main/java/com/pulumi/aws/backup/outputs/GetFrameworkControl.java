@@ -18,12 +18,12 @@ public final class GetFrameworkControl {
      */
     private List<GetFrameworkControlInputParameter> inputParameters;
     /**
-     * @return The backup framework name.
+     * @return Backup framework name.
      * 
      */
     private String name;
     /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     private List<GetFrameworkControlScope> scopes;
@@ -37,14 +37,14 @@ public final class GetFrameworkControl {
         return this.inputParameters;
     }
     /**
-     * @return The backup framework name.
+     * @return Backup framework name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+     * @return Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
     public List<GetFrameworkControlScope> scopes() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate
     {
         /// <summary>
-        /// A local file certificate.
+        /// Local file certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile? File;
         /// <summary>

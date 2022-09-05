@@ -48,29 +48,29 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString       *string  `pulumi:"accessString"`
 	Engine             *string  `pulumi:"engine"`
 	NoPasswordRequired *bool    `pulumi:"noPasswordRequired"`
 	Passwords          []string `pulumi:"passwords"`
-	// The identifier for the user.
+	// Identifier for the user.
 	UserId string `pulumi:"userId"`
-	// The user name of the user.
+	// User name of the user.
 	UserName *string `pulumi:"userName"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString *string `pulumi:"accessString"`
 	Engine       *string `pulumi:"engine"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string   `pulumi:"id"`
 	NoPasswordRequired *bool    `pulumi:"noPasswordRequired"`
 	Passwords          []string `pulumi:"passwords"`
-	// The identifier for the user.
+	// Identifier for the user.
 	UserId string `pulumi:"userId"`
-	// The user name of the user.
+	// User name of the user.
 	UserName *string `pulumi:"userName"`
 }
 
@@ -89,14 +89,14 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+	// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 	AccessString       pulumi.StringPtrInput   `pulumi:"accessString"`
 	Engine             pulumi.StringPtrInput   `pulumi:"engine"`
 	NoPasswordRequired pulumi.BoolPtrInput     `pulumi:"noPasswordRequired"`
 	Passwords          pulumi.StringArrayInput `pulumi:"passwords"`
-	// The identifier for the user.
+	// Identifier for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
-	// The user name of the user.
+	// User name of the user.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
@@ -119,7 +119,7 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
 func (o LookupUserResultOutput) AccessString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.AccessString }).(pulumi.StringPtrOutput)
 }
@@ -141,12 +141,12 @@ func (o LookupUserResultOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Passwords }).(pulumi.StringArrayOutput)
 }
 
-// The identifier for the user.
+// Identifier for the user.
 func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The user name of the user.
+// User name of the user.
 func (o LookupUserResultOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }

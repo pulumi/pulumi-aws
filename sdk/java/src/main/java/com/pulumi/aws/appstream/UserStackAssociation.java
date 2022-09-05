@@ -86,14 +86,14 @@ public class UserStackAssociation extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
-     * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
     @Export(name="sendEmailNotification", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sendEmailNotification;
 
     /**
-     * @return Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * @return Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
     public Output<Optional<Boolean>> sendEmailNotification() {

@@ -31,7 +31,7 @@ export interface GetVpcPeeringConnectionsArgs {
      */
     filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
     tags?: {[key: string]: string};
@@ -47,7 +47,7 @@ export interface GetVpcPeeringConnectionsResult {
      */
     readonly id: string;
     /**
-     * The IDs of the VPC Peering Connections.
+     * IDs of the VPC Peering Connections.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -66,7 +66,7 @@ export interface GetVpcPeeringConnectionsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionsFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

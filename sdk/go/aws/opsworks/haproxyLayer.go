@@ -78,7 +78,7 @@ type HaproxyLayer struct {
 	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Whether to enable HAProxy stats.
 	StatsEnabled pulumi.BoolPtrOutput `pulumi:"statsEnabled"`
@@ -169,7 +169,7 @@ type haproxyLayerState struct {
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Whether to enable HAProxy stats.
 	StatsEnabled *bool `pulumi:"statsEnabled"`
@@ -226,7 +226,7 @@ type HaproxyLayerState struct {
 	InstanceShutdownTimeout pulumi.IntPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Whether to enable HAProxy stats.
 	StatsEnabled pulumi.BoolPtrInput
@@ -285,7 +285,7 @@ type haproxyLayerArgs struct {
 	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
 	Name *string `pulumi:"name"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Whether to enable HAProxy stats.
 	StatsEnabled *bool `pulumi:"statsEnabled"`
@@ -339,7 +339,7 @@ type HaproxyLayerArgs struct {
 	InstanceShutdownTimeout pulumi.IntPtrInput
 	// A human-readable name for the layer.
 	Name pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Whether to enable HAProxy stats.
 	StatsEnabled pulumi.BoolPtrInput
@@ -543,7 +543,7 @@ func (o HaproxyLayerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o HaproxyLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

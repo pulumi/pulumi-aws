@@ -14,14 +14,14 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
     public static final GetProductFilterArgs Empty = new GetProductFilterArgs();
 
     /**
-     * The product attribute name that you want to filter on.
+     * Product attribute name that you want to filter on.
      * 
      */
     @Import(name="field", required=true)
     private Output<String> field;
 
     /**
-     * @return The product attribute name that you want to filter on.
+     * @return Product attribute name that you want to filter on.
      * 
      */
     public Output<String> field() {
@@ -29,14 +29,14 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The product attribute value that you want to filter on.
+     * Product attribute value that you want to filter on.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The product attribute value that you want to filter on.
+     * @return Product attribute value that you want to filter on.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param field The product attribute name that you want to filter on.
+         * @param field Product attribute name that you want to filter on.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param field The product attribute name that you want to filter on.
+         * @param field Product attribute name that you want to filter on.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value The product attribute value that you want to filter on.
+         * @param value Product attribute value that you want to filter on.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value The product attribute value that you want to filter on.
+         * @param value Product attribute value that you want to filter on.
          * 
          * @return builder
          * 

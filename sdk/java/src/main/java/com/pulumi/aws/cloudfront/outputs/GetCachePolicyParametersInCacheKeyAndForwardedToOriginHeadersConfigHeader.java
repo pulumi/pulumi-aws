@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader {
     /**
-     * @return A list of item names (`cookies`, `headers`, or `query_strings`).
+     * @return List of item names (`cookies`, `headers`, or `query_strings`).
      * 
      */
     private List<String> items;
 
     private GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader() {}
     /**
-     * @return A list of item names (`cookies`, `headers`, or `query_strings`).
+     * @return List of item names (`cookies`, `headers`, or `query_strings`).
      * 
      */
     public List<String> items() {

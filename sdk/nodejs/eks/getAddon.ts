@@ -55,11 +55,11 @@ export interface GetAddonArgs {
 export interface GetAddonResult {
     readonly addonName: string;
     /**
-     * The version of EKS add-on.
+     * Version of EKS add-on.
      */
     readonly addonVersion: string;
     /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
+     * ARN of the EKS add-on.
      */
     readonly arn: string;
     readonly clusterName: string;

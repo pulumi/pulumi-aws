@@ -53,9 +53,9 @@ import (
 type RequestValidator struct {
 	pulumi.CustomResourceState
 
-	// The name of the request validator
+	// Name of the request validator
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
@@ -95,9 +95,9 @@ func GetRequestValidator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RequestValidator resources.
 type requestValidatorState struct {
-	// The name of the request validator
+	// Name of the request validator
 	Name *string `pulumi:"name"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
@@ -106,9 +106,9 @@ type requestValidatorState struct {
 }
 
 type RequestValidatorState struct {
-	// The name of the request validator
+	// Name of the request validator
 	Name pulumi.StringPtrInput
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
@@ -121,9 +121,9 @@ func (RequestValidatorState) ElementType() reflect.Type {
 }
 
 type requestValidatorArgs struct {
-	// The name of the request validator
+	// Name of the request validator
 	Name *string `pulumi:"name"`
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
@@ -133,9 +133,9 @@ type requestValidatorArgs struct {
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
-	// The name of the request validator
+	// Name of the request validator
 	Name pulumi.StringPtrInput
-	// The ID of the associated Rest API
+	// ID of the associated Rest API
 	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
@@ -230,12 +230,12 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the request validator
+// Name of the request validator
 func (o RequestValidatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the associated Rest API
+// ID of the associated Rest API
 func (o RequestValidatorOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }

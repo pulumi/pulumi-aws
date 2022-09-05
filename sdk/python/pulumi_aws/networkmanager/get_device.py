@@ -67,7 +67,7 @@ class GetDeviceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the device.
+        ARN of the device.
         """
         return pulumi.get(self, "arn")
 
@@ -75,7 +75,7 @@ class GetDeviceResult:
     @pulumi.getter(name="awsLocations")
     def aws_locations(self) -> Sequence['outputs.GetDeviceAwsLocationResult']:
         """
-        The AWS location of the device. Documented below.
+        AWS location of the device. Documented below.
         """
         return pulumi.get(self, "aws_locations")
 
@@ -83,7 +83,7 @@ class GetDeviceResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the device.
+        Description of the device.
         """
         return pulumi.get(self, "description")
 
@@ -109,7 +109,7 @@ class GetDeviceResult:
     @pulumi.getter
     def locations(self) -> Sequence['outputs.GetDeviceLocationResult']:
         """
-        The location of the device. Documented below.
+        Location of the device. Documented below.
         """
         return pulumi.get(self, "locations")
 
@@ -117,7 +117,7 @@ class GetDeviceResult:
     @pulumi.getter
     def model(self) -> str:
         """
-        The model of device.
+        Model of device.
         """
         return pulumi.get(self, "model")
 
@@ -125,7 +125,7 @@ class GetDeviceResult:
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
         """
-        The serial number of the device.
+        Serial number of the device.
         """
         return pulumi.get(self, "serial_number")
 
@@ -133,7 +133,7 @@ class GetDeviceResult:
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
         """
-        The ID of the site.
+        ID of the site.
         """
         return pulumi.get(self, "site_id")
 
@@ -149,7 +149,7 @@ class GetDeviceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of device.
+        Type of device.
         """
         return pulumi.get(self, "type")
 
@@ -157,7 +157,7 @@ class GetDeviceResult:
     @pulumi.getter
     def vendor(self) -> str:
         """
-        The vendor of the device.
+        Vendor of the device.
         """
         return pulumi.get(self, "vendor")
 
@@ -191,8 +191,8 @@ def get_device(device_id: Optional[str] = None,
     Retrieve information about a device.
 
 
-    :param str device_id: The ID of the device.
-    :param str global_network_id: The ID of the global network.
+    :param str device_id: ID of the device.
+    :param str global_network_id: ID of the global network.
     :param Mapping[str, str] tags: Key-value tags for the device.
     """
     __args__ = dict()
@@ -227,8 +227,8 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about a device.
 
 
-    :param str device_id: The ID of the device.
-    :param str global_network_id: The ID of the global network.
+    :param str device_id: ID of the device.
+    :param str global_network_id: ID of the global network.
     :param Mapping[str, str] tags: Key-value tags for the device.
     """
     ...

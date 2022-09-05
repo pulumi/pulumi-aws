@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Outposts
     {
         public readonly string Arn;
         /// <summary>
-        /// A list of all the subnet ids found. This data source will fail if none are found.
+        /// List of all the subnet ids found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> AssetIds;
         /// <summary>

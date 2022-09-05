@@ -175,7 +175,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentials struct {
 	Amplitude *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector `pulumi:"customConnector"`
-	// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
 	Dynatrace *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace `pulumi:"dynatrace"`
@@ -185,9 +185,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentials struct {
 	Honeycode *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus `pulumi:"inforNexus"`
-	// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 	Marketo *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo `pulumi:"marketo"`
-	// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+	// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 	Redshift *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift `pulumi:"redshift"`
 	// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
 	Salesforce *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce `pulumi:"salesforce"`
@@ -195,17 +195,17 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentials struct {
 	SapoData *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow `pulumi:"serviceNow"`
-	// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 	Singular *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular `pulumi:"singular"`
-	// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
 	Snowflake *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake `pulumi:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro `pulumi:"trendmicro"`
-	// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva `pulumi:"veeva"`
-	// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 	Zendesk *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk `pulumi:"zendesk"`
 }
 
@@ -225,7 +225,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs struc
 	Amplitude ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrInput `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrInput `pulumi:"customConnector"`
-	// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrInput `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
 	Dynatrace ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrInput `pulumi:"dynatrace"`
@@ -235,9 +235,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs struc
 	Honeycode ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrInput `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrInput `pulumi:"inforNexus"`
-	// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 	Marketo ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrInput `pulumi:"marketo"`
-	// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+	// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 	Redshift ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrInput `pulumi:"redshift"`
 	// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
 	Salesforce ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrInput `pulumi:"salesforce"`
@@ -245,17 +245,17 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs struc
 	SapoData ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrInput `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrInput `pulumi:"serviceNow"`
-	// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 	Singular ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrInput `pulumi:"singular"`
-	// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrInput `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
 	Snowflake ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrInput `pulumi:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrInput `pulumi:"trendmicro"`
-	// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrInput `pulumi:"veeva"`
-	// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 	Zendesk ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrInput `pulumi:"zendesk"`
 }
 
@@ -350,7 +350,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput)
 }
 
-// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Datadog() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
 		return v.Datadog
@@ -385,14 +385,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput)
 }
 
-// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Marketo() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
 		return v.Marketo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput)
 }
 
-// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Redshift() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
 		return v.Redshift
@@ -420,14 +420,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput)
 }
 
-// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
 		return v.Singular
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput)
 }
 
-// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Slack() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
 		return v.Slack
@@ -448,14 +448,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput)
 }
 
-// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Veeva() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
 		return v.Veeva
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput)
 }
 
-// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) Zendesk() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
 		return v.Zendesk
@@ -506,7 +506,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput)
 }
 
-// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
 		if v == nil {
@@ -556,7 +556,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput)
 }
 
-// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
 		if v == nil {
@@ -566,7 +566,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput)
 }
 
-// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
 		if v == nil {
@@ -606,7 +606,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput)
 }
 
-// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
 		if v == nil {
@@ -616,7 +616,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput)
 }
 
-// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
 		if v == nil {
@@ -646,7 +646,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput)
 }
 
-// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
 		if v == nil {
@@ -656,7 +656,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput)
 }
 
-// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
 		if v == nil {
@@ -667,7 +667,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
 	// The Secret Access Key portion of the credentials.
 	SecretKey string `pulumi:"secretKey"`
@@ -685,7 +685,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// The Secret Access Key portion of the credentials.
 	SecretKey pulumi.StringInput `pulumi:"secretKey"`
@@ -768,7 +768,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude) string {
 		return v.ApiKey
@@ -806,7 +806,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude) *string {
 		if v == nil {
@@ -827,15 +827,15 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey `pulumi:"apiKey"`
 	// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// The basic credentials that are required for the authentication of the user.
+	// Basic credentials that are required for the authentication of the user.
 	Basic *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic `pulumi:"basic"`
 	// If the connector uses the custom authentication mechanism, this holds the required credentials.
 	Custom *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom `pulumi:"custom"`
-	// The OAuth 2.0 credentials required for the authentication of the user.
+	// OAuth 2.0 credentials required for the authentication of the user.
 	Oauth2 *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 `pulumi:"oauth2"`
 }
 
@@ -851,15 +851,15 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput `pulumi:"apiKey"`
 	// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The basic credentials that are required for the authentication of the user.
+	// Basic credentials that are required for the authentication of the user.
 	Basic ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput `pulumi:"basic"`
 	// If the connector uses the custom authentication mechanism, this holds the required credentials.
 	Custom ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput `pulumi:"custom"`
-	// The OAuth 2.0 credentials required for the authentication of the user.
+	// OAuth 2.0 credentials required for the authentication of the user.
 	Oauth2 ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput `pulumi:"oauth2"`
 }
 
@@ -940,7 +940,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) ApiKey() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
 		return v.ApiKey
@@ -954,7 +954,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(pulumi.StringOutput)
 }
 
-// The basic credentials that are required for the authentication of the user.
+// Basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) Basic() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
 		return v.Basic
@@ -968,7 +968,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
-// The OAuth 2.0 credentials required for the authentication of the user.
+// OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) Oauth2() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 		return v.Oauth2
@@ -999,7 +999,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) ApiKey() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
 		if v == nil {
@@ -1019,7 +1019,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(pulumi.StringPtrOutput)
 }
 
-// The basic credentials that are required for the authentication of the user.
+// Basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Basic() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
 		if v == nil {
@@ -1039,7 +1039,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
-// The OAuth 2.0 credentials required for the authentication of the user.
+// OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Oauth2() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 		if v == nil {
@@ -1050,7 +1050,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
 	// The Secret Access Key portion of the credentials.
 	ApiSecretKey *string `pulumi:"apiSecretKey"`
@@ -1068,7 +1068,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// The Secret Access Key portion of the credentials.
 	ApiSecretKey pulumi.StringPtrInput `pulumi:"apiSecretKey"`
@@ -1151,7 +1151,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey) string {
 		return v.ApiKey
@@ -1189,7 +1189,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey) *string {
 		if v == nil {
@@ -1210,9 +1210,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -1228,9 +1228,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1311,14 +1311,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic) string {
 		return v.Username
@@ -1349,7 +1349,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic) *string {
 		if v == nil {
@@ -1359,7 +1359,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic) *string {
 		if v == nil {
@@ -1913,7 +1913,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
 	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey string `pulumi:"applicationKey"`
@@ -1931,7 +1931,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey pulumi.StringInput `pulumi:"applicationKey"`
@@ -2014,7 +2014,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog) string {
 		return v.ApiKey
@@ -2052,7 +2052,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog) *string {
 		if v == nil {
@@ -2938,11 +2938,11 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus struct {
 	// The Access Key portion of the credentials.
 	AccessKeyId string `pulumi:"accessKeyId"`
-	// The encryption keys used to encrypt data.
+	// Encryption keys used to encrypt data.
 	Datakey string `pulumi:"datakey"`
 	// The secret key used to sign requests.
 	SecretAccessKey string `pulumi:"secretAccessKey"`
-	// The identifier for the user.
+	// Identifier for the user.
 	UserId string `pulumi:"userId"`
 }
 
@@ -2960,11 +2960,11 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs struct {
 	// The Access Key portion of the credentials.
 	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
-	// The encryption keys used to encrypt data.
+	// Encryption keys used to encrypt data.
 	Datakey pulumi.StringInput `pulumi:"datakey"`
 	// The secret key used to sign requests.
 	SecretAccessKey pulumi.StringInput `pulumi:"secretAccessKey"`
-	// The identifier for the user.
+	// Identifier for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
@@ -3052,7 +3052,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringOutput)
 }
 
-// The encryption keys used to encrypt data.
+// Encryption keys used to encrypt data.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) Datakey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.Datakey
@@ -3066,7 +3066,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringOutput)
 }
 
-// The identifier for the user.
+// Identifier for the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.UserId
@@ -3107,7 +3107,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption keys used to encrypt data.
+// Encryption keys used to encrypt data.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) Datakey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -3127,7 +3127,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier for the user.
+// Identifier for the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -3500,9 +3500,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -3518,9 +3518,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftIn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -3601,14 +3601,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift) string {
 		return v.Username
@@ -3639,7 +3639,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift) *string {
 		if v == nil {
@@ -3649,7 +3649,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift) *string {
 		if v == nil {
@@ -4182,9 +4182,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -4200,9 +4200,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBa
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -4283,14 +4283,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials) string {
 		return v.Username
@@ -4321,7 +4321,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials) *string {
 		if v == nil {
@@ -4331,7 +4331,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials) *string {
 		if v == nil {
@@ -4725,9 +4725,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -4743,9 +4743,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -4826,14 +4826,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow) string {
 		return v.Username
@@ -4864,7 +4864,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow) *string {
 		if v == nil {
@@ -4874,7 +4874,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow) *string {
 		if v == nil {
@@ -4885,7 +4885,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
 }
 
@@ -4901,7 +4901,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularIn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs struct {
-	// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+	// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 }
 
@@ -4982,7 +4982,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular) string {
 		return v.ApiKey
@@ -5013,7 +5013,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput)
 }
 
-// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular) *string {
 		if v == nil {
@@ -5386,9 +5386,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOa
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -5404,9 +5404,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5487,14 +5487,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake) string {
 		return v.Username
@@ -5525,7 +5525,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake) *string {
 		if v == nil {
@@ -5535,7 +5535,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake) *string {
 		if v == nil {
@@ -5685,9 +5685,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmi
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password string `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -5703,9 +5703,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaInput
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs struct {
-	// The password that corresponds to the user name.
+	// Password that corresponds to the user name.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The name of the user.
+	// Name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5786,14 +5786,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva) string {
 		return v.Username
@@ -5824,7 +5824,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPt
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput)
 }
 
-// The password that corresponds to the user name.
+// Password that corresponds to the user name.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva) *string {
 		if v == nil {
@@ -5834,7 +5834,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
+// Name of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva) *string {
 		if v == nil {
@@ -6211,7 +6211,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
 	Amplitude *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector `pulumi:"customConnector"`
-	// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
 	Dynatrace *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace `pulumi:"dynatrace"`
@@ -6221,9 +6221,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
 	Honeycode *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus `pulumi:"inforNexus"`
-	// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 	Marketo *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo `pulumi:"marketo"`
-	// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+	// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 	Redshift *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift `pulumi:"redshift"`
 	// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
 	Salesforce *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce `pulumi:"salesforce"`
@@ -6231,17 +6231,17 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
 	SapoData *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow `pulumi:"serviceNow"`
-	// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 	Singular *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular `pulumi:"singular"`
-	// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
 	Snowflake *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake `pulumi:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro `pulumi:"trendmicro"`
-	// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva `pulumi:"veeva"`
-	// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 	Zendesk *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk `pulumi:"zendesk"`
 }
 
@@ -6261,7 +6261,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs struct
 	Amplitude ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrInput `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrInput `pulumi:"customConnector"`
-	// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrInput `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
 	Dynatrace ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput `pulumi:"dynatrace"`
@@ -6271,9 +6271,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs struct
 	Honeycode ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrInput `pulumi:"inforNexus"`
-	// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 	Marketo ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrInput `pulumi:"marketo"`
-	// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+	// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 	Redshift ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrInput `pulumi:"redshift"`
 	// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
 	Salesforce ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrInput `pulumi:"salesforce"`
@@ -6281,17 +6281,17 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs struct
 	SapoData ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrInput `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrInput `pulumi:"serviceNow"`
-	// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 	Singular ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput `pulumi:"singular"`
-	// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrInput `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
 	Snowflake ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput `pulumi:"snowflake"`
 	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrInput `pulumi:"trendmicro"`
-	// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrInput `pulumi:"veeva"`
-	// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+	// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 	Zendesk ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrInput `pulumi:"zendesk"`
 }
 
@@ -6386,7 +6386,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput)
 }
 
-// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Datadog() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
 		return v.Datadog
@@ -6421,14 +6421,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput)
 }
 
-// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Marketo() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo {
 		return v.Marketo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput)
 }
 
-// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Redshift() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
 		return v.Redshift
@@ -6456,14 +6456,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
-// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
 		return v.Singular
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput)
 }
 
-// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Slack() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack {
 		return v.Slack
@@ -6484,14 +6484,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput)
 }
 
-// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Veeva() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
 		return v.Veeva
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput)
 }
 
-// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Zendesk() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk {
 		return v.Zendesk
@@ -6542,7 +6542,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput)
 }
 
-// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
 		if v == nil {
@@ -6592,7 +6592,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput)
 }
 
-// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo {
 		if v == nil {
@@ -6602,7 +6602,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput)
 }
 
-// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
 		if v == nil {
@@ -6642,7 +6642,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
-// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
 		if v == nil {
@@ -6652,7 +6652,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput)
 }
 
-// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack {
 		if v == nil {
@@ -6682,7 +6682,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput)
 }
 
-// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
 		if v == nil {
@@ -6692,7 +6692,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput)
 }
 
-// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk {
 		if v == nil {
@@ -7960,7 +7960,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift st
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl *string `pulumi:"databaseUrl"`
-	// The Amazon Resource Name (ARN) of the IAM role.
+	// ARN of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -7982,7 +7982,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArg
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl pulumi.StringPtrInput `pulumi:"databaseUrl"`
-	// The Amazon Resource Name (ARN) of the IAM role.
+	// ARN of the IAM role.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -8084,7 +8084,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role.
+// ARN of the IAM role.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) string {
 		return v.RoleArn
@@ -8145,7 +8145,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role.
+// ARN of the IAM role.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -9166,9 +9166,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake s
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// The Snowflake Private Link service name to be used for private data transfers.
 	PrivateLinkServiceName *string `pulumi:"privateLinkServiceName"`
-	// The AWS Region of the Snowflake account.
+	// AWS Region of the Snowflake account.
 	Region *string `pulumi:"region"`
-	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+	// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 	Stage string `pulumi:"stage"`
 	// The name of the Snowflake warehouse.
 	Warehouse string `pulumi:"warehouse"`
@@ -9194,9 +9194,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeAr
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// The Snowflake Private Link service name to be used for private data transfers.
 	PrivateLinkServiceName pulumi.StringPtrInput `pulumi:"privateLinkServiceName"`
-	// The AWS Region of the Snowflake account.
+	// AWS Region of the Snowflake account.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+	// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 	Stage pulumi.StringInput `pulumi:"stage"`
 	// The name of the Snowflake warehouse.
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
@@ -9307,14 +9307,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region of the Snowflake account.
+// AWS Region of the Snowflake account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) string {
 		return v.Stage
@@ -9392,7 +9392,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region of the Snowflake account.
+// AWS Region of the Snowflake account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -9402,7 +9402,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -9819,11 +9819,11 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskP
 }
 
 type FlowDestinationFlowConfig struct {
-	// The API version that the destination connector uses.
+	// API version that the destination connector uses.
 	ApiVersion *string `pulumi:"apiVersion"`
-	// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+	// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
-	// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+	// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 	ConnectorType string `pulumi:"connectorType"`
 	// This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
 	DestinationConnectorProperties FlowDestinationFlowConfigDestinationConnectorProperties `pulumi:"destinationConnectorProperties"`
@@ -9841,11 +9841,11 @@ type FlowDestinationFlowConfigInput interface {
 }
 
 type FlowDestinationFlowConfigArgs struct {
-	// The API version that the destination connector uses.
+	// API version that the destination connector uses.
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
-	// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+	// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
-	// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+	// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
 	// This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
 	DestinationConnectorProperties FlowDestinationFlowConfigDestinationConnectorPropertiesInput `pulumi:"destinationConnectorProperties"`
@@ -9902,17 +9902,17 @@ func (o FlowDestinationFlowConfigOutput) ToFlowDestinationFlowConfigOutputWithCo
 	return o
 }
 
-// The API version that the destination connector uses.
+// API version that the destination connector uses.
 func (o FlowDestinationFlowConfigOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 func (o FlowDestinationFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 func (o FlowDestinationFlowConfigOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
@@ -9947,28 +9947,28 @@ func (o FlowDestinationFlowConfigArrayOutput) Index(i pulumi.IntInput) FlowDesti
 type FlowDestinationFlowConfigDestinationConnectorProperties struct {
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector `pulumi:"customConnector"`
-	// The properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+	// Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
 	CustomerProfiles *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles `pulumi:"customerProfiles"`
-	// The properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+	// Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
 	EventBridge *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge `pulumi:"eventBridge"`
-	// The properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+	// Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
 	Honeycode      *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode      `pulumi:"honeycode"`
 	LookoutMetrics *FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics `pulumi:"lookoutMetrics"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo `pulumi:"marketo"`
-	// The properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+	// Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
 	Redshift *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift `pulumi:"redshift"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 *FlowDestinationFlowConfigDestinationConnectorPropertiesS3 `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData `pulumi:"sapoData"`
-	// The properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+	// Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
 	Snowflake *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake `pulumi:"snowflake"`
-	// The properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+	// Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
 	Upsolver *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver `pulumi:"upsolver"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk `pulumi:"zendesk"`
 }
 
@@ -9986,28 +9986,28 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesInput interface {
 type FlowDestinationFlowConfigDestinationConnectorPropertiesArgs struct {
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrInput `pulumi:"customConnector"`
-	// The properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+	// Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
 	CustomerProfiles FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrInput `pulumi:"customerProfiles"`
-	// The properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+	// Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
 	EventBridge FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrInput `pulumi:"eventBridge"`
-	// The properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+	// Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
 	Honeycode      FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrInput      `pulumi:"honeycode"`
 	LookoutMetrics FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrInput `pulumi:"lookoutMetrics"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrInput `pulumi:"marketo"`
-	// The properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+	// Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
 	Redshift FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrInput `pulumi:"redshift"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrInput `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrInput `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrInput `pulumi:"sapoData"`
-	// The properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+	// Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
 	Snowflake FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrInput `pulumi:"snowflake"`
-	// The properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+	// Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
 	Upsolver FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrInput `pulumi:"upsolver"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput `pulumi:"zendesk"`
 }
 
@@ -10044,21 +10044,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) CustomCon
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-// The properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+// Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) CustomerProfiles() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
 		return v.CustomerProfiles
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput)
 }
 
-// The properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+// Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) EventBridge() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
 		return v.EventBridge
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput)
 }
 
-// The properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+// Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Honeycode() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
 		return v.Honeycode
@@ -10071,56 +10071,56 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) LookoutMe
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput)
 }
 
-// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Marketo() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
 		return v.Marketo
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 }
 
-// The properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+// Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Redshift() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
 		return v.Redshift
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput)
 }
 
-// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) S3() FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
 		return v.S3
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput)
 }
 
-// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Salesforce() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
 		return v.Salesforce
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput)
 }
 
-// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) SapoData() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
 		return v.SapoData
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput)
 }
 
-// The properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+// Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Snowflake() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
 		return v.Snowflake
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput)
 }
 
-// The properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+// Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Upsolver() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
 		return v.Upsolver
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput)
 }
 
-// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Zendesk() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorProperties) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
 		return v.Zendesk
@@ -10128,13 +10128,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) Zendesk()
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector struct {
-	// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+	// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 	CustomProperties map[string]string `pulumi:"customProperties"`
-	// The entity specified in the custom connector as a source in the flow.
+	// Entity specified in the custom connector as a source in the flow.
 	EntityName string `pulumi:"entityName"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames []string `pulumi:"idFieldNames"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType *string `pulumi:"writeOperationType"`
@@ -10152,13 +10152,13 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorInput
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs struct {
-	// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+	// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
-	// The entity specified in the custom connector as a source in the flow.
+	// Entity specified in the custom connector as a source in the flow.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
@@ -10241,28 +10241,28 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) map[string]string {
 		return v.CustomProperties
 	}).(pulumi.StringMapOutput)
 }
 
-// The entity specified in the custom connector as a source in the flow.
+// Entity specified in the custom connector as a source in the flow.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) string {
 		return v.EntityName
 	}).(pulumi.StringOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) []string {
 		return v.IdFieldNames
@@ -10300,7 +10300,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput)
 }
 
-// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) map[string]string {
 		if v == nil {
@@ -10310,7 +10310,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 	}).(pulumi.StringMapOutput)
 }
 
-// The entity specified in the custom connector as a source in the flow.
+// Entity specified in the custom connector as a source in the flow.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) EntityName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *string {
 		if v == nil {
@@ -10320,7 +10320,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
 		if v == nil {
@@ -10330,7 +10330,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) []string {
 		if v == nil {
@@ -10351,11 +10351,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -10371,11 +10371,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorError
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -10456,21 +10456,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -10501,7 +10501,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *string {
 		if v == nil {
@@ -10511,7 +10511,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *string {
 		if v == nil {
@@ -10521,7 +10521,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *bool {
 		if v == nil {
@@ -10532,9 +10532,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles struct {
-	// The unique name of the Amazon Connect Customer Profiles domain.
+	// Unique name of the Amazon Connect Customer Profiles domain.
 	DomainName string `pulumi:"domainName"`
-	// The object specified in the Amazon Connect Customer Profiles flow destination.
+	// Object specified in the Amazon Connect Customer Profiles flow destination.
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 }
 
@@ -10550,9 +10550,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesInpu
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs struct {
-	// The unique name of the Amazon Connect Customer Profiles domain.
+	// Unique name of the Amazon Connect Customer Profiles domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The object specified in the Amazon Connect Customer Profiles flow destination.
+	// Object specified in the Amazon Connect Customer Profiles flow destination.
 	ObjectTypeName pulumi.StringPtrInput `pulumi:"objectTypeName"`
 }
 
@@ -10633,14 +10633,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesO
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput)
 }
 
-// The unique name of the Amazon Connect Customer Profiles domain.
+// Unique name of the Amazon Connect Customer Profiles domain.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) string {
 		return v.DomainName
 	}).(pulumi.StringOutput)
 }
 
-// The object specified in the Amazon Connect Customer Profiles flow destination.
+// Object specified in the Amazon Connect Customer Profiles flow destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		return v.ObjectTypeName
@@ -10671,7 +10671,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput)
 }
 
-// The unique name of the Amazon Connect Customer Profiles domain.
+// Unique name of the Amazon Connect Customer Profiles domain.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		if v == nil {
@@ -10681,7 +10681,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object specified in the Amazon Connect Customer Profiles flow destination.
+// Object specified in the Amazon Connect Customer Profiles flow destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		if v == nil {
@@ -10692,9 +10692,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -10710,9 +10710,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeInput int
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -10793,14 +10793,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -10829,7 +10829,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOut
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
 		if v == nil {
@@ -10839,7 +10839,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOut
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *string {
 		if v == nil {
@@ -10850,11 +10850,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOut
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -10870,11 +10870,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHand
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -10955,21 +10955,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -11000,7 +11000,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *string {
 		if v == nil {
@@ -11010,7 +11010,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *string {
 		if v == nil {
@@ -11020,7 +11020,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *bool {
 		if v == nil {
@@ -11031,9 +11031,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -11049,9 +11049,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeInput inter
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -11132,14 +11132,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) 
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -11168,7 +11168,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
 		if v == nil {
@@ -11178,7 +11178,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *string {
 		if v == nil {
@@ -11189,11 +11189,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutpu
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -11209,11 +11209,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandli
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -11294,21 +11294,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -11339,7 +11339,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *string {
 		if v == nil {
@@ -11349,7 +11349,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *string {
 		if v == nil {
@@ -11359,7 +11359,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *bool {
 		if v == nil {
@@ -11488,9 +11488,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtr
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -11506,9 +11506,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoInput interfa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -11589,14 +11589,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) To
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -11625,7 +11625,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
 		if v == nil {
@@ -11635,7 +11635,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *string {
 		if v == nil {
@@ -11646,11 +11646,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -11666,11 +11666,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandling
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -11751,21 +11751,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -11796,7 +11796,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *string {
 		if v == nil {
@@ -11806,7 +11806,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *string {
 		if v == nil {
@@ -11816,7 +11816,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *bool {
 		if v == nil {
@@ -11827,13 +11827,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift struct {
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -11849,13 +11849,13 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs struct {
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -11936,26 +11936,26 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) T
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput)
 }
 
-// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) IntermediateBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) string {
 		return v.IntermediateBucketName
 	}).(pulumi.StringOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -11984,7 +11984,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string {
 		if v == nil {
@@ -11994,7 +11994,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
 		if v == nil {
@@ -12004,7 +12004,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput)
 }
 
-// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) IntermediateBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string {
 		if v == nil {
@@ -12014,7 +12014,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string {
 		if v == nil {
@@ -12025,11 +12025,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -12045,11 +12045,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlin
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -12130,21 +12130,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -12175,7 +12175,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *string {
 		if v == nil {
@@ -12185,7 +12185,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *string {
 		if v == nil {
@@ -12195,7 +12195,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *bool {
 		if v == nil {
@@ -12206,11 +12206,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3 struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+	// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 	S3OutputFormatConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -12226,11 +12226,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Input interface {
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+	// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrInput `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -12311,17 +12311,17 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) ToFlowD
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) S3OutputFormatConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
 		return v.S3OutputFormatConfig
@@ -12352,7 +12352,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Elem
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string {
 		if v == nil {
@@ -12362,7 +12362,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Buck
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string {
 		if v == nil {
@@ -12372,7 +12372,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Buck
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) S3OutputFormatConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
 		if v == nil {
@@ -12383,9 +12383,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) S3Ou
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig struct {
-	// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+	// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 	AggregationConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig `pulumi:"aggregationConfig"`
-	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+	// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 	FileType *string `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig `pulumi:"prefixConfig"`
@@ -12403,9 +12403,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs struct {
-	// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+	// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 	AggregationConfig FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+	// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 	FileType pulumi.StringPtrInput `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrInput `pulumi:"prefixConfig"`
@@ -12488,14 +12488,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput)
 }
 
-// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput) AggregationConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
 		return v.AggregationConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *string {
 		return v.FileType
@@ -12533,7 +12533,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput)
 }
 
-// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) AggregationConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
 		if v == nil {
@@ -12543,7 +12543,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *string {
 		if v == nil {
@@ -12564,7 +12564,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig struct {
-	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType *string `pulumi:"aggregationType"`
 }
 
@@ -12580,7 +12580,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs struct {
-	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
 }
 
@@ -12661,7 +12661,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *string {
 		return v.AggregationType
@@ -12692,7 +12692,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput)
 }
 
-// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *string {
 		if v == nil {
@@ -12863,11 +12863,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames []string `pulumi:"idFieldNames"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType *string `pulumi:"writeOperationType"`
@@ -12885,11 +12885,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput inte
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
@@ -12972,21 +12972,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) []string {
 		return v.IdFieldNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -13022,7 +13022,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		if v == nil {
@@ -13032,7 +13032,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) []string {
 		if v == nil {
@@ -13042,7 +13042,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *string {
 		if v == nil {
@@ -13063,11 +13063,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -13083,11 +13083,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandl
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -13168,21 +13168,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -13213,7 +13213,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *string {
 		if v == nil {
@@ -13223,7 +13223,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *string {
 		if v == nil {
@@ -13233,7 +13233,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *bool {
 		if v == nil {
@@ -13244,11 +13244,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames []string `pulumi:"idFieldNames"`
-	// The object path specified in the SAPOData flow source.
+	// Object path specified in the SAPOData flow source.
 	ObjectPath string `pulumi:"objectPath"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 	SuccessResponseHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
@@ -13268,11 +13268,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	// The object path specified in the SAPOData flow source.
+	// Object path specified in the SAPOData flow source.
 	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 	SuccessResponseHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
@@ -13357,21 +13357,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) T
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) []string {
 		return v.IdFieldNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// The object path specified in the SAPOData flow source.
+// Object path specified in the SAPOData flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) ObjectPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
@@ -13414,7 +13414,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
 		if v == nil {
@@ -13424,7 +13424,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) []string {
 		if v == nil {
@@ -13434,7 +13434,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// The object path specified in the SAPOData flow source.
+// Object path specified in the SAPOData flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) ObjectPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *string {
 		if v == nil {
@@ -13465,11 +13465,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -13485,11 +13485,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlin
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -13570,21 +13570,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -13615,7 +13615,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *string {
 		if v == nil {
@@ -13625,7 +13625,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *string {
 		if v == nil {
@@ -13635,7 +13635,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *bool {
 		if v == nil {
@@ -13646,9 +13646,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 }
 
@@ -13664,9 +13664,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRespo
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 }
 
@@ -13747,14 +13747,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) *string {
 		return v.BucketPrefix
@@ -13785,7 +13785,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) *string {
 		if v == nil {
@@ -13795,7 +13795,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) *string {
 		if v == nil {
@@ -13806,13 +13806,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake struct {
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -13828,13 +13828,13 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeInput inter
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs struct {
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -13915,28 +13915,28 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) 
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput)
 }
 
-// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) IntermediateBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) string {
 		return v.IntermediateBucketName
 	}).(pulumi.StringOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -13965,7 +13965,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		if v == nil {
@@ -13975,7 +13975,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
 		if v == nil {
@@ -13985,7 +13985,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput)
 }
 
-// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) IntermediateBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		if v == nil {
@@ -13995,7 +13995,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		if v == nil {
@@ -14006,11 +14006,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -14026,11 +14026,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandli
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -14111,21 +14111,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -14156,7 +14156,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *string {
 		if v == nil {
@@ -14166,7 +14166,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *string {
 		if v == nil {
@@ -14176,7 +14176,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *bool {
 		if v == nil {
@@ -14187,11 +14187,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+	// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -14207,11 +14207,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+	// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigInput `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -14292,17 +14292,17 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) T
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) S3OutputFormatConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
 		return v.S3OutputFormatConfig
@@ -14333,7 +14333,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string {
 		if v == nil {
@@ -14343,7 +14343,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string {
 		if v == nil {
@@ -14353,7 +14353,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) S3OutputFormatConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
 		if v == nil {
@@ -14364,9 +14364,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig struct {
-	// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+	// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 	AggregationConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig `pulumi:"aggregationConfig"`
-	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+	// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 	FileType *string `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig `pulumi:"prefixConfig"`
@@ -14384,9 +14384,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs struct {
-	// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+	// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 	AggregationConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+	// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 	FileType pulumi.StringPtrInput `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigInput `pulumi:"prefixConfig"`
@@ -14469,14 +14469,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput)
 }
 
-// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput) AggregationConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig {
 		return v.AggregationConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) *string {
 		return v.FileType
@@ -14514,7 +14514,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput)
 }
 
-// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput) AggregationConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig {
 		if v == nil {
@@ -14524,7 +14524,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) *string {
 		if v == nil {
@@ -14545,7 +14545,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig struct {
-	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType *string `pulumi:"aggregationType"`
 }
 
@@ -14561,7 +14561,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs struct {
-	// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
 }
 
@@ -14642,7 +14642,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig) *string {
 		return v.AggregationType
@@ -14673,7 +14673,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput)
 }
 
-// Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig) *string {
 		if v == nil {
@@ -14844,11 +14844,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames []string `pulumi:"idFieldNames"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType *string `pulumi:"writeOperationType"`
@@ -14866,11 +14866,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskInput interfa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 	// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
 	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
@@ -14953,19 +14953,19 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) To
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
 		return v.ErrorHandlingConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -15001,7 +15001,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
 		if v == nil {
@@ -15011,7 +15011,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput)
 }
 
-// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) []string {
 		if v == nil {
@@ -15021,7 +15021,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 	}).(pulumi.StringArrayOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *string {
 		if v == nil {
@@ -15042,11 +15042,11 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName *string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError *bool `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -15062,11 +15062,11 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandling
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+	// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 	FailOnFirstDestinationError pulumi.BoolPtrInput `pulumi:"failOnFirstDestinationError"`
 }
 
@@ -15147,21 +15147,21 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *bool {
 		return v.FailOnFirstDestinationError
@@ -15192,7 +15192,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *string {
 		if v == nil {
@@ -15202,7 +15202,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *string {
 		if v == nil {
@@ -15212,7 +15212,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) FailOnFirstDestinationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *bool {
 		if v == nil {
@@ -15223,15 +15223,15 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 }
 
 type FlowSourceFlowConfig struct {
-	// The API version that the destination connector uses.
+	// API version that the destination connector uses.
 	ApiVersion *string `pulumi:"apiVersion"`
-	// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+	// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
-	// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+	// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 	ConnectorType string `pulumi:"connectorType"`
 	// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
 	IncrementalPullConfig *FlowSourceFlowConfigIncrementalPullConfig `pulumi:"incrementalPullConfig"`
-	// Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+	// Information that is required to query a particular source connector. See Source Connector Properties for details.
 	SourceConnectorProperties FlowSourceFlowConfigSourceConnectorProperties `pulumi:"sourceConnectorProperties"`
 }
 
@@ -15247,15 +15247,15 @@ type FlowSourceFlowConfigInput interface {
 }
 
 type FlowSourceFlowConfigArgs struct {
-	// The API version that the destination connector uses.
+	// API version that the destination connector uses.
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
-	// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+	// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
-	// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+	// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
 	// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
 	IncrementalPullConfig FlowSourceFlowConfigIncrementalPullConfigPtrInput `pulumi:"incrementalPullConfig"`
-	// Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+	// Information that is required to query a particular source connector. See Source Connector Properties for details.
 	SourceConnectorProperties FlowSourceFlowConfigSourceConnectorPropertiesInput `pulumi:"sourceConnectorProperties"`
 }
 
@@ -15336,17 +15336,17 @@ func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigPtrOutputWithContext(c
 	}).(FlowSourceFlowConfigPtrOutput)
 }
 
-// The API version that the destination connector uses.
+// API version that the destination connector uses.
 func (o FlowSourceFlowConfigOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 func (o FlowSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 func (o FlowSourceFlowConfigOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
@@ -15358,7 +15358,7 @@ func (o FlowSourceFlowConfigOutput) IncrementalPullConfig() FlowSourceFlowConfig
 	}).(FlowSourceFlowConfigIncrementalPullConfigPtrOutput)
 }
 
-// Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+// Information that is required to query a particular source connector. See Source Connector Properties for details.
 func (o FlowSourceFlowConfigOutput) SourceConnectorProperties() FlowSourceFlowConfigSourceConnectorPropertiesOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) FlowSourceFlowConfigSourceConnectorProperties {
 		return v.SourceConnectorProperties
@@ -15389,7 +15389,7 @@ func (o FlowSourceFlowConfigPtrOutput) Elem() FlowSourceFlowConfigOutput {
 	}).(FlowSourceFlowConfigOutput)
 }
 
-// The API version that the destination connector uses.
+// API version that the destination connector uses.
 func (o FlowSourceFlowConfigPtrOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
 		if v == nil {
@@ -15399,7 +15399,7 @@ func (o FlowSourceFlowConfigPtrOutput) ApiVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
 func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
 		if v == nil {
@@ -15409,7 +15409,7 @@ func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
 func (o FlowSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
 		if v == nil {
@@ -15429,7 +15429,7 @@ func (o FlowSourceFlowConfigPtrOutput) IncrementalPullConfig() FlowSourceFlowCon
 	}).(FlowSourceFlowConfigIncrementalPullConfigPtrOutput)
 }
 
-// Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+// Information that is required to query a particular source connector. See Source Connector Properties for details.
 func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowSourceFlowConfigSourceConnectorProperties {
 		if v == nil {
@@ -15440,7 +15440,7 @@ func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceFlo
 }
 
 type FlowSourceFlowConfigIncrementalPullConfig struct {
-	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+	// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 	DatetimeTypeFieldName *string `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -15456,7 +15456,7 @@ type FlowSourceFlowConfigIncrementalPullConfigInput interface {
 }
 
 type FlowSourceFlowConfigIncrementalPullConfigArgs struct {
-	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+	// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 	DatetimeTypeFieldName pulumi.StringPtrInput `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -15537,7 +15537,7 @@ func (o FlowSourceFlowConfigIncrementalPullConfigOutput) ToFlowSourceFlowConfigI
 	}).(FlowSourceFlowConfigIncrementalPullConfigPtrOutput)
 }
 
-// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 func (o FlowSourceFlowConfigIncrementalPullConfigOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigIncrementalPullConfig) *string { return v.DatetimeTypeFieldName }).(pulumi.StringPtrOutput)
 }
@@ -15566,7 +15566,7 @@ func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) Elem() FlowSourceFlo
 	}).(FlowSourceFlowConfigIncrementalPullConfigOutput)
 }
 
-// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigIncrementalPullConfig) *string {
 		if v == nil {
@@ -15577,37 +15577,37 @@ func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) DatetimeTypeFieldNam
 }
 
 type FlowSourceFlowConfigSourceConnectorProperties struct {
-	// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+	// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 	Amplitude *FlowSourceFlowConfigSourceConnectorPropertiesAmplitude `pulumi:"amplitude"`
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector *FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector `pulumi:"customConnector"`
-	// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Datadog *FlowSourceFlowConfigSourceConnectorPropertiesDatadog `pulumi:"datadog"`
-	// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Dynatrace *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace `pulumi:"dynatrace"`
-	// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics `pulumi:"googleAnalytics"`
-	// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	InforNexus *FlowSourceFlowConfigSourceConnectorPropertiesInforNexus `pulumi:"inforNexus"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo *FlowSourceFlowConfigSourceConnectorPropertiesMarketo `pulumi:"marketo"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 *FlowSourceFlowConfigSourceConnectorPropertiesS3 `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData *FlowSourceFlowConfigSourceConnectorPropertiesSapoData `pulumi:"sapoData"`
-	// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	ServiceNow *FlowSourceFlowConfigSourceConnectorPropertiesServiceNow `pulumi:"serviceNow"`
-	// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Singular *FlowSourceFlowConfigSourceConnectorPropertiesSingular `pulumi:"singular"`
-	// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Slack *FlowSourceFlowConfigSourceConnectorPropertiesSlack `pulumi:"slack"`
-	// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro `pulumi:"trendmicro"`
-	// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Veeva *FlowSourceFlowConfigSourceConnectorPropertiesVeeva `pulumi:"veeva"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk *FlowSourceFlowConfigSourceConnectorPropertiesZendesk `pulumi:"zendesk"`
 }
 
@@ -15623,37 +15623,37 @@ type FlowSourceFlowConfigSourceConnectorPropertiesInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesArgs struct {
-	// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+	// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 	Amplitude FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrInput `pulumi:"amplitude"`
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrInput `pulumi:"customConnector"`
-	// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Datadog FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput `pulumi:"datadog"`
-	// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Dynatrace FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput `pulumi:"dynatrace"`
-	// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrInput `pulumi:"googleAnalytics"`
-	// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	InforNexus FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrInput `pulumi:"inforNexus"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrInput `pulumi:"marketo"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 FlowSourceFlowConfigSourceConnectorPropertiesS3PtrInput `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrInput `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrInput `pulumi:"sapoData"`
-	// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	ServiceNow FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrInput `pulumi:"serviceNow"`
-	// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Singular FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrInput `pulumi:"singular"`
-	// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Slack FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput `pulumi:"slack"`
-	// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrInput `pulumi:"trendmicro"`
-	// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Veeva FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrInput `pulumi:"veeva"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrInput `pulumi:"zendesk"`
 }
 
@@ -15734,7 +15734,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) ToFlowSourceFlowCon
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput)
 }
 
-// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Amplitude() FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
 		return v.Amplitude
@@ -15748,98 +15748,98 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) CustomConnector() F
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Datadog() FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
 		return v.Datadog
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
-// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Dynatrace() FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
 		return v.Dynatrace
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
-// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) GoogleAnalytics() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
 		return v.GoogleAnalytics
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput)
 }
 
-// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) InforNexus() FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
 		return v.InforNexus
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput)
 }
 
-// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Marketo() FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
 		return v.Marketo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput)
 }
 
-// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) S3() FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 		return v.S3
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput)
 }
 
-// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Salesforce() FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
 		return v.Salesforce
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
-// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) SapoData() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
 		return v.SapoData
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) ServiceNow() FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
 		return v.ServiceNow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput)
 }
 
-// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Singular() FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSingular {
 		return v.Singular
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput)
 }
 
-// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Slack() FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSlack {
 		return v.Slack
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
-// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Trendmicro() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
 		return v.Trendmicro
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput)
 }
 
-// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Veeva() FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
 		return v.Veeva
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
 }
 
-// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Zendesk() FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
 		return v.Zendesk
@@ -15870,7 +15870,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Elem() FlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesOutput)
 }
 
-// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Amplitude() FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
 		if v == nil {
@@ -15890,7 +15890,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) CustomConnector(
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Datadog() FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
 		if v == nil {
@@ -15900,7 +15900,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Datadog() FlowSo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
-// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Dynatrace() FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
 		if v == nil {
@@ -15910,7 +15910,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Dynatrace() Flow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
-// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
 		if v == nil {
@@ -15920,7 +15920,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) GoogleAnalytics(
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput)
 }
 
-// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) InforNexus() FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
 		if v == nil {
@@ -15930,7 +15930,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) InforNexus() Flo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput)
 }
 
-// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Marketo() FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
 		if v == nil {
@@ -15940,7 +15940,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Marketo() FlowSo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput)
 }
 
-// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) S3() FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 		if v == nil {
@@ -15950,7 +15950,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) S3() FlowSourceF
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput)
 }
 
-// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Salesforce() FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
 		if v == nil {
@@ -15960,7 +15960,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Salesforce() Flo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
-// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) SapoData() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
 		if v == nil {
@@ -15970,7 +15970,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) SapoData() FlowS
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) ServiceNow() FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
 		if v == nil {
@@ -15980,7 +15980,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) ServiceNow() Flo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput)
 }
 
-// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Singular() FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSingular {
 		if v == nil {
@@ -15990,7 +15990,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Singular() FlowS
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput)
 }
 
-// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Slack() FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesSlack {
 		if v == nil {
@@ -16000,7 +16000,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Slack() FlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
-// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Trendmicro() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
 		if v == nil {
@@ -16010,7 +16010,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Trendmicro() Flo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput)
 }
 
-// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Veeva() FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
 		if v == nil {
@@ -16020,7 +16020,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Veeva() FlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
 }
 
-// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Zendesk() FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
 		if v == nil {
@@ -16031,7 +16031,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Zendesk() FlowSo
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesAmplitude struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16047,7 +16047,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16128,7 +16128,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) ToFlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesAmplitude) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -16157,7 +16157,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) Elem() 
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesAmplitude) *string {
 		if v == nil {
@@ -16168,9 +16168,9 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) Object(
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector struct {
-	// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+	// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 	CustomProperties map[string]string `pulumi:"customProperties"`
-	// The entity specified in the custom connector as a source in the flow.
+	// Entity specified in the custom connector as a source in the flow.
 	EntityName string `pulumi:"entityName"`
 }
 
@@ -16186,9 +16186,9 @@ type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorInput interface
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs struct {
-	// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+	// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
-	// The entity specified in the custom connector as a source in the flow.
+	// Entity specified in the custom connector as a source in the flow.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
 }
 
@@ -16269,14 +16269,14 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) ToFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) map[string]string {
 		return v.CustomProperties
 	}).(pulumi.StringMapOutput)
 }
 
-// The entity specified in the custom connector as a source in the flow.
+// Entity specified in the custom connector as a source in the flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) string { return v.EntityName }).(pulumi.StringOutput)
 }
@@ -16305,7 +16305,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) E
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput)
 }
 
-// The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) map[string]string {
 		if v == nil {
@@ -16315,7 +16315,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) C
 	}).(pulumi.StringMapOutput)
 }
 
-// The entity specified in the custom connector as a source in the flow.
+// Entity specified in the custom connector as a source in the flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) EntityName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) *string {
 		if v == nil {
@@ -16326,7 +16326,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) E
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesDatadog struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16342,7 +16342,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesDatadogInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16423,7 +16423,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesDatadog) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -16452,7 +16452,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) Elem() Fl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesDatadog) *string {
 		if v == nil {
@@ -16463,7 +16463,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) Object() 
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesDynatrace struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16479,7 +16479,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesDynatraceInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16560,7 +16560,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) ToFlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesDynatrace) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -16589,7 +16589,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) Elem() 
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace) *string {
 		if v == nil {
@@ -16600,7 +16600,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) Object(
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16616,7 +16616,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsInput interface
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16697,7 +16697,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) ToFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -16726,7 +16726,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) E
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics) *string {
 		if v == nil {
@@ -16737,7 +16737,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) O
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesInforNexus struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16753,7 +16753,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesInforNexusInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16834,7 +16834,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesInforNexus) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -16863,7 +16863,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesInforNexus) *string {
 		if v == nil {
@@ -16874,7 +16874,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesMarketo struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -16890,7 +16890,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesMarketoInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -16971,7 +16971,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesMarketo) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -17000,7 +17000,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Elem() Fl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesMarketo) *string {
 		if v == nil {
@@ -17011,9 +17011,9 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Object() 
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName string `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig `pulumi:"s3InputFormatConfig"`
@@ -17031,9 +17031,9 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3Input interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3Args struct {
-	// The Amazon S3 bucket name where the source files are stored.
+	// Amazon S3 bucket name where the source files are stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key for the Amazon S3 bucket in which the source files are stored.
+	// Object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput `pulumi:"s3InputFormatConfig"`
@@ -17116,12 +17116,12 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) ToFlowSourceFlowC
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -17157,7 +17157,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) Elem() FlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3Output)
 }
 
-// The Amazon S3 bucket name where the source files are stored.
+// Amazon S3 bucket name where the source files are stored.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3) *string {
 		if v == nil {
@@ -17167,7 +17167,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the Amazon S3 bucket in which the source files are stored.
+// Object key for the Amazon S3 bucket in which the source files are stored.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3) *string {
 		if v == nil {
@@ -17188,7 +17188,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) S3InputFormatC
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig struct {
-	// The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+	// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
 	S3InputFileType *string `pulumi:"s3InputFileType"`
 }
 
@@ -17204,7 +17204,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigInput int
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs struct {
-	// The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+	// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
 	S3InputFileType pulumi.StringPtrInput `pulumi:"s3InputFileType"`
 }
 
@@ -17285,7 +17285,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput)
 }
 
-// The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput) S3InputFileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig) *string {
 		return v.S3InputFileType
@@ -17316,7 +17316,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput)
 }
 
-// The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput) S3InputFileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig) *string {
 		if v == nil {
@@ -17327,11 +17327,11 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforce struct {
-	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
-	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+	// Whether Amazon AppFlow includes deleted files in the flow run.
 	IncludeDeletedRecords *bool `pulumi:"includeDeletedRecords"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -17347,11 +17347,11 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs struct {
-	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+	// Whether Amazon AppFlow includes deleted files in the flow run.
 	IncludeDeletedRecords pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -17432,19 +17432,19 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
-// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		return v.EnableDynamicFieldUpdate
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+// Whether Amazon AppFlow includes deleted files in the flow run.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool { return v.IncludeDeletedRecords }).(pulumi.BoolPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -17473,7 +17473,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput)
 }
 
-// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		if v == nil {
@@ -17483,7 +17483,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Enable
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+// Whether Amazon AppFlow includes deleted files in the flow run.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		if v == nil {
@@ -17493,7 +17493,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Includ
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *string {
 		if v == nil {
@@ -17504,7 +17504,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoData struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -17520,7 +17520,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -17601,7 +17601,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ToFlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -17630,7 +17630,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Elem() F
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *string {
 		if v == nil {
@@ -17641,7 +17641,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Object()
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNow struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -17657,7 +17657,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesServiceNowInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -17738,7 +17738,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesServiceNow) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -17767,7 +17767,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesServiceNow) *string {
 		if v == nil {
@@ -17778,7 +17778,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSingular struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -17794,7 +17794,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSingularInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -17875,7 +17875,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) ToFlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSingular) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -17904,7 +17904,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) Elem() F
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSingular) *string {
 		if v == nil {
@@ -17915,7 +17915,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) Object()
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSlack struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -17931,7 +17931,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSlackInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -18012,7 +18012,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) ToFlowSourceFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSlack) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -18041,7 +18041,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) Elem() Flow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSlack) *string {
 		if v == nil {
@@ -18052,7 +18052,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) Object() pu
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -18068,7 +18068,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -18149,7 +18149,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -18178,7 +18178,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro) *string {
 		if v == nil {
@@ -18189,7 +18189,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesVeeva struct {
-	// The document type specified in the Veeva document extract flow.
+	// Document type specified in the Veeva document extract flow.
 	DocumentType *string `pulumi:"documentType"`
 	// Boolean value to include All Versions of files in Veeva document extract flow.
 	IncludeAllVersions *bool `pulumi:"includeAllVersions"`
@@ -18197,7 +18197,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesVeeva struct {
 	IncludeRenditions *bool `pulumi:"includeRenditions"`
 	// Boolean value to include source files in Veeva document extract flow.
 	IncludeSourceFiles *bool `pulumi:"includeSourceFiles"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -18213,7 +18213,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs struct {
-	// The document type specified in the Veeva document extract flow.
+	// Document type specified in the Veeva document extract flow.
 	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
 	// Boolean value to include All Versions of files in Veeva document extract flow.
 	IncludeAllVersions pulumi.BoolPtrInput `pulumi:"includeAllVersions"`
@@ -18221,7 +18221,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs struct {
 	IncludeRenditions pulumi.BoolPtrInput `pulumi:"includeRenditions"`
 	// Boolean value to include source files in Veeva document extract flow.
 	IncludeSourceFiles pulumi.BoolPtrInput `pulumi:"includeSourceFiles"`
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -18302,7 +18302,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) ToFlowSourceFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
 }
 
-// The document type specified in the Veeva document extract flow.
+// Document type specified in the Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
@@ -18322,7 +18322,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) IncludeSourceF
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool { return v.IncludeSourceFiles }).(pulumi.BoolPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -18351,7 +18351,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) Elem() Flow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput)
 }
 
-// The document type specified in the Veeva document extract flow.
+// Document type specified in the Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *string {
 		if v == nil {
@@ -18391,7 +18391,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeSour
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *string {
 		if v == nil {
@@ -18402,7 +18402,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) Object() pu
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesZendesk struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -18418,7 +18418,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesZendeskInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs struct {
-	// The object specified in the Veeva flow source.
+	// Object specified in the Veeva flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -18499,7 +18499,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesZendesk) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -18528,7 +18528,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) Elem() Fl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput)
 }
 
-// The object specified in the Veeva flow source.
+// Object specified in the Veeva flow source.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesZendesk) *string {
 		if v == nil {
@@ -18539,15 +18539,15 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) Object() 
 }
 
 type FlowTask struct {
-	// The operation to be performed on the provided source fields. See Connector Operator for details.
+	// Operation to be performed on the provided source fields. See Connector Operator for details.
 	ConnectorOperators []FlowTaskConnectorOperator `pulumi:"connectorOperators"`
-	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
 	DestinationField *string `pulumi:"destinationField"`
-	// The source fields to which a particular task is applied.
+	// Source fields to which a particular task is applied.
 	SourceFields []string `pulumi:"sourceFields"`
-	// A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+	// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
 	TaskProperties map[string]string `pulumi:"taskProperties"`
-	// Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+	// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -18563,15 +18563,15 @@ type FlowTaskInput interface {
 }
 
 type FlowTaskArgs struct {
-	// The operation to be performed on the provided source fields. See Connector Operator for details.
+	// Operation to be performed on the provided source fields. See Connector Operator for details.
 	ConnectorOperators FlowTaskConnectorOperatorArrayInput `pulumi:"connectorOperators"`
-	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
 	DestinationField pulumi.StringPtrInput `pulumi:"destinationField"`
-	// The source fields to which a particular task is applied.
+	// Source fields to which a particular task is applied.
 	SourceFields pulumi.StringArrayInput `pulumi:"sourceFields"`
-	// A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+	// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
 	TaskProperties pulumi.StringMapInput `pulumi:"taskProperties"`
-	// Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+	// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -18626,27 +18626,27 @@ func (o FlowTaskOutput) ToFlowTaskOutputWithContext(ctx context.Context) FlowTas
 	return o
 }
 
-// The operation to be performed on the provided source fields. See Connector Operator for details.
+// Operation to be performed on the provided source fields. See Connector Operator for details.
 func (o FlowTaskOutput) ConnectorOperators() FlowTaskConnectorOperatorArrayOutput {
 	return o.ApplyT(func(v FlowTask) []FlowTaskConnectorOperator { return v.ConnectorOperators }).(FlowTaskConnectorOperatorArrayOutput)
 }
 
-// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
 func (o FlowTaskOutput) DestinationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTask) *string { return v.DestinationField }).(pulumi.StringPtrOutput)
 }
 
-// The source fields to which a particular task is applied.
+// Source fields to which a particular task is applied.
 func (o FlowTaskOutput) SourceFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowTask) []string { return v.SourceFields }).(pulumi.StringArrayOutput)
 }
 
-// A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
 func (o FlowTaskOutput) TaskProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FlowTask) map[string]string { return v.TaskProperties }).(pulumi.StringMapOutput)
 }
 
-// Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
 func (o FlowTaskOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTask) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -18672,37 +18672,37 @@ func (o FlowTaskArrayOutput) Index(i pulumi.IntInput) FlowTaskOutput {
 }
 
 type FlowTaskConnectorOperator struct {
-	// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+	// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 	Amplitude *string `pulumi:"amplitude"`
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector *string `pulumi:"customConnector"`
-	// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Datadog *string `pulumi:"datadog"`
-	// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Dynatrace *string `pulumi:"dynatrace"`
-	// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics *string `pulumi:"googleAnalytics"`
-	// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	InforNexus *string `pulumi:"inforNexus"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo *string `pulumi:"marketo"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 *string `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce *string `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData *string `pulumi:"sapoData"`
-	// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	ServiceNow *string `pulumi:"serviceNow"`
-	// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Singular *string `pulumi:"singular"`
-	// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Slack *string `pulumi:"slack"`
-	// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro *string `pulumi:"trendmicro"`
-	// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Veeva *string `pulumi:"veeva"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk *string `pulumi:"zendesk"`
 }
 
@@ -18718,37 +18718,37 @@ type FlowTaskConnectorOperatorInput interface {
 }
 
 type FlowTaskConnectorOperatorArgs struct {
-	// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+	// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 	Amplitude pulumi.StringPtrInput `pulumi:"amplitude"`
 	// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	CustomConnector pulumi.StringPtrInput `pulumi:"customConnector"`
-	// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Datadog pulumi.StringPtrInput `pulumi:"datadog"`
-	// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Dynatrace pulumi.StringPtrInput `pulumi:"dynatrace"`
-	// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics pulumi.StringPtrInput `pulumi:"googleAnalytics"`
-	// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	InforNexus pulumi.StringPtrInput `pulumi:"inforNexus"`
-	// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Marketo pulumi.StringPtrInput `pulumi:"marketo"`
-	// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	S3 pulumi.StringPtrInput `pulumi:"s3"`
-	// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Salesforce pulumi.StringPtrInput `pulumi:"salesforce"`
-	// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	SapoData pulumi.StringPtrInput `pulumi:"sapoData"`
-	// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	ServiceNow pulumi.StringPtrInput `pulumi:"serviceNow"`
-	// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Singular pulumi.StringPtrInput `pulumi:"singular"`
-	// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Slack pulumi.StringPtrInput `pulumi:"slack"`
-	// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro pulumi.StringPtrInput `pulumi:"trendmicro"`
-	// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Veeva pulumi.StringPtrInput `pulumi:"veeva"`
-	// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Zendesk pulumi.StringPtrInput `pulumi:"zendesk"`
 }
 
@@ -18803,7 +18803,7 @@ func (o FlowTaskConnectorOperatorOutput) ToFlowTaskConnectorOperatorOutputWithCo
 	return o
 }
 
-// The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
 func (o FlowTaskConnectorOperatorOutput) Amplitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Amplitude }).(pulumi.StringPtrOutput)
 }
@@ -18813,72 +18813,72 @@ func (o FlowTaskConnectorOperatorOutput) CustomConnector() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.CustomConnector }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Datadog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Datadog }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Dynatrace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Dynatrace }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 func (o FlowTaskConnectorOperatorOutput) GoogleAnalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.GoogleAnalytics }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) InforNexus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.InforNexus }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Marketo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Marketo }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.S3 }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Salesforce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Salesforce }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) SapoData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.SapoData }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) ServiceNow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.ServiceNow }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Singular() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Singular }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Slack() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Slack }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Trendmicro() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Trendmicro }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Veeva() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Veeva }).(pulumi.StringPtrOutput)
 }
 
-// The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowTaskConnectorOperatorOutput) Zendesk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTaskConnectorOperator) *string { return v.Zendesk }).(pulumi.StringPtrOutput)
 }
@@ -18904,9 +18904,9 @@ func (o FlowTaskConnectorOperatorArrayOutput) Index(i pulumi.IntInput) FlowTaskC
 }
 
 type FlowTriggerConfig struct {
-	// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+	// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
 	TriggerProperties *FlowTriggerConfigTriggerProperties `pulumi:"triggerProperties"`
-	// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+	// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
 	TriggerType string `pulumi:"triggerType"`
 }
 
@@ -18922,9 +18922,9 @@ type FlowTriggerConfigInput interface {
 }
 
 type FlowTriggerConfigArgs struct {
-	// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+	// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
 	TriggerProperties FlowTriggerConfigTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
-	// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+	// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
 	TriggerType pulumi.StringInput `pulumi:"triggerType"`
 }
 
@@ -19005,12 +19005,12 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx con
 	}).(FlowTriggerConfigPtrOutput)
 }
 
-// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
 func (o FlowTriggerConfigOutput) TriggerProperties() FlowTriggerConfigTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) *FlowTriggerConfigTriggerProperties { return v.TriggerProperties }).(FlowTriggerConfigTriggerPropertiesPtrOutput)
 }
 
-// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
 func (o FlowTriggerConfigOutput) TriggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) string { return v.TriggerType }).(pulumi.StringOutput)
 }
@@ -19039,7 +19039,7 @@ func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
 	}).(FlowTriggerConfigOutput)
 }
 
-// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
 func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowTriggerConfigTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfig) *FlowTriggerConfigTriggerProperties {
 		if v == nil {
@@ -19049,7 +19049,7 @@ func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowTriggerConfigTrigger
 	}).(FlowTriggerConfigTriggerPropertiesPtrOutput)
 }
 
-// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
 func (o FlowTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfig) *string {
 		if v == nil {
@@ -19195,19 +19195,19 @@ func (o FlowTriggerConfigTriggerPropertiesPtrOutput) Scheduled() FlowTriggerConf
 }
 
 type FlowTriggerConfigTriggerPropertiesScheduled struct {
-	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+	// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
 	DataPullMode *string `pulumi:"dataPullMode"`
-	// Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+	// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
 	FirstExecutionFrom *string `pulumi:"firstExecutionFrom"`
-	// Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+	// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleEndTime *string `pulumi:"scheduleEndTime"`
-	// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+	// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
-	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+	// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
-	// Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+	// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleStartTime *string `pulumi:"scheduleStartTime"`
-	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+	// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -19223,19 +19223,19 @@ type FlowTriggerConfigTriggerPropertiesScheduledInput interface {
 }
 
 type FlowTriggerConfigTriggerPropertiesScheduledArgs struct {
-	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+	// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
 	DataPullMode pulumi.StringPtrInput `pulumi:"dataPullMode"`
-	// Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+	// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
 	FirstExecutionFrom pulumi.StringPtrInput `pulumi:"firstExecutionFrom"`
-	// Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+	// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleEndTime pulumi.StringPtrInput `pulumi:"scheduleEndTime"`
-	// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+	// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+	// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
 	ScheduleOffset pulumi.IntPtrInput `pulumi:"scheduleOffset"`
-	// Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+	// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleStartTime pulumi.StringPtrInput `pulumi:"scheduleStartTime"`
-	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+	// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -19316,37 +19316,37 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ToFlowTriggerConfigTr
 	}).(FlowTriggerConfigTriggerPropertiesScheduledPtrOutput)
 }
 
-// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.DataPullMode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) FirstExecutionFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.FirstExecutionFrom }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.ScheduleEndTime }).(pulumi.StringPtrOutput)
 }
 
-// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
-// Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.ScheduleStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -19375,7 +19375,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) Elem() FlowTrigger
 	}).(FlowTriggerConfigTriggerPropertiesScheduledOutput)
 }
 
-// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {
@@ -19385,7 +19385,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) DataPullMode() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) FirstExecutionFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {
@@ -19395,7 +19395,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) FirstExecutionFrom
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {
@@ -19405,7 +19405,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleEndTime() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {
@@ -19415,7 +19415,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleExpression
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *int {
 		if v == nil {
@@ -19425,7 +19425,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleOffset() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {
@@ -19435,7 +19435,7 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleStartTime(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {

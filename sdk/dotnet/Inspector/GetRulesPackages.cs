@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Inspector
     public sealed class GetRulesPackagesResult
     {
         /// <summary>
-        /// A list of the AWS Inspector Rules Packages arns available in the AWS region.
+        /// List of the AWS Inspector Rules Packages arns available in the AWS region.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>

@@ -28,7 +28,7 @@ export interface GetAssetArgs {
      */
     arn: string;
     /**
-     * The ID of the asset.
+     * ID of the asset.
      */
     assetId: string;
 }
@@ -40,11 +40,11 @@ export interface GetAssetResult {
     readonly arn: string;
     readonly assetId: string;
     /**
-     * The type of the asset.
+     * Type of the asset.
      */
     readonly assetType: string;
     /**
-     * The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+     * Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      */
     readonly hostId: string;
     /**
@@ -52,11 +52,11 @@ export interface GetAssetResult {
      */
     readonly id: string;
     /**
-     * The position of an asset in a rack measured in rack units.
+     * Position of an asset in a rack measured in rack units.
      */
     readonly rackElevation: number;
     /**
-     * The rack ID of the asset.
+     * Rack ID of the asset.
      */
     readonly rackId: string;
 }
@@ -74,7 +74,7 @@ export interface GetAssetOutputArgs {
      */
     arn: pulumi.Input<string>;
     /**
-     * The ID of the asset.
+     * ID of the asset.
      */
     assetId: pulumi.Input<string>;
 }

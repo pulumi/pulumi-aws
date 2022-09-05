@@ -34,7 +34,7 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetSubnetGroupArgs {
     /**
-     * The name of the RDS database subnet group.
+     * Name of the RDS database subnet group.
      */
     name: string;
 }
@@ -44,7 +44,7 @@ export interface GetSubnetGroupArgs {
  */
 export interface GetSubnetGroupResult {
     /**
-     * The Amazon Resource Name (ARN) for the DB subnet group.
+     * ARN for the DB subnet group.
      */
     readonly arn: string;
     /**
@@ -83,7 +83,7 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
  */
 export interface GetSubnetGroupOutputArgs {
     /**
-     * The name of the RDS database subnet group.
+     * Name of the RDS database subnet group.
      */
     name: pulumi.Input<string>;
 }

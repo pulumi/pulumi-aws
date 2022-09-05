@@ -2103,9 +2103,9 @@ func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSele
 type GetFrameworkControl struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters []GetFrameworkControlInputParameter `pulumi:"inputParameters"`
-	// The backup framework name.
+	// Backup framework name.
 	Name string `pulumi:"name"`
-	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scopes []GetFrameworkControlScope `pulumi:"scopes"`
 }
 
@@ -2123,9 +2123,9 @@ type GetFrameworkControlInput interface {
 type GetFrameworkControlArgs struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters GetFrameworkControlInputParameterArrayInput `pulumi:"inputParameters"`
-	// The backup framework name.
+	// Backup framework name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+	// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scopes GetFrameworkControlScopeArrayInput `pulumi:"scopes"`
 }
 
@@ -2185,12 +2185,12 @@ func (o GetFrameworkControlOutput) InputParameters() GetFrameworkControlInputPar
 	return o.ApplyT(func(v GetFrameworkControl) []GetFrameworkControlInputParameter { return v.InputParameters }).(GetFrameworkControlInputParameterArrayOutput)
 }
 
-// The backup framework name.
+// Backup framework name.
 func (o GetFrameworkControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControl) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 func (o GetFrameworkControlOutput) Scopes() GetFrameworkControlScopeArrayOutput {
 	return o.ApplyT(func(v GetFrameworkControl) []GetFrameworkControlScope { return v.Scopes }).(GetFrameworkControlScopeArrayOutput)
 }
@@ -2216,9 +2216,9 @@ func (o GetFrameworkControlArrayOutput) Index(i pulumi.IntInput) GetFrameworkCon
 }
 
 type GetFrameworkControlInputParameter struct {
-	// The backup framework name.
+	// Backup framework name.
 	Name string `pulumi:"name"`
-	// The value of parameter, for example, hourly.
+	// Value of parameter, for example, hourly.
 	Value string `pulumi:"value"`
 }
 
@@ -2234,9 +2234,9 @@ type GetFrameworkControlInputParameterInput interface {
 }
 
 type GetFrameworkControlInputParameterArgs struct {
-	// The backup framework name.
+	// Backup framework name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of parameter, for example, hourly.
+	// Value of parameter, for example, hourly.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2291,12 +2291,12 @@ func (o GetFrameworkControlInputParameterOutput) ToGetFrameworkControlInputParam
 	return o
 }
 
-// The backup framework name.
+// Backup framework name.
 func (o GetFrameworkControlInputParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of parameter, for example, hourly.
+// Value of parameter, for example, hourly.
 func (o GetFrameworkControlInputParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlInputParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2326,7 +2326,7 @@ type GetFrameworkControlScope struct {
 	ComplianceResourceIds []string `pulumi:"complianceResourceIds"`
 	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -2346,7 +2346,7 @@ type GetFrameworkControlScopeArgs struct {
 	ComplianceResourceIds pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
 	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -2411,7 +2411,7 @@ func (o GetFrameworkControlScopeOutput) ComplianceResourceTypes() pulumi.StringA
 	return o.ApplyT(func(v GetFrameworkControlScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 func (o GetFrameworkControlScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFrameworkControlScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -2437,11 +2437,11 @@ func (o GetFrameworkControlScopeArrayOutput) Index(i pulumi.IntInput) GetFramewo
 }
 
 type GetReportPlanReportDeliveryChannel struct {
-	// A list of the format of your reports: CSV, JSON, or both.
+	// List of the format of your reports: CSV, JSON, or both.
 	Formats []string `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
+	// Unique name of the S3 bucket that receives your reports.
 	S3BucketName string `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 }
 
@@ -2457,11 +2457,11 @@ type GetReportPlanReportDeliveryChannelInput interface {
 }
 
 type GetReportPlanReportDeliveryChannelArgs struct {
-	// A list of the format of your reports: CSV, JSON, or both.
+	// List of the format of your reports: CSV, JSON, or both.
 	Formats pulumi.StringArrayInput `pulumi:"formats"`
-	// The unique name of the S3 bucket that receives your reports.
+	// Unique name of the S3 bucket that receives your reports.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+	// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
 	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -2516,17 +2516,17 @@ func (o GetReportPlanReportDeliveryChannelOutput) ToGetReportPlanReportDeliveryC
 	return o
 }
 
-// A list of the format of your reports: CSV, JSON, or both.
+// List of the format of your reports: CSV, JSON, or both.
 func (o GetReportPlanReportDeliveryChannelOutput) Formats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) []string { return v.Formats }).(pulumi.StringArrayOutput)
 }
 
-// The unique name of the S3 bucket that receives your reports.
+// Unique name of the S3 bucket that receives your reports.
 func (o GetReportPlanReportDeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
 func (o GetReportPlanReportDeliveryChannelOutput) S3KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReportPlanReportDeliveryChannel) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
 }
@@ -2552,7 +2552,7 @@ func (o GetReportPlanReportDeliveryChannelArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetReportPlanReportSetting struct {
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// ARNs of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
 	// Specifies the number of frameworks a report covers.
 	NumberOfFrameworks int `pulumi:"numberOfFrameworks"`
@@ -2572,7 +2572,7 @@ type GetReportPlanReportSettingInput interface {
 }
 
 type GetReportPlanReportSettingArgs struct {
-	// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// ARNs of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
 	// Specifies the number of frameworks a report covers.
 	NumberOfFrameworks pulumi.IntInput `pulumi:"numberOfFrameworks"`
@@ -2631,7 +2631,7 @@ func (o GetReportPlanReportSettingOutput) ToGetReportPlanReportSettingOutputWith
 	return o
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+// ARNs of the frameworks a report covers.
 func (o GetReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }

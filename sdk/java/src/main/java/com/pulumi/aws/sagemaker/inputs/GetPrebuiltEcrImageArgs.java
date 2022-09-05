@@ -16,14 +16,14 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
     public static final GetPrebuiltEcrImageArgs Empty = new GetPrebuiltEcrImageArgs();
 
     /**
-     * The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+     * DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
      * 
      */
     @Import(name="dnsSuffix")
     private @Nullable Output<String> dnsSuffix;
 
     /**
-     * @return The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+     * @return DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
      * 
      */
     public Optional<Output<String>> dnsSuffix() {
@@ -31,14 +31,14 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+     * Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
      * 
      */
     @Import(name="imageTag")
     private @Nullable Output<String> imageTag;
 
     /**
-     * @return The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+     * @return Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
      * 
      */
     public Optional<Output<String>> imageTag() {
@@ -46,14 +46,14 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * @return Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
      * 
      */
     public Optional<Output<String>> region() {
@@ -61,14 +61,14 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+     * Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
      * 
      */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
     /**
-     * @return The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+     * @return Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
      * 
      */
     public Output<String> repositoryName() {
@@ -103,7 +103,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param dnsSuffix The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+         * @param dnsSuffix DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param dnsSuffix The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+         * @param dnsSuffix DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param imageTag The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+         * @param imageTag Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param imageTag The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+         * @param imageTag Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param region The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+         * @param region Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param region The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+         * @param region Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param repositoryName The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+         * @param repositoryName Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetPrebuiltEcrImageArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param repositoryName The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+         * @param repositoryName Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
          * 
          * @return builder
          * 

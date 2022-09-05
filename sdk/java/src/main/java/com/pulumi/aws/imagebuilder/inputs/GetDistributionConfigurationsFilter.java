@@ -14,14 +14,14 @@ public final class GetDistributionConfigurationsFilter extends com.pulumi.resour
     public static final GetDistributionConfigurationsFilter Empty = new GetDistributionConfigurationsFilter();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+     * Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetDistributionConfigurationsFilter extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
          * 
          * @return builder
          * 

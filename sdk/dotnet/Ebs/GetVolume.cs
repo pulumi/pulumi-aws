@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ebs
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -194,11 +194,11 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The AZ where the EBS volume exists.
+        /// AZ where the EBS volume exists.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
@@ -211,11 +211,11 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The amount of IOPS for the disk.
+        /// Amount of IOPS for the disk.
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// The ARN for the KMS encryption key.
+        /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
@@ -224,31 +224,31 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly bool MultiAttachEnabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// The size of the drive in GiBs.
+        /// Size of the drive in GiBs.
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// The snapshot_id the EBS volume is based off.
+        /// Snapshot_id the EBS volume is based off.
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The throughput that the volume supports, in MiB/s.
+        /// Throughput that the volume supports, in MiB/s.
         /// </summary>
         public readonly int Throughput;
         /// <summary>
-        /// The volume ID (e.g., vol-59fcb34e).
+        /// Volume ID (e.g., vol-59fcb34e).
         /// </summary>
         public readonly string VolumeId;
         /// <summary>
-        /// The type of EBS volume.
+        /// Type of EBS volume.
         /// </summary>
         public readonly string VolumeType;
 

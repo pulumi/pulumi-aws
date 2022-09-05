@@ -185,6 +185,7 @@ class _NamespaceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         :param pulumi.Input[str] namespace_id: The Redshift Namespace ID.
         :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
@@ -343,6 +344,9 @@ class _NamespaceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -508,6 +512,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         :param pulumi.Input[str] namespace_id: The Redshift Namespace ID.
         :param pulumi.Input[str] namespace_name: The name of the namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -615,5 +620,8 @@ class Namespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

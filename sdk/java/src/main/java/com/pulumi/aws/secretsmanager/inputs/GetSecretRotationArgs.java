@@ -14,14 +14,14 @@ public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs
     public static final GetSecretRotationArgs Empty = new GetSecretRotationArgs();
 
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
     /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     public Output<String> secretId() {
@@ -53,7 +53,7 @@ public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetSecretRotationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 

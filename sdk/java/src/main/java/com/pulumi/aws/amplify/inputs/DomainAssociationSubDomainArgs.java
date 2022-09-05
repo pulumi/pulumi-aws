@@ -17,14 +17,14 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
     public static final DomainAssociationSubDomainArgs Empty = new DomainAssociationSubDomainArgs();
 
     /**
-     * The branch name setting for the subdomain.
+     * Branch name setting for the subdomain.
      * 
      */
     @Import(name="branchName", required=true)
     private Output<String> branchName;
 
     /**
-     * @return The branch name setting for the subdomain.
+     * @return Branch name setting for the subdomain.
      * 
      */
     public Output<String> branchName() {
@@ -32,14 +32,14 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The DNS record for the subdomain.
+     * DNS record for the subdomain.
      * 
      */
     @Import(name="dnsRecord")
     private @Nullable Output<String> dnsRecord;
 
     /**
-     * @return The DNS record for the subdomain.
+     * @return DNS record for the subdomain.
      * 
      */
     public Optional<Output<String>> dnsRecord() {
@@ -47,14 +47,14 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The prefix setting for the subdomain.
+     * Prefix setting for the subdomain.
      * 
      */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
     /**
-     * @return The prefix setting for the subdomain.
+     * @return Prefix setting for the subdomain.
      * 
      */
     public Output<String> prefix() {
@@ -62,14 +62,14 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The verified status of the subdomain.
+     * Verified status of the subdomain.
      * 
      */
     @Import(name="verified")
     private @Nullable Output<Boolean> verified;
 
     /**
-     * @return The verified status of the subdomain.
+     * @return Verified status of the subdomain.
      * 
      */
     public Optional<Output<Boolean>> verified() {
@@ -104,7 +104,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param branchName The branch name setting for the subdomain.
+         * @param branchName Branch name setting for the subdomain.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param branchName The branch name setting for the subdomain.
+         * @param branchName Branch name setting for the subdomain.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dnsRecord The DNS record for the subdomain.
+         * @param dnsRecord DNS record for the subdomain.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dnsRecord The DNS record for the subdomain.
+         * @param dnsRecord DNS record for the subdomain.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param prefix The prefix setting for the subdomain.
+         * @param prefix Prefix setting for the subdomain.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param prefix The prefix setting for the subdomain.
+         * @param prefix Prefix setting for the subdomain.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param verified The verified status of the subdomain.
+         * @param verified Verified status of the subdomain.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param verified The verified status of the subdomain.
+         * @param verified Verified status of the subdomain.
          * 
          * @return builder
          * 

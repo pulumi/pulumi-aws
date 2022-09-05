@@ -52,7 +52,7 @@ export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetEndpointArgs {
     /**
-     * The ID of the Client VPN endpoint.
+     * ID of the Client VPN endpoint.
      */
     clientVpnEndpointId?: string;
     /**
@@ -78,7 +78,7 @@ export interface GetEndpointResult {
      */
     readonly authenticationOptions: outputs.ec2clientvpn.GetEndpointAuthenticationOption[];
     /**
-     * The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+     * IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      */
     readonly clientCidrBlock: string;
     /**
@@ -95,11 +95,11 @@ export interface GetEndpointResult {
      */
     readonly connectionLogOptions: outputs.ec2clientvpn.GetEndpointConnectionLogOption[];
     /**
-     * A brief description of the endpoint.
+     * Brief description of the endpoint.
      */
     readonly description: string;
     /**
-     * The DNS name to be used by clients when connecting to the Client VPN endpoint.
+     * DNS name to be used by clients when connecting to the Client VPN endpoint.
      */
     readonly dnsName: string;
     /**
@@ -112,11 +112,11 @@ export interface GetEndpointResult {
      */
     readonly id: string;
     /**
-     * The IDs of the security groups for the target network associated with the Client VPN endpoint.
+     * IDs of the security groups for the target network associated with the Client VPN endpoint.
      */
     readonly securityGroupIds: string[];
     /**
-     * Indicates whether the self-service portal for the Client VPN endpoint is enabled.
+     * Whether the self-service portal for the Client VPN endpoint is enabled.
      */
     readonly selfServicePortal: string;
     /**
@@ -128,20 +128,20 @@ export interface GetEndpointResult {
      */
     readonly sessionTimeoutHours: number;
     /**
-     * Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+     * Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      */
     readonly splitTunnel: boolean;
     readonly tags: {[key: string]: string};
     /**
-     * The transport protocol used by the Client VPN endpoint.
+     * Transport protocol used by the Client VPN endpoint.
      */
     readonly transportProtocol: string;
     /**
-     * The ID of the VPC associated with the Client VPN endpoint.
+     * ID of the VPC associated with the Client VPN endpoint.
      */
     readonly vpcId: string;
     /**
-     * The port number for the Client VPN endpoint.
+     * Port number for the Client VPN endpoint.
      */
     readonly vpnPort: number;
 }
@@ -155,7 +155,7 @@ export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.In
  */
 export interface GetEndpointOutputArgs {
     /**
-     * The ID of the Client VPN endpoint.
+     * ID of the Client VPN endpoint.
      */
     clientVpnEndpointId?: pulumi.Input<string>;
     /**

@@ -54,7 +54,7 @@ class GetConnectionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the connection.
+        ARN of the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -62,7 +62,7 @@ class GetConnectionResult:
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> str:
         """
-        The Direct Connect endpoint on which the physical connection terminates.
+        Direct Connect endpoint on which the physical connection terminates.
         """
         return pulumi.get(self, "aws_device")
 
@@ -70,7 +70,7 @@ class GetConnectionResult:
     @pulumi.getter
     def bandwidth(self) -> str:
         """
-        The bandwidth of the connection.
+        Bandwidth of the connection.
         """
         return pulumi.get(self, "bandwidth")
 
@@ -86,7 +86,7 @@ class GetConnectionResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The AWS Direct Connect location where the connection is located.
+        AWS Direct Connect location where the connection is located.
         """
         return pulumi.get(self, "location")
 
@@ -99,7 +99,7 @@ class GetConnectionResult:
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> str:
         """
-        The ID of the AWS account that owns the connection.
+        ID of the AWS account that owns the connection.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -107,7 +107,7 @@ class GetConnectionResult:
     @pulumi.getter(name="providerName")
     def provider_name(self) -> str:
         """
-        The name of the service provider associated with the connection.
+        Name of the service provider associated with the connection.
         """
         return pulumi.get(self, "provider_name")
 
@@ -115,7 +115,7 @@ class GetConnectionResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -153,8 +153,8 @@ def get_connection(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the connection to retrieve.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -191,7 +191,7 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the connection to retrieve.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

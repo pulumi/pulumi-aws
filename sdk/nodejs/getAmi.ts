@@ -82,7 +82,7 @@ export interface GetAmiArgs {
      */
     mostRecent?: boolean;
     /**
-     * A regex string to apply to the AMI list returned
+     * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
@@ -95,8 +95,8 @@ export interface GetAmiArgs {
     owners?: string[];
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      */
     tags?: {[key: string]: string};
 }
@@ -106,11 +106,11 @@ export interface GetAmiArgs {
  */
 export interface GetAmiResult {
     /**
-     * The OS architecture of the AMI (ie: `i386` or `x8664`).
+     * OS architecture of the AMI (ie: `i386` or `x8664`).
      */
     readonly architecture: string;
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      */
     readonly arn: string;
     /**
@@ -118,30 +118,30 @@ export interface GetAmiResult {
      */
     readonly blockDeviceMappings: outputs.GetAmiBlockDeviceMapping[];
     /**
-     * The boot mode of the image.
+     * Boot mode of the image.
      */
     readonly bootMode: string;
     /**
-     * The date and time the image was created.
+     * Date and time the image was created.
      */
     readonly creationDate: string;
     /**
-     * The date and time when the image will be deprecated.
+     * Date and time when the image will be deprecated.
      */
     readonly deprecationTime: string;
     /**
-     * The description of the AMI that was provided during image
+     * Description of the AMI that was provided during image
      * creation.
      */
     readonly description: string;
     /**
-     * Specifies whether enhanced networking with ENA is enabled.
+     * Whether enhanced networking with ENA is enabled.
      */
     readonly enaSupport: boolean;
     readonly executableUsers?: string[];
     readonly filters?: outputs.GetAmiFilter[];
     /**
-     * The hypervisor type of the image.
+     * Hypervisor type of the image.
      */
     readonly hypervisor: string;
     /**
@@ -149,45 +149,45 @@ export interface GetAmiResult {
      */
     readonly id: string;
     /**
-     * The ID of the AMI. Should be the same as the resource `id`.
+     * ID of the AMI. Should be the same as the resource `id`.
      */
     readonly imageId: string;
     /**
-     * The location of the AMI.
+     * Location of the AMI.
      */
     readonly imageLocation: string;
     /**
-     * The AWS account alias (for example, `amazon`, `self`) or
+     * AWS account alias (for example, `amazon`, `self`) or
      * the AWS account ID of the AMI owner.
      */
     readonly imageOwnerAlias: string;
     /**
-     * The type of image.
+     * Type of image.
      */
     readonly imageType: string;
     readonly includeDeprecated?: boolean;
     /**
-     * The kernel associated with the image, if any. Only applicable
+     * Kernel associated with the image, if any. Only applicable
      * for machine images.
      */
     readonly kernelId: string;
     readonly mostRecent?: boolean;
     /**
-     * The name of the AMI that was provided during image creation.
+     * Name of the AMI that was provided during image creation.
      */
     readonly name: string;
     readonly nameRegex?: string;
     /**
-     * The AWS account ID of the image owner.
+     * AWS account ID of the image owner.
      */
     readonly ownerId: string;
     readonly owners?: string[];
     /**
-     * The value is Windows for `Windows` AMIs; otherwise blank.
+     * Value is Windows for `Windows` AMIs; otherwise blank.
      */
     readonly platform: string;
     /**
-     * The platform details associated with the billing code of the AMI.
+     * Platform details associated with the billing code of the AMI.
      */
     readonly platformDetails: string;
     /**
@@ -201,29 +201,29 @@ export interface GetAmiResult {
      */
     readonly public: boolean;
     /**
-     * The RAM disk associated with the image, if any. Only applicable
+     * RAM disk associated with the image, if any. Only applicable
      * for machine images.
      */
     readonly ramdiskId: string;
     /**
-     * The device name of the root device.
+     * Device name of the root device.
      */
     readonly rootDeviceName: string;
     /**
-     * The type of root device (ie: `ebs` or `instance-store`).
+     * Type of root device (ie: `ebs` or `instance-store`).
      */
     readonly rootDeviceType: string;
     /**
-     * The snapshot id associated with the root device, if any
+     * Snapshot id associated with the root device, if any
      * (only applies to `ebs` root devices).
      */
     readonly rootSnapshotId: string;
     /**
-     * Specifies whether enhanced networking is enabled.
+     * Whether enhanced networking is enabled.
      */
     readonly sriovNetSupport: string;
     /**
-     * The current state of the AMI. If the state is `available`, the image
+     * Current state of the AMI. If the state is `available`, the image
      * is successfully registered and can be used to launch an instance.
      */
     readonly state: string;
@@ -235,8 +235,8 @@ export interface GetAmiResult {
     readonly stateReason: {[key: string]: string};
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -244,11 +244,11 @@ export interface GetAmiResult {
      */
     readonly tpmSupport: string;
     /**
-     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     readonly usageOperation: string;
     /**
-     * The type of virtualization of the AMI (ie: `hvm` or
+     * Type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).
      */
     readonly virtualizationType: string;
@@ -283,7 +283,7 @@ export interface GetAmiOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * A regex string to apply to the AMI list returned
+     * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
@@ -296,8 +296,8 @@ export interface GetAmiOutputArgs {
     owners?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - The key name of the tag.
-     * * `tags.#.value` - The value of the tag.
+     * * `tags.#.key` - Key name of the tag.
+     * * `tags.#.value` - Value of the tag.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -23,7 +23,7 @@ class CertificateDomainValidationOptionArgs:
                  resource_record_type: Optional[pulumi.Input[str]] = None,
                  resource_record_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[str] resource_record_name: The name of the DNS record to create to validate the certificate
         :param pulumi.Input[str] resource_record_type: The type of DNS record to create
         :param pulumi.Input[str] resource_record_value: The value the DNS record needs to have
@@ -41,7 +41,7 @@ class CertificateDomainValidationOptionArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A fully qualified domain name (FQDN) in the certificate.
+        Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -91,7 +91,7 @@ class CertificateOptionsArgs:
     def __init__(__self__, *,
                  certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] certificate_transparency_logging_preference: Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        :param pulumi.Input[str] certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
@@ -100,7 +100,7 @@ class CertificateOptionsArgs:
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
@@ -115,8 +115,8 @@ class CertificateValidationOptionArgs:
                  domain_name: pulumi.Input[str],
                  validation_domain: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[str] validation_domain: The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] validation_domain: Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "validation_domain", validation_domain)
@@ -125,7 +125,7 @@ class CertificateValidationOptionArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        A fully qualified domain name (FQDN) in the certificate.
+        Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -137,7 +137,7 @@ class CertificateValidationOptionArgs:
     @pulumi.getter(name="validationDomain")
     def validation_domain(self) -> pulumi.Input[str]:
         """
-        The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         """
         return pulumi.get(self, "validation_domain")
 

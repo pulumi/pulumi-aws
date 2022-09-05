@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterAuthArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster
+        /// Name of the cluster
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterAuthInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster
+        /// Name of the cluster
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Eks
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The token to use to authenticate with the cluster.
+        /// Token to use to authenticate with the cluster.
         /// </summary>
         public readonly string Token;
 

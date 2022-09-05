@@ -49,13 +49,13 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+	// Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageDigest *string `pulumi:"imageDigest"`
-	// The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+	// Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageTag *string `pulumi:"imageTag"`
-	// The ID of the Registry where the repository resides.
+	// ID of the Registry where the repository resides.
 	RegistryId *string `pulumi:"registryId"`
-	// The name of the ECR Repository.
+	// Name of the ECR Repository.
 	RepositoryName string `pulumi:"repositoryName"`
 }
 
@@ -64,12 +64,12 @@ type GetImageResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
 	ImageDigest string `pulumi:"imageDigest"`
-	// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+	// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
 	ImagePushedAt int `pulumi:"imagePushedAt"`
-	// The size, in bytes, of the image in the repository.
+	// Size, in bytes, of the image in the repository.
 	ImageSizeInBytes int     `pulumi:"imageSizeInBytes"`
 	ImageTag         *string `pulumi:"imageTag"`
-	// The list of tags associated with this image.
+	// List of tags associated with this image.
 	ImageTags      []string `pulumi:"imageTags"`
 	RegistryId     string   `pulumi:"registryId"`
 	RepositoryName string   `pulumi:"repositoryName"`
@@ -90,13 +90,13 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
-	// The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+	// Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
-	// The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+	// Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
-	// The ID of the Registry where the repository resides.
+	// ID of the Registry where the repository resides.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
-	// The name of the ECR Repository.
+	// Name of the ECR Repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
 
@@ -128,12 +128,12 @@ func (o GetImageResultOutput) ImageDigest() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.ImageDigest }).(pulumi.StringOutput)
 }
 
-// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
 func (o GetImageResultOutput) ImagePushedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageResult) int { return v.ImagePushedAt }).(pulumi.IntOutput)
 }
 
-// The size, in bytes, of the image in the repository.
+// Size, in bytes, of the image in the repository.
 func (o GetImageResultOutput) ImageSizeInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageResult) int { return v.ImageSizeInBytes }).(pulumi.IntOutput)
 }
@@ -142,7 +142,7 @@ func (o GetImageResultOutput) ImageTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.ImageTag }).(pulumi.StringPtrOutput)
 }
 
-// The list of tags associated with this image.
+// List of tags associated with this image.
 func (o GetImageResultOutput) ImageTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []string { return v.ImageTags }).(pulumi.StringArrayOutput)
 }

@@ -60,17 +60,17 @@ import (
 type VpcLink struct {
 	pulumi.CustomResourceState
 
-	// The VPC Link ARN.
+	// VPC Link ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the VPC Link. Must be between 1 and 128 characters in length.
+	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -109,32 +109,32 @@ func GetVpcLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcLink resources.
 type vpcLinkState struct {
-	// The VPC Link ARN.
+	// VPC Link ARN.
 	Arn *string `pulumi:"arn"`
-	// The name of the VPC Link. Must be between 1 and 128 characters in length.
+	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcLinkState struct {
-	// The VPC Link ARN.
+	// VPC Link ARN.
 	Arn pulumi.StringPtrInput
-	// The name of the VPC Link. Must be between 1 and 128 characters in length.
+	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -143,25 +143,25 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	// The name of the VPC Link. Must be between 1 and 128 characters in length.
+	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	// The name of the VPC Link. Must be between 1 and 128 characters in length.
+	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -252,12 +252,12 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
-// The VPC Link ARN.
+// VPC Link ARN.
 func (o VpcLinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the VPC Link. Must be between 1 and 128 characters in length.
+// Name of the VPC Link. Must be between 1 and 128 characters in length.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -272,12 +272,12 @@ func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcLinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

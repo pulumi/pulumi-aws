@@ -17,14 +17,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      * 
      */
     @Import(name="certificateAuthorityArn", required=true)
     private Output<String> certificateAuthorityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate authority.
+     * @return ARN of the certificate authority.
      * 
      */
     public Output<String> certificateAuthorityArn() {
@@ -62,14 +62,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     @Import(name="templateArn")
     private @Nullable Output<String> templateArn;
 
     /**
-     * @return The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * @return Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     public Optional<Output<String>> templateArn() {
@@ -120,7 +120,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the certificate authority.
+         * @param certificateAuthorityArn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the certificate authority.
+         * @param certificateAuthorityArn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateArn The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+         * @param templateArn Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateArn The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+         * @param templateArn Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
          * 
          * @return builder
          * 

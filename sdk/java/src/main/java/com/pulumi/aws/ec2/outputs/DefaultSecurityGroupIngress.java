@@ -45,7 +45,7 @@ public final class DefaultSecurityGroupIngress {
      */
     private String protocol;
     /**
-     * @return List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     private @Nullable List<String> securityGroups;
@@ -104,7 +104,7 @@ public final class DefaultSecurityGroupIngress {
         return this.protocol;
     }
     /**
-     * @return List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     public List<String> securityGroups() {

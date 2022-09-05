@@ -45,7 +45,7 @@ class GetVaultResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "arn")
 
@@ -61,7 +61,7 @@ class GetVaultResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
         """
-        The server-side encryption key that is used to protect your backups.
+        Server-side encryption key that is used to protect your backups.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -74,7 +74,7 @@ class GetVaultResult:
     @pulumi.getter(name="recoveryPoints")
     def recovery_points(self) -> int:
         """
-        The number of recovery points that are stored in a backup vault.
+        Number of recovery points that are stored in a backup vault.
         """
         return pulumi.get(self, "recovery_points")
 
@@ -117,7 +117,7 @@ def get_vault(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the backup vault.
+    :param str name: Name of the backup vault.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the resources that you create.
     """
     __args__ = dict()
@@ -152,7 +152,7 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the backup vault.
+    :param str name: Name of the backup vault.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the resources that you create.
     """
     ...

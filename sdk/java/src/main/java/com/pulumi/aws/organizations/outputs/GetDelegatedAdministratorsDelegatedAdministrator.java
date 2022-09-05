@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDelegatedAdministratorsDelegatedAdministrator {
     /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * @return The ARN of the delegated administrator&#39;s account.
      * 
      */
     private String arn;
@@ -52,7 +52,7 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
 
     private GetDelegatedAdministratorsDelegatedAdministrator() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * @return The ARN of the delegated administrator&#39;s account.
      * 
      */
     public String arn() {

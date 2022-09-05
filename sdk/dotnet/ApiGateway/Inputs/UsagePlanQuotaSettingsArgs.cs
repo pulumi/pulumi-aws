@@ -13,19 +13,19 @@ namespace Pulumi.Aws.ApiGateway.Inputs
     public sealed class UsagePlanQuotaSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of requests that can be made in a given time period.
+        /// Maximum number of requests that can be made in a given time period.
         /// </summary>
         [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;
 
         /// <summary>
-        /// The number of requests subtracted from the given limit in the initial time period.
+        /// Number of requests subtracted from the given limit in the initial time period.
         /// </summary>
         [Input("offset")]
         public Input<int>? Offset { get; set; }
 
         /// <summary>
-        /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        /// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         /// </summary>
         [Input("period", required: true)]
         public Input<string> Period { get; set; } = null!;

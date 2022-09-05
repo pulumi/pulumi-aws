@@ -17,7 +17,7 @@ public final class GetLaunchConfigurationEbsBlockDevice {
      */
     private Boolean deleteOnTermination;
     /**
-     * @return The Name of the device.
+     * @return Name of the device.
      * 
      */
     private String deviceName;
@@ -27,7 +27,7 @@ public final class GetLaunchConfigurationEbsBlockDevice {
      */
     private Boolean encrypted;
     /**
-     * @return The provisioned IOPs of the volume.
+     * @return Provisioned IOPs of the volume.
      * 
      */
     private Integer iops;
@@ -37,22 +37,22 @@ public final class GetLaunchConfigurationEbsBlockDevice {
      */
     private Boolean noDevice;
     /**
-     * @return The Snapshot ID of the mount.
+     * @return Snapshot ID of the mount.
      * 
      */
     private String snapshotId;
     /**
-     * @return The Throughput of the volume.
+     * @return Throughput of the volume.
      * 
      */
     private Integer throughput;
     /**
-     * @return The Size of the volume.
+     * @return Size of the volume.
      * 
      */
     private Integer volumeSize;
     /**
-     * @return The Type of the volume.
+     * @return Type of the volume.
      * 
      */
     private String volumeType;
@@ -66,7 +66,7 @@ public final class GetLaunchConfigurationEbsBlockDevice {
         return this.deleteOnTermination;
     }
     /**
-     * @return The Name of the device.
+     * @return Name of the device.
      * 
      */
     public String deviceName() {
@@ -80,7 +80,7 @@ public final class GetLaunchConfigurationEbsBlockDevice {
         return this.encrypted;
     }
     /**
-     * @return The provisioned IOPs of the volume.
+     * @return Provisioned IOPs of the volume.
      * 
      */
     public Integer iops() {
@@ -94,28 +94,28 @@ public final class GetLaunchConfigurationEbsBlockDevice {
         return this.noDevice;
     }
     /**
-     * @return The Snapshot ID of the mount.
+     * @return Snapshot ID of the mount.
      * 
      */
     public String snapshotId() {
         return this.snapshotId;
     }
     /**
-     * @return The Throughput of the volume.
+     * @return Throughput of the volume.
      * 
      */
     public Integer throughput() {
         return this.throughput;
     }
     /**
-     * @return The Size of the volume.
+     * @return Size of the volume.
      * 
      */
     public Integer volumeSize() {
         return this.volumeSize;
     }
     /**
-     * @return The Type of the volume.
+     * @return Type of the volume.
      * 
      */
     public String volumeType() {

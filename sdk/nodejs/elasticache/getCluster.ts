@@ -40,7 +40,7 @@ export interface GetClusterArgs {
      */
     clusterId: string;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: {[key: string]: string};
 }
@@ -51,7 +51,7 @@ export interface GetClusterArgs {
 export interface GetClusterResult {
     readonly arn: string;
     /**
-     * The Availability Zone for the cache cluster.
+     * Availability Zone for the cache cluster.
      */
     readonly availabilityZone: string;
     /**
@@ -60,12 +60,12 @@ export interface GetClusterResult {
      */
     readonly cacheNodes: outputs.elasticache.GetClusterCacheNode[];
     /**
-     * (Memcached only) The DNS name of the cache cluster without the port appended.
+     * (Memcached only) DNS name of the cache cluster without the port appended.
      */
     readonly clusterAddress: string;
     readonly clusterId: string;
     /**
-     * (Memcached only) The configuration endpoint to allow host discovery.
+     * (Memcached only) Configuration endpoint to allow host discovery.
      */
     readonly configurationEndpoint: string;
     /**
@@ -94,7 +94,7 @@ export interface GetClusterResult {
      */
     readonly nodeType: string;
     /**
-     * An Amazon Resource Name (ARN) of an
+     * An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      */
     readonly notificationTopicArn: string;
@@ -129,7 +129,7 @@ export interface GetClusterResult {
      */
     readonly snapshotRetentionLimit: number;
     /**
-     * The daily time range (in UTC) during which ElastiCache will
+     * Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      */
     readonly snapshotWindow: string;
@@ -138,7 +138,7 @@ export interface GetClusterResult {
      */
     readonly subnetGroupName: string;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     readonly tags: {[key: string]: string};
 }
@@ -156,7 +156,7 @@ export interface GetClusterOutputArgs {
      */
     clusterId: pulumi.Input<string>;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

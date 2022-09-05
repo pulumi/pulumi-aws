@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
     /**
-     * @return The metric type.
+     * @return Metric type.
      * 
      */
     private String predefinedMetricType;
@@ -24,7 +24,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
 
     private PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification() {}
     /**
-     * @return The metric type.
+     * @return Metric type.
      * 
      */
     public String predefinedMetricType() {

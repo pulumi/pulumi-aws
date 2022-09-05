@@ -64,7 +64,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class GetDetectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the detector.
+        /// ID of the detector.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class GetDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the detector.
+        /// ID of the detector.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -99,11 +99,11 @@ namespace Pulumi.Aws.GuardDuty
         public readonly string FindingPublishingFrequency;
         public readonly string Id;
         /// <summary>
-        /// The service-linked role that grants GuardDuty access to the resources in the AWS account.
+        /// Service-linked role that grants GuardDuty access to the resources in the AWS account.
         /// </summary>
         public readonly string ServiceRoleArn;
         /// <summary>
-        /// The current status of the detector.
+        /// Current status of the detector.
         /// </summary>
         public readonly string Status;
 

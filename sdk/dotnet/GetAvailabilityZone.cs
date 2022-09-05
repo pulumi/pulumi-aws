@@ -66,19 +66,19 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+        /// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
         /// <summary>
-        /// The zone ID of the availability zone to select.
+        /// Zone ID of the availability zone to select.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -110,19 +110,19 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+        /// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The zone ID of the availability zone to select.
+        /// Zone ID of the availability zone to select.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -149,7 +149,7 @@ namespace Pulumi.Aws
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+        /// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
         /// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
         /// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         /// </summary>
@@ -163,21 +163,21 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string OptInStatus;
         /// <summary>
-        /// The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        /// ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         /// </summary>
         public readonly string ParentZoneId;
         /// <summary>
-        /// The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        /// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         /// </summary>
         public readonly string ParentZoneName;
         /// <summary>
-        /// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+        /// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         /// </summary>
         public readonly string Region;
         public readonly string State;
         public readonly string ZoneId;
         /// <summary>
-        /// The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+        /// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
         /// </summary>
         public readonly string ZoneType;
 

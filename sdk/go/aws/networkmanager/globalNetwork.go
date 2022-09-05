@@ -55,7 +55,8 @@ type GlobalNetwork struct {
 	// Description of the Global Network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGlobalNetwork registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +93,8 @@ type globalNetworkState struct {
 	// Description of the Global Network.
 	Description *string           `pulumi:"description"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GlobalNetworkState struct {
@@ -101,7 +103,8 @@ type GlobalNetworkState struct {
 	// Description of the Global Network.
 	Description pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (GlobalNetworkState) ElementType() reflect.Type {
@@ -222,6 +225,7 @@ func (o GlobalNetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GlobalNetworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

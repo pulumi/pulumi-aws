@@ -45,7 +45,7 @@ export interface GetAssetsArgs {
 export interface GetAssetsResult {
     readonly arn: string;
     /**
-     * A list of all the subnet ids found. This data source will fail if none are found.
+     * List of all the subnet ids found. This data source will fail if none are found.
      */
     readonly assetIds: string[];
     /**

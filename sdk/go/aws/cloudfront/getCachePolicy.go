@@ -48,24 +48,24 @@ func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ..
 
 // A collection of arguments for invoking getCachePolicy.
 type LookupCachePolicyArgs struct {
-	// The identifier for the cache policy.
+	// Identifier for the cache policy.
 	Id *string `pulumi:"id"`
-	// A unique name to identify the cache policy.
+	// Unique name to identify the cache policy.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getCachePolicy.
 type LookupCachePolicyResult struct {
-	// A comment to describe the cache policy.
+	// Comment to describe the cache policy.
 	Comment string `pulumi:"comment"`
-	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	DefaultTtl int `pulumi:"defaultTtl"`
-	// The current version of the cache policy.
+	// Current version of the cache policy.
 	Etag string  `pulumi:"etag"`
 	Id   *string `pulumi:"id"`
-	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl int `pulumi:"maxTtl"`
-	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+	// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MinTtl int     `pulumi:"minTtl"`
 	Name   *string `pulumi:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
@@ -87,9 +87,9 @@ func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputAr
 
 // A collection of arguments for invoking getCachePolicy.
 type LookupCachePolicyOutputArgs struct {
-	// The identifier for the cache policy.
+	// Identifier for the cache policy.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A unique name to identify the cache policy.
+	// Unique name to identify the cache policy.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -112,17 +112,17 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContex
 	return o
 }
 
-// A comment to describe the cache policy.
+// Comment to describe the cache policy.
 func (o LookupCachePolicyResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 func (o LookupCachePolicyResultOutput) DefaultTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.DefaultTtl }).(pulumi.IntOutput)
 }
 
-// The current version of the cache policy.
+// Current version of the cache policy.
 func (o LookupCachePolicyResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -131,12 +131,12 @@ func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 func (o LookupCachePolicyResultOutput) MaxTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MaxTtl }).(pulumi.IntOutput)
 }
 
-// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 func (o LookupCachePolicyResultOutput) MinTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MinTtl }).(pulumi.IntOutput)
 }

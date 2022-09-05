@@ -14,23 +14,23 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class DocumentationPartLocation
     {
         /// <summary>
-        /// The HTTP verb of a method. The default value is `*` for any method.
+        /// HTTP verb of a method. The default value is `*` for any method.
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// The name of the targeted API entity.
+        /// Name of the targeted API entity.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The URL path of the target. The default value is `/` for the root resource.
+        /// URL path of the target. The default value is `/` for the root resource.
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The HTTP status code of a response. The default value is `*` for any status code.
+        /// HTTP status code of a response. The default value is `*` for any status code.
         /// </summary>
         public readonly string? StatusCode;
         /// <summary>
-        /// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+        /// Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
         /// </summary>
         public readonly string Type;
 

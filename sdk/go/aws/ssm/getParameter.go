@@ -50,7 +50,7 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 
 // A collection of arguments for invoking getParameter.
 type LookupParameterArgs struct {
-	// The name of the parameter.
+	// Name of the parameter.
 	Name string `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
@@ -83,7 +83,7 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 
 // A collection of arguments for invoking getParameter.
 type LookupParameterOutputArgs struct {
-	// The name of the parameter.
+	// Name of the parameter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`

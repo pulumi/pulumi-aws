@@ -74,7 +74,7 @@ export class ArchiveRule extends pulumi.CustomResource {
      */
     public readonly analyzerName!: pulumi.Output<string>;
     /**
-     * The filter criteria for the archive rule. See Filter for more details.
+     * Filter criteria for the archive rule. See Filter for more details.
      */
     public readonly filters!: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
     /**
@@ -127,7 +127,7 @@ export interface ArchiveRuleState {
      */
     analyzerName?: pulumi.Input<string>;
     /**
-     * The filter criteria for the archive rule. See Filter for more details.
+     * Filter criteria for the archive rule. See Filter for more details.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
     /**
@@ -145,7 +145,7 @@ export interface ArchiveRuleArgs {
      */
     analyzerName: pulumi.Input<string>;
     /**
-     * The filter criteria for the archive rule. See Filter for more details.
+     * Filter criteria for the archive rule. See Filter for more details.
      */
     filters: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
     /**

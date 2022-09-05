@@ -82,11 +82,11 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 type LookupLaunchTemplateArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
-	// The ID of the specific launch template to retrieve.
+	// ID of the specific launch template to retrieve.
 	Id *string `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name *string `pulumi:"name"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -108,7 +108,7 @@ type LookupLaunchTemplateResult struct {
 	Filters                           []GetLaunchTemplateFilter                           `pulumi:"filters"`
 	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
 	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
-	// The ID of the launch template.
+	// ID of the launch template.
 	Id                                string                                  `pulumi:"id"`
 	ImageId                           string                                  `pulumi:"imageId"`
 	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
@@ -151,11 +151,11 @@ func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOu
 type LookupLaunchTemplateOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetLaunchTemplateFilterArrayInput `pulumi:"filters"`
-	// The ID of the specific launch template to retrieve.
+	// ID of the specific launch template to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -250,7 +250,7 @@ func (o LookupLaunchTemplateResultOutput) IamInstanceProfiles() GetLaunchTemplat
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateIamInstanceProfile { return v.IamInstanceProfiles }).(GetLaunchTemplateIamInstanceProfileArrayOutput)
 }
 
-// The ID of the launch template.
+// ID of the launch template.
 func (o LookupLaunchTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }

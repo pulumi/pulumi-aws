@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverSyncConfigLambdaConflictHandlerConfig {
     /**
-     * @return The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+     * @return ARN for the Lambda function to use as the Conflict Handler.
      * 
      */
     private @Nullable String lambdaConflictHandlerArn;
 
     private ResolverSyncConfigLambdaConflictHandlerConfig() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+     * @return ARN for the Lambda function to use as the Conflict Handler.
      * 
      */
     public Optional<String> lambdaConflictHandlerArn() {

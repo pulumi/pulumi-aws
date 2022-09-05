@@ -29,14 +29,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * ARN of the private CA to associate with the policy.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * @return ARN of the private CA to associate with the policy.
      * 
      */
     public Output<String> resourceArn() {
@@ -90,7 +90,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the private CA to associate with the policy.
+         * @param resourceArn ARN of the private CA to associate with the policy.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the private CA to associate with the policy.
+         * @param resourceArn ARN of the private CA to associate with the policy.
          * 
          * @return builder
          * 

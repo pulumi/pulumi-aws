@@ -16,12 +16,12 @@ import java.util.Objects;
 public final class GetImageResult {
     private String arn;
     /**
-     * @return Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+     * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      * 
      */
     private String buildVersionArn;
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     private String containerRecipeArn;
@@ -31,7 +31,7 @@ public final class GetImageResult {
      */
     private String dateCreated;
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     private String distributionConfigurationArn;
@@ -46,7 +46,7 @@ public final class GetImageResult {
      */
     private String id;
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     private String imageRecipeArn;
@@ -56,7 +56,7 @@ public final class GetImageResult {
      */
     private List<GetImageImageTestsConfiguration> imageTestsConfigurations;
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     private String infrastructureConfigurationArn;
@@ -96,14 +96,14 @@ public final class GetImageResult {
         return this.arn;
     }
     /**
-     * @return Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+     * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
      * 
      */
     public String buildVersionArn() {
         return this.buildVersionArn;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     public String containerRecipeArn() {
@@ -117,7 +117,7 @@ public final class GetImageResult {
         return this.dateCreated;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     public String distributionConfigurationArn() {
@@ -138,7 +138,7 @@ public final class GetImageResult {
         return this.id;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public String imageRecipeArn() {
@@ -152,7 +152,7 @@ public final class GetImageResult {
         return this.imageTestsConfigurations;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     public String infrastructureConfigurationArn() {

@@ -54,11 +54,11 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetCertificateArgs {
     /**
-     * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      */
     domain: string;
     /**
-     * A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      */
     keyTypes?: string[];
     /**
@@ -66,17 +66,17 @@ export interface GetCertificateArgs {
      */
     mostRecent?: boolean;
     /**
-     * A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      */
     statuses?: string[];
     /**
-     * A mapping of tags for the resource.
+     * Mapping of tags for the resource.
      */
     tags?: {[key: string]: string};
     /**
-     * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
     types?: string[];
 }
@@ -86,11 +86,11 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
-     * Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+     * ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
     readonly arn: string;
     /**
-     * The ACM-issued certificate.
+     * ACM-issued certificate.
      */
     readonly certificate: string;
     /**
@@ -110,7 +110,7 @@ export interface GetCertificateResult {
     readonly status: string;
     readonly statuses?: string[];
     /**
-     * A mapping of tags for the resource.
+     * Mapping of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     readonly types?: string[];
@@ -125,11 +125,11 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  */
 export interface GetCertificateOutputArgs {
     /**
-     * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      */
     domain: pulumi.Input<string>;
     /**
-     * A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      */
     keyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -137,17 +137,17 @@ export interface GetCertificateOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      */
     statuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags for the resource.
+     * Mapping of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
     types?: pulumi.Input<pulumi.Input<string>[]>;
 }

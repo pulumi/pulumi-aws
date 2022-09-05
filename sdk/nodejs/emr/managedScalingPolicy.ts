@@ -73,7 +73,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     public readonly clusterId!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
  */
 export interface ManagedScalingPolicyState {
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     clusterId?: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface ManagedScalingPolicyState {
  */
 export interface ManagedScalingPolicyArgs {
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     clusterId: pulumi.Input<string>;
     /**

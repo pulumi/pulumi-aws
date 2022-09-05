@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetResourceShareResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     private String arn;
@@ -27,26 +27,26 @@ public final class GetResourceShareResult {
     private String id;
     private String name;
     /**
-     * @return The ID of the AWS account that owns the resource share.
+     * @return ID of the AWS account that owns the resource share.
      * 
      */
     private String owningAccountId;
     private String resourceOwner;
     private @Nullable String resourceShareStatus;
     /**
-     * @return The Status of the RAM share.
+     * @return Status of the RAM share.
      * 
      */
     private String status;
     /**
-     * @return The Tags attached to the RAM share
+     * @return Tags attached to the RAM share
      * 
      */
     private Map<String,String> tags;
 
     private GetResourceShareResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public String arn() {
@@ -66,7 +66,7 @@ public final class GetResourceShareResult {
         return this.name;
     }
     /**
-     * @return The ID of the AWS account that owns the resource share.
+     * @return ID of the AWS account that owns the resource share.
      * 
      */
     public String owningAccountId() {
@@ -79,14 +79,14 @@ public final class GetResourceShareResult {
         return Optional.ofNullable(this.resourceShareStatus);
     }
     /**
-     * @return The Status of the RAM share.
+     * @return Status of the RAM share.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The Tags attached to the RAM share
+     * @return Tags attached to the RAM share
      * 
      */
     public Map<String,String> tags() {

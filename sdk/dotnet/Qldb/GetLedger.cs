@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Qldb
     public sealed class GetLedgerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the ledger to match.
+        /// Friendly name of the ledger to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Qldb
     public sealed class GetLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the ledger to match.
+        /// Friendly name of the ledger to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

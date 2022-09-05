@@ -61,7 +61,7 @@ class GetSchedulingPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the scheduling policy.
+        Name of the scheduling policy.
         """
         return pulumi.get(self, "name")
 
@@ -103,7 +103,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the scheduling policy.
+    :param str arn: ARN of the scheduling policy.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
@@ -137,7 +137,7 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the scheduling policy.
+    :param str arn: ARN of the scheduling policy.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     ...

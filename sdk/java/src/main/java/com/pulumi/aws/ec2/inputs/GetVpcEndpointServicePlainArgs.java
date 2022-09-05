@@ -33,14 +33,14 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The common name of an AWS service (e.g., `s3`).
+     * Common name of an AWS service (e.g., `s3`).
      * 
      */
     @Import(name="service")
     private @Nullable String service;
 
     /**
-     * @return The common name of an AWS service (e.g., `s3`).
+     * @return Common name of an AWS service (e.g., `s3`).
      * 
      */
     public Optional<String> service() {
@@ -48,14 +48,14 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
      */
     @Import(name="serviceName")
     private @Nullable String serviceName;
 
     /**
-     * @return The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * @return Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
      */
     public Optional<String> serviceName() {
@@ -63,14 +63,14 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      * 
      */
     @Import(name="serviceType")
     private @Nullable String serviceType;
 
     /**
-     * @return The service type, `Gateway` or `Interface`.
+     * @return Service type, `Gateway` or `Interface`.
      * 
      */
     public Optional<String> serviceType() {
@@ -78,14 +78,14 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -142,7 +142,7 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param service The common name of an AWS service (e.g., `s3`).
+         * @param service Common name of an AWS service (e.g., `s3`).
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param serviceName The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+         * @param serviceName Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param serviceType The service type, `Gateway` or `Interface`.
+         * @param serviceType Service type, `Gateway` or `Interface`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
          * 
          * @return builder
          * 

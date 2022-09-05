@@ -36,14 +36,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -51,14 +51,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Import(name="bootMode")
     private @Nullable Output<String> bootMode;
 
     /**
-     * @return The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public Optional<Output<String>> bootMode() {
@@ -66,14 +66,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Import(name="deprecationTime")
     private @Nullable Output<String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Optional<Output<String>> deprecationTime() {
@@ -81,14 +81,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Optional<Output<String>> description() {
@@ -113,14 +113,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Import(name="enaSupport")
     private @Nullable Output<Boolean> enaSupport;
 
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enaSupport() {
@@ -145,14 +145,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The hypervisor type of the image.
+     * Hypervisor type of the image.
      * 
      */
     @Import(name="hypervisor")
     private @Nullable Output<String> hypervisor;
 
     /**
-     * @return The hypervisor type of the image.
+     * @return Hypervisor type of the image.
      * 
      */
     public Optional<Output<String>> hypervisor() {
@@ -177,14 +177,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
     @Import(name="imageOwnerAlias")
     private @Nullable Output<String> imageOwnerAlias;
 
     /**
-     * @return The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * @return AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
     public Optional<Output<String>> imageOwnerAlias() {
@@ -192,14 +192,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of image.
+     * Type of image.
      * 
      */
     @Import(name="imageType")
     private @Nullable Output<String> imageType;
 
     /**
-     * @return The type of image.
+     * @return Type of image.
      * 
      */
     public Optional<Output<String>> imageType() {
@@ -207,7 +207,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -215,7 +215,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> kernelId;
 
     /**
-     * @return The id of the kernel image (AKI) that will be used as the paravirtual
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -231,14 +231,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Optional<Output<String>> name() {
@@ -246,14 +246,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID of the image owner.
+     * AWS account ID of the image owner.
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return The AWS account ID of the image owner.
+     * @return AWS account ID of the image owner.
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -276,14 +276,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The platform details associated with the billing code of the AMI.
+     * Platform details associated with the billing code of the AMI.
      * 
      */
     @Import(name="platformDetails")
     private @Nullable Output<String> platformDetails;
 
     /**
-     * @return The platform details associated with the billing code of the AMI.
+     * @return Platform details associated with the billing code of the AMI.
      * 
      */
     public Optional<Output<String>> platformDetails() {
@@ -291,14 +291,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the image has public launch permissions.
+     * Whether the image has public launch permissions.
      * 
      */
     @Import(name="public")
     private @Nullable Output<Boolean> public_;
 
     /**
-     * @return Indicates whether the image has public launch permissions.
+     * @return Whether the image has public launch permissions.
      * 
      */
     public Optional<Output<Boolean>> public_() {
@@ -306,7 +306,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -314,7 +314,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> ramdiskId;
 
     /**
-     * @return The id of an initrd image (ARI) that will be used when booting the
+     * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -323,14 +323,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Import(name="rootDeviceName")
     private @Nullable Output<String> rootDeviceName;
 
     /**
-     * @return The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     public Optional<Output<String>> rootDeviceName() {
@@ -338,14 +338,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
     @Import(name="rootSnapshotId")
     private @Nullable Output<String> rootSnapshotId;
 
     /**
-     * @return The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * @return Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
     public Optional<Output<String>> rootSnapshotId() {
@@ -370,14 +370,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -385,14 +385,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -415,14 +415,14 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     @Import(name="usageOperation")
     private @Nullable Output<String> usageOperation;
 
     /**
-     * @return The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     public Optional<Output<String>> usageOperation() {
@@ -521,7 +521,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the AMI.
+         * @param arn ARN of the AMI.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the AMI.
+         * @param arn ARN of the AMI.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootMode The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootMode The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enaSupport Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+         * @param enaSupport Whether enhanced networking with ENA is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enaSupport Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+         * @param enaSupport Whether enhanced networking with ENA is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -694,7 +694,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hypervisor The hypervisor type of the image.
+         * @param hypervisor Hypervisor type of the image.
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hypervisor The hypervisor type of the image.
+         * @param hypervisor Hypervisor type of the image.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageOwnerAlias The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+         * @param imageOwnerAlias AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageOwnerAlias The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+         * @param imageOwnerAlias AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
          * 
          * @return builder
          * 
@@ -759,7 +759,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageType The type of image.
+         * @param imageType Type of image.
          * 
          * @return builder
          * 
@@ -770,7 +770,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageType The type of image.
+         * @param imageType Type of image.
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kernelId The id of the kernel image (AKI) that will be used as the paravirtual
+         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
          * kernel in created instances.
          * 
          * @return builder
@@ -792,7 +792,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kernelId The id of the kernel image (AKI) that will be used as the paravirtual
+         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
          * kernel in created instances.
          * 
          * @return builder
@@ -812,7 +812,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -833,7 +833,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ownerId The AWS account ID of the image owner.
+         * @param ownerId AWS account ID of the image owner.
          * 
          * @return builder
          * 
@@ -844,7 +844,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ownerId The AWS account ID of the image owner.
+         * @param ownerId AWS account ID of the image owner.
          * 
          * @return builder
          * 
@@ -875,7 +875,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformDetails The platform details associated with the billing code of the AMI.
+         * @param platformDetails Platform details associated with the billing code of the AMI.
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformDetails The platform details associated with the billing code of the AMI.
+         * @param platformDetails Platform details associated with the billing code of the AMI.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param public_ Indicates whether the image has public launch permissions.
+         * @param public_ Whether the image has public launch permissions.
          * 
          * @return builder
          * 
@@ -907,7 +907,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param public_ Indicates whether the image has public launch permissions.
+         * @param public_ Whether the image has public launch permissions.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ramdiskId The id of an initrd image (ARI) that will be used when booting the
+         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
          * created instances.
          * 
          * @return builder
@@ -929,7 +929,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ramdiskId The id of an initrd image (ARI) that will be used when booting the
+         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
          * created instances.
          * 
          * @return builder
@@ -940,7 +940,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootDeviceName The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+         * @param rootDeviceName Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
          * 
          * @return builder
          * 
@@ -951,7 +951,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootDeviceName The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+         * @param rootDeviceName Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootSnapshotId The Snapshot ID for the root volume (for EBS-backed AMIs)
+         * @param rootSnapshotId Snapshot ID for the root volume (for EBS-backed AMIs)
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootSnapshotId The Snapshot ID for the root volume (for EBS-backed AMIs)
+         * @param rootSnapshotId Snapshot ID for the root volume (for EBS-backed AMIs)
          * 
          * @return builder
          * 
@@ -1005,7 +1005,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1016,7 +1016,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1026,7 +1026,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1037,7 +1037,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1068,7 +1068,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usageOperation The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+         * @param usageOperation Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
          * 
          * @return builder
          * 
@@ -1079,7 +1079,7 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usageOperation The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+         * @param usageOperation Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
          * 
          * @return builder
          * 

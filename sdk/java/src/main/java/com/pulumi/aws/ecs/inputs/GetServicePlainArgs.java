@@ -16,14 +16,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
     /**
-     * The arn of the ECS Cluster
+     * ARN of the ECS Cluster
      * 
      */
     @Import(name="clusterArn", required=true)
     private String clusterArn;
 
     /**
-     * @return The arn of the ECS Cluster
+     * @return ARN of the ECS Cluster
      * 
      */
     public String clusterArn() {
@@ -31,14 +31,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the ECS Service
+     * Name of the ECS Service
      * 
      */
     @Import(name="serviceName", required=true)
     private String serviceName;
 
     /**
-     * @return The name of the ECS Service
+     * @return Name of the ECS Service
      * 
      */
     public String serviceName() {
@@ -87,7 +87,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterArn The arn of the ECS Cluster
+         * @param clusterArn ARN of the ECS Cluster
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceName The name of the ECS Service
+         * @param serviceName Name of the ECS Service
          * 
          * @return builder
          * 

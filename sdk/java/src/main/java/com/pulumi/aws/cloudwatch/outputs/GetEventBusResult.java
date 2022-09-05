@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEventBusResult {
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN.
      * 
      */
     private String arn;
@@ -23,7 +23,7 @@ public final class GetEventBusResult {
 
     private GetEventBusResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN.
      * 
      */
     public String arn() {

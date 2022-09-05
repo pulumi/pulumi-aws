@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpotInstanceRequestEphemeralBlockDevice {
     /**
-     * @return The name of the block device to mount on the instance.
+     * @return Name of the block device to mount on the instance.
      * 
      */
     private String deviceName;
@@ -30,7 +30,7 @@ public final class SpotInstanceRequestEphemeralBlockDevice {
 
     private SpotInstanceRequestEphemeralBlockDevice() {}
     /**
-     * @return The name of the block device to mount on the instance.
+     * @return Name of the block device to mount on the instance.
      * 
      */
     public String deviceName() {

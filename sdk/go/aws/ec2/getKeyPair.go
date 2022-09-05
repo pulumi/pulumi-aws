@@ -66,9 +66,9 @@ type LookupKeyPairArgs struct {
 	Filters []GetKeyPairFilter `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey *bool `pulumi:"includePublicKey"`
-	// The Key Pair name.
+	// Key Pair name.
 	KeyName *string `pulumi:"keyName"`
-	// The Key Pair ID.
+	// Key Pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
@@ -76,21 +76,21 @@ type LookupKeyPairArgs struct {
 
 // A collection of values returned by getKeyPair.
 type LookupKeyPairResult struct {
-	// The ARN of the Key Pair.
+	// ARN of the Key Pair.
 	Arn string `pulumi:"arn"`
-	// The timestamp for when the key pair was created in ISO 8601 format.
+	// Timestamp for when the key pair was created in ISO 8601 format.
 	CreateTime string             `pulumi:"createTime"`
 	Filters    []GetKeyPairFilter `pulumi:"filters"`
-	// The SHA-1 digest of the DER encoded private key.
+	// SHA-1 digest of the DER encoded private key.
 	Fingerprint string `pulumi:"fingerprint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string  `pulumi:"id"`
 	IncludePublicKey *bool   `pulumi:"includePublicKey"`
 	KeyName          *string `pulumi:"keyName"`
 	KeyPairId        *string `pulumi:"keyPairId"`
-	// The type of key pair.
+	// Type of key pair.
 	KeyType string `pulumi:"keyType"`
-	// The public key material.
+	// Public key material.
 	PublicKey string `pulumi:"publicKey"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
@@ -115,9 +115,9 @@ type LookupKeyPairOutputArgs struct {
 	Filters GetKeyPairFilterArrayInput `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey pulumi.BoolPtrInput `pulumi:"includePublicKey"`
-	// The Key Pair name.
+	// Key Pair name.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
-	// The Key Pair ID.
+	// Key Pair ID.
 	KeyPairId pulumi.StringPtrInput `pulumi:"keyPairId"`
 	// Any tags assigned to the Key Pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -142,12 +142,12 @@ func (o LookupKeyPairResultOutput) ToLookupKeyPairResultOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the Key Pair.
+// ARN of the Key Pair.
 func (o LookupKeyPairResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The timestamp for when the key pair was created in ISO 8601 format.
+// Timestamp for when the key pair was created in ISO 8601 format.
 func (o LookupKeyPairResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
@@ -156,7 +156,7 @@ func (o LookupKeyPairResultOutput) Filters() GetKeyPairFilterArrayOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) []GetKeyPairFilter { return v.Filters }).(GetKeyPairFilterArrayOutput)
 }
 
-// The SHA-1 digest of the DER encoded private key.
+// SHA-1 digest of the DER encoded private key.
 func (o LookupKeyPairResultOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Fingerprint }).(pulumi.StringOutput)
 }
@@ -178,12 +178,12 @@ func (o LookupKeyPairResultOutput) KeyPairId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.KeyPairId }).(pulumi.StringPtrOutput)
 }
 
-// The type of key pair.
+// Type of key pair.
 func (o LookupKeyPairResultOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// The public key material.
+// Public key material.
 func (o LookupKeyPairResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.PublicKey }).(pulumi.StringOutput)
 }

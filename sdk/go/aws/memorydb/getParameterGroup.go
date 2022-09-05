@@ -50,7 +50,7 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 type LookupParameterGroupArgs struct {
 	// Name of the parameter group.
 	Name string `pulumi:"name"`
-	// A map of tags assigned to the parameter group.
+	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -60,7 +60,7 @@ type LookupParameterGroupResult struct {
 	Arn string `pulumi:"arn"`
 	// Description of the parameter group.
 	Description string `pulumi:"description"`
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -68,7 +68,7 @@ type LookupParameterGroupResult struct {
 	Name string `pulumi:"name"`
 	// Set of user-defined MemoryDB parameters applied by the parameter group.
 	Parameters []GetParameterGroupParameter `pulumi:"parameters"`
-	// A map of tags assigned to the parameter group.
+	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -89,7 +89,7 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 type LookupParameterGroupOutputArgs struct {
 	// Name of the parameter group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags assigned to the parameter group.
+	// Map of tags assigned to the parameter group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -122,7 +122,7 @@ func (o LookupParameterGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The engine version that the parameter group can be used with.
+// Engine version that the parameter group can be used with.
 func (o LookupParameterGroupResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
 }
@@ -142,7 +142,7 @@ func (o LookupParameterGroupResultOutput) Parameters() GetParameterGroupParamete
 	return o.ApplyT(func(v LookupParameterGroupResult) []GetParameterGroupParameter { return v.Parameters }).(GetParameterGroupParameterArrayOutput)
 }
 
-// A map of tags assigned to the parameter group.
+// Map of tags assigned to the parameter group.
 func (o LookupParameterGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupParameterGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

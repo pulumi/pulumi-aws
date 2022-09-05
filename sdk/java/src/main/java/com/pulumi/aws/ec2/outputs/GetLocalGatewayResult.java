@@ -16,7 +16,7 @@ public final class GetLocalGatewayResult {
     private @Nullable List<GetLocalGatewayFilter> filters;
     private String id;
     /**
-     * @return Amazon Resource Name (ARN) of Outpost
+     * @return ARN of Outpost
      * 
      */
     private String outpostArn;
@@ -40,7 +40,7 @@ public final class GetLocalGatewayResult {
         return this.id;
     }
     /**
-     * @return Amazon Resource Name (ARN) of Outpost
+     * @return ARN of Outpost
      * 
      */
     public String outpostArn() {

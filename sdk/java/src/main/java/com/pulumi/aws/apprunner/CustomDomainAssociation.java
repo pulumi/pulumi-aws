@@ -81,28 +81,28 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
         return this.certificateValidationRecords;
     }
     /**
-     * The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
     @Export(name="dnsTarget", type=String.class, parameters={})
     private Output<String> dnsTarget;
 
     /**
-     * @return The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
     public Output<String> dnsTarget() {
         return this.dnsTarget;
     }
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     public Output<String> domainName() {
@@ -123,28 +123,28 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.enableWwwSubdomain);
     }
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      * 
      */
     @Export(name="serviceArn", type=String.class, parameters={})
     private Output<String> serviceArn;
 
     /**
-     * @return The ARN of the App Runner service.
+     * @return ARN of the App Runner service.
      * 
      */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
     /**
-     * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     public Output<String> status() {

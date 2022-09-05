@@ -48,7 +48,7 @@ func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributi
 
 // A collection of arguments for invoking getDistributionConfiguration.
 type LookupDistributionConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the distribution configuration.
+	// ARN of the distribution configuration.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
@@ -88,7 +88,7 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 
 // A collection of arguments for invoking getDistributionConfiguration.
 type LookupDistributionConfigurationOutputArgs struct {
-	// Amazon Resource Name (ARN) of the distribution configuration.
+	// ARN of the distribution configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

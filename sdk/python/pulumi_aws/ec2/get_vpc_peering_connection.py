@@ -77,7 +77,7 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter
     def accepter(self) -> Mapping[str, bool]:
         """
-        A configuration block that describes [VPC Peering Connection]
+        Configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         """
         return pulumi.get(self, "accepter")
@@ -86,7 +86,7 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> str:
         """
-        A CIDR block associated to the VPC of the specific VPC Peering Connection.
+        CIDR block associated to the VPC of the specific VPC Peering Connection.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -150,7 +150,7 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter
     def requester(self) -> Mapping[str, bool]:
         """
-        A configuration block that describes [VPC Peering Connection]
+        Configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         """
         return pulumi.get(self, "requester")
@@ -230,19 +230,19 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     ```
 
 
-    :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the specific VPC Peering Connection to retrieve.
-    :param str owner_id: The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_cidr_block: The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_owner_id: The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_region: The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str region: The region of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param str status: The status of the specific VPC Peering Connection to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific VPC Peering Connection to retrieve.
+    :param str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_region: Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str region: Region of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str status: Status of the specific VPC Peering Connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
-    :param str vpc_id: The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -315,18 +315,18 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     ```
 
 
-    :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the specific VPC Peering Connection to retrieve.
-    :param str owner_id: The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_cidr_block: The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_owner_id: The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_region: The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param str region: The region of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param str status: The status of the specific VPC Peering Connection to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific VPC Peering Connection to retrieve.
+    :param str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_region: Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str region: Region of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str status: Status of the specific VPC Peering Connection to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
-    :param str vpc_id: The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     ...

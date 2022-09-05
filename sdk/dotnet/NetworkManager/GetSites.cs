@@ -78,7 +78,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetSitesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the sites to retrieve.
+        /// ID of the Global Network of the sites to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetSitesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the sites to retrieve.
+        /// ID of the Global Network of the sites to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the sites.
+        /// IDs of the sites.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;

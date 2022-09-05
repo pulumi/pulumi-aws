@@ -35,14 +35,14 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The path at which the device is exposed to created instances.
+     * Path at which the device is exposed to created instances.
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -82,14 +82,14 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the Outpost on which the snapshot is stored.
+     * ARN of the Outpost on which the snapshot is stored.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The ARN of the Outpost on which the snapshot is stored.
+     * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -97,7 +97,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The id of an EBS snapshot that will be used to initialize the created
+     * ID of an EBS snapshot that will be used to initialize the created
      * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
      * snapshot.
      * 
@@ -106,7 +106,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> snapshotId;
 
     /**
-     * @return The id of an EBS snapshot that will be used to initialize the created
+     * @return ID of an EBS snapshot that will be used to initialize the created
      * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
      * snapshot.
      * 
@@ -116,14 +116,14 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+     * Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
      * 
      */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
     /**
-     * @return The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+     * @return Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
      * 
      */
     public Optional<Output<Integer>> throughput() {
@@ -131,7 +131,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The size of created volumes in GiB.
+     * Size of created volumes in GiB.
      * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
      * as the selected snapshot.
      * 
@@ -140,7 +140,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     private @Nullable Output<Integer> volumeSize;
 
     /**
-     * @return The size of created volumes in GiB.
+     * @return Size of created volumes in GiB.
      * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
      * as the selected snapshot.
      * 
@@ -150,14 +150,14 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+     * Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
      * 
      */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
     /**
-     * @return The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+     * @return Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
      * 
      */
     public Optional<Output<String>> volumeType() {
@@ -220,7 +220,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param deviceName The path at which the device is exposed to created instances.
+         * @param deviceName Path at which the device is exposed to created instances.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param deviceName The path at which the device is exposed to created instances.
+         * @param deviceName Path at which the device is exposed to created instances.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param outpostArn The ARN of the Outpost on which the snapshot is stored.
+         * @param outpostArn ARN of the Outpost on which the snapshot is stored.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param outpostArn The ARN of the Outpost on which the snapshot is stored.
+         * @param outpostArn ARN of the Outpost on which the snapshot is stored.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param snapshotId The id of an EBS snapshot that will be used to initialize the created
+         * @param snapshotId ID of an EBS snapshot that will be used to initialize the created
          * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
          * snapshot.
          * 
@@ -319,7 +319,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param snapshotId The id of an EBS snapshot that will be used to initialize the created
+         * @param snapshotId ID of an EBS snapshot that will be used to initialize the created
          * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
          * snapshot.
          * 
@@ -331,7 +331,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param throughput The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+         * @param throughput Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param throughput The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+         * @param throughput Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param volumeSize The size of created volumes in GiB.
+         * @param volumeSize Size of created volumes in GiB.
          * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
          * as the selected snapshot.
          * 
@@ -365,7 +365,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param volumeSize The size of created volumes in GiB.
+         * @param volumeSize Size of created volumes in GiB.
          * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
          * as the selected snapshot.
          * 
@@ -377,7 +377,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param volumeType The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+         * @param volumeType Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class AmiCopyEbsBlockDeviceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param volumeType The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+         * @param volumeType Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
          * 
          * @return builder
          * 

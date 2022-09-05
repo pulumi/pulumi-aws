@@ -16,12 +16,12 @@ public final class GetIpSetResult {
      */
     private List<String> addresses;
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     private String arn;
     /**
-     * @return The description of the set that helps with identification.
+     * @return Description of the set that helps with identification.
      * 
      */
     private String description;
@@ -31,7 +31,7 @@ public final class GetIpSetResult {
      */
     private String id;
     /**
-     * @return The IP address version of the set.
+     * @return IP address version of the set.
      * 
      */
     private String ipAddressVersion;
@@ -47,14 +47,14 @@ public final class GetIpSetResult {
         return this.addresses;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the set that helps with identification.
+     * @return Description of the set that helps with identification.
      * 
      */
     public String description() {
@@ -68,7 +68,7 @@ public final class GetIpSetResult {
         return this.id;
     }
     /**
-     * @return The IP address version of the set.
+     * @return IP address version of the set.
      * 
      */
     public String ipAddressVersion() {

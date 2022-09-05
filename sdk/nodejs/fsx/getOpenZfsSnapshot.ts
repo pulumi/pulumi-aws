@@ -54,7 +54,7 @@ export interface GetOpenZfsSnapshotArgs {
      */
     mostRecent?: boolean;
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      */
     name?: string;
     /**
@@ -62,7 +62,7 @@ export interface GetOpenZfsSnapshotArgs {
      */
     snapshotIds?: string[];
     /**
-     * A list of Tag values, with a maximum of 50 elements.
+     * List of Tag values, with a maximum of 50 elements.
      */
     tags?: {[key: string]: string};
 }
@@ -76,7 +76,7 @@ export interface GetOpenZfsSnapshotResult {
      */
     readonly arn: string;
     /**
-     * The time that the resource was created.
+     * Time that the resource was created.
      */
     readonly creationTime: string;
     readonly filters?: outputs.fsx.GetOpenZfsSnapshotFilter[];
@@ -86,20 +86,20 @@ export interface GetOpenZfsSnapshotResult {
     readonly id: string;
     readonly mostRecent?: boolean;
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      */
     readonly name?: string;
     /**
-     * The ID of the snapshot.
+     * ID of the snapshot.
      */
     readonly snapshotId: string;
     readonly snapshotIds?: string[];
     /**
-     * A list of Tag values, with a maximum of 50 elements.
+     * List of Tag values, with a maximum of 50 elements.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The ID of the volume that the snapshot is of.
+     * ID of the volume that the snapshot is of.
      */
     readonly volumeId: string;
 }
@@ -122,7 +122,7 @@ export interface GetOpenZfsSnapshotOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      */
     name?: pulumi.Input<string>;
     /**
@@ -130,7 +130,7 @@ export interface GetOpenZfsSnapshotOutputArgs {
      */
     snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Tag values, with a maximum of 50 elements.
+     * List of Tag values, with a maximum of 50 elements.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

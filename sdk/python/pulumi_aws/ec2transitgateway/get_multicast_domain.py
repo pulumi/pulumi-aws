@@ -74,7 +74,7 @@ class GetMulticastDomainResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        EC2 Transit Gateway Multicast Domain ARN.
         """
         return pulumi.get(self, "arn")
 

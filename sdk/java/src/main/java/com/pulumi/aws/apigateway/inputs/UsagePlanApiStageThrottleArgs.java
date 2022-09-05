@@ -33,14 +33,14 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
     public Output<String> path() {
@@ -110,7 +110,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
          * 
          * @return builder
          * 

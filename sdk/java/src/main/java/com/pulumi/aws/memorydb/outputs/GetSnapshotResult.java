@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSnapshotResult {
     /**
-     * @return The ARN of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     private String arn;
@@ -43,19 +43,19 @@ public final class GetSnapshotResult {
      */
     private String name;
     /**
-     * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
     private String source;
     /**
-     * @return A map of tags assigned to the snapshot.
+     * @return Map of tags assigned to the snapshot.
      * 
      */
     private Map<String,String> tags;
 
     private GetSnapshotResult() {}
     /**
-     * @return The ARN of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public String arn() {
@@ -97,14 +97,14 @@ public final class GetSnapshotResult {
         return this.name;
     }
     /**
-     * @return Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
     public String source() {
         return this.source;
     }
     /**
-     * @return A map of tags assigned to the snapshot.
+     * @return Map of tags assigned to the snapshot.
      * 
      */
     public Map<String,String> tags() {

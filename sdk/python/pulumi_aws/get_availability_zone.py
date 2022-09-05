@@ -102,7 +102,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="nameSuffix")
     def name_suffix(self) -> str:
         """
-        The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+        Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
         For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
         For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         """
@@ -128,7 +128,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="parentZoneId")
     def parent_zone_id(self) -> str:
         """
-        The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         """
         return pulumi.get(self, "parent_zone_id")
 
@@ -136,7 +136,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="parentZoneName")
     def parent_zone_name(self) -> str:
         """
-        The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+        Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
         """
         return pulumi.get(self, "parent_zone_name")
 
@@ -144,7 +144,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter
     def region(self) -> str:
         """
-        The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+        Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         """
         return pulumi.get(self, "region")
 
@@ -162,7 +162,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="zoneType")
     def zone_type(self) -> str:
         """
-        The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+        Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
         """
         return pulumi.get(self, "zone_type")
 
@@ -211,9 +211,9 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-    :param str state: A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param str zone_id: The zone ID of the availability zone to select.
+    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+    :param str zone_id: Zone ID of the availability zone to select.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -264,8 +264,8 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-    :param str state: A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param str zone_id: The zone ID of the availability zone to select.
+    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+    :param str zone_id: Zone ID of the availability zone to select.
     """
     ...

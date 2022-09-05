@@ -36,7 +36,7 @@ export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.I
  */
 export interface GetEventConnectionArgs {
     /**
-     * The name of the connection.
+     * Name of the connection.
      */
     name: string;
 }
@@ -46,11 +46,11 @@ export interface GetEventConnectionArgs {
  */
 export interface GetEventConnectionResult {
     /**
-     * The ARN (Amazon Resource Name) for the connection.
+     * ARN (Amazon Resource Name) for the connection.
      */
     readonly arn: string;
     /**
-     * The type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
     readonly authorizationType: string;
     /**
@@ -58,11 +58,11 @@ export interface GetEventConnectionResult {
      */
     readonly id: string;
     /**
-     * The name of the connection.
+     * Name of the connection.
      */
     readonly name: string;
     /**
-     * The ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+     * ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
      */
     readonly secretArn: string;
 }
@@ -76,7 +76,7 @@ export function getEventConnectionOutput(args: GetEventConnectionOutputArgs, opt
  */
 export interface GetEventConnectionOutputArgs {
     /**
-     * The name of the connection.
+     * Name of the connection.
      */
     name: pulumi.Input<string>;
 }

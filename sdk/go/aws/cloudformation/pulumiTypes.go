@@ -898,7 +898,7 @@ func (o StackSetOperationPreferencesPtrOutput) RegionOrders() pulumi.StringArray
 type GetCloudFormationTypeLoggingConfig struct {
 	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName string `pulumi:"logGroupName"`
-	// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+	// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
 	LogRoleArn string `pulumi:"logRoleArn"`
 }
 
@@ -916,7 +916,7 @@ type GetCloudFormationTypeLoggingConfigInput interface {
 type GetCloudFormationTypeLoggingConfigArgs struct {
 	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+	// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
 	LogRoleArn pulumi.StringInput `pulumi:"logRoleArn"`
 }
 
@@ -976,7 +976,7 @@ func (o GetCloudFormationTypeLoggingConfigOutput) LogGroupName() pulumi.StringOu
 	return o.ApplyT(func(v GetCloudFormationTypeLoggingConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
 func (o GetCloudFormationTypeLoggingConfigOutput) LogRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudFormationTypeLoggingConfig) string { return v.LogRoleArn }).(pulumi.StringOutput)
 }

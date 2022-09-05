@@ -67,70 +67,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appconfig/eventIntegration:EventIntegration")
 public class EventIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Event Integration.
+     * ARN of the Event Integration.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Event Integration.
+     * @return ARN of the Event Integration.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Specifies the description of the Event Integration.
+     * @return Description of the Event Integration.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     @Export(name="eventFilter", type=EventIntegrationEventFilter.class, parameters={})
     private Output<EventIntegrationEventFilter> eventFilter;
 
     /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     public Output<EventIntegrationEventFilter> eventFilter() {
         return this.eventFilter;
     }
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      * 
      */
     @Export(name="eventbridgeBus", type=String.class, parameters={})
     private Output<String> eventbridgeBus;
 
     /**
-     * @return Specifies the EventBridge bus.
+     * @return EventBridge bus.
      * 
      */
     public Output<String> eventbridgeBus() {
         return this.eventbridgeBus;
     }
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Event Integration.
+     * @return Name of the Event Integration.
      * 
      */
     public Output<String> name() {
@@ -150,9 +150,17 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

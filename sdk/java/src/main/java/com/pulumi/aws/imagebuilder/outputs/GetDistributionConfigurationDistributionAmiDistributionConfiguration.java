@@ -23,7 +23,7 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
      */
     private String description;
     /**
-     * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+     * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
      * 
      */
     private String kmsKeyId;
@@ -59,7 +59,7 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         return this.description;
     }
     /**
-     * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+     * @return ARN of Key Management Service (KMS) Key to encrypt AMI.
      * 
      */
     public String kmsKeyId() {

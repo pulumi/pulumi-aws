@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<bool>? DetailedMetricsEnabled { get; set; }
 
         /// <summary>
-        /// The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        /// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
         /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("loggingLevel")]
@@ -39,13 +39,13 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<string> RouteKey { get; set; } = null!;
 
         /// <summary>
-        /// The throttling burst limit for the route.
+        /// Throttling burst limit for the route.
         /// </summary>
         [Input("throttlingBurstLimit")]
         public Input<int>? ThrottlingBurstLimit { get; set; }
 
         /// <summary>
-        /// The throttling rate limit for the route.
+        /// Throttling rate limit for the route.
         /// </summary>
         [Input("throttlingRateLimit")]
         public Input<double>? ThrottlingRateLimit { get; set; }

@@ -112,7 +112,7 @@ export class MysqlLayer extends pulumi.CustomResource {
      */
     public readonly rootPasswordOnAllInstances!: pulumi.Output<boolean | undefined>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -279,7 +279,7 @@ export interface MysqlLayerState {
      */
     rootPasswordOnAllInstances?: pulumi.Input<boolean>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface MysqlLayerArgs {
      */
     rootPasswordOnAllInstances?: pulumi.Input<boolean>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

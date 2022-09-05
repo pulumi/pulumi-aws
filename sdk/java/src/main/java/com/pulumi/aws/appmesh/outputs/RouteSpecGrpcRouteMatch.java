@@ -14,44 +14,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRouteMatch {
     /**
-     * @return The data to match from the gRPC request.
+     * @return Data to match from the gRPC request.
      * 
      */
     private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
     /**
-     * @return The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
     private @Nullable String methodName;
     /**
-     * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return The fully qualified domain name for the service to match from the request.
+     * @return Fully qualified domain name for the service to match from the request.
      * 
      */
     private @Nullable String serviceName;
 
     private RouteSpecGrpcRouteMatch() {}
     /**
-     * @return The data to match from the gRPC request.
+     * @return Data to match from the gRPC request.
      * 
      */
     public List<RouteSpecGrpcRouteMatchMetadata> metadatas() {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
     /**
-     * @return The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
     public Optional<String> methodName() {
         return Optional.ofNullable(this.methodName);
     }
     /**
-     * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -59,7 +59,7 @@ public final class RouteSpecGrpcRouteMatch {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The fully qualified domain name for the service to match from the request.
+     * @return Fully qualified domain name for the service to match from the request.
      * 
      */
     public Optional<String> serviceName() {

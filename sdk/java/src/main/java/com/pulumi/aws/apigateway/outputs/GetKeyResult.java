@@ -12,17 +12,17 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyResult {
     /**
-     * @return The date and time when the API Key was created.
+     * @return Date and time when the API Key was created.
      * 
      */
     private String createdDate;
     /**
-     * @return The description of the API Key.
+     * @return Description of the API Key.
      * 
      */
     private String description;
     /**
-     * @return Specifies whether the API Key is enabled.
+     * @return Whether the API Key is enabled.
      * 
      */
     private Boolean enabled;
@@ -32,7 +32,7 @@ public final class GetKeyResult {
      */
     private String id;
     /**
-     * @return The date and time when the API Key was last updated.
+     * @return Date and time when the API Key was last updated.
      * 
      */
     private String lastUpdatedDate;
@@ -42,7 +42,7 @@ public final class GetKeyResult {
      */
     private String name;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
@@ -54,21 +54,21 @@ public final class GetKeyResult {
 
     private GetKeyResult() {}
     /**
-     * @return The date and time when the API Key was created.
+     * @return Date and time when the API Key was created.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return The description of the API Key.
+     * @return Description of the API Key.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return Specifies whether the API Key is enabled.
+     * @return Whether the API Key is enabled.
      * 
      */
     public Boolean enabled() {
@@ -82,7 +82,7 @@ public final class GetKeyResult {
         return this.id;
     }
     /**
-     * @return The date and time when the API Key was last updated.
+     * @return Date and time when the API Key was last updated.
      * 
      */
     public String lastUpdatedDate() {
@@ -96,7 +96,7 @@ public final class GetKeyResult {
         return this.name;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {

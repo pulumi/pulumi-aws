@@ -48,6 +48,6 @@ func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocatio
 type GetLocationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The code for the locations.
+	// Code for the locations.
 	LocationCodes []string `pulumi:"locationCodes"`
 }

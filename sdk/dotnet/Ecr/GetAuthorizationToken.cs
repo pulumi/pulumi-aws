@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string AuthorizationToken;
         /// <summary>
-        /// The time in UTC RFC3339 format when the authorization token expires.
+        /// Time in UTC RFC3339 format when the authorization token expires.
         /// </summary>
         public readonly string ExpiresAt;
         /// <summary>
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The registry URL to use in the docker login command.
+        /// Registry URL to use in the docker login command.
         /// </summary>
         public readonly string ProxyEndpoint;
         public readonly string? RegistryId;

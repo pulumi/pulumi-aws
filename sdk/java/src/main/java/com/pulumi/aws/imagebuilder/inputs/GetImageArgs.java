@@ -17,14 +17,14 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImageArgs Empty = new GetImageArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+     * ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+     * @return ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+         * @param arn ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+         * @param arn ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
          * 
          * @return builder
          * 

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetResourceTagsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the resource with the tags to list. See details below.
+        /// ID of the resource with the tags to list. See details below.
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetResourceTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the resource with the tags to list. See details below.
+        /// ID of the resource with the tags to list. See details below.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;

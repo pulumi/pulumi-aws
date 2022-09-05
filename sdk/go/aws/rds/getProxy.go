@@ -48,36 +48,36 @@ func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getProxy.
 type LookupProxyArgs struct {
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getProxy.
 type LookupProxyResult struct {
-	// The ARN of the DB Proxy.
+	// ARN of the DB Proxy.
 	Arn string `pulumi:"arn"`
-	// The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+	// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
 	Auths []GetProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging bool `pulumi:"debugLogging"`
-	// The endpoint that you can use to connect to the DB proxy.
+	// Endpoint that you can use to connect to the DB proxy.
 	Endpoint string `pulumi:"endpoint"`
-	// The kinds of databases that the proxy can connect to.
+	// Kinds of databases that the proxy can connect to.
 	EngineFamily string `pulumi:"engineFamily"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+	// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
 	IdleClientTimeout int    `pulumi:"idleClientTimeout"`
 	Name              string `pulumi:"name"`
-	// Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTls bool `pulumi:"requireTls"`
-	// The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+	// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
 	// Provides the VPC ID of the DB proxy.
 	VpcId string `pulumi:"vpcId"`
 	// Provides a list of VPC security groups that the proxy belongs to.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// The EC2 subnet IDs for the proxy.
+	// EC2 subnet IDs for the proxy.
 	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
 }
 
@@ -96,7 +96,7 @@ func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...
 
 // A collection of arguments for invoking getProxy.
 type LookupProxyOutputArgs struct {
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -119,12 +119,12 @@ func (o LookupProxyResultOutput) ToLookupProxyResultOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN of the DB Proxy.
+// ARN of the DB Proxy.
 func (o LookupProxyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
 func (o LookupProxyResultOutput) Auths() GetProxyAuthArrayOutput {
 	return o.ApplyT(func(v LookupProxyResult) []GetProxyAuth { return v.Auths }).(GetProxyAuthArrayOutput)
 }
@@ -134,12 +134,12 @@ func (o LookupProxyResultOutput) DebugLogging() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProxyResult) bool { return v.DebugLogging }).(pulumi.BoolOutput)
 }
 
-// The endpoint that you can use to connect to the DB proxy.
+// Endpoint that you can use to connect to the DB proxy.
 func (o LookupProxyResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The kinds of databases that the proxy can connect to.
+// Kinds of databases that the proxy can connect to.
 func (o LookupProxyResultOutput) EngineFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.EngineFamily }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupProxyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
 func (o LookupProxyResultOutput) IdleClientTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupProxyResult) int { return v.IdleClientTimeout }).(pulumi.IntOutput)
 }
@@ -158,12 +158,12 @@ func (o LookupProxyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 func (o LookupProxyResultOutput) RequireTls() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProxyResult) bool { return v.RequireTls }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 func (o LookupProxyResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o LookupProxyResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupProxyResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The EC2 subnet IDs for the proxy.
+// EC2 subnet IDs for the proxy.
 func (o LookupProxyResultOutput) VpcSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupProxyResult) []string { return v.VpcSubnetIds }).(pulumi.StringArrayOutput)
 }

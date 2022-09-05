@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A local file certificate.
+        /// Local file certificate.
         /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileGetArgs>? File { get; set; }

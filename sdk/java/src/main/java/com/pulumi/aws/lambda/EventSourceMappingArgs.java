@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.lambda;
 
+import com.pulumi.aws.lambda.inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingDestinationConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
+import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -21,6 +23,21 @@ import javax.annotation.Nullable;
 public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventSourceMappingArgs Empty = new EventSourceMappingArgs();
+
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
+    @Import(name="amazonManagedKafkaEventSourceConfig")
+    private @Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> amazonManagedKafkaEventSourceConfig;
+
+    /**
+     * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>> amazonManagedKafkaEventSourceConfig() {
+        return Optional.ofNullable(this.amazonManagedKafkaEventSourceConfig);
+    }
 
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
@@ -175,7 +192,6 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
     @Import(name="queues")
@@ -184,7 +200,6 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
     public Optional<Output<List<String>>> queues() {
@@ -196,6 +211,23 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
 
     public Optional<Output<EventSourceMappingSelfManagedEventSourceArgs>> selfManagedEventSource() {
         return Optional.ofNullable(this.selfManagedEventSource);
+    }
+
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
+    @Import(name="selfManagedKafkaEventSourceConfig")
+    private @Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> selfManagedKafkaEventSourceConfig;
+
+    /**
+     * @return Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>> selfManagedKafkaEventSourceConfig() {
+        return Optional.ofNullable(this.selfManagedKafkaEventSourceConfig);
     }
 
     @Import(name="sourceAccessConfigurations")
@@ -268,6 +300,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     private EventSourceMappingArgs() {}
 
     private EventSourceMappingArgs(EventSourceMappingArgs $) {
+        this.amazonManagedKafkaEventSourceConfig = $.amazonManagedKafkaEventSourceConfig;
         this.batchSize = $.batchSize;
         this.bisectBatchOnFunctionError = $.bisectBatchOnFunctionError;
         this.destinationConfig = $.destinationConfig;
@@ -282,6 +315,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         this.parallelizationFactor = $.parallelizationFactor;
         this.queues = $.queues;
         this.selfManagedEventSource = $.selfManagedEventSource;
+        this.selfManagedKafkaEventSourceConfig = $.selfManagedKafkaEventSourceConfig;
         this.sourceAccessConfigurations = $.sourceAccessConfigurations;
         this.startingPosition = $.startingPosition;
         this.startingPositionTimestamp = $.startingPositionTimestamp;
@@ -305,6 +339,27 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
 
         public Builder(EventSourceMappingArgs defaults) {
             $ = new EventSourceMappingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonManagedKafkaEventSourceConfig(@Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> amazonManagedKafkaEventSourceConfig) {
+            $.amazonManagedKafkaEventSourceConfig = amazonManagedKafkaEventSourceConfig;
+            return this;
+        }
+
+        /**
+         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amazonManagedKafkaEventSourceConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs amazonManagedKafkaEventSourceConfig) {
+            return amazonManagedKafkaEventSourceConfig(Output.of(amazonManagedKafkaEventSourceConfig));
         }
 
         /**
@@ -522,7 +577,6 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
          * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
          * 
          * @return builder
          * 
@@ -535,7 +589,6 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
          * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
          * 
          * @return builder
          * 
@@ -547,7 +600,6 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
          * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
          * 
          * @return builder
          * 
@@ -563,6 +615,29 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
 
         public Builder selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs selfManagedEventSource) {
             return selfManagedEventSource(Output.of(selfManagedEventSource));
+        }
+
+        /**
+         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfManagedKafkaEventSourceConfig(@Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> selfManagedKafkaEventSourceConfig) {
+            $.selfManagedKafkaEventSourceConfig = selfManagedKafkaEventSourceConfig;
+            return this;
+        }
+
+        /**
+         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
+         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfManagedKafkaEventSourceConfig(EventSourceMappingSelfManagedKafkaEventSourceConfigArgs selfManagedKafkaEventSourceConfig) {
+            return selfManagedKafkaEventSourceConfig(Output.of(selfManagedKafkaEventSourceConfig));
         }
 
         public Builder sourceAccessConfigurations(@Nullable Output<List<EventSourceMappingSourceAccessConfigurationArgs>> sourceAccessConfigurations) {

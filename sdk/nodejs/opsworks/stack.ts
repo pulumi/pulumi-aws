@@ -164,7 +164,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -350,7 +350,7 @@ export interface StackState {
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -451,7 +451,7 @@ export interface StackArgs {
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     vpcId?: pulumi.Input<string>;
 }

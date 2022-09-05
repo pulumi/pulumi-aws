@@ -35,7 +35,7 @@ export function getRealtimeLogConfig(args: GetRealtimeLogConfigArgs, opts?: pulu
  */
 export interface GetRealtimeLogConfigArgs {
     /**
-     * The unique name to identify this real-time log configuration.
+     * Unique name to identify this real-time log configuration.
      */
     name: string;
 }
@@ -45,15 +45,15 @@ export interface GetRealtimeLogConfigArgs {
  */
 export interface GetRealtimeLogConfigResult {
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      */
     readonly arn: string;
     /**
-     * (Required) The Amazon Kinesis data streams where real-time log data is sent.
+     * (Required) Amazon Kinesis data streams where real-time log data is sent.
      */
     readonly endpoints: outputs.cloudfront.GetRealtimeLogConfigEndpoint[];
     /**
-     * (Required) The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+     * (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */
     readonly fields: string[];
     /**
@@ -62,7 +62,7 @@ export interface GetRealtimeLogConfigResult {
     readonly id: string;
     readonly name: string;
     /**
-     * (Required) The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+     * (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */
     readonly samplingRate: number;
 }
@@ -76,7 +76,7 @@ export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs,
  */
 export interface GetRealtimeLogConfigOutputArgs {
     /**
-     * The unique name to identify this real-time log configuration.
+     * Unique name to identify this real-time log configuration.
      */
     name: pulumi.Input<string>;
 }

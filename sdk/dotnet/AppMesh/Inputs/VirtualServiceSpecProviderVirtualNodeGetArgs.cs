@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualServiceSpecProviderVirtualNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
+        /// Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualNodeName", required: true)]
         public Input<string> VirtualNodeName { get; set; } = null!;

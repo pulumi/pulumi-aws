@@ -75,7 +75,7 @@ export interface GetConnectResult {
      */
     readonly id: string;
     /**
-     * The tunnel protocol
+     * Tunnel protocol
      */
     readonly protocol: string;
     /**

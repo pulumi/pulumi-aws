@@ -84,28 +84,28 @@ type LookupContactFlowModuleArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the Contact Flow Module.
+	// Map of tags to assign to the Contact Flow Module.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getContactFlowModule.
 type LookupContactFlowModuleResult struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow Module.
+	// ARN of the Contact Flow Module.
 	Arn                 string `pulumi:"arn"`
 	ContactFlowModuleId string `pulumi:"contactFlowModuleId"`
-	// Specifies the logic of the Contact Flow Module.
+	// Logic of the Contact Flow Module.
 	Content string `pulumi:"content"`
-	// Specifies the description of the Contact Flow Module.
+	// Description of the Contact Flow Module.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
-	// Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+	// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
 	State string `pulumi:"state"`
-	// The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+	// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
 	Status string `pulumi:"status"`
-	// A map of tags to assign to the Contact Flow Module.
+	// Map of tags to assign to the Contact Flow Module.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -130,7 +130,7 @@ type LookupContactFlowModuleOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of tags to assign to the Contact Flow Module.
+	// Map of tags to assign to the Contact Flow Module.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -153,7 +153,7 @@ func (o LookupContactFlowModuleResultOutput) ToLookupContactFlowModuleResultOutp
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Contact Flow Module.
+// ARN of the Contact Flow Module.
 func (o LookupContactFlowModuleResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -162,12 +162,12 @@ func (o LookupContactFlowModuleResultOutput) ContactFlowModuleId() pulumi.String
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.ContactFlowModuleId }).(pulumi.StringOutput)
 }
 
-// Specifies the logic of the Contact Flow Module.
+// Logic of the Contact Flow Module.
 func (o LookupContactFlowModuleResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Contact Flow Module.
+// Description of the Contact Flow Module.
 func (o LookupContactFlowModuleResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -185,17 +185,17 @@ func (o LookupContactFlowModuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
 func (o LookupContactFlowModuleResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
 func (o LookupContactFlowModuleResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the Contact Flow Module.
+// Map of tags to assign to the Contact Flow Module.
 func (o LookupContactFlowModuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

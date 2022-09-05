@@ -127,43 +127,43 @@ export class Resolver extends pulumi.CustomResource {
     }
 
     /**
-     * The API ID for the GraphQL API.
+     * API ID for the GraphQL API.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The ARN
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The CachingConfig.
+     * CachingConfig.
      */
     public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
     /**
-     * The data source name.
+     * Data source name.
      */
     public readonly dataSource!: pulumi.Output<string | undefined>;
     /**
-     * The field name from the schema defined in the GraphQL API.
+     * Field name from the schema defined in the GraphQL API.
      */
     public readonly field!: pulumi.Output<string>;
     /**
-     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     /**
-     * The PipelineConfig.
+     * PipelineConfig.
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     public readonly requestTemplate!: pulumi.Output<string | undefined>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     public readonly responseTemplate!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     /**
-     * The type name from the schema defined in the GraphQL API.
+     * Type name from the schema defined in the GraphQL API.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -234,43 +234,43 @@ export class Resolver extends pulumi.CustomResource {
  */
 export interface ResolverState {
     /**
-     * The API ID for the GraphQL API.
+     * API ID for the GraphQL API.
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The ARN
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * The CachingConfig.
+     * CachingConfig.
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
-     * The data source name.
+     * Data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**
-     * The field name from the schema defined in the GraphQL API.
+     * Field name from the schema defined in the GraphQL API.
      */
     field?: pulumi.Input<string>;
     /**
-     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
     kind?: pulumi.Input<string>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The PipelineConfig.
+     * PipelineConfig.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     requestTemplate?: pulumi.Input<string>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     responseTemplate?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface ResolverState {
      */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
     /**
-     * The type name from the schema defined in the GraphQL API.
+     * Type name from the schema defined in the GraphQL API.
      */
     type?: pulumi.Input<string>;
 }
@@ -288,39 +288,39 @@ export interface ResolverState {
  */
 export interface ResolverArgs {
     /**
-     * The API ID for the GraphQL API.
+     * API ID for the GraphQL API.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The CachingConfig.
+     * CachingConfig.
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
-     * The data source name.
+     * Data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**
-     * The field name from the schema defined in the GraphQL API.
+     * Field name from the schema defined in the GraphQL API.
      */
     field: pulumi.Input<string>;
     /**
-     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
     kind?: pulumi.Input<string>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The PipelineConfig.
+     * PipelineConfig.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
-     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     requestTemplate?: pulumi.Input<string>;
     /**
-     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
     responseTemplate?: pulumi.Input<string>;
     /**
@@ -328,7 +328,7 @@ export interface ResolverArgs {
      */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
     /**
-     * The type name from the schema defined in the GraphQL API.
+     * Type name from the schema defined in the GraphQL API.
      */
     type: pulumi.Input<string>;
 }

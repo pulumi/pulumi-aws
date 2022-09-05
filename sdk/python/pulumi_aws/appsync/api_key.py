@@ -19,8 +19,8 @@ class ApiKeyArgs:
                  expires: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
-        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -35,7 +35,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the associated AppSync API
+        ID of the associated AppSync API
         """
         return pulumi.get(self, "api_id")
 
@@ -47,7 +47,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The API key description. Defaults to "Managed by Pulumi".
+        API key description. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -77,10 +77,10 @@ class _ApiKeyState:
                  key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
-        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[str] key: The API key
+        :param pulumi.Input[str] key: API key
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -97,7 +97,7 @@ class _ApiKeyState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated AppSync API
+        ID of the associated AppSync API
         """
         return pulumi.get(self, "api_id")
 
@@ -109,7 +109,7 @@ class _ApiKeyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The API key description. Defaults to "Managed by Pulumi".
+        API key description. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -133,7 +133,7 @@ class _ApiKeyState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The API key
+        API key
         """
         return pulumi.get(self, "key")
 
@@ -176,8 +176,8 @@ class ApiKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
-        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
         ...
@@ -265,10 +265,10 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API
-        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[str] key: The API key
+        :param pulumi.Input[str] key: API key
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,7 +284,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the associated AppSync API
+        ID of the associated AppSync API
         """
         return pulumi.get(self, "api_id")
 
@@ -292,7 +292,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The API key description. Defaults to "Managed by Pulumi".
+        API key description. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -308,7 +308,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The API key
+        API key
         """
         return pulumi.get(self, "key")
 

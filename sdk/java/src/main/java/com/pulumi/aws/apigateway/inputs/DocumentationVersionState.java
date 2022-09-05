@@ -16,14 +16,14 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
     public static final DocumentationVersionState Empty = new DocumentationVersionState();
 
     /**
-     * The description of the API documentation version.
+     * Description of the API documentation version.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the API documentation version.
+     * @return Description of the API documentation version.
      * 
      */
     public Optional<Output<String>> description() {
@@ -31,14 +31,14 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Optional<Output<String>> restApiId() {
@@ -46,14 +46,14 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version identifier of the API documentation snapshot.
+     * Version identifier of the API documentation snapshot.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version identifier of the API documentation snapshot.
+     * @return Version identifier of the API documentation snapshot.
      * 
      */
     public Optional<Output<String>> version() {
@@ -87,7 +87,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the API documentation version.
+         * @param description Description of the API documentation version.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the API documentation version.
+         * @param description Description of the API documentation version.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restApiId The ID of the associated Rest API
+         * @param restApiId ID of the associated Rest API
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param restApiId The ID of the associated Rest API
+         * @param restApiId ID of the associated Rest API
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version identifier of the API documentation snapshot.
+         * @param version Version identifier of the API documentation snapshot.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DocumentationVersionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version identifier of the API documentation snapshot.
+         * @param version Version identifier of the API documentation snapshot.
          * 
          * @return builder
          * 

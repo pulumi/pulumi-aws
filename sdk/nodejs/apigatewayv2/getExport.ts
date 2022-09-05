@@ -41,27 +41,27 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetExportArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: string;
     /**
-     * The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+     * Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
      */
     exportVersion?: string;
     /**
-     * Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+     * Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
      */
     includeExtensions?: boolean;
     /**
-     * The output type of the exported definition file. Valid values are `JSON` and `YAML`.
+     * Output type of the exported definition file. Valid values are `JSON` and `YAML`.
      */
     outputType: string;
     /**
-     * The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+     * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      */
     specification: string;
     /**
-     * The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+     * Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
      */
     stageName?: string;
 }
@@ -72,7 +72,7 @@ export interface GetExportArgs {
 export interface GetExportResult {
     readonly apiId: string;
     /**
-     * The id of the API.
+     * ID of the API.
      */
     readonly body: string;
     readonly exportVersion?: string;
@@ -95,27 +95,27 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetExportOutputArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+     * Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
      */
     exportVersion?: pulumi.Input<string>;
     /**
-     * Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+     * Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
      */
     includeExtensions?: pulumi.Input<boolean>;
     /**
-     * The output type of the exported definition file. Valid values are `JSON` and `YAML`.
+     * Output type of the exported definition file. Valid values are `JSON` and `YAML`.
      */
     outputType: pulumi.Input<string>;
     /**
-     * The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+     * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      */
     specification: pulumi.Input<string>;
     /**
-     * The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+     * Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
      */
     stageName?: pulumi.Input<string>;
 }

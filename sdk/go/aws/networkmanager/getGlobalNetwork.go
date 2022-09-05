@@ -48,22 +48,22 @@ func LookupGlobalNetwork(ctx *pulumi.Context, args *LookupGlobalNetworkArgs, opt
 
 // A collection of arguments for invoking getGlobalNetwork.
 type LookupGlobalNetworkArgs struct {
-	// The id of the specific global network to retrieve.
+	// ID of the specific global network to retrieve.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// A map of resource tags.
+	// Map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getGlobalNetwork.
 type LookupGlobalNetworkResult struct {
-	// The ARN of the global network.
+	// ARN of the global network.
 	Arn string `pulumi:"arn"`
-	// The description of the global network.
+	// Description of the global network.
 	Description     string `pulumi:"description"`
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A map of resource tags.
+	// Map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -82,9 +82,9 @@ func LookupGlobalNetworkOutput(ctx *pulumi.Context, args LookupGlobalNetworkOutp
 
 // A collection of arguments for invoking getGlobalNetwork.
 type LookupGlobalNetworkOutputArgs struct {
-	// The id of the specific global network to retrieve.
+	// ID of the specific global network to retrieve.
 	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// A map of resource tags.
+	// Map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -107,12 +107,12 @@ func (o LookupGlobalNetworkResultOutput) ToLookupGlobalNetworkResultOutputWithCo
 	return o
 }
 
-// The ARN of the global network.
+// ARN of the global network.
 func (o LookupGlobalNetworkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the global network.
+// Description of the global network.
 func (o LookupGlobalNetworkResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -126,7 +126,7 @@ func (o LookupGlobalNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A map of resource tags.
+// Map of resource tags.
 func (o LookupGlobalNetworkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGlobalNetworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

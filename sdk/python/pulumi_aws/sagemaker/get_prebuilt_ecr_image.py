@@ -71,7 +71,7 @@ class GetPrebuiltEcrImageResult:
     @pulumi.getter(name="registryId")
     def registry_id(self) -> str:
         """
-        The account ID containing the image. For example, `469771592824`.
+        Account ID containing the image. For example, `469771592824`.
         """
         return pulumi.get(self, "registry_id")
 
@@ -79,7 +79,7 @@ class GetPrebuiltEcrImageResult:
     @pulumi.getter(name="registryPath")
     def registry_path(self) -> str:
         """
-        The Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
+        Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
         """
         return pulumi.get(self, "registry_path")
 
@@ -127,10 +127,10 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
     ```
 
 
-    :param str dns_suffix: The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-    :param str image_tag: The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-    :param str region: The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-    :param str repository_name: The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+    :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+    :param str image_tag: Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+    :param str region: Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+    :param str repository_name: Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
     """
     __args__ = dict()
     __args__['dnsSuffix'] = dns_suffix
@@ -174,9 +174,9 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     ```
 
 
-    :param str dns_suffix: The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-    :param str image_tag: The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-    :param str region: The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-    :param str repository_name: The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+    :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+    :param str image_tag: Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+    :param str region: Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+    :param str repository_name: Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
     """
     ...

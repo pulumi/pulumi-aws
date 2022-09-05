@@ -74,24 +74,24 @@ func GetOpenidConnectProvider(ctx *pulumi.Context, args *GetOpenidConnectProvide
 
 // A collection of arguments for invoking getOpenidConnectProvider.
 type GetOpenidConnectProviderArgs struct {
-	// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+	// ARN of the OpenID Connect provider.
 	Arn *string `pulumi:"arn"`
 	// Map of resource tags for the IAM OIDC provider.
 	Tags map[string]string `pulumi:"tags"`
-	// The URL of the OpenID Connect provider.
+	// URL of the OpenID Connect provider.
 	Url *string `pulumi:"url"`
 }
 
 // A collection of values returned by getOpenidConnectProvider.
 type GetOpenidConnectProviderResult struct {
 	Arn string `pulumi:"arn"`
-	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
+	// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists []string `pulumi:"clientIdLists"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Map of resource tags for the IAM OIDC provider.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
+	// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	Url             string   `pulumi:"url"`
 }
@@ -111,11 +111,11 @@ func GetOpenidConnectProviderOutput(ctx *pulumi.Context, args GetOpenidConnectPr
 
 // A collection of arguments for invoking getOpenidConnectProvider.
 type GetOpenidConnectProviderOutputArgs struct {
-	// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+	// ARN of the OpenID Connect provider.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Map of resource tags for the IAM OIDC provider.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The URL of the OpenID Connect provider.
+	// URL of the OpenID Connect provider.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -142,7 +142,7 @@ func (o GetOpenidConnectProviderResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOpenidConnectProviderResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
+// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 func (o GetOpenidConnectProviderResultOutput) ClientIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOpenidConnectProviderResult) []string { return v.ClientIdLists }).(pulumi.StringArrayOutput)
 }
@@ -157,7 +157,7 @@ func (o GetOpenidConnectProviderResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetOpenidConnectProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
+// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 func (o GetOpenidConnectProviderResultOutput) ThumbprintLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOpenidConnectProviderResult) []string { return v.ThumbprintLists }).(pulumi.StringArrayOutput)
 }

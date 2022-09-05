@@ -15,14 +15,14 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
     public static final NotificationArgs Empty = new NotificationArgs();
 
     /**
-     * A list of AutoScaling Group Names
+     * List of AutoScaling Group Names
      * 
      */
     @Import(name="groupNames", required=true)
     private Output<List<String>> groupNames;
 
     /**
-     * @return A list of AutoScaling Group Names
+     * @return List of AutoScaling Group Names
      * 
      */
     public Output<List<String>> groupNames() {
@@ -30,7 +30,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Notification Types that trigger
+     * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
@@ -38,7 +38,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
     private Output<List<String>> notifications;
 
     /**
-     * @return A list of Notification Types that trigger
+     * @return List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
@@ -47,14 +47,14 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Topic ARN for notifications to be sent through
+     * Topic ARN for notifications to be sent through
      * 
      */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
     /**
-     * @return The Topic ARN for notifications to be sent through
+     * @return Topic ARN for notifications to be sent through
      * 
      */
     public Output<String> topicArn() {
@@ -88,7 +88,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames A list of AutoScaling Group Names
+         * @param groupNames List of AutoScaling Group Names
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames A list of AutoScaling Group Names
+         * @param groupNames List of AutoScaling Group Names
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames A list of AutoScaling Group Names
+         * @param groupNames List of AutoScaling Group Names
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications A list of Notification Types that trigger
+         * @param notifications List of Notification Types that trigger
          * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
          * 
          * @return builder
@@ -131,7 +131,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications A list of Notification Types that trigger
+         * @param notifications List of Notification Types that trigger
          * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
          * 
          * @return builder
@@ -142,7 +142,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifications A list of Notification Types that trigger
+         * @param notifications List of Notification Types that trigger
          * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
          * 
          * @return builder
@@ -153,7 +153,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicArn The Topic ARN for notifications to be sent through
+         * @param topicArn Topic ARN for notifications to be sent through
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param topicArn The Topic ARN for notifications to be sent through
+         * @param topicArn Topic ARN for notifications to be sent through
          * 
          * @return builder
          * 

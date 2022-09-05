@@ -69,7 +69,7 @@ class GetInstanceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the instance.
+        ARN of the instance.
         """
         return pulumi.get(self, "arn")
 
@@ -82,7 +82,7 @@ class GetInstanceResult:
     @pulumi.getter(name="contactFlowLogsEnabled")
     def contact_flow_logs_enabled(self) -> bool:
         """
-        Specifies Whether contact flow logs are enabled.
+        Whether contact flow logs are enabled.
         """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
@@ -90,7 +90,7 @@ class GetInstanceResult:
     @pulumi.getter(name="contactLensEnabled")
     def contact_lens_enabled(self) -> bool:
         """
-        Specifies Whether contact lens is enabled.
+        Whether contact lens is enabled.
         """
         return pulumi.get(self, "contact_lens_enabled")
 
@@ -98,7 +98,7 @@ class GetInstanceResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
         """
-        Specifies When the instance was created.
+        When the instance was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -106,7 +106,7 @@ class GetInstanceResult:
     @pulumi.getter(name="earlyMediaEnabled")
     def early_media_enabled(self) -> bool:
         """
-        Specifies Whether early media for outbound calls is enabled .
+        Whether early media for outbound calls is enabled .
         """
         return pulumi.get(self, "early_media_enabled")
 
@@ -130,7 +130,7 @@ class GetInstanceResult:
     @pulumi.getter(name="inboundCallsEnabled")
     def inbound_calls_enabled(self) -> bool:
         """
-        Specifies Whether inbound calls are enabled.
+        Whether inbound calls are enabled.
         """
         return pulumi.get(self, "inbound_calls_enabled")
 
@@ -148,7 +148,7 @@ class GetInstanceResult:
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> bool:
         """
-        Specifies Whether outbound calls are enabled.
+        Whether outbound calls are enabled.
         """
         return pulumi.get(self, "outbound_calls_enabled")
 
@@ -156,7 +156,7 @@ class GetInstanceResult:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> str:
         """
-        The service role of the instance.
+        Service role of the instance.
         """
         return pulumi.get(self, "service_role")
 
@@ -164,7 +164,7 @@ class GetInstanceResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Specifies The state of the instance.
+        State of the instance.
         """
         return pulumi.get(self, "status")
 

@@ -48,11 +48,11 @@ func GetApis(ctx *pulumi.Context, args *GetApisArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getApis.
 type GetApisArgs struct {
-	// The API name.
+	// API name.
 	Name *string `pulumi:"name"`
-	// The API protocol.
+	// API protocol.
 	ProtocolType *string `pulumi:"protocolType"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired APIs.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,11 +83,11 @@ func GetApisOutput(ctx *pulumi.Context, args GetApisOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getApis.
 type GetApisOutputArgs struct {
-	// The API name.
+	// API name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The API protocol.
+	// API protocol.
 	ProtocolType pulumi.StringPtrInput `pulumi:"protocolType"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired APIs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

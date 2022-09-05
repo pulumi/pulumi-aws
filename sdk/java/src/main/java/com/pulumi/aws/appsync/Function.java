@@ -117,140 +117,140 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the associated AppSync API.
+     * ID of the associated AppSync API.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The ID of the associated AppSync API.
+     * @return ID of the associated AppSync API.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The ARN of the Function object.
+     * ARN of the Function object.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Function object.
+     * @return ARN of the Function object.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Function data source name.
+     * Function data source name.
      * 
      */
     @Export(name="dataSource", type=String.class, parameters={})
     private Output<String> dataSource;
 
     /**
-     * @return The Function data source name.
+     * @return Function data source name.
      * 
      */
     public Output<String> dataSource() {
         return this.dataSource;
     }
     /**
-     * The Function description.
+     * Function description.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The Function description.
+     * @return Function description.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A unique ID representing the Function object.
+     * Unique ID representing the Function object.
      * 
      */
     @Export(name="functionId", type=String.class, parameters={})
     private Output<String> functionId;
 
     /**
-     * @return A unique ID representing the Function object.
+     * @return Unique ID representing the Function object.
      * 
      */
     public Output<String> functionId() {
         return this.functionId;
     }
     /**
-     * The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
      * 
      */
     @Export(name="functionVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionVersion;
 
     /**
-     * @return The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`.
      * 
      */
     public Output<Optional<String>> functionVersion() {
         return Codegen.optional(this.functionVersion);
     }
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     @Export(name="maxBatchSize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxBatchSize;
 
     /**
-     * @return The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     public Output<Optional<Integer>> maxBatchSize() {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * The Function name. The function name does not have to be unique.
+     * Function name. The function name does not have to be unique.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The Function name. The function name does not have to be unique.
+     * @return Function name. The function name does not have to be unique.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
     @Export(name="requestMappingTemplate", type=String.class, parameters={})
     private Output<String> requestMappingTemplate;
 
     /**
-     * @return The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * @return Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
     public Output<String> requestMappingTemplate() {
         return this.requestMappingTemplate;
     }
     /**
-     * The Function response mapping template.
+     * Function response mapping template.
      * 
      */
     @Export(name="responseMappingTemplate", type=String.class, parameters={})
     private Output<String> responseMappingTemplate;
 
     /**
-     * @return The Function response mapping template.
+     * @return Function response mapping template.
      * 
      */
     public Output<String> responseMappingTemplate() {

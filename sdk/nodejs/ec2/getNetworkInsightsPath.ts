@@ -42,11 +42,11 @@ export interface GetNetworkInsightsPathArgs {
      */
     filters?: inputs.ec2.GetNetworkInsightsPathFilter[];
     /**
-     * The ID of the Network Insights Path to select.
+     * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -56,19 +56,19 @@ export interface GetNetworkInsightsPathArgs {
  */
 export interface GetNetworkInsightsPathResult {
     /**
-     * The ARN of the selected Network Insights Path.
+     * ARN of the selected Network Insights Path.
      */
     readonly arn: string;
     /**
-     * The AWS resource that is the destination of the path.
+     * AWS resource that is the destination of the path.
      */
     readonly destination: string;
     /**
-     * The IP address of the AWS resource that is the destination of the path.
+     * IP address of the AWS resource that is the destination of the path.
      */
     readonly destinationIp: string;
     /**
-     * The destination port.
+     * Destination port.
      */
     readonly destinationPort: number;
     readonly filters?: outputs.ec2.GetNetworkInsightsPathFilter[];
@@ -78,19 +78,19 @@ export interface GetNetworkInsightsPathResult {
     readonly id: string;
     readonly networkInsightsPathId: string;
     /**
-     * The protocol.
+     * Protocol.
      */
     readonly protocol: string;
     /**
-     * The AWS resource that is the source of the path.
+     * AWS resource that is the source of the path.
      */
     readonly source: string;
     /**
-     * The IP address of the AWS resource that is the source of the path.
+     * IP address of the AWS resource that is the source of the path.
      */
     readonly sourceIp: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -108,11 +108,11 @@ export interface GetNetworkInsightsPathOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
     /**
-     * The ID of the Network Insights Path to select.
+     * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

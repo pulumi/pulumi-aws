@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/integrationResponse:IntegrationResponse")
 public class IntegrationResponse extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -92,42 +92,42 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentHandlingStrategy);
     }
     /**
-     * The identifier of the `aws.apigatewayv2.Integration`.
+     * Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
     @Export(name="integrationId", type=String.class, parameters={})
     private Output<String> integrationId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Integration`.
+     * @return Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
     public Output<String> integrationId() {
         return this.integrationId;
     }
     /**
-     * The integration response key.
+     * Integration response key.
      * 
      */
     @Export(name="integrationResponseKey", type=String.class, parameters={})
     private Output<String> integrationResponseKey;
 
     /**
-     * @return The integration response key.
+     * @return Integration response key.
      * 
      */
     public Output<String> integrationResponseKey() {
         return this.integrationResponseKey;
     }
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
     @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
-     * @return A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * @return Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
     public Output<Optional<Map<String,String>>> responseTemplates() {

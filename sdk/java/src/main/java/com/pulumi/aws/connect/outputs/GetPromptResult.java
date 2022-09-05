@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPromptResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Prompt.
+     * @return ARN of the Prompt.
      * 
      */
     private String arn;
@@ -22,14 +22,14 @@ public final class GetPromptResult {
     private String instanceId;
     private String name;
     /**
-     * @return The identifier for the prompt.
+     * @return Identifier for the prompt.
      * 
      */
     private String promptId;
 
     private GetPromptResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Prompt.
+     * @return ARN of the Prompt.
      * 
      */
     public String arn() {
@@ -49,7 +49,7 @@ public final class GetPromptResult {
         return this.name;
     }
     /**
-     * @return The identifier for the prompt.
+     * @return Identifier for the prompt.
      * 
      */
     public String promptId() {

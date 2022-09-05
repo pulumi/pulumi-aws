@@ -77,49 +77,49 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the autoscaling schedule.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to the autoscaling schedule.
+     * @return ARN assigned by AWS to the autoscaling schedule.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     * Name or ARN of the Auto Scaling group.
      * 
      */
     @Export(name="autoscalingGroupName", type=String.class, parameters={})
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     * @return Name or ARN of the Auto Scaling group.
      * 
      */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
     /**
-     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
      * 
      */
     @Export(name="desiredCapacity", type=Integer.class, parameters={})
     private Output<Integer> desiredCapacity;
 
     /**
-     * @return The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * @return Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
      * 
      */
     public Output<Integer> desiredCapacity() {
         return this.desiredCapacity;
     }
     /**
-     * The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -127,7 +127,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     private Output<String> endTime;
 
     /**
-     * @return The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * @return Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -135,7 +135,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.endTime;
     }
     /**
-     * The maximum size for the Auto Scaling group. Default 0.
+     * Maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
      * 
      */
@@ -143,7 +143,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     private Output<Integer> maxSize;
 
     /**
-     * @return The maximum size for the Auto Scaling group. Default 0.
+     * @return Maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
      * 
      */
@@ -151,7 +151,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.maxSize;
     }
     /**
-     * The minimum size for the Auto Scaling group. Default 0.
+     * Minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
      * 
      */
@@ -159,7 +159,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     private Output<Integer> minSize;
 
     /**
-     * @return The minimum size for the Auto Scaling group. Default 0.
+     * @return Minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
      * 
      */
@@ -167,35 +167,35 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.minSize;
     }
     /**
-     * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      * 
      */
     @Export(name="recurrence", type=String.class, parameters={})
     private Output<String> recurrence;
 
     /**
-     * @return The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * @return Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      * 
      */
     public Output<String> recurrence() {
         return this.recurrence;
     }
     /**
-     * The name of this scaling action.
+     * Name of this scaling action.
      * 
      */
     @Export(name="scheduledActionName", type=String.class, parameters={})
     private Output<String> scheduledActionName;
 
     /**
-     * @return The name of this scaling action.
+     * @return Name of this scaling action.
      * 
      */
     public Output<String> scheduledActionName() {
         return this.scheduledActionName;
     }
     /**
-     * The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -203,7 +203,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     private Output<String> startTime;
 
     /**
-     * @return The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * @return Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// The key-name of an LF-Tag.
+        /// Key-name of an LF-Tag.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// A list of possible values of an LF-Tag.
+        /// List of possible values of an LF-Tag.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

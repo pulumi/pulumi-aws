@@ -16,14 +16,14 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
     public static final DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs Empty = new DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs();
 
     /**
-     * The signing Amazon Web Services Region for IAM authorization.
+     * Signing Amazon Web Services Region for IAM authorization.
      * 
      */
     @Import(name="signingRegion")
     private @Nullable Output<String> signingRegion;
 
     /**
-     * @return The signing Amazon Web Services Region for IAM authorization.
+     * @return Signing Amazon Web Services Region for IAM authorization.
      * 
      */
     public Optional<Output<String>> signingRegion() {
@@ -31,14 +31,14 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
     }
 
     /**
-     * The signing service name for IAM authorization.
+     * Signing service name for IAM authorization.
      * 
      */
     @Import(name="signingServiceName")
     private @Nullable Output<String> signingServiceName;
 
     /**
-     * @return The signing service name for IAM authorization.
+     * @return Signing service name for IAM authorization.
      * 
      */
     public Optional<Output<String>> signingServiceName() {
@@ -71,7 +71,7 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
         }
 
         /**
-         * @param signingRegion The signing Amazon Web Services Region for IAM authorization.
+         * @param signingRegion Signing Amazon Web Services Region for IAM authorization.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
         }
 
         /**
-         * @param signingRegion The signing Amazon Web Services Region for IAM authorization.
+         * @param signingRegion Signing Amazon Web Services Region for IAM authorization.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
         }
 
         /**
-         * @param signingServiceName The signing service name for IAM authorization.
+         * @param signingServiceName Signing service name for IAM authorization.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
         }
 
         /**
-         * @param signingServiceName The signing service name for IAM authorization.
+         * @param signingServiceName Signing service name for IAM authorization.
          * 
          * @return builder
          * 

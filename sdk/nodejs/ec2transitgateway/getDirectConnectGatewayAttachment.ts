@@ -49,7 +49,7 @@ export interface GetDirectConnectGatewayAttachmentArgs {
      */
     filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
     tags?: {[key: string]: string};
     /**
@@ -92,7 +92,7 @@ export interface GetDirectConnectGatewayAttachmentOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

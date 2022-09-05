@@ -60,7 +60,8 @@ type Tracker struct {
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering pulumi.StringPtrOutput `pulumi:"positionFiltering"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
 	// The name of the tracker resource.
@@ -110,7 +111,8 @@ type trackerState struct {
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering *string           `pulumi:"positionFiltering"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn *string `pulumi:"trackerArn"`
 	// The name of the tracker resource.
@@ -129,7 +131,8 @@ type TrackerState struct {
 	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 	PositionFiltering pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringPtrInput
 	// The name of the tracker resource.
@@ -278,6 +281,7 @@ func (o TrackerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrackerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

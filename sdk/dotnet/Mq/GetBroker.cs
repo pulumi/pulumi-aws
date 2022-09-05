@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique id of the mq broker.
+        /// Unique id of the mq broker.
         /// </summary>
         [Input("brokerId")]
         public string? BrokerId { get; set; }
 
         /// <summary>
-        /// The unique name of the mq broker.
+        /// Unique name of the mq broker.
         /// </summary>
         [Input("brokerName")]
         public string? BrokerName { get; set; }
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique id of the mq broker.
+        /// Unique id of the mq broker.
         /// </summary>
         [Input("brokerId")]
         public Input<string>? BrokerId { get; set; }
 
         /// <summary>
-        /// The unique name of the mq broker.
+        /// Unique name of the mq broker.
         /// </summary>
         [Input("brokerName")]
         public Input<string>? BrokerName { get; set; }

@@ -64,7 +64,7 @@ func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...p
 type LookupFileSystemArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken *string `pulumi:"creationToken"`
-	// The ID that identifies the file system (e.g., fs-ccfc0d65).
+	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Restricts the list to the file system with these tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -79,23 +79,23 @@ type LookupFileSystemResult struct {
 	// The Availability Zone name in which the file system's One Zone storage classes exist.
 	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
 	CreationToken        string `pulumi:"creationToken"`
-	// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+	// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName string `pulumi:"dnsName"`
 	// Whether EFS is encrypted.
 	Encrypted    bool   `pulumi:"encrypted"`
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ARN for the KMS encryption key.
+	// ARN for the KMS encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
-	// The file system performance mode.
+	// File system performance mode.
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	// * `tags` -A map of tags to assign to the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
-	// The current byte count used by the file system.
+	// Current byte count used by the file system.
 	SizeInBytes int               `pulumi:"sizeInBytes"`
 	Tags        map[string]string `pulumi:"tags"`
 	// Throughput mode for the file system.
@@ -119,7 +119,7 @@ func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs
 type LookupFileSystemOutputArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken pulumi.StringPtrInput `pulumi:"creationToken"`
-	// The ID that identifies the file system (e.g., fs-ccfc0d65).
+	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// Restricts the list to the file system with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -163,7 +163,7 @@ func (o LookupFileSystemResultOutput) CreationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.CreationToken }).(pulumi.StringOutput)
 }
 
-// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 func (o LookupFileSystemResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -182,17 +182,17 @@ func (o LookupFileSystemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN for the KMS encryption key.
+// ARN for the KMS encryption key.
 func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
 }
 
-// The file system performance mode.
+// File system performance mode.
 func (o LookupFileSystemResultOutput) PerformanceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.PerformanceMode }).(pulumi.StringOutput)
 }
@@ -203,7 +203,7 @@ func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Floa
 	return o.ApplyT(func(v LookupFileSystemResult) float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64Output)
 }
 
-// The current byte count used by the file system.
+// Current byte count used by the file system.
 func (o LookupFileSystemResultOutput) SizeInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) int { return v.SizeInBytes }).(pulumi.IntOutput)
 }

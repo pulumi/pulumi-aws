@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Security Profile.
+        /// Map of tags to assign to the Security Profile.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Security Profile.
+        /// Map of tags to assign to the Security Profile.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,11 +190,11 @@ namespace Pulumi.Aws.Connect
     public sealed class GetSecurityProfileResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Security Profile.
+        /// ARN of the Security Profile.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Specifies the description of the Security Profile.
+        /// Description of the Security Profile.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -208,12 +208,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string OrganizationResourceId;
         /// <summary>
-        /// Specifies a list of permissions assigned to the security profile.
+        /// List of permissions assigned to the security profile.
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
         public readonly string SecurityProfileId;
         /// <summary>
-        /// A map of tags to assign to the Security Profile.
+        /// Map of tags to assign to the Security Profile.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

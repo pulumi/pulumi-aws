@@ -16,14 +16,14 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
     public static final GatewayRouteSpecHttpRouteActionRewritePrefixArgs Empty = new GatewayRouteSpecHttpRouteActionRewritePrefixArgs();
 
     /**
-     * The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+     * Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="defaultPrefix")
     private @Nullable Output<String> defaultPrefix;
 
     /**
-     * @return The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+     * @return Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Optional<Output<String>> defaultPrefix() {
@@ -31,14 +31,14 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
     }
 
     /**
-     * The value used to replace the incoming route prefix when rewritten.
+     * Value used to replace the incoming route prefix when rewritten.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value used to replace the incoming route prefix when rewritten.
+     * @return Value used to replace the incoming route prefix when rewritten.
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
         }
 
         /**
-         * @param defaultPrefix The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+         * @param defaultPrefix Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
         }
 
         /**
-         * @param defaultPrefix The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+         * @param defaultPrefix Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
         }
 
         /**
-         * @param value The value used to replace the incoming route prefix when rewritten.
+         * @param value Value used to replace the incoming route prefix when rewritten.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
         }
 
         /**
-         * @param value The value used to replace the incoming route prefix when rewritten.
+         * @param value Value used to replace the incoming route prefix when rewritten.
          * 
          * @return builder
          * 

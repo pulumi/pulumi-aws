@@ -70,13 +70,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetApisArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API name.
+        /// API name.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The API protocol.
+        /// API protocol.
         /// </summary>
         [Input("protocolType")]
         public string? ProtocolType { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired APIs.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -103,13 +103,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetApisInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API name.
+        /// API name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The API protocol.
+        /// API protocol.
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired APIs.
         /// </summary>
         public InputMap<string> Tags

@@ -148,7 +148,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
             cidr=aws_vpc["example"]["cidr_block"],
             description="Primary",
-            prefix_list_id=aws_ec2_managed_prefix_list["entry"]["id"])
+            prefix_list_id=example.id)
         ```
 
         ## Import
@@ -189,7 +189,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
             cidr=aws_vpc["example"]["cidr_block"],
             description="Primary",
-            prefix_list_id=aws_ec2_managed_prefix_list["entry"]["id"])
+            prefix_list_id=example.id)
         ```
 
         ## Import

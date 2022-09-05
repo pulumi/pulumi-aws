@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
     public sealed class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+        /// Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         /// </summary>
         [Input("customizedScalingMetricSpecification")]
@@ -26,35 +26,35 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<bool>? DisableScaleIn { get; set; }
 
         /// <summary>
-        /// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+        /// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
         /// This value is used only if the resource is an Auto Scaling group.
         /// </summary>
         [Input("estimatedInstanceWarmup")]
         public Input<int>? EstimatedInstanceWarmup { get; set; }
 
         /// <summary>
-        /// A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+        /// Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs>? PredefinedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        /// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         /// This value is not used if the scalable resource is an Auto Scaling group.
         /// </summary>
         [Input("scaleInCooldown")]
         public Input<int>? ScaleInCooldown { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        /// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
         /// This value is not used if the scalable resource is an Auto Scaling group.
         /// </summary>
         [Input("scaleOutCooldown")]
         public Input<int>? ScaleOutCooldown { get; set; }
 
         /// <summary>
-        /// The target value for the metric.
+        /// Target value for the metric.
         /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;

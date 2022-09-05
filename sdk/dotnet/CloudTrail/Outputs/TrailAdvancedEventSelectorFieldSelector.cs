@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudTrail.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Equals;
         /// <summary>
-        /// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        /// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
         /// </summary>
         public readonly string Field;
         /// <summary>

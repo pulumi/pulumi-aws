@@ -43,19 +43,19 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The PEM-encoded certificate value.
+     * PEM-encoded certificate value.
      */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
     public /*out*/ readonly certificateChain!: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      */
     public readonly templateArn!: pulumi.Output<string | undefined>;
     /**
@@ -129,19 +129,19 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The PEM-encoded certificate value.
+     * PEM-encoded certificate value.
      */
     certificate?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     certificateAuthorityArn?: pulumi.Input<string>;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
     certificateChain?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface CertificateState {
      */
     signingAlgorithm?: pulumi.Input<string>;
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      */
     templateArn?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface CertificateArgs {
      */
     signingAlgorithm: pulumi.Input<string>;
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      */
     templateArn?: pulumi.Input<string>;
     /**

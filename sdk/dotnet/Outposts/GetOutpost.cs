@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Outposts
     public sealed class GetOutpostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN).
+        /// ARN.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Outposts
     public sealed class GetOutpostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN).
+        /// ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

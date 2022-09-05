@@ -50,13 +50,13 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
-	// The friendly name of the topic to match.
+	// Friendly name of the topic to match.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
-	// Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+	// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -78,7 +78,7 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
-	// The friendly name of the topic to match.
+	// Friendly name of the topic to match.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,7 +101,7 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 func (o LookupTopicResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Arn }).(pulumi.StringOutput)
 }

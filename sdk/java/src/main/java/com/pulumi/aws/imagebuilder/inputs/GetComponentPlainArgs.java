@@ -16,14 +16,14 @@ public final class GetComponentPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetComponentPlainArgs Empty = new GetComponentPlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the component.
+     * ARN of the component.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the component.
+     * @return ARN of the component.
      * 
      */
     public String arn() {
@@ -71,7 +71,7 @@ public final class GetComponentPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the component.
+         * @param arn ARN of the component.
          * 
          * @return builder
          * 

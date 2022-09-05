@@ -21,7 +21,7 @@ public final class GetInstancePrivateDnsNameOption {
      */
     private Boolean enableResourceNameDnsAaaaRecord;
     /**
-     * @return The type of hostname for EC2 instances.
+     * @return Type of hostname for EC2 instances.
      * 
      */
     private String hostnameType;
@@ -42,7 +42,7 @@ public final class GetInstancePrivateDnsNameOption {
         return this.enableResourceNameDnsAaaaRecord;
     }
     /**
-     * @return The type of hostname for EC2 instances.
+     * @return Type of hostname for EC2 instances.
      * 
      */
     public String hostnameType() {

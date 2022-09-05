@@ -30,7 +30,7 @@ export interface GetCoipPoolsArgs {
      */
     filters?: inputs.ec2.GetCoipPoolsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      */
     tags?: {[key: string]: string};
@@ -65,7 +65,7 @@ export interface GetCoipPoolsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolsFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

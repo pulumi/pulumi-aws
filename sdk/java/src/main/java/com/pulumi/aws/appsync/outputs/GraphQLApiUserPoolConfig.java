@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GraphQLApiUserPoolConfig {
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     private @Nullable String appIdClientRegex;
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     private @Nullable String awsRegion;
     /**
-     * @return The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+     * @return Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
     private String defaultAction;
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     private String userPoolId;
 
     private GraphQLApiUserPoolConfig() {}
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     public Optional<String> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
     /**
-     * @return The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+     * @return Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
     public String defaultAction() {
         return this.defaultAction;
     }
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     public String userPoolId() {

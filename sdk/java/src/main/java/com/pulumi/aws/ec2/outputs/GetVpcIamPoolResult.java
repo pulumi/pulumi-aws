@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcIamPoolResult {
     /**
-     * @return The IP protocol assigned to this pool.
+     * @return IP protocol assigned to this pool.
      * 
      */
     private String addressFamily;
@@ -42,7 +42,7 @@ public final class GetVpcIamPoolResult {
      */
     private Map<String,String> allocationResourceTags;
     /**
-     * @return Amazon Resource Name (ARN) of the pool
+     * @return ARN of the pool
      * 
      */
     private String arn;
@@ -57,19 +57,19 @@ public final class GetVpcIamPoolResult {
      */
     private String awsService;
     /**
-     * @return A description for the IPAM pool.
+     * @return Description for the IPAM pool.
      * 
      */
     private String description;
     private @Nullable List<GetVpcIamPoolFilter> filters;
     /**
-     * @return The ID of the IPAM pool.
+     * @return ID of the IPAM pool.
      * 
      */
     private @Nullable String id;
     private @Nullable String ipamPoolId;
     /**
-     * @return The ID of the scope the pool belongs to.
+     * @return ID of the scope the pool belongs to.
      * 
      */
     private String ipamScopeId;
@@ -86,20 +86,20 @@ public final class GetVpcIamPoolResult {
      */
     private Boolean publiclyAdvertisable;
     /**
-     * @return The ID of the source IPAM pool.
+     * @return ID of the source IPAM pool.
      * 
      */
     private String sourceIpamPoolId;
     private String state;
     /**
-     * @return A map of tags to assigned to the resource.
+     * @return Map of tags to assigned to the resource.
      * 
      */
     private Map<String,String> tags;
 
     private GetVpcIamPoolResult() {}
     /**
-     * @return The IP protocol assigned to this pool.
+     * @return IP protocol assigned to this pool.
      * 
      */
     public String addressFamily() {
@@ -134,7 +134,7 @@ public final class GetVpcIamPoolResult {
         return this.allocationResourceTags;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the pool
+     * @return ARN of the pool
      * 
      */
     public String arn() {
@@ -155,7 +155,7 @@ public final class GetVpcIamPoolResult {
         return this.awsService;
     }
     /**
-     * @return A description for the IPAM pool.
+     * @return Description for the IPAM pool.
      * 
      */
     public String description() {
@@ -165,7 +165,7 @@ public final class GetVpcIamPoolResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The ID of the IPAM pool.
+     * @return ID of the IPAM pool.
      * 
      */
     public Optional<String> id() {
@@ -175,7 +175,7 @@ public final class GetVpcIamPoolResult {
         return Optional.ofNullable(this.ipamPoolId);
     }
     /**
-     * @return The ID of the scope the pool belongs to.
+     * @return ID of the scope the pool belongs to.
      * 
      */
     public String ipamScopeId() {
@@ -202,7 +202,7 @@ public final class GetVpcIamPoolResult {
         return this.publiclyAdvertisable;
     }
     /**
-     * @return The ID of the source IPAM pool.
+     * @return ID of the source IPAM pool.
      * 
      */
     public String sourceIpamPoolId() {
@@ -212,7 +212,7 @@ public final class GetVpcIamPoolResult {
         return this.state;
     }
     /**
-     * @return A map of tags to assigned to the resource.
+     * @return Map of tags to assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

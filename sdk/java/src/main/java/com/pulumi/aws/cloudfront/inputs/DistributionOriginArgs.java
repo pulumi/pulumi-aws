@@ -107,6 +107,21 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The unique identifier of an origin access control for this origin.
+     * 
+     */
+    @Import(name="originAccessControlId")
+    private @Nullable Output<String> originAccessControlId;
+
+    /**
+     * @return The unique identifier of an origin access control for this origin.
+     * 
+     */
+    public Optional<Output<String>> originAccessControlId() {
+        return Optional.ofNullable(this.originAccessControlId);
+    }
+
+    /**
      * The unique identifier of the member origin
      * 
      */
@@ -184,6 +199,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         this.customHeaders = $.customHeaders;
         this.customOriginConfig = $.customOriginConfig;
         this.domainName = $.domainName;
+        this.originAccessControlId = $.originAccessControlId;
         this.originId = $.originId;
         this.originPath = $.originPath;
         this.originShield = $.originShield;
@@ -333,6 +349,27 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param originAccessControlId The unique identifier of an origin access control for this origin.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originAccessControlId(@Nullable Output<String> originAccessControlId) {
+            $.originAccessControlId = originAccessControlId;
+            return this;
+        }
+
+        /**
+         * @param originAccessControlId The unique identifier of an origin access control for this origin.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originAccessControlId(String originAccessControlId) {
+            return originAccessControlId(Output.of(originAccessControlId));
         }
 
         /**

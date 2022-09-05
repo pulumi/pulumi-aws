@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// A map of tags to assign to the device.
+        /// Map of tags to assign to the device.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>

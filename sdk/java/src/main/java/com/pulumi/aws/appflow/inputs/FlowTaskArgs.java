@@ -19,14 +19,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     public static final FlowTaskArgs Empty = new FlowTaskArgs();
 
     /**
-     * The operation to be performed on the provided source fields. See Connector Operator for details.
+     * Operation to be performed on the provided source fields. See Connector Operator for details.
      * 
      */
     @Import(name="connectorOperators")
     private @Nullable Output<List<FlowTaskConnectorOperatorArgs>> connectorOperators;
 
     /**
-     * @return The operation to be performed on the provided source fields. See Connector Operator for details.
+     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
      * 
      */
     public Optional<Output<List<FlowTaskConnectorOperatorArgs>>> connectorOperators() {
@@ -34,14 +34,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+     * Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
      * 
      */
     @Import(name="destinationField")
     private @Nullable Output<String> destinationField;
 
     /**
-     * @return A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+     * @return Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
      * 
      */
     public Optional<Output<String>> destinationField() {
@@ -49,14 +49,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source fields to which a particular task is applied.
+     * Source fields to which a particular task is applied.
      * 
      */
     @Import(name="sourceFields", required=true)
     private Output<List<String>> sourceFields;
 
     /**
-     * @return The source fields to which a particular task is applied.
+     * @return Source fields to which a particular task is applied.
      * 
      */
     public Output<List<String>> sourceFields() {
@@ -64,14 +64,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+     * Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
      * 
      */
     @Import(name="taskProperties")
     private @Nullable Output<Map<String,String>> taskProperties;
 
     /**
-     * @return A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+     * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
      * 
      */
     public Optional<Output<Map<String,String>>> taskProperties() {
@@ -79,14 +79,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+     * Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
      * 
      */
     @Import(name="taskType", required=true)
     private Output<String> taskType;
 
     /**
-     * @return Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+     * @return Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
      * 
      */
     public Output<String> taskType() {
@@ -122,7 +122,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators The operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators The operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators The operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationField A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+         * @param destinationField Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationField A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+         * @param destinationField Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceFields The source fields to which a particular task is applied.
+         * @param sourceFields Source fields to which a particular task is applied.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceFields The source fields to which a particular task is applied.
+         * @param sourceFields Source fields to which a particular task is applied.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceFields The source fields to which a particular task is applied.
+         * @param sourceFields Source fields to which a particular task is applied.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskProperties A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+         * @param taskProperties Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskProperties A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+         * @param taskProperties Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskType Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+         * @param taskType Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskType Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+         * @param taskType Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     public static final ResolverCachingConfigArgs Empty = new ResolverCachingConfigArgs();
 
     /**
-     * The list of caching key.
+     * List of caching key.
      * 
      */
     @Import(name="cachingKeys")
     private @Nullable Output<List<String>> cachingKeys;
 
     /**
-     * @return The list of caching key.
+     * @return List of caching key.
      * 
      */
     public Optional<Output<List<String>>> cachingKeys() {
@@ -33,14 +33,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The TTL in seconds.
+     * TTL in seconds.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
     /**
-     * @return The TTL in seconds.
+     * @return TTL in seconds.
      * 
      */
     public Optional<Output<Integer>> ttl() {
@@ -73,7 +73,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The list of caching key.
+         * @param cachingKeys List of caching key.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The list of caching key.
+         * @param cachingKeys List of caching key.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The list of caching key.
+         * @param cachingKeys List of caching key.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl The TTL in seconds.
+         * @param ttl TTL in seconds.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl The TTL in seconds.
+         * @param ttl TTL in seconds.
          * 
          * @return builder
          * 

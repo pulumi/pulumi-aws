@@ -144,19 +144,19 @@ import (
 type HostedConfigurationVersion struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+	// ARN of the AppConfig  hosted configuration version.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
-	// The content of the configuration or the configuration data.
+	// Content of the configuration or the configuration data.
 	Content pulumi.StringOutput `pulumi:"content"`
-	// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// A description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version number of the hosted configuration.
+	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
 
@@ -201,36 +201,36 @@ func GetHostedConfigurationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedConfigurationVersion resources.
 type hostedConfigurationVersionState struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId *string `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+	// ARN of the AppConfig  hosted configuration version.
 	Arn *string `pulumi:"arn"`
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId *string `pulumi:"configurationProfileId"`
-	// The content of the configuration or the configuration data.
+	// Content of the configuration or the configuration data.
 	Content *string `pulumi:"content"`
-	// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 	ContentType *string `pulumi:"contentType"`
-	// A description of the configuration.
+	// Description of the configuration.
 	Description *string `pulumi:"description"`
-	// The version number of the hosted configuration.
+	// Version number of the hosted configuration.
 	VersionNumber *int `pulumi:"versionNumber"`
 }
 
 type HostedConfigurationVersionState struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+	// ARN of the AppConfig  hosted configuration version.
 	Arn pulumi.StringPtrInput
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringPtrInput
-	// The content of the configuration or the configuration data.
+	// Content of the configuration or the configuration data.
 	Content pulumi.StringPtrInput
-	// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 	ContentType pulumi.StringPtrInput
-	// A description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrInput
-	// The version number of the hosted configuration.
+	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntPtrInput
 }
 
@@ -239,29 +239,29 @@ func (HostedConfigurationVersionState) ElementType() reflect.Type {
 }
 
 type hostedConfigurationVersionArgs struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId string `pulumi:"configurationProfileId"`
-	// The content of the configuration or the configuration data.
+	// Content of the configuration or the configuration data.
 	Content string `pulumi:"content"`
-	// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 	ContentType string `pulumi:"contentType"`
-	// A description of the configuration.
+	// Description of the configuration.
 	Description *string `pulumi:"description"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
 type HostedConfigurationVersionArgs struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringInput
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringInput
-	// The content of the configuration or the configuration data.
+	// Content of the configuration or the configuration data.
 	Content pulumi.StringInput
-	// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 	ContentType pulumi.StringInput
-	// A description of the configuration.
+	// Description of the configuration.
 	Description pulumi.StringPtrInput
 }
 
@@ -352,37 +352,37 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWith
 	return o
 }
 
-// The application ID.
+// Application ID.
 func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+// ARN of the AppConfig  hosted configuration version.
 func (o HostedConfigurationVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration profile ID.
+// Configuration profile ID.
 func (o HostedConfigurationVersionOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
 
-// The content of the configuration or the configuration data.
+// Content of the configuration or the configuration data.
 func (o HostedConfigurationVersionOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 func (o HostedConfigurationVersionOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// A description of the configuration.
+// Description of the configuration.
 func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the hosted configuration.
+// Version number of the hosted configuration.
 func (o HostedConfigurationVersionOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

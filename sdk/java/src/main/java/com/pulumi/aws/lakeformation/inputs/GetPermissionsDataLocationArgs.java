@@ -14,14 +14,14 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
     public static final GetPermissionsDataLocationArgs Empty = new GetPermissionsDataLocationArgs();
 
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * ARN that uniquely identifies the data location resource.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      */
     public Output<String> arn() {
@@ -69,7 +69,7 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * @param arn ARN that uniquely identifies the data location resource.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * @param arn ARN that uniquely identifies the data location resource.
          * 
          * @return builder
          * 

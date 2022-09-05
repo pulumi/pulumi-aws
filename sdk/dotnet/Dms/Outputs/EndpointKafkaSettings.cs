@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? SecurityProtocol;
         /// <summary>
-        /// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         /// </summary>
         public readonly string? SslCaCertificateArn;
         /// <summary>

@@ -52,7 +52,7 @@ class GetCachePolicyResult:
     @pulumi.getter
     def comment(self) -> str:
         """
-        A comment to describe the cache policy.
+        Comment to describe the cache policy.
         """
         return pulumi.get(self, "comment")
 
@@ -60,7 +60,7 @@ class GetCachePolicyResult:
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> int:
         """
-        The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -68,7 +68,7 @@ class GetCachePolicyResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The current version of the cache policy.
+        Current version of the cache policy.
         """
         return pulumi.get(self, "etag")
 
@@ -81,7 +81,7 @@ class GetCachePolicyResult:
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> int:
         """
-        The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -89,7 +89,7 @@ class GetCachePolicyResult:
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> int:
         """
-        The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         """
         return pulumi.get(self, "min_ttl")
 
@@ -139,8 +139,8 @@ def get_cache_policy(id: Optional[str] = None,
     ```
 
 
-    :param str id: The identifier for the cache policy.
-    :param str name: A unique name to identify the cache policy.
+    :param str id: Identifier for the cache policy.
+    :param str name: Unique name to identify the cache policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -176,7 +176,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str id: The identifier for the cache policy.
-    :param str name: A unique name to identify the cache policy.
+    :param str id: Identifier for the cache policy.
+    :param str name: Unique name to identify the cache policy.
     """
     ...

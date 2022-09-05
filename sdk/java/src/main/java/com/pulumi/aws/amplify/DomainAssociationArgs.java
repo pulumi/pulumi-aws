@@ -19,14 +19,14 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
     public static final DomainAssociationArgs Empty = new DomainAssociationArgs();
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
@@ -34,14 +34,14 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The domain name for the domain association.
+     * @return Domain name for the domain association.
      * 
      */
     public Output<String> domainName() {
@@ -49,14 +49,14 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      * 
      */
     @Import(name="subDomains", required=true)
     private Output<List<DomainAssociationSubDomainArgs>> subDomains;
 
     /**
-     * @return The setting for the subdomain. Documented below.
+     * @return Setting for the subdomain. Documented below.
      * 
      */
     public Output<List<DomainAssociationSubDomainArgs>> subDomains() {
@@ -106,7 +106,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param domainName The domain name for the domain association.
+         * @param domainName Domain name for the domain association.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param domainName The domain name for the domain association.
+         * @param domainName Domain name for the domain association.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 

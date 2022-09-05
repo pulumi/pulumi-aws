@@ -37,11 +37,11 @@ export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetExperienceArgs {
     /**
-     * The identifier of the Experience.
+     * Identifier of the Experience.
      */
     experienceId: string;
     /**
-     * The identifier of the index that contains the Experience.
+     * Identifier of the index that contains the Experience.
      */
     indexId: string;
 }
@@ -51,19 +51,19 @@ export interface GetExperienceArgs {
  */
 export interface GetExperienceResult {
     /**
-     * The Amazon Resource Name (ARN) of the Experience.
+     * ARN of the Experience.
      */
     readonly arn: string;
     /**
-     * A block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      */
     readonly configurations: outputs.kendra.GetExperienceConfiguration[];
     /**
-     * The Unix datetime that the Experience was created.
+     * Unix datetime that the Experience was created.
      */
     readonly createdAt: string;
     /**
-     * The description of the Experience.
+     * Description of the Experience.
      */
     readonly description: string;
     /**
@@ -71,7 +71,7 @@ export interface GetExperienceResult {
      */
     readonly endpoints: outputs.kendra.GetExperienceEndpoint[];
     /**
-     * The reason your Amazon Kendra Experience could not properly process.
+     * Reason your Amazon Kendra Experience could not properly process.
      */
     readonly errorMessage: string;
     readonly experienceId: string;
@@ -81,19 +81,19 @@ export interface GetExperienceResult {
     readonly id: string;
     readonly indexId: string;
     /**
-     * The name of the Experience.
+     * Name of the Experience.
      */
     readonly name: string;
     /**
-     * Shows the Amazon Resource Name (ARN) of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
+     * Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
      */
     readonly roleArn: string;
     /**
-     * The current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
+     * Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
      */
     readonly status: string;
     /**
-     * The date and time that the Experience was last updated.
+     * Date and time that the Experience was last updated.
      */
     readonly updatedAt: string;
 }
@@ -107,11 +107,11 @@ export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi
  */
 export interface GetExperienceOutputArgs {
     /**
-     * The identifier of the Experience.
+     * Identifier of the Experience.
      */
     experienceId: pulumi.Input<string>;
     /**
-     * The identifier of the index that contains the Experience.
+     * Identifier of the index that contains the Experience.
      */
     indexId: pulumi.Input<string>;
 }

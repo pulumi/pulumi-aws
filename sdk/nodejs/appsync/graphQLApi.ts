@@ -177,11 +177,11 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
     /**
-     * The ARN
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     public readonly authenticationType!: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     /**
-     * A user-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphqlApi.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -201,15 +201,15 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
     /**
-     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
     public readonly schema!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -217,7 +217,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
     /**
@@ -284,11 +284,11 @@ export interface GraphQLApiState {
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
-     * The ARN
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     authenticationType?: pulumi.Input<string>;
     /**
@@ -300,7 +300,7 @@ export interface GraphQLApiState {
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * A user-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphqlApi.
      */
     name?: pulumi.Input<string>;
     /**
@@ -308,15 +308,15 @@ export interface GraphQLApiState {
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
-     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
     schema?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -324,7 +324,7 @@ export interface GraphQLApiState {
      */
     uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
@@ -342,7 +342,7 @@ export interface GraphQLApiArgs {
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     authenticationType: pulumi.Input<string>;
     /**
@@ -354,7 +354,7 @@ export interface GraphQLApiArgs {
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * A user-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphqlApi.
      */
     name?: pulumi.Input<string>;
     /**
@@ -362,15 +362,15 @@ export interface GraphQLApiArgs {
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
-     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
     schema?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**

@@ -14,14 +14,14 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
     public static final LogServiceArgs Empty = new LogServiceArgs();
 
     /**
-     * The id of directory.
+     * ID of directory.
      * 
      */
     @Import(name="directoryId", required=true)
     private Output<String> directoryId;
 
     /**
-     * @return The id of directory.
+     * @return ID of directory.
      * 
      */
     public Output<String> directoryId() {
@@ -69,7 +69,7 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The id of directory.
+         * @param directoryId ID of directory.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The id of directory.
+         * @param directoryId ID of directory.
          * 
          * @return builder
          * 

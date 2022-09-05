@@ -22,7 +22,7 @@ public final class TrailAdvancedEventSelectorFieldSelector {
      */
     private @Nullable List<String> equals;
     /**
-     * @return Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+     * @return Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
     private String field;
@@ -63,7 +63,7 @@ public final class TrailAdvancedEventSelectorFieldSelector {
         return this.equals == null ? List.of() : this.equals;
     }
     /**
-     * @return Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+     * @return Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
     public String field() {

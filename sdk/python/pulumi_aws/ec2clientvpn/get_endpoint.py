@@ -108,7 +108,7 @@ class GetEndpointResult:
     @pulumi.getter(name="clientCidrBlock")
     def client_cidr_block(self) -> str:
         """
-        The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+        IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
         """
         return pulumi.get(self, "client_cidr_block")
 
@@ -145,7 +145,7 @@ class GetEndpointResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A brief description of the endpoint.
+        Brief description of the endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -153,7 +153,7 @@ class GetEndpointResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        The DNS name to be used by clients when connecting to the Client VPN endpoint.
+        DNS name to be used by clients when connecting to the Client VPN endpoint.
         """
         return pulumi.get(self, "dns_name")
 
@@ -182,7 +182,7 @@ class GetEndpointResult:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        The IDs of the security groups for the target network associated with the Client VPN endpoint.
+        IDs of the security groups for the target network associated with the Client VPN endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -190,7 +190,7 @@ class GetEndpointResult:
     @pulumi.getter(name="selfServicePortal")
     def self_service_portal(self) -> str:
         """
-        Indicates whether the self-service portal for the Client VPN endpoint is enabled.
+        Whether the self-service portal for the Client VPN endpoint is enabled.
         """
         return pulumi.get(self, "self_service_portal")
 
@@ -214,7 +214,7 @@ class GetEndpointResult:
     @pulumi.getter(name="splitTunnel")
     def split_tunnel(self) -> bool:
         """
-        Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+        Whether split-tunnel is enabled in the AWS Client VPN endpoint.
         """
         return pulumi.get(self, "split_tunnel")
 
@@ -227,7 +227,7 @@ class GetEndpointResult:
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> str:
         """
-        The transport protocol used by the Client VPN endpoint.
+        Transport protocol used by the Client VPN endpoint.
         """
         return pulumi.get(self, "transport_protocol")
 
@@ -235,7 +235,7 @@ class GetEndpointResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The ID of the VPC associated with the Client VPN endpoint.
+        ID of the VPC associated with the Client VPN endpoint.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -243,7 +243,7 @@ class GetEndpointResult:
     @pulumi.getter(name="vpnPort")
     def vpn_port(self) -> int:
         """
-        The port number for the Client VPN endpoint.
+        Port number for the Client VPN endpoint.
         """
         return pulumi.get(self, "vpn_port")
 
@@ -306,7 +306,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
     ```
 
 
-    :param str client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+    :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
     :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
@@ -371,7 +371,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
     ```
 
 
-    :param str client_vpn_endpoint_id: The ID of the Client VPN endpoint.
+    :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
     :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """

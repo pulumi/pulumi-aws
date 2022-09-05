@@ -48,7 +48,7 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
-	// Amazon Resource Name (ARN) of the resource, an S3 path.
+	// ARN of the resource, an S3 path.
 	Arn string `pulumi:"arn"`
 }
 
@@ -57,7 +57,7 @@ type LookupResourceResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified string `pulumi:"lastModified"`
 	// Role that the resource was registered with.
 	RoleArn string `pulumi:"roleArn"`
@@ -78,7 +78,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
-	// Amazon Resource Name (ARN) of the resource, an S3 path.
+	// ARN of the resource, an S3 path.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -110,7 +110,7 @@ func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupResourceResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.LastModified }).(pulumi.StringOutput)
 }

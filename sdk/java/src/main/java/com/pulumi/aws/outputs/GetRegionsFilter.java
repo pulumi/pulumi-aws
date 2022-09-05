@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRegionsFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     * @return Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetRegionsFilter {
 
     private GetRegionsFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     * @return Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
      * 
      */
     public String name() {

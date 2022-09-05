@@ -88,14 +88,14 @@ public class ArchiveRule extends com.pulumi.resources.CustomResource {
         return this.analyzerName;
     }
     /**
-     * The filter criteria for the archive rule. See Filter for more details.
+     * Filter criteria for the archive rule. See Filter for more details.
      * 
      */
     @Export(name="filters", type=List.class, parameters={ArchiveRuleFilter.class})
     private Output<List<ArchiveRuleFilter>> filters;
 
     /**
-     * @return The filter criteria for the archive rule. See Filter for more details.
+     * @return Filter criteria for the archive rule. See Filter for more details.
      * 
      */
     public Output<List<ArchiveRuleFilter>> filters() {

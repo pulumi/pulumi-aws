@@ -13,14 +13,14 @@ public final class GetReplicationGroupPlainArgs extends com.pulumi.resources.Inv
     public static final GetReplicationGroupPlainArgs Empty = new GetReplicationGroupPlainArgs();
 
     /**
-     * The identifier for the replication group.
+     * Identifier for the replication group.
      * 
      */
     @Import(name="replicationGroupId", required=true)
     private String replicationGroupId;
 
     /**
-     * @return The identifier for the replication group.
+     * @return Identifier for the replication group.
      * 
      */
     public String replicationGroupId() {
@@ -52,7 +52,7 @@ public final class GetReplicationGroupPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param replicationGroupId The identifier for the replication group.
+         * @param replicationGroupId Identifier for the replication group.
          * 
          * @return builder
          * 

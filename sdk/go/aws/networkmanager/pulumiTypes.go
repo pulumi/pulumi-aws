@@ -810,7 +810,7 @@ func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
-	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values `create-route` or `share`.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyAction `pulumi:"action"`
 	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
 	ConditionLogic *string `pulumi:"conditionLogic"`
@@ -834,7 +834,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicyArgs struct {
-	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values `create-route` or `share`.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput `pulumi:"action"`
 	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
 	ConditionLogic pulumi.StringPtrInput `pulumi:"conditionLogic"`
@@ -897,7 +897,7 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPoli
 	return o
 }
 
-// The action to take for the chosen segment. Valid values `create-route` or `share`.
+// Action to take for the chosen segment. Valid values `create-route` or `share`.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Action() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
 		return v.Action
@@ -951,7 +951,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyAction struct {
 	AssociationMethod string `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance *bool `pulumi:"requireAcceptance"`
-	// The name of the segment.
+	// Name of the segment.
 	Segment *string `pulumi:"segment"`
 	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
 	TagValueOfKey *string `pulumi:"tagValueOfKey"`
@@ -973,7 +973,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs struct {
 	AssociationMethod pulumi.StringInput `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance pulumi.BoolPtrInput `pulumi:"requireAcceptance"`
-	// The name of the segment.
+	// Name of the segment.
 	Segment pulumi.StringPtrInput `pulumi:"segment"`
 	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
 	TagValueOfKey pulumi.StringPtrInput `pulumi:"tagValueOfKey"`
@@ -1015,7 +1015,7 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) RequireAccepta
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *bool { return v.RequireAcceptance }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the segment.
+// Name of the segment.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) Segment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.Segment }).(pulumi.StringPtrOutput)
 }
@@ -1276,7 +1276,7 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) Index(i
 }
 
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation struct {
-	// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+	// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
 	Asn *int `pulumi:"asn"`
 	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
@@ -1295,7 +1295,7 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput inter
 }
 
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs struct {
-	// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+	// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
 	Asn pulumi.IntPtrInput `pulumi:"asn"`
 	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
@@ -1353,7 +1353,7 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) 
 	return o
 }
 
-// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) Asn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) *int { return v.Asn }).(pulumi.IntPtrOutput)
 }
@@ -1400,7 +1400,7 @@ type GetCoreNetworkPolicyDocumentSegment struct {
 	EdgeLocations []string `pulumi:"edgeLocations"`
 	// This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
 	IsolateAttachments *bool `pulumi:"isolateAttachments"`
-	// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+	// Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
 	Name string `pulumi:"name"`
 	// This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
 	RequireAttachmentAcceptance *bool `pulumi:"requireAttachmentAcceptance"`
@@ -1428,7 +1428,7 @@ type GetCoreNetworkPolicyDocumentSegmentArgs struct {
 	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
 	// This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
 	IsolateAttachments pulumi.BoolPtrInput `pulumi:"isolateAttachments"`
-	// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+	// Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
 	Name pulumi.StringInput `pulumi:"name"`
 	// This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
 	RequireAttachmentAcceptance pulumi.BoolPtrInput `pulumi:"requireAttachmentAcceptance"`
@@ -1510,7 +1510,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentOutput) IsolateAttachments() pulumi.B
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) *bool { return v.IsolateAttachments }).(pulumi.BoolPtrOutput)
 }
 
-// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+// Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
 func (o GetCoreNetworkPolicyDocumentSegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1541,7 +1541,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentAction struct {
-	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values `create-route` or `share`.
 	Action string `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description *string `pulumi:"description"`
@@ -1549,9 +1549,9 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	DestinationCidrBlocks []string `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations []string `pulumi:"destinations"`
-	// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
 	Mode *string `pulumi:"mode"`
-	// The name of the segment.
+	// Name of the segment.
 	Segment string `pulumi:"segment"`
 	// A set subtraction of segments to not share with.
 	ShareWithExcepts []string `pulumi:"shareWithExcepts"`
@@ -1571,7 +1571,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
-	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values `create-route` or `share`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1579,9 +1579,9 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	DestinationCidrBlocks pulumi.StringArrayInput `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The name of the segment.
+	// Name of the segment.
 	Segment pulumi.StringInput `pulumi:"segment"`
 	// A set subtraction of segments to not share with.
 	ShareWithExcepts pulumi.StringArrayInput `pulumi:"shareWithExcepts"`
@@ -1640,7 +1640,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyD
 	return o
 }
 
-// The action to take for the chosen segment. Valid values `create-route` or `share`.
+// Action to take for the chosen segment. Valid values `create-route` or `share`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -1660,12 +1660,12 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Destinations() pulumi.S
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The name of the segment.
+// Name of the segment.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Segment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Segment }).(pulumi.StringOutput)
 }
@@ -1701,9 +1701,9 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.Int
 }
 
 type GetDeviceAwsLocation struct {
-	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	// ARN of the subnet that the device is located in.
 	SubnetArn string `pulumi:"subnetArn"`
-	// The Zone that the device is located in.
+	// Zone that the device is located in.
 	Zone string `pulumi:"zone"`
 }
 
@@ -1719,9 +1719,9 @@ type GetDeviceAwsLocationInput interface {
 }
 
 type GetDeviceAwsLocationArgs struct {
-	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	// ARN of the subnet that the device is located in.
 	SubnetArn pulumi.StringInput `pulumi:"subnetArn"`
-	// The Zone that the device is located in.
+	// Zone that the device is located in.
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
@@ -1776,12 +1776,12 @@ func (o GetDeviceAwsLocationOutput) ToGetDeviceAwsLocationOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+// ARN of the subnet that the device is located in.
 func (o GetDeviceAwsLocationOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeviceAwsLocation) string { return v.SubnetArn }).(pulumi.StringOutput)
 }
 
-// The Zone that the device is located in.
+// Zone that the device is located in.
 func (o GetDeviceAwsLocationOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeviceAwsLocation) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -1807,11 +1807,11 @@ func (o GetDeviceAwsLocationArrayOutput) Index(i pulumi.IntInput) GetDeviceAwsLo
 }
 
 type GetDeviceLocation struct {
-	// The physical address.
+	// Physical address.
 	Address string `pulumi:"address"`
-	// The latitude.
+	// Latitude.
 	Latitude string `pulumi:"latitude"`
-	// The longitude.
+	// Longitude.
 	Longitude string `pulumi:"longitude"`
 }
 
@@ -1827,11 +1827,11 @@ type GetDeviceLocationInput interface {
 }
 
 type GetDeviceLocationArgs struct {
-	// The physical address.
+	// Physical address.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The latitude.
+	// Latitude.
 	Latitude pulumi.StringInput `pulumi:"latitude"`
-	// The longitude.
+	// Longitude.
 	Longitude pulumi.StringInput `pulumi:"longitude"`
 }
 
@@ -1886,17 +1886,17 @@ func (o GetDeviceLocationOutput) ToGetDeviceLocationOutputWithContext(ctx contex
 	return o
 }
 
-// The physical address.
+// Physical address.
 func (o GetDeviceLocationOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeviceLocation) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The latitude.
+// Latitude.
 func (o GetDeviceLocationOutput) Latitude() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeviceLocation) string { return v.Latitude }).(pulumi.StringOutput)
 }
 
-// The longitude.
+// Longitude.
 func (o GetDeviceLocationOutput) Longitude() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeviceLocation) string { return v.Longitude }).(pulumi.StringOutput)
 }

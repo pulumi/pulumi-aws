@@ -170,7 +170,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableArray<Outputs.ApplicationSslConfiguration>> SslConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the stack the application will belong to.
+        /// ID of the stack the application will belong to.
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.OpsWorks
         }
 
         /// <summary>
-        /// The id of the stack the application will belong to.
+        /// ID of the stack the application will belong to.
         /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.OpsWorks
         }
 
         /// <summary>
-        /// The id of the stack the application will belong to.
+        /// ID of the stack the application will belong to.
         /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }

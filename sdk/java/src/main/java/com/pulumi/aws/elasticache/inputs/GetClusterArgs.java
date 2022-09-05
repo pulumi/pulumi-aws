@@ -32,14 +32,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,7 +93,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 

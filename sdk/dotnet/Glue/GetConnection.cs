@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Glue
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A concatenation of the catalog ID and connection name. For example, if your account ID is
+        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
         /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
         /// </summary>
         [Input("id", required: true)]
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Glue
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Glue
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A concatenation of the catalog ID and connection name. For example, if your account ID is
+        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
         /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
         /// </summary>
         [Input("id", required: true)]
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public InputMap<string> Tags
         {
@@ -126,16 +126,16 @@ namespace Pulumi.Aws.Glue
     public sealed class GetConnectionResult
     {
         /// <summary>
-        /// The ARN of the Glue Connection.
+        /// ARN of the Glue Connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The catalog ID of the Glue Connection.
+        /// Catalog ID of the Glue Connection.
         /// </summary>
         public readonly string CatalogId;
         public readonly ImmutableDictionary<string, string> ConnectionProperties;
         /// <summary>
-        /// The type of Glue Connection.
+        /// Type of Glue Connection.
         /// </summary>
         public readonly string ConnectionType;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableArray<string> MatchCriterias;
         /// <summary>
-        /// The name of the Glue Connection.
+        /// Name of the Glue Connection.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

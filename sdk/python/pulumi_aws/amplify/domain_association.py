@@ -22,9 +22,9 @@ class DomainAssociationArgs:
                  wait_for_verification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] domain_name: The domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: The setting for the subdomain. Documented below.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] domain_name: Domain name for the domain association.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -37,7 +37,7 @@ class DomainAssociationArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -49,7 +49,7 @@ class DomainAssociationArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The domain name for the domain association.
+        Domain name for the domain association.
         """
         return pulumi.get(self, "domain_name")
 
@@ -61,7 +61,7 @@ class DomainAssociationArgs:
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]:
         """
-        The setting for the subdomain. Documented below.
+        Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 
@@ -93,11 +93,11 @@ class _DomainAssociationState:
                  wait_for_verification: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering DomainAssociation resources.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the domain association.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the domain association.
         :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
-        :param pulumi.Input[str] domain_name: The domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: The setting for the subdomain. Documented below.
+        :param pulumi.Input[str] domain_name: Domain name for the domain association.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         if app_id is not None:
@@ -117,7 +117,7 @@ class _DomainAssociationState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -129,7 +129,7 @@ class _DomainAssociationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for the domain association.
+        ARN for the domain association.
         """
         return pulumi.get(self, "arn")
 
@@ -153,7 +153,7 @@ class _DomainAssociationState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The domain name for the domain association.
+        Domain name for the domain association.
         """
         return pulumi.get(self, "domain_name")
 
@@ -165,7 +165,7 @@ class _DomainAssociationState:
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
         """
-        The setting for the subdomain. Documented below.
+        Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 
@@ -238,9 +238,9 @@ class DomainAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] domain_name: The domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: The setting for the subdomain. Documented below.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] domain_name: Domain name for the domain association.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
@@ -352,11 +352,11 @@ class DomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the domain association.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for the domain association.
         :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
-        :param pulumi.Input[str] domain_name: The domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: The setting for the subdomain. Documented below.
+        :param pulumi.Input[str] domain_name: Domain name for the domain association.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -375,7 +375,7 @@ class DomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -383,7 +383,7 @@ class DomainAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) for the domain association.
+        ARN for the domain association.
         """
         return pulumi.get(self, "arn")
 
@@ -399,7 +399,7 @@ class DomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The domain name for the domain association.
+        Domain name for the domain association.
         """
         return pulumi.get(self, "domain_name")
 
@@ -407,7 +407,7 @@ class DomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> pulumi.Output[Sequence['outputs.DomainAssociationSubDomain']]:
         """
-        The setting for the subdomain. Documented below.
+        Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 

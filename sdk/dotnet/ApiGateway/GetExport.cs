@@ -70,13 +70,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
         /// </summary>
         [Input("accepts")]
         public string? Accepts { get; set; }
 
         /// <summary>
-        /// The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
         /// </summary>
         [Input("exportType", required: true)]
         public string ExportType { get; set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ApiGateway
         private Dictionary<string, string>? _parameters;
 
         /// <summary>
-        /// A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+        /// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
         /// </summary>
         public Dictionary<string, string> Parameters
         {
@@ -94,13 +94,13 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The identifier of the associated REST API.
+        /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Stage that will be exported.
+        /// Name of the Stage that will be exported.
         /// </summary>
         [Input("stageName", required: true)]
         public string StageName { get; set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
         /// </summary>
         [Input("accepts")]
         public Input<string>? Accepts { get; set; }
 
         /// <summary>
-        /// The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
         /// </summary>
         [Input("exportType", required: true)]
         public Input<string> ExportType { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+        /// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The identifier of the associated REST API.
+        /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Stage that will be exported.
+        /// Name of the Stage that will be exported.
         /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
@@ -161,15 +161,15 @@ namespace Pulumi.Aws.ApiGateway
     {
         public readonly string? Accepts;
         /// <summary>
-        /// The API Spec.
+        /// API Spec.
         /// </summary>
         public readonly string Body;
         /// <summary>
-        /// The content-disposition header value in the HTTP response.
+        /// Content-disposition header value in the HTTP response.
         /// </summary>
         public readonly string ContentDisposition;
         /// <summary>
-        /// The content-type header value in the HTTP response.
+        /// Content-type header value in the HTTP response.
         /// </summary>
         public readonly string ContentType;
         public readonly string ExportType;

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualGatewaySpecListenerTlsCertificateAcm {
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     private String certificateArn;
 
     private VirtualGatewaySpecListenerTlsCertificateAcm() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public String certificateArn() {

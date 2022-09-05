@@ -82,7 +82,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The bucket name.
+        /// Bucket name.
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The bucket name.
+        /// Bucket name.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;

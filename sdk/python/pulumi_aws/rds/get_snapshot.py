@@ -99,7 +99,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> int:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -107,7 +107,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -120,7 +120,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="dbSnapshotArn")
     def db_snapshot_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the DB snapshot.
+        ARN for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 
@@ -133,7 +133,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def encrypted(self) -> bool:
         """
-        Specifies whether the DB snapshot is encrypted.
+        Whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -141,7 +141,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def engine(self) -> str:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -149,7 +149,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -175,7 +175,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def iops(self) -> int:
         """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
@@ -183,7 +183,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -230,7 +230,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
     def source_db_snapshot_identifier(self) -> str:
         """
-        The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         """
         return pulumi.get(self, "source_db_snapshot_identifier")
 
@@ -238,7 +238,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> str:
         """
-        The region that the DB snapshot was created in or copied from.
+        Region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
@@ -246,7 +246,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Specifies the status of this DB snapshot.
+        Status of this DB snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -254,7 +254,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
         """
-        Specifies the storage type associated with DB snapshot.
+        Storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -262,7 +262,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        Specifies the ID of the VPC associated with the DB snapshot.
+        ID of the VPC associated with the DB snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -347,7 +347,7 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
            The default is `false`.
     :param bool most_recent: If more than one result is returned, use the most
            recent Snapshot.
-    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     """
@@ -437,7 +437,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
            The default is `false`.
     :param bool most_recent: If more than one result is returned, use the most
            recent Snapshot.
-    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+    :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     """

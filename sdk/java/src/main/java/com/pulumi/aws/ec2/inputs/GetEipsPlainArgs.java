@@ -33,14 +33,14 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -94,7 +94,7 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
          * 
          * @return builder
          * 

@@ -74,7 +74,8 @@ type QuerySuggestionsBlockList struct {
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
 	Status       pulumi.StringOutput                         `pulumi:"status"`
 	Tags         pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewQuerySuggestionsBlockList registers a new resource with the given unique name, arguments, and options.
@@ -131,7 +132,8 @@ type querySuggestionsBlockListState struct {
 	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Status       *string                                `pulumi:"status"`
 	Tags         map[string]string                      `pulumi:"tags"`
-	TagsAll      map[string]string                      `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type QuerySuggestionsBlockListState struct {
@@ -151,7 +153,8 @@ type QuerySuggestionsBlockListState struct {
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
 	Status       pulumi.StringPtrInput
 	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
@@ -317,6 +320,7 @@ func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QuerySuggestionsBlockListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

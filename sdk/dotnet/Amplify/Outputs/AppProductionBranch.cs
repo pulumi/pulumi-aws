@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Amplify.Outputs
     public sealed class AppProductionBranch
     {
         /// <summary>
-        /// The branch name for the production branch.
+        /// Branch name for the production branch.
         /// </summary>
         public readonly string? BranchName;
         /// <summary>
-        /// The last deploy time of the production branch.
+        /// Last deploy time of the production branch.
         /// </summary>
         public readonly string? LastDeployTime;
         /// <summary>
-        /// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        /// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The thumbnail URL for the production branch.
+        /// Thumbnail URL for the production branch.
         /// </summary>
         public readonly string? ThumbnailUrl;
 

@@ -42,7 +42,7 @@ class GetEventConnectionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN (Amazon Resource Name) for the connection.
+        ARN (Amazon Resource Name) for the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -50,7 +50,7 @@ class GetEventConnectionResult:
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> str:
         """
-        The type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -66,7 +66,7 @@ class GetEventConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the connection.
+        Name of the connection.
         """
         return pulumi.get(self, "name")
 
@@ -74,7 +74,7 @@ class GetEventConnectionResult:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> str:
         """
-        The ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+        ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -109,7 +109,7 @@ def get_event_connection(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the connection.
+    :param str name: Name of the connection.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -142,6 +142,6 @@ def get_event_connection_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the connection.
+    :param str name: Name of the connection.
     """
     ...

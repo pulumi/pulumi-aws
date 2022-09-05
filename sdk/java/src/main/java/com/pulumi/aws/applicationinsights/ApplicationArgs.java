@@ -79,6 +79,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
+     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     @Import(name="opsCenterEnabled")
@@ -86,6 +87,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return When set to `true`, creates opsItems for any problems detected on an application.
+     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     public Optional<Output<Boolean>> opsCenterEnabled() {
@@ -93,14 +95,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
     @Import(name="opsItemSnsTopicArn")
     private @Nullable Output<String> opsItemSnsTopicArn;
 
     /**
-     * @return The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * @return SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
     public Optional<Output<String>> opsItemSnsTopicArn() {
@@ -108,14 +110,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group.
+     * Name of the resource group.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group.
+     * @return Name of the resource group.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -123,14 +125,16 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -254,6 +258,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
+         * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
          * 
          * @return builder
          * 
@@ -265,6 +270,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
+         * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
          * 
          * @return builder
          * 
@@ -274,7 +280,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opsItemSnsTopicArn The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+         * @param opsItemSnsTopicArn SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
          * 
          * @return builder
          * 
@@ -285,7 +291,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opsItemSnsTopicArn The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+         * @param opsItemSnsTopicArn SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
          * 
          * @return builder
          * 
@@ -295,7 +301,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group.
+         * @param resourceGroupName Name of the resource group.
          * 
          * @return builder
          * 
@@ -306,7 +312,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group.
+         * @param resourceGroupName Name of the resource group.
          * 
          * @return builder
          * 
@@ -316,7 +322,8 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 
@@ -327,7 +334,8 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 

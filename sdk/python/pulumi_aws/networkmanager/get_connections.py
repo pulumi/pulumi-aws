@@ -60,7 +60,7 @@ class GetConnectionsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The IDs of the connections.
+        IDs of the connections.
         """
         return pulumi.get(self, "ids")
 
@@ -103,8 +103,8 @@ def get_connections(device_id: Optional[str] = None,
     ```
 
 
-    :param str device_id: The ID of the device of the connections to retrieve.
-    :param str global_network_id: The ID of the Global Network of the connections to retrieve.
+    :param str device_id: ID of the device of the connections to retrieve.
+    :param str global_network_id: ID of the Global Network of the connections to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the connections with these tags.
     """
     __args__ = dict()
@@ -143,8 +143,8 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     ```
 
 
-    :param str device_id: The ID of the device of the connections to retrieve.
-    :param str global_network_id: The ID of the Global Network of the connections to retrieve.
+    :param str device_id: ID of the device of the connections to retrieve.
+    :param str global_network_id: ID of the Global Network of the connections to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the connections with these tags.
     """
     ...

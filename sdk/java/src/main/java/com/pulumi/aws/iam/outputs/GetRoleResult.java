@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleResult {
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN of the role.
      * 
      */
     private String arn;
     /**
-     * @return The policy document associated with the role.
+     * @return Policy document associated with the role.
      * 
      */
     private String assumeRolePolicy;
@@ -43,7 +43,7 @@ public final class GetRoleResult {
     private Integer maxSessionDuration;
     private String name;
     /**
-     * @return The path to the role.
+     * @return Path to the role.
      * 
      */
     private String path;
@@ -53,26 +53,26 @@ public final class GetRoleResult {
      */
     private String permissionsBoundary;
     /**
-     * @return The tags attached to the role.
+     * @return Tags attached to the role.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The stable and unique string identifying the role.
+     * @return Stable and unique string identifying the role.
      * 
      */
     private String uniqueId;
 
     private GetRoleResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN of the role.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The policy document associated with the role.
+     * @return Policy document associated with the role.
      * 
      */
     public String assumeRolePolicy() {
@@ -110,7 +110,7 @@ public final class GetRoleResult {
         return this.name;
     }
     /**
-     * @return The path to the role.
+     * @return Path to the role.
      * 
      */
     public String path() {
@@ -124,14 +124,14 @@ public final class GetRoleResult {
         return this.permissionsBoundary;
     }
     /**
-     * @return The tags attached to the role.
+     * @return Tags attached to the role.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The stable and unique string identifying the role.
+     * @return Stable and unique string identifying the role.
      * 
      */
     public String uniqueId() {

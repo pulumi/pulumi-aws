@@ -17,14 +17,14 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetNodeGroupArgs Empty = new GetNodeGroupArgs();
 
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      * 
      */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
     /**
-     * @return The name of the cluster.
+     * @return Name of the cluster.
      * 
      */
     public Output<String> clusterName() {
@@ -32,14 +32,14 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the node group.
+     * Name of the node group.
      * 
      */
     @Import(name="nodeGroupName", required=true)
     private Output<String> nodeGroupName;
 
     /**
-     * @return The name of the node group.
+     * @return Name of the node group.
      * 
      */
     public Output<String> nodeGroupName() {
@@ -88,7 +88,7 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterName The name of the cluster.
+         * @param clusterName Name of the cluster.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterName The name of the cluster.
+         * @param clusterName Name of the cluster.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nodeGroupName The name of the node group.
+         * @param nodeGroupName Name of the node group.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetNodeGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nodeGroupName The name of the node group.
+         * @param nodeGroupName Name of the node group.
          * 
          * @return builder
          * 

@@ -30,7 +30,7 @@ export interface GetLocalGatewayRouteTablesArgs {
      */
     filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: {[key: string]: string};
@@ -65,7 +65,7 @@ export interface GetLocalGatewayRouteTablesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTablesFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

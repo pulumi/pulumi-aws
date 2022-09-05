@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult
     {
         /// <summary>
-        /// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+        /// ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         /// </summary>
         public readonly int? Asn;
         /// <summary>

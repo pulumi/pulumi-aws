@@ -48,27 +48,27 @@ func LookupResponseHeadersPolicy(ctx *pulumi.Context, args *LookupResponseHeader
 
 // A collection of arguments for invoking getResponseHeadersPolicy.
 type LookupResponseHeadersPolicyArgs struct {
-	// The identifier for the response headers policy.
+	// Identifier for the response headers policy.
 	Id *string `pulumi:"id"`
-	// A unique name to identify the response headers policy.
+	// Unique name to identify the response headers policy.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getResponseHeadersPolicy.
 type LookupResponseHeadersPolicyResult struct {
-	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+	// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 	Comment string `pulumi:"comment"`
-	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+	// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfigs []GetResponseHeadersPolicyCorsConfig `pulumi:"corsConfigs"`
 	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
 	CustomHeadersConfigs []GetResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfigs"`
-	// The current version of the response headers policy.
+	// Current version of the response headers policy.
 	Etag string `pulumi:"etag"`
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfigs []GetResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfigs"`
-	// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	// (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
 	ServerTimingHeadersConfigs []GetResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfigs"`
 }
 
@@ -87,9 +87,9 @@ func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseH
 
 // A collection of arguments for invoking getResponseHeadersPolicy.
 type LookupResponseHeadersPolicyOutputArgs struct {
-	// The identifier for the response headers policy.
+	// Identifier for the response headers policy.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A unique name to identify the response headers policy.
+	// Unique name to identify the response headers policy.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -112,12 +112,12 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 	return o
 }
 
-// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 func (o LookupResponseHeadersPolicyResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 func (o LookupResponseHeadersPolicyResultOutput) CorsConfigs() GetResponseHeadersPolicyCorsConfigArrayOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyCorsConfig { return v.CorsConfigs }).(GetResponseHeadersPolicyCorsConfigArrayOutput)
 }
@@ -129,7 +129,7 @@ func (o LookupResponseHeadersPolicyResultOutput) CustomHeadersConfigs() GetRespo
 	}).(GetResponseHeadersPolicyCustomHeadersConfigArrayOutput)
 }
 
-// The current version of the response headers policy.
+// Current version of the response headers policy.
 func (o LookupResponseHeadersPolicyResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupResponseHeadersPolicyResultOutput) SecurityHeadersConfigs() GetRes
 	}).(GetResponseHeadersPolicySecurityHeadersConfigArrayOutput)
 }
 
-// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+// (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
 func (o LookupResponseHeadersPolicyResultOutput) ServerTimingHeadersConfigs() GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyServerTimingHeadersConfig {
 		return v.ServerTimingHeadersConfigs

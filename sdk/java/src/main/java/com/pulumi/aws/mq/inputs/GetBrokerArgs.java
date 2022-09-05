@@ -17,14 +17,14 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBrokerArgs Empty = new GetBrokerArgs();
 
     /**
-     * The unique id of the mq broker.
+     * Unique id of the mq broker.
      * 
      */
     @Import(name="brokerId")
     private @Nullable Output<String> brokerId;
 
     /**
-     * @return The unique id of the mq broker.
+     * @return Unique id of the mq broker.
      * 
      */
     public Optional<Output<String>> brokerId() {
@@ -32,14 +32,14 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique name of the mq broker.
+     * Unique name of the mq broker.
      * 
      */
     @Import(name="brokerName")
     private @Nullable Output<String> brokerName;
 
     /**
-     * @return The unique name of the mq broker.
+     * @return Unique name of the mq broker.
      * 
      */
     public Optional<Output<String>> brokerName() {
@@ -80,7 +80,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerId The unique id of the mq broker.
+         * @param brokerId Unique id of the mq broker.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerId The unique id of the mq broker.
+         * @param brokerId Unique id of the mq broker.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerName The unique name of the mq broker.
+         * @param brokerName Unique name of the mq broker.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerName The unique name of the mq broker.
+         * @param brokerName Unique name of the mq broker.
          * 
          * @return builder
          * 

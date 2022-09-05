@@ -48,24 +48,24 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupArgs struct {
-	// The name of the cluster subnet group for which information is requested.
+	// Name of the cluster subnet group for which information is requested.
 	Name string `pulumi:"name"`
-	// The tags associated to the Subnet Group
+	// Tags associated to the Subnet Group
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
-	// Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+	// ARN of the Redshift Subnet Group name.
 	Arn string `pulumi:"arn"`
-	// The description of the Redshift Subnet group.
+	// Description of the Redshift Subnet group.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The tags associated to the Subnet Group
+	// Tags associated to the Subnet Group
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -84,9 +84,9 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupOutputArgs struct {
-	// The name of the cluster subnet group for which information is requested.
+	// Name of the cluster subnet group for which information is requested.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tags associated to the Subnet Group
+	// Tags associated to the Subnet Group
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -109,12 +109,12 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+// ARN of the Redshift Subnet Group name.
 func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the Redshift Subnet group.
+// Description of the Redshift Subnet group.
 func (o LookupSubnetGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -133,7 +133,7 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The tags associated to the Subnet Group
+// Tags associated to the Subnet Group
 func (o LookupSubnetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

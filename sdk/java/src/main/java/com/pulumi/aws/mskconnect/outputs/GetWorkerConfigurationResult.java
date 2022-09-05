@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkerConfigurationResult {
     /**
-     * @return the Amazon Resource Name (ARN) of the worker configuration.
+     * @return the ARN of the worker configuration.
      * 
      */
     private String arn;
@@ -39,7 +39,7 @@ public final class GetWorkerConfigurationResult {
 
     private GetWorkerConfigurationResult() {}
     /**
-     * @return the Amazon Resource Name (ARN) of the worker configuration.
+     * @return the ARN of the worker configuration.
      * 
      */
     public String arn() {

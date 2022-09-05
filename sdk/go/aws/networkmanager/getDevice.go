@@ -22,9 +22,9 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDevice.
 type LookupDeviceArgs struct {
-	// The ID of the device.
+	// ID of the device.
 	DeviceId string `pulumi:"deviceId"`
-	// The ID of the global network.
+	// ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// Key-value tags for the device.
 	Tags map[string]string `pulumi:"tags"`
@@ -32,29 +32,29 @@ type LookupDeviceArgs struct {
 
 // A collection of values returned by getDevice.
 type LookupDeviceResult struct {
-	// The Amazon Resource Name (ARN) of the device.
+	// ARN of the device.
 	Arn string `pulumi:"arn"`
-	// The AWS location of the device. Documented below.
+	// AWS location of the device. Documented below.
 	AwsLocations []GetDeviceAwsLocation `pulumi:"awsLocations"`
-	// A description of the device.
+	// Description of the device.
 	Description     string `pulumi:"description"`
 	DeviceId        string `pulumi:"deviceId"`
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The location of the device. Documented below.
+	// Location of the device. Documented below.
 	Locations []GetDeviceLocation `pulumi:"locations"`
-	// The model of device.
+	// Model of device.
 	Model string `pulumi:"model"`
-	// The serial number of the device.
+	// Serial number of the device.
 	SerialNumber string `pulumi:"serialNumber"`
-	// The ID of the site.
+	// ID of the site.
 	SiteId string `pulumi:"siteId"`
 	// Key-value tags for the device.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of device.
+	// Type of device.
 	Type string `pulumi:"type"`
-	// The vendor of the device.
+	// Vendor of the device.
 	Vendor string `pulumi:"vendor"`
 }
 
@@ -73,9 +73,9 @@ func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts .
 
 // A collection of arguments for invoking getDevice.
 type LookupDeviceOutputArgs struct {
-	// The ID of the device.
+	// ID of the device.
 	DeviceId pulumi.StringInput `pulumi:"deviceId"`
-	// The ID of the global network.
+	// ID of the global network.
 	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
 	// Key-value tags for the device.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -100,17 +100,17 @@ func (o LookupDeviceResultOutput) ToLookupDeviceResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the device.
+// ARN of the device.
 func (o LookupDeviceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS location of the device. Documented below.
+// AWS location of the device. Documented below.
 func (o LookupDeviceResultOutput) AwsLocations() GetDeviceAwsLocationArrayOutput {
 	return o.ApplyT(func(v LookupDeviceResult) []GetDeviceAwsLocation { return v.AwsLocations }).(GetDeviceAwsLocationArrayOutput)
 }
 
-// A description of the device.
+// Description of the device.
 func (o LookupDeviceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -128,22 +128,22 @@ func (o LookupDeviceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The location of the device. Documented below.
+// Location of the device. Documented below.
 func (o LookupDeviceResultOutput) Locations() GetDeviceLocationArrayOutput {
 	return o.ApplyT(func(v LookupDeviceResult) []GetDeviceLocation { return v.Locations }).(GetDeviceLocationArrayOutput)
 }
 
-// The model of device.
+// Model of device.
 func (o LookupDeviceResultOutput) Model() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Model }).(pulumi.StringOutput)
 }
 
-// The serial number of the device.
+// Serial number of the device.
 func (o LookupDeviceResultOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// The ID of the site.
+// ID of the site.
 func (o LookupDeviceResultOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.SiteId }).(pulumi.StringOutput)
 }
@@ -153,12 +153,12 @@ func (o LookupDeviceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDeviceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of device.
+// Type of device.
 func (o LookupDeviceResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The vendor of the device.
+// Vendor of the device.
 func (o LookupDeviceResultOutput) Vendor() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeviceResult) string { return v.Vendor }).(pulumi.StringOutput)
 }

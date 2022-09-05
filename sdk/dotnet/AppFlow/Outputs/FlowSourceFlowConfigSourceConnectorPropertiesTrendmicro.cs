@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro
     {
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         public readonly string Object;
 

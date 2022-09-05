@@ -109,14 +109,14 @@ public final class DefaultSecurityGroupEgressArgs extends com.pulumi.resources.R
     }
 
     /**
-     * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -342,7 +342,7 @@ public final class DefaultSecurityGroupEgressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class DefaultSecurityGroupEgressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DefaultSecurityGroupEgressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 

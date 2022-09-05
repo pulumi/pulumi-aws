@@ -29,6 +29,7 @@ class EndpointArgs:
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -52,12 +53,12 @@ class EndpointArgs:
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
-        :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[int] port: Transmission Control Protocol (TCP) port for the endpoint.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
         :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
-        :param pulumi.Input[str] server_name: Host name of the server.
+        :param pulumi.Input[str] server_name: Fully qualified domain name of the endpoint.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -86,6 +87,8 @@ class EndpointArgs:
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if redis_settings is not None:
+            pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
         if s3_settings is not None:
@@ -253,13 +256,22 @@ class EndpointArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port used by the endpoint database.
+        Transmission Control Protocol (TCP) port for the endpoint.
         """
         return pulumi.get(self, "port")
 
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="redisSettings")
+    def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
+        return pulumi.get(self, "redis_settings")
+
+    @redis_settings.setter
+    def redis_settings(self, value: Optional[pulumi.Input['EndpointRedisSettingsArgs']]):
+        pulumi.set(self, "redis_settings", value)
 
     @property
     @pulumi.getter(name="redshiftSettings")
@@ -313,7 +325,7 @@ class EndpointArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Host name of the server.
+        Fully qualified domain name of the endpoint.
         """
         return pulumi.get(self, "server_name")
 
@@ -387,6 +399,7 @@ class _EndpointState:
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -412,12 +425,12 @@ class _EndpointState:
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
-        :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[int] port: Transmission Control Protocol (TCP) port for the endpoint.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
         :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
-        :param pulumi.Input[str] server_name: Host name of the server.
+        :param pulumi.Input[str] server_name: Fully qualified domain name of the endpoint.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -452,6 +465,8 @@ class _EndpointState:
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if redis_settings is not None:
+            pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
         if s3_settings is not None:
@@ -633,13 +648,22 @@ class _EndpointState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Port used by the endpoint database.
+        Transmission Control Protocol (TCP) port for the endpoint.
         """
         return pulumi.get(self, "port")
 
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="redisSettings")
+    def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
+        return pulumi.get(self, "redis_settings")
+
+    @redis_settings.setter
+    def redis_settings(self, value: Optional[pulumi.Input['EndpointRedisSettingsArgs']]):
+        pulumi.set(self, "redis_settings", value)
 
     @property
     @pulumi.getter(name="redshiftSettings")
@@ -693,7 +717,7 @@ class _EndpointState:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Host name of the server.
+        Fully qualified domain name of the endpoint.
         """
         return pulumi.get(self, "server_name")
 
@@ -780,6 +804,7 @@ class Endpoint(pulumi.CustomResource):
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -840,12 +865,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
-        :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[int] port: Transmission Control Protocol (TCP) port for the endpoint.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
         :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
-        :param pulumi.Input[str] server_name: Host name of the server.
+        :param pulumi.Input[str] server_name: Fully qualified domain name of the endpoint.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -921,6 +946,7 @@ class Endpoint(pulumi.CustomResource):
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -958,6 +984,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["mongodb_settings"] = mongodb_settings
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
+            __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["s3_settings"] = s3_settings
             __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
@@ -993,6 +1020,7 @@ class Endpoint(pulumi.CustomResource):
             mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
             password: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
             redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1023,12 +1051,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
-        :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[int] port: Transmission Control Protocol (TCP) port for the endpoint.
         :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
         :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
-        :param pulumi.Input[str] server_name: Host name of the server.
+        :param pulumi.Input[str] server_name: Fully qualified domain name of the endpoint.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1053,6 +1081,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["mongodb_settings"] = mongodb_settings
         __props__.__dict__["password"] = password
         __props__.__dict__["port"] = port
+        __props__.__dict__["redis_settings"] = redis_settings
         __props__.__dict__["redshift_settings"] = redshift_settings
         __props__.__dict__["s3_settings"] = s3_settings
         __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
@@ -1173,9 +1202,14 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        Port used by the endpoint database.
+        Transmission Control Protocol (TCP) port for the endpoint.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="redisSettings")
+    def redis_settings(self) -> pulumi.Output[Optional['outputs.EndpointRedisSettings']]:
+        return pulumi.get(self, "redis_settings")
 
     @property
     @pulumi.getter(name="redshiftSettings")
@@ -1213,7 +1247,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Host name of the server.
+        Fully qualified domain name of the endpoint.
         """
         return pulumi.get(self, "server_name")
 

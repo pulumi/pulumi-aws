@@ -42,11 +42,11 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
  */
 export interface GetAcceleratorArgs {
     /**
-     * The full ARN of the Global Accelerator.
+     * Full ARN of the Global Accelerator.
      */
     arn?: string;
     /**
-     * The unique name of the Global Accelerator.
+     * Unique name of the Global Accelerator.
      */
     name?: string;
     tags?: {[key: string]: string};
@@ -80,11 +80,11 @@ export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pul
  */
 export interface GetAcceleratorOutputArgs {
     /**
-     * The full ARN of the Global Accelerator.
+     * Full ARN of the Global Accelerator.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The unique name of the Global Accelerator.
+     * Unique name of the Global Accelerator.
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

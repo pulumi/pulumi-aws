@@ -33,14 +33,14 @@ public final class GetInternetGatewayPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The id of the specific Internet Gateway to retrieve.
+     * ID of the specific Internet Gateway to retrieve.
      * 
      */
     @Import(name="internetGatewayId")
     private @Nullable String internetGatewayId;
 
     /**
-     * @return The id of the specific Internet Gateway to retrieve.
+     * @return ID of the specific Internet Gateway to retrieve.
      * 
      */
     public Optional<String> internetGatewayId() {
@@ -48,7 +48,7 @@ public final class GetInternetGatewayPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      * 
      */
@@ -56,7 +56,7 @@ public final class GetInternetGatewayPlainArgs extends com.pulumi.resources.Invo
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      * 
      */
@@ -112,7 +112,7 @@ public final class GetInternetGatewayPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param internetGatewayId The id of the specific Internet Gateway to retrieve.
+         * @param internetGatewayId ID of the specific Internet Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class GetInternetGatewayPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired Internet Gateway.
          * 
          * @return builder

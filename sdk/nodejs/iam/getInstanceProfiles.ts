@@ -36,7 +36,7 @@ export function getInstanceProfiles(args: GetInstanceProfilesArgs, opts?: pulumi
  */
 export interface GetInstanceProfilesArgs {
     /**
-     * The IAM role name.
+     * IAM role name.
      */
     roleName: string;
 }
@@ -46,7 +46,7 @@ export interface GetInstanceProfilesArgs {
  */
 export interface GetInstanceProfilesResult {
     /**
-     * Set of Amazon Resource Name (ARN) specifying the instance profile.
+     * Set of ARNs of instance profiles.
      */
     readonly arns: string[];
     /**
@@ -73,7 +73,7 @@ export function getInstanceProfilesOutput(args: GetInstanceProfilesOutputArgs, o
  */
 export interface GetInstanceProfilesOutputArgs {
     /**
-     * The IAM role name.
+     * IAM role name.
      */
     roleName: pulumi.Input<string>;
 }

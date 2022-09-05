@@ -36,23 +36,23 @@ class AppArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a App resource.
-        :param pulumi.Input[str] access_token: The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: The automated branch creation glob patterns for an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: The credentials for basic authorization for an Amplify app.
+        :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
+        :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        :param pulumi.Input[str] description: The description for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         :param pulumi.Input[bool] enable_branch_auto_build: Enables auto-building of branches for the Amplify App.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables map for an Amplify app.
-        :param pulumi.Input[str] iam_service_role_arn: The AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[str] name: The name for an Amplify app.
-        :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: The platform or framework for an Amplify app. Valid values: `WEB`.
-        :param pulumi.Input[str] repository: The repository for an Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables map for an Amplify app.
+        :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[str] name: Name for an Amplify app.
+        :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_token is not None:
@@ -96,7 +96,7 @@ class AppArgs:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
         """
         return pulumi.get(self, "access_token")
 
@@ -108,7 +108,7 @@ class AppArgs:
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
         """
-        The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -120,7 +120,7 @@ class AppArgs:
     @pulumi.getter(name="autoBranchCreationPatterns")
     def auto_branch_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The automated branch creation glob patterns for an Amplify app.
+        Automated branch creation glob patterns for an Amplify app.
         """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
@@ -132,7 +132,7 @@ class AppArgs:
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials for basic authorization for an Amplify app.
+        Credentials for basic authorization for an Amplify app.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
@@ -156,7 +156,7 @@ class AppArgs:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
         """
-        The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -168,7 +168,7 @@ class AppArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for an Amplify app.
+        Description for an Amplify app.
         """
         return pulumi.get(self, "description")
 
@@ -228,7 +228,7 @@ class AppArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The environment variables map for an Amplify app.
+        Environment variables map for an Amplify app.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -240,7 +240,7 @@ class AppArgs:
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Identity and Access Management (IAM) service role for an Amplify app.
+        AWS Identity and Access Management (IAM) service role for an Amplify app.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
@@ -252,7 +252,7 @@ class AppArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for an Amplify app.
+        Name for an Amplify app.
         """
         return pulumi.get(self, "name")
 
@@ -264,7 +264,7 @@ class AppArgs:
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         """
         return pulumi.get(self, "oauth_token")
 
@@ -276,7 +276,7 @@ class AppArgs:
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
         """
-        The platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -288,7 +288,7 @@ class AppArgs:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository for an Amplify app.
+        Repository for an Amplify app.
         """
         return pulumi.get(self, "repository")
 
@@ -336,28 +336,29 @@ class _AppState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering App resources.
-        :param pulumi.Input[str] access_token: The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amplify app.
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: The automated branch creation glob patterns for an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: The credentials for basic authorization for an Amplify app.
+        :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        :param pulumi.Input[str] arn: ARN of the Amplify app.
+        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
+        :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        :param pulumi.Input[str] default_domain: The default domain for the Amplify app.
-        :param pulumi.Input[str] description: The description for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
+        :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         :param pulumi.Input[bool] enable_branch_auto_build: Enables auto-building of branches for the Amplify App.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables map for an Amplify app.
-        :param pulumi.Input[str] iam_service_role_arn: The AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[str] name: The name for an Amplify app.
-        :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: The platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables map for an Amplify app.
+        :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[str] name: Name for an Amplify app.
+        :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
-        :param pulumi.Input[str] repository: The repository for an Amplify app.
+        :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               >>>>>>> v4.29.0
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -408,7 +409,7 @@ class _AppState:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
         """
         return pulumi.get(self, "access_token")
 
@@ -420,7 +421,7 @@ class _AppState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Amplify app.
+        ARN of the Amplify app.
         """
         return pulumi.get(self, "arn")
 
@@ -432,7 +433,7 @@ class _AppState:
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
         """
-        The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -444,7 +445,7 @@ class _AppState:
     @pulumi.getter(name="autoBranchCreationPatterns")
     def auto_branch_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The automated branch creation glob patterns for an Amplify app.
+        Automated branch creation glob patterns for an Amplify app.
         """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
@@ -456,7 +457,7 @@ class _AppState:
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials for basic authorization for an Amplify app.
+        Credentials for basic authorization for an Amplify app.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
@@ -480,7 +481,7 @@ class _AppState:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
         """
-        The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -492,7 +493,7 @@ class _AppState:
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The default domain for the Amplify app.
+        Default domain for the Amplify app.
         """
         return pulumi.get(self, "default_domain")
 
@@ -504,7 +505,7 @@ class _AppState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for an Amplify app.
+        Description for an Amplify app.
         """
         return pulumi.get(self, "description")
 
@@ -564,7 +565,7 @@ class _AppState:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The environment variables map for an Amplify app.
+        Environment variables map for an Amplify app.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -576,7 +577,7 @@ class _AppState:
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Identity and Access Management (IAM) service role for an Amplify app.
+        AWS Identity and Access Management (IAM) service role for an Amplify app.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
@@ -588,7 +589,7 @@ class _AppState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for an Amplify app.
+        Name for an Amplify app.
         """
         return pulumi.get(self, "name")
 
@@ -600,7 +601,7 @@ class _AppState:
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         """
         return pulumi.get(self, "oauth_token")
 
@@ -612,7 +613,7 @@ class _AppState:
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
         """
-        The platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -636,7 +637,7 @@ class _AppState:
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository for an Amplify app.
+        Repository for an Amplify app.
         """
         return pulumi.get(self, "repository")
 
@@ -660,7 +661,8 @@ class _AppState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        >>>>>>> v4.29.0
         """
         return pulumi.get(self, "tags_all")
 
@@ -791,23 +793,23 @@ class App(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: The automated branch creation glob patterns for an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: The credentials for basic authorization for an Amplify app.
+        :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
+        :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        :param pulumi.Input[str] description: The description for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         :param pulumi.Input[bool] enable_branch_auto_build: Enables auto-building of branches for the Amplify App.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables map for an Amplify app.
-        :param pulumi.Input[str] iam_service_role_arn: The AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[str] name: The name for an Amplify app.
-        :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: The platform or framework for an Amplify app. Valid values: `WEB`.
-        :param pulumi.Input[str] repository: The repository for an Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables map for an Amplify app.
+        :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[str] name: Name for an Amplify app.
+        :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -1015,28 +1017,29 @@ class App(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amplify app.
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: The automated branch creation glob patterns for an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: The credentials for basic authorization for an Amplify app.
+        :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        :param pulumi.Input[str] arn: ARN of the Amplify app.
+        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
+        :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        :param pulumi.Input[str] default_domain: The default domain for the Amplify app.
-        :param pulumi.Input[str] description: The description for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
+        :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         :param pulumi.Input[bool] enable_branch_auto_build: Enables auto-building of branches for the Amplify App.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables map for an Amplify app.
-        :param pulumi.Input[str] iam_service_role_arn: The AWS Identity and Access Management (IAM) service role for an Amplify app.
-        :param pulumi.Input[str] name: The name for an Amplify app.
-        :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: The platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables map for an Amplify app.
+        :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[str] name: Name for an Amplify app.
+        :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppProductionBranchArgs']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
-        :param pulumi.Input[str] repository: The repository for an Amplify app.
+        :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               >>>>>>> v4.29.0
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1070,7 +1073,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
         """
-        The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
         """
         return pulumi.get(self, "access_token")
 
@@ -1078,7 +1081,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the Amplify app.
+        ARN of the Amplify app.
         """
         return pulumi.get(self, "arn")
 
@@ -1086,7 +1089,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> pulumi.Output['outputs.AppAutoBranchCreationConfig']:
         """
-        The automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -1094,7 +1097,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="autoBranchCreationPatterns")
     def auto_branch_creation_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The automated branch creation glob patterns for an Amplify app.
+        Automated branch creation glob patterns for an Amplify app.
         """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
@@ -1102,7 +1105,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> pulumi.Output[Optional[str]]:
         """
-        The credentials for basic authorization for an Amplify app.
+        Credentials for basic authorization for an Amplify app.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
@@ -1118,7 +1121,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AppCustomRule']]]:
         """
-        The custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -1126,7 +1129,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> pulumi.Output[str]:
         """
-        The default domain for the Amplify app.
+        Default domain for the Amplify app.
         """
         return pulumi.get(self, "default_domain")
 
@@ -1134,7 +1137,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description for an Amplify app.
+        Description for an Amplify app.
         """
         return pulumi.get(self, "description")
 
@@ -1174,7 +1177,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The environment variables map for an Amplify app.
+        Environment variables map for an Amplify app.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -1182,7 +1185,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="iamServiceRoleArn")
     def iam_service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The AWS Identity and Access Management (IAM) service role for an Amplify app.
+        AWS Identity and Access Management (IAM) service role for an Amplify app.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
@@ -1190,7 +1193,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name for an Amplify app.
+        Name for an Amplify app.
         """
         return pulumi.get(self, "name")
 
@@ -1198,7 +1201,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> pulumi.Output[Optional[str]]:
         """
-        The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         """
         return pulumi.get(self, "oauth_token")
 
@@ -1206,7 +1209,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional[str]]:
         """
-        The platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -1222,7 +1225,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def repository(self) -> pulumi.Output[Optional[str]]:
         """
-        The repository for an Amplify app.
+        Repository for an Amplify app.
         """
         return pulumi.get(self, "repository")
 
@@ -1238,7 +1241,8 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        >>>>>>> v4.29.0
         """
         return pulumi.get(self, "tags_all")
 

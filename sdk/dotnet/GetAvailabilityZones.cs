@@ -357,12 +357,12 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of the Availability Zone names available to the account.
+        /// List of the Availability Zone names available to the account.
         /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string? State;
         /// <summary>
-        /// A list of the Availability Zone IDs available to the account.
+        /// List of the Availability Zone IDs available to the account.
         /// </summary>
         public readonly ImmutableArray<string> ZoneIds;
 

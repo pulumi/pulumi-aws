@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM group name to match.
+        /// Friendly IAM group name to match.
         /// </summary>
         [Input("groupName", required: true)]
         public string GroupName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM group name to match.
+        /// Friendly IAM group name to match.
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
@@ -104,11 +104,11 @@ namespace Pulumi.Aws.Iam
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the iam user.
+        /// User ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The stable and unique string identifying the group.
+        /// Stable and unique string identifying the group.
         /// </summary>
         public readonly string GroupId;
         public readonly string GroupName;
@@ -117,11 +117,11 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The path to the iam user.
+        /// Path to the IAM user.
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// List of objects containing group member information. See supported fields below.
+        /// List of objects containing group member information. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupUserResult> Users;
 

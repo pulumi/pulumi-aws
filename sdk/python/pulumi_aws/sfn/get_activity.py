@@ -44,7 +44,7 @@ class GetActivityResult:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
-        The date the activity was created.
+        Date the activity was created.
         """
         return pulumi.get(self, "creation_date")
 
@@ -90,8 +90,8 @@ def get_activity(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
-    :param str name: The name that identifies the activity.
+    :param str arn: ARN that identifies the activity.
+    :param str name: Name that identifies the activity.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -123,7 +123,7 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
-    :param str name: The name that identifies the activity.
+    :param str arn: ARN that identifies the activity.
+    :param str name: Name that identifies the activity.
     """
     ...

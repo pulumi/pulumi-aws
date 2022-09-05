@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     public sealed class ScalingPlanApplicationSource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+        /// ARN of a AWS CloudFormation stack.
         /// </summary>
         public readonly string? CloudformationStackArn;
         /// <summary>
-        /// A set of tags.
+        /// Set of tags.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPlanApplicationSourceTagFilter> TagFilters;
 

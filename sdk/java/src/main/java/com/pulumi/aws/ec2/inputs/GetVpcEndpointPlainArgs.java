@@ -33,14 +33,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the specific VPC Endpoint to retrieve.
+     * ID of the specific VPC Endpoint to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the specific VPC Endpoint to retrieve.
+     * @return ID of the specific VPC Endpoint to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -48,14 +48,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
      */
     @Import(name="serviceName")
     private @Nullable String serviceName;
 
     /**
-     * @return The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * @return Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
      */
     public Optional<String> serviceName() {
@@ -63,14 +63,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The state of the specific VPC Endpoint to retrieve.
+     * State of the specific VPC Endpoint to retrieve.
      * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
-     * @return The state of the specific VPC Endpoint to retrieve.
+     * @return State of the specific VPC Endpoint to retrieve.
      * 
      */
     public Optional<String> state() {
@@ -78,7 +78,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      * 
      */
@@ -86,7 +86,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      * 
      */
@@ -95,14 +95,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the VPC in which the specific VPC Endpoint is used.
+     * ID of the VPC in which the specific VPC Endpoint is used.
      * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
-     * @return The ID of the VPC in which the specific VPC Endpoint is used.
+     * @return ID of the VPC in which the specific VPC Endpoint is used.
      * 
      */
     public Optional<String> vpcId() {
@@ -160,7 +160,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id The ID of the specific VPC Endpoint to retrieve.
+         * @param id ID of the specific VPC Endpoint to retrieve.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param serviceName The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+         * @param serviceName Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param state The state of the specific VPC Endpoint to retrieve.
+         * @param state State of the specific VPC Endpoint to retrieve.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the specific VPC Endpoint to retrieve.
          * 
          * @return builder
@@ -205,7 +205,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param vpcId The ID of the VPC in which the specific VPC Endpoint is used.
+         * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
          * 
          * @return builder
          * 

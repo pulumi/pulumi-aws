@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEventCategoriesResult {
     /**
-     * @return A list of the event categories.
+     * @return List of the event categories.
      * 
      */
     private List<String> eventCategories;
@@ -26,7 +26,7 @@ public final class GetEventCategoriesResult {
 
     private GetEventCategoriesResult() {}
     /**
-     * @return A list of the event categories.
+     * @return List of the event categories.
      * 
      */
     public List<String> eventCategories() {

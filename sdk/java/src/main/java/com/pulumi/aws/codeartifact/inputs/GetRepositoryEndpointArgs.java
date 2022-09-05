@@ -16,14 +16,14 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
     public static final GetRepositoryEndpointArgs Empty = new GetRepositoryEndpointArgs();
 
     /**
-     * The name of the domain that contains the repository.
+     * Name of the domain that contains the repository.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return The name of the domain that contains the repository.
+     * @return Name of the domain that contains the repository.
      * 
      */
     public Output<String> domain() {
@@ -31,14 +31,14 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      * 
      */
     @Import(name="domainOwner")
     private @Nullable Output<String> domainOwner;
 
     /**
-     * @return The account number of the AWS account that owns the domain.
+     * @return Account number of the AWS account that owns the domain.
      * 
      */
     public Optional<Output<String>> domainOwner() {
@@ -61,14 +61,14 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the repository.
+     * Name of the repository.
      * 
      */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
     /**
-     * @return The name of the repository.
+     * @return Name of the repository.
      * 
      */
     public Output<String> repository() {
@@ -103,7 +103,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param domain The name of the domain that contains the repository.
+         * @param domain Name of the domain that contains the repository.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param domain The name of the domain that contains the repository.
+         * @param domain Name of the domain that contains the repository.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param domainOwner The account number of the AWS account that owns the domain.
+         * @param domainOwner Account number of the AWS account that owns the domain.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param domainOwner The account number of the AWS account that owns the domain.
+         * @param domainOwner Account number of the AWS account that owns the domain.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param repository The name of the repository.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param repository The name of the repository.
+         * @param repository Name of the repository.
          * 
          * @return builder
          * 

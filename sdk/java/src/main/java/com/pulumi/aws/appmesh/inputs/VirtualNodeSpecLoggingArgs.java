@@ -16,14 +16,14 @@ public final class VirtualNodeSpecLoggingArgs extends com.pulumi.resources.Resou
     public static final VirtualNodeSpecLoggingArgs Empty = new VirtualNodeSpecLoggingArgs();
 
     /**
-     * The access log configuration for a virtual node.
+     * Access log configuration for a virtual node.
      * 
      */
     @Import(name="accessLog")
     private @Nullable Output<VirtualNodeSpecLoggingAccessLogArgs> accessLog;
 
     /**
-     * @return The access log configuration for a virtual node.
+     * @return Access log configuration for a virtual node.
      * 
      */
     public Optional<Output<VirtualNodeSpecLoggingAccessLogArgs>> accessLog() {
@@ -55,7 +55,7 @@ public final class VirtualNodeSpecLoggingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accessLog The access log configuration for a virtual node.
+         * @param accessLog Access log configuration for a virtual node.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualNodeSpecLoggingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accessLog The access log configuration for a virtual node.
+         * @param accessLog Access log configuration for a virtual node.
          * 
          * @return builder
          * 

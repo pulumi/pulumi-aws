@@ -16,14 +16,14 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     public static final GetParametersByPathPlainArgs Empty = new GetParametersByPathPlainArgs();
 
     /**
-     * The prefix path of the parameter.
+     * Prefix path of the parameter.
      * 
      */
     @Import(name="path", required=true)
     private String path;
 
     /**
-     * @return The prefix path of the parameter.
+     * @return Prefix path of the parameter.
      * 
      */
     public String path() {
@@ -87,7 +87,7 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param path The prefix path of the parameter.
+         * @param path Prefix path of the parameter.
          * 
          * @return builder
          * 

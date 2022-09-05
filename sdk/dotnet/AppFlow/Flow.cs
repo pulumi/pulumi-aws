@@ -164,13 +164,13 @@ namespace Pulumi.Aws.AppFlow
     public partial class Flow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The flow's Amazon Resource Name (ARN).
+        /// Flow's ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the flow you want to create.
+        /// Description of the flow you want to create.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -182,13 +182,13 @@ namespace Pulumi.Aws.AppFlow
         public Output<ImmutableArray<Outputs.FlowDestinationFlowConfig>> DestinationFlowConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Output("kmsArn")]
         public Output<string> KmsArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the flow.
+        /// Name of the flow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.AppFlow
     public sealed class FlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the flow you want to create.
+        /// Description of the flow you want to create.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -288,13 +288,13 @@ namespace Pulumi.Aws.AppFlow
         }
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 
         /// <summary>
-        /// The name of the flow.
+        /// Name of the flow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -344,13 +344,13 @@ namespace Pulumi.Aws.AppFlow
     public sealed class FlowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flow's Amazon Resource Name (ARN).
+        /// Flow's ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the flow you want to create.
+        /// Description of the flow you want to create.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -368,13 +368,13 @@ namespace Pulumi.Aws.AppFlow
         }
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 
         /// <summary>
-        /// The name of the flow.
+        /// Name of the flow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

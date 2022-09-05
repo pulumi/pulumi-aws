@@ -103,43 +103,43 @@ export class VirtualGateway extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the virtual gateway.
+     * ARN of the virtual gateway.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The creation date of the virtual gateway.
+     * Creation date of the virtual gateway.
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * The last update date of the virtual gateway.
+     * Last update date of the virtual gateway.
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
-     * The virtual gateway specification to apply.
+     * Virtual gateway specification to apply.
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualGatewaySpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -195,43 +195,43 @@ export class VirtualGateway extends pulumi.CustomResource {
  */
 export interface VirtualGatewayState {
     /**
-     * The ARN of the virtual gateway.
+     * ARN of the virtual gateway.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The creation date of the virtual gateway.
+     * Creation date of the virtual gateway.
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * The last update date of the virtual gateway.
+     * Last update date of the virtual gateway.
      */
     lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     meshName?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     resourceOwner?: pulumi.Input<string>;
     /**
-     * The virtual gateway specification to apply.
+     * Virtual gateway specification to apply.
      */
     spec?: pulumi.Input<inputs.appmesh.VirtualGatewaySpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -241,23 +241,23 @@ export interface VirtualGatewayState {
  */
 export interface VirtualGatewayArgs {
     /**
-     * The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      */
     meshName: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual gateway. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The virtual gateway specification to apply.
+     * Virtual gateway specification to apply.
      */
     spec: pulumi.Input<inputs.appmesh.VirtualGatewaySpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

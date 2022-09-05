@@ -20,7 +20,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
      */
     private DistributionOrderedCacheBehaviorForwardedValuesCookies cookies;
     /**
-     * @return Specifies the Headers, if any, that you want
+     * @return Headers, if any, that you want
      * CloudFront to vary upon for this cache behavior. Specify `*` to include all
      * headers.
      * 
@@ -51,7 +51,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
         return this.cookies;
     }
     /**
-     * @return Specifies the Headers, if any, that you want
+     * @return Headers, if any, that you want
      * CloudFront to vary upon for this cache behavior. Specify `*` to include all
      * headers.
      * 

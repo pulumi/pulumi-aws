@@ -63,29 +63,32 @@ export class EventIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Event Integration.
+     * ARN of the Event Integration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
     public readonly eventFilter!: pulumi.Output<outputs.appconfig.EventIntegrationEventFilter>;
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      */
     public readonly eventbridgeBus!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,29 +137,32 @@ export class EventIntegration extends pulumi.CustomResource {
  */
 export interface EventIntegrationState {
     /**
-     * The Amazon Resource Name (ARN) of the Event Integration.
+     * ARN of the Event Integration.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      */
     description?: pulumi.Input<string>;
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
     eventFilter?: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      */
     eventbridgeBus?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      */
     name?: pulumi.Input<string>;
     /**
      * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -165,19 +171,19 @@ export interface EventIntegrationState {
  */
 export interface EventIntegrationArgs {
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      */
     description?: pulumi.Input<string>;
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
     eventFilter: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      */
     eventbridgeBus: pulumi.Input<string>;
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      */
     name?: pulumi.Input<string>;
     /**

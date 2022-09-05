@@ -70,7 +70,7 @@ export interface GetNetworkInterfacesArgs {
      */
     filters?: inputs.ec2.GetNetworkInterfacesFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      */
     tags?: {[key: string]: string};
@@ -86,7 +86,7 @@ export interface GetNetworkInterfacesResult {
      */
     readonly id: string;
     /**
-     * A list of all the network interface ids found.
+     * List of all the network interface ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -105,7 +105,7 @@ export interface GetNetworkInterfacesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfacesFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

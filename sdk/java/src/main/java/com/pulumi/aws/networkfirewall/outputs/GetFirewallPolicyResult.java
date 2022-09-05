@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 public final class GetFirewallPolicyResult {
     private @Nullable String arn;
     /**
-     * @return A description of the firewall policy.
+     * @return Description of the firewall policy.
      * 
      */
     private String description;
@@ -37,7 +37,7 @@ public final class GetFirewallPolicyResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A token used for optimistic locking.
+     * @return Token used for optimistic locking.
      * 
      */
     private String updateToken;
@@ -47,7 +47,7 @@ public final class GetFirewallPolicyResult {
         return Optional.ofNullable(this.arn);
     }
     /**
-     * @return A description of the firewall policy.
+     * @return Description of the firewall policy.
      * 
      */
     public String description() {
@@ -78,7 +78,7 @@ public final class GetFirewallPolicyResult {
         return this.tags;
     }
     /**
-     * @return A token used for optimistic locking.
+     * @return Token used for optimistic locking.
      * 
      */
     public String updateToken() {

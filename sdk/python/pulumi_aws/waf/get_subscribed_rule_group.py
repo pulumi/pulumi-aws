@@ -91,8 +91,8 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     ```
 
 
-    :param str metric_name: The name of the WAF rule group.
-    :param str name: The name of the WAF rule group.
+    :param str metric_name: Name of the WAF rule group.
+    :param str name: Name of the WAF rule group.
     """
     __args__ = dict()
     __args__['metricName'] = metric_name
@@ -136,7 +136,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
     ```
 
 
-    :param str metric_name: The name of the WAF rule group.
-    :param str name: The name of the WAF rule group.
+    :param str metric_name: Name of the WAF rule group.
+    :param str name: Name of the WAF rule group.
     """
     ...

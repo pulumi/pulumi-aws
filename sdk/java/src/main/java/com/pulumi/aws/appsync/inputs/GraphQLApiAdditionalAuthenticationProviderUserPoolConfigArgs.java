@@ -16,14 +16,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
     public static final GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs Empty = new GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs();
 
     /**
-     * A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     @Import(name="appIdClientRegex")
     private @Nullable Output<String> appIdClientRegex;
 
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     public Optional<Output<String>> appIdClientRegex() {
@@ -31,14 +31,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
     }
 
     /**
-     * The AWS region in which the user pool was created.
+     * AWS region in which the user pool was created.
      * 
      */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     public Optional<Output<String>> awsRegion() {
@@ -46,14 +46,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
     }
 
     /**
-     * The user pool ID.
+     * User pool ID.
      * 
      */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     public Output<String> userPoolId() {
@@ -87,7 +87,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param appIdClientRegex A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param appIdClientRegex A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+         * @param appIdClientRegex Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param awsRegion The AWS region in which the user pool was created.
+         * @param awsRegion AWS region in which the user pool was created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param awsRegion The AWS region in which the user pool was created.
+         * @param awsRegion AWS region in which the user pool was created.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param userPoolId The user pool ID.
+         * @param userPoolId User pool ID.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
         }
 
         /**
-         * @param userPoolId The user pool ID.
+         * @param userPoolId User pool ID.
          * 
          * @return builder
          * 

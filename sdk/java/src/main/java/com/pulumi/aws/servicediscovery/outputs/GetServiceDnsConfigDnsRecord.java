@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceDnsConfigDnsRecord {
     /**
-     * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+     * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
     private Integer ttl;
@@ -23,7 +23,7 @@ public final class GetServiceDnsConfigDnsRecord {
 
     private GetServiceDnsConfigDnsRecord() {}
     /**
-     * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+     * @return Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
     public Integer ttl() {

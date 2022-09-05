@@ -44,7 +44,7 @@ export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.Invoke
  */
 export interface GetHostedZoneIdArgs {
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
     loadBalancerType?: string;
     /**
@@ -75,7 +75,7 @@ export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: p
  */
 export interface GetHostedZoneIdOutputArgs {
     /**
-     * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
     loadBalancerType?: pulumi.Input<string>;
     /**

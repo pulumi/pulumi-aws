@@ -61,7 +61,7 @@ class GetSigningProfileResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the signing profile.
+        ARN for the signing profile.
         """
         return pulumi.get(self, "arn")
 
@@ -90,7 +90,7 @@ class GetSigningProfileResult:
     @pulumi.getter(name="platformId")
     def platform_id(self) -> str:
         """
-        The ID of the platform that is used by the target signing profile.
+        ID of the platform that is used by the target signing profile.
         """
         return pulumi.get(self, "platform_id")
 
@@ -114,7 +114,7 @@ class GetSigningProfileResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the target signing profile.
+        Status of the target signing profile.
         """
         return pulumi.get(self, "status")
 
@@ -122,7 +122,7 @@ class GetSigningProfileResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A list of tags associated with the signing profile.
+        List of tags associated with the signing profile.
         """
         return pulumi.get(self, "tags")
 
@@ -130,7 +130,7 @@ class GetSigningProfileResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        The current version of the signing profile.
+        Current version of the signing profile.
         """
         return pulumi.get(self, "version")
 
@@ -138,7 +138,7 @@ class GetSigningProfileResult:
     @pulumi.getter(name="versionArn")
     def version_arn(self) -> str:
         """
-        The signing profile ARN, including the profile version.
+        Signing profile ARN, including the profile version.
         """
         return pulumi.get(self, "version_arn")
 
@@ -178,8 +178,8 @@ def get_signing_profile(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the target signing profile.
-    :param Mapping[str, str] tags: A list of tags associated with the signing profile.
+    :param str name: Name of the target signing profile.
+    :param Mapping[str, str] tags: List of tags associated with the signing profile.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -218,7 +218,7 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the target signing profile.
-    :param Mapping[str, str] tags: A list of tags associated with the signing profile.
+    :param str name: Name of the target signing profile.
+    :param Mapping[str, str] tags: List of tags associated with the signing profile.
     """
     ...

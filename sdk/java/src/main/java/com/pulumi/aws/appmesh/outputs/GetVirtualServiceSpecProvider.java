@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualServiceSpecProvider {
     /**
-     * @return The virtual node associated with the virtual service.
+     * @return Virtual node associated with the virtual service.
      * 
      */
     private List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes;
     /**
-     * @return The virtual router associated with the virtual service.
+     * @return Virtual router associated with the virtual service.
      * 
      */
     private List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters;
 
     private GetVirtualServiceSpecProvider() {}
     /**
-     * @return The virtual node associated with the virtual service.
+     * @return Virtual node associated with the virtual service.
      * 
      */
     public List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes() {
         return this.virtualNodes;
     }
     /**
-     * @return The virtual router associated with the virtual service.
+     * @return Virtual router associated with the virtual service.
      * 
      */
     public List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters() {

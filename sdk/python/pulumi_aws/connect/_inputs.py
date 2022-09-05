@@ -791,8 +791,8 @@ class RoutingProfileQueueConfigArgs:
         :param pulumi.Input[int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         :param pulumi.Input[int] priority: Specifies the order in which contacts are to be handled for the queue.
         :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
-        :param pulumi.Input[str] queue_arn: Specifies the ARN for the queue.
-        :param pulumi.Input[str] queue_name: Specifies the name for the queue.
+        :param pulumi.Input[str] queue_arn: ARN for the queue.
+        :param pulumi.Input[str] queue_name: Name for the queue.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "delay", delay)
@@ -855,7 +855,7 @@ class RoutingProfileQueueConfigArgs:
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ARN for the queue.
+        ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -867,7 +867,7 @@ class RoutingProfileQueueConfigArgs:
     @pulumi.getter(name="queueName")
     def queue_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name for the queue.
+        Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
@@ -889,9 +889,9 @@ class RoutingProfileQueueConfigsAssociatedArgs:
         :param pulumi.Input[str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param pulumi.Input[int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         :param pulumi.Input[int] priority: Specifies the order in which contacts are to be handled for the queue.
-        :param pulumi.Input[str] queue_arn: Specifies the ARN for the queue.
+        :param pulumi.Input[str] queue_arn: ARN for the queue.
         :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
-        :param pulumi.Input[str] queue_name: Specifies the name for the queue.
+        :param pulumi.Input[str] queue_name: Name for the queue.
         """
         if channel is not None:
             pulumi.set(__self__, "channel", channel)
@@ -946,7 +946,7 @@ class RoutingProfileQueueConfigsAssociatedArgs:
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ARN for the queue.
+        ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -970,7 +970,7 @@ class RoutingProfileQueueConfigsAssociatedArgs:
     @pulumi.getter(name="queueName")
     def queue_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name for the queue.
+        Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
@@ -1829,8 +1829,8 @@ class GetBotAssociationLexBotArgs:
                  lex_region: str,
                  name: str):
         """
-        :param str lex_region: The Region that the Amazon Lex (V1) bot was created in.
-        :param str name: The name of the Amazon Lex (V1) bot.
+        :param str lex_region: Region that the Amazon Lex (V1) bot was created in.
+        :param str name: Name of the Amazon Lex (V1) bot.
         """
         pulumi.set(__self__, "lex_region", lex_region)
         pulumi.set(__self__, "name", name)
@@ -1839,7 +1839,7 @@ class GetBotAssociationLexBotArgs:
     @pulumi.getter(name="lexRegion")
     def lex_region(self) -> str:
         """
-        The Region that the Amazon Lex (V1) bot was created in.
+        Region that the Amazon Lex (V1) bot was created in.
         """
         return pulumi.get(self, "lex_region")
 
@@ -1851,7 +1851,7 @@ class GetBotAssociationLexBotArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Amazon Lex (V1) bot.
+        Name of the Amazon Lex (V1) bot.
         """
         return pulumi.get(self, "name")
 

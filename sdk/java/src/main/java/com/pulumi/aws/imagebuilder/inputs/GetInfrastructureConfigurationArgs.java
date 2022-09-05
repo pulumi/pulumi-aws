@@ -17,14 +17,14 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
     public static final GetInfrastructureConfigurationArgs Empty = new GetInfrastructureConfigurationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the infrastructure configuration.
+     * ARN of the infrastructure configuration.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the infrastructure configuration.
+     * @return ARN of the infrastructure configuration.
      * 
      */
     public Output<String> arn() {
@@ -88,7 +88,7 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the infrastructure configuration.
+         * @param arn ARN of the infrastructure configuration.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the infrastructure configuration.
+         * @param arn ARN of the infrastructure configuration.
          * 
          * @return builder
          * 

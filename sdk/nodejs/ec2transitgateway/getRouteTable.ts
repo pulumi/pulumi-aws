@@ -76,7 +76,7 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Route Table ARN.
      */
     readonly arn: string;
     /**

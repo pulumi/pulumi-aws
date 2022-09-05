@@ -37,11 +37,11 @@ export interface GetCoipPoolArgs {
      */
     localGatewayRouteTableId?: string;
     /**
-     * The id of the specific COIP Pool to retrieve.
+     * ID of the specific COIP Pool to retrieve.
      */
     poolId?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
     tags?: {[key: string]: string};
@@ -83,11 +83,11 @@ export interface GetCoipPoolOutputArgs {
      */
     localGatewayRouteTableId?: pulumi.Input<string>;
     /**
-     * The id of the specific COIP Pool to retrieve.
+     * ID of the specific COIP Pool to retrieve.
      */
     poolId?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

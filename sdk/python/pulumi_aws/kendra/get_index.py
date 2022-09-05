@@ -82,7 +82,7 @@ class GetIndexResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Index.
+        ARN of the Index.
         """
         return pulumi.get(self, "arn")
 
@@ -90,7 +90,7 @@ class GetIndexResult:
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Sequence['outputs.GetIndexCapacityUnitResult']:
         """
-        A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+        Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
         """
         return pulumi.get(self, "capacity_units")
 
@@ -98,7 +98,7 @@ class GetIndexResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix datetime that the index was created.
+        Unix datetime that the index was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -106,7 +106,7 @@ class GetIndexResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the Index.
+        Description of the Index.
         """
         return pulumi.get(self, "description")
 
@@ -122,7 +122,7 @@ class GetIndexResult:
     @pulumi.getter
     def edition(self) -> str:
         """
-        The Amazon Kendra edition for the index.
+        Amazon Kendra edition for the index.
         """
         return pulumi.get(self, "edition")
 
@@ -138,7 +138,7 @@ class GetIndexResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The identifier of the Index.
+        Identifier of the Index.
         """
         return pulumi.get(self, "id")
 
@@ -146,7 +146,7 @@ class GetIndexResult:
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Sequence['outputs.GetIndexIndexStatisticResult']:
         """
-        A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
         """
         return pulumi.get(self, "index_statistics")
 
@@ -154,7 +154,7 @@ class GetIndexResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the index field. Minimum length of 1. Maximum length of 30.
+        Name of the index field. Minimum length of 1. Maximum length of 30.
         """
         return pulumi.get(self, "name")
 
@@ -178,7 +178,7 @@ class GetIndexResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+        Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         """
         return pulumi.get(self, "status")
 
@@ -194,7 +194,7 @@ class GetIndexResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        The Unix datetime that the index was last updated.
+        Unix datetime that the index was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -202,7 +202,7 @@ class GetIndexResult:
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> str:
         """
-        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
+        User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
         html#Kendra-CreateIndex-request-UserContextPolicy).
         """
         return pulumi.get(self, "user_context_policy")

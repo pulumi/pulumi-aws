@@ -36,7 +36,7 @@ public final class GetCloudFormationTypeResult {
      */
     private String documentationUrl;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+     * @return ARN of the IAM Role used to register the CloudFormation Type.
      * 
      */
     private String executionRoleArn;
@@ -113,7 +113,7 @@ public final class GetCloudFormationTypeResult {
         return this.documentationUrl;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+     * @return ARN of the IAM Role used to register the CloudFormation Type.
      * 
      */
     public String executionRoleArn() {

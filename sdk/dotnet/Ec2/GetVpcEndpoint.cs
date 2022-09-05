@@ -98,19 +98,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific VPC Endpoint to retrieve.
+        /// ID of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
         /// <summary>
-        /// The state of the specific VPC Endpoint to retrieve.
+        /// State of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the specific VPC Endpoint to retrieve.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the VPC in which the specific VPC Endpoint is used.
+        /// ID of the VPC in which the specific VPC Endpoint is used.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -155,19 +155,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific VPC Endpoint to retrieve.
+        /// ID of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The state of the specific VPC Endpoint to retrieve.
+        /// State of the specific VPC Endpoint to retrieve.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the specific VPC Endpoint to retrieve.
         /// </summary>
         public InputMap<string> Tags
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the VPC in which the specific VPC Endpoint is used.
+        /// ID of the VPC in which the specific VPC Endpoint is used.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -202,15 +202,15 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcEndpointResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// ARN of the VPC endpoint.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        /// List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
-        /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        /// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> DnsEntries;
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
@@ -222,15 +222,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
-        /// The ID of the AWS account that owns the VPC endpoint.
+        /// ID of the AWS account that owns the VPC endpoint.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+        /// Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         /// </summary>
         public readonly string Policy;
         /// <summary>
-        /// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        /// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         public readonly string PrefixListId;
         /// <summary>
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The VPC Endpoint type, `Gateway` or `Interface`.
+        /// VPC Endpoint type, `Gateway` or `Interface`.
         /// </summary>
         public readonly string VpcEndpointType;
         public readonly string VpcId;

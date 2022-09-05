@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        /// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        /// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetExportResult
     {
         /// <summary>
-        /// The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        /// ARN of stack that contains the exported output name and value.
         /// </summary>
         public readonly string ExportingStackId;
         /// <summary>
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CloudFormation
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        /// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
         public readonly string Value;
 

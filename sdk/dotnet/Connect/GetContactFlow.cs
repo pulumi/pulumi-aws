@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A the map of tags to assign to the Contact Flow.
+        /// Tags to assign to the Contact Flow.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Specifies the type of Contact Flow.
+        /// Type of Contact Flow.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A the map of tags to assign to the Contact Flow.
+        /// Tags to assign to the Contact Flow.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Specifies the type of Contact Flow.
+        /// Type of Contact Flow.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -202,16 +202,16 @@ namespace Pulumi.Aws.Connect
     public sealed class GetContactFlowResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Contact Flow.
+        /// ARN of the Contact Flow.
         /// </summary>
         public readonly string Arn;
         public readonly string ContactFlowId;
         /// <summary>
-        /// Specifies the logic of the Contact Flow.
+        /// Logic of the Contact Flow.
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// Specifies the description of the Contact Flow.
+        /// Description of the Contact Flow.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -221,11 +221,11 @@ namespace Pulumi.Aws.Connect
         public readonly string InstanceId;
         public readonly string Name;
         /// <summary>
-        /// A the map of tags to assign to the Contact Flow.
+        /// Tags to assign to the Contact Flow.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Specifies the type of Contact Flow.
+        /// Type of Contact Flow.
         /// </summary>
         public readonly string? Type;
 

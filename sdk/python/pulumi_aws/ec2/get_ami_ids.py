@@ -128,7 +128,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
            are several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
-    :param str name_regex: A regex string to apply to the AMI list returned
+    :param str name_regex: Regex string to apply to the AMI list returned
            by AWS. This allows more advanced filtering not supported from the AWS API.
            This filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other
@@ -184,7 +184,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
            are several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
-    :param str name_regex: A regex string to apply to the AMI list returned
+    :param str name_regex: Regex string to apply to the AMI list returned
            by AWS. This allows more advanced filtering not supported from the AWS API.
            This filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other

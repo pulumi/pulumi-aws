@@ -431,6 +431,9 @@ namespace Pulumi.Aws.Ecs
         [Output("runtimePlatform")]
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -606,6 +609,9 @@ namespace Pulumi.Aws.Ecs
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
+        /// <summary>
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -761,6 +767,9 @@ namespace Pulumi.Aws.Ecs
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
 
+        /// <summary>
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

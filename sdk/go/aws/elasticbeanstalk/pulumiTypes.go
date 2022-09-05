@@ -558,11 +558,11 @@ func (o EnvironmentSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentSetti
 type GetApplicationAppversionLifecycle struct {
 	// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 bool `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// Number of days to retain an application version.
 	MaxAgeInDays int `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// Maximum number of application versions to retain.
 	MaxCount int `pulumi:"maxCount"`
-	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+	// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
@@ -580,11 +580,11 @@ type GetApplicationAppversionLifecycleInput interface {
 type GetApplicationAppversionLifecycleArgs struct {
 	// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 pulumi.BoolInput `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// Number of days to retain an application version.
 	MaxAgeInDays pulumi.IntInput `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// Maximum number of application versions to retain.
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
-	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+	// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 }
 
@@ -619,17 +619,17 @@ func (o GetApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.Boo
 	return o.ApplyT(func(v GetApplicationAppversionLifecycle) bool { return v.DeleteSourceFromS3 }).(pulumi.BoolOutput)
 }
 
-// The number of days to retain an application version.
+// Number of days to retain an application version.
 func (o GetApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxAgeInDays }).(pulumi.IntOutput)
 }
 
-// The maximum number of application versions to retain.
+// Maximum number of application versions to retain.
 func (o GetApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
-// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
 }

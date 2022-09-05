@@ -51,7 +51,7 @@ public final class GetLaunchTemplateResult {
     private List<GetLaunchTemplateHibernationOption> hibernationOptions;
     private List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles;
     /**
-     * @return The ID of the launch template.
+     * @return ID of the launch template.
      * 
      */
     private String id;
@@ -128,7 +128,7 @@ public final class GetLaunchTemplateResult {
         return this.iamInstanceProfiles;
     }
     /**
-     * @return The ID of the launch template.
+     * @return ID of the launch template.
      * 
      */
     public String id() {

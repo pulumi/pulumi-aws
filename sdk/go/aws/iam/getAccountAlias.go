@@ -45,7 +45,7 @@ func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 
 // A collection of values returned by getAccountAlias.
 type LookupAccountAliasResult struct {
-	// The alias associated with the AWS account.
+	// Alias associated with the AWS account.
 	AccountAlias string `pulumi:"accountAlias"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

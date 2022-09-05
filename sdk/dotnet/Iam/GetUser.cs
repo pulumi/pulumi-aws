@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The friendly IAM user name to match.
+        /// Friendly IAM user name to match.
         /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The friendly IAM user name to match.
+        /// Friendly IAM user name to match.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS for this user.
+        /// ARN assigned by AWS for this user.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -148,11 +148,11 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The unique ID assigned by AWS for this user.
+        /// Unique ID assigned by AWS for this user.
         /// </summary>
         public readonly string UserId;
         /// <summary>
-        /// The name associated to this User
+        /// Name associated to this User
         /// </summary>
         public readonly string UserName;
 

@@ -32,7 +32,7 @@ export interface GetVpcsArgs {
      */
     filters?: inputs.ec2.GetVpcsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
     tags?: {[key: string]: string};
@@ -48,7 +48,7 @@ export interface GetVpcsResult {
      */
     readonly id: string;
     /**
-     * A list of all the VPC Ids found.
+     * List of all the VPC Ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -67,7 +67,7 @@ export interface GetVpcsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

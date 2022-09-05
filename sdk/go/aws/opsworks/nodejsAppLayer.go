@@ -75,7 +75,7 @@ type NodejsAppLayer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The version of NodeJS to use. Defaults to "0.10.38".
 	NodejsVersion pulumi.StringPtrOutput `pulumi:"nodejsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -153,7 +153,7 @@ type nodejsAppLayerState struct {
 	Name *string `pulumi:"name"`
 	// The version of NodeJS to use. Defaults to "0.10.38".
 	NodejsVersion *string `pulumi:"nodejsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -200,7 +200,7 @@ type NodejsAppLayerState struct {
 	Name pulumi.StringPtrInput
 	// The version of NodeJS to use. Defaults to "0.10.38".
 	NodejsVersion pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -249,7 +249,7 @@ type nodejsAppLayerArgs struct {
 	Name *string `pulumi:"name"`
 	// The version of NodeJS to use. Defaults to "0.10.38".
 	NodejsVersion *string `pulumi:"nodejsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -293,7 +293,7 @@ type NodejsAppLayerArgs struct {
 	Name pulumi.StringPtrInput
 	// The version of NodeJS to use. Defaults to "0.10.38".
 	NodejsVersion pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -486,7 +486,7 @@ func (o NodejsAppLayerOutput) NodejsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.NodejsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o NodejsAppLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

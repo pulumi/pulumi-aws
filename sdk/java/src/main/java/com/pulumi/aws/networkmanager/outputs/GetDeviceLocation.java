@@ -10,38 +10,38 @@ import java.util.Objects;
 @CustomType
 public final class GetDeviceLocation {
     /**
-     * @return The physical address.
+     * @return Physical address.
      * 
      */
     private String address;
     /**
-     * @return The latitude.
+     * @return Latitude.
      * 
      */
     private String latitude;
     /**
-     * @return The longitude.
+     * @return Longitude.
      * 
      */
     private String longitude;
 
     private GetDeviceLocation() {}
     /**
-     * @return The physical address.
+     * @return Physical address.
      * 
      */
     public String address() {
         return this.address;
     }
     /**
-     * @return The latitude.
+     * @return Latitude.
      * 
      */
     public String latitude() {
         return this.latitude;
     }
     /**
-     * @return The longitude.
+     * @return Longitude.
      * 
      */
     public String longitude() {

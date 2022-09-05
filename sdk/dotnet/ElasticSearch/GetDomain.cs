@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ElasticSearch
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the domain.
+        /// Tags assigned to the domain.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the domain.
+        /// Tags assigned to the domain.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionResult> AdvancedSecurityOptions;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the domain.
+        /// The ARN of the domain.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.ElasticSearch
         public readonly bool Processing;
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
         /// <summary>
-        /// The tags assigned to the domain.
+        /// Tags assigned to the domain.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

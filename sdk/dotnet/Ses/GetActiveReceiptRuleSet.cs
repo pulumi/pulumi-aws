@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetActiveReceiptRuleSetResult
     {
         /// <summary>
-        /// The SES receipt rule set ARN.
+        /// SES receipt rule set ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the rule set
+        /// Name of the rule set
         /// </summary>
         public readonly string RuleSetName;
 

@@ -84,31 +84,31 @@ type LookupQueueArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId *string `pulumi:"queueId"`
-	// A map of tags assigned to the Queue.
+	// Map of tags assigned to the Queue.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn string `pulumi:"arn"`
-	// Specifies the description of the Queue.
+	// Description of the Queue.
 	Description string `pulumi:"description"`
 	// Specifies the identifier of the Hours of Operation.
 	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
-	// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+	// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
 	MaxContacts int    `pulumi:"maxContacts"`
 	Name        string `pulumi:"name"`
 	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 	OutboundCallerConfigs []GetQueueOutboundCallerConfig `pulumi:"outboundCallerConfigs"`
-	// The identifier for the Queue.
+	// Identifier for the Queue.
 	QueueId string `pulumi:"queueId"`
-	// Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+	// Description of the Queue. Values are `ENABLED` or `DISABLED`.
 	Status string `pulumi:"status"`
-	// A map of tags assigned to the Queue.
+	// Map of tags assigned to the Queue.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -133,7 +133,7 @@ type LookupQueueOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	// A map of tags assigned to the Queue.
+	// Map of tags assigned to the Queue.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -156,12 +156,12 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Queue.
+// ARN of the Queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Queue.
+// Description of the Queue.
 func (o LookupQueueResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -180,7 +180,7 @@ func (o LookupQueueResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
 func (o LookupQueueResultOutput) MaxContacts() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxContacts }).(pulumi.IntOutput)
 }
@@ -194,17 +194,17 @@ func (o LookupQueueResultOutput) OutboundCallerConfigs() GetQueueOutboundCallerC
 	return o.ApplyT(func(v LookupQueueResult) []GetQueueOutboundCallerConfig { return v.OutboundCallerConfigs }).(GetQueueOutboundCallerConfigArrayOutput)
 }
 
-// The identifier for the Queue.
+// Identifier for the Queue.
 func (o LookupQueueResultOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+// Description of the Queue. Values are `ENABLED` or `DISABLED`.
 func (o LookupQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Queue.
+// Map of tags assigned to the Queue.
 func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

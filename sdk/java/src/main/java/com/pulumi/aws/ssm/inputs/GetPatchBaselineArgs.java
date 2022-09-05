@@ -47,14 +47,14 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The specified OS for the baseline.
+     * Specified OS for the baseline.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return The specified OS for the baseline.
+     * @return Specified OS for the baseline.
      * 
      */
     public Optional<Output<String>> operatingSystem() {
@@ -62,14 +62,14 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      * 
      */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
     /**
-     * @return The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * @return Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      * 
      */
     public Output<String> owner() {
@@ -146,7 +146,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param operatingSystem The specified OS for the baseline.
+         * @param operatingSystem Specified OS for the baseline.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param operatingSystem The specified OS for the baseline.
+         * @param operatingSystem Specified OS for the baseline.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param owner The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+         * @param owner Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetPatchBaselineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param owner The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+         * @param owner Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
          * 
          * @return builder
          * 

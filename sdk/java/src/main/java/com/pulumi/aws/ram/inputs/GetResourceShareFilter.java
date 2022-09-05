@@ -14,14 +14,14 @@ public final class GetResourceShareFilter extends com.pulumi.resources.InvokeArg
     public static final GetResourceShareFilter Empty = new GetResourceShareFilter();
 
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetResourceShareFilter extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The value of the tag key.
+     * Value of the tag key.
      * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
-     * @return The value of the tag key.
+     * @return Value of the tag key.
      * 
      */
     public List<String> values() {
@@ -69,7 +69,7 @@ public final class GetResourceShareFilter extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetResourceShareFilter extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param values The value of the tag key.
+         * @param values Value of the tag key.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetResourceShareFilter extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param values The value of the tag key.
+         * @param values Value of the tag key.
          * 
          * @return builder
          * 

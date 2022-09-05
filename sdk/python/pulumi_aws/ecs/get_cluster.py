@@ -52,7 +52,7 @@ class GetClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the ECS Cluster
+        ARN of the ECS Cluster
         """
         return pulumi.get(self, "arn")
 
@@ -73,7 +73,7 @@ class GetClusterResult:
     @pulumi.getter(name="pendingTasksCount")
     def pending_tasks_count(self) -> int:
         """
-        The number of pending tasks for the ECS Cluster
+        Number of pending tasks for the ECS Cluster
         """
         return pulumi.get(self, "pending_tasks_count")
 
@@ -89,7 +89,7 @@ class GetClusterResult:
     @pulumi.getter(name="runningTasksCount")
     def running_tasks_count(self) -> int:
         """
-        The number of running tasks for the ECS Cluster
+        Number of running tasks for the ECS Cluster
         """
         return pulumi.get(self, "running_tasks_count")
 
@@ -97,7 +97,7 @@ class GetClusterResult:
     @pulumi.getter
     def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
         """
-        The settings associated with the ECS Cluster.
+        Settings associated with the ECS Cluster.
         """
         return pulumi.get(self, "settings")
 
@@ -105,7 +105,7 @@ class GetClusterResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the ECS Cluster
+        Status of the ECS Cluster
         """
         return pulumi.get(self, "status")
 
@@ -142,7 +142,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     ```
 
 
-    :param str cluster_name: The name of the ECS Cluster
+    :param str cluster_name: Name of the ECS Cluster
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -177,6 +177,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_name: The name of the ECS Cluster
+    :param str cluster_name: Name of the ECS Cluster
     """
     ...

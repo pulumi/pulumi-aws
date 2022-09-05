@@ -70,7 +70,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional rule.
+        /// Name of the WAF Regional rule.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional rule.
+        /// Name of the WAF Regional rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetComponentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the component.
+        /// ARN of the component.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the component.
+        /// ARN of the component.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        /// ARN of the Key Management Service (KMS) Key used to encrypt the component.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

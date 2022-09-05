@@ -16,14 +16,14 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetApisPlainArgs Empty = new GetApisPlainArgs();
 
     /**
-     * The API name.
+     * API name.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The API name.
+     * @return API name.
      * 
      */
     public Optional<String> name() {
@@ -31,14 +31,14 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The API protocol.
+     * API protocol.
      * 
      */
     @Import(name="protocolType")
     private @Nullable String protocolType;
 
     /**
-     * @return The API protocol.
+     * @return API protocol.
      * 
      */
     public Optional<String> protocolType() {
@@ -46,7 +46,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
      * 
      */
@@ -54,7 +54,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
      * 
      */
@@ -89,7 +89,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The API name.
+         * @param name API name.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param protocolType The API protocol.
+         * @param protocolType API protocol.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired APIs.
          * 
          * @return builder

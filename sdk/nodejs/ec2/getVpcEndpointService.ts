@@ -77,19 +77,19 @@ export interface GetVpcEndpointServiceArgs {
      */
     filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
     /**
-     * The common name of an AWS service (e.g., `s3`).
+     * Common name of an AWS service (e.g., `s3`).
      */
     service?: string;
     /**
-     * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: string;
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      */
     serviceType?: string;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
     tags?: {[key: string]: string};
 }
@@ -103,11 +103,11 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly acceptanceRequired: boolean;
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * ARN of the VPC endpoint service.
      */
     readonly arn: string;
     /**
-     * The Availability Zones in which the service is available.
+     * Availability Zones in which the service is available.
      */
     readonly availabilityZones: string[];
     /**
@@ -124,16 +124,16 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly managesVpcEndpoints: boolean;
     /**
-     * The AWS account ID of the service owner or `amazon`.
+     * AWS account ID of the service owner or `amazon`.
      */
     readonly owner: string;
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      */
     readonly privateDnsName: string;
     readonly service?: string;
     /**
-     * The ID of the endpoint service.
+     * ID of the endpoint service.
      */
     readonly serviceId: string;
     readonly serviceName: string;
@@ -143,7 +143,7 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly supportedIpAddressTypes: string[];
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -165,19 +165,19 @@ export interface GetVpcEndpointServiceOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointServiceFilterArgs>[]>;
     /**
-     * The common name of an AWS service (e.g., `s3`).
+     * Common name of an AWS service (e.g., `s3`).
      */
     service?: pulumi.Input<string>;
     /**
-     * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      */
     serviceType?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

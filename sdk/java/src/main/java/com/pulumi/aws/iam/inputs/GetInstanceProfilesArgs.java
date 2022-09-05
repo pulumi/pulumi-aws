@@ -14,14 +14,14 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
     public static final GetInstanceProfilesArgs Empty = new GetInstanceProfilesArgs();
 
     /**
-     * The IAM role name.
+     * IAM role name.
      * 
      */
     @Import(name="roleName", required=true)
     private Output<String> roleName;
 
     /**
-     * @return The IAM role name.
+     * @return IAM role name.
      * 
      */
     public Output<String> roleName() {
@@ -53,7 +53,7 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param roleName The IAM role name.
+         * @param roleName IAM role name.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param roleName The IAM role name.
+         * @param roleName IAM role name.
          * 
          * @return builder
          * 

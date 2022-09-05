@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_acmpca_certificate_authority` can be imported by using the certificate authority Amazon Resource Name (ARN), e.g.,
+ * `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
@@ -115,7 +115,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly notBefore!: pulumi.Output<string>;
     /**
-     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
     public readonly permanentDeletionTimeInDays!: pulumi.Output<number | undefined>;
     /**
@@ -165,15 +165,15 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -236,7 +236,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityState {
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface CertificateAuthorityState {
      */
     notBefore?: pulumi.Input<string>;
     /**
-     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
     /**
@@ -286,15 +286,15 @@ export interface CertificateAuthorityState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -312,7 +312,7 @@ export interface CertificateAuthorityArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
     /**
@@ -320,11 +320,11 @@ export interface CertificateAuthorityArgs {
      */
     revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     type?: pulumi.Input<string>;
 }

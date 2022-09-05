@@ -199,36 +199,36 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType pulumi.StringPtrOutput `pulumi:"adjustmentType"`
-	// The ARN assigned by AWS to the scaling policy.
+	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the autoscaling group.
+	// Name of the autoscaling group.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrOutput `pulumi:"cooldown"`
-	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	// Whether the scaling policy is enabled or disabled. Default: `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrOutput `pulumi:"estimatedInstanceWarmup"`
-	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringOutput `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrOutput `pulumi:"minAdjustmentMagnitude"`
-	// The name of the dimension.
+	// Name of the dimension.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
-	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrOutput `pulumi:"predictiveScalingConfiguration"`
-	// The number of members by which to
+	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment pulumi.IntPtrOutput `pulumi:"scalingAdjustment"`
-	// A set of adjustments that manage
+	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	StepAdjustments PolicyStepAdjustmentArrayOutput `pulumi:"stepAdjustments"`
-	// A target tracking policy. These have the following structure:
+	// Target tracking policy. These have the following structure:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrOutput `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -264,70 +264,70 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType *string `pulumi:"adjustmentType"`
-	// The ARN assigned by AWS to the scaling policy.
+	// ARN assigned by AWS to the scaling policy.
 	Arn *string `pulumi:"arn"`
-	// The name of the autoscaling group.
+	// Name of the autoscaling group.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
-	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	// Whether the scaling policy is enabled or disabled. Default: `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
-	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType *string `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
-	// The name of the dimension.
+	// Name of the dimension.
 	Name *string `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType *string `pulumi:"policyType"`
-	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
-	// The number of members by which to
+	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
-	// A set of adjustments that manage
+	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
-	// A target tracking policy. These have the following structure:
+	// Target tracking policy. These have the following structure:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
 type PolicyState struct {
-	// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType pulumi.StringPtrInput
-	// The ARN assigned by AWS to the scaling policy.
+	// ARN assigned by AWS to the scaling policy.
 	Arn pulumi.StringPtrInput
-	// The name of the autoscaling group.
+	// Name of the autoscaling group.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
-	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	// Whether the scaling policy is enabled or disabled. Default: `true`.
 	Enabled pulumi.BoolPtrInput
-	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
-	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringPtrInput
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrInput
-	// The name of the dimension.
+	// Name of the dimension.
 	Name pulumi.StringPtrInput
-	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrInput
-	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
-	// The number of members by which to
+	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment pulumi.IntPtrInput
-	// A set of adjustments that manage
+	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	StepAdjustments PolicyStepAdjustmentArrayInput
-	// A target tracking policy. These have the following structure:
+	// Target tracking policy. These have the following structure:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
 }
 
@@ -336,67 +336,67 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType *string `pulumi:"adjustmentType"`
-	// The name of the autoscaling group.
+	// Name of the autoscaling group.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
-	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	// Whether the scaling policy is enabled or disabled. Default: `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
-	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType *string `pulumi:"metricAggregationType"`
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
-	// The name of the dimension.
+	// Name of the dimension.
 	Name *string `pulumi:"name"`
-	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType *string `pulumi:"policyType"`
-	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
-	// The number of members by which to
+	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
-	// A set of adjustments that manage
+	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
-	// A target tracking policy. These have the following structure:
+	// Target tracking policy. These have the following structure:
 	TargetTrackingConfiguration *PolicyTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 	AdjustmentType pulumi.StringPtrInput
-	// The name of the autoscaling group.
+	// Name of the autoscaling group.
 	AutoscalingGroupName pulumi.StringInput
-	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+	// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
-	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	// Whether the scaling policy is enabled or disabled. Default: `true`.
 	Enabled pulumi.BoolPtrInput
-	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+	// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
-	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+	// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType pulumi.StringPtrInput
 	// Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
 	MinAdjustmentMagnitude pulumi.IntPtrInput
-	// The name of the dimension.
+	// Name of the dimension.
 	Name pulumi.StringPtrInput
-	// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+	// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 	PolicyType pulumi.StringPtrInput
-	// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
-	// The number of members by which to
+	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment pulumi.IntPtrInput
-	// A set of adjustments that manage
+	// Set of adjustments that manage
 	// group scaling. These have the following structure:
 	StepAdjustments PolicyStepAdjustmentArrayInput
-	// A target tracking policy. These have the following structure:
+	// Target tracking policy. These have the following structure:
 	TargetTrackingConfiguration PolicyTargetTrackingConfigurationPtrInput
 }
 
@@ -487,37 +487,37 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
 func (o PolicyOutput) AdjustmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.AdjustmentType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN assigned by AWS to the scaling policy.
+// ARN assigned by AWS to the scaling policy.
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the autoscaling group.
+// Name of the autoscaling group.
 func (o PolicyOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 func (o PolicyOutput) Cooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.Cooldown }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+// Whether the scaling policy is enabled or disabled. Default: `true`.
 func (o PolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 func (o PolicyOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.EstimatedInstanceWarmup }).(pulumi.IntPtrOutput)
 }
 
-// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 func (o PolicyOutput) MetricAggregationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.MetricAggregationType }).(pulumi.StringOutput)
 }
@@ -527,35 +527,35 @@ func (o PolicyOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
 }
 
-// The name of the dimension.
+// Name of the dimension.
 func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
 func (o PolicyOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
-// The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 func (o PolicyOutput) PredictiveScalingConfiguration() PolicyPredictiveScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyPredictiveScalingConfigurationPtrOutput { return v.PredictiveScalingConfiguration }).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
 
-// The number of members by which to
+// Number of members by which to
 // scale, when the adjustment bounds are breached. A positive value scales
 // up. A negative value scales down.
 func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.ScalingAdjustment }).(pulumi.IntPtrOutput)
 }
 
-// A set of adjustments that manage
+// Set of adjustments that manage
 // group scaling. These have the following structure:
 func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *Policy) PolicyStepAdjustmentArrayOutput { return v.StepAdjustments }).(PolicyStepAdjustmentArrayOutput)
 }
 
-// A target tracking policy. These have the following structure:
+// Target tracking policy. These have the following structure:
 func (o PolicyOutput) TargetTrackingConfiguration() PolicyTargetTrackingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyTargetTrackingConfigurationPtrOutput { return v.TargetTrackingConfiguration }).(PolicyTargetTrackingConfigurationPtrOutput)
 }

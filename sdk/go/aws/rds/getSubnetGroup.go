@@ -48,13 +48,13 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupArgs struct {
-	// The name of the RDS database subnet group.
+	// Name of the RDS database subnet group.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
-	// The Amazon Resource Name (ARN) for the DB subnet group.
+	// ARN for the DB subnet group.
 	Arn string `pulumi:"arn"`
 	// Provides the description of the DB subnet group.
 	Description string `pulumi:"description"`
@@ -86,7 +86,7 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupOutputArgs struct {
-	// The name of the RDS database subnet group.
+	// Name of the RDS database subnet group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -109,7 +109,7 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the DB subnet group.
+// ARN for the DB subnet group.
 func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

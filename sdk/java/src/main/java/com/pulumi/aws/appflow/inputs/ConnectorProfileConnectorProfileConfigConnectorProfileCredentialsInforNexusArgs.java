@@ -29,14 +29,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The encryption keys used to encrypt data.
+     * Encryption keys used to encrypt data.
      * 
      */
     @Import(name="datakey", required=true)
     private Output<String> datakey;
 
     /**
-     * @return The encryption keys used to encrypt data.
+     * @return Encryption keys used to encrypt data.
      * 
      */
     public Output<String> datakey() {
@@ -59,14 +59,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The identifier for the user.
+     * Identifier for the user.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return The identifier for the user.
+     * @return Identifier for the user.
      * 
      */
     public Output<String> userId() {
@@ -122,7 +122,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datakey The encryption keys used to encrypt data.
+         * @param datakey Encryption keys used to encrypt data.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datakey The encryption keys used to encrypt data.
+         * @param datakey Encryption keys used to encrypt data.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param userId The identifier for the user.
+         * @param userId Identifier for the user.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param userId The identifier for the user.
+         * @param userId Identifier for the user.
          * 
          * @return builder
          * 

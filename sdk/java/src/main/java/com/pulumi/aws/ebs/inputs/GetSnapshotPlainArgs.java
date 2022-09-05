@@ -98,14 +98,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -241,7 +241,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

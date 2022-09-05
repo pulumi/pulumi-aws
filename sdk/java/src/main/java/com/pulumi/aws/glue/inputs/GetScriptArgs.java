@@ -19,14 +19,14 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetScriptArgs Empty = new GetScriptArgs();
 
     /**
-     * A list of the edges in the DAG. Defined below.
+     * List of the edges in the DAG. Defined below.
      * 
      */
     @Import(name="dagEdges", required=true)
     private Output<List<GetScriptDagEdgeArgs>> dagEdges;
 
     /**
-     * @return A list of the edges in the DAG. Defined below.
+     * @return List of the edges in the DAG. Defined below.
      * 
      */
     public Output<List<GetScriptDagEdgeArgs>> dagEdges() {
@@ -34,14 +34,14 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of the nodes in the DAG. Defined below.
+     * List of the nodes in the DAG. Defined below.
      * 
      */
     @Import(name="dagNodes", required=true)
     private Output<List<GetScriptDagNodeArgs>> dagNodes;
 
     /**
-     * @return A list of the nodes in the DAG. Defined below.
+     * @return List of the nodes in the DAG. Defined below.
      * 
      */
     public Output<List<GetScriptDagNodeArgs>> dagNodes() {
@@ -49,14 +49,14 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      * 
      */
     @Import(name="language")
     private @Nullable Output<String> language;
 
     /**
-     * @return The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+     * @return Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      * 
      */
     public Optional<Output<String>> language() {
@@ -90,7 +90,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagEdges A list of the edges in the DAG. Defined below.
+         * @param dagEdges List of the edges in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagEdges A list of the edges in the DAG. Defined below.
+         * @param dagEdges List of the edges in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagEdges A list of the edges in the DAG. Defined below.
+         * @param dagEdges List of the edges in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagNodes A list of the nodes in the DAG. Defined below.
+         * @param dagNodes List of the nodes in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagNodes A list of the nodes in the DAG. Defined below.
+         * @param dagNodes List of the nodes in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dagNodes A list of the nodes in the DAG. Defined below.
+         * @param dagNodes List of the nodes in the DAG. Defined below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param language The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+         * @param language Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetScriptArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param language The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+         * @param language Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
          * 
          * @return builder
          * 

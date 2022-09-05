@@ -36,11 +36,11 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetCertificateArgs {
     /**
-     * Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+     * ARN of the certificate issued by the private certificate authority.
      */
     arn: string;
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     certificateAuthorityArn: string;
 }
@@ -51,12 +51,12 @@ export interface GetCertificateArgs {
 export interface GetCertificateResult {
     readonly arn: string;
     /**
-     * The PEM-encoded certificate value.
+     * PEM-encoded certificate value.
      */
     readonly certificate: string;
     readonly certificateAuthorityArn: string;
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
     readonly certificateChain: string;
     /**
@@ -74,11 +74,11 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  */
 export interface GetCertificateOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+     * ARN of the certificate issued by the private certificate authority.
      */
     arn: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
 }

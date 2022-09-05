@@ -24,7 +24,7 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
-        :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
+        :param pulumi.Input[str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "hsm_type", hsm_type)
@@ -62,7 +62,7 @@ class ClusterArgs:
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of Cloud HSM v2 cluster backup to be restored.
+        ID of Cloud HSM v2 cluster backup to be restored.
         """
         return pulumi.get(self, "source_backup_identifier")
 
@@ -108,7 +108,7 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         :param pulumi.Input[str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
-        :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
+        :param pulumi.Input[str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -204,7 +204,7 @@ class _ClusterState:
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of Cloud HSM v2 cluster backup to be restored.
+        ID of Cloud HSM v2 cluster backup to be restored.
         """
         return pulumi.get(self, "source_backup_identifier")
 
@@ -294,7 +294,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
-        :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
+        :param pulumi.Input[str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -403,7 +403,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         :param pulumi.Input[str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
-        :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
+        :param pulumi.Input[str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -474,7 +474,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The id of Cloud HSM v2 cluster backup to be restored.
+        ID of Cloud HSM v2 cluster backup to be restored.
         """
         return pulumi.get(self, "source_backup_identifier")
 

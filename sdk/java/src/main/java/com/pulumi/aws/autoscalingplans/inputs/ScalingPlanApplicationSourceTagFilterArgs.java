@@ -17,14 +17,14 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
     public static final ScalingPlanApplicationSourceTagFilterArgs Empty = new ScalingPlanApplicationSourceTagFilterArgs();
 
     /**
-     * The tag key.
+     * Tag key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      */
     public Output<String> key() {
@@ -32,14 +32,14 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
     }
 
     /**
-     * The tag values.
+     * Tag values.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return The tag values.
+     * @return Tag values.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -72,7 +72,7 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
         }
 
         /**
-         * @param key The tag key.
+         * @param key Tag key.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
         }
 
         /**
-         * @param key The tag key.
+         * @param key Tag key.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
         }
 
         /**
-         * @param values The tag values.
+         * @param values Tag values.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
         }
 
         /**
-         * @param values The tag values.
+         * @param values Tag values.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
         }
 
         /**
-         * @param values The tag values.
+         * @param values Tag values.
          * 
          * @return builder
          * 

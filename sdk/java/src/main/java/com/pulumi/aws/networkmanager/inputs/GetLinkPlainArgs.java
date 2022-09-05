@@ -16,14 +16,14 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLinkPlainArgs Empty = new GetLinkPlainArgs();
 
     /**
-     * The ID of the Global Network of the link to retrieve.
+     * ID of the Global Network of the link to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the link to retrieve.
+     * @return ID of the Global Network of the link to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -31,14 +31,14 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The id of the specific link to retrieve.
+     * ID of the specific link to retrieve.
      * 
      */
     @Import(name="linkId", required=true)
     private String linkId;
 
     /**
-     * @return The id of the specific link to retrieve.
+     * @return ID of the specific link to retrieve.
      * 
      */
     public String linkId() {
@@ -87,7 +87,7 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the link to retrieve.
+         * @param globalNetworkId ID of the Global Network of the link to retrieve.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param linkId The id of the specific link to retrieve.
+         * @param linkId ID of the specific link to retrieve.
          * 
          * @return builder
          * 

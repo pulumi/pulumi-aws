@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class RouteSpecHttp2RouteMatchHeaderMatchRange {
     /**
-     * @return The end of the range.
+     * @return End of the range.
      * 
      */
     private Integer end;
     /**
-     * @return The start of the range.
+     * @return Start of the range.
      * 
      */
     private Integer start;
 
     private RouteSpecHttp2RouteMatchHeaderMatchRange() {}
     /**
-     * @return The end of the range.
+     * @return End of the range.
      * 
      */
     public Integer end() {
         return this.end;
     }
     /**
-     * @return The start of the range.
+     * @return Start of the range.
      * 
      */
     public Integer start() {

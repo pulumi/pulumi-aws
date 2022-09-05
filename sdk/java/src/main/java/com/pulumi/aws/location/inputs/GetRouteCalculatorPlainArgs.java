@@ -16,14 +16,14 @@ public final class GetRouteCalculatorPlainArgs extends com.pulumi.resources.Invo
     public static final GetRouteCalculatorPlainArgs Empty = new GetRouteCalculatorPlainArgs();
 
     /**
-     * The name of the route calculator resource.
+     * Name of the route calculator resource.
      * 
      */
     @Import(name="calculatorName", required=true)
     private String calculatorName;
 
     /**
-     * @return The name of the route calculator resource.
+     * @return Name of the route calculator resource.
      * 
      */
     public String calculatorName() {
@@ -71,7 +71,7 @@ public final class GetRouteCalculatorPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param calculatorName The name of the route calculator resource.
+         * @param calculatorName Name of the route calculator resource.
          * 
          * @return builder
          * 

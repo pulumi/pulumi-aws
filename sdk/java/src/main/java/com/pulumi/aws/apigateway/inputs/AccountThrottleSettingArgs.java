@@ -17,14 +17,14 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
     public static final AccountThrottleSettingArgs Empty = new AccountThrottleSettingArgs();
 
     /**
-     * The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+     * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
     @Import(name="burstLimit")
     private @Nullable Output<Integer> burstLimit;
 
     /**
-     * @return The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+     * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
     public Optional<Output<Integer>> burstLimit() {
@@ -32,14 +32,14 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The number of times API Gateway allows the API to be called per second on average (RPS).
+     * Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
     @Import(name="rateLimit")
     private @Nullable Output<Double> rateLimit;
 
     /**
-     * @return The number of times API Gateway allows the API to be called per second on average (RPS).
+     * @return Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
     public Optional<Output<Double>> rateLimit() {
@@ -72,7 +72,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param burstLimit The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+         * @param burstLimit Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param burstLimit The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+         * @param burstLimit Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param rateLimit The number of times API Gateway allows the API to be called per second on average (RPS).
+         * @param rateLimit Number of times API Gateway allows the API to be called per second on average (RPS).
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param rateLimit The number of times API Gateway allows the API to be called per second on average (RPS).
+         * @param rateLimit Number of times API Gateway allows the API to be called per second on average (RPS).
          * 
          * @return builder
          * 

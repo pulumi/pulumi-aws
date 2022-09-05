@@ -26,13 +26,13 @@ type GetGroupArgs struct {
 	Filters []GetGroupFilter `pulumi:"filters"`
 	// The identifier for a group in the Identity Store.
 	GroupId *string `pulumi:"groupId"`
-	// The Identity Store ID associated with the Single Sign-On Instance.
+	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
 // A collection of values returned by getGroup.
 type GetGroupResult struct {
-	// The group's display name value.
+	// Group's display name value.
 	DisplayName string           `pulumi:"displayName"`
 	Filters     []GetGroupFilter `pulumi:"filters"`
 	GroupId     string           `pulumi:"groupId"`
@@ -60,7 +60,7 @@ type GetGroupOutputArgs struct {
 	Filters GetGroupFilterArrayInput `pulumi:"filters"`
 	// The identifier for a group in the Identity Store.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The Identity Store ID associated with the Single Sign-On Instance.
+	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 }
 
@@ -83,7 +83,7 @@ func (o GetGroupResultOutput) ToGetGroupResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The group's display name value.
+// Group's display name value.
 func (o GetGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }

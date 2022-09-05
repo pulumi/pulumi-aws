@@ -19,12 +19,12 @@ public final class RouteSpecGrpcRouteMatchMetadata {
      */
     private @Nullable Boolean invert;
     /**
-     * @return The data to match from the request.
+     * @return Data to match from the request.
      * 
      */
     private @Nullable RouteSpecGrpcRouteMatchMetadataMatch match;
     /**
-     * @return The name of the route. Must be between 1 and 50 characters in length.
+     * @return Name of the route. Must be between 1 and 50 characters in length.
      * 
      */
     private String name;
@@ -38,14 +38,14 @@ public final class RouteSpecGrpcRouteMatchMetadata {
         return Optional.ofNullable(this.invert);
     }
     /**
-     * @return The data to match from the request.
+     * @return Data to match from the request.
      * 
      */
     public Optional<RouteSpecGrpcRouteMatchMetadataMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return The name of the route. Must be between 1 and 50 characters in length.
+     * @return Name of the route. Must be between 1 and 50 characters in length.
      * 
      */
     public String name() {

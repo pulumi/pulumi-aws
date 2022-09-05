@@ -73,7 +73,7 @@ class GetClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -89,7 +89,7 @@ class GetClusterResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix epoch time stamp in seconds for when the cluster was created.
+        Unix epoch time stamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -142,7 +142,7 @@ class GetClusterResult:
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> str:
         """
-        The platform version for the cluster.
+        Platform version for the cluster.
         """
         return pulumi.get(self, "platform_version")
 
@@ -150,7 +150,7 @@ class GetClusterResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -158,7 +158,7 @@ class GetClusterResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         """
         return pulumi.get(self, "status")
 
@@ -174,7 +174,7 @@ class GetClusterResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        The Kubernetes server version for the cluster.
+        Kubernetes server version for the cluster.
         """
         return pulumi.get(self, "version")
 
@@ -229,7 +229,7 @@ def get_cluster(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
@@ -276,7 +276,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+    :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

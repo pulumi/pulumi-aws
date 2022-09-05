@@ -15,14 +15,14 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
     public static final GatewayRouteSpecGrpcRouteArgs Empty = new GatewayRouteSpecGrpcRouteArgs();
 
     /**
-     * The action to take if a match is determined.
+     * Action to take if a match is determined.
      * 
      */
     @Import(name="action", required=true)
     private Output<GatewayRouteSpecGrpcRouteActionArgs> action;
 
     /**
-     * @return The action to take if a match is determined.
+     * @return Action to take if a match is determined.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteActionArgs> action() {
@@ -30,14 +30,14 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The criteria for determining a request match.
+     * Criteria for determining a request match.
      * 
      */
     @Import(name="match", required=true)
     private Output<GatewayRouteSpecGrpcRouteMatchArgs> match;
 
     /**
-     * @return The criteria for determining a request match.
+     * @return Criteria for determining a request match.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteMatchArgs> match() {
@@ -70,7 +70,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match The criteria for determining a request match.
+         * @param match Criteria for determining a request match.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match The criteria for determining a request match.
+         * @param match Criteria for determining a request match.
          * 
          * @return builder
          * 

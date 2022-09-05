@@ -15,7 +15,7 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
     public static final GetLocalGatewayRouteTablesFilterArgs Empty = new GetLocalGatewayRouteTablesFilterArgs();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
      * 
      */
@@ -23,7 +23,7 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
      * 
      */
@@ -74,7 +74,7 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
          * 
          * @return builder

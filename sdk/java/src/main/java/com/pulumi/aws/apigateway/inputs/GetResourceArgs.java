@@ -14,14 +14,14 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetResourceArgs Empty = new GetResourceArgs();
 
     /**
-     * The full path of the resource.  If no path is found, an error will be returned.
+     * Full path of the resource.  If no path is found, an error will be returned.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The full path of the resource.  If no path is found, an error will be returned.
+     * @return Full path of the resource.  If no path is found, an error will be returned.
      * 
      */
     public Output<String> path() {
@@ -29,14 +29,14 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * REST API id that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
     /**
-     * @return The REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * @return REST API id that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     public Output<String> restApiId() {
@@ -69,7 +69,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param path The full path of the resource.  If no path is found, an error will be returned.
+         * @param path Full path of the resource.  If no path is found, an error will be returned.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param path The full path of the resource.  If no path is found, an error will be returned.
+         * @param path Full path of the resource.  If no path is found, an error will be returned.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param restApiId The REST API id that owns the resource. If no REST API is found, an error will be returned.
+         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param restApiId The REST API id that owns the resource. If no REST API is found, an error will be returned.
+         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
          * 
          * @return builder
          * 

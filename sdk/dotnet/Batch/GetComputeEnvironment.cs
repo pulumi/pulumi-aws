@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetComputeEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch Compute Environment
+        /// Name of the Batch Compute Environment
         /// </summary>
         [Input("computeEnvironmentName", required: true)]
         public string ComputeEnvironmentName { get; set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetComputeEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch Compute Environment
+        /// Name of the Batch Compute Environment
         /// </summary>
         [Input("computeEnvironmentName", required: true)]
         public Input<string> ComputeEnvironmentName { get; set; } = null!;
@@ -126,12 +126,12 @@ namespace Pulumi.Aws.Batch
     public sealed class GetComputeEnvironmentResult
     {
         /// <summary>
-        /// The ARN of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         public readonly string Arn;
         public readonly string ComputeEnvironmentName;
         /// <summary>
-        /// The ARN of the underlying Amazon ECS cluster used by the compute environment.
+        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         public readonly string EcsClusterArn;
         /// <summary>
@@ -139,19 +139,19 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         public readonly string ServiceRole;
         /// <summary>
-        /// The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+        /// State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The current status of the compute environment (for example, `CREATING` or `VALID`).
+        /// Current status of the compute environment (for example, `CREATING` or `VALID`).
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A short, human-readable string to provide additional details about the current status of the compute environment.
+        /// Short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+        /// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
 

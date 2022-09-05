@@ -75,7 +75,7 @@ class GetLayerVersionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Lambda Layer with version.
+        ARN of the Lambda Layer with version.
         """
         return pulumi.get(self, "arn")
 
@@ -101,7 +101,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="compatibleRuntimes")
     def compatible_runtimes(self) -> Sequence[str]:
         """
-        A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+        List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         """
         return pulumi.get(self, "compatible_runtimes")
 
@@ -109,7 +109,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date this resource was created.
+        Date this resource was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -133,7 +133,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="layerArn")
     def layer_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Lambda Layer without version.
+        ARN of the Lambda Layer without version.
         """
         return pulumi.get(self, "layer_arn")
 
@@ -154,7 +154,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="signingJobArn")
     def signing_job_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of a signing job.
+        ARN of a signing job.
         """
         return pulumi.get(self, "signing_job_arn")
 
@@ -162,7 +162,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="signingProfileVersionArn")
     def signing_profile_version_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for a signing profile version.
+        The ARN for a signing profile version.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
@@ -178,7 +178,7 @@ class GetLayerVersionResult:
     @pulumi.getter(name="sourceCodeSize")
     def source_code_size(self) -> int:
         """
-        The size in bytes of the function .zip file.
+        Size in bytes of the function .zip file.
         """
         return pulumi.get(self, "source_code_size")
 

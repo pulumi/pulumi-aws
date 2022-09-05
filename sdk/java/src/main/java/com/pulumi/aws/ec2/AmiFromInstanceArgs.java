@@ -21,14 +21,14 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
     public static final AmiFromInstanceArgs Empty = new AmiFromInstanceArgs();
 
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Import(name="deprecationTime")
     private @Nullable Output<String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Optional<Output<String>> deprecationTime() {
@@ -36,14 +36,14 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Optional<Output<String>> description() {
@@ -85,14 +85,14 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Optional<Output<String>> name() {
@@ -121,14 +121,14 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The id of the instance to use as the basis of the AMI.
+     * ID of the instance to use as the basis of the AMI.
      * 
      */
     @Import(name="sourceInstanceId", required=true)
     private Output<String> sourceInstanceId;
 
     /**
-     * @return The id of the instance to use as the basis of the AMI.
+     * @return ID of the instance to use as the basis of the AMI.
      * 
      */
     public Output<String> sourceInstanceId() {
@@ -136,14 +136,14 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -182,7 +182,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceInstanceId The id of the instance to use as the basis of the AMI.
+         * @param sourceInstanceId ID of the instance to use as the basis of the AMI.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceInstanceId The id of the instance to use as the basis of the AMI.
+         * @param sourceInstanceId ID of the instance to use as the basis of the AMI.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

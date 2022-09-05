@@ -36,14 +36,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -51,14 +51,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Import(name="bootMode")
     private @Nullable Output<String> bootMode;
 
     /**
-     * @return The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public Optional<Output<String>> bootMode() {
@@ -66,14 +66,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Import(name="deprecationTime")
     private @Nullable Output<String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Optional<Output<String>> deprecationTime() {
@@ -81,14 +81,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Optional<Output<String>> description() {
@@ -113,14 +113,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Import(name="enaSupport")
     private @Nullable Output<Boolean> enaSupport;
 
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enaSupport() {
@@ -183,7 +183,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -191,7 +191,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> kernelId;
 
     /**
-     * @return The id of the kernel image (AKI) that will be used as the paravirtual
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -207,14 +207,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Optional<Output<String>> name() {
@@ -250,7 +250,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -258,7 +258,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> ramdiskId;
 
     /**
-     * @return The id of an initrd image (ARI) that will be used when booting the
+     * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -267,14 +267,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Import(name="rootDeviceName")
     private @Nullable Output<String> rootDeviceName;
 
     /**
-     * @return The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     public Optional<Output<String>> rootDeviceName() {
@@ -310,14 +310,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The id of the instance to use as the basis of the AMI.
+     * ID of the instance to use as the basis of the AMI.
      * 
      */
     @Import(name="sourceInstanceId")
     private @Nullable Output<String> sourceInstanceId;
 
     /**
-     * @return The id of the instance to use as the basis of the AMI.
+     * @return ID of the instance to use as the basis of the AMI.
      * 
      */
     public Optional<Output<String>> sourceInstanceId() {
@@ -342,14 +342,14 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -479,7 +479,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The ARN of the AMI.
+         * @param arn ARN of the AMI.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The ARN of the AMI.
+         * @param arn ARN of the AMI.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bootMode The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bootMode The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enaSupport Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+         * @param enaSupport Whether enhanced networking with ENA is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enaSupport Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+         * @param enaSupport Whether enhanced networking with ENA is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kernelId The id of the kernel image (AKI) that will be used as the paravirtual
+         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
          * kernel in created instances.
          * 
          * @return builder
@@ -714,7 +714,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kernelId The id of the kernel image (AKI) that will be used as the paravirtual
+         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
          * kernel in created instances.
          * 
          * @return builder
@@ -734,7 +734,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ramdiskId The id of an initrd image (ARI) that will be used when booting the
+         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
          * created instances.
          * 
          * @return builder
@@ -803,7 +803,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ramdiskId The id of an initrd image (ARI) that will be used when booting the
+         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
          * created instances.
          * 
          * @return builder
@@ -814,7 +814,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rootDeviceName The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+         * @param rootDeviceName Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
          * 
          * @return builder
          * 
@@ -825,7 +825,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rootDeviceName The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+         * @param rootDeviceName Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceInstanceId The id of the instance to use as the basis of the AMI.
+         * @param sourceInstanceId ID of the instance to use as the basis of the AMI.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceInstanceId The id of the instance to use as the basis of the AMI.
+         * @param sourceInstanceId ID of the instance to use as the basis of the AMI.
          * 
          * @return builder
          * 
@@ -915,7 +915,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

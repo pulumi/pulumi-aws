@@ -85,7 +85,7 @@ type LookupResolverEndpointArgs struct {
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters []GetResolverEndpointFilter `pulumi:"filters"`
-	// The ID of the Route53 Resolver Endpoint.
+	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 }
 
@@ -122,7 +122,7 @@ type LookupResolverEndpointOutputArgs struct {
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
-	// The ID of the Route53 Resolver Endpoint.
+	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 }
 

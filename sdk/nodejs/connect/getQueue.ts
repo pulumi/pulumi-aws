@@ -65,7 +65,7 @@ export interface GetQueueArgs {
      */
     queueId?: string;
     /**
-     * A map of tags assigned to the Queue.
+     * Map of tags assigned to the Queue.
      */
     tags?: {[key: string]: string};
 }
@@ -75,11 +75,11 @@ export interface GetQueueArgs {
  */
 export interface GetQueueResult {
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      */
     readonly arn: string;
     /**
-     * Specifies the description of the Queue.
+     * Description of the Queue.
      */
     readonly description: string;
     /**
@@ -92,7 +92,7 @@ export interface GetQueueResult {
     readonly id: string;
     readonly instanceId: string;
     /**
-     * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+     * Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      */
     readonly maxContacts: number;
     readonly name: string;
@@ -101,15 +101,15 @@ export interface GetQueueResult {
      */
     readonly outboundCallerConfigs: outputs.connect.GetQueueOutboundCallerConfig[];
     /**
-     * The identifier for the Queue.
+     * Identifier for the Queue.
      */
     readonly queueId: string;
     /**
-     * Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+     * Description of the Queue. Values are `ENABLED` or `DISABLED`.
      */
     readonly status: string;
     /**
-     * A map of tags assigned to the Queue.
+     * Map of tags assigned to the Queue.
      */
     readonly tags: {[key: string]: string};
 }
@@ -135,7 +135,7 @@ export interface GetQueueOutputArgs {
      */
     queueId?: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the Queue.
+     * Map of tags assigned to the Queue.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

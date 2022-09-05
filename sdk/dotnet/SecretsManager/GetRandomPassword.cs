@@ -72,7 +72,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetRandomPasswordArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A string of the characters that you don't want in the password.
+        /// String of the characters that you don't want in the password.
         /// </summary>
         [Input("excludeCharacters")]
         public string? ExcludeCharacters { get; set; }
@@ -108,13 +108,13 @@ namespace Pulumi.Aws.SecretsManager
         public bool? IncludeSpace { get; set; }
 
         /// <summary>
-        /// The length of the password.
+        /// Length of the password.
         /// </summary>
         [Input("passwordLength")]
         public int? PasswordLength { get; set; }
 
         /// <summary>
-        /// The random password.
+        /// Random password.
         /// </summary>
         [Input("randomPassword")]
         public string? RandomPassword { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetRandomPasswordInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A string of the characters that you don't want in the password.
+        /// String of the characters that you don't want in the password.
         /// </summary>
         [Input("excludeCharacters")]
         public Input<string>? ExcludeCharacters { get; set; }
@@ -170,13 +170,13 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? IncludeSpace { get; set; }
 
         /// <summary>
-        /// The length of the password.
+        /// Length of the password.
         /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
 
         /// <summary>
-        /// The random password.
+        /// Random password.
         /// </summary>
         [Input("randomPassword")]
         public Input<string>? RandomPassword { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.SecretsManager
         public readonly bool? IncludeSpace;
         public readonly int? PasswordLength;
         /// <summary>
-        /// The random password.
+        /// Random password.
         /// </summary>
         public readonly string RandomPassword;
         public readonly bool? RequireEachIncludedType;

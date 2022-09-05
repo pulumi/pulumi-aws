@@ -76,7 +76,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The code for the location to retrieve.
+        /// Code for the location to retrieve.
         /// </summary>
         [Input("locationCode", required: true)]
         public string LocationCode { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The code for the location to retrieve.
+        /// Code for the location to retrieve.
         /// </summary>
         [Input("locationCode", required: true)]
         public Input<string> LocationCode { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly ImmutableArray<string> AvailablePortSpeeds;
         /// <summary>
-        /// The names of the service providers for the location.
+        /// Names of the service providers for the location.
         /// </summary>
         public readonly ImmutableArray<string> AvailableProviders;
         /// <summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.DirectConnect
         public readonly string Id;
         public readonly string LocationCode;
         /// <summary>
-        /// The name of the location. This includes the name of the colocation partner and the physical site of the building.
+        /// Name of the location. This includes the name of the colocation partner and the physical site of the building.
         /// </summary>
         public readonly string LocationName;
 

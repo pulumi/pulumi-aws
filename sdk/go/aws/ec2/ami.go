@@ -67,62 +67,62 @@ type Ami struct {
 
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
-	// The ARN of the AMI.
+	// ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode pulumi.StringPtrOutput `pulumi:"bootMode"`
-	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrOutput `pulumi:"deprecationTime"`
-	// A longer, human-readable description for the AMI.
+	// Longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolPtrOutput `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
-	// The hypervisor type of the image.
+	// Hypervisor type of the image.
 	Hypervisor pulumi.StringOutput `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
-	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
 	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
-	// The type of image.
+	// Type of image.
 	ImageType pulumi.StringOutput `pulumi:"imageType"`
-	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrOutput `pulumi:"kernelId"`
 	ManageEbsSnapshots pulumi.BoolOutput      `pulumi:"manageEbsSnapshots"`
-	// A region-unique name for the AMI.
+	// Region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS account ID of the image owner.
+	// AWS account ID of the image owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// This value is set to windows for Windows AMIs; otherwise, it is blank.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// The platform details associated with the billing code of the AMI.
+	// Platform details associated with the billing code of the AMI.
 	PlatformDetails pulumi.StringOutput `pulumi:"platformDetails"`
-	// Indicates whether the image has public launch permissions.
+	// Whether the image has public launch permissions.
 	Public pulumi.BoolOutput `pulumi:"public"`
-	// The id of an initrd image (ARI) that will be used when booting the
+	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrOutput `pulumi:"ramdiskId"`
-	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrOutput `pulumi:"rootDeviceName"`
-	// The Snapshot ID for the root volume (for EBS-backed AMIs)
+	// Snapshot ID for the root volume (for EBS-backed AMIs)
 	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrOutput `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrOutput `pulumi:"tpmSupport"`
-	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -161,62 +161,62 @@ func GetAmi(ctx *pulumi.Context,
 type amiState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture *string `pulumi:"architecture"`
-	// The ARN of the AMI.
+	// ARN of the AMI.
 	Arn *string `pulumi:"arn"`
-	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode *string `pulumi:"bootMode"`
-	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`
-	// A longer, human-readable description for the AMI.
+	// Longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport *bool `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// The hypervisor type of the image.
+	// Hypervisor type of the image.
 	Hypervisor *string `pulumi:"hypervisor"`
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
-	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
 	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
-	// The type of image.
+	// Type of image.
 	ImageType *string `pulumi:"imageType"`
-	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           *string `pulumi:"kernelId"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
-	// A region-unique name for the AMI.
+	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
-	// The AWS account ID of the image owner.
+	// AWS account ID of the image owner.
 	OwnerId *string `pulumi:"ownerId"`
 	// This value is set to windows for Windows AMIs; otherwise, it is blank.
 	Platform *string `pulumi:"platform"`
-	// The platform details associated with the billing code of the AMI.
+	// Platform details associated with the billing code of the AMI.
 	PlatformDetails *string `pulumi:"platformDetails"`
-	// Indicates whether the image has public launch permissions.
+	// Whether the image has public launch permissions.
 	Public *bool `pulumi:"public"`
-	// The id of an initrd image (ARI) that will be used when booting the
+	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
-	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
-	// The Snapshot ID for the root volume (for EBS-backed AMIs)
+	// Snapshot ID for the root volume (for EBS-backed AMIs)
 	RootSnapshotId *string `pulumi:"rootSnapshotId"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
-	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation *string `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -227,62 +227,62 @@ type amiState struct {
 type AmiState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringPtrInput
-	// The ARN of the AMI.
+	// ARN of the AMI.
 	Arn pulumi.StringPtrInput
-	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode pulumi.StringPtrInput
-	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrInput
-	// A longer, human-readable description for the AMI.
+	// Longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiEbsBlockDeviceArrayInput
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayInput
-	// The hypervisor type of the image.
+	// Hypervisor type of the image.
 	Hypervisor pulumi.StringPtrInput
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
-	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+	// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
 	ImageOwnerAlias pulumi.StringPtrInput
-	// The type of image.
+	// Type of image.
 	ImageType pulumi.StringPtrInput
-	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
-	// A region-unique name for the AMI.
+	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
-	// The AWS account ID of the image owner.
+	// AWS account ID of the image owner.
 	OwnerId pulumi.StringPtrInput
 	// This value is set to windows for Windows AMIs; otherwise, it is blank.
 	Platform pulumi.StringPtrInput
-	// The platform details associated with the billing code of the AMI.
+	// Platform details associated with the billing code of the AMI.
 	PlatformDetails pulumi.StringPtrInput
-	// Indicates whether the image has public launch permissions.
+	// Whether the image has public launch permissions.
 	Public pulumi.BoolPtrInput
-	// The id of an initrd image (ARI) that will be used when booting the
+	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
-	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
-	// The Snapshot ID for the root volume (for EBS-backed AMIs)
+	// Snapshot ID for the root volume (for EBS-backed AMIs)
 	RootSnapshotId pulumi.StringPtrInput
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrInput
-	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -297,16 +297,16 @@ func (AmiState) ElementType() reflect.Type {
 type amiArgs struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture *string `pulumi:"architecture"`
-	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode *string `pulumi:"bootMode"`
-	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`
-	// A longer, human-readable description for the AMI.
+	// Longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport *bool `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -314,20 +314,20 @@ type amiArgs struct {
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
-	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
-	// A region-unique name for the AMI.
+	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
-	// The id of an initrd image (ARI) that will be used when booting the
+	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
-	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
@@ -341,16 +341,16 @@ type amiArgs struct {
 type AmiArgs struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringPtrInput
-	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode pulumi.StringPtrInput
-	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrInput
-	// A longer, human-readable description for the AMI.
+	// Longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiEbsBlockDeviceArrayInput
-	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -358,20 +358,20 @@ type AmiArgs struct {
 	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
-	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
-	// A region-unique name for the AMI.
+	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
-	// The id of an initrd image (ARI) that will be used when booting the
+	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
-	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrInput
@@ -473,22 +473,22 @@ func (o AmiOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AMI.
+// ARN of the AMI.
 func (o AmiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiOutput) BootMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.BootMode }).(pulumi.StringPtrOutput)
 }
 
-// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 func (o AmiOutput) DeprecationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.DeprecationTime }).(pulumi.StringPtrOutput)
 }
 
-// A longer, human-readable description for the AMI.
+// Longer, human-readable description for the AMI.
 func (o AmiOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -499,7 +499,7 @@ func (o AmiOutput) EbsBlockDevices() AmiEbsBlockDeviceArrayOutput {
 	return o.ApplyT(func(v *Ami) AmiEbsBlockDeviceArrayOutput { return v.EbsBlockDevices }).(AmiEbsBlockDeviceArrayOutput)
 }
 
-// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 func (o AmiOutput) EnaSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.BoolPtrOutput { return v.EnaSupport }).(pulumi.BoolPtrOutput)
 }
@@ -510,7 +510,7 @@ func (o AmiOutput) EphemeralBlockDevices() AmiEphemeralBlockDeviceArrayOutput {
 	return o.ApplyT(func(v *Ami) AmiEphemeralBlockDeviceArrayOutput { return v.EphemeralBlockDevices }).(AmiEphemeralBlockDeviceArrayOutput)
 }
 
-// The hypervisor type of the image.
+// Hypervisor type of the image.
 func (o AmiOutput) Hypervisor() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Hypervisor }).(pulumi.StringOutput)
 }
@@ -521,17 +521,17 @@ func (o AmiOutput) ImageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.ImageLocation }).(pulumi.StringOutput)
 }
 
-// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
 func (o AmiOutput) ImageOwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.ImageOwnerAlias }).(pulumi.StringOutput)
 }
 
-// The type of image.
+// Type of image.
 func (o AmiOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.ImageType }).(pulumi.StringOutput)
 }
 
-// The id of the kernel image (AKI) that will be used as the paravirtual
+// ID of the kernel image (AKI) that will be used as the paravirtual
 // kernel in created instances.
 func (o AmiOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.KernelId }).(pulumi.StringPtrOutput)
@@ -541,12 +541,12 @@ func (o AmiOutput) ManageEbsSnapshots() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Ami) pulumi.BoolOutput { return v.ManageEbsSnapshots }).(pulumi.BoolOutput)
 }
 
-// A region-unique name for the AMI.
+// Region-unique name for the AMI.
 func (o AmiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the image owner.
+// AWS account ID of the image owner.
 func (o AmiOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -556,28 +556,28 @@ func (o AmiOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// The platform details associated with the billing code of the AMI.
+// Platform details associated with the billing code of the AMI.
 func (o AmiOutput) PlatformDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.PlatformDetails }).(pulumi.StringOutput)
 }
 
-// Indicates whether the image has public launch permissions.
+// Whether the image has public launch permissions.
 func (o AmiOutput) Public() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Ami) pulumi.BoolOutput { return v.Public }).(pulumi.BoolOutput)
 }
 
-// The id of an initrd image (ARI) that will be used when booting the
+// ID of an initrd image (ARI) that will be used when booting the
 // created instances.
 func (o AmiOutput) RamdiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 func (o AmiOutput) RootDeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.RootDeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The Snapshot ID for the root volume (for EBS-backed AMIs)
+// Snapshot ID for the root volume (for EBS-backed AMIs)
 func (o AmiOutput) RootSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.RootSnapshotId }).(pulumi.StringOutput)
 }
@@ -588,12 +588,12 @@ func (o AmiOutput) SriovNetSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.SriovNetSupport }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AmiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AmiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -603,7 +603,7 @@ func (o AmiOutput) TpmSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.TpmSupport }).(pulumi.StringPtrOutput)
 }
 
-// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 func (o AmiOutput) UsageOperation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.UsageOperation }).(pulumi.StringOutput)
 }

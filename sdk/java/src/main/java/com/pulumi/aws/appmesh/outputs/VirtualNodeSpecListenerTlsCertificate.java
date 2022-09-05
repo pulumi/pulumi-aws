@@ -19,7 +19,7 @@ public final class VirtualNodeSpecListenerTlsCertificate {
      */
     private @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm;
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsCertificateFile file;
@@ -38,7 +38,7 @@ public final class VirtualNodeSpecListenerTlsCertificate {
         return Optional.ofNullable(this.acm);
     }
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsCertificateFile> file() {

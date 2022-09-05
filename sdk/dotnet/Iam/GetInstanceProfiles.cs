@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfilesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The IAM role name.
+        /// IAM role name.
         /// </summary>
         [Input("roleName", required: true)]
         public string RoleName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The IAM role name.
+        /// IAM role name.
         /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfilesResult
     {
         /// <summary>
-        /// Set of Amazon Resource Name (ARN) specifying the instance profile.
+        /// Set of ARNs of instance profiles.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>

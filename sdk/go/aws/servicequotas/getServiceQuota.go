@@ -70,7 +70,7 @@ type LookupServiceQuotaArgs struct {
 type LookupServiceQuotaResult struct {
 	// Whether the service quota is adjustable.
 	Adjustable bool `pulumi:"adjustable"`
-	// Amazon Resource Name (ARN) of the service quota.
+	// ARN of the service quota.
 	Arn string `pulumi:"arn"`
 	// Default value of the service quota.
 	DefaultValue float64 `pulumi:"defaultValue"`
@@ -134,7 +134,7 @@ func (o LookupServiceQuotaResultOutput) Adjustable() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupServiceQuotaResult) bool { return v.Adjustable }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the service quota.
+// ARN of the service quota.
 func (o LookupServiceQuotaResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.Arn }).(pulumi.StringOutput)
 }

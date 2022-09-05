@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cluster identifier of the RDS cluster.
+        /// Cluster identifier of the RDS cluster.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public string ClusterIdentifier { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The cluster identifier of the RDS cluster.
+        /// Cluster identifier of the RDS cluster.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;

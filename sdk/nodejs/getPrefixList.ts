@@ -70,11 +70,11 @@ export interface GetPrefixListArgs {
      */
     filters?: inputs.GetPrefixListFilter[];
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
      */
     name?: string;
     /**
-     * The ID of the prefix list to select.
+     * ID of the prefix list to select.
      */
     prefixListId?: string;
 }
@@ -84,7 +84,7 @@ export interface GetPrefixListArgs {
  */
 export interface GetPrefixListResult {
     /**
-     * The list of CIDR blocks for the AWS service associated with the prefix list.
+     * List of CIDR blocks for the AWS service associated with the prefix list.
      */
     readonly cidrBlocks: string[];
     readonly filters?: outputs.GetPrefixListFilter[];
@@ -93,7 +93,7 @@ export interface GetPrefixListResult {
      */
     readonly id: string;
     /**
-     * The name of the selected prefix list.
+     * Name of the selected prefix list.
      */
     readonly name: string;
     readonly prefixListId?: string;
@@ -112,11 +112,11 @@ export interface GetPrefixListOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetPrefixListFilterArgs>[]>;
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the prefix list to select.
+     * ID of the prefix list to select.
      */
     prefixListId?: pulumi.Input<string>;
 }

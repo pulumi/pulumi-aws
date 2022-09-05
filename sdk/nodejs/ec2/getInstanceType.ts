@@ -65,7 +65,7 @@ export interface GetInstanceTypeResult {
      */
     readonly dedicatedHostsSupported: boolean;
     /**
-     * The default number of cores for the instance type.
+     * Default number of cores for the instance type.
      */
     readonly defaultCores: number;
     /**
@@ -73,7 +73,7 @@ export interface GetInstanceTypeResult {
      */
     readonly defaultThreadsPerCore: number;
     /**
-     * The default number of vCPUs for the instance type.
+     * Default number of vCPUs for the instance type.
      */
     readonly defaultVcpus: number;
     /**
@@ -81,7 +81,7 @@ export interface GetInstanceTypeResult {
      */
     readonly ebsEncryptionSupport: string;
     /**
-     * Indicates whether non-volatile memory express (NVMe) is supported.
+     * Whether non-volatile memory express (NVMe) is supported.
      */
     readonly ebsNvmeSupport: string;
     /**
@@ -113,11 +113,11 @@ export interface GetInstanceTypeResult {
      */
     readonly ebsPerformanceMaximumThroughput: number;
     /**
-     * Indicates whether Elastic Fabric Adapter (EFA) is supported.
+     * Whether Elastic Fabric Adapter (EFA) is supported.
      */
     readonly efaSupported: boolean;
     /**
-     * Indicates whether Elastic Network Adapter (ENA) is supported.
+     * Whether Elastic Network Adapter (ENA) is supported.
      */
     readonly enaSupport: string;
     /**
@@ -149,7 +149,7 @@ export interface GetInstanceTypeResult {
      */
     readonly hibernationSupported: boolean;
     /**
-     * Indicates the hypervisor used for the instance type.
+     * Hypervisor used for the instance type.
      * * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -222,11 +222,11 @@ export interface GetInstanceTypeResult {
      */
     readonly sustainedClockSpeed: number;
     /**
-     * The total memory of all FPGA accelerators for the instance type (in MiB).
+     * Total memory of all FPGA accelerators for the instance type (in MiB).
      */
     readonly totalFpgaMemory: number;
     /**
-     * The total size of the memory for the GPU accelerators for the instance type (in MiB).
+     * Total size of the memory for the GPU accelerators for the instance type (in MiB).
      */
     readonly totalGpuMemory: number;
     /**

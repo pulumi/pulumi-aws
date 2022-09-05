@@ -17,14 +17,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     public static final ServiceHealthCheckConfigurationArgs Empty = new ServiceHealthCheckConfigurationArgs();
 
     /**
-     * The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+     * Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
      * 
      */
     @Import(name="healthyThreshold")
     private @Nullable Output<Integer> healthyThreshold;
 
     /**
-     * @return The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+     * @return Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
      * 
      */
     public Optional<Output<Integer>> healthyThreshold() {
@@ -32,14 +32,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+     * Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+     * @return Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -47,14 +47,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+     * URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+     * @return URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
      * 
      */
     public Optional<Output<String>> path() {
@@ -62,14 +62,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+     * IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+     * @return IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -77,14 +77,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+     * Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+     * @return Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -92,14 +92,14 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+     * Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
      * 
      */
     @Import(name="unhealthyThreshold")
     private @Nullable Output<Integer> unhealthyThreshold;
 
     /**
-     * @return The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+     * @return Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
      * 
      */
     public Optional<Output<Integer>> unhealthyThreshold() {
@@ -136,7 +136,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param healthyThreshold The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+         * @param healthyThreshold Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param healthyThreshold The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+         * @param healthyThreshold Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param interval The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+         * @param interval Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param interval The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+         * @param interval Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param path The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+         * @param path URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param path The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+         * @param path URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param protocol The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+         * @param protocol IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param protocol The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+         * @param protocol IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param timeout The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+         * @param timeout Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param timeout The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+         * @param timeout Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+         * @param unhealthyThreshold Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ServiceHealthCheckConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+         * @param unhealthyThreshold Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class GetSecurityGroupsPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags, each pair of which must exactly match for desired security groups.
+     * Map of tags, each pair of which must exactly match for desired security groups.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match for desired security groups.
+     * @return Map of tags, each pair of which must exactly match for desired security groups.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -94,7 +94,7 @@ public final class GetSecurityGroupsPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match for desired security groups.
+         * @param tags Map of tags, each pair of which must exactly match for desired security groups.
          * 
          * @return builder
          * 

@@ -35,7 +35,7 @@ export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOption
  */
 export interface GetLogGroupsArgs {
     /**
-     * The group prefix of the Cloudwatch log groups to list
+     * Group prefix of the Cloudwatch log groups to list
      */
     logGroupNamePrefix?: string;
 }
@@ -68,7 +68,7 @@ export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.
  */
 export interface GetLogGroupsOutputArgs {
     /**
-     * The group prefix of the Cloudwatch log groups to list
+     * Group prefix of the Cloudwatch log groups to list
      */
     logGroupNamePrefix?: pulumi.Input<string>;
 }

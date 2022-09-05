@@ -66,28 +66,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/vpcLink:VpcLink")
 public class VpcLink extends com.pulumi.resources.CustomResource {
     /**
-     * The VPC Link ARN.
+     * VPC Link ARN.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The VPC Link ARN.
+     * @return VPC Link ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * @return Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<String> name() {
@@ -122,28 +122,28 @@ public class VpcLink extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

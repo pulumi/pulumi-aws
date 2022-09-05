@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the cluster.
+        /// Map of tags assigned to the cluster.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the cluster.
+        /// Map of tags assigned to the cluster.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class GetClusterResult
     {
         /// <summary>
-        /// The name of the Access Control List associated with the cluster.
+        /// Name of the Access Control List associated with the cluster.
         /// </summary>
         public readonly string AclName;
         /// <summary>
-        /// The ARN of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
-        /// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+        /// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
         /// </summary>
         public readonly string MaintenanceWindow;
         /// <summary>
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The compute and memory capacity of the nodes in the cluster.
+        /// Compute and memory capacity of the nodes in the cluster.
         /// </summary>
         public readonly string NodeType;
         /// <summary>
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly int NumReplicasPerShard;
         /// <summary>
-        /// The number of shards in the cluster.
+        /// Number of shards in the cluster.
         /// </summary>
         public readonly int NumShards;
         /// <summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly int SnapshotRetentionLimit;
         /// <summary>
-        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         public readonly string SnapshotWindow;
         /// <summary>
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string SnsTopicArn;
         public readonly string SubnetGroupName;
         /// <summary>
-        /// A map of tags assigned to the cluster.
+        /// Map of tags assigned to the cluster.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

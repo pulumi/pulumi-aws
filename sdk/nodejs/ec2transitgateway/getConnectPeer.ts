@@ -74,7 +74,7 @@ export interface GetConnectPeerResult {
      */
     readonly arn: string;
     /**
-     * The BGP ASN number assigned customer device
+     * BGP ASN number assigned customer device
      */
     readonly bgpAsn: string;
     readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
@@ -83,11 +83,11 @@ export interface GetConnectPeerResult {
      */
     readonly id: string;
     /**
-     * The CIDR blocks that will be used for addressing within the tunnel.
+     * CIDR blocks that will be used for addressing within the tunnel.
      */
     readonly insideCidrBlocks: string[];
     /**
-     * The IP addressed assigned to customer device, which is used as tunnel endpoint
+     * IP addressed assigned to customer device, which is used as tunnel endpoint
      */
     readonly peerAddress: string;
     /**

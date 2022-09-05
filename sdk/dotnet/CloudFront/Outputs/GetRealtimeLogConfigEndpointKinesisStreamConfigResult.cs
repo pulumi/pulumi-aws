@@ -14,12 +14,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class GetRealtimeLogConfigEndpointKinesisStreamConfigResult
     {
         /// <summary>
-        /// (Required) The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        /// (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
         /// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// (Required) The ARN of the Kinesis data stream.
+        /// (Required) ARN of the Kinesis data stream.
         /// </summary>
         public readonly string StreamArn;
 

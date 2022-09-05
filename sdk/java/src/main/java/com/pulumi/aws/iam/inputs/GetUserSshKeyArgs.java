@@ -29,14 +29,14 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique identifier for the SSH public key.
+     * Unique identifier for the SSH public key.
      * 
      */
     @Import(name="sshPublicKeyId", required=true)
     private Output<String> sshPublicKeyId;
 
     /**
-     * @return The unique identifier for the SSH public key.
+     * @return Unique identifier for the SSH public key.
      * 
      */
     public Output<String> sshPublicKeyId() {
@@ -44,14 +44,14 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the IAM user associated with the SSH public key.
+     * Name of the IAM user associated with the SSH public key.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The name of the IAM user associated with the SSH public key.
+     * @return Name of the IAM user associated with the SSH public key.
      * 
      */
     public Output<String> username() {
@@ -106,7 +106,7 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sshPublicKeyId The unique identifier for the SSH public key.
+         * @param sshPublicKeyId Unique identifier for the SSH public key.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sshPublicKeyId The unique identifier for the SSH public key.
+         * @param sshPublicKeyId Unique identifier for the SSH public key.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param username The name of the IAM user associated with the SSH public key.
+         * @param username Name of the IAM user associated with the SSH public key.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param username The name of the IAM user associated with the SSH public key.
+         * @param username Name of the IAM user associated with the SSH public key.
          * 
          * @return builder
          * 

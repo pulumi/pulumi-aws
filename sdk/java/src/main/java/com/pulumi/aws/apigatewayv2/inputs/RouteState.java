@@ -20,14 +20,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     public static final RouteState Empty = new RouteState();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -50,14 +50,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
     @Import(name="authorizationScopes")
     private @Nullable Output<List<String>> authorizationScopes;
 
     /**
-     * @return The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * @return Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
     public Optional<Output<List<String>>> authorizationScopes() {
@@ -65,7 +65,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authorization type for the route.
+     * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
@@ -75,7 +75,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> authorizationType;
 
     /**
-     * @return The authorization type for the route.
+     * @return Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
@@ -86,14 +86,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
     @Import(name="authorizerId")
     private @Nullable Output<String> authorizerId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * @return Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
     public Optional<Output<String>> authorizerId() {
@@ -116,14 +116,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The operation name for the route. Must be between 1 and 64 characters in length.
+     * Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="operationName")
     private @Nullable Output<String> operationName;
 
     /**
-     * @return The operation name for the route. Must be between 1 and 64 characters in length.
+     * @return Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> operationName() {
@@ -131,14 +131,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The request models for the route. Supported only for WebSocket APIs.
+     * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="requestModels")
     private @Nullable Output<Map<String,String>> requestModels;
 
     /**
-     * @return The request models for the route. Supported only for WebSocket APIs.
+     * @return Request models for the route. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<Map<String,String>>> requestModels() {
@@ -146,14 +146,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="requestParameters")
     private @Nullable Output<List<RouteRequestParameterArgs>> requestParameters;
 
     /**
-     * @return The request parameters for the route. Supported only for WebSocket APIs.
+     * @return Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<List<RouteRequestParameterArgs>>> requestParameters() {
@@ -161,14 +161,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
     @Import(name="routeKey")
     private @Nullable Output<String> routeKey;
 
     /**
-     * @return The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * @return Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
     public Optional<Output<String>> routeKey() {
@@ -191,14 +191,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
     @Import(name="target")
     private @Nullable Output<String> target;
 
     /**
-     * @return The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * @return Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
     public Optional<Output<String>> target() {
@@ -241,7 +241,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+         * @param authorizationScopes Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+         * @param authorizationScopes Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationScopes The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+         * @param authorizationScopes Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The authorization type for the route.
+         * @param authorizationType Authorization type for the route.
          * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
          * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
          * Defaults to `NONE`.
@@ -328,7 +328,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The authorization type for the route.
+         * @param authorizationType Authorization type for the route.
          * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
          * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
          * Defaults to `NONE`.
@@ -341,7 +341,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+         * @param authorizerId Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+         * @param authorizerId Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationName The operation name for the route. Must be between 1 and 64 characters in length.
+         * @param operationName Operation name for the route. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationName The operation name for the route. Must be between 1 and 64 characters in length.
+         * @param operationName Operation name for the route. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels The request models for the route. Supported only for WebSocket APIs.
+         * @param requestModels Request models for the route. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels The request models for the route. Supported only for WebSocket APIs.
+         * @param requestModels Request models for the route. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters The request parameters for the route. Supported only for WebSocket APIs.
+         * @param requestParameters Request parameters for the route. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters The request parameters for the route. Supported only for WebSocket APIs.
+         * @param requestParameters Request parameters for the route. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters The request parameters for the route. Supported only for WebSocket APIs.
+         * @param requestParameters Request parameters for the route. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routeKey The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+         * @param routeKey Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routeKey The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+         * @param routeKey Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+         * @param target Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+         * @param target Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
          * 
          * @return builder
          * 

@@ -20,11 +20,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableArray<string> HttpRetryEvents;
         /// <summary>
-        /// The maximum number of retries.
+        /// Maximum number of retries.
         /// </summary>
         public readonly int MaxRetries;
         /// <summary>
-        /// The per-retry timeout.
+        /// Per-retry timeout.
         /// </summary>
         public readonly Outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout PerRetryTimeout;
         /// <summary>

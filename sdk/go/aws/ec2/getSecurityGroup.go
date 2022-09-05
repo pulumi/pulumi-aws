@@ -67,23 +67,23 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opt
 type LookupSecurityGroupArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSecurityGroupFilter `pulumi:"filters"`
-	// The id of the specific security group to retrieve.
+	// Id of the specific security group to retrieve.
 	Id *string `pulumi:"id"`
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name *string `pulumi:"name"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
-	// The id of the VPC that the desired security group belongs to.
+	// Id of the VPC that the desired security group belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getSecurityGroup.
 type LookupSecurityGroupResult struct {
-	// The computed ARN of the security group.
+	// Computed ARN of the security group.
 	Arn string `pulumi:"arn"`
-	// The description of the security group.
+	// Description of the security group.
 	Description string                   `pulumi:"description"`
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
 	Id          string                   `pulumi:"id"`
@@ -109,15 +109,15 @@ func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutp
 type LookupSecurityGroupOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetSecurityGroupFilterArrayInput `pulumi:"filters"`
-	// The id of the specific security group to retrieve.
+	// Id of the specific security group to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The id of the VPC that the desired security group belongs to.
+	// Id of the VPC that the desired security group belongs to.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -140,12 +140,12 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithCo
 	return o
 }
 
-// The computed ARN of the security group.
+// Computed ARN of the security group.
 func (o LookupSecurityGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the security group.
+// Description of the security group.
 func (o LookupSecurityGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }

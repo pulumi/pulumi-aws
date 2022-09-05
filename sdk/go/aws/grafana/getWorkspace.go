@@ -49,35 +49,35 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
-	// The Grafana workspace ID.
+	// Grafana workspace ID.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType string `pulumi:"accountAccessType"`
-	// The Amazon Resource Name (ARN) of the Grafana workspace.
+	// ARN of the Grafana workspace.
 	Arn string `pulumi:"arn"`
-	// (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
-	// The creation date of the Grafana workspace.
+	// Creation date of the Grafana workspace.
 	CreatedDate string `pulumi:"createdDate"`
-	// The data sources for the workspace.
+	// Data sources for the workspace.
 	DataSources []string `pulumi:"dataSources"`
-	// The workspace description.
+	// Workspace description.
 	Description string `pulumi:"description"`
-	// The endpoint of the Grafana workspace.
+	// Endpoint of the Grafana workspace.
 	Endpoint string `pulumi:"endpoint"`
-	// The version of Grafana running on the workspace.
+	// Version of Grafana running on the workspace.
 	GrafanaVersion string `pulumi:"grafanaVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The last updated date of the Grafana workspace.
+	// Last updated date of the Grafana workspace.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name string `pulumi:"name"`
 	// The notification destinations.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
@@ -85,16 +85,16 @@ type LookupWorkspaceResult struct {
 	OrganizationRoleName string `pulumi:"organizationRoleName"`
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
-	// The permission type of the workspace.
+	// Permission type of the workspace.
 	PermissionType string `pulumi:"permissionType"`
-	// The IAM role ARN that the workspace assumes.
+	// IAM role ARN that the workspace assumes.
 	RoleArn                 string `pulumi:"roleArn"`
 	SamlConfigurationStatus string `pulumi:"samlConfigurationStatus"`
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName string `pulumi:"stackSetName"`
-	// The status of the Grafana workspace.
+	// Status of the Grafana workspace.
 	Status string `pulumi:"status"`
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags        map[string]string `pulumi:"tags"`
 	WorkspaceId string            `pulumi:"workspaceId"`
 }
@@ -114,9 +114,9 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
-	// The tags assigned to the resource
+	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The Grafana workspace ID.
+	// Grafana workspace ID.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 
@@ -139,42 +139,42 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 func (o LookupWorkspaceResultOutput) AccountAccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.AccountAccessType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Grafana workspace.
+// ARN of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 func (o LookupWorkspaceResultOutput) AuthenticationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.AuthenticationProviders }).(pulumi.StringArrayOutput)
 }
 
-// The creation date of the Grafana workspace.
+// Creation date of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The data sources for the workspace.
+// Data sources for the workspace.
 func (o LookupWorkspaceResultOutput) DataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.DataSources }).(pulumi.StringArrayOutput)
 }
 
-// The workspace description.
+// Workspace description.
 func (o LookupWorkspaceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The endpoint of the Grafana workspace.
+// Endpoint of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The version of Grafana running on the workspace.
+// Version of Grafana running on the workspace.
 func (o LookupWorkspaceResultOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.GrafanaVersion }).(pulumi.StringOutput)
 }
@@ -184,12 +184,12 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The last updated date of the Grafana workspace.
+// Last updated date of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The Grafana workspace name.
+// Grafana workspace name.
 func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -209,12 +209,12 @@ func (o LookupWorkspaceResultOutput) OrganizationalUnits() pulumi.StringArrayOut
 	return o.ApplyT(func(v LookupWorkspaceResult) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
 
-// The permission type of the workspace.
+// Permission type of the workspace.
 func (o LookupWorkspaceResultOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PermissionType }).(pulumi.StringOutput)
 }
 
-// The IAM role ARN that the workspace assumes.
+// IAM role ARN that the workspace assumes.
 func (o LookupWorkspaceResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -223,17 +223,17 @@ func (o LookupWorkspaceResultOutput) SamlConfigurationStatus() pulumi.StringOutp
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.SamlConfigurationStatus }).(pulumi.StringOutput)
 }
 
-// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 func (o LookupWorkspaceResultOutput) StackSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.StackSetName }).(pulumi.StringOutput)
 }
 
-// The status of the Grafana workspace.
+// Status of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The tags assigned to the resource
+// Tags assigned to the resource
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

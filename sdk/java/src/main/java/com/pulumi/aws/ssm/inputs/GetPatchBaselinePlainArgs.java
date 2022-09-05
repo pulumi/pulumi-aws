@@ -46,14 +46,14 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The specified OS for the baseline.
+     * Specified OS for the baseline.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable String operatingSystem;
 
     /**
-     * @return The specified OS for the baseline.
+     * @return Specified OS for the baseline.
      * 
      */
     public Optional<String> operatingSystem() {
@@ -61,14 +61,14 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      * 
      */
     @Import(name="owner", required=true)
     private String owner;
 
     /**
-     * @return The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * @return Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      * 
      */
     public String owner() {
@@ -125,7 +125,7 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param operatingSystem The specified OS for the baseline.
+         * @param operatingSystem Specified OS for the baseline.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param owner The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+         * @param owner Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
          * 
          * @return builder
          * 

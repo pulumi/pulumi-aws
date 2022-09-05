@@ -79,7 +79,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     public readonly sourceBackupIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ClusterState {
      */
     securityGroupId?: pulumi.Input<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     sourceBackupIdentifier?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ClusterArgs {
      */
     hsmType: pulumi.Input<string>;
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      */
     sourceBackupIdentifier?: pulumi.Input<string>;
     /**

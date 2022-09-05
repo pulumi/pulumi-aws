@@ -57,11 +57,11 @@ export class ApiKey extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the associated AppSync API
+     * ID of the associated AppSync API
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The API key description. Defaults to "Managed by Pulumi".
+     * API key description. Defaults to "Managed by Pulumi".
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly expires!: pulumi.Output<string | undefined>;
     /**
-     * The API key
+     * API key
      */
     public /*out*/ readonly key!: pulumi.Output<string>;
 
@@ -110,11 +110,11 @@ export class ApiKey extends pulumi.CustomResource {
  */
 export interface ApiKeyState {
     /**
-     * The ID of the associated AppSync API
+     * ID of the associated AppSync API
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The API key description. Defaults to "Managed by Pulumi".
+     * API key description. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string>;
     /**
@@ -122,7 +122,7 @@ export interface ApiKeyState {
      */
     expires?: pulumi.Input<string>;
     /**
-     * The API key
+     * API key
      */
     key?: pulumi.Input<string>;
 }
@@ -132,11 +132,11 @@ export interface ApiKeyState {
  */
 export interface ApiKeyArgs {
     /**
-     * The ID of the associated AppSync API
+     * ID of the associated AppSync API
      */
     apiId: pulumi.Input<string>;
     /**
-     * The API key description. Defaults to "Managed by Pulumi".
+     * API key description. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string>;
     /**

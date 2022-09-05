@@ -48,7 +48,7 @@ func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs,
 
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
@@ -89,7 +89,7 @@ type LookupContainerRecipeResult struct {
 	TargetRepositories []GetContainerRecipeTargetRepository `pulumi:"targetRepositories"`
 	// Version of the container recipe.
 	Version string `pulumi:"version"`
-	// The working directory used during build and test workflows.
+	// Working directory used during build and test workflows.
 	WorkingDirectory string `pulumi:"workingDirectory"`
 }
 
@@ -108,7 +108,7 @@ func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipe
 
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeOutputArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -219,7 +219,7 @@ func (o LookupContainerRecipeResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// The working directory used during build and test workflows.
+// Working directory used during build and test workflows.
 func (o LookupContainerRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
 }

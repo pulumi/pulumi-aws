@@ -37,7 +37,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetApplicationArgs {
     /**
-     * The name of the application
+     * Name of the application
      */
     name: string;
 }
@@ -48,7 +48,7 @@ export interface GetApplicationArgs {
 export interface GetApplicationResult {
     readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
     /**
-     * The Amazon Resource Name (ARN) of the application.
+     * ARN of the application.
      */
     readonly arn: string;
     /**
@@ -71,7 +71,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  */
 export interface GetApplicationOutputArgs {
     /**
-     * The name of the application
+     * Name of the application
      */
     name: pulumi.Input<string>;
 }

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GraphQLApiAdditionalAuthenticationProvider {
     /**
-     * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     private String authenticationType;
@@ -30,14 +30,14 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
      */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
     /**
-     * @return The Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
 
     private GraphQLApiAdditionalAuthenticationProvider() {}
     /**
-     * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     public String authenticationType() {
@@ -58,7 +58,7 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
         return Optional.ofNullable(this.openidConnectConfig);
     }
     /**
-     * @return The Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     public Optional<GraphQLApiAdditionalAuthenticationProviderUserPoolConfig> userPoolConfig() {

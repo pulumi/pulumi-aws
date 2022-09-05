@@ -27,7 +27,7 @@ public final class GetPipelineResult {
     private String name;
     private String pipelineId;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -58,7 +58,7 @@ public final class GetPipelineResult {
         return this.pipelineId;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

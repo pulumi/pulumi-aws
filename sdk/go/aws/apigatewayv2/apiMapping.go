@@ -55,13 +55,13 @@ import (
 type ApiMapping struct {
 	pulumi.CustomResourceState
 
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
-	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringOutput `pulumi:"stage"`
 }
 
@@ -103,24 +103,24 @@ func GetApiMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiMapping resources.
 type apiMappingState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId *string `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName *string `pulumi:"domainName"`
-	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage *string `pulumi:"stage"`
 }
 
 type ApiMappingState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringPtrInput
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrInput
-	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringPtrInput
-	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringPtrInput
 }
 
@@ -129,25 +129,25 @@ func (ApiMappingState) ElementType() reflect.Type {
 }
 
 type apiMappingArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId string `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName string `pulumi:"domainName"`
-	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage string `pulumi:"stage"`
 }
 
 // The set of arguments for constructing a ApiMapping resource.
 type ApiMappingArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringInput
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrInput
-	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringInput
-	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringInput
 }
 
@@ -238,7 +238,7 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 	return o
 }
 
-// The API identifier.
+// API identifier.
 func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -248,12 +248,12 @@ func (o ApiMappingOutput) ApiMappingKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringPtrOutput { return v.ApiMappingKey }).(pulumi.StringPtrOutput)
 }
 
-// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 func (o ApiMappingOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 func (o ApiMappingOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
 }

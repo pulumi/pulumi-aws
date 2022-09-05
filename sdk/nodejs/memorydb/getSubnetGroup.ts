@@ -39,7 +39,7 @@ export interface GetSubnetGroupArgs {
      */
     name: string;
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: {[key: string]: string};
 }
@@ -66,11 +66,11 @@ export interface GetSubnetGroupResult {
      */
     readonly subnetIds: string[];
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The VPC in which the subnet group exists.
+     * VPC in which the subnet group exists.
      */
     readonly vpcId: string;
 }
@@ -88,7 +88,7 @@ export interface GetSubnetGroupOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

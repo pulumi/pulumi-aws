@@ -16,14 +16,14 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFaqPlainArgs Empty = new GetFaqPlainArgs();
 
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      * 
      */
     @Import(name="faqId", required=true)
     private String faqId;
 
     /**
-     * @return The identifier of the FAQ.
+     * @return Identifier of the FAQ.
      * 
      */
     public String faqId() {
@@ -31,14 +31,14 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The identifier of the index that contains the FAQ.
+     * Identifier of the index that contains the FAQ.
      * 
      */
     @Import(name="indexId", required=true)
     private String indexId;
 
     /**
-     * @return The identifier of the index that contains the FAQ.
+     * @return Identifier of the index that contains the FAQ.
      * 
      */
     public String indexId() {
@@ -87,7 +87,7 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param faqId The identifier of the FAQ.
+         * @param faqId Identifier of the FAQ.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexId The identifier of the index that contains the FAQ.
+         * @param indexId Identifier of the index that contains the FAQ.
          * 
          * @return builder
          * 

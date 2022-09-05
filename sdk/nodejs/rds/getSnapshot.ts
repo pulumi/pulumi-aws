@@ -85,7 +85,7 @@ export interface GetSnapshotArgs {
      */
     mostRecent?: boolean;
     /**
-     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
@@ -97,29 +97,29 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     readonly allocatedStorage: number;
     /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
     readonly availabilityZone: string;
     readonly dbInstanceIdentifier?: string;
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      */
     readonly dbSnapshotArn: string;
     readonly dbSnapshotIdentifier?: string;
     /**
-     * Specifies whether the DB snapshot is encrypted.
+     * Whether the DB snapshot is encrypted.
      */
     readonly encrypted: boolean;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     readonly engine: string;
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      */
     readonly engineVersion: string;
     /**
@@ -129,11 +129,11 @@ export interface GetSnapshotResult {
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
     readonly iops: number;
     /**
-     * The ARN for the KMS encryption key.
+     * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
     /**
@@ -152,23 +152,23 @@ export interface GetSnapshotResult {
     readonly snapshotCreateTime: string;
     readonly snapshotType?: string;
     /**
-     * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      */
     readonly sourceDbSnapshotIdentifier: string;
     /**
-     * The region that the DB snapshot was created in or copied from.
+     * Region that the DB snapshot was created in or copied from.
      */
     readonly sourceRegion: string;
     /**
-     * Specifies the status of this DB snapshot.
+     * Status of this DB snapshot.
      */
     readonly status: string;
     /**
-     * Specifies the storage type associated with DB snapshot.
+     * Storage type associated with DB snapshot.
      */
     readonly storageType: string;
     /**
-     * Specifies the ID of the VPC associated with the DB snapshot.
+     * ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
 }
@@ -206,7 +206,7 @@ export interface GetSnapshotOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */

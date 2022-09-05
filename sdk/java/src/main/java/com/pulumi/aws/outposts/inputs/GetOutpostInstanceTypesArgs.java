@@ -14,14 +14,14 @@ public final class GetOutpostInstanceTypesArgs extends com.pulumi.resources.Invo
     public static final GetOutpostInstanceTypesArgs Empty = new GetOutpostInstanceTypesArgs();
 
     /**
-     * Outpost Amazon Resource Name (ARN).
+     * Outpost ARN.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Outpost Amazon Resource Name (ARN).
+     * @return Outpost ARN.
      * 
      */
     public Output<String> arn() {
@@ -53,7 +53,7 @@ public final class GetOutpostInstanceTypesArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param arn Outpost Amazon Resource Name (ARN).
+         * @param arn Outpost ARN.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetOutpostInstanceTypesArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param arn Outpost Amazon Resource Name (ARN).
+         * @param arn Outpost ARN.
          * 
          * @return builder
          * 

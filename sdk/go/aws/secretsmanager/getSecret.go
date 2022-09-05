@@ -74,30 +74,30 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// The Amazon Resource Name (ARN) of the secret to retrieve.
+	// ARN of the secret to retrieve.
 	Arn *string `pulumi:"arn"`
-	// The name of the secret to retrieve.
+	// Name of the secret to retrieve.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	Arn string `pulumi:"arn"`
-	// A description of the secret.
+	// Description of the secret.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	Name     string `pulumi:"name"`
-	// The resource-based policy document that's attached to the secret.
+	// Resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Whether rotation is enabled or not.
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationEnabled bool `pulumi:"rotationEnabled"`
-	// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+	// Rotation Lambda function ARN if rotation is enabled.
 	//
 	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
@@ -124,9 +124,9 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the secret to retrieve.
+	// ARN of the secret to retrieve.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The name of the secret to retrieve.
+	// Name of the secret to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -149,12 +149,12 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the secret.
+// Description of the secret.
 func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -173,7 +173,7 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource-based policy document that's attached to the secret.
+// Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -185,7 +185,7 @@ func (o LookupSecretResultOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSecretResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
-// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+// Rotation Lambda function ARN if rotation is enabled.
 //
 // Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 func (o LookupSecretResultOutput) RotationLambdaArn() pulumi.StringOutput {

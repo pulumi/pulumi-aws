@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Alb
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the load balancer.
+        /// Full ARN of the load balancer.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the load balancer.
+        /// Unique name of the load balancer.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Alb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -122,13 +122,13 @@ namespace Pulumi.Aws.Alb
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the load balancer.
+        /// Full ARN of the load balancer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the load balancer.
+        /// Unique name of the load balancer.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
         /// </summary>
         public InputMap<string> Tags
         {

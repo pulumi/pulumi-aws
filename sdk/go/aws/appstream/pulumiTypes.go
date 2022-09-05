@@ -1091,9 +1091,9 @@ func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type StackAccessEndpoint struct {
-	// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 	EndpointType string `pulumi:"endpointType"`
-	// The ID of the VPC in which the interface endpoint is used.
+	// ID of the VPC in which the interface endpoint is used.
 	VpceId *string `pulumi:"vpceId"`
 }
 
@@ -1109,9 +1109,9 @@ type StackAccessEndpointInput interface {
 }
 
 type StackAccessEndpointArgs struct {
-	// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The ID of the VPC in which the interface endpoint is used.
+	// ID of the VPC in which the interface endpoint is used.
 	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
 }
 
@@ -1166,12 +1166,12 @@ func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx co
 	return o
 }
 
-// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+// Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 func (o StackAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC in which the interface endpoint is used.
+// ID of the VPC in which the interface endpoint is used.
 func (o StackAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
 }
@@ -1462,7 +1462,7 @@ func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageC
 type StackUserSetting struct {
 	// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
 	Action string `pulumi:"action"`
-	// Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+	// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
 	Permission string `pulumi:"permission"`
 }
 
@@ -1480,7 +1480,7 @@ type StackUserSettingInput interface {
 type StackUserSettingArgs struct {
 	// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+	// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
@@ -1540,7 +1540,7 @@ func (o StackUserSettingOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
 func (o StackUserSettingOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Permission }).(pulumi.StringOutput)
 }

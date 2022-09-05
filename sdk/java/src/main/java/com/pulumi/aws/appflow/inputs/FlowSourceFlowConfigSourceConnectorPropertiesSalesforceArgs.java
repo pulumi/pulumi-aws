@@ -17,14 +17,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs();
 
     /**
-     * The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+     * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
     @Import(name="enableDynamicFieldUpdate")
     private @Nullable Output<Boolean> enableDynamicFieldUpdate;
 
     /**
-     * @return The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+     * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
     public Optional<Output<Boolean>> enableDynamicFieldUpdate() {
@@ -32,14 +32,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
     }
 
     /**
-     * Indicates whether Amazon AppFlow includes deleted files in the flow run.
+     * Whether Amazon AppFlow includes deleted files in the flow run.
      * 
      */
     @Import(name="includeDeletedRecords")
     private @Nullable Output<Boolean> includeDeletedRecords;
 
     /**
-     * @return Indicates whether Amazon AppFlow includes deleted files in the flow run.
+     * @return Whether Amazon AppFlow includes deleted files in the flow run.
      * 
      */
     public Optional<Output<Boolean>> includeDeletedRecords() {
@@ -47,14 +47,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
     }
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -88,7 +88,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param enableDynamicFieldUpdate The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+         * @param enableDynamicFieldUpdate Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param enableDynamicFieldUpdate The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+         * @param enableDynamicFieldUpdate Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param includeDeletedRecords Indicates whether Amazon AppFlow includes deleted files in the flow run.
+         * @param includeDeletedRecords Whether Amazon AppFlow includes deleted files in the flow run.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param includeDeletedRecords Indicates whether Amazon AppFlow includes deleted files in the flow run.
+         * @param includeDeletedRecords Whether Amazon AppFlow includes deleted files in the flow run.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

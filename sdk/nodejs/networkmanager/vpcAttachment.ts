@@ -105,7 +105,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly subnetArns!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the VPC.
      */
@@ -154,7 +157,6 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
@@ -165,6 +167,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
@@ -224,6 +227,9 @@ export interface VpcAttachmentState {
      */
     subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
@@ -248,7 +254,6 @@ export interface VpcAttachmentArgs {
      */
     subnetArns: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
      */

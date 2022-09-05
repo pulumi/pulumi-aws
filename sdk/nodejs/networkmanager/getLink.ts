@@ -38,11 +38,11 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetLinkArgs {
     /**
-     * The ID of the Global Network of the link to retrieve.
+     * ID of the Global Network of the link to retrieve.
      */
     globalNetworkId: string;
     /**
-     * The id of the specific link to retrieve.
+     * ID of the specific link to retrieve.
      */
     linkId: string;
     /**
@@ -56,15 +56,15 @@ export interface GetLinkArgs {
  */
 export interface GetLinkResult {
     /**
-     * The ARN of the link.
+     * ARN of the link.
      */
     readonly arn: string;
     /**
-     * The upload speed and download speed of the link as documented below
+     * Upload speed and download speed of the link as documented below
      */
     readonly bandwidths: outputs.networkmanager.GetLinkBandwidth[];
     /**
-     * The description of the link.
+     * Description of the link.
      */
     readonly description: string;
     readonly globalNetworkId: string;
@@ -74,11 +74,11 @@ export interface GetLinkResult {
     readonly id: string;
     readonly linkId: string;
     /**
-     * The provider of the link.
+     * Provider of the link.
      */
     readonly providerName: string;
     /**
-     * The ID of the site.
+     * ID of the site.
      */
     readonly siteId: string;
     /**
@@ -86,7 +86,7 @@ export interface GetLinkResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of the link.
+     * Type of the link.
      */
     readonly type: string;
 }
@@ -100,11 +100,11 @@ export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetLinkOutputArgs {
     /**
-     * The ID of the Global Network of the link to retrieve.
+     * ID of the Global Network of the link to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The id of the specific link to retrieve.
+     * ID of the specific link to retrieve.
      */
     linkId: pulumi.Input<string>;
     /**

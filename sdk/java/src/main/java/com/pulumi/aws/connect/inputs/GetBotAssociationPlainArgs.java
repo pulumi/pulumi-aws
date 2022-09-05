@@ -14,14 +14,14 @@ public final class GetBotAssociationPlainArgs extends com.pulumi.resources.Invok
     public static final GetBotAssociationPlainArgs Empty = new GetBotAssociationPlainArgs();
 
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
     /**
-     * @return The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     public String instanceId() {
@@ -69,7 +69,7 @@ public final class GetBotAssociationPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param instanceId The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
          * 
          * @return builder
          * 

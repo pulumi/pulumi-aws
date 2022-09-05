@@ -11059,7 +11059,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 type WorkforceCognitoConfig struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId string `pulumi:"clientId"`
-	// The id for your Amazon Cognito user pool.
+	// ID for your Amazon Cognito user pool.
 	UserPool string `pulumi:"userPool"`
 }
 
@@ -11077,7 +11077,7 @@ type WorkforceCognitoConfigInput interface {
 type WorkforceCognitoConfigArgs struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The id for your Amazon Cognito user pool.
+	// ID for your Amazon Cognito user pool.
 	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
@@ -11163,7 +11163,7 @@ func (o WorkforceCognitoConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The id for your Amazon Cognito user pool.
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigOutput) UserPool() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
 }
@@ -11202,7 +11202,7 @@ func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The id for your Amazon Cognito user pool.
+// ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {

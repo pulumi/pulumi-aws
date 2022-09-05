@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetContainerRecipesFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetContainerRecipesFilter {
 
     private GetContainerRecipesFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
      * 
      */
     public String name() {

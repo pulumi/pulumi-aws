@@ -17,14 +17,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
     public static final ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs Empty = new ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs();
 
     /**
-     * The dimensions of the metric.
+     * Dimensions of the metric.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<Map<String,String>> dimensions;
 
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public Optional<Output<Map<String,String>>> dimensions() {
@@ -32,14 +32,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
     }
 
     /**
-     * The name of the metric.
+     * Name of the metric.
      * 
      */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public Output<String> metricName() {
@@ -47,14 +47,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
     }
 
     /**
-     * The namespace of the metric.
+     * Namespace of the metric.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public Output<String> namespace() {
@@ -62,14 +62,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
     }
 
     /**
-     * The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+     * Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
      * 
      */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
      * 
      */
     public Output<String> statistic() {
@@ -77,14 +77,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
     }
 
     /**
-     * The unit of the metric.
+     * Unit of the metric.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -120,7 +120,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param dimensions The dimensions of the metric.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param dimensions The dimensions of the metric.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param statistic The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+         * @param statistic Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param statistic The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+         * @param statistic Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param unit The unit of the metric.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCusto
         }
 
         /**
-         * @param unit The unit of the metric.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 

@@ -84,15 +84,15 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     public readonly basePath!: pulumi.Output<string | undefined>;
     /**
-     * The already-registered domain name to connect the API to.
+     * Already-registered domain name to connect the API to.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The id of the API to connect.
+     * ID of the API to connect.
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
 
@@ -140,15 +140,15 @@ export interface BasePathMappingState {
      */
     basePath?: pulumi.Input<string>;
     /**
-     * The already-registered domain name to connect the API to.
+     * Already-registered domain name to connect the API to.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The id of the API to connect.
+     * ID of the API to connect.
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
     stageName?: pulumi.Input<string>;
 }
@@ -162,15 +162,15 @@ export interface BasePathMappingArgs {
      */
     basePath?: pulumi.Input<string>;
     /**
-     * The already-registered domain name to connect the API to.
+     * Already-registered domain name to connect the API to.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The id of the API to connect.
+     * ID of the API to connect.
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
     stageName?: pulumi.Input<string>;
 }

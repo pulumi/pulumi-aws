@@ -22,14 +22,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     public static final FlowArgs Empty = new FlowArgs();
 
     /**
-     * A description of the flow you want to create.
+     * Description of the flow you want to create.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the flow you want to create.
+     * @return Description of the flow you want to create.
      * 
      */
     public Optional<Output<String>> description() {
@@ -52,14 +52,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     @Import(name="kmsArn")
     private @Nullable Output<String> kmsArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     public Optional<Output<String>> kmsArn() {
@@ -67,14 +67,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the flow.
+     * Name of the flow.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the flow.
+     * @return Name of the flow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -173,7 +173,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the flow you want to create.
+         * @param description Description of the flow you want to create.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the flow you want to create.
+         * @param description Description of the flow you want to create.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the flow.
+         * @param name Name of the flow.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the flow.
+         * @param name Name of the flow.
          * 
          * @return builder
          * 

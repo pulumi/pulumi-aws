@@ -70,7 +70,7 @@ class GetScriptResult:
     @pulumi.getter(name="pythonScript")
     def python_script(self) -> str:
         """
-        The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+        Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         """
         return pulumi.get(self, "python_script")
 
@@ -78,7 +78,7 @@ class GetScriptResult:
     @pulumi.getter(name="scalaCode")
     def scala_code(self) -> str:
         """
-        The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+        Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         """
         return pulumi.get(self, "scala_code")
 
@@ -289,9 +289,9 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
     ```
 
 
-    :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: A list of the edges in the DAG. Defined below.
-    :param Sequence[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: A list of the nodes in the DAG. Defined below.
-    :param str language: The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: List of the edges in the DAG. Defined below.
+    :param Sequence[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: List of the nodes in the DAG. Defined below.
+    :param str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     """
     __args__ = dict()
     __args__['dagEdges'] = dag_edges
@@ -502,8 +502,8 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
     ```
 
 
-    :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: A list of the edges in the DAG. Defined below.
-    :param Sequence[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: A list of the nodes in the DAG. Defined below.
-    :param str language: The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: List of the edges in the DAG. Defined below.
+    :param Sequence[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: List of the nodes in the DAG. Defined below.
+    :param str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     """
     ...

@@ -19,14 +19,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetCertificateArgs Empty = new GetCertificateArgs();
 
     /**
-     * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * @return Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      * 
      */
     public Output<String> domain() {
@@ -34,14 +34,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      * 
      */
     @Import(name="keyTypes")
     private @Nullable Output<List<String>> keyTypes;
 
     /**
-     * @return A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+     * @return List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      * 
      */
     public Optional<Output<List<String>>> keyTypes() {
@@ -64,7 +64,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      * 
@@ -73,7 +73,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<List<String>> statuses;
 
     /**
-     * @return A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+     * @return List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      * 
@@ -83,14 +83,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A mapping of tags for the resource.
+     * Mapping of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags for the resource.
+     * @return Mapping of tags for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -98,14 +98,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      * 
      */
     @Import(name="types")
     private @Nullable Output<List<String>> types;
 
     /**
-     * @return A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+     * @return List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      * 
      */
     public Optional<Output<List<String>>> types() {
@@ -142,7 +142,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domain The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+         * @param domain Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domain The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+         * @param domain Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyTypes A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyTypes A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyTypes A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+         * @param keyTypes List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
          * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
          * are returned.
          * 
@@ -228,7 +228,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
          * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
          * are returned.
          * 
@@ -240,7 +240,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
          * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
          * are returned.
          * 
@@ -252,7 +252,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags for the resource.
+         * @param tags Mapping of tags for the resource.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags for the resource.
+         * @param tags Mapping of tags for the resource.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param types A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+         * @param types List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
          * 
          * @return builder
          * 

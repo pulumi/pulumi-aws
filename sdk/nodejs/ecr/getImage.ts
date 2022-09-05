@@ -38,19 +38,19 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetImageArgs {
     /**
-     * The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
      */
     imageDigest?: string;
     /**
-     * The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+     * Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
      */
     imageTag?: string;
     /**
-     * The ID of the Registry where the repository resides.
+     * ID of the Registry where the repository resides.
      */
     registryId?: string;
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      */
     repositoryName: string;
 }
@@ -65,16 +65,16 @@ export interface GetImageResult {
     readonly id: string;
     readonly imageDigest: string;
     /**
-     * The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+     * Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      */
     readonly imagePushedAt: number;
     /**
-     * The size, in bytes, of the image in the repository.
+     * Size, in bytes, of the image in the repository.
      */
     readonly imageSizeInBytes: number;
     readonly imageTag?: string;
     /**
-     * The list of tags associated with this image.
+     * List of tags associated with this image.
      */
     readonly imageTags: string[];
     readonly registryId: string;
@@ -90,19 +90,19 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageOutputArgs {
     /**
-     * The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
      */
     imageDigest?: pulumi.Input<string>;
     /**
-     * The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+     * Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
      */
     imageTag?: pulumi.Input<string>;
     /**
-     * The ID of the Registry where the repository resides.
+     * ID of the Registry where the repository resides.
      */
     registryId?: pulumi.Input<string>;
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      */
     repositoryName: pulumi.Input<string>;
 }

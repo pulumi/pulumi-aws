@@ -21,11 +21,11 @@ class ModelArgs:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[str] content_type: The content type of the model
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] description: The description of the model
-        :param pulumi.Input[str] name: The name of the model
-        :param pulumi.Input[str] schema: The schema of the model in a JSON form
+        :param pulumi.Input[str] content_type: Content type of the model
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] description: Description of the model
+        :param pulumi.Input[str] name: Name of the model
+        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -40,7 +40,7 @@ class ModelArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
         """
-        The content type of the model
+        Content type of the model
         """
         return pulumi.get(self, "content_type")
 
@@ -52,7 +52,7 @@ class ModelArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -64,7 +64,7 @@ class ModelArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the model
+        Description of the model
         """
         return pulumi.get(self, "description")
 
@@ -76,7 +76,7 @@ class ModelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the model
+        Name of the model
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class ModelArgs:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema of the model in a JSON form
+        Schema of the model in a JSON form
         """
         return pulumi.get(self, "schema")
 
@@ -107,11 +107,11 @@ class _ModelState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[str] content_type: The content type of the model
-        :param pulumi.Input[str] description: The description of the model
-        :param pulumi.Input[str] name: The name of the model
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] schema: The schema of the model in a JSON form
+        :param pulumi.Input[str] content_type: Content type of the model
+        :param pulumi.Input[str] description: Description of the model
+        :param pulumi.Input[str] name: Name of the model
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -128,7 +128,7 @@ class _ModelState:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The content type of the model
+        Content type of the model
         """
         return pulumi.get(self, "content_type")
 
@@ -140,7 +140,7 @@ class _ModelState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the model
+        Description of the model
         """
         return pulumi.get(self, "description")
 
@@ -152,7 +152,7 @@ class _ModelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the model
+        Name of the model
         """
         return pulumi.get(self, "name")
 
@@ -164,7 +164,7 @@ class _ModelState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -176,7 +176,7 @@ class _ModelState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema of the model in a JSON form
+        Schema of the model in a JSON form
         """
         return pulumi.get(self, "schema")
 
@@ -226,11 +226,11 @@ class Model(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: The content type of the model
-        :param pulumi.Input[str] description: The description of the model
-        :param pulumi.Input[str] name: The name of the model
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] schema: The schema of the model in a JSON form
+        :param pulumi.Input[str] content_type: Content type of the model
+        :param pulumi.Input[str] description: Description of the model
+        :param pulumi.Input[str] name: Name of the model
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         ...
     @overload
@@ -326,11 +326,11 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: The content type of the model
-        :param pulumi.Input[str] description: The description of the model
-        :param pulumi.Input[str] name: The name of the model
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
-        :param pulumi.Input[str] schema: The schema of the model in a JSON form
+        :param pulumi.Input[str] content_type: Content type of the model
+        :param pulumi.Input[str] description: Description of the model
+        :param pulumi.Input[str] name: Name of the model
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
+        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -347,7 +347,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
         """
-        The content type of the model
+        Content type of the model
         """
         return pulumi.get(self, "content_type")
 
@@ -355,7 +355,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the model
+        Description of the model
         """
         return pulumi.get(self, "description")
 
@@ -363,7 +363,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the model
+        Name of the model
         """
         return pulumi.get(self, "name")
 
@@ -371,7 +371,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -379,7 +379,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional[str]]:
         """
-        The schema of the model in a JSON form
+        Schema of the model in a JSON form
         """
         return pulumi.get(self, "schema")
 

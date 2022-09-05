@@ -33,7 +33,7 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.
      * 
      */
@@ -41,7 +41,7 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.
      * 
      */
@@ -50,14 +50,14 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
-     * @return The VPC ID that you want to filter from.
+     * @return VPC ID that you want to filter from.
      * 
      */
     public Optional<String> vpcId() {
@@ -112,7 +112,7 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired NAT Gateways.
          * 
          * @return builder
@@ -124,7 +124,7 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param vpcId The VPC ID that you want to filter from.
+         * @param vpcId VPC ID that you want to filter from.
          * 
          * @return builder
          * 

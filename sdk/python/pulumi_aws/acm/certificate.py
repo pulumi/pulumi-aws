@@ -29,15 +29,14 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
-        :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+        :param pulumi.Input[str] certificate_body: Certificate's PEM-formatted public key
+        :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
+        :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -78,7 +77,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted public key
+        Certificate's PEM-formatted public key
         """
         return pulumi.get(self, "certificate_body")
 
@@ -90,7 +89,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted chain
+        Certificate's PEM-formatted chain
         * Creating a private CA issued certificate
         """
         return pulumi.get(self, "certificate_chain")
@@ -103,7 +102,7 @@ class CertificateArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A fully qualified domain name (FQDN) in the certificate.
+        Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -127,7 +126,7 @@ class CertificateArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted private key
+        Certificate's PEM-formatted private key
         """
         return pulumi.get(self, "private_key")
 
@@ -151,7 +150,7 @@ class CertificateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -162,9 +161,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        """
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
@@ -207,23 +203,22 @@ class _CertificateState:
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[str] arn: The ARN of the certificate
+        :param pulumi.Input[str] arn: ARN of the certificate
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
-        :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+        :param pulumi.Input[str] certificate_body: Certificate's PEM-formatted public key
+        :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
-        :param pulumi.Input[str] not_after: The expiration date and time of the certificate.
-        :param pulumi.Input[str] not_before: The start of the validity period of the certificate.
+        :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
+        :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
+        :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -266,7 +261,7 @@ class _CertificateState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the certificate
+        ARN of the certificate
         """
         return pulumi.get(self, "arn")
 
@@ -290,7 +285,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted public key
+        Certificate's PEM-formatted public key
         """
         return pulumi.get(self, "certificate_body")
 
@@ -302,7 +297,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted chain
+        Certificate's PEM-formatted chain
         * Creating a private CA issued certificate
         """
         return pulumi.get(self, "certificate_chain")
@@ -315,7 +310,7 @@ class _CertificateState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A fully qualified domain name (FQDN) in the certificate.
+        Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -339,7 +334,7 @@ class _CertificateState:
     @pulumi.getter(name="notAfter")
     def not_after(self) -> Optional[pulumi.Input[str]]:
         """
-        The expiration date and time of the certificate.
+        Expiration date and time of the certificate.
         """
         return pulumi.get(self, "not_after")
 
@@ -351,7 +346,7 @@ class _CertificateState:
     @pulumi.getter(name="notBefore")
     def not_before(self) -> Optional[pulumi.Input[str]]:
         """
-        The start of the validity period of the certificate.
+        Start of the validity period of the certificate.
         """
         return pulumi.get(self, "not_before")
 
@@ -375,7 +370,7 @@ class _CertificateState:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate's PEM-formatted private key
+        Certificate's PEM-formatted private key
         """
         return pulumi.get(self, "private_key")
 
@@ -411,7 +406,7 @@ class _CertificateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -423,7 +418,7 @@ class _CertificateState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -435,7 +430,7 @@ class _CertificateState:
     @pulumi.getter(name="validationEmails")
     def validation_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         """
         return pulumi.get(self, "validation_emails")
 
@@ -446,9 +441,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[str]]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        """
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
@@ -588,15 +580,14 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
-        :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+        :param pulumi.Input[str] certificate_body: Certificate's PEM-formatted public key
+        :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
+        :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -791,23 +782,22 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the certificate
+        :param pulumi.Input[str] arn: ARN of the certificate
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
-        :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+        :param pulumi.Input[str] certificate_body: Certificate's PEM-formatted public key
+        :param pulumi.Input[str] certificate_chain: Certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
-        :param pulumi.Input[str] not_after: The expiration date and time of the certificate.
-        :param pulumi.Input[str] not_before: The start of the validity period of the certificate.
+        :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
+        :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
+        :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
@@ -838,7 +828,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the certificate
+        ARN of the certificate
         """
         return pulumi.get(self, "arn")
 
@@ -854,7 +844,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[Optional[str]]:
         """
-        The certificate's PEM-formatted public key
+        Certificate's PEM-formatted public key
         """
         return pulumi.get(self, "certificate_body")
 
@@ -862,7 +852,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
-        The certificate's PEM-formatted chain
+        Certificate's PEM-formatted chain
         * Creating a private CA issued certificate
         """
         return pulumi.get(self, "certificate_chain")
@@ -871,7 +861,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        A fully qualified domain name (FQDN) in the certificate.
+        Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -887,7 +877,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="notAfter")
     def not_after(self) -> pulumi.Output[str]:
         """
-        The expiration date and time of the certificate.
+        Expiration date and time of the certificate.
         """
         return pulumi.get(self, "not_after")
 
@@ -895,7 +885,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="notBefore")
     def not_before(self) -> pulumi.Output[str]:
         """
-        The start of the validity period of the certificate.
+        Start of the validity period of the certificate.
         """
         return pulumi.get(self, "not_before")
 
@@ -911,7 +901,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The certificate's PEM-formatted private key
+        Certificate's PEM-formatted private key
         """
         return pulumi.get(self, "private_key")
 
@@ -935,7 +925,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -943,7 +933,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -951,16 +941,13 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="validationEmails")
     def validation_emails(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         """
         return pulumi.get(self, "validation_emails")
 
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> pulumi.Output[str]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        """
         return pulumi.get(self, "validation_method")
 
     @property

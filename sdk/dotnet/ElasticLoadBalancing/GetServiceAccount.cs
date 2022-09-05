@@ -209,7 +209,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// The ARN of the AWS ELB service account in the selected region.
+        /// ARN of the AWS ELB service account in the selected region.
         /// </summary>
         public readonly string Arn;
         /// <summary>

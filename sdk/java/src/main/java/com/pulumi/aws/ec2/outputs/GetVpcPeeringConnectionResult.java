@@ -17,13 +17,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcPeeringConnectionResult {
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
+     * @return Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      * 
      */
     private Map<String,Boolean> accepter;
     /**
-     * @return A CIDR block associated to the VPC of the specific VPC Peering Connection.
+     * @return CIDR block associated to the VPC of the specific VPC Peering Connection.
      * 
      */
     private String cidrBlock;
@@ -46,7 +46,7 @@ public final class GetVpcPeeringConnectionResult {
     private String peerVpcId;
     private String region;
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
+     * @return Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      * 
      */
@@ -57,7 +57,7 @@ public final class GetVpcPeeringConnectionResult {
 
     private GetVpcPeeringConnectionResult() {}
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
+     * @return Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      * 
      */
@@ -65,7 +65,7 @@ public final class GetVpcPeeringConnectionResult {
         return this.accepter;
     }
     /**
-     * @return A CIDR block associated to the VPC of the specific VPC Peering Connection.
+     * @return CIDR block associated to the VPC of the specific VPC Peering Connection.
      * 
      */
     public String cidrBlock() {
@@ -110,7 +110,7 @@ public final class GetVpcPeeringConnectionResult {
         return this.region;
     }
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
+     * @return Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      * 
      */

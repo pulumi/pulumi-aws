@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetInstanceMetadataOptionResult
     {
         /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
+        /// State of the metadata service: `enabled`, `disabled`.
         /// </summary>
         public readonly string HttpEndpoint;
         /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests.
+        /// Desired HTTP PUT response hop limit for instance metadata requests.
         /// </summary>
         public readonly int HttpPutResponseHopLimit;
         /// <summary>

@@ -17,14 +17,14 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDevicesArgs Empty = new GetDevicesArgs();
 
     /**
-     * The ID of the Global Network of the devices to retrieve.
+     * ID of the Global Network of the devices to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the devices to retrieve.
+     * @return ID of the Global Network of the devices to retrieve.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -32,14 +32,14 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the site of the devices to retrieve.
+     * ID of the site of the devices to retrieve.
      * 
      */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
     /**
-     * @return The ID of the site of the devices to retrieve.
+     * @return ID of the site of the devices to retrieve.
      * 
      */
     public Optional<Output<String>> siteId() {
@@ -88,7 +88,7 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the devices to retrieve.
+         * @param globalNetworkId ID of the Global Network of the devices to retrieve.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the devices to retrieve.
+         * @param globalNetworkId ID of the Global Network of the devices to retrieve.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param siteId The ID of the site of the devices to retrieve.
+         * @param siteId ID of the site of the devices to retrieve.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetDevicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param siteId The ID of the site of the devices to retrieve.
+         * @param siteId ID of the site of the devices to retrieve.
          * 
          * @return builder
          * 

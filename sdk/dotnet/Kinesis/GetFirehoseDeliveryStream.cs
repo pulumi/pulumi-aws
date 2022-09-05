@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Kinesis Stream.
+        /// Name of the Kinesis Stream.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Kinesis Stream.
+        /// Name of the Kinesis Stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+        /// ARN of the Kinesis Stream (same as id).
         /// </summary>
         public readonly string Arn;
         /// <summary>

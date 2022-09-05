@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetThesaurusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the index that contains the Thesaurus.
+        /// Identifier of the index that contains the Thesaurus.
         /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The identifier of the Thesaurus.
+        /// Identifier of the Thesaurus.
         /// </summary>
         [Input("thesaurusId", required: true)]
         public string ThesaurusId { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetThesaurusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier of the index that contains the Thesaurus.
+        /// Identifier of the index that contains the Thesaurus.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The identifier of the Thesaurus.
+        /// Identifier of the Thesaurus.
         /// </summary>
         [Input("thesaurusId", required: true)]
         public Input<string> ThesaurusId { get; set; } = null!;
@@ -138,15 +138,15 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetThesaurusResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Thesaurus.
+        /// ARN of the Thesaurus.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The Unix datetime that the Thesaurus was created.
+        /// Unix datetime that the Thesaurus was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the Thesaurus.
+        /// Description of the Thesaurus.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
-        /// The size of the Thesaurus file in bytes.
+        /// Size of the Thesaurus file in bytes.
         /// </summary>
         public readonly int FileSizeBytes;
         /// <summary>
@@ -163,23 +163,23 @@ namespace Pulumi.Aws.Kendra
         public readonly string Id;
         public readonly string IndexId;
         /// <summary>
-        /// Specifies the name of the Thesaurus.
+        /// Name of the Thesaurus.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The S3 location of the Thesaurus input data. Detailed below.
+        /// S3 location of the Thesaurus input data. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThesaurusSourceS3PathResult> SourceS3Paths;
         /// <summary>
-        /// The status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
+        /// Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The number of synonym rules in the Thesaurus file.
+        /// Number of synonym rules in the Thesaurus file.
         /// </summary>
         public readonly int SynonymRuleCount;
         /// <summary>
@@ -187,12 +187,12 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
+        /// Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
         /// </summary>
         public readonly int TermCount;
         public readonly string ThesaurusId;
         /// <summary>
-        /// The date and time that the Thesaurus was last updated.
+        /// Date and time that the Thesaurus was last updated.
         /// </summary>
         public readonly string UpdatedAt;
 

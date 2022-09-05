@@ -54,7 +54,7 @@ class GetNetworkInterfacesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A list of all the network interface ids found.
+        List of all the network interface ids found.
         """
         return pulumi.get(self, "ids")
 
@@ -120,7 +120,7 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
     __args__ = dict()
@@ -181,7 +181,7 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
     ...

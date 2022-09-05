@@ -52,7 +52,7 @@ func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigA
 
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the code signing configuration.
+	// ARN of the code signing configuration.
 	Arn string `pulumi:"arn"`
 }
 
@@ -67,7 +67,7 @@ type LookupCodeSigningConfigResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The date and time that the code signing configuration was last modified.
+	// Date and time that the code signing configuration was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// List of code signing policies that control the validation failure action for signature mismatch or expiry.
 	Policies []GetCodeSigningConfigPolicy `pulumi:"policies"`
@@ -88,7 +88,7 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the code signing configuration.
+	// ARN of the code signing configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -137,7 +137,7 @@ func (o LookupCodeSigningConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date and time that the code signing configuration was last modified.
+// Date and time that the code signing configuration was last modified.
 func (o LookupCodeSigningConfigResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.LastModified }).(pulumi.StringOutput)
 }

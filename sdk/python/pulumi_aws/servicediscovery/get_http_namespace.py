@@ -45,7 +45,7 @@ class GetHttpNamespaceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        ARN that Amazon Route 53 assigns to the namespace when you create it.
         """
         return pulumi.get(self, "arn")
 
@@ -53,7 +53,7 @@ class GetHttpNamespaceResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description that you specify for the namespace when you create it.
+        Description that you specify for the namespace when you create it.
         """
         return pulumi.get(self, "description")
 
@@ -61,7 +61,7 @@ class GetHttpNamespaceResult:
     @pulumi.getter(name="httpName")
     def http_name(self) -> str:
         """
-        The name of an HTTP namespace.
+        Name of an HTTP namespace.
         """
         return pulumi.get(self, "http_name")
 
@@ -82,7 +82,7 @@ class GetHttpNamespaceResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -115,8 +115,8 @@ def get_http_namespace(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the http namespace.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the http namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -148,7 +148,7 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the http namespace.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str name: Name of the http namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

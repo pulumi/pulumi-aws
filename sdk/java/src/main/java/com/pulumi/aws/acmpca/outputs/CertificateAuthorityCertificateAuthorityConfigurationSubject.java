@@ -42,7 +42,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      */
     private @Nullable String initials;
     /**
-     * @return The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+     * @return Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
     private @Nullable String locality;
@@ -52,7 +52,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      */
     private @Nullable String organization;
     /**
-     * @return A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+     * @return Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
     private @Nullable String organizationalUnit;
@@ -72,7 +72,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      */
     private @Nullable String surname;
     /**
-     * @return A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+     * @return Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
     private @Nullable String title;
@@ -121,7 +121,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         return Optional.ofNullable(this.initials);
     }
     /**
-     * @return The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+     * @return Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
     public Optional<String> locality() {
@@ -135,7 +135,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         return Optional.ofNullable(this.organization);
     }
     /**
-     * @return A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+     * @return Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
     public Optional<String> organizationalUnit() {
@@ -163,7 +163,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         return Optional.ofNullable(this.surname);
     }
     /**
-     * @return A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+     * @return Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
     public Optional<String> title() {

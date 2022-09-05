@@ -17,14 +17,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     public static final ApiKeyState Empty = new ApiKeyState();
 
     /**
-     * The ID of the associated AppSync API
+     * ID of the associated AppSync API
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The ID of the associated AppSync API
+     * @return ID of the associated AppSync API
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -32,14 +32,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -62,14 +62,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API key
+     * API key
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The API key
+     * @return API key
      * 
      */
     public Optional<Output<String>> key() {
@@ -104,7 +104,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The ID of the associated AppSync API
+         * @param apiId ID of the associated AppSync API
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The ID of the associated AppSync API
+         * @param apiId ID of the associated AppSync API
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The API key
+         * @param key API key
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The API key
+         * @param key API key
          * 
          * @return builder
          * 

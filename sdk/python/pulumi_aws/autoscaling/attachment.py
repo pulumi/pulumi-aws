@@ -21,9 +21,9 @@ class AttachmentArgs:
         """
         The set of arguments for constructing a Attachment resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
-        :param pulumi.Input[str] elb: The name of the ELB.
-        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
+        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
+        :param pulumi.Input[str] elb: Name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if alb_target_group_arn is not None:
@@ -52,7 +52,7 @@ class AttachmentArgs:
     @pulumi.getter(name="albTargetGroupArn")
     def alb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an ALB Target Group.
+        ARN of an ALB Target Group.
         """
         return pulumi.get(self, "alb_target_group_arn")
 
@@ -64,7 +64,7 @@ class AttachmentArgs:
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ELB.
+        Name of the ELB.
         """
         return pulumi.get(self, "elb")
 
@@ -76,7 +76,7 @@ class AttachmentArgs:
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of a load balancer target group.
+        ARN of a load balancer target group.
         """
         return pulumi.get(self, "lb_target_group_arn")
 
@@ -94,10 +94,10 @@ class _AttachmentState:
                  lb_target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
-        :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
+        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[str] elb: The name of the ELB.
-        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
+        :param pulumi.Input[str] elb: Name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
         if alb_target_group_arn is not None:
             warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
@@ -115,7 +115,7 @@ class _AttachmentState:
     @pulumi.getter(name="albTargetGroupArn")
     def alb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an ALB Target Group.
+        ARN of an ALB Target Group.
         """
         return pulumi.get(self, "alb_target_group_arn")
 
@@ -139,7 +139,7 @@ class _AttachmentState:
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ELB.
+        Name of the ELB.
         """
         return pulumi.get(self, "elb")
 
@@ -151,7 +151,7 @@ class _AttachmentState:
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of a load balancer target group.
+        ARN of a load balancer target group.
         """
         return pulumi.get(self, "lb_target_group_arn")
 
@@ -217,10 +217,10 @@ class Attachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
+        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[str] elb: The name of the ELB.
-        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
+        :param pulumi.Input[str] elb: Name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
         ...
     @overload
@@ -331,10 +331,10 @@ class Attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
+        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[str] elb: The name of the ELB.
-        :param pulumi.Input[str] lb_target_group_arn: The ARN of a load balancer target group.
+        :param pulumi.Input[str] elb: Name of the ELB.
+        :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,7 +350,7 @@ class Attachment(pulumi.CustomResource):
     @pulumi.getter(name="albTargetGroupArn")
     def alb_target_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of an ALB Target Group.
+        ARN of an ALB Target Group.
         """
         return pulumi.get(self, "alb_target_group_arn")
 
@@ -366,7 +366,7 @@ class Attachment(pulumi.CustomResource):
     @pulumi.getter
     def elb(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the ELB.
+        Name of the ELB.
         """
         return pulumi.get(self, "elb")
 
@@ -374,7 +374,7 @@ class Attachment(pulumi.CustomResource):
     @pulumi.getter(name="lbTargetGroupArn")
     def lb_target_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of a load balancer target group.
+        ARN of a load balancer target group.
         """
         return pulumi.get(self, "lb_target_group_arn")
 

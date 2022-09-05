@@ -20,7 +20,7 @@ public final class GetConnectResult {
      */
     private String id;
     /**
-     * @return The tunnel protocol
+     * @return Tunnel protocol
      * 
      */
     private String protocol;
@@ -53,7 +53,7 @@ public final class GetConnectResult {
         return this.id;
     }
     /**
-     * @return The tunnel protocol
+     * @return Tunnel protocol
      * 
      */
     public String protocol() {

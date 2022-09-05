@@ -50,19 +50,19 @@ import (
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date when the client certificate was created.
+	// Date when the client certificate was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The description of the client certificate.
+	// Description of the client certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The date when the client certificate will expire.
+	// Date when the client certificate will expire.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -95,36 +95,36 @@ func GetClientCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClientCertificate resources.
 type clientCertificateState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
-	// The date when the client certificate was created.
+	// Date when the client certificate was created.
 	CreatedDate *string `pulumi:"createdDate"`
-	// The description of the client certificate.
+	// Description of the client certificate.
 	Description *string `pulumi:"description"`
-	// The date when the client certificate will expire.
+	// Date when the client certificate will expire.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClientCertificateState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
-	// The date when the client certificate was created.
+	// Date when the client certificate was created.
 	CreatedDate pulumi.StringPtrInput
-	// The description of the client certificate.
+	// Description of the client certificate.
 	Description pulumi.StringPtrInput
-	// The date when the client certificate will expire.
+	// Date when the client certificate will expire.
 	ExpirationDate pulumi.StringPtrInput
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -133,7 +133,7 @@ func (ClientCertificateState) ElementType() reflect.Type {
 }
 
 type clientCertificateArgs struct {
-	// The description of the client certificate.
+	// Description of the client certificate.
 	Description *string `pulumi:"description"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -141,7 +141,7 @@ type clientCertificateArgs struct {
 
 // The set of arguments for constructing a ClientCertificate resource.
 type ClientCertificateArgs struct {
-	// The description of the client certificate.
+	// Description of the client certificate.
 	Description pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -234,22 +234,22 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o ClientCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date when the client certificate was created.
+// Date when the client certificate was created.
 func (o ClientCertificateOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The description of the client certificate.
+// Description of the client certificate.
 func (o ClientCertificateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date when the client certificate will expire.
+// Date when the client certificate will expire.
 func (o ClientCertificateOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
 }
@@ -264,7 +264,7 @@ func (o ClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClientCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

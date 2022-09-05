@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetUserHierarchyStructureHierarchyStructureLevelOneResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy level.
+        /// ARN of the hierarchy level.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the user hierarchy level. Must not be more than 50 characters.
+        /// Name of the user hierarchy level. Must not be more than 50 characters.
         /// </summary>
         public readonly string Name;
 

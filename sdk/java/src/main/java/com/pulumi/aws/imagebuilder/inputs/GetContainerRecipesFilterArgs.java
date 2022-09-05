@@ -15,14 +15,14 @@ public final class GetContainerRecipesFilterArgs extends com.pulumi.resources.Re
     public static final GetContainerRecipesFilterArgs Empty = new GetContainerRecipesFilterArgs();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+     * Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetContainerRecipesFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetContainerRecipesFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
          * 
          * @return builder
          * 

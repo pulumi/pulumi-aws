@@ -41,15 +41,15 @@ export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetLinksArgs {
     /**
-     * The ID of the Global Network of the links to retrieve.
+     * ID of the Global Network of the links to retrieve.
      */
     globalNetworkId: string;
     /**
-     * The link provider to retrieve.
+     * Link provider to retrieve.
      */
     providerName?: string;
     /**
-     * The ID of the site of the links to retrieve.
+     * ID of the site of the links to retrieve.
      */
     siteId?: string;
     /**
@@ -57,7 +57,7 @@ export interface GetLinksArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The link type to retrieve.
+     * Link type to retrieve.
      */
     type?: string;
 }
@@ -72,7 +72,7 @@ export interface GetLinksResult {
      */
     readonly id: string;
     /**
-     * The IDs of the links.
+     * IDs of the links.
      */
     readonly ids: string[];
     readonly providerName?: string;
@@ -90,15 +90,15 @@ export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetLinksOutputArgs {
     /**
-     * The ID of the Global Network of the links to retrieve.
+     * ID of the Global Network of the links to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The link provider to retrieve.
+     * Link provider to retrieve.
      */
     providerName?: pulumi.Input<string>;
     /**
-     * The ID of the site of the links to retrieve.
+     * ID of the site of the links to retrieve.
      */
     siteId?: pulumi.Input<string>;
     /**
@@ -106,7 +106,7 @@ export interface GetLinksOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The link type to retrieve.
+     * Link type to retrieve.
      */
     type?: pulumi.Input<string>;
 }

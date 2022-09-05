@@ -38,7 +38,7 @@ export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi
  */
 export interface GetReportDefinitionArgs {
     /**
-     * The name of the report definition to match.
+     * Name of the report definition to match.
      */
     reportName: string;
 }
@@ -89,7 +89,7 @@ export interface GetReportDefinitionResult {
      */
     readonly s3Region: string;
     /**
-     * The frequency on which report data are measured and displayed.
+     * Frequency on which report data are measured and displayed.
      */
     readonly timeUnit: string;
 }
@@ -103,7 +103,7 @@ export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, o
  */
 export interface GetReportDefinitionOutputArgs {
     /**
-     * The name of the report definition to match.
+     * Name of the report definition to match.
      */
     reportName: pulumi.Input<string>;
 }

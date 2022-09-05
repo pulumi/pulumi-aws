@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class GetUserHierarchyStructureHierarchyStructureResult
     {
         /// <summary>
-        /// A block that defines the details of level five. The level block is documented below.
+        /// Details of level five. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult> LevelFives;
         /// <summary>
-        /// A block that defines the details of level four. The level block is documented below.
+        /// Details of level four. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult> LevelFours;
         /// <summary>
-        /// A block that defines the details of level one. The level block is documented below.
+        /// Details of level one. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult> LevelOnes;
         /// <summary>
-        /// A block that defines the details of level three. The level block is documented below.
+        /// Details of level three. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult> LevelThrees;
         /// <summary>
-        /// A block that defines the details of level two. The level block is documented below.
+        /// Details of level two. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult> LevelTwos;
 

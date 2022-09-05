@@ -128,7 +128,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      */
     public readonly rubygemsVersion!: pulumi.Output<string | undefined>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -319,7 +319,7 @@ export interface RailsAppLayerState {
      */
     rubygemsVersion?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -423,7 +423,7 @@ export interface RailsAppLayerArgs {
      */
     rubygemsVersion?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

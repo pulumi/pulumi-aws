@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainAssociationSubDomain {
     /**
-     * @return The branch name setting for the subdomain.
+     * @return Branch name setting for the subdomain.
      * 
      */
     private String branchName;
     /**
-     * @return The DNS record for the subdomain.
+     * @return DNS record for the subdomain.
      * 
      */
     private @Nullable String dnsRecord;
     /**
-     * @return The prefix setting for the subdomain.
+     * @return Prefix setting for the subdomain.
      * 
      */
     private String prefix;
     /**
-     * @return The verified status of the subdomain.
+     * @return Verified status of the subdomain.
      * 
      */
     private @Nullable Boolean verified;
 
     private DomainAssociationSubDomain() {}
     /**
-     * @return The branch name setting for the subdomain.
+     * @return Branch name setting for the subdomain.
      * 
      */
     public String branchName() {
         return this.branchName;
     }
     /**
-     * @return The DNS record for the subdomain.
+     * @return DNS record for the subdomain.
      * 
      */
     public Optional<String> dnsRecord() {
         return Optional.ofNullable(this.dnsRecord);
     }
     /**
-     * @return The prefix setting for the subdomain.
+     * @return Prefix setting for the subdomain.
      * 
      */
     public String prefix() {
         return this.prefix;
     }
     /**
-     * @return The verified status of the subdomain.
+     * @return Verified status of the subdomain.
      * 
      */
     public Optional<Boolean> verified() {

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket name where the source files are stored.
+        /// Amazon S3 bucket name where the source files are stored.
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The object key for the Amazon S3 bucket in which the source files are stored.
+        /// Object key for the Amazon S3 bucket in which the source files are stored.
         /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }

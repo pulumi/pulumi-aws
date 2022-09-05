@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPrefixListFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetPrefixListFilter {
 
     private GetPrefixListFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
      * 
      */
     public String name() {

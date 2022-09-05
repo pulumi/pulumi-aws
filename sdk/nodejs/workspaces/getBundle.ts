@@ -50,15 +50,15 @@ export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetBundleArgs {
     /**
-     * The ID of the bundle.
+     * ID of the bundle.
      */
     bundleId?: string;
     /**
-     * The name of the bundle. You cannot combine this parameter with `bundleId`.
+     * Name of the bundle. You cannot combine this parameter with `bundleId`.
      */
     name?: string;
     /**
-     * The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      */
     owner?: string;
 }
@@ -84,7 +84,7 @@ export interface GetBundleResult {
      */
     readonly id: string;
     /**
-     * The name of the compute type.
+     * Name of the compute type.
      */
     readonly name?: string;
     /**
@@ -110,15 +110,15 @@ export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetBundleOutputArgs {
     /**
-     * The ID of the bundle.
+     * ID of the bundle.
      */
     bundleId?: pulumi.Input<string>;
     /**
-     * The name of the bundle. You cannot combine this parameter with `bundleId`.
+     * Name of the bundle. You cannot combine this parameter with `bundleId`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      */
     owner?: pulumi.Input<string>;
 }

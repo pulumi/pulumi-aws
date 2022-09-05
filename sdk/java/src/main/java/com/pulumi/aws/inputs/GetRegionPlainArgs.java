@@ -15,14 +15,14 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRegionPlainArgs Empty = new GetRegionPlainArgs();
 
     /**
-     * The EC2 endpoint of the region to select.
+     * EC2 endpoint of the region to select.
      * 
      */
     @Import(name="endpoint")
     private @Nullable String endpoint;
 
     /**
-     * @return The EC2 endpoint of the region to select.
+     * @return EC2 endpoint of the region to select.
      * 
      */
     public Optional<String> endpoint() {
@@ -30,14 +30,14 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The full name of the region to select.
+     * Full name of the region to select.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The full name of the region to select.
+     * @return Full name of the region to select.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param endpoint The EC2 endpoint of the region to select.
+         * @param endpoint EC2 endpoint of the region to select.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The full name of the region to select.
+         * @param name Full name of the region to select.
          * 
          * @return builder
          * 

@@ -72,11 +72,11 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
     /**
-     * The broker's engine type.
+     * Broker's engine type.
      */
     readonly engineType?: string;
     /**
-     * The broker's instance type.
+     * Broker's instance type.
      */
     readonly hostInstanceType?: string;
     /**
@@ -84,7 +84,7 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly id: string;
     /**
-     * The broker's storage type.
+     * Broker's storage type.
      */
     readonly storageType?: string;
 }

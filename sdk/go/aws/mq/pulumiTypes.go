@@ -1848,7 +1848,7 @@ func (o GetBrokerUserArrayOutput) Index(i pulumi.IntInput) GetBrokerUserOutput {
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOption struct {
-	// The list of available AZs. See Availability Zones. below
+	// List of available AZs. See Availability Zones. below
 	AvailabilityZones []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone `pulumi:"availabilityZones"`
 	// Filter response by engine type.
 	EngineType string `pulumi:"engineType"`
@@ -1874,7 +1874,7 @@ type GetInstanceTypeOfferingsBrokerInstanceOptionInput interface {
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionArgs struct {
-	// The list of available AZs. See Availability Zones. below
+	// List of available AZs. See Availability Zones. below
 	AvailabilityZones GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput `pulumi:"availabilityZones"`
 	// Filter response by engine type.
 	EngineType pulumi.StringInput `pulumi:"engineType"`
@@ -1939,7 +1939,7 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOff
 	return o
 }
 
-// The list of available AZs. See Availability Zones. below
+// List of available AZs. See Availability Zones. below
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) AvailabilityZones() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
 		return v.AvailabilityZones
@@ -1992,7 +1992,7 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) Index(i pulumi.
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone struct {
-	// The name of the Availability Zone.
+	// Name of the Availability Zone.
 	Name string `pulumi:"name"`
 }
 
@@ -2008,7 +2008,7 @@ type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput interface
 }
 
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs struct {
-	// The name of the Availability Zone.
+	// Name of the Availability Zone.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2063,7 +2063,7 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGe
 	return o
 }
 
-// The name of the Availability Zone.
+// Name of the Availability Zone.
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless.inputs;
 
 import com.pulumi.aws.redshiftserverless.inputs.WorkgroupConfigParameterArgs;
+import com.pulumi.aws.redshiftserverless.inputs.WorkgroupEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -63,6 +64,21 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<WorkgroupConfigParameterArgs>>> configParameters() {
         return Optional.ofNullable(this.configParameters);
+    }
+
+    /**
+     * The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
+    @Import(name="endpoints")
+    private @Nullable Output<List<WorkgroupEndpointArgs>> endpoints;
+
+    /**
+     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
+     * 
+     */
+    public Optional<Output<List<WorkgroupEndpointArgs>>> endpoints() {
+        return Optional.ofNullable(this.endpoints);
     }
 
     /**
@@ -139,9 +155,17 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -182,6 +206,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.baseCapacity = $.baseCapacity;
         this.configParameters = $.configParameters;
+        this.endpoints = $.endpoints;
         this.enhancedVpcRouting = $.enhancedVpcRouting;
         this.namespaceName = $.namespaceName;
         this.publiclyAccessible = $.publiclyAccessible;
@@ -282,6 +307,37 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder configParameters(WorkgroupConfigParameterArgs... configParameters) {
             return configParameters(List.of(configParameters));
+        }
+
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(@Nullable Output<List<WorkgroupEndpointArgs>> endpoints) {
+            $.endpoints = endpoints;
+            return this;
+        }
+
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(List<WorkgroupEndpointArgs> endpoints) {
+            return endpoints(Output.of(endpoints));
+        }
+
+        /**
+         * @param endpoints The endpoint that is created from the workgroup. See `Endpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(WorkgroupEndpointArgs... endpoints) {
+            return endpoints(List.of(endpoints));
         }
 
         /**
@@ -406,11 +462,23 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

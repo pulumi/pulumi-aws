@@ -51,14 +51,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
     @Import(name="permanentDeletionTimeInDays")
     private @Nullable Output<Integer> permanentDeletionTimeInDays;
 
     /**
-     * @return The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * @return Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
     public Optional<Output<Integer>> permanentDeletionTimeInDays() {
@@ -81,14 +81,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -96,14 +96,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * @return Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -182,7 +182,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param permanentDeletionTimeInDays The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+         * @param permanentDeletionTimeInDays Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param permanentDeletionTimeInDays The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+         * @param permanentDeletionTimeInDays Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+         * @param type Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+         * @param type Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
          * 
          * @return builder
          * 

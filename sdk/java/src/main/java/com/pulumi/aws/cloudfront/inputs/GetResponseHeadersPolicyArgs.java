@@ -16,14 +16,14 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
     public static final GetResponseHeadersPolicyArgs Empty = new GetResponseHeadersPolicyArgs();
 
     /**
-     * The identifier for the response headers policy.
+     * Identifier for the response headers policy.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The identifier for the response headers policy.
+     * @return Identifier for the response headers policy.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * A unique name to identify the response headers policy.
+     * Unique name to identify the response headers policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique name to identify the response headers policy.
+     * @return Unique name to identify the response headers policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param id The identifier for the response headers policy.
+         * @param id Identifier for the response headers policy.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param id The identifier for the response headers policy.
+         * @param id Identifier for the response headers policy.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name A unique name to identify the response headers policy.
+         * @param name Unique name to identify the response headers policy.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetResponseHeadersPolicyArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name A unique name to identify the response headers policy.
+         * @param name Unique name to identify the response headers policy.
          * 
          * @return builder
          * 

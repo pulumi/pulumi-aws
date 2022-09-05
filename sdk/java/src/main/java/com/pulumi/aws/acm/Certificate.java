@@ -168,14 +168,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acm/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the certificate
+     * @return ARN of the certificate
      * 
      */
     public Output<String> arn() {
@@ -196,21 +196,21 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificateAuthorityArn);
     }
     /**
-     * The certificate&#39;s PEM-formatted public key
+     * Certificate&#39;s PEM-formatted public key
      * 
      */
     @Export(name="certificateBody", type=String.class, parameters={})
     private Output</* @Nullable */ String> certificateBody;
 
     /**
-     * @return The certificate&#39;s PEM-formatted public key
+     * @return Certificate&#39;s PEM-formatted public key
      * 
      */
     public Output<Optional<String>> certificateBody() {
         return Codegen.optional(this.certificateBody);
     }
     /**
-     * The certificate&#39;s PEM-formatted chain
+     * Certificate&#39;s PEM-formatted chain
      * * Creating a private CA issued certificate
      * 
      */
@@ -218,7 +218,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> certificateChain;
 
     /**
-     * @return The certificate&#39;s PEM-formatted chain
+     * @return Certificate&#39;s PEM-formatted chain
      * * Creating a private CA issued certificate
      * 
      */
@@ -226,14 +226,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificateChain);
     }
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return A fully qualified domain name (FQDN) in the certificate.
+     * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     public Output<String> domainName() {
@@ -254,28 +254,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.domainValidationOptions;
     }
     /**
-     * The expiration date and time of the certificate.
+     * Expiration date and time of the certificate.
      * 
      */
     @Export(name="notAfter", type=String.class, parameters={})
     private Output<String> notAfter;
 
     /**
-     * @return The expiration date and time of the certificate.
+     * @return Expiration date and time of the certificate.
      * 
      */
     public Output<String> notAfter() {
         return this.notAfter;
     }
     /**
-     * The start of the validity period of the certificate.
+     * Start of the validity period of the certificate.
      * 
      */
     @Export(name="notBefore", type=String.class, parameters={})
     private Output<String> notBefore;
 
     /**
-     * @return The start of the validity period of the certificate.
+     * @return Start of the validity period of the certificate.
      * 
      */
     public Output<String> notBefore() {
@@ -296,14 +296,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.options);
     }
     /**
-     * The certificate&#39;s PEM-formatted private key
+     * Certificate&#39;s PEM-formatted private key
      * 
      */
     @Export(name="privateKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return The certificate&#39;s PEM-formatted private key
+     * @return Certificate&#39;s PEM-formatted private key
      * 
      */
     public Output<Optional<String>> privateKey() {
@@ -338,58 +338,50 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.subjectAlternativeNames;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      * 
      */
     @Export(name="validationEmails", type=List.class, parameters={String.class})
     private Output<List<String>> validationEmails;
 
     /**
-     * @return A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * @return List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      * 
      */
     public Output<List<String>> validationEmails() {
         return this.validationEmails;
     }
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     * 
-     */
     @Export(name="validationMethod", type=String.class, parameters={})
     private Output<String> validationMethod;
 
-    /**
-     * @return Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     * 
-     */
     public Output<String> validationMethod() {
         return this.validationMethod;
     }

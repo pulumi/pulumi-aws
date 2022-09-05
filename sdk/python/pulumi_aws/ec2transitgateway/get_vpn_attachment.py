@@ -119,7 +119,7 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """
@@ -174,7 +174,7 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """

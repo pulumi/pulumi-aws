@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the prometheus workspace the alert manager definition should be linked to
+        /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Amp
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
-        /// The id of the prometheus workspace the alert manager definition should be linked to
+        /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Definition { get; set; }
 
         /// <summary>
-        /// The id of the prometheus workspace the alert manager definition should be linked to
+        /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

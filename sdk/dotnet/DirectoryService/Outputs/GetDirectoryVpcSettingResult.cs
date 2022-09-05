@@ -15,11 +15,11 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     {
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+        /// Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The ID of the VPC that the connector is in.
+        /// ID of the VPC that the connector is in.
         /// </summary>
         public readonly string VpcId;
 

@@ -46,7 +46,7 @@ export interface GetLocalGatewaysArgs {
      */
     filters?: inputs.ec2.GetLocalGatewaysFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
     tags?: {[key: string]: string};
@@ -81,7 +81,7 @@ export interface GetLocalGatewaysOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewaysFilterArgs>[]>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

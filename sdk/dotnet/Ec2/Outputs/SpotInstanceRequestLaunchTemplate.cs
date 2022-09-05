@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class SpotInstanceRequestLaunchTemplate
     {
         /// <summary>
-        /// The ID of the launch template. Conflicts with `name`.
+        /// ID of the launch template. Conflicts with `name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the launch template. Conflicts with `id`.
+        /// Name of the launch template. Conflicts with `id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

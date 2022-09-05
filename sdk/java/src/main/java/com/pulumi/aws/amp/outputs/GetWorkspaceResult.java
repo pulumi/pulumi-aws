@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return The Prometheus workspace alias.
+     * @return Prometheus workspace alias.
      * 
      */
     private String alias;
     /**
-     * @return The Amazon Resource Name (ARN) of the Prometheus workspace.
+     * @return ARN of the Prometheus workspace.
      * 
      */
     private String arn;
     /**
-     * @return The creation date of the Prometheus workspace.
+     * @return Creation date of the Prometheus workspace.
      * 
      */
     private String createdDate;
@@ -31,17 +31,17 @@ public final class GetWorkspaceResult {
      */
     private String id;
     /**
-     * @return The endpoint of the Prometheus workspace.
+     * @return Endpoint of the Prometheus workspace.
      * 
      */
     private String prometheusEndpoint;
     /**
-     * @return The status of the Prometheus workspace.
+     * @return Status of the Prometheus workspace.
      * 
      */
     private String status;
     /**
-     * @return The tags assigned to the resource.
+     * @return Tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -49,21 +49,21 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return The Prometheus workspace alias.
+     * @return Prometheus workspace alias.
      * 
      */
     public String alias() {
         return this.alias;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Prometheus workspace.
+     * @return ARN of the Prometheus workspace.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The creation date of the Prometheus workspace.
+     * @return Creation date of the Prometheus workspace.
      * 
      */
     public String createdDate() {
@@ -77,21 +77,21 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
-     * @return The endpoint of the Prometheus workspace.
+     * @return Endpoint of the Prometheus workspace.
      * 
      */
     public String prometheusEndpoint() {
         return this.prometheusEndpoint;
     }
     /**
-     * @return The status of the Prometheus workspace.
+     * @return Status of the Prometheus workspace.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The tags assigned to the resource.
+     * @return Tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

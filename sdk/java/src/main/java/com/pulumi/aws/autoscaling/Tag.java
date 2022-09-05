@@ -27,28 +27,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Autoscaling Group to apply the tag to.
+     * Name of the Autoscaling Group to apply the tag to.
      * 
      */
     @Export(name="autoscalingGroupName", type=String.class, parameters={})
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the Autoscaling Group to apply the tag to.
+     * @return Name of the Autoscaling Group to apply the tag to.
      * 
      */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
     /**
-     * The tag to create. The `tag` block is documented below.
+     * Tag to create. The `tag` block is documented below.
      * 
      */
     @Export(name="tag", type=TagTag.class, parameters={})
     private Output<TagTag> tag;
 
     /**
-     * @return The tag to create. The `tag` block is documented below.
+     * @return Tag to create. The `tag` block is documented below.
      * 
      */
     public Output<TagTag> tag() {

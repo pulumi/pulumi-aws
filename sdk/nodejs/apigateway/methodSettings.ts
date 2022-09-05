@@ -110,15 +110,15 @@ export class MethodSettings extends pulumi.CustomResource {
      */
     public readonly methodPath!: pulumi.Output<string>;
     /**
-     * The ID of the REST API
+     * ID of the REST API
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * The settings block, see below.
+     * Settings block, see below.
      */
     public readonly settings!: pulumi.Output<outputs.apigateway.MethodSettingsSettings>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     public readonly stageName!: pulumi.Output<string>;
 
@@ -172,15 +172,15 @@ export interface MethodSettingsState {
      */
     methodPath?: pulumi.Input<string>;
     /**
-     * The ID of the REST API
+     * ID of the REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * The settings block, see below.
+     * Settings block, see below.
      */
     settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     stageName?: pulumi.Input<string>;
 }
@@ -194,15 +194,15 @@ export interface MethodSettingsArgs {
      */
     methodPath: pulumi.Input<string>;
     /**
-     * The ID of the REST API
+     * ID of the REST API
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * The settings block, see below.
+     * Settings block, see below.
      */
     settings: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     stageName: pulumi.Input<string>;
 }

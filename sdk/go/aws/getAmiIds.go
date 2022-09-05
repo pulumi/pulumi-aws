@@ -67,7 +67,7 @@ type GetAmiIdsArgs struct {
 	// are several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
-	// A regex string to apply to the AMI list returned
+	// Regex string to apply to the AMI list returned
 	// by AWS. This allows more advanced filtering not supported from the AWS API.
 	// This filtering is done locally on what AWS returns, and could have a performance
 	// impact if the result is large. Combine this with other
@@ -113,7 +113,7 @@ type GetAmiIdsOutputArgs struct {
 	// are several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
-	// A regex string to apply to the AMI list returned
+	// Regex string to apply to the AMI list returned
 	// by AWS. This allows more advanced filtering not supported from the AWS API.
 	// This filtering is done locally on what AWS returns, and could have a performance
 	// impact if the result is large. Combine this with other

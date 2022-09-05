@@ -104,7 +104,8 @@ type ContainerRecipe struct {
 	// Platform of the container recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
@@ -187,7 +188,8 @@ type containerRecipeState struct {
 	// Platform of the container recipe.
 	Platform *string `pulumi:"platform"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The destination repository for the container image. Detailed below.
 	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
@@ -227,7 +229,8 @@ type ContainerRecipeState struct {
 	// Platform of the container recipe.
 	Platform pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryPtrInput
@@ -462,6 +465,7 @@ func (o ContainerRecipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContainerRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

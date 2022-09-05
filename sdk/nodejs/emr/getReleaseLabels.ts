@@ -54,7 +54,7 @@ export interface GetReleaseLabelsResult {
      */
     readonly id: string;
     /**
-     * The returned release labels.
+     * Returned release labels.
      */
     readonly releaseLabels: string[];
 }

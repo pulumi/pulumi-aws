@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        /// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmGetArgs>? Acm { get; set; }
 
         /// <summary>
-        /// The TLS validation context trust for a local file certificate.
+        /// TLS validation context trust for a local file certificate.
         /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileGetArgs>? File { get; set; }
 
         /// <summary>
-        /// The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
         [Input("sds")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsGetArgs>? Sds { get; set; }

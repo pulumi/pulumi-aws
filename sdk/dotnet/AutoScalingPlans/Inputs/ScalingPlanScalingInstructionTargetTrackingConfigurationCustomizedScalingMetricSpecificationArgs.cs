@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         private InputMap<string>? _dimensions;
 
         /// <summary>
-        /// The dimensions of the metric.
+        /// Dimensions of the metric.
         /// </summary>
         public InputMap<string> Dimensions
         {
@@ -25,25 +25,25 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         }
 
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
-        /// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+        /// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
         /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
         /// <summary>
-        /// The unit of the metric.
+        /// Unit of the metric.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

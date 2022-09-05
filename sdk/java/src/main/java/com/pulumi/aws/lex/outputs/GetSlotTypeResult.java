@@ -20,17 +20,17 @@ public final class GetSlotTypeResult {
      */
     private String checksum;
     /**
-     * @return The date when the slot type version was created.
+     * @return Date when the slot type version was created.
      * 
      */
     private String createdDate;
     /**
-     * @return A description of the slot type.
+     * @return Description of the slot type.
      * 
      */
     private String description;
     /**
-     * @return A set of EnumerationValue objects that defines the values that
+     * @return Set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      * 
@@ -42,12 +42,12 @@ public final class GetSlotTypeResult {
      */
     private String id;
     /**
-     * @return The date when the $LATEST version of this slot type was updated.
+     * @return Date when the $LATEST version of this slot type was updated.
      * 
      */
     private String lastUpdatedDate;
     /**
-     * @return The name of the slot type. The name is not case sensitive.
+     * @return Name of the slot type. The name is not case sensitive.
      * 
      */
     private String name;
@@ -60,7 +60,7 @@ public final class GetSlotTypeResult {
      */
     private String valueSelectionStrategy;
     /**
-     * @return The version of the slot type.
+     * @return Version of the slot type.
      * 
      */
     private @Nullable String version;
@@ -75,21 +75,21 @@ public final class GetSlotTypeResult {
         return this.checksum;
     }
     /**
-     * @return The date when the slot type version was created.
+     * @return Date when the slot type version was created.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return A description of the slot type.
+     * @return Description of the slot type.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return A set of EnumerationValue objects that defines the values that
+     * @return Set of EnumerationValue objects that defines the values that
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      * 
@@ -105,14 +105,14 @@ public final class GetSlotTypeResult {
         return this.id;
     }
     /**
-     * @return The date when the $LATEST version of this slot type was updated.
+     * @return Date when the $LATEST version of this slot type was updated.
      * 
      */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * @return The name of the slot type. The name is not case sensitive.
+     * @return Name of the slot type. The name is not case sensitive.
      * 
      */
     public String name() {
@@ -129,7 +129,7 @@ public final class GetSlotTypeResult {
         return this.valueSelectionStrategy;
     }
     /**
-     * @return The version of the slot type.
+     * @return Version of the slot type.
      * 
      */
     public Optional<String> version() {

@@ -27,7 +27,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable String databaseUrl;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     private String roleArn;
@@ -55,7 +55,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.databaseUrl);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public String roleArn() {

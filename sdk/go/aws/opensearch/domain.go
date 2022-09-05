@@ -121,7 +121,7 @@ import (
 //	}
 //
 // ```
-// ### Log Publishing to CloudWatch Logs
+// ### Log publishing to CloudWatch Logs
 //
 // ```go
 // package main
@@ -184,6 +184,113 @@ import (
 //	}
 //
 // ```
+// ### Enabling fine-grained access control on an existing domain
+//
+// This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+// ### First apply
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
+//					AnonymousAuthEnabled:        pulumi.Bool(true),
+//					Enabled:                     pulumi.Bool(false),
+//					InternalUserDatabaseEnabled: pulumi.Bool(true),
+//					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
+//						MasterUserName:     pulumi.String("example"),
+//						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
+//					},
+//				},
+//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
+//					InstanceType: pulumi.String("r5.large.search"),
+//				},
+//				DomainEndpointOptions: &opensearch.DomainDomainEndpointOptionsArgs{
+//					EnforceHttps:      pulumi.Bool(true),
+//					TlsSecurityPolicy: pulumi.String("Policy-Min-TLS-1-2-2019-07"),
+//				},
+//				EbsOptions: &opensearch.DomainEbsOptionsArgs{
+//					EbsEnabled: pulumi.Bool(true),
+//					VolumeSize: pulumi.Int(10),
+//				},
+//				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
+//				NodeToNodeEncryption: &opensearch.DomainNodeToNodeEncryptionArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Second apply
+//
+// Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
+//					AnonymousAuthEnabled:        pulumi.Bool(true),
+//					Enabled:                     pulumi.Bool(true),
+//					InternalUserDatabaseEnabled: pulumi.Bool(true),
+//					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
+//						MasterUserName:     pulumi.String("example"),
+//						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
+//					},
+//				},
+//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
+//					InstanceType: pulumi.String("r5.large.search"),
+//				},
+//				DomainEndpointOptions: &opensearch.DomainDomainEndpointOptionsArgs{
+//					EnforceHttps:      pulumi.Bool(true),
+//					TlsSecurityPolicy: pulumi.String("Policy-Min-TLS-1-2-2019-07"),
+//				},
+//				EbsOptions: &opensearch.DomainEbsOptionsArgs{
+//					EbsEnabled: pulumi.Bool(true),
+//					VolumeSize: pulumi.Int(10),
+//				},
+//				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
+//				NodeToNodeEncryption: &opensearch.DomainNodeToNodeEncryptionArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -232,8 +339,9 @@ type Domain struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
-	Tags            pulumi.StringMapOutput         `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
@@ -302,8 +410,9 @@ type domainState struct {
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	Tags            map[string]string      `pulumi:"tags"`
-	TagsAll         map[string]string      `pulumi:"tagsAll"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -344,8 +453,9 @@ type DomainState struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
 }
@@ -382,7 +492,8 @@ type domainArgs struct {
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	Tags            map[string]string      `pulumi:"tags"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -416,7 +527,8 @@ type DomainArgs struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	Tags            pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
 }
@@ -597,6 +709,7 @@ func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

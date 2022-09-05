@@ -251,7 +251,7 @@ def get_load_balancer(name: Optional[str] = None,
     ```
 
 
-    :param str name: The unique name of the load balancer.
+    :param str name: Unique name of the load balancer.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -310,6 +310,6 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The unique name of the load balancer.
+    :param str name: Unique name of the load balancer.
     """
     ...

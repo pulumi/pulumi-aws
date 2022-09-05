@@ -52,7 +52,7 @@ class GetResourceResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "last_modified")
 
@@ -92,7 +92,7 @@ def get_resource(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the resource, an S3 path.
+    :param str arn: ARN of the resource, an S3 path.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -122,6 +122,6 @@ def get_resource_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the resource, an S3 path.
+    :param str arn: ARN of the resource, an S3 path.
     """
     ...

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ServiceObservabilityConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        /// ARN of the observability configuration that is associated with the service.
         /// </summary>
         public readonly string ObservabilityConfigurationArn;
         /// <summary>

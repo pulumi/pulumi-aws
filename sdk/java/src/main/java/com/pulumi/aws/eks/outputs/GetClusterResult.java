@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     private String arn;
@@ -26,7 +26,7 @@ public final class GetClusterResult {
      */
     private List<GetClusterCertificateAuthority> certificateAuthorities;
     /**
-     * @return The Unix epoch time stamp in seconds for when the cluster was created.
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
     private String createdAt;
@@ -57,17 +57,17 @@ public final class GetClusterResult {
     private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
     private String name;
     /**
-     * @return The platform version for the cluster.
+     * @return Platform version for the cluster.
      * 
      */
     private String platformVersion;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
     private String roleArn;
     /**
-     * @return The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
     private String status;
@@ -77,7 +77,7 @@ public final class GetClusterResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The Kubernetes server version for the cluster.
+     * @return Kubernetes server version for the cluster.
      * 
      */
     private String version;
@@ -89,7 +89,7 @@ public final class GetClusterResult {
 
     private GetClusterResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public String arn() {
@@ -103,7 +103,7 @@ public final class GetClusterResult {
         return this.certificateAuthorities;
     }
     /**
-     * @return The Unix epoch time stamp in seconds for when the cluster was created.
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
     public String createdAt() {
@@ -148,21 +148,21 @@ public final class GetClusterResult {
         return this.name;
     }
     /**
-     * @return The platform version for the cluster.
+     * @return Platform version for the cluster.
      * 
      */
     public String platformVersion() {
         return this.platformVersion;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     * @return Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
     public String status() {
@@ -176,7 +176,7 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
-     * @return The Kubernetes server version for the cluster.
+     * @return Kubernetes server version for the cluster.
      * 
      */
     public String version() {

@@ -19,12 +19,12 @@ public final class RouteSpecHttp2RouteMatchHeader {
      */
     private @Nullable Boolean invert;
     /**
-     * @return The method and value to match the header value sent with a request. Specify one match method.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     private @Nullable RouteSpecHttp2RouteMatchHeaderMatch match;
     /**
-     * @return A name for the HTTP header in the client request that will be matched on.
+     * @return Name for the HTTP header in the client request that will be matched on.
      * 
      */
     private String name;
@@ -38,14 +38,14 @@ public final class RouteSpecHttp2RouteMatchHeader {
         return Optional.ofNullable(this.invert);
     }
     /**
-     * @return The method and value to match the header value sent with a request. Specify one match method.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     public Optional<RouteSpecHttp2RouteMatchHeaderMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return A name for the HTTP header in the client request that will be matched on.
+     * @return Name for the HTTP header in the client request that will be matched on.
      * 
      */
     public String name() {

@@ -48,7 +48,7 @@ class GetLogGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+        ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         """
         return pulumi.get(self, "arn")
 
@@ -56,7 +56,7 @@ class GetLogGroupResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> int:
         """
-        The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
         return pulumi.get(self, "creation_time")
 
@@ -72,7 +72,7 @@ class GetLogGroupResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The ARN of the KMS Key to use when encrypting log data.
+        ARN of the KMS Key to use when encrypting log data.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -85,7 +85,7 @@ class GetLogGroupResult:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> int:
         """
-        The number of days log events retained in the specified log group.
+        Number of days log events retained in the specified log group.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -93,7 +93,7 @@ class GetLogGroupResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the resource.
+        Map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -129,8 +129,8 @@ def get_log_group(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the Cloudwatch log group
-    :param Mapping[str, str] tags: A map of tags to assign to the resource.
+    :param str name: Name of the Cloudwatch log group
+    :param Mapping[str, str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -165,7 +165,7 @@ def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the Cloudwatch log group
-    :param Mapping[str, str] tags: A map of tags to assign to the resource.
+    :param str name: Name of the Cloudwatch log group
+    :param Mapping[str, str] tags: Map of tags to assign to the resource.
     """
     ...

@@ -17,14 +17,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetExportArgs Empty = new GetExportArgs();
 
     /**
-     * The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+     * Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
      * 
      */
     @Import(name="accepts")
     private @Nullable Output<String> accepts;
 
     /**
-     * @return The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+     * @return Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
      * 
      */
     public Optional<Output<String>> accepts() {
@@ -32,14 +32,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+     * Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
      * 
      */
     @Import(name="exportType", required=true)
     private Output<String> exportType;
 
     /**
-     * @return The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+     * @return Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
      * 
      */
     public Output<String> exportType() {
@@ -47,14 +47,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
+     * Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
+     * @return Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -62,14 +62,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The identifier of the associated REST API.
+     * Identifier of the associated REST API.
      * 
      */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
     /**
-     * @return The identifier of the associated REST API.
+     * @return Identifier of the associated REST API.
      * 
      */
     public Output<String> restApiId() {
@@ -77,14 +77,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Stage that will be exported.
+     * Name of the Stage that will be exported.
      * 
      */
     @Import(name="stageName", required=true)
     private Output<String> stageName;
 
     /**
-     * @return The name of the Stage that will be exported.
+     * @return Name of the Stage that will be exported.
      * 
      */
     public Output<String> stageName() {
@@ -120,7 +120,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accepts The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accepts The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param exportType The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+         * @param exportType Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param exportType The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+         * @param exportType Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param parameters A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
+         * @param parameters Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param parameters A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
+         * @param parameters Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions=&#39;integrations&#39;` or `extensions=&#39;apigateway&#39;` will export the API with x-amazon-apigateway-integration extensions. `extensions=&#39;authorizers&#39;` will export the API with x-amazon-apigateway-authorizer extensions.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param restApiId The identifier of the associated REST API.
+         * @param restApiId Identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param restApiId The identifier of the associated REST API.
+         * @param restApiId Identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param stageName The name of the Stage that will be exported.
+         * @param stageName Name of the Stage that will be exported.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param stageName The name of the Stage that will be exported.
+         * @param stageName Name of the Stage that will be exported.
          * 
          * @return builder
          * 

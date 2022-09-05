@@ -36,7 +36,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: {[key: string]: string};
     /**
@@ -50,7 +50,7 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The access permissions string used for this user.
+     * Access permissions string used for this user.
      */
     readonly accessString: string;
     /**
@@ -70,7 +70,7 @@ export interface GetUserResult {
      */
     readonly minimumEngineVersion: string;
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     readonly tags: {[key: string]: string};
     readonly userName: string;
@@ -85,7 +85,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * A map of tags assigned to the subnet group.
+     * Map of tags assigned to the subnet group.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

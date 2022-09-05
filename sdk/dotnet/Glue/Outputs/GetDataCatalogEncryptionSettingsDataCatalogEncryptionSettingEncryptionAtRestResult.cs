@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string CatalogEncryptionMode;
         /// <summary>
-        /// The ARN of the AWS KMS key to use for encryption at rest.
+        /// ARN of the AWS KMS key to use for encryption at rest.
         /// </summary>
         public readonly string SseAwsKmsKeyId;
 

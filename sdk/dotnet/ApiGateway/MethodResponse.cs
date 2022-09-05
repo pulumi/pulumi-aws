@@ -72,25 +72,25 @@ namespace Pulumi.Aws.ApiGateway
     public partial class MethodResponse : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Output("httpMethod")]
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of the API models used for the response's content type
+        /// Map of the API models used for the response's content type
         /// </summary>
         [Output("responseModels")]
         public Output<ImmutableDictionary<string, string>?> ResponseModels { get; private set; } = null!;
 
         /// <summary>
-        /// A map of response parameters that can be sent to the caller.
+        /// Map of response parameters that can be sent to the caller.
         /// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
         /// would define that the header `X-Some-Header` can be provided on the response.
         /// </summary>
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, bool>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code
         /// </summary>
         [Output("statusCode")]
         public Output<string> StatusCode { get; private set; } = null!;
@@ -156,13 +156,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class MethodResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseModels;
 
         /// <summary>
-        /// A map of the API models used for the response's content type
+        /// Map of the API models used for the response's content type
         /// </summary>
         public InputMap<string> ResponseModels
         {
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<bool>? _responseParameters;
 
         /// <summary>
-        /// A map of response parameters that can be sent to the caller.
+        /// Map of response parameters that can be sent to the caller.
         /// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
         /// would define that the header `X-Some-Header` can be provided on the response.
         /// </summary>
@@ -194,13 +194,13 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class MethodResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseModels;
 
         /// <summary>
-        /// A map of the API models used for the response's content type
+        /// Map of the API models used for the response's content type
         /// </summary>
         public InputMap<string> ResponseModels
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<bool>? _responseParameters;
 
         /// <summary>
-        /// A map of response parameters that can be sent to the caller.
+        /// Map of response parameters that can be sent to the caller.
         /// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
         /// would define that the header `X-Some-Header` can be provided on the response.
         /// </summary>
@@ -252,13 +252,13 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyStepAdjustmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The lower bound for the
+        /// Lower bound for the
         /// difference between the alarm threshold and the CloudWatch metric.
         /// Without a value, AWS will treat this bound as negative infinity.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? MetricIntervalLowerBound { get; set; }
 
         /// <summary>
-        /// The upper bound for the
+        /// Upper bound for the
         /// difference between the alarm threshold and the CloudWatch metric.
         /// Without a value, AWS will treat this bound as positive infinity. The upper bound
         /// must be greater than the lower bound.
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? MetricIntervalUpperBound { get; set; }
 
         /// <summary>
-        /// The number of members by which to
+        /// Number of members by which to
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         /// </summary>

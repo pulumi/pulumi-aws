@@ -73,8 +73,9 @@ type TransitGatewayRouteTableAttachment struct {
 	// The name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// The state of the attachment.
-	State   pulumi.StringOutput    `pulumi:"state"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput    `pulumi:"state"`
+	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn pulumi.StringOutput `pulumi:"transitGatewayRouteTableArn"`
@@ -136,8 +137,9 @@ type transitGatewayRouteTableAttachmentState struct {
 	// The name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// The state of the attachment.
-	State   *string           `pulumi:"state"`
-	Tags    map[string]string `pulumi:"tags"`
+	State *string           `pulumi:"state"`
+	Tags  map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn *string `pulumi:"transitGatewayRouteTableArn"`
@@ -165,8 +167,9 @@ type TransitGatewayRouteTableAttachmentState struct {
 	// The name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
 	// The state of the attachment.
-	State   pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	State pulumi.StringPtrInput
+	Tags  pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn pulumi.StringPtrInput
@@ -180,7 +183,6 @@ type transitGatewayRouteTableAttachmentArgs struct {
 	// The ID of the peer for the attachment.
 	PeeringId string            `pulumi:"peeringId"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn string `pulumi:"transitGatewayRouteTableArn"`
 }
@@ -190,7 +192,6 @@ type TransitGatewayRouteTableAttachmentArgs struct {
 	// The ID of the peer for the attachment.
 	PeeringId pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn pulumi.StringInput
 }
@@ -341,6 +342,7 @@ func (o TransitGatewayRouteTableAttachmentOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TransitGatewayRouteTableAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

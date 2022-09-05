@@ -74,9 +74,9 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
-	// The CodeStar Connection ARN.
+	// CodeStar Connection ARN.
 	Arn *string `pulumi:"arn"`
-	// The CodeStar Connection name.
+	// CodeStar Connection name.
 	Name *string `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -85,13 +85,13 @@ type LookupConnectionArgs struct {
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
 	Arn string `pulumi:"arn"`
-	// The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus string `pulumi:"connectionStatus"`
-	// The Amazon Resource Name (ARN) of the host associated with the connection.
+	// ARN of the host associated with the connection.
 	HostArn string `pulumi:"hostArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the CodeStar Connection. The name is unique in the calling AWS account.
+	// Name of the CodeStar Connection. The name is unique in the calling AWS account.
 	Name         string `pulumi:"name"`
 	ProviderType string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource.
@@ -113,9 +113,9 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
-	// The CodeStar Connection ARN.
+	// CodeStar Connection ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The CodeStar Connection name.
+	// CodeStar Connection name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -144,12 +144,12 @@ func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 func (o LookupConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the host associated with the connection.
+// ARN of the host associated with the connection.
 func (o LookupConnectionResultOutput) HostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.HostArn }).(pulumi.StringOutput)
 }
@@ -159,7 +159,7 @@ func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the CodeStar Connection. The name is unique in the calling AWS account.
+// Name of the CodeStar Connection. The name is unique in the calling AWS account.
 func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }

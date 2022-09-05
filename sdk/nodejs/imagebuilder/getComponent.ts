@@ -35,7 +35,7 @@ export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetComponentArgs {
     /**
-     * Amazon Resource Name (ARN) of the component.
+     * ARN of the component.
      */
     arn: string;
     /**
@@ -74,7 +74,7 @@ export interface GetComponentResult {
      */
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the Key Management Service (KMS) Key used to encrypt the component.
      */
     readonly kmsKeyId: string;
     /**
@@ -116,7 +116,7 @@ export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.I
  */
 export interface GetComponentOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the component.
+     * ARN of the component.
      */
     arn: pulumi.Input<string>;
     /**

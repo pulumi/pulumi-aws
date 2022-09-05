@@ -14,14 +14,14 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
     public static final GetGroupFilterArgs Empty = new GetGroupFilterArgs();
 
     /**
-     * The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
      */
     @Import(name="attributePath", required=true)
     private Output<String> attributePath;
 
     /**
-     * @return The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
      */
     public Output<String> attributePath() {
@@ -29,14 +29,14 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The value for an attribute.
+     * Value for an attribute.
      * 
      */
     @Import(name="attributeValue", required=true)
     private Output<String> attributeValue;
 
     /**
-     * @return The value for an attribute.
+     * @return Value for an attribute.
      * 
      */
     public Output<String> attributeValue() {
@@ -69,7 +69,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributePath The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributePath The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributeValue The value for an attribute.
+         * @param attributeValue Value for an attribute.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributeValue The value for an attribute.
+         * @param attributeValue Value for an attribute.
          * 
          * @return builder
          * 

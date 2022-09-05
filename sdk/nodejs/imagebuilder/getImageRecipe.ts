@@ -36,7 +36,7 @@ export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageRecipeArgs {
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     arn: string;
     /**
@@ -99,7 +99,7 @@ export interface GetImageRecipeResult {
      */
     readonly version: string;
     /**
-     * The working directory used during build and test workflows.
+     * Working directory used during build and test workflows.
      */
     readonly workingDirectory: string;
 }
@@ -113,7 +113,7 @@ export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulu
  */
 export interface GetImageRecipeOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     arn: pulumi.Input<string>;
     /**

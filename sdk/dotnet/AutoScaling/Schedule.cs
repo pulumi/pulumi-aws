@@ -64,58 +64,58 @@ namespace Pulumi.Aws.AutoScaling
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS to the autoscaling schedule.
+        /// ARN assigned by AWS to the autoscaling schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// Name or ARN of the Auto Scaling group.
         /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        /// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         /// </summary>
         [Output("desiredCapacity")]
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size for the Auto Scaling group. Default 0.
+        /// Maximum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the maximum size at the scheduled time.
         /// </summary>
         [Output("maxSize")]
         public Output<int> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum size for the Auto Scaling group. Default 0.
+        /// Minimum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the minimum size at the scheduled time.
         /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        /// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         /// </summary>
         [Output("recurrence")]
         public Output<string> Recurrence { get; private set; } = null!;
 
         /// <summary>
-        /// The name of this scaling action.
+        /// Name of this scaling action.
         /// </summary>
         [Output("scheduledActionName")]
         public Output<string> ScheduledActionName { get; private set; } = null!;
 
         /// <summary>
-        /// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Output("startTime")]
@@ -174,52 +174,52 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// Name or ARN of the Auto Scaling group.
         /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        /// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
 
         /// <summary>
-        /// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The maximum size for the Auto Scaling group. Default 0.
+        /// Maximum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the maximum size at the scheduled time.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimum size for the Auto Scaling group. Default 0.
+        /// Minimum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the minimum size at the scheduled time.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        /// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         /// </summary>
         [Input("recurrence")]
         public Input<string>? Recurrence { get; set; }
 
         /// <summary>
-        /// The name of this scaling action.
+        /// Name of this scaling action.
         /// </summary>
         [Input("scheduledActionName", required: true)]
         public Input<string> ScheduledActionName { get; set; } = null!;
 
         /// <summary>
-        /// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Input("startTime")]
@@ -240,58 +240,58 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS to the autoscaling schedule.
+        /// ARN assigned by AWS to the autoscaling schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// Name or ARN of the Auto Scaling group.
         /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
         /// <summary>
-        /// The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        /// Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
 
         /// <summary>
-        /// The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// The maximum size for the Auto Scaling group. Default 0.
+        /// Maximum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the maximum size at the scheduled time.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimum size for the Auto Scaling group. Default 0.
+        /// Minimum size for the Auto Scaling group. Default 0.
         /// Set to -1 if you don't want to change the minimum size at the scheduled time.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        /// Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         /// </summary>
         [Input("recurrence")]
         public Input<string>? Recurrence { get; set; }
 
         /// <summary>
-        /// The name of this scaling action.
+        /// Name of this scaling action.
         /// </summary>
         [Input("scheduledActionName")]
         public Input<string>? ScheduledActionName { get; set; }
 
         /// <summary>
-        /// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        /// Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         /// If you try to schedule your action in the past, Auto Scaling returns an error message.
         /// </summary>
         [Input("startTime")]

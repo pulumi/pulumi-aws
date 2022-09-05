@@ -306,14 +306,14 @@ public class CustomLayer extends com.pulumi.resources.CustomResource {
         return this.shortName;
     }
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      * 
      */
     @Export(name="stackId", type=String.class, parameters={})
     private Output<String> stackId;
 
     /**
-     * @return The id of the stack the layer will belong to.
+     * @return ID of the stack the layer will belong to.
      * 
      */
     public Output<String> stackId() {

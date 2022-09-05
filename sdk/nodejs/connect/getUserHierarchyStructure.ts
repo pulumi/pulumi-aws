@@ -45,7 +45,7 @@ export interface GetUserHierarchyStructureArgs {
  */
 export interface GetUserHierarchyStructureResult {
     /**
-     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+     * Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
     readonly hierarchyStructures: outputs.connect.GetUserHierarchyStructureHierarchyStructure[];
     /**

@@ -70,41 +70,41 @@ type LookupVolumeArgs struct {
 	// If more than one result is returned, use the most
 	// recent Volume.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 	Arn string `pulumi:"arn"`
-	// The AZ where the EBS volume exists.
+	// AZ where the EBS volume exists.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Whether the disk is encrypted.
 	Encrypted bool              `pulumi:"encrypted"`
 	Filters   []GetVolumeFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The amount of IOPS for the disk.
+	// Amount of IOPS for the disk.
 	Iops int `pulumi:"iops"`
-	// The ARN for the KMS encryption key.
+	// ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
 	// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
 	MultiAttachEnabled bool `pulumi:"multiAttachEnabled"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
-	// The size of the drive in GiBs.
+	// Size of the drive in GiBs.
 	Size int `pulumi:"size"`
-	// The snapshotId the EBS volume is based off.
+	// Snapshot_id the EBS volume is based off.
 	SnapshotId string `pulumi:"snapshotId"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The throughput that the volume supports, in MiB/s.
+	// Throughput that the volume supports, in MiB/s.
 	Throughput int `pulumi:"throughput"`
-	// The volume ID (e.g., vol-59fcb34e).
+	// Volume ID (e.g., vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
-	// The type of EBS volume.
+	// Type of EBS volume.
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -130,7 +130,7 @@ type LookupVolumeOutputArgs struct {
 	// If more than one result is returned, use the most
 	// recent Volume.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -153,12 +153,12 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx cont
 	return o
 }
 
-// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 func (o LookupVolumeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AZ where the EBS volume exists.
+// AZ where the EBS volume exists.
 func (o LookupVolumeResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -177,12 +177,12 @@ func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The amount of IOPS for the disk.
+// Amount of IOPS for the disk.
 func (o LookupVolumeResultOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVolumeResult) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// The ARN for the KMS encryption key.
+// ARN for the KMS encryption key.
 func (o LookupVolumeResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -196,37 +196,37 @@ func (o LookupVolumeResultOutput) MultiAttachEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVolumeResult) bool { return v.MultiAttachEnabled }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Outpost.
+// ARN of the Outpost.
 func (o LookupVolumeResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// The size of the drive in GiBs.
+// Size of the drive in GiBs.
 func (o LookupVolumeResultOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVolumeResult) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The snapshotId the EBS volume is based off.
+// Snapshot_id the EBS volume is based off.
 func (o LookupVolumeResultOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupVolumeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVolumeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The throughput that the volume supports, in MiB/s.
+// Throughput that the volume supports, in MiB/s.
 func (o LookupVolumeResultOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVolumeResult) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
-// The volume ID (e.g., vol-59fcb34e).
+// Volume ID (e.g., vol-59fcb34e).
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The type of EBS volume.
+// Type of EBS volume.
 func (o LookupVolumeResultOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumeType }).(pulumi.StringOutput)
 }

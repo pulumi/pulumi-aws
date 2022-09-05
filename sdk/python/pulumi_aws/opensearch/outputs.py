@@ -50,7 +50,9 @@ class DomainAdvancedSecurityOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "internalUserDatabaseEnabled":
+        if key == "anonymousAuthEnabled":
+            suggest = "anonymous_auth_enabled"
+        elif key == "internalUserDatabaseEnabled":
             suggest = "internal_user_database_enabled"
         elif key == "masterUserOptions":
             suggest = "master_user_options"
@@ -68,14 +70,18 @@ class DomainAdvancedSecurityOptions(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
+                 anonymous_auth_enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
                  master_user_options: Optional['outputs.DomainAdvancedSecurityOptionsMasterUserOptions'] = None):
         """
         :param bool enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param bool anonymous_auth_enabled: Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         :param bool internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
         :param 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs' master_user_options: Configuration block for the main user. Detailed below.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
@@ -88,6 +94,14 @@ class DomainAdvancedSecurityOptions(dict):
         Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="anonymousAuthEnabled")
+    def anonymous_auth_enabled(self) -> Optional[bool]:
+        """
+        Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+        """
+        return pulumi.get(self, "anonymous_auth_enabled")
 
     @property
     @pulumi.getter(name="internalUserDatabaseEnabled")
@@ -1266,7 +1280,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
                  durations: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult'],
                  start_at: str):
         """
-        :param str cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        :param str cron_expression_for_recurrence: Cron expression for an Auto-Tune maintenance schedule.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
         :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
@@ -1278,7 +1292,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
     @pulumi.getter(name="cronExpressionForRecurrence")
     def cron_expression_for_recurrence(self) -> str:
         """
-        A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        Cron expression for an Auto-Tune maintenance schedule.
         """
         return pulumi.get(self, "cron_expression_for_recurrence")
 
@@ -1305,8 +1319,8 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
                  unit: str,
                  value: int):
         """
-        :param str unit: Unit of time specifying the duration of an Auto-Tune maintenance window.
-        :param int value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        :param str unit: Unit of time.
+        :param int value: Duration of an Auto-Tune maintenance window.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -1315,7 +1329,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     @pulumi.getter
     def unit(self) -> str:
         """
-        Unit of time specifying the duration of an Auto-Tune maintenance window.
+        Unit of time.
         """
         return pulumi.get(self, "unit")
 
@@ -1323,7 +1337,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        Duration of an Auto-Tune maintenance window.
         """
         return pulumi.get(self, "value")
 
@@ -1353,7 +1367,7 @@ class GetDomainClusterConfigResult(dict):
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
-        :param bool warm_enabled: Indicates warm storage is enabled.
+        :param bool warm_enabled: Warm storage is enabled.
         """
         pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
@@ -1452,7 +1466,7 @@ class GetDomainClusterConfigResult(dict):
     @pulumi.getter(name="warmEnabled")
     def warm_enabled(self) -> Optional[bool]:
         """
-        Indicates warm storage is enabled.
+        Warm storage is enabled.
         """
         return pulumi.get(self, "warm_enabled")
 

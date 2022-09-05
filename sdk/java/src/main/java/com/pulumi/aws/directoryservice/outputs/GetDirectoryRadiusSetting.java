@@ -23,22 +23,22 @@ public final class GetDirectoryRadiusSetting {
      */
     private String displayLabel;
     /**
-     * @return The port that your RADIUS server is using for communications.
+     * @return Port that your RADIUS server is using for communications.
      * 
      */
     private Integer radiusPort;
     /**
-     * @return The maximum number of times that communication with the RADIUS server is attempted.
+     * @return Maximum number of times that communication with the RADIUS server is attempted.
      * 
      */
     private Integer radiusRetries;
     /**
-     * @return A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+     * @return Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
     private List<String> radiusServers;
     /**
-     * @return The amount of time, in seconds, to wait for the RADIUS server to respond.
+     * @return Amount of time, in seconds, to wait for the RADIUS server to respond.
      * 
      */
     private Integer radiusTimeout;
@@ -64,28 +64,28 @@ public final class GetDirectoryRadiusSetting {
         return this.displayLabel;
     }
     /**
-     * @return The port that your RADIUS server is using for communications.
+     * @return Port that your RADIUS server is using for communications.
      * 
      */
     public Integer radiusPort() {
         return this.radiusPort;
     }
     /**
-     * @return The maximum number of times that communication with the RADIUS server is attempted.
+     * @return Maximum number of times that communication with the RADIUS server is attempted.
      * 
      */
     public Integer radiusRetries() {
         return this.radiusRetries;
     }
     /**
-     * @return A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+     * @return Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
     public List<String> radiusServers() {
         return this.radiusServers;
     }
     /**
-     * @return The amount of time, in seconds, to wait for the RADIUS server to respond.
+     * @return Amount of time, in seconds, to wait for the RADIUS server to respond.
      * 
      */
     public Integer radiusTimeout() {

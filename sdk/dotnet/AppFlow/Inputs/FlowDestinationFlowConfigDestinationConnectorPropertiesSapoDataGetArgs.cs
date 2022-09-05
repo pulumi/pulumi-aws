@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigGetArgs>? ErrorHandlingConfig { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<string>? _idFieldNames;
 
         /// <summary>
-        /// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
         /// </summary>
         public InputList<string> IdFieldNames
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The object path specified in the SAPOData flow source.
+        /// Object path specified in the SAPOData flow source.
         /// </summary>
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;

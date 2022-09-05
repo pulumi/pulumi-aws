@@ -13,14 +13,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagePlainArgs Empty = new GetImagePlainArgs();
 
     /**
-     * The ID of the image.
+     * ID of the image.
      * 
      */
     @Import(name="imageId", required=true)
     private String imageId;
 
     /**
-     * @return The ID of the image.
+     * @return ID of the image.
      * 
      */
     public String imageId() {
@@ -52,7 +52,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageId The ID of the image.
+         * @param imageId ID of the image.
          * 
          * @return builder
          * 

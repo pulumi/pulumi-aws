@@ -17,7 +17,7 @@ public final class BudgetCostTypes {
      */
     private @Nullable Boolean includeCredit;
     /**
-     * @return Specifies whether a budget includes discounts. Defaults to `true`
+     * @return Whether a budget includes discounts. Defaults to `true`
      * 
      */
     private @Nullable Boolean includeDiscount;
@@ -57,7 +57,7 @@ public final class BudgetCostTypes {
      */
     private @Nullable Boolean includeUpfront;
     /**
-     * @return Specifies whether a budget uses the amortized rate. Defaults to `false`
+     * @return Whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
     private @Nullable Boolean useAmortized;
@@ -76,7 +76,7 @@ public final class BudgetCostTypes {
         return Optional.ofNullable(this.includeCredit);
     }
     /**
-     * @return Specifies whether a budget includes discounts. Defaults to `true`
+     * @return Whether a budget includes discounts. Defaults to `true`
      * 
      */
     public Optional<Boolean> includeDiscount() {
@@ -132,7 +132,7 @@ public final class BudgetCostTypes {
         return Optional.ofNullable(this.includeUpfront);
     }
     /**
-     * @return Specifies whether a budget uses the amortized rate. Defaults to `false`
+     * @return Whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
     public Optional<Boolean> useAmortized() {

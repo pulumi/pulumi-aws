@@ -70,13 +70,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetResponseHeadersPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the response headers policy.
+        /// Identifier for the response headers policy.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// A unique name to identify the response headers policy.
+        /// Unique name to identify the response headers policy.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetResponseHeadersPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the response headers policy.
+        /// Identifier for the response headers policy.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// A unique name to identify the response headers policy.
+        /// Unique name to identify the response headers policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -112,11 +112,11 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetResponseHeadersPolicyResult
     {
         /// <summary>
-        /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+        /// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string Comment;
         /// <summary>
-        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigResult> CorsConfigs;
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCustomHeadersConfigResult> CustomHeadersConfigs;
         /// <summary>
-        /// The current version of the response headers policy.
+        /// Current version of the response headers policy.
         /// </summary>
         public readonly string Etag;
         public readonly string Id;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> SecurityHeadersConfigs;
         /// <summary>
-        /// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> ServerTimingHeadersConfigs;
 

@@ -187,14 +187,14 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the advanced event selector.
+     * Name of the advanced event selector.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return Name of the advanced event selector.
      * 
      */
     public Optional<Output<String>> name() {
@@ -562,7 +562,7 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name Name of the advanced event selector.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name Name of the advanced event selector.
          * 
          * @return builder
          * 

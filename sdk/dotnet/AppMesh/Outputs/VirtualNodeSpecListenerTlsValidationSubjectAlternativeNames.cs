@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames
     {
         /// <summary>
-        /// The criteria for determining a SAN's match.
+        /// Criteria for determining a SAN's match.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch Match;
 

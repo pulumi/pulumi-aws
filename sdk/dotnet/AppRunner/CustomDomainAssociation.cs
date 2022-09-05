@@ -52,13 +52,13 @@ namespace Pulumi.Aws.AppRunner
         public Output<ImmutableArray<Outputs.CustomDomainAssociationCertificateValidationRecord>> CertificateValidationRecords { get; private set; } = null!;
 
         /// <summary>
-        /// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         /// </summary>
         [Output("dnsTarget")]
         public Output<string> DnsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.AppRunner
         public Output<bool?> EnableWwwSubdomain { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the App Runner service.
+        /// ARN of the App Runner service.
         /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class CustomDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<bool>? EnableWwwSubdomain { get; set; }
 
         /// <summary>
-        /// The ARN of the App Runner service.
+        /// ARN of the App Runner service.
         /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+        /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         /// </summary>
         [Input("dnsTarget")]
         public Input<string>? DnsTarget { get; set; }
 
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+        /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -184,13 +184,13 @@ namespace Pulumi.Aws.AppRunner
         public Input<bool>? EnableWwwSubdomain { get; set; }
 
         /// <summary>
-        /// The ARN of the App Runner service.
+        /// ARN of the App Runner service.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
-        /// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

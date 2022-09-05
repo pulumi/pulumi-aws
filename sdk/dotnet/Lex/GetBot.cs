@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bot. The name is case sensitive.
+        /// Name of the bot. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The version or alias of the bot.
+        /// Version or alias of the bot.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bot. The name is case sensitive.
+        /// Name of the bot. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version or alias of the bot.
+        /// Version or alias of the bot.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotResult
     {
         /// <summary>
-        /// The ARN of the bot.
+        /// ARN of the bot.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -122,15 +122,15 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Checksum;
         /// <summary>
-        /// Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+        /// If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
         /// </summary>
         public readonly bool ChildDirected;
         /// <summary>
-        /// The date that the bot was created.
+        /// Date that the bot was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// A description of the bot.
+        /// Description of the bot.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -154,15 +154,15 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly int IdleSessionTtlInSeconds;
         /// <summary>
-        /// The date that the bot was updated.
+        /// Date that the bot was updated.
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
-        /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+        /// Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
         /// </summary>
         public readonly string Locale;
         /// <summary>
-        /// The name of the bot, case sensitive.
+        /// Name of the bot, case sensitive.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -170,15 +170,15 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly double NluIntentConfidenceThreshold;
         /// <summary>
-        /// The status of the bot.
+        /// Status of the bot.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The version of the bot. For a new bot, the version is always `$LATEST`.
+        /// Version of the bot. For a new bot, the version is always `$LATEST`.
         /// </summary>
         public readonly string? Version;
         /// <summary>
-        /// The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+        /// Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
         /// </summary>
         public readonly string VoiceId;
 

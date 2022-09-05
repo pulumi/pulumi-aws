@@ -17,14 +17,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     public static final PermissionState Empty = new PermissionState();
 
     /**
-     * The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
     /**
-     * @return The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+     * @return Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
     public Optional<Output<List<String>>> actions() {
@@ -32,14 +32,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the CA that grants the permissions.
+     * ARN of the CA that grants the permissions.
      * 
      */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CA that grants the permissions.
+     * @return ARN of the CA that grants the permissions.
      * 
      */
     public Optional<Output<String>> certificateAuthorityArn() {
@@ -47,14 +47,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM policy that is associated with the permission.
+     * IAM policy that is associated with the permission.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The IAM policy that is associated with the permission.
+     * @return IAM policy that is associated with the permission.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -62,14 +62,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
     /**
-     * @return The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+     * @return AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
     public Optional<Output<String>> principal() {
@@ -77,14 +77,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the calling account
+     * ID of the calling account
      * 
      */
     @Import(name="sourceAccount")
     private @Nullable Output<String> sourceAccount;
 
     /**
-     * @return The ID of the calling account
+     * @return ID of the calling account
      * 
      */
     public Optional<Output<String>> sourceAccount() {
@@ -120,7 +120,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actions The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the CA that grants the permissions.
+         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the CA that grants the permissions.
+         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The IAM policy that is associated with the permission.
+         * @param policy IAM policy that is associated with the permission.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The IAM policy that is associated with the permission.
+         * @param policy IAM policy that is associated with the permission.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAccount The ID of the calling account
+         * @param sourceAccount ID of the calling account
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAccount The ID of the calling account
+         * @param sourceAccount ID of the calling account
          * 
          * @return builder
          * 

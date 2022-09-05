@@ -50,13 +50,13 @@ func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliv
 
 // A collection of arguments for invoking getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamArgs struct {
-	// The name of the Kinesis Stream.
+	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamResult struct {
-	// The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+	// ARN of the Kinesis Stream (same as id).
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -78,7 +78,7 @@ func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehose
 
 // A collection of arguments for invoking getFirehoseDeliveryStream.
 type LookupFirehoseDeliveryStreamOutputArgs struct {
-	// The name of the Kinesis Stream.
+	// Name of the Kinesis Stream.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,7 +101,7 @@ func (o LookupFirehoseDeliveryStreamResultOutput) ToLookupFirehoseDeliveryStream
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+// ARN of the Kinesis Stream (same as id).
 func (o LookupFirehoseDeliveryStreamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Arn }).(pulumi.StringOutput)
 }

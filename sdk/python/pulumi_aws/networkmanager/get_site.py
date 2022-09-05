@@ -49,7 +49,7 @@ class GetSiteResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the site.
+        ARN of the site.
         """
         return pulumi.get(self, "arn")
 
@@ -57,7 +57,7 @@ class GetSiteResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the site.
+        Description of the site.
         """
         return pulumi.get(self, "description")
 
@@ -78,7 +78,7 @@ class GetSiteResult:
     @pulumi.getter
     def locations(self) -> Sequence['outputs.GetSiteLocationResult']:
         """
-        The site location as documented below.
+        Site location as documented below.
         """
         return pulumi.get(self, "locations")
 
@@ -129,8 +129,8 @@ def get_site(global_network_id: Optional[str] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the site to retrieve.
-    :param str site_id: The id of the specific site to retrieve.
+    :param str global_network_id: ID of the Global Network of the site to retrieve.
+    :param str site_id: ID of the specific site to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the Site.
     """
     __args__ = dict()
@@ -169,8 +169,8 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the site to retrieve.
-    :param str site_id: The id of the specific site to retrieve.
+    :param str global_network_id: ID of the Global Network of the site to retrieve.
+    :param str site_id: ID of the specific site to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the Site.
     """
     ...

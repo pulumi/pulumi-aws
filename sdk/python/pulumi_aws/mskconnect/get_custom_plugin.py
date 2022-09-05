@@ -45,7 +45,7 @@ class GetCustomPluginResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        the Amazon Resource Name (ARN) of the custom plugin.
+        the ARN of the custom plugin.
         """
         return pulumi.get(self, "arn")
 

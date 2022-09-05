@@ -80,13 +80,13 @@ namespace Pulumi.Aws.Iam
         public string Encoding { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the SSH public key.
+        /// Unique identifier for the SSH public key.
         /// </summary>
         [Input("sshPublicKeyId", required: true)]
         public string SshPublicKeyId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the IAM user associated with the SSH public key.
+        /// Name of the IAM user associated with the SSH public key.
         /// </summary>
         [Input("username", required: true)]
         public string Username { get; set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.Iam
         public Input<string> Encoding { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the SSH public key.
+        /// Unique identifier for the SSH public key.
         /// </summary>
         [Input("sshPublicKeyId", required: true)]
         public Input<string> SshPublicKeyId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the IAM user associated with the SSH public key.
+        /// Name of the IAM user associated with the SSH public key.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Iam
     {
         public readonly string Encoding;
         /// <summary>
-        /// The MD5 message digest of the SSH public key.
+        /// MD5 message digest of the SSH public key.
         /// </summary>
         public readonly string Fingerprint;
         /// <summary>
@@ -137,12 +137,12 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The SSH public key.
+        /// SSH public key.
         /// </summary>
         public readonly string PublicKey;
         public readonly string SshPublicKeyId;
         /// <summary>
-        /// The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+        /// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
         /// </summary>
         public readonly string Status;
         public readonly string Username;

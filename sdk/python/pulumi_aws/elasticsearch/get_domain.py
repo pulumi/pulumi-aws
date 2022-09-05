@@ -121,7 +121,7 @@ class GetDomainResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the domain.
+        The ARN of the domain.
         """
         return pulumi.get(self, "arn")
 
@@ -260,7 +260,7 @@ class GetDomainResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags assigned to the domain.
+        Tags assigned to the domain.
         """
         return pulumi.get(self, "tags")
 
@@ -321,7 +321,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 
     :param str domain_name: Name of the domain.
-    :param Mapping[str, str] tags: The tags assigned to the domain.
+    :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -373,6 +373,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str domain_name: Name of the domain.
-    :param Mapping[str, str] tags: The tags assigned to the domain.
+    :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     ...

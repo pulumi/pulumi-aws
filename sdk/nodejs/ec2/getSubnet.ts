@@ -141,7 +141,7 @@ export interface GetSubnetResult {
     readonly customerOwnedIpv4Pool: string;
     readonly defaultForAz: boolean;
     /**
-     * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+     * Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      */
     readonly enableDns64: boolean;
     /**
@@ -160,7 +160,7 @@ export interface GetSubnetResult {
      */
     readonly ipv6CidrBlockAssociationId: string;
     /**
-     * Indicates whether this is an IPv6-only subnet.
+     * Whether this is an IPv6-only subnet.
      */
     readonly ipv6Native: boolean;
     /**

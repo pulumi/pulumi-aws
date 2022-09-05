@@ -35,7 +35,7 @@ export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetProxyArgs {
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      */
     name: string;
 }
@@ -45,11 +45,11 @@ export interface GetProxyArgs {
  */
 export interface GetProxyResult {
     /**
-     * The ARN of the DB Proxy.
+     * ARN of the DB Proxy.
      */
     readonly arn: string;
     /**
-     * The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
      */
     readonly auths: outputs.rds.GetProxyAuth[];
     /**
@@ -57,11 +57,11 @@ export interface GetProxyResult {
      */
     readonly debugLogging: boolean;
     /**
-     * The endpoint that you can use to connect to the DB proxy.
+     * Endpoint that you can use to connect to the DB proxy.
      */
     readonly endpoint: string;
     /**
-     * The kinds of databases that the proxy can connect to.
+     * Kinds of databases that the proxy can connect to.
      */
     readonly engineFamily: string;
     /**
@@ -69,16 +69,16 @@ export interface GetProxyResult {
      */
     readonly id: string;
     /**
-     * The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+     * Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
      */
     readonly idleClientTimeout: number;
     readonly name: string;
     /**
-     * Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
     readonly requireTls: boolean;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+     * ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
      */
     readonly roleArn: string;
     /**
@@ -90,7 +90,7 @@ export interface GetProxyResult {
      */
     readonly vpcSecurityGroupIds: string[];
     /**
-     * The EC2 subnet IDs for the proxy.
+     * EC2 subnet IDs for the proxy.
      */
     readonly vpcSubnetIds: string[];
 }
@@ -104,7 +104,7 @@ export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetProxyOutputArgs {
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      */
     name: pulumi.Input<string>;
 }

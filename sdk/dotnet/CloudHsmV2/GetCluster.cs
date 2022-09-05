@@ -70,13 +70,13 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of Cloud HSM v2 cluster.
+        /// ID of Cloud HSM v2 cluster.
         /// </summary>
         [Input("clusterId", required: true)]
         public string ClusterId { get; set; } = null!;
 
         /// <summary>
-        /// The state of the cluster to be found.
+        /// State of the cluster to be found.
         /// </summary>
         [Input("clusterState")]
         public string? ClusterState { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of Cloud HSM v2 cluster.
+        /// ID of Cloud HSM v2 cluster.
         /// </summary>
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
 
         /// <summary>
-        /// The state of the cluster to be found.
+        /// State of the cluster to be found.
         /// </summary>
         [Input("clusterState")]
         public Input<string>? ClusterState { get; set; }
@@ -128,15 +128,15 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the security group associated with the CloudHSM cluster.
+        /// ID of the security group associated with the CloudHSM cluster.
         /// </summary>
         public readonly string SecurityGroupId;
         /// <summary>
-        /// The IDs of subnets in which cluster operates.
+        /// IDs of subnets in which cluster operates.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The id of the VPC that the CloudHSM cluster resides in.
+        /// ID of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         public readonly string VpcId;
 

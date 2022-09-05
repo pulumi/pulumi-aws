@@ -20,7 +20,7 @@ public final class GetSchedulingPolicyResult {
      */
     private String id;
     /**
-     * @return Specifies the name of the scheduling policy.
+     * @return Name of the scheduling policy.
      * 
      */
     private String name;
@@ -45,7 +45,7 @@ public final class GetSchedulingPolicyResult {
         return this.id;
     }
     /**
-     * @return Specifies the name of the scheduling policy.
+     * @return Name of the scheduling policy.
      * 
      */
     public String name() {

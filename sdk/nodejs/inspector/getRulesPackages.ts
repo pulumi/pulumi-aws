@@ -43,7 +43,7 @@ export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesP
  */
 export interface GetRulesPackagesResult {
     /**
-     * A list of the AWS Inspector Rules Packages arns available in the AWS region.
+     * List of the AWS Inspector Rules Packages arns available in the AWS region.
      */
     readonly arns: string[];
     /**

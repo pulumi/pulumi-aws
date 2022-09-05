@@ -17,14 +17,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
     public static final FlowSourceFlowConfigSourceConnectorPropertiesS3Args Empty = new FlowSourceFlowConfigSourceConnectorPropertiesS3Args();
 
     /**
-     * The Amazon S3 bucket name where the source files are stored.
+     * Amazon S3 bucket name where the source files are stored.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name where the source files are stored.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
     }
 
     /**
-     * The object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -88,7 +88,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name where the source files are stored.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 

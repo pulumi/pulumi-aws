@@ -46,7 +46,7 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 
 // A collection of arguments for invoking getDetector.
 type LookupDetectorArgs struct {
-	// The ID of the detector.
+	// ID of the detector.
 	Id *string `pulumi:"id"`
 }
 
@@ -55,9 +55,9 @@ type LookupDetectorResult struct {
 	// The frequency of notifications sent about subsequent finding occurrences.
 	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
 	Id                         string `pulumi:"id"`
-	// The service-linked role that grants GuardDuty access to the resources in the AWS account.
+	// Service-linked role that grants GuardDuty access to the resources in the AWS account.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
-	// The current status of the detector.
+	// Current status of the detector.
 	Status string `pulumi:"status"`
 }
 
@@ -76,7 +76,7 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 
 // A collection of arguments for invoking getDetector.
 type LookupDetectorOutputArgs struct {
-	// The ID of the detector.
+	// ID of the detector.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -108,12 +108,12 @@ func (o LookupDetectorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The service-linked role that grants GuardDuty access to the resources in the AWS account.
+// Service-linked role that grants GuardDuty access to the resources in the AWS account.
 func (o LookupDetectorResultOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// The current status of the detector.
+// Current status of the detector.
 func (o LookupDetectorResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Status }).(pulumi.StringOutput)
 }

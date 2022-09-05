@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The tunnel protocol
+        /// Tunnel protocol
         /// </summary>
         public readonly string Protocol;
         /// <summary>

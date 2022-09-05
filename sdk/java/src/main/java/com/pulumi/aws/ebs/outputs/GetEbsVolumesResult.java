@@ -20,7 +20,7 @@ public final class GetEbsVolumesResult {
      */
     private String id;
     /**
-     * @return A set of all the EBS Volume IDs found. This data source will fail if
+     * @return Set of all the EBS Volume IDs found. This data source will fail if
      * no volumes match the provided criteria.
      * 
      */
@@ -39,7 +39,7 @@ public final class GetEbsVolumesResult {
         return this.id;
     }
     /**
-     * @return A set of all the EBS Volume IDs found. This data source will fail if
+     * @return Set of all the EBS Volume IDs found. This data source will fail if
      * no volumes match the provided criteria.
      * 
      */

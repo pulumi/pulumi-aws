@@ -14,14 +14,14 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLocationArgs Empty = new GetLocationArgs();
 
     /**
-     * The code for the location to retrieve.
+     * Code for the location to retrieve.
      * 
      */
     @Import(name="locationCode", required=true)
     private Output<String> locationCode;
 
     /**
-     * @return The code for the location to retrieve.
+     * @return Code for the location to retrieve.
      * 
      */
     public Output<String> locationCode() {
@@ -53,7 +53,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param locationCode The code for the location to retrieve.
+         * @param locationCode Code for the location to retrieve.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetLocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param locationCode The code for the location to retrieve.
+         * @param locationCode Code for the location to retrieve.
          * 
          * @return builder
          * 

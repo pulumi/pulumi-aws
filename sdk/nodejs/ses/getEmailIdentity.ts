@@ -34,7 +34,7 @@ export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.Invok
  */
 export interface GetEmailIdentityArgs {
     /**
-     * The email identity.
+     * Email identity.
      */
     email: string;
 }
@@ -48,7 +48,7 @@ export interface GetEmailIdentityResult {
      */
     readonly arn: string;
     /**
-     * The email identity.
+     * Email identity.
      */
     readonly email: string;
     /**
@@ -66,7 +66,7 @@ export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: 
  */
 export interface GetEmailIdentityOutputArgs {
     /**
-     * The email identity.
+     * Email identity.
      */
     email: pulumi.Input<string>;
 }

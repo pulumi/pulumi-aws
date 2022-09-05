@@ -14,14 +14,14 @@ public final class GetSigningJobArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSigningJobArgs Empty = new GetSigningJobArgs();
 
     /**
-     * The ID of the signing job on output.
+     * ID of the signing job on output.
      * 
      */
     @Import(name="jobId", required=true)
     private Output<String> jobId;
 
     /**
-     * @return The ID of the signing job on output.
+     * @return ID of the signing job on output.
      * 
      */
     public Output<String> jobId() {
@@ -53,7 +53,7 @@ public final class GetSigningJobArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param jobId The ID of the signing job on output.
+         * @param jobId ID of the signing job on output.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetSigningJobArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param jobId The ID of the signing job on output.
+         * @param jobId ID of the signing job on output.
          * 
          * @return builder
          * 

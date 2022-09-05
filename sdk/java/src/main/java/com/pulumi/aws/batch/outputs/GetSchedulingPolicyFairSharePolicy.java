@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSchedulingPolicyFairSharePolicy {
     /**
-     * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     private Integer computeReservation;
@@ -25,7 +25,7 @@ public final class GetSchedulingPolicyFairSharePolicy {
 
     private GetSchedulingPolicyFairSharePolicy() {}
     /**
-     * @return A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
     public Integer computeReservation() {

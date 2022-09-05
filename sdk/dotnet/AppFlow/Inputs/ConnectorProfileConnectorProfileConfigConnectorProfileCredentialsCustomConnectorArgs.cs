@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         /// </summary>
         [Input("apiKey")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs>? ApiKey { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// The basic credentials that are required for the authentication of the user.
+        /// Basic credentials that are required for the authentication of the user.
         /// </summary>
         [Input("basic")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs>? Basic { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs>? Custom { get; set; }
 
         /// <summary>
-        /// The OAuth 2.0 credentials required for the authentication of the user.
+        /// OAuth 2.0 credentials required for the authentication of the user.
         /// </summary>
         [Input("oauth2")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args>? Oauth2 { get; set; }

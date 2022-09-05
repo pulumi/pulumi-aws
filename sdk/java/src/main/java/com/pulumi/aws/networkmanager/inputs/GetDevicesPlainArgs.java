@@ -16,14 +16,14 @@ public final class GetDevicesPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDevicesPlainArgs Empty = new GetDevicesPlainArgs();
 
     /**
-     * The ID of the Global Network of the devices to retrieve.
+     * ID of the Global Network of the devices to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the devices to retrieve.
+     * @return ID of the Global Network of the devices to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -31,14 +31,14 @@ public final class GetDevicesPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the site of the devices to retrieve.
+     * ID of the site of the devices to retrieve.
      * 
      */
     @Import(name="siteId")
     private @Nullable String siteId;
 
     /**
-     * @return The ID of the site of the devices to retrieve.
+     * @return ID of the site of the devices to retrieve.
      * 
      */
     public Optional<String> siteId() {
@@ -87,7 +87,7 @@ public final class GetDevicesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the devices to retrieve.
+         * @param globalNetworkId ID of the Global Network of the devices to retrieve.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetDevicesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param siteId The ID of the site of the devices to retrieve.
+         * @param siteId ID of the site of the devices to retrieve.
          * 
          * @return builder
          * 

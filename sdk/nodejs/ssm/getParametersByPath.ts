@@ -22,7 +22,7 @@ export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi
  */
 export interface GetParametersByPathArgs {
     /**
-     * The prefix path of the parameter.
+     * Prefix path of the parameter.
      */
     path: string;
     /**
@@ -61,7 +61,7 @@ export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, o
  */
 export interface GetParametersByPathOutputArgs {
     /**
-     * The prefix path of the parameter.
+     * Prefix path of the parameter.
      */
     path: pulumi.Input<string>;
     /**

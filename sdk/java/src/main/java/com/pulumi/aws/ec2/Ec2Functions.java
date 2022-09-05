@@ -2578,8 +2578,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getElasticIp:getElasticIp", TypeShape.of(GetElasticIpResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java
@@ -2619,8 +2618,7 @@ public final class Ec2Functions {
         return getInstance(GetInstanceArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java
@@ -2660,8 +2658,7 @@ public final class Ec2Functions {
         return getInstancePlain(GetInstancePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java
@@ -2701,8 +2698,7 @@ public final class Ec2Functions {
         return getInstance(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java
@@ -2742,8 +2738,7 @@ public final class Ec2Functions {
         return getInstancePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java
@@ -2783,8 +2778,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the ID of an Amazon EC2 Instance for use in other
-     * resources.
+     * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
      * ```java

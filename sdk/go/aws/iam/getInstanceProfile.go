@@ -50,27 +50,26 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs,
 
 // A collection of arguments for invoking getInstanceProfile.
 type LookupInstanceProfileArgs struct {
-	// The friendly IAM instance profile name to match.
+	// Friendly IAM instance profile name to match.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getInstanceProfile.
 type LookupInstanceProfileResult struct {
-	// The Amazon Resource Name (ARN) specifying the instance profile.
+	// ARN.
 	Arn string `pulumi:"arn"`
-	// The string representation of the date the instance profile
-	// was created.
+	// String representation of the date the instance profile was created.
 	CreateDate string `pulumi:"createDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The path to the instance profile.
+	// Path to the instance profile.
 	Path string `pulumi:"path"`
-	// The role arn associated with this instance profile.
+	// Role ARN associated with this instance profile.
 	RoleArn string `pulumi:"roleArn"`
-	// The role id associated with this instance profile.
+	// Role ID associated with this instance profile.
 	RoleId string `pulumi:"roleId"`
-	// The role name associated with this instance profile.
+	// Role name associated with this instance profile.
 	RoleName string `pulumi:"roleName"`
 }
 
@@ -89,7 +88,7 @@ func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfile
 
 // A collection of arguments for invoking getInstanceProfile.
 type LookupInstanceProfileOutputArgs struct {
-	// The friendly IAM instance profile name to match.
+	// Friendly IAM instance profile name to match.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -112,13 +111,12 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the instance profile.
+// ARN.
 func (o LookupInstanceProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The string representation of the date the instance profile
-// was created.
+// String representation of the date the instance profile was created.
 func (o LookupInstanceProfileResultOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.CreateDate }).(pulumi.StringOutput)
 }
@@ -132,22 +130,22 @@ func (o LookupInstanceProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The path to the instance profile.
+// Path to the instance profile.
 func (o LookupInstanceProfileResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The role arn associated with this instance profile.
+// Role ARN associated with this instance profile.
 func (o LookupInstanceProfileResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The role id associated with this instance profile.
+// Role ID associated with this instance profile.
 func (o LookupInstanceProfileResultOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// The role name associated with this instance profile.
+// Role name associated with this instance profile.
 func (o LookupInstanceProfileResultOutput) RoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) string { return v.RoleName }).(pulumi.StringOutput)
 }

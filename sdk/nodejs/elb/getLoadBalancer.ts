@@ -44,7 +44,7 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
  */
 export interface GetLoadBalancerArgs {
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name: string;
     tags?: {[key: string]: string};
@@ -89,7 +89,7 @@ export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pu
  */
 export interface GetLoadBalancerOutputArgs {
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

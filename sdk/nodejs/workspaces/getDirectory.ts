@@ -36,7 +36,7 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetDirectoryArgs {
     /**
-     * The directory identifier for registration in WorkSpaces service.
+     * Directory identifier for registration in WorkSpaces service.
      */
     directoryId: string;
     /**
@@ -50,28 +50,28 @@ export interface GetDirectoryArgs {
  */
 export interface GetDirectoryResult {
     /**
-     * The directory alias.
+     * Directory alias.
      */
     readonly alias: string;
     /**
-     * The user name for the service account.
+     * User name for the service account.
      */
     readonly customerUserName: string;
     readonly directoryId: string;
     /**
-     * The name of the directory.
+     * Name of the directory.
      */
     readonly directoryName: string;
     /**
-     * The directory type.
+     * Directory type.
      */
     readonly directoryType: string;
     /**
-     * The IP addresses of the DNS servers for the directory.
+     * IP addresses of the DNS servers for the directory.
      */
     readonly dnsIpAddresses: string[];
     /**
-     * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     * Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
     readonly iamRoleId: string;
     /**
@@ -79,11 +79,11 @@ export interface GetDirectoryResult {
      */
     readonly id: string;
     /**
-     * The identifiers of the IP access control groups associated with the directory.
+     * Identifiers of the IP access control groups associated with the directory.
      */
     readonly ipGroupIds: string[];
     /**
-     * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     * Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
     readonly registrationCode: string;
     /**
@@ -91,7 +91,7 @@ export interface GetDirectoryResult {
      */
     readonly selfServicePermissions: outputs.workspaces.GetDirectorySelfServicePermission[];
     /**
-     * The identifiers of the subnets where the directory resides.
+     * Identifiers of the subnets where the directory resides.
      */
     readonly subnetIds: string[];
     /**
@@ -121,7 +121,7 @@ export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.I
  */
 export interface GetDirectoryOutputArgs {
     /**
-     * The directory identifier for registration in WorkSpaces service.
+     * Directory identifier for registration in WorkSpaces service.
      */
     directoryId: pulumi.Input<string>;
     /**

@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs();
 
     /**
-     * The object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return The object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the Amazon S3 bucket in which the source files are stored.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     }
 
     /**
-     * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -47,14 +47,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     }
 
     /**
-     * The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
      * 
      */
     @Import(name="intermediateBucketName", required=true)
     private Output<String> intermediateBucketName;
 
     /**
-     * @return The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
      * 
      */
     public Output<String> intermediateBucketName() {
@@ -62,14 +62,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     }
 
     /**
-     * The object specified in the Veeva flow source.
+     * Object specified in the Veeva flow source.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public Output<String> object() {
@@ -104,7 +104,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix The object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param errorHandlingConfig The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param intermediateBucketName The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param intermediateBucketName The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param object The object specified in the Veeva flow source.
+         * @param object Object specified in the Veeva flow source.
          * 
          * @return builder
          * 

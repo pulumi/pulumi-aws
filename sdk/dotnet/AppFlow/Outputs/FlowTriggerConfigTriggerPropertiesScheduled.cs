@@ -14,31 +14,31 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowTriggerConfigTriggerPropertiesScheduled
     {
         /// <summary>
-        /// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+        /// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
         /// </summary>
         public readonly string? DataPullMode;
         /// <summary>
-        /// Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+        /// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
         /// </summary>
         public readonly string? FirstExecutionFrom;
         /// <summary>
-        /// Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+        /// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         /// </summary>
         public readonly string? ScheduleEndTime;
         /// <summary>
-        /// The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+        /// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
         /// </summary>
         public readonly string ScheduleExpression;
         /// <summary>
-        /// Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+        /// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
         /// </summary>
         public readonly int? ScheduleOffset;
         /// <summary>
-        /// Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+        /// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         /// </summary>
         public readonly string? ScheduleStartTime;
         /// <summary>
-        /// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+        /// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
         /// </summary>
         public readonly string? Timezone;
 

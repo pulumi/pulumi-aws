@@ -20,14 +20,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs();
 
     /**
-     * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs> apiKey;
 
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs>> apiKey() {
@@ -50,14 +50,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The basic credentials that are required for the authentication of the user.
+     * Basic credentials that are required for the authentication of the user.
      * 
      */
     @Import(name="basic")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs> basic;
 
     /**
-     * @return The basic credentials that are required for the authentication of the user.
+     * @return Basic credentials that are required for the authentication of the user.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs>> basic() {
@@ -80,14 +80,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The OAuth 2.0 credentials required for the authentication of the user.
+     * OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
     @Import(name="oauth2")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args> oauth2;
 
     /**
-     * @return The OAuth 2.0 credentials required for the authentication of the user.
+     * @return OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args>> oauth2() {
@@ -123,7 +123,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiKey A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiKey A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basic The basic credentials that are required for the authentication of the user.
+         * @param basic Basic credentials that are required for the authentication of the user.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basic The basic credentials that are required for the authentication of the user.
+         * @param basic Basic credentials that are required for the authentication of the user.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauth2 The OAuth 2.0 credentials required for the authentication of the user.
+         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauth2 The OAuth 2.0 credentials required for the authentication of the user.
+         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user.
          * 
          * @return builder
          * 

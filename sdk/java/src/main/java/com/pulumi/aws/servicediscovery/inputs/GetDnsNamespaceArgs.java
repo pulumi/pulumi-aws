@@ -17,14 +17,14 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDnsNamespaceArgs Empty = new GetDnsNamespaceArgs();
 
     /**
-     * The name of the namespace.
+     * Name of the namespace.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the namespace.
+     * @return Name of the namespace.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -47,14 +47,14 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+     * Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+     * @return Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      * 
      */
     public Output<String> type() {
@@ -88,7 +88,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the namespace.
+         * @param name Name of the namespace.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the namespace.
+         * @param name Name of the namespace.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+         * @param type Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetDnsNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+         * @param type Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
          * 
          * @return builder
          * 

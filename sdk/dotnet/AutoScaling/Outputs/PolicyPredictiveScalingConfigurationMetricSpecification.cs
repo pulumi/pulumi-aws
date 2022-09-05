@@ -14,31 +14,31 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecification
     {
         /// <summary>
-        /// The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        /// Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification? CustomizedCapacityMetricSpecification;
         /// <summary>
-        /// The customized load metric specification.
+        /// Customized load metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification? CustomizedLoadMetricSpecification;
         /// <summary>
-        /// The customized scaling metric specification.
+        /// Customized scaling metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification? CustomizedScalingMetricSpecification;
         /// <summary>
-        /// The predefined load metric specification.
+        /// Predefined load metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification? PredefinedLoadMetricSpecification;
         /// <summary>
-        /// The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        /// Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification? PredefinedMetricPairSpecification;
         /// <summary>
-        /// The predefined scaling metric specification.
+        /// Predefined scaling metric specification.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification? PredefinedScalingMetricSpecification;
         /// <summary>
-        /// The target value for the metric.
+        /// Target value for the metric.
         /// </summary>
         public readonly int TargetValue;
 

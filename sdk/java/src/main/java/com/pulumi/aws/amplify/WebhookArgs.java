@@ -16,14 +16,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     public static final WebhookArgs Empty = new WebhookArgs();
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Import(name="appId", required=true)
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
@@ -31,14 +31,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for a branch that is part of the Amplify app.
+     * Name for a branch that is part of the Amplify app.
      * 
      */
     @Import(name="branchName", required=true)
     private Output<String> branchName;
 
     /**
-     * @return The name for a branch that is part of the Amplify app.
+     * @return Name for a branch that is part of the Amplify app.
      * 
      */
     public Output<String> branchName() {
@@ -46,14 +46,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for a webhook.
+     * Description for a webhook.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for a webhook.
+     * @return Description for a webhook.
      * 
      */
     public Optional<Output<String>> description() {
@@ -87,7 +87,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchName The name for a branch that is part of the Amplify app.
+         * @param branchName Name for a branch that is part of the Amplify app.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchName The name for a branch that is part of the Amplify app.
+         * @param branchName Name for a branch that is part of the Amplify app.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for a webhook.
+         * @param description Description for a webhook.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for a webhook.
+         * @param description Description for a webhook.
          * 
          * @return builder
          * 

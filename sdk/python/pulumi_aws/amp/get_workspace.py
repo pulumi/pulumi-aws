@@ -51,7 +51,7 @@ class GetWorkspaceResult:
     @pulumi.getter
     def alias(self) -> str:
         """
-        The Prometheus workspace alias.
+        Prometheus workspace alias.
         """
         return pulumi.get(self, "alias")
 
@@ -59,7 +59,7 @@ class GetWorkspaceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Prometheus workspace.
+        ARN of the Prometheus workspace.
         """
         return pulumi.get(self, "arn")
 
@@ -67,7 +67,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The creation date of the Prometheus workspace.
+        Creation date of the Prometheus workspace.
         """
         return pulumi.get(self, "created_date")
 
@@ -83,7 +83,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> str:
         """
-        The endpoint of the Prometheus workspace.
+        Endpoint of the Prometheus workspace.
         """
         return pulumi.get(self, "prometheus_endpoint")
 
@@ -91,7 +91,7 @@ class GetWorkspaceResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the Prometheus workspace.
+        Status of the Prometheus workspace.
         """
         return pulumi.get(self, "status")
 
@@ -99,7 +99,7 @@ class GetWorkspaceResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags assigned to the resource.
+        Tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -134,8 +134,8 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
     ## Example Usage
 
 
-    :param Mapping[str, str] tags: The tags assigned to the resource.
-    :param str workspace_id: The Prometheus workspace ID.
+    :param Mapping[str, str] tags: Tags assigned to the resource.
+    :param str workspace_id: Prometheus workspace ID.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -164,7 +164,7 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     ## Example Usage
 
 
-    :param Mapping[str, str] tags: The tags assigned to the resource.
-    :param str workspace_id: The Prometheus workspace ID.
+    :param Mapping[str, str] tags: Tags assigned to the resource.
+    :param str workspace_id: Prometheus workspace ID.
     """
     ...

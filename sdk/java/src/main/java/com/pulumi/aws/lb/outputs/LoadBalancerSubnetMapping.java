@@ -28,7 +28,7 @@ public final class LoadBalancerSubnetMapping {
      */
     private @Nullable String privateIpv4Address;
     /**
-     * @return The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
     private String subnetId;
@@ -59,7 +59,7 @@ public final class LoadBalancerSubnetMapping {
         return Optional.ofNullable(this.privateIpv4Address);
     }
     /**
-     * @return The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
     public String subnetId() {

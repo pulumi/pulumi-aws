@@ -16,14 +16,14 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
     public static final GatewayRouteSpecHttp2RouteMatchHostnameArgs Empty = new GatewayRouteSpecHttp2RouteMatchHostnameArgs();
 
     /**
-     * The exact host name to match on.
+     * Exact host name to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return The exact host name to match on.
+     * @return Exact host name to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -31,14 +31,14 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
     }
 
     /**
-     * The specified ending characters of the host name to match on.
+     * Specified ending characters of the host name to match on.
      * 
      */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
     /**
-     * @return The specified ending characters of the host name to match on.
+     * @return Specified ending characters of the host name to match on.
      * 
      */
     public Optional<Output<String>> suffix() {
@@ -71,7 +71,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
         }
 
         /**
-         * @param exact The exact host name to match on.
+         * @param exact Exact host name to match on.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
         }
 
         /**
-         * @param exact The exact host name to match on.
+         * @param exact Exact host name to match on.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
         }
 
         /**
-         * @param suffix The specified ending characters of the host name to match on.
+         * @param suffix Specified ending characters of the host name to match on.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
         }
 
         /**
-         * @param suffix The specified ending characters of the host name to match on.
+         * @param suffix Specified ending characters of the host name to match on.
          * 
          * @return builder
          * 

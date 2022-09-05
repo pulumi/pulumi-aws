@@ -37,11 +37,11 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetRoleArgs {
     /**
-     * The friendly IAM role name to match.
+     * Friendly IAM role name to match.
      */
     name: string;
     /**
-     * The tags attached to the role.
+     * Tags attached to the role.
      */
     tags?: {[key: string]: string};
 }
@@ -51,11 +51,11 @@ export interface GetRoleArgs {
  */
 export interface GetRoleResult {
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN of the role.
      */
     readonly arn: string;
     /**
-     * The policy document associated with the role.
+     * Policy document associated with the role.
      */
     readonly assumeRolePolicy: string;
     /**
@@ -76,7 +76,7 @@ export interface GetRoleResult {
     readonly maxSessionDuration: number;
     readonly name: string;
     /**
-     * The path to the role.
+     * Path to the role.
      */
     readonly path: string;
     /**
@@ -84,11 +84,11 @@ export interface GetRoleResult {
      */
     readonly permissionsBoundary: string;
     /**
-     * The tags attached to the role.
+     * Tags attached to the role.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The stable and unique string identifying the role.
+     * Stable and unique string identifying the role.
      */
     readonly uniqueId: string;
 }
@@ -102,11 +102,11 @@ export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetRoleOutputArgs {
     /**
-     * The friendly IAM role name to match.
+     * Friendly IAM role name to match.
      */
     name: pulumi.Input<string>;
     /**
-     * The tags attached to the role.
+     * Tags attached to the role.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

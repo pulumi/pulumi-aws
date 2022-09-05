@@ -46,7 +46,7 @@ namespace Pulumi.Aws.IdentityStore
         public string? GroupId { get; set; }
 
         /// <summary>
-        /// The Identity Store ID associated with the Single Sign-On Instance.
+        /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.IdentityStore
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// The Identity Store ID associated with the Single Sign-On Instance.
+        /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The group's display name value.
+        /// Group's display name value.
         /// </summary>
         public readonly string DisplayName;
         public readonly ImmutableArray<Outputs.GetGroupFilterResult> Filters;

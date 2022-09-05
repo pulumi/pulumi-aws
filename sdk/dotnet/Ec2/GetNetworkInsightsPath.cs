@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Network Insights Path to select.
+        /// ID of the Network Insights Path to select.
         /// </summary>
         [Input("networkInsightsPathId")]
         public string? NetworkInsightsPathId { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Network Insights Path to select.
+        /// ID of the Network Insights Path to select.
         /// </summary>
         [Input("networkInsightsPathId")]
         public Input<string>? NetworkInsightsPathId { get; set; }
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -148,19 +148,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetNetworkInsightsPathResult
     {
         /// <summary>
-        /// The ARN of the selected Network Insights Path.
+        /// ARN of the selected Network Insights Path.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The AWS resource that is the destination of the path.
+        /// AWS resource that is the destination of the path.
         /// </summary>
         public readonly string Destination;
         /// <summary>
-        /// The IP address of the AWS resource that is the destination of the path.
+        /// IP address of the AWS resource that is the destination of the path.
         /// </summary>
         public readonly string DestinationIp;
         /// <summary>
-        /// The destination port.
+        /// Destination port.
         /// </summary>
         public readonly int DestinationPort;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsPathFilterResult> Filters;
@@ -170,19 +170,19 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly string NetworkInsightsPathId;
         /// <summary>
-        /// The protocol.
+        /// Protocol.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The AWS resource that is the source of the path.
+        /// AWS resource that is the source of the path.
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// The IP address of the AWS resource that is the source of the path.
+        /// IP address of the AWS resource that is the source of the path.
         /// </summary>
         public readonly string SourceIp;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

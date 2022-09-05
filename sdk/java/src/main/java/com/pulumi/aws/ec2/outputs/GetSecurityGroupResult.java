@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecurityGroupResult {
     /**
-     * @return The computed ARN of the security group.
+     * @return Computed ARN of the security group.
      * 
      */
     private String arn;
     /**
-     * @return The description of the security group.
+     * @return Description of the security group.
      * 
      */
     private String description;
@@ -31,14 +31,14 @@ public final class GetSecurityGroupResult {
 
     private GetSecurityGroupResult() {}
     /**
-     * @return The computed ARN of the security group.
+     * @return Computed ARN of the security group.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the security group.
+     * @return Description of the security group.
      * 
      */
     public String description() {

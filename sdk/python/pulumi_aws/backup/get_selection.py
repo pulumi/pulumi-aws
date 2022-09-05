@@ -45,7 +45,7 @@ class GetSelectionResult:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> str:
         """
-        The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+        ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -61,7 +61,7 @@ class GetSelectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The display name of a resource selection document.
+        Display name of a resource selection document.
         """
         return pulumi.get(self, "name")
 
@@ -115,8 +115,8 @@ def get_selection(plan_id: Optional[str] = None,
     ```
 
 
-    :param str plan_id: The backup plan ID associated with the selection of resources.
-    :param str selection_id: The backup selection ID.
+    :param str plan_id: Backup plan ID associated with the selection of resources.
+    :param str selection_id: Backup selection ID.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
@@ -151,7 +151,7 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str plan_id: The backup plan ID associated with the selection of resources.
-    :param str selection_id: The backup selection ID.
+    :param str plan_id: Backup plan ID associated with the selection of resources.
+    :param str selection_id: Backup selection ID.
     """
     ...

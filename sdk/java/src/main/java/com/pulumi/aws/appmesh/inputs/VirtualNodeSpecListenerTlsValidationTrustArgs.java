@@ -17,14 +17,14 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
     public static final VirtualNodeSpecListenerTlsValidationTrustArgs Empty = new VirtualNodeSpecListenerTlsValidationTrustArgs();
 
     /**
-     * The TLS validation context trust for a local file certificate.
+     * TLS validation context trust for a local file certificate.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationTrustFileArgs> file;
 
     /**
-     * @return The TLS validation context trust for a local file certificate.
+     * @return TLS validation context trust for a local file certificate.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationTrustFileArgs>> file() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
     }
 
     /**
-     * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationTrustSdsArgs> sds;
 
     /**
-     * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationTrustSdsArgs>> sds() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
         }
 
         /**
-         * @param file The TLS validation context trust for a local file certificate.
+         * @param file TLS validation context trust for a local file certificate.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
         }
 
         /**
-         * @param file The TLS validation context trust for a local file certificate.
+         * @param file TLS validation context trust for a local file certificate.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
         }
 
         /**
-         * @param sds The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
         }
 
         /**
-         * @param sds The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 

@@ -78,13 +78,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class GetAcceleratorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the Global Accelerator.
+        /// Full ARN of the Global Accelerator.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the Global Accelerator.
+        /// Unique name of the Global Accelerator.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class GetAcceleratorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full ARN of the Global Accelerator.
+        /// Full ARN of the Global Accelerator.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The unique name of the Global Accelerator.
+        /// Unique name of the Global Accelerator.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -64,7 +64,7 @@ export class Workgroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the workgroup
+     * ARN of the workgroup
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -88,11 +88,11 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -138,7 +138,7 @@ export class Workgroup extends pulumi.CustomResource {
  */
 export interface WorkgroupState {
     /**
-     * Amazon Resource Name (ARN) of the workgroup
+     * ARN of the workgroup
      */
     arn?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface WorkgroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -162,11 +162,11 @@ export interface WorkgroupState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -184,7 +184,7 @@ export interface WorkgroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -196,7 +196,7 @@ export interface WorkgroupArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

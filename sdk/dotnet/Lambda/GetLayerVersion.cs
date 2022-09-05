@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda Layer with version.
+        /// ARN of the Lambda Layer with version.
         /// </summary>
         public readonly string Arn;
         public readonly string? CompatibleArchitecture;
@@ -150,11 +150,11 @@ namespace Pulumi.Aws.Lambda
         public readonly ImmutableArray<string> CompatibleArchitectures;
         public readonly string? CompatibleRuntime;
         /// <summary>
-        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         /// </summary>
         public readonly ImmutableArray<string> CompatibleRuntimes;
         /// <summary>
-        /// The date this resource was created.
+        /// Date this resource was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda Layer without version.
+        /// ARN of the Lambda Layer without version.
         /// </summary>
         public readonly string LayerArn;
         public readonly string LayerName;
@@ -175,11 +175,11 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string LicenseInfo;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a signing job.
+        /// ARN of a signing job.
         /// </summary>
         public readonly string SigningJobArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a signing profile version.
+        /// The ARN for a signing profile version.
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>
-        /// The size in bytes of the function .zip file.
+        /// Size in bytes of the function .zip file.
         /// </summary>
         public readonly int SourceCodeSize;
         /// <summary>

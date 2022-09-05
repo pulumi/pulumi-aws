@@ -215,7 +215,7 @@ class GetContainerRecipeResult:
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> str:
         """
-        The working directory used during build and test workflows.
+        Working directory used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
@@ -262,7 +262,7 @@ def get_container_recipe(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the container recipe.
+    :param str arn: ARN of the container recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
@@ -309,7 +309,7 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the container recipe.
+    :param str arn: ARN of the container recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the container recipe.
     """
     ...

@@ -140,7 +140,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -148,16 +148,16 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
     /**
-     * The certificate's PEM-formatted public key
+     * Certificate's PEM-formatted public key
      */
     public readonly certificateBody!: pulumi.Output<string | undefined>;
     /**
-     * The certificate's PEM-formatted chain
+     * Certificate's PEM-formatted chain
      * * Creating a private CA issued certificate
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -165,11 +165,11 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
     /**
-     * The expiration date and time of the certificate.
+     * Expiration date and time of the certificate.
      */
     public /*out*/ readonly notAfter!: pulumi.Output<string>;
     /**
-     * The start of the validity period of the certificate.
+     * Start of the validity period of the certificate.
      */
     public /*out*/ readonly notBefore!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
     /**
-     * The certificate's PEM-formatted private key
+     * Certificate's PEM-formatted private key
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
@@ -189,20 +189,17 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     */
     public readonly validationMethod!: pulumi.Output<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -270,7 +267,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      */
     arn?: pulumi.Input<string>;
     /**
@@ -278,16 +275,16 @@ export interface CertificateState {
      */
     certificateAuthorityArn?: pulumi.Input<string>;
     /**
-     * The certificate's PEM-formatted public key
+     * Certificate's PEM-formatted public key
      */
     certificateBody?: pulumi.Input<string>;
     /**
-     * The certificate's PEM-formatted chain
+     * Certificate's PEM-formatted chain
      * * Creating a private CA issued certificate
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -295,11 +292,11 @@ export interface CertificateState {
      */
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
     /**
-     * The expiration date and time of the certificate.
+     * Expiration date and time of the certificate.
      */
     notAfter?: pulumi.Input<string>;
     /**
-     * The start of the validity period of the certificate.
+     * Start of the validity period of the certificate.
      */
     notBefore?: pulumi.Input<string>;
     /**
@@ -307,7 +304,7 @@ export interface CertificateState {
      */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
-     * The certificate's PEM-formatted private key
+     * Certificate's PEM-formatted private key
      */
     privateKey?: pulumi.Input<string>;
     /**
@@ -319,20 +316,17 @@ export interface CertificateState {
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     * List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     */
     validationMethod?: pulumi.Input<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
@@ -350,16 +344,16 @@ export interface CertificateArgs {
      */
     certificateAuthorityArn?: pulumi.Input<string>;
     /**
-     * The certificate's PEM-formatted public key
+     * Certificate's PEM-formatted public key
      */
     certificateBody?: pulumi.Input<string>;
     /**
-     * The certificate's PEM-formatted chain
+     * Certificate's PEM-formatted chain
      * * Creating a private CA issued certificate
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -367,7 +361,7 @@ export interface CertificateArgs {
      */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
-     * The certificate's PEM-formatted private key
+     * Certificate's PEM-formatted private key
      */
     privateKey?: pulumi.Input<string>;
     /**
@@ -375,12 +369,9 @@ export interface CertificateArgs {
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     */
     validationMethod?: pulumi.Input<string>;
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.

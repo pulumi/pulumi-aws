@@ -60,7 +60,7 @@ export interface GetPeeringAttachmentArgs {
      */
     id?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
      */
     tags?: {[key: string]: string};
@@ -108,7 +108,7 @@ export interface GetPeeringAttachmentOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

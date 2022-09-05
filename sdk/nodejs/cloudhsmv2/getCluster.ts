@@ -36,11 +36,11 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * The id of Cloud HSM v2 cluster.
+     * ID of Cloud HSM v2 cluster.
      */
     clusterId: string;
     /**
-     * The state of the cluster to be found.
+     * State of the cluster to be found.
      */
     clusterState?: string;
 }
@@ -66,15 +66,15 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
-     * The ID of the security group associated with the CloudHSM cluster.
+     * ID of the security group associated with the CloudHSM cluster.
      */
     readonly securityGroupId: string;
     /**
-     * The IDs of subnets in which cluster operates.
+     * IDs of subnets in which cluster operates.
      */
     readonly subnetIds: string[];
     /**
-     * The id of the VPC that the CloudHSM cluster resides in.
+     * ID of the VPC that the CloudHSM cluster resides in.
      */
     readonly vpcId: string;
 }
@@ -88,11 +88,11 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * The id of Cloud HSM v2 cluster.
+     * ID of Cloud HSM v2 cluster.
      */
     clusterId: pulumi.Input<string>;
     /**
-     * The state of the cluster to be found.
+     * State of the cluster to be found.
      */
     clusterState?: pulumi.Input<string>;
 }

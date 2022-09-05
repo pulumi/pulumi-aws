@@ -14,14 +14,14 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetExperienceArgs Empty = new GetExperienceArgs();
 
     /**
-     * The identifier of the Experience.
+     * Identifier of the Experience.
      * 
      */
     @Import(name="experienceId", required=true)
     private Output<String> experienceId;
 
     /**
-     * @return The identifier of the Experience.
+     * @return Identifier of the Experience.
      * 
      */
     public Output<String> experienceId() {
@@ -29,14 +29,14 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The identifier of the index that contains the Experience.
+     * Identifier of the index that contains the Experience.
      * 
      */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index that contains the Experience.
+     * @return Identifier of the index that contains the Experience.
      * 
      */
     public Output<String> indexId() {
@@ -69,7 +69,7 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param experienceId The identifier of the Experience.
+         * @param experienceId Identifier of the Experience.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param experienceId The identifier of the Experience.
+         * @param experienceId Identifier of the Experience.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexId The identifier of the index that contains the Experience.
+         * @param indexId Identifier of the index that contains the Experience.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexId The identifier of the index that contains the Experience.
+         * @param indexId Identifier of the index that contains the Experience.
          * 
          * @return builder
          * 

@@ -21,14 +21,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     public static final CertificateAuthorityState Empty = new CertificateAuthorityState();
 
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate authority.
+     * @return ARN of the certificate authority.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -141,14 +141,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
     @Import(name="permanentDeletionTimeInDays")
     private @Nullable Output<Integer> permanentDeletionTimeInDays;
 
     /**
-     * @return The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     * @return Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
     public Optional<Output<Integer>> permanentDeletionTimeInDays() {
@@ -209,14 +209,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -224,14 +224,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -239,14 +239,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+     * @return Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -292,7 +292,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the certificate authority.
+         * @param arn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the certificate authority.
+         * @param arn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param permanentDeletionTimeInDays The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+         * @param permanentDeletionTimeInDays Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param permanentDeletionTimeInDays The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+         * @param permanentDeletionTimeInDays Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+         * @param type Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+         * @param type Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
          * 
          * @return builder
          * 

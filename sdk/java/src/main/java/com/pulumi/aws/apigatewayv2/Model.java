@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -99,42 +99,42 @@ public class Model extends com.pulumi.resources.CustomResource {
         return this.contentType;
     }
     /**
-     * The description of the model. Must be between 1 and 128 characters in length.
+     * Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the model. Must be between 1 and 128 characters in length.
+     * @return Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * @return Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
     @Export(name="schema", type=String.class, parameters={})
     private Output<String> schema;
 
     /**
-     * @return The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * @return Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
     public Output<String> schema() {

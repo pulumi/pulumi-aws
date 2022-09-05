@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetTaskDefinitionResult {
     /**
-     * @return The ARN of the task definition
+     * @return ARN of the task definition
      * 
      */
     private String arn;
     /**
-     * @return The family of this task definition
+     * @return Family of this task definition
      * 
      */
     private String family;
@@ -26,37 +26,37 @@ public final class GetTaskDefinitionResult {
      */
     private String id;
     /**
-     * @return The Docker networking mode to use for the containers in this task.
+     * @return Docker networking mode to use for the containers in this task.
      * 
      */
     private String networkMode;
     /**
-     * @return The revision of this task definition
+     * @return Revision of this task definition
      * 
      */
     private Integer revision;
     /**
-     * @return The status of this task definition
+     * @return Status of this task definition
      * 
      */
     private String status;
     private String taskDefinition;
     /**
-     * @return The ARN of the IAM role that containers in this task can assume
+     * @return ARN of the IAM role that containers in this task can assume
      * 
      */
     private String taskRoleArn;
 
     private GetTaskDefinitionResult() {}
     /**
-     * @return The ARN of the task definition
+     * @return ARN of the task definition
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The family of this task definition
+     * @return Family of this task definition
      * 
      */
     public String family() {
@@ -70,21 +70,21 @@ public final class GetTaskDefinitionResult {
         return this.id;
     }
     /**
-     * @return The Docker networking mode to use for the containers in this task.
+     * @return Docker networking mode to use for the containers in this task.
      * 
      */
     public String networkMode() {
         return this.networkMode;
     }
     /**
-     * @return The revision of this task definition
+     * @return Revision of this task definition
      * 
      */
     public Integer revision() {
         return this.revision;
     }
     /**
-     * @return The status of this task definition
+     * @return Status of this task definition
      * 
      */
     public String status() {
@@ -94,7 +94,7 @@ public final class GetTaskDefinitionResult {
         return this.taskDefinition;
     }
     /**
-     * @return The ARN of the IAM role that containers in this task can assume
+     * @return ARN of the IAM role that containers in this task can assume
      * 
      */
     public String taskRoleArn() {

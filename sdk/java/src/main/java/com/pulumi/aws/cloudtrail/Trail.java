@@ -688,14 +688,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * Specifies the name of the advanced event selector.
+     * Name of the advanced event selector.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return Name of the advanced event selector.
      * 
      */
     public Output<String> name() {

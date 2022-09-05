@@ -90,15 +90,15 @@ import (
 type NamedQuery struct {
 	pulumi.CustomResourceState
 
-	// The database to which the query belongs.
+	// Database to which the query belongs.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// A brief explanation of the query. Maximum length of 1024.
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The plain language name for the query. Maximum length of 128.
+	// Plain language name for the query. Maximum length of 128.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringOutput `pulumi:"query"`
-	// The workgroup to which the query belongs. Defaults to `primary`
+	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrOutput `pulumi:"workgroup"`
 }
 
@@ -137,28 +137,28 @@ func GetNamedQuery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamedQuery resources.
 type namedQueryState struct {
-	// The database to which the query belongs.
+	// Database to which the query belongs.
 	Database *string `pulumi:"database"`
-	// A brief explanation of the query. Maximum length of 1024.
+	// Brief explanation of the query. Maximum length of 1024.
 	Description *string `pulumi:"description"`
-	// The plain language name for the query. Maximum length of 128.
+	// Plain language name for the query. Maximum length of 128.
 	Name *string `pulumi:"name"`
-	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query *string `pulumi:"query"`
-	// The workgroup to which the query belongs. Defaults to `primary`
+	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup *string `pulumi:"workgroup"`
 }
 
 type NamedQueryState struct {
-	// The database to which the query belongs.
+	// Database to which the query belongs.
 	Database pulumi.StringPtrInput
-	// A brief explanation of the query. Maximum length of 1024.
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrInput
-	// The plain language name for the query. Maximum length of 128.
+	// Plain language name for the query. Maximum length of 128.
 	Name pulumi.StringPtrInput
-	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringPtrInput
-	// The workgroup to which the query belongs. Defaults to `primary`
+	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrInput
 }
 
@@ -167,29 +167,29 @@ func (NamedQueryState) ElementType() reflect.Type {
 }
 
 type namedQueryArgs struct {
-	// The database to which the query belongs.
+	// Database to which the query belongs.
 	Database string `pulumi:"database"`
-	// A brief explanation of the query. Maximum length of 1024.
+	// Brief explanation of the query. Maximum length of 1024.
 	Description *string `pulumi:"description"`
-	// The plain language name for the query. Maximum length of 128.
+	// Plain language name for the query. Maximum length of 128.
 	Name *string `pulumi:"name"`
-	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query string `pulumi:"query"`
-	// The workgroup to which the query belongs. Defaults to `primary`
+	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup *string `pulumi:"workgroup"`
 }
 
 // The set of arguments for constructing a NamedQuery resource.
 type NamedQueryArgs struct {
-	// The database to which the query belongs.
+	// Database to which the query belongs.
 	Database pulumi.StringInput
-	// A brief explanation of the query. Maximum length of 1024.
+	// Brief explanation of the query. Maximum length of 1024.
 	Description pulumi.StringPtrInput
-	// The plain language name for the query. Maximum length of 128.
+	// Plain language name for the query. Maximum length of 128.
 	Name pulumi.StringPtrInput
-	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query pulumi.StringInput
-	// The workgroup to which the query belongs. Defaults to `primary`
+	// Workgroup to which the query belongs. Defaults to `primary`
 	Workgroup pulumi.StringPtrInput
 }
 
@@ -280,27 +280,27 @@ func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
-// The database to which the query belongs.
+// Database to which the query belongs.
 func (o NamedQueryOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// A brief explanation of the query. Maximum length of 1024.
+// Brief explanation of the query. Maximum length of 1024.
 func (o NamedQueryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The plain language name for the query. Maximum length of 128.
+// Plain language name for the query. Maximum length of 128.
 func (o NamedQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+// Text of the query itself. In other words, all query statements. Maximum length of 262144.
 func (o NamedQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
-// The workgroup to which the query belongs. Defaults to `primary`
+// Workgroup to which the query belongs. Defaults to `primary`
 func (o NamedQueryOutput) Workgroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamedQuery) pulumi.StringPtrOutput { return v.Workgroup }).(pulumi.StringPtrOutput)
 }

@@ -4353,7 +4353,7 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3KeyPrefix() pulumi.
 }
 
 type GetComponentsFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -4371,7 +4371,7 @@ type GetComponentsFilterInput interface {
 }
 
 type GetComponentsFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -4428,7 +4428,7 @@ func (o GetComponentsFilterOutput) ToGetComponentsFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
 func (o GetComponentsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetComponentsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4459,7 +4459,7 @@ func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFi
 }
 
 type GetContainerRecipeComponent struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component.
+	// ARN of the Image Builder Component.
 	ComponentArn string `pulumi:"componentArn"`
 	// Set of parameters that are used to configure the component.
 	Parameters []GetContainerRecipeComponentParameter `pulumi:"parameters"`
@@ -4477,7 +4477,7 @@ type GetContainerRecipeComponentInput interface {
 }
 
 type GetContainerRecipeComponentArgs struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component.
+	// ARN of the Image Builder Component.
 	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
 	// Set of parameters that are used to configure the component.
 	Parameters GetContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
@@ -4534,7 +4534,7 @@ func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutputWi
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Component.
+// ARN of the Image Builder Component.
 func (o GetContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
@@ -5171,7 +5171,7 @@ func (o GetContainerRecipeTargetRepositoryArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetContainerRecipesFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -5189,7 +5189,7 @@ type GetContainerRecipesFilterInput interface {
 }
 
 type GetContainerRecipesFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -5246,7 +5246,7 @@ func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutputWithCo
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
 func (o GetContainerRecipesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5431,7 +5431,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfiguration struct
 	AmiTags map[string]string `pulumi:"amiTags"`
 	// Description of the container distribution configuration.
 	Description string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+	// ARN of Key Management Service (KMS) Key to encrypt AMI.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Nested list of EC2 launch permissions.
 	LaunchPermissions []GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission `pulumi:"launchPermissions"`
@@ -5457,7 +5457,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs st
 	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
 	// Description of the container distribution configuration.
 	Description pulumi.StringInput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+	// ARN of Key Management Service (KMS) Key to encrypt AMI.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Nested list of EC2 launch permissions.
 	LaunchPermissions GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput `pulumi:"launchPermissions"`
@@ -5532,7 +5532,7 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutp
 	}).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
+// ARN of Key Management Service (KMS) Key to encrypt AMI.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -6301,7 +6301,7 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 type GetDistributionConfigurationDistributionLaunchTemplateConfiguration struct {
 	// The account ID that this configuration applies to.
 	AccountId string `pulumi:"accountId"`
-	// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+	// Whether the specified Amazon EC2 launch template is set as the default launch template.
 	Default bool `pulumi:"default"`
 	// ID of the Amazon EC2 launch template.
 	LaunchTemplateId string `pulumi:"launchTemplateId"`
@@ -6321,7 +6321,7 @@ type GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput in
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs struct {
 	// The account ID that this configuration applies to.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+	// Whether the specified Amazon EC2 launch template is set as the default launch template.
 	Default pulumi.BoolInput `pulumi:"default"`
 	// ID of the Amazon EC2 launch template.
 	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
@@ -6383,7 +6383,7 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutpu
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+// Whether the specified Amazon EC2 launch template is set as the default launch template.
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) Default() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) bool { return v.Default }).(pulumi.BoolOutput)
 }
@@ -6416,7 +6416,7 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray
 }
 
 type GetDistributionConfigurationsFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -6434,7 +6434,7 @@ type GetDistributionConfigurationsFilterInput interface {
 }
 
 type GetDistributionConfigurationsFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -6491,7 +6491,7 @@ func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfiguratio
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
 func (o GetDistributionConfigurationsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7070,7 +7070,7 @@ func (o GetImagePipelineScheduleArrayOutput) Index(i pulumi.IntInput) GetImagePi
 }
 
 type GetImagePipelinesFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -7088,7 +7088,7 @@ type GetImagePipelinesFilterInput interface {
 }
 
 type GetImagePipelinesFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -7145,7 +7145,7 @@ func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutputWithContex
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
 func (o GetImagePipelinesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagePipelinesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7306,7 +7306,7 @@ type GetImageRecipeBlockDeviceMappingEb struct {
 	Encrypted bool `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the Key Management Service (KMS) Key for encryption.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
@@ -7336,7 +7336,7 @@ type GetImageRecipeBlockDeviceMappingEbArgs struct {
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the Key Management Service (KMS) Key for encryption.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
@@ -7414,7 +7414,7 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// ARN of the Key Management Service (KMS) Key for encryption.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -7460,7 +7460,7 @@ func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetImageRecipeComponent struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component.
+	// ARN of the Image Builder Component.
 	ComponentArn string `pulumi:"componentArn"`
 	// Set of parameters that are used to configure the component.
 	Parameters []GetImageRecipeComponentParameter `pulumi:"parameters"`
@@ -7478,7 +7478,7 @@ type GetImageRecipeComponentInput interface {
 }
 
 type GetImageRecipeComponentArgs struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component.
+	// ARN of the Image Builder Component.
 	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
 	// Set of parameters that are used to configure the component.
 	Parameters GetImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
@@ -7535,7 +7535,7 @@ func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutputWithContex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Component.
+// ARN of the Image Builder Component.
 func (o GetImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
@@ -7672,7 +7672,7 @@ func (o GetImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetImageRecipesFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -7690,7 +7690,7 @@ type GetImageRecipesFilterInput interface {
 }
 
 type GetImageRecipesFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -7747,7 +7747,7 @@ func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutputWithContext(ct
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
 func (o GetImageRecipesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8089,7 +8089,7 @@ func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) Index(i pulumi.In
 }
 
 type GetInfrastructureConfigurationsFilter struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -8107,7 +8107,7 @@ type GetInfrastructureConfigurationsFilterInput interface {
 }
 
 type GetInfrastructureConfigurationsFilterArgs struct {
-	// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+	// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -8164,7 +8164,7 @@ func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigur
 	return o
 }
 
-// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
 func (o GetInfrastructureConfigurationsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsFilter) string { return v.Name }).(pulumi.StringOutput)
 }

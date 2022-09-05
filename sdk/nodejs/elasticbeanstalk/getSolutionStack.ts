@@ -41,7 +41,7 @@ export interface GetSolutionStackArgs {
      */
     mostRecent?: boolean;
     /**
-     * A regex string to apply to the solution stack list returned
+     * Regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
      */
@@ -58,7 +58,7 @@ export interface GetSolutionStackResult {
     readonly id: string;
     readonly mostRecent?: boolean;
     /**
-     * The name of the solution stack.
+     * Name of the solution stack.
      */
     readonly name: string;
     readonly nameRegex: string;
@@ -78,7 +78,7 @@ export interface GetSolutionStackOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * A regex string to apply to the solution stack list returned
+     * Regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
      */

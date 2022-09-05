@@ -14,14 +14,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
     /**
-     * The friendly IAM group name to match.
+     * Friendly IAM group name to match.
      * 
      */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
     /**
-     * @return The friendly IAM group name to match.
+     * @return Friendly IAM group name to match.
      * 
      */
     public Output<String> groupName() {
@@ -53,7 +53,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param groupName The friendly IAM group name to match.
+         * @param groupName Friendly IAM group name to match.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param groupName The friendly IAM group name to match.
+         * @param groupName Friendly IAM group name to match.
          * 
          * @return builder
          * 

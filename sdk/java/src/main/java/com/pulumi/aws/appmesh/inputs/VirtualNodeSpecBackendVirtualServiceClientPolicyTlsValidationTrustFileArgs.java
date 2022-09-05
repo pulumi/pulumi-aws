@@ -14,14 +14,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs();
 
     /**
-     * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
     /**
-     * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> certificateChain() {
@@ -53,7 +53,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param certificateChain The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param certificateChain The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

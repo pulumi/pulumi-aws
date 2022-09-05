@@ -85,26 +85,26 @@ type LookupPatchBaselineArgs struct {
 	DefaultBaseline *bool `pulumi:"defaultBaseline"`
 	// Filter results by the baseline name prefix.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The specified OS for the baseline.
+	// Specified OS for the baseline.
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	// The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	Owner string `pulumi:"owner"`
 }
 
 // A collection of values returned by getPatchBaseline.
 type LookupPatchBaselineResult struct {
-	// A list of rules used to include patches in the baseline.
+	// List of rules used to include patches in the baseline.
 	ApprovalRules []GetPatchBaselineApprovalRule `pulumi:"approvalRules"`
-	// A list of explicitly approved patches for the baseline.
+	// List of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
 	// The compliance level for approved patches.
 	ApprovedPatchesComplianceLevel string `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
 	ApprovedPatchesEnableNonSecurity bool  `pulumi:"approvedPatchesEnableNonSecurity"`
 	DefaultBaseline                  *bool `pulumi:"defaultBaseline"`
-	// The description of the baseline.
+	// Description of the baseline.
 	Description string `pulumi:"description"`
-	// A set of global filters used to exclude patches from the baseline.
+	// Set of global filters used to exclude patches from the baseline.
 	GlobalFilters []GetPatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -113,7 +113,7 @@ type LookupPatchBaselineResult struct {
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
-	// A list of rejected patches.
+	// List of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// The action specified to take on patches included in the `rejectedPatches` list.
 	RejectedPatchesAction string `pulumi:"rejectedPatchesAction"`
@@ -140,9 +140,9 @@ type LookupPatchBaselineOutputArgs struct {
 	DefaultBaseline pulumi.BoolPtrInput `pulumi:"defaultBaseline"`
 	// Filter results by the baseline name prefix.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// The specified OS for the baseline.
+	// Specified OS for the baseline.
 	OperatingSystem pulumi.StringPtrInput `pulumi:"operatingSystem"`
-	// The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -165,12 +165,12 @@ func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutputWithCo
 	return o
 }
 
-// A list of rules used to include patches in the baseline.
+// List of rules used to include patches in the baseline.
 func (o LookupPatchBaselineResultOutput) ApprovalRules() GetPatchBaselineApprovalRuleArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []GetPatchBaselineApprovalRule { return v.ApprovalRules }).(GetPatchBaselineApprovalRuleArrayOutput)
 }
 
-// A list of explicitly approved patches for the baseline.
+// List of explicitly approved patches for the baseline.
 func (o LookupPatchBaselineResultOutput) ApprovedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.ApprovedPatches }).(pulumi.StringArrayOutput)
 }
@@ -189,12 +189,12 @@ func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupPatchBaselineResult) *bool { return v.DefaultBaseline }).(pulumi.BoolPtrOutput)
 }
 
-// The description of the baseline.
+// Description of the baseline.
 func (o LookupPatchBaselineResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// A set of global filters used to exclude patches from the baseline.
+// Set of global filters used to exclude patches from the baseline.
 func (o LookupPatchBaselineResultOutput) GlobalFilters() GetPatchBaselineGlobalFilterArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []GetPatchBaselineGlobalFilter { return v.GlobalFilters }).(GetPatchBaselineGlobalFilterArrayOutput)
 }
@@ -221,7 +221,7 @@ func (o LookupPatchBaselineResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// A list of rejected patches.
+// List of rejected patches.
 func (o LookupPatchBaselineResultOutput) RejectedPatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.RejectedPatches }).(pulumi.StringArrayOutput)
 }

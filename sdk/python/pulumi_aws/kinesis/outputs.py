@@ -4939,7 +4939,7 @@ class GetStreamStreamModeDetailResult(dict):
     def __init__(__self__, *,
                  stream_mode: str):
         """
-        :param str stream_mode: The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+        :param str stream_mode: Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
         """
         pulumi.set(__self__, "stream_mode", stream_mode)
 
@@ -4947,7 +4947,7 @@ class GetStreamStreamModeDetailResult(dict):
     @pulumi.getter(name="streamMode")
     def stream_mode(self) -> str:
         """
-        The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+        Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
         """
         return pulumi.get(self, "stream_mode")
 

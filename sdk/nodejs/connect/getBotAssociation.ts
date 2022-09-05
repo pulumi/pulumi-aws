@@ -40,7 +40,7 @@ export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.Inv
  */
 export interface GetBotAssociationArgs {
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: string;
     /**
@@ -70,7 +70,7 @@ export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?
  */
 export interface GetBotAssociationOutputArgs {
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
     instanceId: pulumi.Input<string>;
     /**

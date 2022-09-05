@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRegionResult {
     /**
-     * @return The region&#39;s description in this format: &#34;Location (Region name)&#34;.
+     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
      * 
      */
     private String description;
     /**
-     * @return The EC2 endpoint for the selected region.
+     * @return EC2 endpoint for the selected region.
      * 
      */
     private String endpoint;
@@ -25,21 +25,21 @@ public final class GetRegionResult {
      */
     private String id;
     /**
-     * @return The name of the selected region.
+     * @return Name of the selected region.
      * 
      */
     private String name;
 
     private GetRegionResult() {}
     /**
-     * @return The region&#39;s description in this format: &#34;Location (Region name)&#34;.
+     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The EC2 endpoint for the selected region.
+     * @return EC2 endpoint for the selected region.
      * 
      */
     public String endpoint() {
@@ -53,7 +53,7 @@ public final class GetRegionResult {
         return this.id;
     }
     /**
-     * @return The name of the selected region.
+     * @return Name of the selected region.
      * 
      */
     public String name() {

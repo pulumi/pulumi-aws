@@ -17,14 +17,14 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDirectoryArgs Empty = new GetDirectoryArgs();
 
     /**
-     * The ID of the directory.
+     * ID of the directory.
      * 
      */
     @Import(name="directoryId", required=true)
     private Output<String> directoryId;
 
     /**
-     * @return The ID of the directory.
+     * @return ID of the directory.
      * 
      */
     public Output<String> directoryId() {
@@ -72,7 +72,7 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param directoryId The ID of the directory.
+         * @param directoryId ID of the directory.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param directoryId The ID of the directory.
+         * @param directoryId ID of the directory.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// The path at which the device is exposed to created instances.
+        /// Path at which the device is exposed to created instances.
         /// </summary>
         public readonly string? DeviceName;
         /// <summary>
@@ -32,27 +32,27 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// The ARN of the Outpost on which the snapshot is stored.
+        /// ARN of the Outpost on which the snapshot is stored.
         /// </summary>
         public readonly string? OutpostArn;
         /// <summary>
-        /// The id of an EBS snapshot that will be used to initialize the created
+        /// ID of an EBS snapshot that will be used to initialize the created
         /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         /// snapshot.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        /// Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
-        /// The size of created volumes in GiB.
+        /// Size of created volumes in GiB.
         /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         /// as the selected snapshot.
         /// </summary>
         public readonly int? VolumeSize;
         /// <summary>
-        /// The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        /// Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         /// </summary>
         public readonly string? VolumeType;
 

@@ -60,7 +60,7 @@ class GetMapResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the map resource was created in ISO 8601 format.
+        Timestamp for when the map resource was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -68,7 +68,7 @@ class GetMapResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The optional description for the map resource.
+        Optional description for the map resource.
         """
         return pulumi.get(self, "description")
 
@@ -84,7 +84,7 @@ class GetMapResult:
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the map resource.
+        ARN for the map resource.
         """
         return pulumi.get(self, "map_arn")
 
@@ -105,7 +105,7 @@ class GetMapResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the map resource was last updated in ISO 8601 format.
+        Timestamp for when the map resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -142,7 +142,7 @@ def get_map(map_name: Optional[str] = None,
     ```
 
 
-    :param str map_name: The name of the map resource.
+    :param str map_name: Name of the map resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the map.
     """
     __args__ = dict()
@@ -179,7 +179,7 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str map_name: The name of the map resource.
+    :param str map_name: Name of the map resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the map.
     """
     ...

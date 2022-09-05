@@ -16,14 +16,14 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
     public static final CertificateDomainValidationOptionArgs Empty = new CertificateDomainValidationOptionArgs();
 
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return A fully qualified domain name (FQDN) in the certificate.
+     * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -103,7 +103,7 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param domainName A fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Fully qualified domain name (FQDN) in the certificate.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param domainName A fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Fully qualified domain name (FQDN) in the certificate.
          * 
          * @return builder
          * 

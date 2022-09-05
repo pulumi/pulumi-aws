@@ -30,7 +30,7 @@ export interface GetSubnetsArgs {
      */
     filters?: inputs.ec2.GetSubnetsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: {[key: string]: string};
@@ -46,7 +46,7 @@ export interface GetSubnetsResult {
      */
     readonly id: string;
     /**
-     * A list of all the subnet ids found.
+     * List of all the subnet ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -65,7 +65,7 @@ export interface GetSubnetsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

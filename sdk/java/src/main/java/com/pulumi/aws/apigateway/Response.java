@@ -67,70 +67,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/response:Response")
 public class Response extends com.pulumi.resources.CustomResource {
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
     @Export(name="responseParameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
     /**
-     * @return A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * @return Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
     public Output<Optional<Map<String,String>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
     /**
-     * A map specifying the templates used to transform the response body.
+     * Map of templates used to transform the response body.
      * 
      */
     @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
-     * @return A map specifying the templates used to transform the response body.
+     * @return Map of templates used to transform the response body.
      * 
      */
     public Output<Optional<Map<String,String>>> responseTemplates() {
         return Codegen.optional(this.responseTemplates);
     }
     /**
-     * The response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse.
      * 
      */
     @Export(name="responseType", type=String.class, parameters={})
     private Output<String> responseType;
 
     /**
-     * @return The response type of the associated GatewayResponse.
+     * @return Response type of the associated GatewayResponse.
      * 
      */
     public Output<String> responseType() {
         return this.responseType;
     }
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      * 
      */
     @Export(name="restApiId", type=String.class, parameters={})
     private Output<String> restApiId;
 
     /**
-     * @return The string identifier of the associated REST API.
+     * @return String identifier of the associated REST API.
      * 
      */
     public Output<String> restApiId() {
         return this.restApiId;
     }
     /**
-     * The HTTP status code of the Gateway Response.
+     * HTTP status code of the Gateway Response.
      * 
      */
     @Export(name="statusCode", type=String.class, parameters={})
     private Output</* @Nullable */ String> statusCode;
 
     /**
-     * @return The HTTP status code of the Gateway Response.
+     * @return HTTP status code of the Gateway Response.
      * 
      */
     public Output<Optional<String>> statusCode() {

@@ -54,13 +54,13 @@ type GetAuthorizationTokenArgs struct {
 type GetAuthorizationTokenResult struct {
 	// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 	AuthorizationToken string `pulumi:"authorizationToken"`
-	// The time in UTC RFC3339 format when the authorization token expires.
+	// Time in UTC RFC3339 format when the authorization token expires.
 	ExpiresAt string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Password decoded from the authorization token.
 	Password string `pulumi:"password"`
-	// The registry URL to use in the docker login command.
+	// Registry URL to use in the docker login command.
 	ProxyEndpoint string  `pulumi:"proxyEndpoint"`
 	RegistryId    *string `pulumi:"registryId"`
 	// User name decoded from the authorization token.
@@ -110,7 +110,7 @@ func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOut
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
 }
 
-// The time in UTC RFC3339 format when the authorization token expires.
+// Time in UTC RFC3339 format when the authorization token expires.
 func (o GetAuthorizationTokenResultOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
 }
@@ -125,7 +125,7 @@ func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The registry URL to use in the docker login command.
+// Registry URL to use in the docker login command.
 func (o GetAuthorizationTokenResultOutput) ProxyEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
 }

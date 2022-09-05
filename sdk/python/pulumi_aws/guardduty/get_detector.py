@@ -52,7 +52,7 @@ class GetDetectorResult:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> str:
         """
-        The service-linked role that grants GuardDuty access to the resources in the AWS account.
+        Service-linked role that grants GuardDuty access to the resources in the AWS account.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -60,7 +60,7 @@ class GetDetectorResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the detector.
+        Current status of the detector.
         """
         return pulumi.get(self, "status")
 
@@ -92,7 +92,7 @@ def get_detector(id: Optional[str] = None,
     ```
 
 
-    :param str id: The ID of the detector.
+    :param str id: ID of the detector.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -122,6 +122,6 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str id: The ID of the detector.
+    :param str id: ID of the detector.
     """
     ...

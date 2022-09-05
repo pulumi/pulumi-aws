@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Import
     /// 
-    /// `aws_acmpca_certificate_authority` can be imported by using the certificate authority Amazon Resource Name (ARN), e.g.,
+    /// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Acmpca
     public partial class CertificateAuthority : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> NotBefore { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
         [Output("permanentDeletionTimeInDays")]
         public Output<int?> PermanentDeletionTimeInDays { get; private set; } = null!;
@@ -206,19 +206,19 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
         [Input("permanentDeletionTimeInDays")]
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Acmpca
         }
 
         /// <summary>
-        /// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateAuthorityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? NotBefore { get; set; }
 
         /// <summary>
-        /// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
         [Input("permanentDeletionTimeInDays")]
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Acmpca
         }
 
         /// <summary>
-        /// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

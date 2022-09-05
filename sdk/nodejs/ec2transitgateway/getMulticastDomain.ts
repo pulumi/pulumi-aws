@@ -70,7 +70,7 @@ export interface GetMulticastDomainArgs {
  */
 export interface GetMulticastDomainResult {
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      */
     readonly arn: string;
     /**

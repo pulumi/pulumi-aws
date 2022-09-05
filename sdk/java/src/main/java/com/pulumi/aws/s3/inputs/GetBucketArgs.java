@@ -14,14 +14,14 @@ public final class GetBucketArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBucketArgs Empty = new GetBucketArgs();
 
     /**
-     * The name of the bucket
+     * Name of the bucket
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket
+     * @return Name of the bucket
      * 
      */
     public Output<String> bucket() {
@@ -53,7 +53,7 @@ public final class GetBucketArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bucket The name of the bucket
+         * @param bucket Name of the bucket
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetBucketArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bucket The name of the bucket
+         * @param bucket Name of the bucket
          * 
          * @return builder
          * 

@@ -60,7 +60,7 @@ export interface GetVpnAttachmentArgs {
      */
     filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     tags?: {[key: string]: string};
     /**
@@ -103,7 +103,7 @@ export interface GetVpnAttachmentOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpnAttachmentFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

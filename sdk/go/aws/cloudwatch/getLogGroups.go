@@ -48,7 +48,7 @@ func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsArgs struct {
-	// The group prefix of the Cloudwatch log groups to list
+	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 }
 
@@ -78,7 +78,7 @@ func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts .
 
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsOutputArgs struct {
-	// The group prefix of the Cloudwatch log groups to list
+	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix pulumi.StringPtrInput `pulumi:"logGroupNamePrefix"`
 }
 

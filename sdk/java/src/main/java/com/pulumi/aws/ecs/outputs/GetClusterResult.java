@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     /**
-     * @return The ARN of the ECS Cluster
+     * @return ARN of the ECS Cluster
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetClusterResult {
      */
     private String id;
     /**
-     * @return The number of pending tasks for the ECS Cluster
+     * @return Number of pending tasks for the ECS Cluster
      * 
      */
     private Integer pendingTasksCount;
@@ -34,24 +34,24 @@ public final class GetClusterResult {
      */
     private Integer registeredContainerInstancesCount;
     /**
-     * @return The number of running tasks for the ECS Cluster
+     * @return Number of running tasks for the ECS Cluster
      * 
      */
     private Integer runningTasksCount;
     /**
-     * @return The settings associated with the ECS Cluster.
+     * @return Settings associated with the ECS Cluster.
      * 
      */
     private List<GetClusterSetting> settings;
     /**
-     * @return The status of the ECS Cluster
+     * @return Status of the ECS Cluster
      * 
      */
     private String status;
 
     private GetClusterResult() {}
     /**
-     * @return The ARN of the ECS Cluster
+     * @return ARN of the ECS Cluster
      * 
      */
     public String arn() {
@@ -68,7 +68,7 @@ public final class GetClusterResult {
         return this.id;
     }
     /**
-     * @return The number of pending tasks for the ECS Cluster
+     * @return Number of pending tasks for the ECS Cluster
      * 
      */
     public Integer pendingTasksCount() {
@@ -82,21 +82,21 @@ public final class GetClusterResult {
         return this.registeredContainerInstancesCount;
     }
     /**
-     * @return The number of running tasks for the ECS Cluster
+     * @return Number of running tasks for the ECS Cluster
      * 
      */
     public Integer runningTasksCount() {
         return this.runningTasksCount;
     }
     /**
-     * @return The settings associated with the ECS Cluster.
+     * @return Settings associated with the ECS Cluster.
      * 
      */
     public List<GetClusterSetting> settings() {
         return this.settings;
     }
     /**
-     * @return The status of the ECS Cluster
+     * @return Status of the ECS Cluster
      * 
      */
     public String status() {

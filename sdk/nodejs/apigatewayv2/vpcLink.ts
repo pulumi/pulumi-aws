@@ -62,11 +62,11 @@ export class VpcLink extends pulumi.CustomResource {
     }
 
     /**
-     * The VPC Link ARN.
+     * VPC Link ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -78,11 +78,11 @@ export class VpcLink extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -130,11 +130,11 @@ export class VpcLink extends pulumi.CustomResource {
  */
 export interface VpcLinkState {
     /**
-     * The VPC Link ARN.
+     * VPC Link ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -146,11 +146,11 @@ export interface VpcLinkState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -160,7 +160,7 @@ export interface VpcLinkState {
  */
 export interface VpcLinkArgs {
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface VpcLinkArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

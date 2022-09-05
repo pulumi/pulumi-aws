@@ -60,7 +60,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
-	// The unique name of the load balancer.
+	// Unique name of the load balancer.
 	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,7 +106,7 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerOutputArgs struct {
-	// The unique name of the load balancer.
+	// Unique name of the load balancer.
 	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? Initials;
         /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        /// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         /// </summary>
         public readonly string? Locality;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? Organization;
         /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        /// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         /// </summary>
         public readonly string? OrganizationalUnit;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? Surname;
         /// <summary>
-        /// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+        /// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         /// </summary>
         public readonly string? Title;
 

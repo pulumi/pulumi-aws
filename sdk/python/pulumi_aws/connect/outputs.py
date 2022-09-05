@@ -947,8 +947,8 @@ class RoutingProfileQueueConfig(dict):
         :param int delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         :param int priority: Specifies the order in which contacts are to be handled for the queue.
         :param str queue_id: Specifies the identifier for the queue.
-        :param str queue_arn: Specifies the ARN for the queue.
-        :param str queue_name: Specifies the name for the queue.
+        :param str queue_arn: ARN for the queue.
+        :param str queue_name: Name for the queue.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "delay", delay)
@@ -995,7 +995,7 @@ class RoutingProfileQueueConfig(dict):
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[str]:
         """
-        Specifies the ARN for the queue.
+        ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -1003,7 +1003,7 @@ class RoutingProfileQueueConfig(dict):
     @pulumi.getter(name="queueName")
     def queue_name(self) -> Optional[str]:
         """
-        Specifies the name for the queue.
+        Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
@@ -1042,9 +1042,9 @@ class RoutingProfileQueueConfigsAssociated(dict):
         :param str channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param int delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         :param int priority: Specifies the order in which contacts are to be handled for the queue.
-        :param str queue_arn: Specifies the ARN for the queue.
+        :param str queue_arn: ARN for the queue.
         :param str queue_id: Specifies the identifier for the queue.
-        :param str queue_name: Specifies the name for the queue.
+        :param str queue_name: Name for the queue.
         """
         if channel is not None:
             pulumi.set(__self__, "channel", channel)
@@ -1087,7 +1087,7 @@ class RoutingProfileQueueConfigsAssociated(dict):
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[str]:
         """
-        Specifies the ARN for the queue.
+        ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -1103,7 +1103,7 @@ class RoutingProfileQueueConfigsAssociated(dict):
     @pulumi.getter(name="queueName")
     def queue_name(self) -> Optional[str]:
         """
-        Specifies the name for the queue.
+        Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
@@ -1862,8 +1862,8 @@ class GetBotAssociationLexBotResult(dict):
                  lex_region: str,
                  name: str):
         """
-        :param str lex_region: The Region that the Amazon Lex (V1) bot was created in.
-        :param str name: The name of the Amazon Lex (V1) bot.
+        :param str lex_region: Region that the Amazon Lex (V1) bot was created in.
+        :param str name: Name of the Amazon Lex (V1) bot.
         """
         pulumi.set(__self__, "lex_region", lex_region)
         pulumi.set(__self__, "name", name)
@@ -1872,7 +1872,7 @@ class GetBotAssociationLexBotResult(dict):
     @pulumi.getter(name="lexRegion")
     def lex_region(self) -> str:
         """
-        The Region that the Amazon Lex (V1) bot was created in.
+        Region that the Amazon Lex (V1) bot was created in.
         """
         return pulumi.get(self, "lex_region")
 
@@ -1880,7 +1880,7 @@ class GetBotAssociationLexBotResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Amazon Lex (V1) bot.
+        Name of the Amazon Lex (V1) bot.
         """
         return pulumi.get(self, "name")
 
@@ -1892,9 +1892,9 @@ class GetHoursOfOperationConfigResult(dict):
                  end_times: Sequence['outputs.GetHoursOfOperationConfigEndTimeResult'],
                  start_times: Sequence['outputs.GetHoursOfOperationConfigStartTimeResult']):
         """
-        :param str day: Specifies the day that the hours of operation applies to.
-        :param Sequence['GetHoursOfOperationConfigEndTimeArgs'] end_times: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param Sequence['GetHoursOfOperationConfigStartTimeArgs'] start_times: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        :param str day: Day that the hours of operation applies to.
+        :param Sequence['GetHoursOfOperationConfigEndTimeArgs'] end_times: End time block specifies the time that your contact center closes. The `end_time` is documented below.
+        :param Sequence['GetHoursOfOperationConfigStartTimeArgs'] start_times: Start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_times", end_times)
@@ -1904,7 +1904,7 @@ class GetHoursOfOperationConfigResult(dict):
     @pulumi.getter
     def day(self) -> str:
         """
-        Specifies the day that the hours of operation applies to.
+        Day that the hours of operation applies to.
         """
         return pulumi.get(self, "day")
 
@@ -1912,7 +1912,7 @@ class GetHoursOfOperationConfigResult(dict):
     @pulumi.getter(name="endTimes")
     def end_times(self) -> Sequence['outputs.GetHoursOfOperationConfigEndTimeResult']:
         """
-        A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        End time block specifies the time that your contact center closes. The `end_time` is documented below.
         """
         return pulumi.get(self, "end_times")
 
@@ -1920,7 +1920,7 @@ class GetHoursOfOperationConfigResult(dict):
     @pulumi.getter(name="startTimes")
     def start_times(self) -> Sequence['outputs.GetHoursOfOperationConfigStartTimeResult']:
         """
-        A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        Start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         return pulumi.get(self, "start_times")
 
@@ -1931,8 +1931,8 @@ class GetHoursOfOperationConfigEndTimeResult(dict):
                  hours: int,
                  minutes: int):
         """
-        :param int hours: Specifies the hour of opening.
-        :param int minutes: Specifies the minute of opening.
+        :param int hours: Hour of opening.
+        :param int minutes: Minute of opening.
         """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
@@ -1941,7 +1941,7 @@ class GetHoursOfOperationConfigEndTimeResult(dict):
     @pulumi.getter
     def hours(self) -> int:
         """
-        Specifies the hour of opening.
+        Hour of opening.
         """
         return pulumi.get(self, "hours")
 
@@ -1949,7 +1949,7 @@ class GetHoursOfOperationConfigEndTimeResult(dict):
     @pulumi.getter
     def minutes(self) -> int:
         """
-        Specifies the minute of opening.
+        Minute of opening.
         """
         return pulumi.get(self, "minutes")
 
@@ -1960,8 +1960,8 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
                  hours: int,
                  minutes: int):
         """
-        :param int hours: Specifies the hour of opening.
-        :param int minutes: Specifies the minute of opening.
+        :param int hours: Hour of opening.
+        :param int minutes: Minute of opening.
         """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
@@ -1970,7 +1970,7 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
     @pulumi.getter
     def hours(self) -> int:
         """
-        Specifies the hour of opening.
+        Hour of opening.
         """
         return pulumi.get(self, "hours")
 
@@ -1978,7 +1978,7 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
     @pulumi.getter
     def minutes(self) -> int:
         """
-        Specifies the minute of opening.
+        Minute of opening.
         """
         return pulumi.get(self, "minutes")
 
@@ -1992,7 +1992,7 @@ class GetQueueOutboundCallerConfigResult(dict):
         """
         :param str outbound_caller_id_name: Specifies the caller ID name.
         :param str outbound_caller_id_number_id: Specifies the caller ID number.
-        :param str outbound_flow_id: Specifies the outbound whisper flow to be used during an outbound call.
+        :param str outbound_flow_id: Outbound whisper flow to be used during an outbound call.
         """
         pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
         pulumi.set(__self__, "outbound_caller_id_number_id", outbound_caller_id_number_id)
@@ -2018,7 +2018,7 @@ class GetQueueOutboundCallerConfigResult(dict):
     @pulumi.getter(name="outboundFlowId")
     def outbound_flow_id(self) -> str:
         """
-        Specifies the outbound whisper flow to be used during an outbound call.
+        Outbound whisper flow to be used during an outbound call.
         """
         return pulumi.get(self, "outbound_flow_id")
 
@@ -2031,10 +2031,10 @@ class GetQuickConnectQuickConnectConfigResult(dict):
                  quick_connect_type: str,
                  user_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigUserConfigResult']):
         """
-        :param Sequence['GetQuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Specifies the phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param Sequence['GetQuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Specifies the queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        :param str quick_connect_type: Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param Sequence['GetQuickConnectQuickConnectConfigUserConfigArgs'] user_configs: Specifies the user configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        :param Sequence['GetQuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param Sequence['GetQuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param str quick_connect_type: Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        :param Sequence['GetQuickConnectQuickConnectConfigUserConfigArgs'] user_configs: User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         pulumi.set(__self__, "phone_configs", phone_configs)
         pulumi.set(__self__, "queue_configs", queue_configs)
@@ -2045,7 +2045,7 @@ class GetQuickConnectQuickConnectConfigResult(dict):
     @pulumi.getter(name="phoneConfigs")
     def phone_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigPhoneConfigResult']:
         """
-        Specifies the phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
         """
         return pulumi.get(self, "phone_configs")
 
@@ -2053,7 +2053,7 @@ class GetQuickConnectQuickConnectConfigResult(dict):
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigQueueConfigResult']:
         """
-        Specifies the queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         """
         return pulumi.get(self, "queue_configs")
 
@@ -2061,7 +2061,7 @@ class GetQuickConnectQuickConnectConfigResult(dict):
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> str:
         """
-        Specifies the configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
         """
         return pulumi.get(self, "quick_connect_type")
 
@@ -2069,7 +2069,7 @@ class GetQuickConnectQuickConnectConfigResult(dict):
     @pulumi.getter(name="userConfigs")
     def user_configs(self) -> Sequence['outputs.GetQuickConnectQuickConnectConfigUserConfigResult']:
         """
-        Specifies the user configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         return pulumi.get(self, "user_configs")
 
@@ -2079,7 +2079,7 @@ class GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
     def __init__(__self__, *,
                  phone_number: str):
         """
-        :param str phone_number: Specifies the phone number in in E.164 format.
+        :param str phone_number: Phone number in in E.164 format.
         """
         pulumi.set(__self__, "phone_number", phone_number)
 
@@ -2087,7 +2087,7 @@ class GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> str:
         """
-        Specifies the phone number in in E.164 format.
+        Phone number in in E.164 format.
         """
         return pulumi.get(self, "phone_number")
 
@@ -2098,8 +2098,8 @@ class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
                  contact_flow_id: str,
                  queue_id: str):
         """
-        :param str contact_flow_id: Specifies the identifier of the contact flow.
-        :param str queue_id: Specifies the identifier for the queue.
+        :param str contact_flow_id: Identifier of the contact flow.
+        :param str queue_id: Identifier for the queue.
         """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "queue_id", queue_id)
@@ -2108,7 +2108,7 @@ class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> str:
         """
-        Specifies the identifier of the contact flow.
+        Identifier of the contact flow.
         """
         return pulumi.get(self, "contact_flow_id")
 
@@ -2116,7 +2116,7 @@ class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
     @pulumi.getter(name="queueId")
     def queue_id(self) -> str:
         """
-        Specifies the identifier for the queue.
+        Identifier for the queue.
         """
         return pulumi.get(self, "queue_id")
 
@@ -2127,8 +2127,8 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
                  contact_flow_id: str,
                  user_id: str):
         """
-        :param str contact_flow_id: Specifies the identifier of the contact flow.
-        :param str user_id: Specifies the identifier for the user.
+        :param str contact_flow_id: Identifier of the contact flow.
+        :param str user_id: Identifier for the user.
         """
         pulumi.set(__self__, "contact_flow_id", contact_flow_id)
         pulumi.set(__self__, "user_id", user_id)
@@ -2137,7 +2137,7 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> str:
         """
-        Specifies the identifier of the contact flow.
+        Identifier of the contact flow.
         """
         return pulumi.get(self, "contact_flow_id")
 
@@ -2145,7 +2145,7 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
-        Specifies the identifier for the user.
+        Identifier for the user.
         """
         return pulumi.get(self, "user_id")
 
@@ -2156,8 +2156,8 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
                  channel: str,
                  concurrency: int):
         """
-        :param str channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param int concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        :param str channel: Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param int concurrency: Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
@@ -2166,7 +2166,7 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
     @pulumi.getter
     def channel(self) -> str:
         """
-        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
         """
         return pulumi.get(self, "channel")
 
@@ -2174,7 +2174,7 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
     @pulumi.getter
     def concurrency(self) -> int:
         """
-        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
         """
         return pulumi.get(self, "concurrency")
 
@@ -2189,12 +2189,12 @@ class GetRoutingProfileQueueConfigResult(dict):
                  queue_id: str,
                  queue_name: str):
         """
-        :param str channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        :param int delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        :param int priority: Specifies the order in which contacts are to be handled for the queue.
-        :param str queue_arn: Specifies the ARN for the queue.
-        :param str queue_id: Specifies the identifier for the queue.
-        :param str queue_name: Specifies the name for the queue.
+        :param str channel: Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param int delay: Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        :param int priority: Order in which contacts are to be handled for the queue.
+        :param str queue_arn: ARN for the queue.
+        :param str queue_id: Identifier for the queue.
+        :param str queue_name: Name for the queue.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "delay", delay)
@@ -2207,7 +2207,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter
     def channel(self) -> str:
         """
-        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
         """
         return pulumi.get(self, "channel")
 
@@ -2215,7 +2215,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter
     def delay(self) -> int:
         """
-        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
         """
         return pulumi.get(self, "delay")
 
@@ -2223,7 +2223,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter
     def priority(self) -> int:
         """
-        Specifies the order in which contacts are to be handled for the queue.
+        Order in which contacts are to be handled for the queue.
         """
         return pulumi.get(self, "priority")
 
@@ -2231,7 +2231,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> str:
         """
-        Specifies the ARN for the queue.
+        ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
@@ -2239,7 +2239,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter(name="queueId")
     def queue_id(self) -> str:
         """
-        Specifies the identifier for the queue.
+        Identifier for the queue.
         """
         return pulumi.get(self, "queue_id")
 
@@ -2247,7 +2247,7 @@ class GetRoutingProfileQueueConfigResult(dict):
     @pulumi.getter(name="queueName")
     def queue_name(self) -> str:
         """
-        Specifies the name for the queue.
+        Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
@@ -2261,11 +2261,11 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
                  level_threes: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult']):
         """
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: Details of level five. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: Details of level four. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: Details of level one. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: Details of level three. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: Details of level two. See below.
         """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
@@ -2277,7 +2277,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @pulumi.getter(name="levelFives")
     def level_fives(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFifeResult']:
         """
-        A block that defines the details of level five. The level block is documented below.
+        Details of level five. See below.
         """
         return pulumi.get(self, "level_fives")
 
@@ -2285,7 +2285,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @pulumi.getter(name="levelFours")
     def level_fours(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFourResult']:
         """
-        A block that defines the details of level four. The level block is documented below.
+        Details of level four. See below.
         """
         return pulumi.get(self, "level_fours")
 
@@ -2293,7 +2293,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @pulumi.getter(name="levelOnes")
     def level_ones(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelOneResult']:
         """
-        A block that defines the details of level one. The level block is documented below.
+        Details of level one. See below.
         """
         return pulumi.get(self, "level_ones")
 
@@ -2301,7 +2301,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @pulumi.getter(name="levelThrees")
     def level_threes(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult']:
         """
-        A block that defines the details of level three. The level block is documented below.
+        Details of level three. See below.
         """
         return pulumi.get(self, "level_threes")
 
@@ -2309,7 +2309,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
     @pulumi.getter(name="levelTwos")
     def level_twos(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult']:
         """
-        A block that defines the details of level two. The level block is documented below.
+        Details of level two. See below.
         """
         return pulumi.get(self, "level_twos")
 
@@ -2321,7 +2321,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str arn: ARN of the hierarchy group.
         :param str id: The identifier of the hierarchy group.
         :param str name: Returns information on a specific hierarchy group by name
         """
@@ -2333,7 +2333,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -2361,7 +2361,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str arn: ARN of the hierarchy group.
         :param str id: The identifier of the hierarchy group.
         :param str name: Returns information on a specific hierarchy group by name
         """
@@ -2373,7 +2373,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -2401,7 +2401,7 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str arn: ARN of the hierarchy group.
         :param str id: The identifier of the hierarchy group.
         :param str name: Returns information on a specific hierarchy group by name
         """
@@ -2413,7 +2413,7 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -2441,7 +2441,7 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str arn: ARN of the hierarchy group.
         :param str id: The identifier of the hierarchy group.
         :param str name: Returns information on a specific hierarchy group by name
         """
@@ -2453,7 +2453,7 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -2481,7 +2481,7 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str arn: ARN of the hierarchy group.
         :param str id: The identifier of the hierarchy group.
         :param str name: Returns information on a specific hierarchy group by name
         """
@@ -2493,7 +2493,7 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -2523,11 +2523,11 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
                  level_threes: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']):
         """
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArgs'] level_fives: Details of level five. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArgs'] level_fours: Details of level four. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArgs'] level_ones: Details of level one. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_threes: Details of level three. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_twos: Details of level two. See below.
         """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
@@ -2539,7 +2539,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @pulumi.getter(name="levelFives")
     def level_fives(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult']:
         """
-        A block that defines the details of level five. The level block is documented below.
+        Details of level five. See below.
         """
         return pulumi.get(self, "level_fives")
 
@@ -2547,7 +2547,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @pulumi.getter(name="levelFours")
     def level_fours(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult']:
         """
-        A block that defines the details of level four. The level block is documented below.
+        Details of level four. See below.
         """
         return pulumi.get(self, "level_fours")
 
@@ -2555,7 +2555,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @pulumi.getter(name="levelOnes")
     def level_ones(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult']:
         """
-        A block that defines the details of level one. The level block is documented below.
+        Details of level one. See below.
         """
         return pulumi.get(self, "level_ones")
 
@@ -2563,7 +2563,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @pulumi.getter(name="levelThrees")
     def level_threes(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult']:
         """
-        A block that defines the details of level three. The level block is documented below.
+        Details of level three. See below.
         """
         return pulumi.get(self, "level_threes")
 
@@ -2571,7 +2571,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
     @pulumi.getter(name="levelTwos")
     def level_twos(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']:
         """
-        A block that defines the details of level two. The level block is documented below.
+        Details of level two. See below.
         """
         return pulumi.get(self, "level_twos")
 
@@ -2583,9 +2583,9 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str arn: ARN of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
-        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param str name: Name of the user hierarchy level. Must not be more than 50 characters.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2595,7 +2595,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2611,7 +2611,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the user hierarchy level. Must not be more than 50 characters.
+        Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
 
@@ -2623,9 +2623,9 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str arn: ARN of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
-        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param str name: Name of the user hierarchy level. Must not be more than 50 characters.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2635,7 +2635,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2651,7 +2651,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the user hierarchy level. Must not be more than 50 characters.
+        Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
 
@@ -2663,9 +2663,9 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str arn: ARN of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
-        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param str name: Name of the user hierarchy level. Must not be more than 50 characters.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2675,7 +2675,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2691,7 +2691,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the user hierarchy level. Must not be more than 50 characters.
+        Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
 
@@ -2703,9 +2703,9 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str arn: ARN of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
-        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param str name: Name of the user hierarchy level. Must not be more than 50 characters.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2715,7 +2715,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2731,7 +2731,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the user hierarchy level. Must not be more than 50 characters.
+        Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
 
@@ -2743,9 +2743,9 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
                  id: str,
                  name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str arn: ARN of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
-        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        :param str name: Name of the user hierarchy level. Must not be more than 50 characters.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2755,7 +2755,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2771,7 +2771,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the user hierarchy level. Must not be more than 50 characters.
+        Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
 

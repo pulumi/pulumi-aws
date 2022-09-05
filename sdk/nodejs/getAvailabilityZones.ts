@@ -123,12 +123,12 @@ export interface GetAvailabilityZonesResult {
      */
     readonly id: string;
     /**
-     * A list of the Availability Zone names available to the account.
+     * List of the Availability Zone names available to the account.
      */
     readonly names: string[];
     readonly state?: string;
     /**
-     * A list of the Availability Zone IDs available to the account.
+     * List of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
 }

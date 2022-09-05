@@ -138,13 +138,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific launch template to retrieve.
+        /// ID of the specific launch template to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -182,13 +182,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific launch template to retrieve.
+        /// ID of the specific launch template to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> IamInstanceProfiles;
         /// <summary>
-        /// The ID of the launch template.
+        /// ID of the launch template.
         /// </summary>
         public readonly string Id;
         public readonly string ImageId;

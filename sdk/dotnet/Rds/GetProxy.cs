@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetProxyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the DB proxy.
+        /// Name of the DB proxy.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetProxyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the DB proxy.
+        /// Name of the DB proxy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,11 +100,11 @@ namespace Pulumi.Aws.Rds
     public sealed class GetProxyResult
     {
         /// <summary>
-        /// The ARN of the DB Proxy.
+        /// ARN of the DB Proxy.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProxyAuthResult> Auths;
         /// <summary>
@@ -112,11 +112,11 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool DebugLogging;
         /// <summary>
-        /// The endpoint that you can use to connect to the DB proxy.
+        /// Endpoint that you can use to connect to the DB proxy.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The kinds of databases that the proxy can connect to.
+        /// Kinds of databases that the proxy can connect to.
         /// </summary>
         public readonly string EngineFamily;
         /// <summary>
@@ -124,16 +124,16 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+        /// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
         /// </summary>
         public readonly int IdleClientTimeout;
         public readonly string Name;
         /// <summary>
-        /// Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         /// </summary>
         public readonly bool RequireTls;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+        /// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
         /// <summary>
-        /// The EC2 subnet IDs for the proxy.
+        /// EC2 subnet IDs for the proxy.
         /// </summary>
         public readonly ImmutableArray<string> VpcSubnetIds;
 

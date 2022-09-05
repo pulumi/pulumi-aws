@@ -37,7 +37,7 @@ export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?:
  */
 export interface GetOriginRequestPolicyArgs {
     /**
-     * The identifier for the origin request policy.
+     * Identifier for the origin request policy.
      */
     id?: string;
     /**
@@ -59,7 +59,7 @@ export interface GetOriginRequestPolicyResult {
      */
     readonly cookiesConfigs: outputs.cloudfront.GetOriginRequestPolicyCookiesConfig[];
     /**
-     * The current version of the origin request policy.
+     * Current version of the origin request policy.
      */
     readonly etag: string;
     /**
@@ -83,7 +83,7 @@ export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutput
  */
 export interface GetOriginRequestPolicyOutputArgs {
     /**
-     * The identifier for the origin request policy.
+     * Identifier for the origin request policy.
      */
     id?: pulumi.Input<string>;
     /**

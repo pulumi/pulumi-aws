@@ -55,15 +55,15 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
  */
 export interface GetResourceShareArgs {
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
     filters?: inputs.ram.GetResourceShareFilter[];
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      */
     name: string;
     /**
-     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
     resourceOwner: string;
     /**
@@ -71,7 +71,7 @@ export interface GetResourceShareArgs {
      */
     resourceShareStatus?: string;
     /**
-     * The Tags attached to the RAM share
+     * Tags attached to the RAM share
      */
     tags?: {[key: string]: string};
 }
@@ -81,7 +81,7 @@ export interface GetResourceShareArgs {
  */
 export interface GetResourceShareResult {
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     readonly arn: string;
     readonly filters?: outputs.ram.GetResourceShareFilter[];
@@ -91,17 +91,17 @@ export interface GetResourceShareResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The ID of the AWS account that owns the resource share.
+     * ID of the AWS account that owns the resource share.
      */
     readonly owningAccountId: string;
     readonly resourceOwner: string;
     readonly resourceShareStatus?: string;
     /**
-     * The Status of the RAM share.
+     * Status of the RAM share.
      */
     readonly status: string;
     /**
-     * The Tags attached to the RAM share
+     * Tags attached to the RAM share
      */
     readonly tags: {[key: string]: string};
 }
@@ -115,15 +115,15 @@ export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: 
  */
 export interface GetResourceShareOutputArgs {
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[]>;
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      */
     name: pulumi.Input<string>;
     /**
-     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
     resourceOwner: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface GetResourceShareOutputArgs {
      */
     resourceShareStatus?: pulumi.Input<string>;
     /**
-     * The Tags attached to the RAM share
+     * Tags attached to the RAM share
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -15,14 +15,14 @@ public final class GetActivityPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetActivityPlainArgs Empty = new GetActivityPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the activity.
+     * ARN that identifies the activity.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the activity.
+     * @return ARN that identifies the activity.
      * 
      */
     public Optional<String> arn() {
@@ -30,14 +30,14 @@ public final class GetActivityPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name that identifies the activity.
+     * Name that identifies the activity.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name that identifies the activity.
+     * @return Name that identifies the activity.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetActivityPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the activity.
+         * @param arn ARN that identifies the activity.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetActivityPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name that identifies the activity.
+         * @param name Name that identifies the activity.
          * 
          * @return builder
          * 

@@ -14,27 +14,27 @@ import java.util.Objects;
 @CustomType
 public final class GetQuerySuggestionsBlockListResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the block list.
+     * @return ARN of the block list.
      * 
      */
     private String arn;
     /**
-     * @return The date-time a block list was created.
+     * @return Date-time a block list was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description for the block list.
+     * @return Description for the block list.
      * 
      */
     private String description;
     /**
-     * @return The error message containing details if there are issues processing the block list.
+     * @return Error message containing details if there are issues processing the block list.
      * 
      */
     private String errorMessage;
     /**
-     * @return The current size of the block list text file in S3.
+     * @return Current size of the block list text file in S3.
      * 
      */
     private Integer fileSizeBytes;
@@ -45,28 +45,28 @@ public final class GetQuerySuggestionsBlockListResult {
     private String id;
     private String indexId;
     /**
-     * @return The current number of valid, non-empty words or phrases in the block list text file.
+     * @return Current number of valid, non-empty words or phrases in the block list text file.
      * 
      */
     private Integer itemCount;
     /**
-     * @return The name of the block list.
+     * @return Name of the block list.
      * 
      */
     private String name;
     private String querySuggestionsBlockListId;
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     private String roleArn;
     /**
-     * @return The S3 location of the block list input data. Detailed below.
+     * @return S3 location of the block list input data. Detailed below.
      * 
      */
     private List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths;
     /**
-     * @return The current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+     * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      * 
      */
     private String status;
@@ -76,42 +76,42 @@ public final class GetQuerySuggestionsBlockListResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The date and time that the block list was last updated.
+     * @return Date and time that the block list was last updated.
      * 
      */
     private String updatedAt;
 
     private GetQuerySuggestionsBlockListResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the block list.
+     * @return ARN of the block list.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The date-time a block list was created.
+     * @return Date-time a block list was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description for the block list.
+     * @return Description for the block list.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The error message containing details if there are issues processing the block list.
+     * @return Error message containing details if there are issues processing the block list.
      * 
      */
     public String errorMessage() {
         return this.errorMessage;
     }
     /**
-     * @return The current size of the block list text file in S3.
+     * @return Current size of the block list text file in S3.
      * 
      */
     public Integer fileSizeBytes() {
@@ -128,14 +128,14 @@ public final class GetQuerySuggestionsBlockListResult {
         return this.indexId;
     }
     /**
-     * @return The current number of valid, non-empty words or phrases in the block list text file.
+     * @return Current number of valid, non-empty words or phrases in the block list text file.
      * 
      */
     public Integer itemCount() {
         return this.itemCount;
     }
     /**
-     * @return The name of the block list.
+     * @return Name of the block list.
      * 
      */
     public String name() {
@@ -145,21 +145,21 @@ public final class GetQuerySuggestionsBlockListResult {
         return this.querySuggestionsBlockListId;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The S3 location of the block list input data. Detailed below.
+     * @return S3 location of the block list input data. Detailed below.
      * 
      */
     public List<GetQuerySuggestionsBlockListSourceS3Path> sourceS3Paths() {
         return this.sourceS3Paths;
     }
     /**
-     * @return The current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+     * @return Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      * 
      */
     public String status() {
@@ -173,7 +173,7 @@ public final class GetQuerySuggestionsBlockListResult {
         return this.tags;
     }
     /**
-     * @return The date and time that the block list was last updated.
+     * @return Date and time that the block list was last updated.
      * 
      */
     public String updatedAt() {

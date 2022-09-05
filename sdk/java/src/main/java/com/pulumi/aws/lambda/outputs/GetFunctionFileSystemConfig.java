@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionFileSystemConfig {
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
     private String arn;
@@ -18,7 +18,7 @@ public final class GetFunctionFileSystemConfig {
 
     private GetFunctionFileSystemConfig() {}
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
      * 
      */
     public String arn() {

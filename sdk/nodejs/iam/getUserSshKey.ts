@@ -42,11 +42,11 @@ export interface GetUserSshKeyArgs {
      */
     encoding: string;
     /**
-     * The unique identifier for the SSH public key.
+     * Unique identifier for the SSH public key.
      */
     sshPublicKeyId: string;
     /**
-     * The name of the IAM user associated with the SSH public key.
+     * Name of the IAM user associated with the SSH public key.
      */
     username: string;
 }
@@ -57,7 +57,7 @@ export interface GetUserSshKeyArgs {
 export interface GetUserSshKeyResult {
     readonly encoding: string;
     /**
-     * The MD5 message digest of the SSH public key.
+     * MD5 message digest of the SSH public key.
      */
     readonly fingerprint: string;
     /**
@@ -65,12 +65,12 @@ export interface GetUserSshKeyResult {
      */
     readonly id: string;
     /**
-     * The SSH public key.
+     * SSH public key.
      */
     readonly publicKey: string;
     readonly sshPublicKeyId: string;
     /**
-     * The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+     * Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
      */
     readonly status: string;
     readonly username: string;
@@ -89,11 +89,11 @@ export interface GetUserSshKeyOutputArgs {
      */
     encoding: pulumi.Input<string>;
     /**
-     * The unique identifier for the SSH public key.
+     * Unique identifier for the SSH public key.
      */
     sshPublicKeyId: pulumi.Input<string>;
     /**
-     * The name of the IAM user associated with the SSH public key.
+     * Name of the IAM user associated with the SSH public key.
      */
     username: pulumi.Input<string>;
 }

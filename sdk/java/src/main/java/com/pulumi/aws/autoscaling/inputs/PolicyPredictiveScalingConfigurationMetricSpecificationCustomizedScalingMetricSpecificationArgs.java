@@ -15,14 +15,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs();
 
     /**
-     * A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+     * List of up to 10 structures that defines custom capacity metric in predictive scaling policy
      * 
      */
     @Import(name="metricDataQueries", required=true)
     private Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries;
 
     /**
-     * @return A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+     * @return List of up to 10 structures that defines custom capacity metric in predictive scaling policy
      * 
      */
     public Output<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries() {
@@ -54,7 +54,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricDataQueries A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricDataQueries A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metricDataQueries A list of up to 10 structures that defines custom capacity metric in predictive scaling policy
+         * @param metricDataQueries List of up to 10 structures that defines custom capacity metric in predictive scaling policy
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
     @Import(name="sourceBackupIdentifier")
     private @Nullable Output<String> sourceBackupIdentifier;
 
     /**
-     * @return The id of Cloud HSM v2 cluster backup to be restored.
+     * @return ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
     public Optional<Output<String>> sourceBackupIdentifier() {
@@ -126,7 +126,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceBackupIdentifier The id of Cloud HSM v2 cluster backup to be restored.
+         * @param sourceBackupIdentifier ID of Cloud HSM v2 cluster backup to be restored.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceBackupIdentifier The id of Cloud HSM v2 cluster backup to be restored.
+         * @param sourceBackupIdentifier ID of Cloud HSM v2 cluster backup to be restored.
          * 
          * @return builder
          * 

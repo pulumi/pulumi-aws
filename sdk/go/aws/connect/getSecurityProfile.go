@@ -84,15 +84,15 @@ type LookupSecurityProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId *string `pulumi:"securityProfileId"`
-	// A map of tags to assign to the Security Profile.
+	// Map of tags to assign to the Security Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityProfile.
 type LookupSecurityProfileResult struct {
-	// The Amazon Resource Name (ARN) of the Security Profile.
+	// ARN of the Security Profile.
 	Arn string `pulumi:"arn"`
-	// Specifies the description of the Security Profile.
+	// Description of the Security Profile.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -100,10 +100,10 @@ type LookupSecurityProfileResult struct {
 	Name       string `pulumi:"name"`
 	// The organization resource identifier for the security profile.
 	OrganizationResourceId string `pulumi:"organizationResourceId"`
-	// Specifies a list of permissions assigned to the security profile.
+	// List of permissions assigned to the security profile.
 	Permissions       []string `pulumi:"permissions"`
 	SecurityProfileId string   `pulumi:"securityProfileId"`
-	// A map of tags to assign to the Security Profile.
+	// Map of tags to assign to the Security Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -128,7 +128,7 @@ type LookupSecurityProfileOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`
-	// A map of tags to assign to the Security Profile.
+	// Map of tags to assign to the Security Profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -151,12 +151,12 @@ func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Security Profile.
+// ARN of the Security Profile.
 func (o LookupSecurityProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Security Profile.
+// Description of the Security Profile.
 func (o LookupSecurityProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -179,7 +179,7 @@ func (o LookupSecurityProfileResultOutput) OrganizationResourceId() pulumi.Strin
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.OrganizationResourceId }).(pulumi.StringOutput)
 }
 
-// Specifies a list of permissions assigned to the security profile.
+// List of permissions assigned to the security profile.
 func (o LookupSecurityProfileResultOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
@@ -188,7 +188,7 @@ func (o LookupSecurityProfileResultOutput) SecurityProfileId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.SecurityProfileId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the Security Profile.
+// Map of tags to assign to the Security Profile.
 func (o LookupSecurityProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

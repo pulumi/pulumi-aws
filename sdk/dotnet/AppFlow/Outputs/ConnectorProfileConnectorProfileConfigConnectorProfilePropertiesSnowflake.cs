@@ -30,11 +30,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? PrivateLinkServiceName;
         /// <summary>
-        /// The AWS Region of the Snowflake account.
+        /// AWS Region of the Snowflake account.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+        /// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
         /// </summary>
         public readonly string Stage;
         /// <summary>

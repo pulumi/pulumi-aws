@@ -54,19 +54,19 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+        /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
+        /// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+        /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the VPC connector.
+        /// Name for the VPC connector.
         /// </summary>
         [Output("vpcConnectorName")]
         public Output<string> VpcConnectorName { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.AppRunner
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+        /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.AppRunner
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+        /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// A name for the VPC connector.
+        /// Name for the VPC connector.
         /// </summary>
         [Input("vpcConnectorName", required: true)]
         public Input<string> VpcConnectorName { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.AppRunner
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+        /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
+        /// Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.AppRunner
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+        /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// A name for the VPC connector.
+        /// Name for the VPC connector.
         /// </summary>
         [Input("vpcConnectorName")]
         public Input<string>? VpcConnectorName { get; set; }

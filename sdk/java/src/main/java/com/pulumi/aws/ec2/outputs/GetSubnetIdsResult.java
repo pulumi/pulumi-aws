@@ -20,7 +20,7 @@ public final class GetSubnetIdsResult {
      */
     private String id;
     /**
-     * @return A set of all the subnet ids found. This data source will fail if none are found.
+     * @return Set of all the subnet ids found. This data source will fail if none are found.
      * 
      */
     private List<String> ids;
@@ -39,7 +39,7 @@ public final class GetSubnetIdsResult {
         return this.id;
     }
     /**
-     * @return A set of all the subnet ids found. This data source will fail if none are found.
+     * @return Set of all the subnet ids found. This data source will fail if none are found.
      * 
      */
     public List<String> ids() {

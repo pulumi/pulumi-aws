@@ -24,7 +24,7 @@ func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.In
 type GetCoipPoolsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -56,7 +56,7 @@ func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts .
 type GetCoipPoolsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

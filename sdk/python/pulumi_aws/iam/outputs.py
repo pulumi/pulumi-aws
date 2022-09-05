@@ -59,10 +59,10 @@ class GetGroupUserResult(dict):
                  user_id: str,
                  user_name: str):
         """
-        :param str arn: The Amazon Resource Name (ARN) specifying the iam user.
-        :param str path: The path to the iam user.
-        :param str user_id: The stable and unique string identifying the iam user.
-        :param str user_name: The name of the iam user.
+        :param str arn: User ARN.
+        :param str path: Path to the IAM user.
+        :param str user_id: Stable and unique string identifying the IAM user.
+        :param str user_name: Name of the IAM user.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "path", path)
@@ -73,7 +73,7 @@ class GetGroupUserResult(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) specifying the iam user.
+        User ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -81,7 +81,7 @@ class GetGroupUserResult(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The path to the iam user.
+        Path to the IAM user.
         """
         return pulumi.get(self, "path")
 
@@ -89,7 +89,7 @@ class GetGroupUserResult(dict):
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
-        The stable and unique string identifying the iam user.
+        Stable and unique string identifying the IAM user.
         """
         return pulumi.get(self, "user_id")
 
@@ -97,7 +97,7 @@ class GetGroupUserResult(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
         """
-        The name of the iam user.
+        Name of the IAM user.
         """
         return pulumi.get(self, "user_name")
 

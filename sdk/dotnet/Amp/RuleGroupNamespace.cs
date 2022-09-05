@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the prometheus workspace the rule group namespace should be linked to
+        /// ID of the prometheus workspace the rule group namespace should be linked to
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the prometheus workspace the rule group namespace should be linked to
+        /// ID of the prometheus workspace the rule group namespace should be linked to
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The id of the prometheus workspace the rule group namespace should be linked to
+        /// ID of the prometheus workspace the rule group namespace should be linked to
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

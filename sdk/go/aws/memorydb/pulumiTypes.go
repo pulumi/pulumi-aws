@@ -1730,7 +1730,7 @@ func (o GetSnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 type GetUserAuthenticationMode struct {
 	// The number of passwords belonging to the user.
 	PasswordCount int `pulumi:"passwordCount"`
-	// Indicates whether the user requires a password to authenticate.
+	// Whether the user requires a password to authenticate.
 	Type string `pulumi:"type"`
 }
 
@@ -1748,7 +1748,7 @@ type GetUserAuthenticationModeInput interface {
 type GetUserAuthenticationModeArgs struct {
 	// The number of passwords belonging to the user.
 	PasswordCount pulumi.IntInput `pulumi:"passwordCount"`
-	// Indicates whether the user requires a password to authenticate.
+	// Whether the user requires a password to authenticate.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1808,7 +1808,7 @@ func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) int { return v.PasswordCount }).(pulumi.IntOutput)
 }
 
-// Indicates whether the user requires a password to authenticate.
+// Whether the user requires a password to authenticate.
 func (o GetUserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }

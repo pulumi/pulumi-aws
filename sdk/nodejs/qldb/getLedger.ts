@@ -35,7 +35,7 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetLedgerArgs {
     /**
-     * The friendly name of the ledger to match.
+     * Friendly name of the ledger to match.
      */
     name: string;
     tags?: {[key: string]: string};
@@ -66,7 +66,7 @@ export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetLedgerOutputArgs {
     /**
-     * The friendly name of the ledger to match.
+     * Friendly name of the ledger to match.
      */
     name: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+        /// ARN of the certificate issued by the private certificate authority.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public string CertificateAuthorityArn { get; set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+        /// ARN of the certificate issued by the private certificate authority.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
@@ -115,12 +115,12 @@ namespace Pulumi.Aws.Acmpca
     {
         public readonly string Arn;
         /// <summary>
-        /// The PEM-encoded certificate value.
+        /// PEM-encoded certificate value.
         /// </summary>
         public readonly string Certificate;
         public readonly string CertificateAuthorityArn;
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
         public readonly string CertificateChain;
         /// <summary>

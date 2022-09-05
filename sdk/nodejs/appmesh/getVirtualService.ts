@@ -51,19 +51,19 @@ export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.Inv
  */
 export interface GetVirtualServiceArgs {
     /**
-     * The name of the service mesh in which the virtual service exists.
+     * Name of the service mesh in which the virtual service exists.
      */
     meshName: string;
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     meshOwner?: string;
     /**
-     * The name of the virtual service.
+     * Name of the virtual service.
      */
     name: string;
     /**
-     * A map of tags.
+     * Map of tags.
      */
     tags?: {[key: string]: string};
 }
@@ -73,11 +73,11 @@ export interface GetVirtualServiceArgs {
  */
 export interface GetVirtualServiceResult {
     /**
-     * The ARN of the virtual service.
+     * ARN of the virtual service.
      */
     readonly arn: string;
     /**
-     * The creation date of the virtual service.
+     * Creation date of the virtual service.
      */
     readonly createdDate: string;
     /**
@@ -85,22 +85,22 @@ export interface GetVirtualServiceResult {
      */
     readonly id: string;
     /**
-     * The last update date of the virtual service.
+     * Last update date of the virtual service.
      */
     readonly lastUpdatedDate: string;
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     readonly resourceOwner: string;
     /**
-     * The virtual service specification
+     * Virtual service specification
      */
     readonly specs: outputs.appmesh.GetVirtualServiceSpec[];
     /**
-     * A map of tags.
+     * Map of tags.
      */
     readonly tags?: {[key: string]: string};
 }
@@ -114,19 +114,19 @@ export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?
  */
 export interface GetVirtualServiceOutputArgs {
     /**
-     * The name of the service mesh in which the virtual service exists.
+     * Name of the service mesh in which the virtual service exists.
      */
     meshName: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name of the virtual service.
+     * Name of the virtual service.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags.
+     * Map of tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

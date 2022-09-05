@@ -48,11 +48,11 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
  */
 export interface GetTargetGroupArgs {
     /**
-     * The full ARN of the target group.
+     * Full ARN of the target group.
      */
     arn?: string;
     /**
-     * The unique name of the target group.
+     * Unique name of the target group.
      */
     name?: string;
     tags?: {[key: string]: string};
@@ -95,11 +95,11 @@ export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pul
  */
 export interface GetTargetGroupOutputArgs {
     /**
-     * The full ARN of the target group.
+     * Full ARN of the target group.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The unique name of the target group.
+     * Unique name of the target group.
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

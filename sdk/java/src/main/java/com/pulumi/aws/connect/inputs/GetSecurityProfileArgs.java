@@ -62,14 +62,14 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags to assign to the Security Profile.
+     * Map of tags to assign to the Security Profile.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Security Profile.
+     * @return Map of tags to assign to the Security Profile.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,7 +167,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags to assign to the Security Profile.
+         * @param tags Map of tags to assign to the Security Profile.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags to assign to the Security Profile.
+         * @param tags Map of tags to assign to the Security Profile.
          * 
          * @return builder
          * 

@@ -216,98 +216,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     @Export(name="adjustmentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> adjustmentType;
 
     /**
-     * @return Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * @return Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     public Output<Optional<String>> adjustmentType() {
         return Codegen.optional(this.adjustmentType);
     }
     /**
-     * The ARN assigned by AWS to the scaling policy.
+     * ARN assigned by AWS to the scaling policy.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to the scaling policy.
+     * @return ARN assigned by AWS to the scaling policy.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the autoscaling group.
+     * Name of the autoscaling group.
      * 
      */
     @Export(name="autoscalingGroupName", type=String.class, parameters={})
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the autoscaling group.
+     * @return Name of the autoscaling group.
      * 
      */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     @Export(name="cooldown", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> cooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * @return Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     public Output<Optional<Integer>> cooldown() {
         return Codegen.optional(this.cooldown);
     }
     /**
-     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * Whether the scaling policy is enabled or disabled. Default: `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * @return Whether the scaling policy is enabled or disabled. Default: `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+     * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
     @Export(name="estimatedInstanceWarmup", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> estimatedInstanceWarmup;
 
     /**
-     * @return The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+     * @return Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
     public Output<Optional<Integer>> estimatedInstanceWarmup() {
         return Codegen.optional(this.estimatedInstanceWarmup);
     }
     /**
-     * The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     @Export(name="metricAggregationType", type=String.class, parameters={})
     private Output<String> metricAggregationType;
 
     /**
-     * @return The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     public Output<String> metricAggregationType() {
@@ -328,49 +328,49 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minAdjustmentMagnitude);
     }
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the dimension.
+     * @return Name of the dimension.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+     * Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
     @Export(name="policyType", type=String.class, parameters={})
     private Output</* @Nullable */ String> policyType;
 
     /**
-     * @return The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+     * @return Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
     public Output<Optional<String>> policyType() {
         return Codegen.optional(this.policyType);
     }
     /**
-     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
     @Export(name="predictiveScalingConfiguration", type=PolicyPredictiveScalingConfiguration.class, parameters={})
     private Output</* @Nullable */ PolicyPredictiveScalingConfiguration> predictiveScalingConfiguration;
 
     /**
-     * @return The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * @return Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
     public Output<Optional<PolicyPredictiveScalingConfiguration>> predictiveScalingConfiguration() {
         return Codegen.optional(this.predictiveScalingConfiguration);
     }
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -379,7 +379,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> scalingAdjustment;
 
     /**
-     * @return The number of members by which to
+     * @return Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -388,7 +388,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scalingAdjustment);
     }
     /**
-     * A set of adjustments that manage
+     * Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
      */
@@ -396,7 +396,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<PolicyStepAdjustment>> stepAdjustments;
 
     /**
-     * @return A set of adjustments that manage
+     * @return Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
      */
@@ -404,14 +404,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stepAdjustments);
     }
     /**
-     * A target tracking policy. These have the following structure:
+     * Target tracking policy. These have the following structure:
      * 
      */
     @Export(name="targetTrackingConfiguration", type=PolicyTargetTrackingConfiguration.class, parameters={})
     private Output</* @Nullable */ PolicyTargetTrackingConfiguration> targetTrackingConfiguration;
 
     /**
-     * @return A target tracking policy. These have the following structure:
+     * @return Target tracking policy. These have the following structure:
      * 
      */
     public Output<Optional<PolicyTargetTrackingConfiguration>> targetTrackingConfiguration() {

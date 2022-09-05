@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverCachingConfig {
     /**
-     * @return The list of caching key.
+     * @return List of caching key.
      * 
      */
     private @Nullable List<String> cachingKeys;
     /**
-     * @return The TTL in seconds.
+     * @return TTL in seconds.
      * 
      */
     private @Nullable Integer ttl;
 
     private ResolverCachingConfig() {}
     /**
-     * @return The list of caching key.
+     * @return List of caching key.
      * 
      */
     public List<String> cachingKeys() {
         return this.cachingKeys == null ? List.of() : this.cachingKeys;
     }
     /**
-     * @return The TTL in seconds.
+     * @return TTL in seconds.
      * 
      */
     public Optional<Integer> ttl() {

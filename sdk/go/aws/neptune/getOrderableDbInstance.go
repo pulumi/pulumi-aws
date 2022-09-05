@@ -94,7 +94,7 @@ type GetOrderableDbInstanceResult struct {
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
 	ReadReplicaCapable bool `pulumi:"readReplicaCapable"`
-	// The storage type for a DB instance.
+	// Storage type for a DB instance.
 	StorageType string `pulumi:"storageType"`
 	// Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
 	SupportsEnhancedMonitoring bool `pulumi:"supportsEnhancedMonitoring"`
@@ -227,7 +227,7 @@ func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutp
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
 }
 
-// The storage type for a DB instance.
+// Storage type for a DB instance.
 func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.StorageType }).(pulumi.StringOutput)
 }

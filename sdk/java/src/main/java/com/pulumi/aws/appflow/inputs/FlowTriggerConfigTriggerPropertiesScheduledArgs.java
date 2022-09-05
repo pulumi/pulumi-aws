@@ -17,14 +17,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     public static final FlowTriggerConfigTriggerPropertiesScheduledArgs Empty = new FlowTriggerConfigTriggerPropertiesScheduledArgs();
 
     /**
-     * Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+     * Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
     @Import(name="dataPullMode")
     private @Nullable Output<String> dataPullMode;
 
     /**
-     * @return Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+     * @return Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
     public Optional<Output<String>> dataPullMode() {
@@ -32,14 +32,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+     * Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
     @Import(name="firstExecutionFrom")
     private @Nullable Output<String> firstExecutionFrom;
 
     /**
-     * @return Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+     * @return Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<Output<String>> firstExecutionFrom() {
@@ -47,14 +47,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     @Import(name="scheduleEndTime")
     private @Nullable Output<String> scheduleEndTime;
 
     /**
-     * @return Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<Output<String>> scheduleEndTime() {
@@ -62,14 +62,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
     /**
-     * @return The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
     public Output<String> scheduleExpression() {
@@ -77,14 +77,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     @Import(name="scheduleOffset")
     private @Nullable Output<Integer> scheduleOffset;
 
     /**
-     * @return Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     public Optional<Output<Integer>> scheduleOffset() {
@@ -92,14 +92,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     @Import(name="scheduleStartTime")
     private @Nullable Output<String> scheduleStartTime;
 
     /**
-     * @return Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<Output<String>> scheduleStartTime() {
@@ -107,14 +107,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+     * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+     * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -152,7 +152,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param dataPullMode Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+         * @param dataPullMode Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param dataPullMode Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+         * @param dataPullMode Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param firstExecutionFrom Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+         * @param firstExecutionFrom Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param firstExecutionFrom Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+         * @param firstExecutionFrom Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleEndTime Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         * @param scheduleEndTime Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleEndTime Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         * @param scheduleEndTime Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleExpression The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleExpression The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleOffset Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         * @param scheduleOffset Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleOffset Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         * @param scheduleOffset Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleStartTime Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         * @param scheduleStartTime Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleStartTime Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         * @param scheduleStartTime Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param timezone Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+         * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param timezone Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+         * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
          * 
          * @return builder
          * 

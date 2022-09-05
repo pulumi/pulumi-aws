@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ApplicationInsights
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Application.
+        /// ARN of the Application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -93,28 +93,33 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Output("opsCenterEnabled")]
         public Output<bool?> OpsCenterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
         [Output("opsItemSnsTopicArn")]
         public Output<string?> OpsItemSnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// Name of the resource group.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.29.0
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -190,18 +195,19 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Input("opsCenterEnabled")]
         public Input<bool>? OpsCenterEnabled { get; set; }
 
         /// <summary>
-        /// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
         [Input("opsItemSnsTopicArn")]
         public Input<string>? OpsItemSnsTopicArn { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// Name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -210,7 +216,8 @@ namespace Pulumi.Aws.ApplicationInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.29.0
         /// </summary>
         public InputMap<string> Tags
         {
@@ -227,7 +234,7 @@ namespace Pulumi.Aws.ApplicationInsights
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Application.
+        /// ARN of the Application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -258,18 +265,19 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Input("opsCenterEnabled")]
         public Input<bool>? OpsCenterEnabled { get; set; }
 
         /// <summary>
-        /// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
         [Input("opsItemSnsTopicArn")]
         public Input<string>? OpsItemSnsTopicArn { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// Name of the resource group.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -278,7 +286,8 @@ namespace Pulumi.Aws.ApplicationInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.29.0
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,6 +297,10 @@ namespace Pulumi.Aws.ApplicationInsights
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

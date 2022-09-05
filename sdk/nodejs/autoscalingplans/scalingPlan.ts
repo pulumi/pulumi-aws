@@ -52,15 +52,15 @@ export class ScalingPlan extends pulumi.CustomResource {
     }
 
     /**
-     * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
     public readonly applicationSource!: pulumi.Output<outputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
-     * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
     public readonly scalingInstructions!: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
     /**
@@ -108,15 +108,15 @@ export class ScalingPlan extends pulumi.CustomResource {
  */
 export interface ScalingPlanState {
     /**
-     * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
     applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
-     * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
     name?: pulumi.Input<string>;
     /**
-     * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
     scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
     /**
@@ -130,15 +130,15 @@ export interface ScalingPlanState {
  */
 export interface ScalingPlanArgs {
     /**
-     * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
     applicationSource: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
-     * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
     name?: pulumi.Input<string>;
     /**
-     * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
     scalingInstructions: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
 }

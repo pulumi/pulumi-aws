@@ -37,11 +37,11 @@ export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOp
  */
 export interface GetCachePolicyArgs {
     /**
-     * The identifier for the cache policy.
+     * Identifier for the cache policy.
      */
     id?: string;
     /**
-     * A unique name to identify the cache policy.
+     * Unique name to identify the cache policy.
      */
     name?: string;
 }
@@ -51,24 +51,24 @@ export interface GetCachePolicyArgs {
  */
 export interface GetCachePolicyResult {
     /**
-     * A comment to describe the cache policy.
+     * Comment to describe the cache policy.
      */
     readonly comment: string;
     /**
-     * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
     readonly defaultTtl: number;
     /**
-     * The current version of the cache policy.
+     * Current version of the cache policy.
      */
     readonly etag: string;
     readonly id?: string;
     /**
-     * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
     readonly maxTtl: number;
     /**
-     * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
     readonly minTtl: number;
     readonly name?: string;
@@ -87,11 +87,11 @@ export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pul
  */
 export interface GetCachePolicyOutputArgs {
     /**
-     * The identifier for the cache policy.
+     * Identifier for the cache policy.
      */
     id?: pulumi.Input<string>;
     /**
-     * A unique name to identify the cache policy.
+     * Unique name to identify the cache policy.
      */
     name?: pulumi.Input<string>;
 }

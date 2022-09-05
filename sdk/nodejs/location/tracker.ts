@@ -71,6 +71,9 @@ export class Tracker extends pulumi.CustomResource {
      */
     public readonly positionFiltering!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
@@ -148,6 +151,9 @@ export interface TrackerState {
      */
     positionFiltering?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.

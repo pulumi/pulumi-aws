@@ -124,14 +124,14 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
         return this.observabilityConfigurationRevision;
     }
     /**
-     * The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * @return Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     public Output<String> status() {
@@ -151,21 +151,29 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     @Export(name="traceConfiguration", type=ObservabilityConfigurationTraceConfiguration.class, parameters={})
     private Output</* @Nullable */ ObservabilityConfigurationTraceConfiguration> traceConfiguration;
 
     /**
-     * @return The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * @return Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     public Output<Optional<ObservabilityConfigurationTraceConfiguration>> traceConfiguration() {

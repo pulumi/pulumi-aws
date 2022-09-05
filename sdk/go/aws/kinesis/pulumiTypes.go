@@ -13236,7 +13236,7 @@ func (o StreamStreamModeDetailsPtrOutput) StreamMode() pulumi.StringPtrOutput {
 }
 
 type GetStreamStreamModeDetail struct {
-	// The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+	// Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
 	StreamMode string `pulumi:"streamMode"`
 }
 
@@ -13252,7 +13252,7 @@ type GetStreamStreamModeDetailInput interface {
 }
 
 type GetStreamStreamModeDetailArgs struct {
-	// The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+	// Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
 	StreamMode pulumi.StringInput `pulumi:"streamMode"`
 }
 
@@ -13307,7 +13307,7 @@ func (o GetStreamStreamModeDetailOutput) ToGetStreamStreamModeDetailOutputWithCo
 	return o
 }
 
-// The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+// Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
 func (o GetStreamStreamModeDetailOutput) StreamMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamStreamModeDetail) string { return v.StreamMode }).(pulumi.StringOutput)
 }

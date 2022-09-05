@@ -17,14 +17,14 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
     public static final DataCatalogArgs Empty = new DataCatalogArgs();
 
     /**
-     * A description of the data catalog.
+     * Description of the data catalog.
      * 
      */
     @Import(name="description", required=true)
     private Output<String> description;
 
     /**
-     * @return A description of the data catalog.
+     * @return Description of the data catalog.
      * 
      */
     public Output<String> description() {
@@ -32,14 +32,14 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+     * Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+     * @return Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -77,14 +77,14 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+     * Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+     * @return Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
      * 
      */
     public Output<String> type() {
@@ -120,7 +120,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the data catalog.
+         * @param description Description of the data catalog.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the data catalog.
+         * @param description Description of the data catalog.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+         * @param name Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+         * @param name Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+         * @param type Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
+         * @param type Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
          * 
          * @return builder
          * 

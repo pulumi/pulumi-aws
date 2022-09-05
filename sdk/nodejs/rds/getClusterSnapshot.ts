@@ -80,13 +80,13 @@ export interface GetClusterSnapshotArgs {
      */
     mostRecent?: boolean;
     /**
-     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -96,7 +96,7 @@ export interface GetClusterSnapshotArgs {
  */
 export interface GetClusterSnapshotResult {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     readonly allocatedStorage: number;
     /**
@@ -108,12 +108,12 @@ export interface GetClusterSnapshotResult {
      */
     readonly dbClusterIdentifier?: string;
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * The ARN for the DB Cluster Snapshot.
      */
     readonly dbClusterSnapshotArn: string;
     readonly dbClusterSnapshotIdentifier?: string;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     readonly engine: string;
     /**
@@ -146,19 +146,19 @@ export interface GetClusterSnapshotResult {
     readonly snapshotType?: string;
     readonly sourceDbClusterSnapshotArn: string;
     /**
-     * The status of this DB Cluster Snapshot.
+     * Status of this DB Cluster Snapshot.
      */
     readonly status: string;
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      */
     readonly storageEncrypted: boolean;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The VPC ID associated with the DB cluster snapshot.
+     * VPC ID associated with the DB cluster snapshot.
      */
     readonly vpcId: string;
 }
@@ -195,13 +195,13 @@ export interface GetClusterSnapshotOutputArgs {
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: pulumi.Input<string>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

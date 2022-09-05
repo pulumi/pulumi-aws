@@ -60,31 +60,31 @@ namespace Pulumi.Aws.ApiGateway
     public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identifier of the API key resource.
+        /// Identifier of the API key resource.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the API key resource. Currently, the valid key type is API_KEY.
+        /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a usage plan key.
+        /// Name of a usage plan key.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of the usage plan resource representing to associate the key to.
+        /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Output("usagePlanId")]
         public Output<string> UsagePlanId { get; private set; } = null!;
 
         /// <summary>
-        /// The value of a usage plan key.
+        /// Value of a usage plan key.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -136,19 +136,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class UsagePlanKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the API key resource.
+        /// Identifier of the API key resource.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the API key resource. Currently, the valid key type is API_KEY.
+        /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
         /// <summary>
-        /// The Id of the usage plan resource representing to associate the key to.
+        /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId", required: true)]
         public Input<string> UsagePlanId { get; set; } = null!;
@@ -162,31 +162,31 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class UsagePlanKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the API key resource.
+        /// Identifier of the API key resource.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// The type of the API key resource. Currently, the valid key type is API_KEY.
+        /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }
 
         /// <summary>
-        /// The name of a usage plan key.
+        /// Name of a usage plan key.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Id of the usage plan resource representing to associate the key to.
+        /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId")]
         public Input<string>? UsagePlanId { get; set; }
 
         /// <summary>
-        /// The value of a usage plan key.
+        /// Value of a usage plan key.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

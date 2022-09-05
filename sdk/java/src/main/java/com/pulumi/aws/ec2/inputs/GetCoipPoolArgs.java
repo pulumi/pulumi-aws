@@ -41,14 +41,14 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The id of the specific COIP Pool to retrieve.
+     * ID of the specific COIP Pool to retrieve.
      * 
      */
     @Import(name="poolId")
     private @Nullable Output<String> poolId;
 
     /**
-     * @return The id of the specific COIP Pool to retrieve.
+     * @return ID of the specific COIP Pool to retrieve.
      * 
      */
     public Optional<Output<String>> poolId() {
@@ -56,7 +56,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      * 
      */
@@ -64,7 +64,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match
+     * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      * 
      */
@@ -134,7 +134,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param poolId The id of the specific COIP Pool to retrieve.
+         * @param poolId ID of the specific COIP Pool to retrieve.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param poolId The id of the specific COIP Pool to retrieve.
+         * @param poolId ID of the specific COIP Pool to retrieve.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired COIP Pool.
          * 
          * @return builder
@@ -167,7 +167,7 @@ public final class GetCoipPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match
+         * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired COIP Pool.
          * 
          * @return builder

@@ -84,13 +84,13 @@ namespace Pulumi.Aws.ServerlessRepository
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the application.
+        /// ARN of the application.
         /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The requested version of the application. By default, retrieves the latest version.
+        /// Requested version of the application. By default, retrieves the latest version.
         /// </summary>
         [Input("semanticVersion")]
         public string? SemanticVersion { get; set; }
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.ServerlessRepository
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the application.
+        /// ARN of the application.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The requested version of the application. By default, retrieves the latest version.
+        /// Requested version of the application. By default, retrieves the latest version.
         /// </summary>
         [Input("semanticVersion")]
         public Input<string>? SemanticVersion { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.ServerlessRepository
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// The ARN of the application.
+        /// ARN of the application.
         /// </summary>
         public readonly string ApplicationId;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ServerlessRepository
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the application.
+        /// Name of the application.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -143,11 +143,11 @@ namespace Pulumi.Aws.ServerlessRepository
         public readonly ImmutableArray<string> RequiredCapabilities;
         public readonly string SemanticVersion;
         /// <summary>
-        /// A URL pointing to the source code of the application version.
+        /// URL pointing to the source code of the application version.
         /// </summary>
         public readonly string SourceCodeUrl;
         /// <summary>
-        /// A URL pointing to the Cloud Formation template for the application version.
+        /// URL pointing to the Cloud Formation template for the application version.
         /// </summary>
         public readonly string TemplateUrl;
 

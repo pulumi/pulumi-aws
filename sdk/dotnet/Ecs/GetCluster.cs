@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ECS Cluster
+        /// Name of the ECS Cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ECS Cluster
+        /// Name of the ECS Cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetClusterResult
     {
         /// <summary>
-        /// The ARN of the ECS Cluster
+        /// ARN of the ECS Cluster
         /// </summary>
         public readonly string Arn;
         public readonly string ClusterName;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The number of pending tasks for the ECS Cluster
+        /// Number of pending tasks for the ECS Cluster
         /// </summary>
         public readonly int PendingTasksCount;
         /// <summary>
@@ -119,15 +119,15 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int RegisteredContainerInstancesCount;
         /// <summary>
-        /// The number of running tasks for the ECS Cluster
+        /// Number of running tasks for the ECS Cluster
         /// </summary>
         public readonly int RunningTasksCount;
         /// <summary>
-        /// The settings associated with the ECS Cluster.
+        /// Settings associated with the ECS Cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterSettingResult> Settings;
         /// <summary>
-        /// The status of the ECS Cluster
+        /// Status of the ECS Cluster
         /// </summary>
         public readonly string Status;
 

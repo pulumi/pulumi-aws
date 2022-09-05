@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kms.Inputs
         }
 
         /// <summary>
-        /// The name to export this secret under in the attributes.
+        /// Name to export this secret under in the attributes.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

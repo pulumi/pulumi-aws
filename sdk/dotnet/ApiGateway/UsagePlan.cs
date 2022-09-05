@@ -127,31 +127,31 @@ namespace Pulumi.Aws.ApiGateway
     public partial class UsagePlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The associated API stages of the usage plan.
+        /// Associated API stages of the usage plan.
         /// </summary>
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of a usage plan.
+        /// Description of a usage plan.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the usage plan.
+        /// Name of the usage plan.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
         [Output("productCode")]
         public Output<string?> ProductCode { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
 
         /// <summary>
-        /// The associated API stages of the usage plan.
+        /// Associated API stages of the usage plan.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
@@ -239,19 +239,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The description of a usage plan.
+        /// Description of a usage plan.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the usage plan.
+        /// Name of the usage plan.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
         [Input("productCode")]
         public Input<string>? ProductCode { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.UsagePlanApiStageGetArgs>? _apiStages;
 
         /// <summary>
-        /// The associated API stages of the usage plan.
+        /// Associated API stages of the usage plan.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageGetArgs> ApiStages
         {
@@ -301,25 +301,25 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of a usage plan.
+        /// Description of a usage plan.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the usage plan.
+        /// Name of the usage plan.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
         [Input("productCode")]
         public Input<string>? ProductCode { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

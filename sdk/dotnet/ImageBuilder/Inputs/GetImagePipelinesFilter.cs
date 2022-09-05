@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class GetImagePipelinesFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        /// Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

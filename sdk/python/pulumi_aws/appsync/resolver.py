@@ -29,16 +29,16 @@ class ResolverArgs:
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
-        :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
-        :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
-        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The data source name.
-        :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API.
+        :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
+        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: CachingConfig.
+        :param pulumi.Input[str] data_source: Data source name.
+        :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: PipelineConfig.
+        :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -65,7 +65,7 @@ class ResolverArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API ID for the GraphQL API.
+        API ID for the GraphQL API.
         """
         return pulumi.get(self, "api_id")
 
@@ -77,7 +77,7 @@ class ResolverArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
         """
-        The field name from the schema defined in the GraphQL API.
+        Field name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "field")
 
@@ -89,7 +89,7 @@ class ResolverArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type name from the schema defined in the GraphQL API.
+        Type name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "type")
 
@@ -101,7 +101,7 @@ class ResolverArgs:
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional[pulumi.Input['ResolverCachingConfigArgs']]:
         """
-        The CachingConfig.
+        CachingConfig.
         """
         return pulumi.get(self, "caching_config")
 
@@ -113,7 +113,7 @@ class ResolverArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The data source name.
+        Data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -125,7 +125,7 @@ class ResolverArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        Resolver type. Valid values are `UNIT` and `PIPELINE`.
         """
         return pulumi.get(self, "kind")
 
@@ -137,7 +137,7 @@ class ResolverArgs:
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -149,7 +149,7 @@ class ResolverArgs:
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
-        The PipelineConfig.
+        PipelineConfig.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -161,7 +161,7 @@ class ResolverArgs:
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "request_template")
 
@@ -173,7 +173,7 @@ class ResolverArgs:
     @pulumi.getter(name="responseTemplate")
     def response_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
 
@@ -211,18 +211,18 @@ class _ResolverState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Resolver resources.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
-        :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The data source name.
-        :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
-        :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: CachingConfig.
+        :param pulumi.Input[str] data_source: Data source name.
+        :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: PipelineConfig.
+        :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
-        :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -253,7 +253,7 @@ class _ResolverState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API ID for the GraphQL API.
+        API ID for the GraphQL API.
         """
         return pulumi.get(self, "api_id")
 
@@ -265,7 +265,7 @@ class _ResolverState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -277,7 +277,7 @@ class _ResolverState:
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional[pulumi.Input['ResolverCachingConfigArgs']]:
         """
-        The CachingConfig.
+        CachingConfig.
         """
         return pulumi.get(self, "caching_config")
 
@@ -289,7 +289,7 @@ class _ResolverState:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The data source name.
+        Data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -301,7 +301,7 @@ class _ResolverState:
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
         """
-        The field name from the schema defined in the GraphQL API.
+        Field name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "field")
 
@@ -313,7 +313,7 @@ class _ResolverState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        Resolver type. Valid values are `UNIT` and `PIPELINE`.
         """
         return pulumi.get(self, "kind")
 
@@ -325,7 +325,7 @@ class _ResolverState:
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -337,7 +337,7 @@ class _ResolverState:
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
-        The PipelineConfig.
+        PipelineConfig.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -349,7 +349,7 @@ class _ResolverState:
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "request_template")
 
@@ -361,7 +361,7 @@ class _ResolverState:
     @pulumi.getter(name="responseTemplate")
     def response_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
 
@@ -385,7 +385,7 @@ class _ResolverState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type name from the schema defined in the GraphQL API.
+        Type name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "type")
 
@@ -502,17 +502,17 @@ class Resolver(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
-        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The data source name.
-        :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
-        :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API.
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: CachingConfig.
+        :param pulumi.Input[str] data_source: Data source name.
+        :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: PipelineConfig.
+        :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
-        :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
         ...
     @overload
@@ -691,18 +691,18 @@ class Resolver(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
-        :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The data source name.
-        :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
-        :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
-        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: CachingConfig.
+        :param pulumi.Input[str] data_source: Data source name.
+        :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: PipelineConfig.
+        :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
-        :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -726,7 +726,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API ID for the GraphQL API.
+        API ID for the GraphQL API.
         """
         return pulumi.get(self, "api_id")
 
@@ -734,7 +734,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -742,7 +742,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> pulumi.Output[Optional['outputs.ResolverCachingConfig']]:
         """
-        The CachingConfig.
+        CachingConfig.
         """
         return pulumi.get(self, "caching_config")
 
@@ -750,7 +750,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[Optional[str]]:
         """
-        The data source name.
+        Data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -758,7 +758,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def field(self) -> pulumi.Output[str]:
         """
-        The field name from the schema defined in the GraphQL API.
+        Field name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "field")
 
@@ -766,7 +766,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        Resolver type. Valid values are `UNIT` and `PIPELINE`.
         """
         return pulumi.get(self, "kind")
 
@@ -774,7 +774,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -782,7 +782,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> pulumi.Output[Optional['outputs.ResolverPipelineConfig']]:
         """
-        The PipelineConfig.
+        PipelineConfig.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -790,7 +790,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> pulumi.Output[Optional[str]]:
         """
-        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "request_template")
 
@@ -798,7 +798,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="responseTemplate")
     def response_template(self) -> pulumi.Output[Optional[str]]:
         """
-        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
 
@@ -814,7 +814,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type name from the schema defined in the GraphQL API.
+        Type name from the schema defined in the GraphQL API.
         """
         return pulumi.get(self, "type")
 

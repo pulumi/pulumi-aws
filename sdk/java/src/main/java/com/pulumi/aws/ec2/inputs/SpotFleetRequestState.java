@@ -349,6 +349,21 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    @Import(name="targetCapacityUnitType")
+    private @Nullable Output<String> targetCapacityUnitType;
+
+    /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    public Optional<Output<String>> targetCapacityUnitType() {
+        return Optional.ofNullable(this.targetCapacityUnitType);
+    }
+
+    /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */
@@ -471,6 +486,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.targetCapacity = $.targetCapacity;
+        this.targetCapacityUnitType = $.targetCapacityUnitType;
         this.targetGroupArns = $.targetGroupArns;
         this.terminateInstancesOnDelete = $.terminateInstancesOnDelete;
         this.terminateInstancesWithExpiration = $.terminateInstancesWithExpiration;
@@ -969,6 +985,27 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
          */
         public Builder targetCapacity(Integer targetCapacity) {
             return targetCapacity(Output.of(targetCapacity));
+        }
+
+        /**
+         * @param targetCapacityUnitType The unit for the target capacity. This can only be done with `instance_requirements` defined
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityUnitType(@Nullable Output<String> targetCapacityUnitType) {
+            $.targetCapacityUnitType = targetCapacityUnitType;
+            return this;
+        }
+
+        /**
+         * @param targetCapacityUnitType The unit for the target capacity. This can only be done with `instance_requirements` defined
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCapacityUnitType(String targetCapacityUnitType) {
+            return targetCapacityUnitType(Output.of(targetCapacityUnitType));
         }
 
         /**

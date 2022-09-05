@@ -17,14 +17,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     public static final RouteSpecHttp2RouteMatchHeaderMatchArgs Empty = new RouteSpecHttp2RouteMatchHeaderMatchArgs();
 
     /**
-     * The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -32,7 +32,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     }
 
     /**
-     * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -40,7 +40,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -49,14 +49,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     }
 
     /**
-     * The object that specifies the range of numbers that the value sent by the client must be included in.
+     * Object that specifies the range of numbers that the value sent by the client must be included in.
      * 
      */
     @Import(name="range")
     private @Nullable Output<RouteSpecHttp2RouteMatchHeaderMatchRangeArgs> range;
 
     /**
-     * @return The object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteMatchHeaderMatchRangeArgs>> range() {
@@ -64,14 +64,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     }
 
     /**
-     * The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -79,14 +79,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     }
 
     /**
-     * The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
     /**
-     * @return The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> suffix() {
@@ -122,7 +122,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param exact The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param exact The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -155,7 +155,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -166,7 +166,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param range The object that specifies the range of numbers that the value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param range The object that specifies the range of numbers that the value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param regex The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param regex The value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param suffix The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param suffix The value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

@@ -23,9 +23,9 @@ class ApiCacheArgs:
         """
         The set of arguments for constructing a ApiCache resource.
         :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: The GraphQL API ID.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
         :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
         :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         """
@@ -54,7 +54,7 @@ class ApiCacheArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The GraphQL API ID.
+        GraphQL API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -78,7 +78,7 @@ class ApiCacheArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         return pulumi.get(self, "type")
 
@@ -123,11 +123,11 @@ class _ApiCacheState:
         """
         Input properties used for looking up and filtering ApiCache resources.
         :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: The GraphQL API ID.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
         :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
         :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         if api_caching_behavior is not None:
             pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
@@ -158,7 +158,7 @@ class _ApiCacheState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The GraphQL API ID.
+        GraphQL API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -206,7 +206,7 @@ class _ApiCacheState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         return pulumi.get(self, "type")
 
@@ -255,11 +255,11 @@ class ApiCache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: The GraphQL API ID.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
         :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
         :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         ...
     @overload
@@ -360,11 +360,11 @@ class ApiCache(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: The GraphQL API ID.
+        :param pulumi.Input[str] api_id: GraphQL API ID.
         :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
         :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -390,7 +390,7 @@ class ApiCache(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The GraphQL API ID.
+        GraphQL API ID.
         """
         return pulumi.get(self, "api_id")
 
@@ -422,7 +422,7 @@ class ApiCache(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         return pulumi.get(self, "type")
 

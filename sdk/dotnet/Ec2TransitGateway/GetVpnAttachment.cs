@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
         /// </summary>
         public InputMap<string> Tags
         {

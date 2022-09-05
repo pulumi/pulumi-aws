@@ -48,13 +48,13 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayArgs struct {
-	// The name of the gateway to retrieve.
+	// Name of the gateway to retrieve.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getGateway.
 type LookupGatewayResult struct {
-	// The ASN on the Amazon side of the connection.
+	// ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -78,7 +78,7 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayOutputArgs struct {
-	// The name of the gateway to retrieve.
+	// Name of the gateway to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,7 +101,7 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 	return o
 }
 
-// The ASN on the Amazon side of the connection.
+// ASN on the Amazon side of the connection.
 func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }

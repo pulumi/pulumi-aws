@@ -106,14 +106,14 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
     }
 
     /**
-     * The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+     * Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
     @Import(name="locality")
     private @Nullable Output<String> locality;
 
     /**
-     * @return The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+     * @return Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
     public Optional<Output<String>> locality() {
@@ -136,14 +136,14 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
     }
 
     /**
-     * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+     * Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
     @Import(name="organizationalUnit")
     private @Nullable Output<String> organizationalUnit;
 
     /**
-     * @return A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+     * @return Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
     public Optional<Output<String>> organizationalUnit() {
@@ -196,14 +196,14 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
     }
 
     /**
-     * A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+     * Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+     * @return Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
     public Optional<Output<String>> title() {
@@ -373,7 +373,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param locality The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+         * @param locality Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param locality The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+         * @param locality Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param organizationalUnit A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+         * @param organizationalUnit Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param organizationalUnit A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+         * @param organizationalUnit Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param title A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+         * @param title Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubjectA
         }
 
         /**
-         * @param title A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+         * @param title Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 

@@ -86,7 +86,7 @@ export class LifecycleHook extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
@@ -98,11 +98,11 @@ export class LifecycleHook extends pulumi.CustomResource {
      */
     public readonly heartbeatTimeout!: pulumi.Output<number | undefined>;
     /**
-     * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      */
     public readonly lifecycleTransition!: pulumi.Output<string>;
     /**
-     * The name of the lifecycle hook.
+     * Name of the lifecycle hook.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,11 +110,11 @@ export class LifecycleHook extends pulumi.CustomResource {
      */
     public readonly notificationMetadata!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      */
     public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
 
@@ -166,7 +166,7 @@ export class LifecycleHook extends pulumi.CustomResource {
  */
 export interface LifecycleHookState {
     /**
-     * The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
@@ -178,11 +178,11 @@ export interface LifecycleHookState {
      */
     heartbeatTimeout?: pulumi.Input<number>;
     /**
-     * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      */
     lifecycleTransition?: pulumi.Input<string>;
     /**
-     * The name of the lifecycle hook.
+     * Name of the lifecycle hook.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,11 +190,11 @@ export interface LifecycleHookState {
      */
     notificationMetadata?: pulumi.Input<string>;
     /**
-     * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      */
     notificationTargetArn?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
     roleArn?: pulumi.Input<string>;
 }
@@ -204,7 +204,7 @@ export interface LifecycleHookState {
  */
 export interface LifecycleHookArgs {
     /**
-     * The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      */
     autoscalingGroupName: pulumi.Input<string>;
     /**
@@ -216,11 +216,11 @@ export interface LifecycleHookArgs {
      */
     heartbeatTimeout?: pulumi.Input<number>;
     /**
-     * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      */
     lifecycleTransition: pulumi.Input<string>;
     /**
-     * The name of the lifecycle hook.
+     * Name of the lifecycle hook.
      */
     name?: pulumi.Input<string>;
     /**
@@ -228,11 +228,11 @@ export interface LifecycleHookArgs {
      */
     notificationMetadata?: pulumi.Input<string>;
     /**
-     * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      */
     notificationTargetArn?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
     roleArn?: pulumi.Input<string>;
 }

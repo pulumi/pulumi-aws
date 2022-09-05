@@ -21,14 +21,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     public static final IntegrationState Empty = new IntegrationState();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -36,14 +36,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+     * ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      * 
      */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
     /**
-     * @return The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+     * @return ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      * 
      */
     public Optional<Output<String>> connectionId() {
@@ -51,14 +51,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+     * Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
      * 
      */
     @Import(name="connectionType")
     private @Nullable Output<String> connectionType;
 
     /**
-     * @return The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+     * @return Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
      * 
      */
     public Optional<Output<String>> connectionType() {
@@ -81,14 +81,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The credentials required for the integration, if any.
+     * Credentials required for the integration, if any.
      * 
      */
     @Import(name="credentialsArn")
     private @Nullable Output<String> credentialsArn;
 
     /**
-     * @return The credentials required for the integration, if any.
+     * @return Credentials required for the integration, if any.
      * 
      */
     public Optional<Output<String>> credentialsArn() {
@@ -96,14 +96,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the integration.
+     * Description of the integration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the integration.
+     * @return Description of the integration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -111,14 +111,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+     * Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
      * 
      */
     @Import(name="integrationMethod")
     private @Nullable Output<String> integrationMethod;
 
     /**
-     * @return The integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+     * @return Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
      * 
      */
     public Optional<Output<String>> integrationMethod() {
@@ -141,14 +141,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+     * AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="integrationSubtype")
     private @Nullable Output<String> integrationSubtype;
 
     /**
-     * @return Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+     * @return AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> integrationSubtype() {
@@ -156,7 +156,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The integration type of an integration.
+     * Integration type of an integration.
      * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
@@ -164,7 +164,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> integrationType;
 
     /**
-     * @return The integration type of an integration.
+     * @return Integration type of an integration.
      * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
@@ -173,7 +173,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+     * URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
@@ -181,7 +181,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> integrationUri;
 
     /**
-     * @return The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+     * @return URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
@@ -190,7 +190,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+     * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
@@ -198,7 +198,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> passthroughBehavior;
 
     /**
-     * @return The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+     * @return Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
@@ -243,14 +243,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+     * Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="requestTemplates")
     private @Nullable Output<Map<String,String>> requestTemplates;
 
     /**
-     * @return A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+     * @return Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<Map<String,String>>> requestTemplates() {
@@ -307,14 +307,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The TLS configuration for a private integration. Supported only for HTTP APIs.
+     * TLS configuration for a private integration. Supported only for HTTP APIs.
      * 
      */
     @Import(name="tlsConfig")
     private @Nullable Output<IntegrationTlsConfigArgs> tlsConfig;
 
     /**
-     * @return The TLS configuration for a private integration. Supported only for HTTP APIs.
+     * @return TLS configuration for a private integration. Supported only for HTTP APIs.
      * 
      */
     public Optional<Output<IntegrationTlsConfigArgs>> tlsConfig() {
@@ -364,7 +364,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionId The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+         * @param connectionId ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionId The ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+         * @param connectionId ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+         * @param connectionType Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+         * @param connectionType Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsArn The credentials required for the integration, if any.
+         * @param credentialsArn Credentials required for the integration, if any.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsArn The credentials required for the integration, if any.
+         * @param credentialsArn Credentials required for the integration, if any.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the integration.
+         * @param description Description of the integration.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the integration.
+         * @param description Description of the integration.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationMethod The integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationMethod The integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationSubtype Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationSubtype Specifies the AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationType The integration type of an integration.
+         * @param integrationType Integration type of an integration.
          * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
          * 
          * @return builder
@@ -565,7 +565,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationType The integration type of an integration.
+         * @param integrationType Integration type of an integration.
          * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
          * 
          * @return builder
@@ -576,7 +576,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
          * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
@@ -588,7 +588,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
          * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
@@ -599,7 +599,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
          * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -611,7 +611,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
          * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -670,7 +670,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTemplates A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+         * @param requestTemplates Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTemplates A map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+         * @param requestTemplates Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -768,7 +768,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsConfig The TLS configuration for a private integration. Supported only for HTTP APIs.
+         * @param tlsConfig TLS configuration for a private integration. Supported only for HTTP APIs.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsConfig The TLS configuration for a private integration. Supported only for HTTP APIs.
+         * @param tlsConfig TLS configuration for a private integration. Supported only for HTTP APIs.
          * 
          * @return builder
          * 

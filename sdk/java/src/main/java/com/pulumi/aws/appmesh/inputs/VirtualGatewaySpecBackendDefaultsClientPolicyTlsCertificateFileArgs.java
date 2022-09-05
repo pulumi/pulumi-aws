@@ -14,14 +14,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs();
 
     /**
-     * The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
     /**
-     * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> certificateChain() {
@@ -29,14 +29,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
     }
 
     /**
-     * The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
     /**
-     * @return The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> privateKey() {
@@ -69,7 +69,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
         }
 
         /**
-         * @param certificateChain The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
         }
 
         /**
-         * @param certificateChain The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param certificateChain Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
         }
 
         /**
-         * @param privateKey The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param privateKey Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFi
         }
 
         /**
-         * @param privateKey The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+         * @param privateKey Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

@@ -130,29 +130,29 @@ import (
 type Resolver struct {
 	pulumi.CustomResourceState
 
-	// The API ID for the GraphQL API.
+	// API ID for the GraphQL API.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ARN
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The CachingConfig.
+	// CachingConfig.
 	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
-	// The data source name.
+	// Data source name.
 	DataSource pulumi.StringPtrOutput `pulumi:"dataSource"`
-	// The field name from the schema defined in the GraphQL API.
+	// Field name from the schema defined in the GraphQL API.
 	Field pulumi.StringOutput `pulumi:"field"`
-	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
-	// The PipelineConfig.
+	// PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrOutput `pulumi:"responseTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrOutput `pulumi:"syncConfig"`
-	// The type name from the schema defined in the GraphQL API.
+	// Type name from the schema defined in the GraphQL API.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -194,56 +194,56 @@ func GetResolver(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resolver resources.
 type resolverState struct {
-	// The API ID for the GraphQL API.
+	// API ID for the GraphQL API.
 	ApiId *string `pulumi:"apiId"`
-	// The ARN
+	// ARN
 	Arn *string `pulumi:"arn"`
-	// The CachingConfig.
+	// CachingConfig.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
-	// The data source name.
+	// Data source name.
 	DataSource *string `pulumi:"dataSource"`
-	// The field name from the schema defined in the GraphQL API.
+	// Field name from the schema defined in the GraphQL API.
 	Field *string `pulumi:"field"`
-	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The PipelineConfig.
+	// PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
-	// The type name from the schema defined in the GraphQL API.
+	// Type name from the schema defined in the GraphQL API.
 	Type *string `pulumi:"type"`
 }
 
 type ResolverState struct {
-	// The API ID for the GraphQL API.
+	// API ID for the GraphQL API.
 	ApiId pulumi.StringPtrInput
-	// The ARN
+	// ARN
 	Arn pulumi.StringPtrInput
-	// The CachingConfig.
+	// CachingConfig.
 	CachingConfig ResolverCachingConfigPtrInput
-	// The data source name.
+	// Data source name.
 	DataSource pulumi.StringPtrInput
-	// The field name from the schema defined in the GraphQL API.
+	// Field name from the schema defined in the GraphQL API.
 	Field pulumi.StringPtrInput
-	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The PipelineConfig.
+	// PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrInput
-	// The type name from the schema defined in the GraphQL API.
+	// Type name from the schema defined in the GraphQL API.
 	Type pulumi.StringPtrInput
 }
 
@@ -252,53 +252,53 @@ func (ResolverState) ElementType() reflect.Type {
 }
 
 type resolverArgs struct {
-	// The API ID for the GraphQL API.
+	// API ID for the GraphQL API.
 	ApiId string `pulumi:"apiId"`
-	// The CachingConfig.
+	// CachingConfig.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
-	// The data source name.
+	// Data source name.
 	DataSource *string `pulumi:"dataSource"`
-	// The field name from the schema defined in the GraphQL API.
+	// Field name from the schema defined in the GraphQL API.
 	Field string `pulumi:"field"`
-	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind *string `pulumi:"kind"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The PipelineConfig.
+	// PipelineConfig.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
-	// The type name from the schema defined in the GraphQL API.
+	// Type name from the schema defined in the GraphQL API.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Resolver resource.
 type ResolverArgs struct {
-	// The API ID for the GraphQL API.
+	// API ID for the GraphQL API.
 	ApiId pulumi.StringInput
-	// The CachingConfig.
+	// CachingConfig.
 	CachingConfig ResolverCachingConfigPtrInput
-	// The data source name.
+	// Data source name.
 	DataSource pulumi.StringPtrInput
-	// The field name from the schema defined in the GraphQL API.
+	// Field name from the schema defined in the GraphQL API.
 	Field pulumi.StringInput
-	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind pulumi.StringPtrInput
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The PipelineConfig.
+	// PipelineConfig.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
-	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrInput
-	// The type name from the schema defined in the GraphQL API.
+	// Type name from the schema defined in the GraphQL API.
 	Type pulumi.StringInput
 }
 
@@ -389,52 +389,52 @@ func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) Resolve
 	return o
 }
 
-// The API ID for the GraphQL API.
+// API ID for the GraphQL API.
 func (o ResolverOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The ARN
+// ARN
 func (o ResolverOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The CachingConfig.
+// CachingConfig.
 func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
-// The data source name.
+// Data source name.
 func (o ResolverOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
-// The field name from the schema defined in the GraphQL API.
+// Field name from the schema defined in the GraphQL API.
 func (o ResolverOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Field }).(pulumi.StringOutput)
 }
 
-// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+// Resolver type. Valid values are `UNIT` and `PIPELINE`.
 func (o ResolverOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The PipelineConfig.
+// PipelineConfig.
 func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
 
-// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 func (o ResolverOutput) RequestTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 func (o ResolverOutput) ResponseTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseTemplate }).(pulumi.StringPtrOutput)
 }
@@ -444,7 +444,7 @@ func (o ResolverOutput) SyncConfig() ResolverSyncConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverSyncConfigPtrOutput { return v.SyncConfig }).(ResolverSyncConfigPtrOutput)
 }
 
-// The type name from the schema defined in the GraphQL API.
+// Type name from the schema defined in the GraphQL API.
 func (o ResolverOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -16,14 +16,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs();
 
     /**
-     * The unique name of the Amazon Connect Customer Profiles domain.
+     * Unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The unique name of the Amazon Connect Customer Profiles domain.
+     * @return Unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
     public Output<String> domainName() {
@@ -31,14 +31,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     }
 
     /**
-     * The object specified in the Amazon Connect Customer Profiles flow destination.
+     * Object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
     @Import(name="objectTypeName")
     private @Nullable Output<String> objectTypeName;
 
     /**
-     * @return The object specified in the Amazon Connect Customer Profiles flow destination.
+     * @return Object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
     public Optional<Output<String>> objectTypeName() {
@@ -71,7 +71,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param domainName The unique name of the Amazon Connect Customer Profiles domain.
+         * @param domainName Unique name of the Amazon Connect Customer Profiles domain.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param domainName The unique name of the Amazon Connect Customer Profiles domain.
+         * @param domainName Unique name of the Amazon Connect Customer Profiles domain.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param objectTypeName The object specified in the Amazon Connect Customer Profiles flow destination.
+         * @param objectTypeName Object specified in the Amazon Connect Customer Profiles flow destination.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param objectTypeName The object specified in the Amazon Connect Customer Profiles flow destination.
+         * @param objectTypeName Object specified in the Amazon Connect Customer Profiles flow destination.
          * 
          * @return builder
          * 

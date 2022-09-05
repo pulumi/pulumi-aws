@@ -120,7 +120,7 @@ export interface GetOrderableDbInstanceResult {
      */
     readonly readReplicaCapable: boolean;
     /**
-     * The storage type for a DB instance.
+     * Storage type for a DB instance.
      */
     readonly storageType: string;
     /**

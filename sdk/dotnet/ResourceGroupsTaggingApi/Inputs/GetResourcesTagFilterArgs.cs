@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The optional part of a key-value pair that make up a tag.
+        /// Optional part of a key-value pair that make up a tag.
         /// </summary>
         public InputList<string> Values
         {

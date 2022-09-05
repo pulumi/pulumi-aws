@@ -65,7 +65,7 @@ class GetServiceQuotaResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the service quota.
+        ARN of the service quota.
         """
         return pulumi.get(self, "arn")
 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcDhcpOptionsResult {
     /**
-     * @return The ARN of the DHCP Options Set.
+     * @return ARN of the DHCP Options Set.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetVpcDhcpOptionsResult {
      */
     private String dhcpOptionsId;
     /**
-     * @return The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+     * @return Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
      * 
      */
     private String domainName;
@@ -45,7 +45,7 @@ public final class GetVpcDhcpOptionsResult {
      */
     private List<String> netbiosNameServers;
     /**
-     * @return The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * @return NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
     private String netbiosNodeType;
@@ -55,19 +55,19 @@ public final class GetVpcDhcpOptionsResult {
      */
     private List<String> ntpServers;
     /**
-     * @return The ID of the AWS account that owns the DHCP options set.
+     * @return ID of the AWS account that owns the DHCP options set.
      * 
      */
     private String ownerId;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
 
     private GetVpcDhcpOptionsResult() {}
     /**
-     * @return The ARN of the DHCP Options Set.
+     * @return ARN of the DHCP Options Set.
      * 
      */
     public String arn() {
@@ -81,7 +81,7 @@ public final class GetVpcDhcpOptionsResult {
         return this.dhcpOptionsId;
     }
     /**
-     * @return The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+     * @return Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
      * 
      */
     public String domainName() {
@@ -112,7 +112,7 @@ public final class GetVpcDhcpOptionsResult {
         return this.netbiosNameServers;
     }
     /**
-     * @return The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * @return NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
     public String netbiosNodeType() {
@@ -126,14 +126,14 @@ public final class GetVpcDhcpOptionsResult {
         return this.ntpServers;
     }
     /**
-     * @return The ID of the AWS account that owns the DHCP options set.
+     * @return ID of the AWS account that owns the DHCP options set.
      * 
      */
     public String ownerId() {
         return this.ownerId;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

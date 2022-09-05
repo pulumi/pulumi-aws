@@ -40,7 +40,7 @@ export interface GetParameterGroupArgs {
      */
     name: string;
     /**
-     * A map of tags assigned to the parameter group.
+     * Map of tags assigned to the parameter group.
      */
     tags?: {[key: string]: string};
 }
@@ -58,7 +58,7 @@ export interface GetParameterGroupResult {
      */
     readonly description: string;
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      */
     readonly family: string;
     /**
@@ -74,7 +74,7 @@ export interface GetParameterGroupResult {
      */
     readonly parameters: outputs.memorydb.GetParameterGroupParameter[];
     /**
-     * A map of tags assigned to the parameter group.
+     * Map of tags assigned to the parameter group.
      */
     readonly tags: {[key: string]: string};
 }
@@ -92,7 +92,7 @@ export interface GetParameterGroupOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the parameter group.
+     * Map of tags assigned to the parameter group.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

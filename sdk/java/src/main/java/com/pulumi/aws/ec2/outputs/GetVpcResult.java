@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcResult {
     /**
-     * @return Amazon Resource Name (ARN) of VPC
+     * @return ARN of VPC
      * 
      */
     private String arn;
     /**
-     * @return The CIDR block for the association.
+     * @return CIDR block for the association.
      * 
      */
     private String cidrBlock;
@@ -41,33 +41,33 @@ public final class GetVpcResult {
     private @Nullable List<GetVpcFilter> filters;
     private String id;
     /**
-     * @return The allowed tenancy of instances launched into the
+     * @return Allowed tenancy of instances launched into the
      * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
     private String instanceTenancy;
     /**
-     * @return The association ID for the IPv6 CIDR block.
+     * @return Association ID for the IPv6 CIDR block.
      * 
      */
     private String ipv6AssociationId;
     /**
-     * @return The IPv6 CIDR block.
+     * @return IPv6 CIDR block.
      * 
      */
     private String ipv6CidrBlock;
     /**
-     * @return The ID of the main route table associated with this VPC.
+     * @return ID of the main route table associated with this VPC.
      * 
      */
     private String mainRouteTableId;
     /**
-     * @return The ID of the AWS account that owns the VPC.
+     * @return ID of the AWS account that owns the VPC.
      * 
      */
     private String ownerId;
     /**
-     * @return The State of the association.
+     * @return State of the association.
      * 
      */
     private String state;
@@ -75,14 +75,14 @@ public final class GetVpcResult {
 
     private GetVpcResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of VPC
+     * @return ARN of VPC
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The CIDR block for the association.
+     * @return CIDR block for the association.
      * 
      */
     public String cidrBlock() {
@@ -118,7 +118,7 @@ public final class GetVpcResult {
         return this.id;
     }
     /**
-     * @return The allowed tenancy of instances launched into the
+     * @return Allowed tenancy of instances launched into the
      * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
@@ -126,35 +126,35 @@ public final class GetVpcResult {
         return this.instanceTenancy;
     }
     /**
-     * @return The association ID for the IPv6 CIDR block.
+     * @return Association ID for the IPv6 CIDR block.
      * 
      */
     public String ipv6AssociationId() {
         return this.ipv6AssociationId;
     }
     /**
-     * @return The IPv6 CIDR block.
+     * @return IPv6 CIDR block.
      * 
      */
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
     /**
-     * @return The ID of the main route table associated with this VPC.
+     * @return ID of the main route table associated with this VPC.
      * 
      */
     public String mainRouteTableId() {
         return this.mainRouteTableId;
     }
     /**
-     * @return The ID of the AWS account that owns the VPC.
+     * @return ID of the AWS account that owns the VPC.
      * 
      */
     public String ownerId() {
         return this.ownerId;
     }
     /**
-     * @return The State of the association.
+     * @return State of the association.
      * 
      */
     public String state() {

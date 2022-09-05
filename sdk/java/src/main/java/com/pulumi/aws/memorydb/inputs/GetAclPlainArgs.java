@@ -31,14 +31,14 @@ public final class GetAclPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the ACL.
+     * Map of tags assigned to the ACL.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the ACL.
+     * @return Map of tags assigned to the ACL.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetAclPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the ACL.
+         * @param tags Map of tags assigned to the ACL.
          * 
          * @return builder
          * 

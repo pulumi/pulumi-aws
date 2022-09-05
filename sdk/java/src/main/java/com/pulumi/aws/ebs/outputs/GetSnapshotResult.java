@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSnapshotResult {
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     private String arn;
@@ -27,7 +27,7 @@ public final class GetSnapshotResult {
      */
     private String dataEncryptionKeyId;
     /**
-     * @return A description for the snapshot
+     * @return Description for the snapshot
      * 
      */
     private String description;
@@ -43,13 +43,13 @@ public final class GetSnapshotResult {
      */
     private String id;
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     private String kmsKeyId;
     private @Nullable Boolean mostRecent;
     /**
-     * @return The ARN of the Outpost on which the snapshot is stored.
+     * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
     private String outpostArn;
@@ -59,47 +59,47 @@ public final class GetSnapshotResult {
      */
     private String ownerAlias;
     /**
-     * @return The AWS account ID of the EBS snapshot owner.
+     * @return AWS account ID of the EBS snapshot owner.
      * 
      */
     private String ownerId;
     private @Nullable List<String> owners;
     private @Nullable List<String> restorableByUserIds;
     /**
-     * @return The snapshot ID (e.g., snap-59fcb34e).
+     * @return Snapshot ID (e.g., snap-59fcb34e).
      * 
      */
     private String snapshotId;
     private @Nullable List<String> snapshotIds;
     /**
-     * @return The snapshot state.
+     * @return Snapshot state.
      * 
      */
     private String state;
     /**
-     * @return The storage tier in which the snapshot is stored.
+     * @return Storage tier in which the snapshot is stored.
      * 
      */
     private String storageTier;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The volume ID (e.g., vol-59fcb34e).
+     * @return Volume ID (e.g., vol-59fcb34e).
      * 
      */
     private String volumeId;
     /**
-     * @return The size of the drive in GiBs.
+     * @return Size of the drive in GiBs.
      * 
      */
     private Integer volumeSize;
 
     private GetSnapshotResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public String arn() {
@@ -113,7 +113,7 @@ public final class GetSnapshotResult {
         return this.dataEncryptionKeyId;
     }
     /**
-     * @return A description for the snapshot
+     * @return Description for the snapshot
      * 
      */
     public String description() {
@@ -137,7 +137,7 @@ public final class GetSnapshotResult {
         return this.id;
     }
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     public String kmsKeyId() {
@@ -147,7 +147,7 @@ public final class GetSnapshotResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return The ARN of the Outpost on which the snapshot is stored.
+     * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
     public String outpostArn() {
@@ -161,7 +161,7 @@ public final class GetSnapshotResult {
         return this.ownerAlias;
     }
     /**
-     * @return The AWS account ID of the EBS snapshot owner.
+     * @return AWS account ID of the EBS snapshot owner.
      * 
      */
     public String ownerId() {
@@ -174,7 +174,7 @@ public final class GetSnapshotResult {
         return this.restorableByUserIds == null ? List.of() : this.restorableByUserIds;
     }
     /**
-     * @return The snapshot ID (e.g., snap-59fcb34e).
+     * @return Snapshot ID (e.g., snap-59fcb34e).
      * 
      */
     public String snapshotId() {
@@ -184,35 +184,35 @@ public final class GetSnapshotResult {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
     }
     /**
-     * @return The snapshot state.
+     * @return Snapshot state.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return The storage tier in which the snapshot is stored.
+     * @return Storage tier in which the snapshot is stored.
      * 
      */
     public String storageTier() {
         return this.storageTier;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The volume ID (e.g., vol-59fcb34e).
+     * @return Volume ID (e.g., vol-59fcb34e).
      * 
      */
     public String volumeId() {
         return this.volumeId;
     }
     /**
-     * @return The size of the drive in GiBs.
+     * @return Size of the drive in GiBs.
      * 
      */
     public Integer volumeSize() {

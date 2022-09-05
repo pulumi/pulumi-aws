@@ -80,14 +80,14 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * @return Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     public Optional<Output<String>> status() {
@@ -109,22 +109,30 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
     /**
-     * The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     @Import(name="traceConfiguration")
     private @Nullable Output<ObservabilityConfigurationTraceConfigurationArgs> traceConfiguration;
 
     /**
-     * @return The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * @return Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     public Optional<Output<ObservabilityConfigurationTraceConfigurationArgs>> traceConfiguration() {
@@ -247,7 +255,7 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param status The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+         * @param status Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
          * 
          * @return builder
          * 
@@ -258,7 +266,7 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param status The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+         * @param status Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
          * 
          * @return builder
          * 
@@ -288,17 +296,29 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
         /**
-         * @param traceConfiguration The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+         * @param traceConfiguration Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
          * 
          * @return builder
          * 
@@ -309,7 +329,7 @@ public final class ObservabilityConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param traceConfiguration The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+         * @param traceConfiguration Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
          * 
          * @return builder
          * 

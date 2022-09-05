@@ -84,25 +84,25 @@ type LookupUserHierarchyGroupArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the hierarchy group.
+	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getUserHierarchyGroup.
 type LookupUserHierarchyGroupResult struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// ARN of the hierarchy group.
 	Arn              string `pulumi:"arn"`
 	HierarchyGroupId string `pulumi:"hierarchyGroupId"`
-	// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
+	// Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 	HierarchyPaths []GetUserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
-	// The identifier of the level in the hierarchy group.
+	// Identifier of the level in the hierarchy group.
 	LevelId string `pulumi:"levelId"`
-	// The name of the hierarchy group.
+	// Name of the hierarchy group.
 	Name string `pulumi:"name"`
-	// A map of tags to assign to the hierarchy group.
+	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -127,7 +127,7 @@ type LookupUserHierarchyGroupOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of tags to assign to the hierarchy group.
+	// Map of tags to assign to the hierarchy group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -150,7 +150,7 @@ func (o LookupUserHierarchyGroupResultOutput) ToLookupUserHierarchyGroupResultOu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// ARN of the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -159,7 +159,7 @@ func (o LookupUserHierarchyGroupResultOutput) HierarchyGroupId() pulumi.StringOu
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.HierarchyGroupId }).(pulumi.StringOutput)
 }
 
-// A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
+// Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 func (o LookupUserHierarchyGroupResultOutput) HierarchyPaths() GetUserHierarchyGroupHierarchyPathArrayOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) []GetUserHierarchyGroupHierarchyPath { return v.HierarchyPaths }).(GetUserHierarchyGroupHierarchyPathArrayOutput)
 }
@@ -173,17 +173,17 @@ func (o LookupUserHierarchyGroupResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The identifier of the level in the hierarchy group.
+// Identifier of the level in the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) LevelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.LevelId }).(pulumi.StringOutput)
 }
 
-// The name of the hierarchy group.
+// Name of the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the hierarchy group.
+// Map of tags to assign to the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

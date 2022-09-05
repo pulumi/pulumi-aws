@@ -85,7 +85,7 @@ type RailsAppLayer struct {
 	RubyVersion pulumi.StringPtrOutput `pulumi:"rubyVersion"`
 	// The version of RubyGems to use. Defaults to "2.2.2".
 	RubygemsVersion pulumi.StringPtrOutput `pulumi:"rubygemsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -173,7 +173,7 @@ type railsAppLayerState struct {
 	RubyVersion *string `pulumi:"rubyVersion"`
 	// The version of RubyGems to use. Defaults to "2.2.2".
 	RubygemsVersion *string `pulumi:"rubygemsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -230,7 +230,7 @@ type RailsAppLayerState struct {
 	RubyVersion pulumi.StringPtrInput
 	// The version of RubyGems to use. Defaults to "2.2.2".
 	RubygemsVersion pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -289,7 +289,7 @@ type railsAppLayerArgs struct {
 	RubyVersion *string `pulumi:"rubyVersion"`
 	// The version of RubyGems to use. Defaults to "2.2.2".
 	RubygemsVersion *string `pulumi:"rubygemsVersion"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -343,7 +343,7 @@ type RailsAppLayerArgs struct {
 	RubyVersion pulumi.StringPtrInput
 	// The version of RubyGems to use. Defaults to "2.2.2".
 	RubygemsVersion pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -559,7 +559,7 @@ func (o RailsAppLayerOutput) RubygemsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringPtrOutput { return v.RubygemsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o RailsAppLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

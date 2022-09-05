@@ -111,7 +111,7 @@ export class GangliaLayer extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -287,7 +287,7 @@ export interface GangliaLayerState {
      */
     password?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -379,7 +379,7 @@ export interface GangliaLayerArgs {
      */
     password: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

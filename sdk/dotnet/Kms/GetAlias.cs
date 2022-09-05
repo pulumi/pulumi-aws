@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Kms
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Kms
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Kms
     public sealed class GetAliasResult
     {
         /// <summary>
-        /// The Amazon Resource Name(ARN) of the key alias.
+        /// Amazon Resource Name(ARN) of the key alias.
         /// </summary>
         public readonly string Arn;
         /// <summary>

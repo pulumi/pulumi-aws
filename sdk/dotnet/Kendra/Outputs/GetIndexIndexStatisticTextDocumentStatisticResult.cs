@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class GetIndexIndexStatisticTextDocumentStatisticResult
     {
         /// <summary>
-        /// The total size, in bytes, of the indexed documents.
+        /// Total size, in bytes, of the indexed documents.
         /// </summary>
         public readonly int IndexedTextBytes;
         /// <summary>

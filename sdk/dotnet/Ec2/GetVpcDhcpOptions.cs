@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcDhcpOptionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The EC2 DHCP Options ID.
+        /// EC2 DHCP Options ID.
         /// </summary>
         [Input("dhcpOptionsId")]
         public string? DhcpOptionsId { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcDhcpOptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The EC2 DHCP Options ID.
+        /// EC2 DHCP Options ID.
         /// </summary>
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcDhcpOptionsResult
     {
         /// <summary>
-        /// The ARN of the DHCP Options Set.
+        /// ARN of the DHCP Options Set.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string DhcpOptionsId;
         /// <summary>
-        /// The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+        /// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> NetbiosNameServers;
         /// <summary>
-        /// The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        /// NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
         public readonly string NetbiosNodeType;
         /// <summary>
@@ -255,11 +255,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> NtpServers;
         /// <summary>
-        /// The ID of the AWS account that owns the DHCP options set.
+        /// ID of the AWS account that owns the DHCP options set.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

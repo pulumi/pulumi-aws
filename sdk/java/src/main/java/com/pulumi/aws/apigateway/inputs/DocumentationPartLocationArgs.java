@@ -16,14 +16,14 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
     public static final DocumentationPartLocationArgs Empty = new DocumentationPartLocationArgs();
 
     /**
-     * The HTTP verb of a method. The default value is `*` for any method.
+     * HTTP verb of a method. The default value is `*` for any method.
      * 
      */
     @Import(name="method")
     private @Nullable Output<String> method;
 
     /**
-     * @return The HTTP verb of a method. The default value is `*` for any method.
+     * @return HTTP verb of a method. The default value is `*` for any method.
      * 
      */
     public Optional<Output<String>> method() {
@@ -31,14 +31,14 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the targeted API entity.
+     * Name of the targeted API entity.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the targeted API entity.
+     * @return Name of the targeted API entity.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The URL path of the target. The default value is `/` for the root resource.
+     * URL path of the target. The default value is `/` for the root resource.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The URL path of the target. The default value is `/` for the root resource.
+     * @return URL path of the target. The default value is `/` for the root resource.
      * 
      */
     public Optional<Output<String>> path() {
@@ -61,14 +61,14 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The HTTP status code of a response. The default value is `*` for any status code.
+     * HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
-     * @return The HTTP status code of a response. The default value is `*` for any status code.
+     * @return HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -76,14 +76,14 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+     * Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
     public Output<String> type() {
@@ -119,7 +119,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param method The HTTP verb of a method. The default value is `*` for any method.
+         * @param method HTTP verb of a method. The default value is `*` for any method.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param method The HTTP verb of a method. The default value is `*` for any method.
+         * @param method HTTP verb of a method. The default value is `*` for any method.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the targeted API entity.
+         * @param name Name of the targeted API entity.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the targeted API entity.
+         * @param name Name of the targeted API entity.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path The URL path of the target. The default value is `/` for the root resource.
+         * @param path URL path of the target. The default value is `/` for the root resource.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path The URL path of the target. The default value is `/` for the root resource.
+         * @param path URL path of the target. The default value is `/` for the root resource.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusCode The HTTP status code of a response. The default value is `*` for any status code.
+         * @param statusCode HTTP status code of a response. The default value is `*` for any status code.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusCode The HTTP status code of a response. The default value is `*` for any status code.
+         * @param statusCode HTTP status code of a response. The default value is `*` for any status code.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+         * @param type Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+         * @param type Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
          * 
          * @return builder
          * 

@@ -43,7 +43,7 @@ export interface GetFunctionArgs {
      */
     functionName: string;
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: string;
     tags?: {[key: string]: string};
@@ -54,15 +54,15 @@ export interface GetFunctionArgs {
  */
 export interface GetFunctionResult {
     /**
-     * The instruction set architecture for the Lambda function.
+     * Instruction set architecture for the Lambda function.
      */
     readonly architectures: string[];
     /**
-     * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+     * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
      */
     readonly arn: string;
     /**
-     * Amazon Resource Name (ARN) for a Code Signing Configuration.
+     * ARN for a Code Signing Configuration.
      */
     readonly codeSigningConfigArn: string;
     /**
@@ -74,20 +74,20 @@ export interface GetFunctionResult {
      */
     readonly description: string;
     /**
-     * The Lambda environment's configuration settings.
+     * Lambda environment's configuration settings.
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
     /**
-     * The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      */
     readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
     /**
-     * The connection settings for an Amazon EFS file system.
+     * Connection settings for an Amazon EFS file system.
      */
     readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
     /**
-     * The function entrypoint in your code.
+     * Function entrypoint in your code.
      */
     readonly handler: string;
     /**
@@ -95,23 +95,23 @@ export interface GetFunctionResult {
      */
     readonly id: string;
     /**
-     * The URI of the container image.
+     * URI of the container image.
      */
     readonly imageUri: string;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway.
+     * ARN to be used for invoking Lambda Function from API Gateway.
      */
     readonly invokeArn: string;
     /**
-     * The ARN for the KMS encryption key.
+     * ARN for the KMS encryption key.
      */
     readonly kmsKeyArn: string;
     /**
-     * The date this resource was last modified.
+     * Date this resource was last modified.
      */
     readonly lastModified: string;
     /**
-     * A list of Lambda Layer ARNs attached to your Lambda Function.
+     * List of Lambda Layer ARNs attached to your Lambda Function.
      */
     readonly layers: string[];
     /**
@@ -119,7 +119,7 @@ export interface GetFunctionResult {
      */
     readonly memorySize: number;
     /**
-     * Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
+     * Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
      */
     readonly qualifiedArn: string;
     readonly qualifier?: string;
@@ -132,15 +132,15 @@ export interface GetFunctionResult {
      */
     readonly role: string;
     /**
-     * The runtime environment for the Lambda function.
+     * Runtime environment for the Lambda function.
      */
     readonly runtime: string;
     /**
-     * The Amazon Resource Name (ARN) of a signing job.
+     * ARN of a signing job.
      */
     readonly signingJobArn: string;
     /**
-     * The Amazon Resource Name (ARN) for a signing profile version.
+     * The ARN for a signing profile version.
      */
     readonly signingProfileVersionArn: string;
     /**
@@ -148,12 +148,12 @@ export interface GetFunctionResult {
      */
     readonly sourceCodeHash: string;
     /**
-     * The size in bytes of the function .zip file.
+     * Size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
     readonly tags: {[key: string]: string};
     /**
-     * The function execution time at which Lambda should terminate the function.
+     * Function execution time at which Lambda should terminate the function.
      */
     readonly timeout: number;
     /**
@@ -161,7 +161,7 @@ export interface GetFunctionResult {
      */
     readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
     /**
-     * The version of the Lambda function.
+     * The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      */
     readonly version: string;
     /**
@@ -183,7 +183,7 @@ export interface GetFunctionOutputArgs {
      */
     functionName: pulumi.Input<string>;
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

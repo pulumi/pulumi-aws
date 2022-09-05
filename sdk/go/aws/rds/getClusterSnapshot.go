@@ -81,26 +81,26 @@ type LookupClusterSnapshotArgs struct {
 	IncludeShared *bool `pulumi:"includeShared"`
 	// If more than one result is returned, use the most recent Snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// The type of snapshots to be returned. If you don't specify a SnapshotType
+	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getClusterSnapshot.
 type LookupClusterSnapshotResult struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage int `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+	// The ARN for the DB Cluster Snapshot.
 	DbClusterSnapshotArn        string  `pulumi:"dbClusterSnapshotArn"`
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion string `pulumi:"engineVersion"`
@@ -119,13 +119,13 @@ type LookupClusterSnapshotResult struct {
 	SnapshotCreateTime         string  `pulumi:"snapshotCreateTime"`
 	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn string  `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DB Cluster Snapshot.
+	// Status of this DB Cluster Snapshot.
 	Status string `pulumi:"status"`
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID associated with the DB cluster snapshot.
+	// VPC ID associated with the DB cluster snapshot.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -157,11 +157,11 @@ type LookupClusterSnapshotOutputArgs struct {
 	IncludeShared pulumi.BoolPtrInput `pulumi:"includeShared"`
 	// If more than one result is returned, use the most recent Snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// The type of snapshots to be returned. If you don't specify a SnapshotType
+	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -184,7 +184,7 @@ func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutputWi
 	return o
 }
 
-// Specifies the allocated storage size in gigabytes (GB).
+// Allocated storage size in gigabytes (GB).
 func (o LookupClusterSnapshotResultOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
@@ -199,7 +199,7 @@ func (o LookupClusterSnapshotResultOutput) DbClusterIdentifier() pulumi.StringPt
 	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+// The ARN for the DB Cluster Snapshot.
 func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }
@@ -208,7 +208,7 @@ func (o LookupClusterSnapshotResultOutput) DbClusterSnapshotIdentifier() pulumi.
 	return o.ApplyT(func(v LookupClusterSnapshotResult) *string { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the database engine.
+// Name of the database engine.
 func (o LookupClusterSnapshotResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.Engine }).(pulumi.StringOutput)
 }
@@ -263,22 +263,22 @@ func (o LookupClusterSnapshotResultOutput) SourceDbClusterSnapshotArn() pulumi.S
 	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The status of this DB Cluster Snapshot.
+// Status of this DB Cluster Snapshot.
 func (o LookupClusterSnapshotResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies whether the DB cluster snapshot is encrypted.
+// Whether the DB cluster snapshot is encrypted.
 func (o LookupClusterSnapshotResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupClusterSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The VPC ID associated with the DB cluster snapshot.
+// VPC ID associated with the DB cluster snapshot.
 func (o LookupClusterSnapshotResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterSnapshotResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

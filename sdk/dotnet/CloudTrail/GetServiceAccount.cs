@@ -176,7 +176,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// The ARN of the AWS CloudTrail service account in the selected region.
+        /// ARN of the AWS CloudTrail service account in the selected region.
         /// </summary>
         public readonly string Arn;
         /// <summary>

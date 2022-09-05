@@ -418,8 +418,8 @@ class StackAccessEndpoint(dict):
                  endpoint_type: str,
                  vpce_id: Optional[str] = None):
         """
-        :param str endpoint_type: The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        :param str vpce_id: The ID of the VPC in which the interface endpoint is used.
+        :param str endpoint_type: Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        :param str vpce_id: ID of the VPC in which the interface endpoint is used.
         """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
@@ -429,7 +429,7 @@ class StackAccessEndpoint(dict):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
         """
-        The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -437,7 +437,7 @@ class StackAccessEndpoint(dict):
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[str]:
         """
-        The ID of the VPC in which the interface endpoint is used.
+        ID of the VPC in which the interface endpoint is used.
         """
         return pulumi.get(self, "vpce_id")
 
@@ -548,7 +548,7 @@ class StackUserSetting(dict):
                  permission: str):
         """
         :param str action: Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
-        :param str permission: Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        :param str permission: Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
@@ -565,7 +565,7 @@ class StackUserSetting(dict):
     @pulumi.getter
     def permission(self) -> str:
         """
-        Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "permission")
 

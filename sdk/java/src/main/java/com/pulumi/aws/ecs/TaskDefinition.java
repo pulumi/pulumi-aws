@@ -631,9 +631,17 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
     public Output<Optional<TaskDefinitionRuntimePlatform>> runtimePlatform() {
         return Codegen.optional(this.runtimePlatform);
     }
+    /**
+     * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     * 
+     */
     @Export(name="skipDestroy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipDestroy;
 
+    /**
+     * @return Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+     * 
+     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }

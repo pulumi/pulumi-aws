@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
     public sealed class GetDirectConnectGatewayAttachmentFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

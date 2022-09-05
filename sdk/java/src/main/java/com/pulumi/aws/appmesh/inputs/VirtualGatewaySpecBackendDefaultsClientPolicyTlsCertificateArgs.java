@@ -17,14 +17,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs();
 
     /**
-     * A local file certificate.
+     * Local file certificate.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file;
 
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs>> file() {
@@ -72,7 +72,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 

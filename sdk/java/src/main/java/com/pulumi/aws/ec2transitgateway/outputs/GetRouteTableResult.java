@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRouteTableResult {
     /**
-     * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
     private String arn;
@@ -48,7 +48,7 @@ public final class GetRouteTableResult {
 
     private GetRouteTableResult() {}
     /**
-     * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
     public String arn() {

@@ -721,7 +721,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
                  supported_deployment_modes: Sequence[str],
                  supported_engine_versions: Sequence[str]):
         """
-        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: The list of available AZs. See Availability Zones. below
+        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available AZs. See Availability Zones. below
         :param str engine_type: Filter response by engine type.
         :param str host_instance_type: Filter response by host instance type.
         :param str storage_type: Filter response by storage type.
@@ -739,7 +739,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
         """
-        The list of available AZs. See Availability Zones. below
+        List of available AZs. See Availability Zones. below
         """
         return pulumi.get(self, "availability_zones")
 
@@ -789,7 +789,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: The name of the Availability Zone.
+        :param str name: Name of the Availability Zone.
         """
         pulumi.set(__self__, "name", name)
 
@@ -797,7 +797,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Availability Zone.
+        Name of the Availability Zone.
         """
         return pulumi.get(self, "name")
 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.IdentityStore
         }
 
         /// <summary>
-        /// The Identity Store ID associated with the Single Sign-On Instance.
+        /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.IdentityStore
         }
 
         /// <summary>
-        /// The Identity Store ID associated with the Single Sign-On Instance.
+        /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.IdentityStore
         public readonly string IdentityStoreId;
         public readonly string UserId;
         /// <summary>
-        /// The user's user name value.
+        /// User's user name value.
         /// </summary>
         public readonly string UserName;
 

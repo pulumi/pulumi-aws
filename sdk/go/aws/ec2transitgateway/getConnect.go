@@ -94,7 +94,7 @@ type LookupConnectResult struct {
 	Filters []GetConnectFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The tunnel protocol
+	// Tunnel protocol
 	Protocol string `pulumi:"protocol"`
 	// Key-value tags for the EC2 Transit Gateway Connect
 	Tags                    map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ func (o LookupConnectResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The tunnel protocol
+// Tunnel protocol
 func (o LookupConnectResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.Protocol }).(pulumi.StringOutput)
 }

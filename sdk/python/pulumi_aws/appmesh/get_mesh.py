@@ -55,7 +55,7 @@ class GetMeshResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the service mesh.
+        ARN of the service mesh.
         """
         return pulumi.get(self, "arn")
 
@@ -63,7 +63,7 @@ class GetMeshResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The creation date of the service mesh.
+        Creation date of the service mesh.
         """
         return pulumi.get(self, "created_date")
 
@@ -79,7 +79,7 @@ class GetMeshResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The last update date of the service mesh.
+        Last update date of the service mesh.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -97,7 +97,7 @@ class GetMeshResult:
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> str:
         """
-        The resource owner's AWS account ID.
+        Resource owner's AWS account ID.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -105,7 +105,7 @@ class GetMeshResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetMeshSpecResult']:
         """
-        The service mesh specification.
+        Service mesh specification.
         """
         return pulumi.get(self, "specs")
 
@@ -113,7 +113,7 @@ class GetMeshResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags.
+        Map of tags.
         """
         return pulumi.get(self, "tags")
 
@@ -161,9 +161,9 @@ def get_mesh(mesh_owner: Optional[str] = None,
     ```
 
 
-    :param str mesh_owner: The AWS account ID of the service mesh's owner.
-    :param str name: The name of the service mesh.
-    :param Mapping[str, str] tags: A map of tags.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the service mesh.
+    :param Mapping[str, str] tags: Map of tags.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner
@@ -211,8 +211,8 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str mesh_owner: The AWS account ID of the service mesh's owner.
-    :param str name: The name of the service mesh.
-    :param Mapping[str, str] tags: A map of tags.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the service mesh.
+    :param Mapping[str, str] tags: Map of tags.
     """
     ...

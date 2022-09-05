@@ -40,7 +40,7 @@ public final class SpotInstanceRequestRootBlockDevice {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return A map of tags to assign to the device.
+     * @return Map of tags to assign to the device.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -98,7 +98,7 @@ public final class SpotInstanceRequestRootBlockDevice {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return A map of tags to assign to the device.
+     * @return Map of tags to assign to the device.
      * 
      */
     public Map<String,String> tags() {

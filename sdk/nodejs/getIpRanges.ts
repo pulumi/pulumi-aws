@@ -77,11 +77,11 @@ export interface GetIpRangesArgs {
  */
 export interface GetIpRangesResult {
     /**
-     * The lexically ordered list of CIDR blocks.
+     * Lexically ordered list of CIDR blocks.
      */
     readonly cidrBlocks: string[];
     /**
-     * The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+     * Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      */
     readonly createDate: string;
     /**
@@ -89,13 +89,13 @@ export interface GetIpRangesResult {
      */
     readonly id: string;
     /**
-     * The lexically ordered list of IPv6 CIDR blocks.
+     * Lexically ordered list of IPv6 CIDR blocks.
      */
     readonly ipv6CidrBlocks: string[];
     readonly regions?: string[];
     readonly services: string[];
     /**
-     * The publication time of the IP ranges, in Unix epoch time format
+     * Publication time of the IP ranges, in Unix epoch time format
      * (e.g., `1470267965`).
      */
     readonly syncToken: number;

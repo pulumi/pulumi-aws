@@ -22,14 +22,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final PolicyArgs Empty = new PolicyArgs();
 
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     @Import(name="adjustmentType")
     private @Nullable Output<String> adjustmentType;
 
     /**
-     * @return Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * @return Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     public Optional<Output<String>> adjustmentType() {
@@ -37,14 +37,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the autoscaling group.
+     * Name of the autoscaling group.
      * 
      */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the autoscaling group.
+     * @return Name of the autoscaling group.
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -52,14 +52,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     @Import(name="cooldown")
     private @Nullable Output<Integer> cooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * @return Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     public Optional<Output<Integer>> cooldown() {
@@ -67,14 +67,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * Whether the scaling policy is enabled or disabled. Default: `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * @return Whether the scaling policy is enabled or disabled. Default: `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -82,14 +82,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+     * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
     @Import(name="estimatedInstanceWarmup")
     private @Nullable Output<Integer> estimatedInstanceWarmup;
 
     /**
-     * @return The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+     * @return Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
     public Optional<Output<Integer>> estimatedInstanceWarmup() {
@@ -97,14 +97,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     @Import(name="metricAggregationType")
     private @Nullable Output<String> metricAggregationType;
 
     /**
-     * @return The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     public Optional<Output<String>> metricAggregationType() {
@@ -127,14 +127,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the dimension.
+     * @return Name of the dimension.
      * 
      */
     public Optional<Output<String>> name() {
@@ -142,14 +142,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+     * Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+     * @return Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -157,14 +157,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
     @Import(name="predictiveScalingConfiguration")
     private @Nullable Output<PolicyPredictiveScalingConfigurationArgs> predictiveScalingConfiguration;
 
     /**
-     * @return The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * @return Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationArgs>> predictiveScalingConfiguration() {
@@ -172,7 +172,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -181,7 +181,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> scalingAdjustment;
 
     /**
-     * @return The number of members by which to
+     * @return Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -191,7 +191,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of adjustments that manage
+     * Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
      */
@@ -199,7 +199,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<PolicyStepAdjustmentArgs>> stepAdjustments;
 
     /**
-     * @return A set of adjustments that manage
+     * @return Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
      */
@@ -208,14 +208,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A target tracking policy. These have the following structure:
+     * Target tracking policy. These have the following structure:
      * 
      */
     @Import(name="targetTrackingConfiguration")
     private @Nullable Output<PolicyTargetTrackingConfigurationArgs> targetTrackingConfiguration;
 
     /**
-     * @return A target tracking policy. These have the following structure:
+     * @return Target tracking policy. These have the following structure:
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationArgs>> targetTrackingConfiguration() {
@@ -259,7 +259,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adjustmentType Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         * @param adjustmentType Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adjustmentType Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         * @param adjustmentType Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the autoscaling group.
+         * @param autoscalingGroupName Name of the autoscaling group.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the autoscaling group.
+         * @param autoscalingGroupName Name of the autoscaling group.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cooldown The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         * @param cooldown Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cooldown The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         * @param cooldown Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+         * @param enabled Whether the scaling policy is enabled or disabled. Default: `true`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+         * @param enabled Whether the scaling policy is enabled or disabled. Default: `true`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param estimatedInstanceWarmup The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param estimatedInstanceWarmup The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
+         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricAggregationType The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+         * @param metricAggregationType Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricAggregationType The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+         * @param metricAggregationType Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the dimension.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the dimension.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+         * @param policyType Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyType The policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
+         * @param policyType Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predictiveScalingConfiguration The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+         * @param predictiveScalingConfiguration Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predictiveScalingConfiguration The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+         * @param predictiveScalingConfiguration Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to
+         * @param scalingAdjustment Number of members by which to
          * scale, when the adjustment bounds are breached. A positive value scales
          * up. A negative value scales down.
          * 
@@ -482,7 +482,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to
+         * @param scalingAdjustment Number of members by which to
          * scale, when the adjustment bounds are breached. A positive value scales
          * up. A negative value scales down.
          * 
@@ -494,7 +494,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage
+         * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
          * @return builder
@@ -506,7 +506,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage
+         * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
          * @return builder
@@ -517,7 +517,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage
+         * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
          * 
          * @return builder
@@ -528,7 +528,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingConfiguration A target tracking policy. These have the following structure:
+         * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingConfiguration A target tracking policy. These have the following structure:
+         * @param targetTrackingConfiguration Target tracking policy. These have the following structure:
          * 
          * @return builder
          * 

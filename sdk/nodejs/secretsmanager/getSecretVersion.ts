@@ -50,7 +50,7 @@ export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.Invok
  */
 export interface GetSecretVersionArgs {
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: string;
     /**
@@ -68,7 +68,7 @@ export interface GetSecretVersionArgs {
  */
 export interface GetSecretVersionResult {
     /**
-     * The ARN of the secret.
+     * ARN of the secret.
      */
     readonly arn: string;
     /**
@@ -76,16 +76,16 @@ export interface GetSecretVersionResult {
      */
     readonly id: string;
     /**
-     * The decrypted part of the protected secret information that was originally provided as a binary.
+     * Decrypted part of the protected secret information that was originally provided as a binary.
      */
     readonly secretBinary: string;
     readonly secretId: string;
     /**
-     * The decrypted part of the protected secret information that was originally provided as a string.
+     * Decrypted part of the protected secret information that was originally provided as a string.
      */
     readonly secretString: string;
     /**
-     * The unique identifier of this version of the secret.
+     * Unique identifier of this version of the secret.
      */
     readonly versionId: string;
     readonly versionStage?: string;
@@ -101,7 +101,7 @@ export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: 
  */
 export interface GetSecretVersionOutputArgs {
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: pulumi.Input<string>;
     /**

@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     private @Nullable Map<String,String> dimensions;
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     private String metricName;
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     private String namespace;
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
      * 
      */
     private String statistic;
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     private @Nullable String unit;
 
     private ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification() {}
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public Map<String,String> dimensions() {
         return this.dimensions == null ? Map.of() : this.dimensions;
     }
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public String metricName() {
         return this.metricName;
     }
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public String namespace() {
         return this.namespace;
     }
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
      * 
      */
     public String statistic() {
         return this.statistic;
     }
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     public Optional<String> unit() {

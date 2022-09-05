@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GetAmiIdsFilterResult
     {
         /// <summary>
-        /// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
+        /// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the filter.
+        /// Value of the filter.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

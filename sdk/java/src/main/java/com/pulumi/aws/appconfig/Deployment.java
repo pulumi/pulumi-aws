@@ -67,154 +67,154 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appconfig/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * The application ID. Must be between 4 and 7 characters in length.
+     * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Export(name="applicationId", type=String.class, parameters={})
     private Output<String> applicationId;
 
     /**
-     * @return The application ID. Must be between 4 and 7 characters in length.
+     * @return Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig Deployment.
+     * ARN of the AppConfig Deployment.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig Deployment.
+     * @return ARN of the AppConfig Deployment.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The configuration profile ID. Must be between 4 and 7 characters in length.
+     * Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Export(name="configurationProfileId", type=String.class, parameters={})
     private Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID. Must be between 4 and 7 characters in length.
+     * @return Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
     /**
-     * The configuration version to deploy. Can be at most 1024 characters.
+     * Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
     @Export(name="configurationVersion", type=String.class, parameters={})
     private Output<String> configurationVersion;
 
     /**
-     * @return The configuration version to deploy. Can be at most 1024 characters.
+     * @return Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
     public Output<String> configurationVersion() {
         return this.configurationVersion;
     }
     /**
-     * The deployment number.
+     * Deployment number.
      * 
      */
     @Export(name="deploymentNumber", type=Integer.class, parameters={})
     private Output<Integer> deploymentNumber;
 
     /**
-     * @return The deployment number.
+     * @return Deployment number.
      * 
      */
     public Output<Integer> deploymentNumber() {
         return this.deploymentNumber;
     }
     /**
-     * The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
     @Export(name="deploymentStrategyId", type=String.class, parameters={})
     private Output<String> deploymentStrategyId;
 
     /**
-     * @return The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+     * @return Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
     public Output<String> deploymentStrategyId() {
         return this.deploymentStrategyId;
     }
     /**
-     * The description of the deployment. Can be at most 1024 characters.
+     * Description of the deployment. Can be at most 1024 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the deployment. Can be at most 1024 characters.
+     * @return Description of the deployment. Can be at most 1024 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The environment ID. Must be between 4 and 7 characters in length.
+     * Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Export(name="environmentId", type=String.class, parameters={})
     private Output<String> environmentId;
 
     /**
-     * @return The environment ID. Must be between 4 and 7 characters in length.
+     * @return Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Output<String> environmentId() {
         return this.environmentId;
     }
     /**
-     * The state of the deployment.
+     * State of the deployment.
      * 
      */
     @Export(name="state", type=String.class, parameters={})
     private Output<String> state;
 
     /**
-     * @return The state of the deployment.
+     * @return State of the deployment.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ServiceObservabilityConfiguration {
     /**
-     * @return The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service.
      * 
      */
     private String observabilityConfigurationArn;
@@ -23,7 +23,7 @@ public final class ServiceObservabilityConfiguration {
 
     private ServiceObservabilityConfiguration() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service.
      * 
      */
     public String observabilityConfigurationArn() {

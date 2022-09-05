@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Amplify.Inputs
     public sealed class AppCustomRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition for a URL rewrite or redirect rule, such as a country code.
+        /// Condition for a URL rewrite or redirect rule, such as a country code.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// The source pattern for a URL rewrite or redirect rule.
+        /// Source pattern for a URL rewrite or redirect rule.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        /// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The target pattern for a URL rewrite or redirect rule.
+        /// Target pattern for a URL rewrite or redirect rule.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

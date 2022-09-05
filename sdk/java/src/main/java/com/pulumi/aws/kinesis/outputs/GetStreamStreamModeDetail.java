@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetStreamStreamModeDetail {
     /**
-     * @return The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+     * @return Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
      */
     private String streamMode;
 
     private GetStreamStreamModeDetail() {}
     /**
-     * @return The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+     * @return Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
      * 
      */
     public String streamMode() {

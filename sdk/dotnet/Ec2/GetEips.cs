@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetEipsResult
     {
         /// <summary>
-        /// A list of all the allocation IDs for address for use with EC2-VPC.
+        /// List of all the allocation IDs for address for use with EC2-VPC.
         /// </summary>
         public readonly ImmutableArray<string> AllocationIds;
         public readonly ImmutableArray<Outputs.GetEipsFilterResult> Filters;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of all the Elastic IP addresses.
+        /// List of all the Elastic IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         public readonly ImmutableDictionary<string, string> Tags;

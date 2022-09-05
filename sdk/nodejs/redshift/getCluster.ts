@@ -55,11 +55,11 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * The cluster identifier
+     * Cluster identifier
      */
     clusterIdentifier: string;
     /**
-     * The tags associated to the cluster
+     * Tags associated to the cluster
      */
     tags?: {[key: string]: string};
 }
@@ -77,7 +77,7 @@ export interface GetClusterResult {
      */
     readonly aquaConfigurationStatus: string;
     /**
-     * Amazon Resource Name (ARN) of cluster.
+     * ARN of cluster.
      */
     readonly arn: string;
     /**
@@ -85,7 +85,7 @@ export interface GetClusterResult {
      */
     readonly automatedSnapshotRetentionPeriod: number;
     /**
-     * The availability zone of the cluster
+     * Availability zone of the cluster
      */
     readonly availabilityZone: string;
     /**
@@ -93,15 +93,15 @@ export interface GetClusterResult {
      */
     readonly availabilityZoneRelocationEnabled: boolean;
     /**
-     * The name of the S3 bucket where the log files are to be stored
+     * Name of the S3 bucket where the log files are to be stored
      */
     readonly bucketName: string;
     /**
-     * The cluster identifier
+     * Cluster identifier
      */
     readonly clusterIdentifier: string;
     /**
-     * The nodes in the cluster. Cluster node blocks are documented below
+     * Nodes in the cluster. Cluster node blocks are documented below
      */
     readonly clusterNodes: outputs.redshift.GetClusterClusterNode[];
     /**
@@ -109,7 +109,7 @@ export interface GetClusterResult {
      */
     readonly clusterParameterGroupName: string;
     /**
-     * The public key for the cluster
+     * Public key for the cluster
      */
     readonly clusterPublicKey: string;
     /**
@@ -125,20 +125,20 @@ export interface GetClusterResult {
      */
     readonly clusterSubnetGroupName: string;
     /**
-     * The cluster type
+     * Cluster type
      */
     readonly clusterType: string;
     readonly clusterVersion: string;
     /**
-     * The name of the default database in the cluster
+     * Name of the default database in the cluster
      */
     readonly databaseName: string;
     /**
-     * ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     readonly defaultIamRoleArn: string;
     /**
-     * The Elastic IP of the cluster
+     * Elastic IP of the cluster
      */
     readonly elasticIp: string;
     /**
@@ -150,7 +150,7 @@ export interface GetClusterResult {
      */
     readonly encrypted: boolean;
     /**
-     * The cluster endpoint
+     * Cluster endpoint
      */
     readonly endpoint: string;
     /**
@@ -158,7 +158,7 @@ export interface GetClusterResult {
      */
     readonly enhancedVpcRouting: boolean;
     /**
-     * The IAM roles associated to the cluster
+     * IAM roles associated to the cluster
      */
     readonly iamRoles: string[];
     /**
@@ -166,7 +166,7 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
-     * The KMS encryption key associated to the cluster
+     * KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
     /**
@@ -174,7 +174,7 @@ export interface GetClusterResult {
      */
     readonly logDestinationType: string;
     /**
-     * The collection of exported log types. Log types include the connection log, user log and user activity log.
+     * Collection of exported log types. Log types include the connection log, user log and user activity log.
      */
     readonly logExports: string[];
     /**
@@ -190,15 +190,15 @@ export interface GetClusterResult {
      */
     readonly masterUsername: string;
     /**
-     * The cluster node type
+     * Cluster node type
      */
     readonly nodeType: string;
     /**
-     * The number of nodes in the cluster
+     * Number of nodes in the cluster
      */
     readonly numberOfNodes: number;
     /**
-     * The port the cluster responds on
+     * Port the cluster responds on
      */
     readonly port: number;
     /**
@@ -210,15 +210,15 @@ export interface GetClusterResult {
      */
     readonly publiclyAccessible: boolean;
     /**
-     * The folder inside the S3 bucket where the log files are stored
+     * Folder inside the S3 bucket where the log files are stored
      */
     readonly s3KeyPrefix: string;
     /**
-     * The tags associated to the cluster
+     * Tags associated to the cluster
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The VPC Id associated with the cluster
+     * VPC Id associated with the cluster
      */
     readonly vpcId: string;
     /**
@@ -236,11 +236,11 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * The cluster identifier
+     * Cluster identifier
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
-     * The tags associated to the cluster
+     * Tags associated to the cluster
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>? _metricDimensions;
 
         /// <summary>
-        /// The dimensions of the metric.
+        /// Dimensions of the metric.
         /// </summary>
         public InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs> MetricDimensions
         {
@@ -25,25 +25,25 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         }
 
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
-        /// The statistic of the metric.
+        /// Statistic of the metric.
         /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
         /// <summary>
-        /// The unit of the metrics to return.
+        /// Unit of the metrics to return.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

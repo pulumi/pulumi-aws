@@ -20,17 +20,17 @@ public final class GetScriptDagNode {
      */
     private List<GetScriptDagNodeArg> args;
     /**
-     * @return A node identifier that is unique within the node&#39;s graph.
+     * @return Node identifier that is unique within the node&#39;s graph.
      * 
      */
     private String id;
     /**
-     * @return The line number of the node.
+     * @return Line number of the node.
      * 
      */
     private @Nullable Integer lineNumber;
     /**
-     * @return The type of node this is.
+     * @return Type of node this is.
      * 
      */
     private String nodeType;
@@ -44,21 +44,21 @@ public final class GetScriptDagNode {
         return this.args;
     }
     /**
-     * @return A node identifier that is unique within the node&#39;s graph.
+     * @return Node identifier that is unique within the node&#39;s graph.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The line number of the node.
+     * @return Line number of the node.
      * 
      */
     public Optional<Integer> lineNumber() {
         return Optional.ofNullable(this.lineNumber);
     }
     /**
-     * @return The type of node this is.
+     * @return Type of node this is.
      * 
      */
     public String nodeType() {

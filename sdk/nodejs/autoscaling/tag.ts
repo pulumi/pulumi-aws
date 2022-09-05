@@ -43,11 +43,11 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Autoscaling Group to apply the tag to.
+     * Name of the Autoscaling Group to apply the tag to.
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
-     * The tag to create. The `tag` block is documented below.
+     * Tag to create. The `tag` block is documented below.
      */
     public readonly tag!: pulumi.Output<outputs.autoscaling.TagTag>;
 
@@ -87,11 +87,11 @@ export class Tag extends pulumi.CustomResource {
  */
 export interface TagState {
     /**
-     * The name of the Autoscaling Group to apply the tag to.
+     * Name of the Autoscaling Group to apply the tag to.
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
-     * The tag to create. The `tag` block is documented below.
+     * Tag to create. The `tag` block is documented below.
      */
     tag?: pulumi.Input<inputs.autoscaling.TagTag>;
 }
@@ -101,11 +101,11 @@ export interface TagState {
  */
 export interface TagArgs {
     /**
-     * The name of the Autoscaling Group to apply the tag to.
+     * Name of the Autoscaling Group to apply the tag to.
      */
     autoscalingGroupName: pulumi.Input<string>;
     /**
-     * The tag to create. The `tag` block is documented below.
+     * Tag to create. The `tag` block is documented below.
      */
     tag: pulumi.Input<inputs.autoscaling.TagTag>;
 }

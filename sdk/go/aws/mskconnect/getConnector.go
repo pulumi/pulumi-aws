@@ -54,14 +54,14 @@ type LookupConnectorArgs struct {
 
 // A collection of values returned by getConnector.
 type LookupConnectorResult struct {
-	// The Amazon Resource Name (ARN) of the connector.
+	// ARN of the connector.
 	Arn string `pulumi:"arn"`
-	// A summary description of the connector.
+	// Summary description of the connector.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The current version of the connector.
+	// Current version of the connector.
 	Version string `pulumi:"version"`
 }
 
@@ -103,12 +103,12 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the connector.
+// ARN of the connector.
 func (o LookupConnectorResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A summary description of the connector.
+// Summary description of the connector.
 func (o LookupConnectorResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -122,7 +122,7 @@ func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The current version of the connector.
+// Current version of the connector.
 func (o LookupConnectorResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Version }).(pulumi.StringOutput)
 }

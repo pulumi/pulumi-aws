@@ -108,7 +108,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
      */
     public readonly nodejsVersion!: pulumi.Output<string | undefined>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -269,7 +269,7 @@ export interface NodejsAppLayerState {
      */
     nodejsVersion?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -353,7 +353,7 @@ export interface NodejsAppLayerArgs {
      */
     nodejsVersion?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

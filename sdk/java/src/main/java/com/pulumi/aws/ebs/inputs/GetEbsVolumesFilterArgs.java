@@ -15,7 +15,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
     public static final GetEbsVolumesFilterArgs Empty = new GetEbsVolumesFilterArgs();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
      * 
@@ -24,7 +24,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
      * 
@@ -76,7 +76,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
          * 
@@ -89,7 +89,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
          * 

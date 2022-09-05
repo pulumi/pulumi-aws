@@ -85,7 +85,7 @@ class GetTransitGatewayResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        EC2 Transit Gateway Amazon Resource Name (ARN)
+        EC2 Transit Gateway ARN
         """
         return pulumi.get(self, "arn")
 

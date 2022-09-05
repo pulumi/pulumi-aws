@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Msk
     public sealed class GetConfigurationResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -81,7 +81,7 @@ type NetworkInsightsAnalysis struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A message to provide more context when the `status` is `failed`.
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -145,7 +145,7 @@ type networkInsightsAnalysisState struct {
 	Status *string `pulumi:"status"`
 	// A message to provide more context when the `status` is `failed`.
 	StatusMessage *string `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -178,7 +178,7 @@ type NetworkInsightsAnalysisState struct {
 	Status pulumi.StringPtrInput
 	// A message to provide more context when the `status` is `failed`.
 	StatusMessage pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -197,10 +197,8 @@ type networkInsightsAnalysisArgs struct {
 	FilterInArns []string `pulumi:"filterInArns"`
 	// ID of the Network Insights Path to run an analysis on.
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForCompletion *bool `pulumi:"waitForCompletion"`
 }
@@ -211,10 +209,8 @@ type NetworkInsightsAnalysisArgs struct {
 	FilterInArns pulumi.StringArrayInput
 	// ID of the Network Insights Path to run an analysis on.
 	NetworkInsightsPathId pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 	// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForCompletion pulumi.BoolPtrInput
 }
@@ -367,7 +363,7 @@ func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInsightsAnalysisOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

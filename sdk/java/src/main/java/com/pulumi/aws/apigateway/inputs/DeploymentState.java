@@ -17,14 +17,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentState Empty = new DeploymentState();
 
     /**
-     * The creation date of the deployment
+     * Creation date of the deployment
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The creation date of the deployment
+     * @return Creation date of the deployment
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -47,7 +47,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+     * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -56,7 +56,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> executionArn;
 
     /**
-     * @return The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+     * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -66,16 +66,16 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     @Import(name="invokeUrl")
     private @Nullable Output<String> invokeUrl;
 
     /**
-     * @return The URL to invoke the API pointing to the stage,
-     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * @return URL to invoke the API pointing to the stage,
+     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     public Optional<Output<String>> invokeUrl() {
@@ -190,7 +190,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the deployment
+         * @param createdDate Creation date of the deployment
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the deployment
+         * @param createdDate Creation date of the deployment
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+         * @param executionArn Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
@@ -245,7 +245,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn The execution ARN to be used in `lambda_permission` resource&#39;s `source_arn`
+         * @param executionArn Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
@@ -257,8 +257,8 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeUrl The URL to invoke the API pointing to the stage,
-         * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+         * @param invokeUrl URL to invoke the API pointing to the stage,
+         * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 
@@ -269,8 +269,8 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeUrl The URL to invoke the API pointing to the stage,
-         * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+         * @param invokeUrl URL to invoke the API pointing to the stage,
+         * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 

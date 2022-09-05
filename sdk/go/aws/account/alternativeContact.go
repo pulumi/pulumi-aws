@@ -62,17 +62,17 @@ import (
 type AlternativeContact struct {
 	pulumi.CustomResourceState
 
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
-	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+	// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringOutput `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
 	EmailAddress pulumi.StringOutput `pulumi:"emailAddress"`
-	// The name of the alternate contact.
+	// Name of the alternate contact.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A phone number for the alternate contact.
+	// Phone number for the alternate contact.
 	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
-	// A title for the alternate contact.
+	// Title for the alternate contact.
 	Title pulumi.StringOutput `pulumi:"title"`
 }
 
@@ -117,32 +117,32 @@ func GetAlternativeContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlternativeContact resources.
 type alternativeContactState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId *string `pulumi:"accountId"`
-	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+	// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType *string `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
 	EmailAddress *string `pulumi:"emailAddress"`
-	// The name of the alternate contact.
+	// Name of the alternate contact.
 	Name *string `pulumi:"name"`
-	// A phone number for the alternate contact.
+	// Phone number for the alternate contact.
 	PhoneNumber *string `pulumi:"phoneNumber"`
-	// A title for the alternate contact.
+	// Title for the alternate contact.
 	Title *string `pulumi:"title"`
 }
 
 type AlternativeContactState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId pulumi.StringPtrInput
-	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+	// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringPtrInput
 	// An email address for the alternate contact.
 	EmailAddress pulumi.StringPtrInput
-	// The name of the alternate contact.
+	// Name of the alternate contact.
 	Name pulumi.StringPtrInput
-	// A phone number for the alternate contact.
+	// Phone number for the alternate contact.
 	PhoneNumber pulumi.StringPtrInput
-	// A title for the alternate contact.
+	// Title for the alternate contact.
 	Title pulumi.StringPtrInput
 }
 
@@ -151,33 +151,33 @@ func (AlternativeContactState) ElementType() reflect.Type {
 }
 
 type alternativeContactArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId *string `pulumi:"accountId"`
-	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+	// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType string `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the alternate contact.
+	// Name of the alternate contact.
 	Name *string `pulumi:"name"`
-	// A phone number for the alternate contact.
+	// Phone number for the alternate contact.
 	PhoneNumber string `pulumi:"phoneNumber"`
-	// A title for the alternate contact.
+	// Title for the alternate contact.
 	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a AlternativeContact resource.
 type AlternativeContactArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 	AccountId pulumi.StringPtrInput
-	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+	// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringInput
 	// An email address for the alternate contact.
 	EmailAddress pulumi.StringInput
-	// The name of the alternate contact.
+	// Name of the alternate contact.
 	Name pulumi.StringPtrInput
-	// A phone number for the alternate contact.
+	// Phone number for the alternate contact.
 	PhoneNumber pulumi.StringInput
-	// A title for the alternate contact.
+	// Title for the alternate contact.
 	Title pulumi.StringInput
 }
 
@@ -268,12 +268,12 @@ func (o AlternativeContactOutput) ToAlternativeContactOutputWithContext(ctx cont
 	return o
 }
 
-// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
 func (o AlternativeContactOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 func (o AlternativeContactOutput) AlternateContactType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringOutput { return v.AlternateContactType }).(pulumi.StringOutput)
 }
@@ -283,17 +283,17 @@ func (o AlternativeContactOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringOutput { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the alternate contact.
+// Name of the alternate contact.
 func (o AlternativeContactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A phone number for the alternate contact.
+// Phone number for the alternate contact.
 func (o AlternativeContactOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// A title for the alternate contact.
+// Title for the alternate contact.
 func (o AlternativeContactOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlternativeContact) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

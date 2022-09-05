@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         public string? DestinationIpv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+        /// ID of a managed prefix list destination of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationPrefixListId")]
         public string? DestinationPrefixListId { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2
         public string? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The ID of the specific Route Table containing the Route entry.
+        /// ID of the specific Route Table containing the Route entry.
         /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DestinationIpv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The ID of a managed prefix list destination of the Route belonging to the Route Table.
+        /// ID of a managed prefix list destination of the Route belonging to the Route Table.
         /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The ID of the specific Route Table containing the Route entry.
+        /// ID of the specific Route Table containing the Route entry.
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;

@@ -39,7 +39,7 @@ export interface GetAclArgs {
      */
     name: string;
     /**
-     * A map of tags assigned to the ACL.
+     * Map of tags assigned to the ACL.
      */
     tags?: {[key: string]: string};
 }
@@ -62,7 +62,7 @@ export interface GetAclResult {
     readonly minimumEngineVersion: string;
     readonly name: string;
     /**
-     * A map of tags assigned to the ACL.
+     * Map of tags assigned to the ACL.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -84,7 +84,7 @@ export interface GetAclOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the ACL.
+     * Map of tags assigned to the ACL.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

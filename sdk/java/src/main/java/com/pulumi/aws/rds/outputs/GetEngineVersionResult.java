@@ -20,7 +20,7 @@ public final class GetEngineVersionResult {
     private String defaultCharacterSet;
     private String engine;
     /**
-     * @return The description of the database engine.
+     * @return Description of the database engine.
      * 
      */
     private String engineDescription;
@@ -38,7 +38,7 @@ public final class GetEngineVersionResult {
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
     /**
-     * @return The status of the DB engine version, either available or deprecated.
+     * @return Status of the DB engine version, either available or deprecated.
      * 
      */
     private String status;
@@ -89,7 +89,7 @@ public final class GetEngineVersionResult {
     private List<String> validUpgradeTargets;
     private String version;
     /**
-     * @return The description of the database engine version.
+     * @return Description of the database engine version.
      * 
      */
     private String versionDescription;
@@ -106,7 +106,7 @@ public final class GetEngineVersionResult {
         return this.engine;
     }
     /**
-     * @return The description of the database engine.
+     * @return Description of the database engine.
      * 
      */
     public String engineDescription() {
@@ -136,7 +136,7 @@ public final class GetEngineVersionResult {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
     /**
-     * @return The status of the DB engine version, either available or deprecated.
+     * @return Status of the DB engine version, either available or deprecated.
      * 
      */
     public String status() {
@@ -209,7 +209,7 @@ public final class GetEngineVersionResult {
         return this.version;
     }
     /**
-     * @return The description of the database engine version.
+     * @return Description of the database engine version.
      * 
      */
     public String versionDescription() {

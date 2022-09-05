@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetDnsNamespaceResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the namespace.
+     * @return ARN of the namespace.
      * 
      */
     private String arn;
     /**
-     * @return A description of the namespace.
+     * @return Description of the namespace.
      * 
      */
     private String description;
     /**
-     * @return The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     * @return ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
     private String hostedZone;
@@ -32,7 +32,7 @@ public final class GetDnsNamespaceResult {
     private String id;
     private String name;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
@@ -40,21 +40,21 @@ public final class GetDnsNamespaceResult {
 
     private GetDnsNamespaceResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the namespace.
+     * @return ARN of the namespace.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A description of the namespace.
+     * @return Description of the namespace.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     * @return ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
     public String hostedZone() {
@@ -71,7 +71,7 @@ public final class GetDnsNamespaceResult {
         return this.name;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {

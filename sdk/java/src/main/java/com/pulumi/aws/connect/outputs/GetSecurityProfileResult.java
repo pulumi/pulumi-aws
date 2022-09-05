@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetSecurityProfileResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Security Profile.
+     * @return ARN of the Security Profile.
      * 
      */
     private String arn;
     /**
-     * @return Specifies the description of the Security Profile.
+     * @return Description of the Security Profile.
      * 
      */
     private String description;
@@ -34,27 +34,27 @@ public final class GetSecurityProfileResult {
      */
     private String organizationResourceId;
     /**
-     * @return Specifies a list of permissions assigned to the security profile.
+     * @return List of permissions assigned to the security profile.
      * 
      */
     private List<String> permissions;
     private String securityProfileId;
     /**
-     * @return A map of tags to assign to the Security Profile.
+     * @return Map of tags to assign to the Security Profile.
      * 
      */
     private Map<String,String> tags;
 
     private GetSecurityProfileResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Security Profile.
+     * @return ARN of the Security Profile.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Specifies the description of the Security Profile.
+     * @return Description of the Security Profile.
      * 
      */
     public String description() {
@@ -81,7 +81,7 @@ public final class GetSecurityProfileResult {
         return this.organizationResourceId;
     }
     /**
-     * @return Specifies a list of permissions assigned to the security profile.
+     * @return List of permissions assigned to the security profile.
      * 
      */
     public List<String> permissions() {
@@ -91,7 +91,7 @@ public final class GetSecurityProfileResult {
         return this.securityProfileId;
     }
     /**
-     * @return A map of tags to assign to the Security Profile.
+     * @return Map of tags to assign to the Security Profile.
      * 
      */
     public Map<String,String> tags() {

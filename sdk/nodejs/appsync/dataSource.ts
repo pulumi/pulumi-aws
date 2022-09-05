@@ -103,15 +103,15 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /**
-     * The API ID for the GraphQL API for the data source.
+     * API ID for the GraphQL API for the data source.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The ARN
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A description of the data source.
+     * Description of the data source.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -131,7 +131,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
-     * A user-supplied name for the data source.
+     * User-supplied name for the data source.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -139,11 +139,11 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     /**
-     * The IAM service role ARN for the data source.
+     * IAM service role ARN for the data source.
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -201,15 +201,15 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceState {
     /**
-     * The API ID for the GraphQL API for the data source.
+     * API ID for the GraphQL API for the data source.
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The ARN
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * A description of the data source.
+     * Description of the data source.
      */
     description?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface DataSourceState {
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
-     * A user-supplied name for the data source.
+     * User-supplied name for the data source.
      */
     name?: pulumi.Input<string>;
     /**
@@ -237,11 +237,11 @@ export interface DataSourceState {
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
     /**
-     * The IAM service role ARN for the data source.
+     * IAM service role ARN for the data source.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -251,11 +251,11 @@ export interface DataSourceState {
  */
 export interface DataSourceArgs {
     /**
-     * The API ID for the GraphQL API for the data source.
+     * API ID for the GraphQL API for the data source.
      */
     apiId: pulumi.Input<string>;
     /**
-     * A description of the data source.
+     * Description of the data source.
      */
     description?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface DataSourceArgs {
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
-     * A user-supplied name for the data source.
+     * User-supplied name for the data source.
      */
     name?: pulumi.Input<string>;
     /**
@@ -283,11 +283,11 @@ export interface DataSourceArgs {
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
     /**
-     * The IAM service role ARN for the data source.
+     * IAM service role ARN for the data source.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type: pulumi.Input<string>;
 }

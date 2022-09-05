@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetEmailIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("email", required: true)]
         public string Email { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetEmailIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         public readonly string Email;
         /// <summary>

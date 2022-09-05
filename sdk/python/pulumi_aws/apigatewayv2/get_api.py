@@ -70,7 +70,7 @@ class GetApiResult:
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> str:
         """
-        The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+        URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         """
         return pulumi.get(self, "api_endpoint")
 
@@ -92,7 +92,7 @@ class GetApiResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the API.
+        ARN of the API.
         """
         return pulumi.get(self, "arn")
 
@@ -100,7 +100,7 @@ class GetApiResult:
     @pulumi.getter(name="corsConfigurations")
     def cors_configurations(self) -> Sequence['outputs.GetApiCorsConfigurationResult']:
         """
-        The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+        Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
         Applicable for HTTP APIs.
         """
         return pulumi.get(self, "cors_configurations")
@@ -109,7 +109,7 @@ class GetApiResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the API.
+        Description of the API.
         """
         return pulumi.get(self, "description")
 
@@ -143,7 +143,7 @@ class GetApiResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the API.
+        Name of the API.
         """
         return pulumi.get(self, "name")
 
@@ -151,7 +151,7 @@ class GetApiResult:
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> str:
         """
-        The API protocol.
+        API protocol.
         """
         return pulumi.get(self, "protocol_type")
 
@@ -167,7 +167,7 @@ class GetApiResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of resource tags.
+        Map of resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -175,7 +175,7 @@ class GetApiResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        A version identifier for the API.
+        Version identifier for the API.
         """
         return pulumi.get(self, "version")
 
@@ -218,8 +218,8 @@ def get_api(api_id: Optional[str] = None,
     ```
 
 
-    :param str api_id: The API identifier.
-    :param Mapping[str, str] tags: A map of resource tags.
+    :param str api_id: API identifier.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -261,7 +261,7 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str api_id: The API identifier.
-    :param Mapping[str, str] tags: A map of resource tags.
+    :param str api_id: API identifier.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     ...

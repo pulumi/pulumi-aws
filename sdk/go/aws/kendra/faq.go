@@ -48,8 +48,9 @@ type Faq struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -116,8 +117,9 @@ type faqState struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path *FaqS3Path `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -147,8 +149,9 @@ type FaqState struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathPtrInput
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -346,6 +349,7 @@ func (o FaqOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

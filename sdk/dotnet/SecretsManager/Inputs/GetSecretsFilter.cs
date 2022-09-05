@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SecretsManager.Inputs
     public sealed class GetSecretsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+        /// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

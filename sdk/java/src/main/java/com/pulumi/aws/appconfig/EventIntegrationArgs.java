@@ -18,14 +18,14 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
     public static final EventIntegrationArgs Empty = new EventIntegrationArgs();
 
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies the description of the Event Integration.
+     * @return Description of the Event Integration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     @Import(name="eventFilter", required=true)
     private Output<EventIntegrationEventFilterArgs> eventFilter;
 
     /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     public Output<EventIntegrationEventFilterArgs> eventFilter() {
@@ -48,14 +48,14 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      * 
      */
     @Import(name="eventbridgeBus", required=true)
     private Output<String> eventbridgeBus;
 
     /**
-     * @return Specifies the EventBridge bus.
+     * @return EventBridge bus.
      * 
      */
     public Output<String> eventbridgeBus() {
@@ -63,14 +63,14 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Event Integration.
+     * @return Name of the Event Integration.
      * 
      */
     public Optional<Output<String>> name() {
@@ -121,7 +121,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Specifies the description of the Event Integration.
+         * @param description Description of the Event Integration.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Specifies the description of the Event Integration.
+         * @param description Description of the Event Integration.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventFilter A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+         * @param eventFilter Block that defines the configuration information for the event filter. The Event Filter block is documented below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventFilter A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+         * @param eventFilter Block that defines the configuration information for the event filter. The Event Filter block is documented below.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventbridgeBus Specifies the EventBridge bus.
+         * @param eventbridgeBus EventBridge bus.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eventbridgeBus Specifies the EventBridge bus.
+         * @param eventbridgeBus EventBridge bus.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the Event Integration.
+         * @param name Name of the Event Integration.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the Event Integration.
+         * @param name Name of the Event Integration.
          * 
          * @return builder
          * 

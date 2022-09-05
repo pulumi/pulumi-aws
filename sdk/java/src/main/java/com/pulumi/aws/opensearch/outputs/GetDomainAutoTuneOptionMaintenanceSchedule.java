@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainAutoTuneOptionMaintenanceSchedule {
     /**
-     * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+     * @return Cron expression for an Auto-Tune maintenance schedule.
      * 
      */
     private String cronExpressionForRecurrence;
@@ -29,7 +29,7 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
 
     private GetDomainAutoTuneOptionMaintenanceSchedule() {}
     /**
-     * @return A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+     * @return Cron expression for an Auto-Tune maintenance schedule.
      * 
      */
     public String cronExpressionForRecurrence() {

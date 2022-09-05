@@ -31,14 +31,14 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     @Import(name="expressions", required=true)
     private Output<List<GetPermissionsLfTagPolicyExpressionArgs>> expressions;
 
     /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     public Output<List<GetPermissionsLfTagPolicyExpressionArgs>> expressions() {
@@ -46,14 +46,14 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     public Output<String> resourceType() {
@@ -108,7 +108,7 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceType The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+         * @param resourceType Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class GetPermissionsLfTagPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceType The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+         * @param resourceType Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
          * 
          * @return builder
          * 

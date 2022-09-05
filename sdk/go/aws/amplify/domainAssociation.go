@@ -81,15 +81,15 @@ import (
 type DomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the domain association.
+	// ARN for the domain association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The DNS record for certificate verification.
 	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
-	// The domain name for the domain association.
+	// Domain name for the domain association.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The setting for the subdomain. Documented below.
+	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForVerification pulumi.BoolPtrOutput `pulumi:"waitForVerification"`
@@ -133,30 +133,30 @@ func GetDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainAssociation resources.
 type domainAssociationState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId *string `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the domain association.
+	// ARN for the domain association.
 	Arn *string `pulumi:"arn"`
 	// The DNS record for certificate verification.
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
-	// The domain name for the domain association.
+	// Domain name for the domain association.
 	DomainName *string `pulumi:"domainName"`
-	// The setting for the subdomain. Documented below.
+	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForVerification *bool `pulumi:"waitForVerification"`
 }
 
 type DomainAssociationState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the domain association.
+	// ARN for the domain association.
 	Arn pulumi.StringPtrInput
 	// The DNS record for certificate verification.
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
-	// The domain name for the domain association.
+	// Domain name for the domain association.
 	DomainName pulumi.StringPtrInput
-	// The setting for the subdomain. Documented below.
+	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForVerification pulumi.BoolPtrInput
@@ -167,11 +167,11 @@ func (DomainAssociationState) ElementType() reflect.Type {
 }
 
 type domainAssociationArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// The domain name for the domain association.
+	// Domain name for the domain association.
 	DomainName string `pulumi:"domainName"`
-	// The setting for the subdomain. Documented below.
+	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForVerification *bool `pulumi:"waitForVerification"`
@@ -179,11 +179,11 @@ type domainAssociationArgs struct {
 
 // The set of arguments for constructing a DomainAssociation resource.
 type DomainAssociationArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// The domain name for the domain association.
+	// Domain name for the domain association.
 	DomainName pulumi.StringInput
-	// The setting for the subdomain. Documented below.
+	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 	WaitForVerification pulumi.BoolPtrInput
@@ -276,12 +276,12 @@ func (o DomainAssociationOutput) ToDomainAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// The unique ID for an Amplify app.
+// Unique ID for an Amplify app.
 func (o DomainAssociationOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the domain association.
+// ARN for the domain association.
 func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -291,12 +291,12 @@ func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.Strin
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringOutput)
 }
 
-// The domain name for the domain association.
+// Domain name for the domain association.
 func (o DomainAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The setting for the subdomain. Documented below.
+// Setting for the subdomain. Documented below.
 func (o DomainAssociationOutput) SubDomains() DomainAssociationSubDomainArrayOutput {
 	return o.ApplyT(func(v *DomainAssociation) DomainAssociationSubDomainArrayOutput { return v.SubDomains }).(DomainAssociationSubDomainArrayOutput)
 }

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: _var.firewall_policy_name,
  * });
  * ```
- * ### Find firewall policy by Amazon Resource Name (ARN)
+ * ### Find firewall policy by ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,11 +64,11 @@ export function getFirewallPolicy(args?: GetFirewallPolicyArgs, opts?: pulumi.In
  */
 export interface GetFirewallPolicyArgs {
     /**
-     * The Amazon Resource Name (ARN) of the firewall policy.
+     * ARN of the firewall policy.
      */
     arn?: string;
     /**
-     * The descriptive name of the firewall policy.
+     * Descriptive name of the firewall policy.
      */
     name?: string;
     /**
@@ -83,7 +83,7 @@ export interface GetFirewallPolicyArgs {
 export interface GetFirewallPolicyResult {
     readonly arn?: string;
     /**
-     * A description of the firewall policy.
+     * Description of the firewall policy.
      */
     readonly description: string;
     /**
@@ -100,7 +100,7 @@ export interface GetFirewallPolicyResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A token used for optimistic locking.
+     * Token used for optimistic locking.
      */
     readonly updateToken: string;
 }
@@ -114,11 +114,11 @@ export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts
  */
 export interface GetFirewallPolicyOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the firewall policy.
+     * ARN of the firewall policy.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The descriptive name of the firewall policy.
+     * Descriptive name of the firewall policy.
      */
     name?: pulumi.Input<string>;
     /**

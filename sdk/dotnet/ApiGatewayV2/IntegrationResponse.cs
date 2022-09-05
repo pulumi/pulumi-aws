@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -57,19 +57,19 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ContentHandlingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Integration`.
+        /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Output("integrationId")]
         public Output<string> IntegrationId { get; private set; } = null!;
 
         /// <summary>
-        /// The integration response key.
+        /// Integration response key.
         /// </summary>
         [Output("integrationResponseKey")]
         public Output<string> IntegrationResponseKey { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
         [Output("responseTemplates")]
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ContentHandlingStrategy { get; set; }
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Integration`.
+        /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Input("integrationId", required: true)]
         public Input<string> IntegrationId { get; set; } = null!;
 
         /// <summary>
-        /// The integration response key.
+        /// Integration response key.
         /// </summary>
         [Input("integrationResponseKey", required: true)]
         public Input<string> IntegrationResponseKey { get; set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ContentHandlingStrategy { get; set; }
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Integration`.
+        /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Input("integrationId")]
         public Input<string>? IntegrationId { get; set; }
 
         /// <summary>
-        /// The integration response key.
+        /// Integration response key.
         /// </summary>
         [Input("integrationResponseKey")]
         public Input<string>? IntegrationResponseKey { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {

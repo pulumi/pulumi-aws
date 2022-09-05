@@ -34,7 +34,7 @@ export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificat
  */
 export interface GetUserPoolSigningCertificateArgs {
     /**
-     * The Cognito user pool ID.
+     * Cognito user pool ID.
      */
     userPoolId: string;
 }
@@ -44,7 +44,7 @@ export interface GetUserPoolSigningCertificateArgs {
  */
 export interface GetUserPoolSigningCertificateResult {
     /**
-     * The certificate string
+     * Certificate string
      */
     readonly certificate: string;
     /**
@@ -63,7 +63,7 @@ export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCert
  */
 export interface GetUserPoolSigningCertificateOutputArgs {
     /**
-     * The Cognito user pool ID.
+     * Cognito user pool ID.
      */
     userPoolId: pulumi.Input<string>;
 }

@@ -315,7 +315,7 @@ class GetClusterCacheNodeResult(dict):
                  id: str,
                  port: int):
         """
-        :param str availability_zone: The Availability Zone for the cache cluster.
+        :param str availability_zone: Availability Zone for the cache cluster.
         :param int port: The port number on which each of the cache nodes will
                accept connections.
         """
@@ -333,7 +333,7 @@ class GetClusterCacheNodeResult(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        The Availability Zone for the cache cluster.
+        Availability Zone for the cache cluster.
         """
         return pulumi.get(self, "availability_zone")
 

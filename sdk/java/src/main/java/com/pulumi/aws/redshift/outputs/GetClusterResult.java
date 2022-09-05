@@ -26,7 +26,7 @@ public final class GetClusterResult {
      */
     private String aquaConfigurationStatus;
     /**
-     * @return Amazon Resource Name (ARN) of cluster.
+     * @return ARN of cluster.
      * 
      */
     private String arn;
@@ -36,7 +36,7 @@ public final class GetClusterResult {
      */
     private Integer automatedSnapshotRetentionPeriod;
     /**
-     * @return The availability zone of the cluster
+     * @return Availability zone of the cluster
      * 
      */
     private String availabilityZone;
@@ -46,17 +46,17 @@ public final class GetClusterResult {
      */
     private Boolean availabilityZoneRelocationEnabled;
     /**
-     * @return The name of the S3 bucket where the log files are to be stored
+     * @return Name of the S3 bucket where the log files are to be stored
      * 
      */
     private String bucketName;
     /**
-     * @return The cluster identifier
+     * @return Cluster identifier
      * 
      */
     private String clusterIdentifier;
     /**
-     * @return The nodes in the cluster. Cluster node blocks are documented below
+     * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
     private List<GetClusterClusterNode> clusterNodes;
@@ -66,7 +66,7 @@ public final class GetClusterResult {
      */
     private String clusterParameterGroupName;
     /**
-     * @return The public key for the cluster
+     * @return Public key for the cluster
      * 
      */
     private String clusterPublicKey;
@@ -86,23 +86,23 @@ public final class GetClusterResult {
      */
     private String clusterSubnetGroupName;
     /**
-     * @return The cluster type
+     * @return Cluster type
      * 
      */
     private String clusterType;
     private String clusterVersion;
     /**
-     * @return The name of the default database in the cluster
+     * @return Name of the default database in the cluster
      * 
      */
     private String databaseName;
     /**
-     * @return ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     private String defaultIamRoleArn;
     /**
-     * @return The Elastic IP of the cluster
+     * @return Elastic IP of the cluster
      * 
      */
     private String elasticIp;
@@ -117,7 +117,7 @@ public final class GetClusterResult {
      */
     private Boolean encrypted;
     /**
-     * @return The cluster endpoint
+     * @return Cluster endpoint
      * 
      */
     private String endpoint;
@@ -127,7 +127,7 @@ public final class GetClusterResult {
      */
     private Boolean enhancedVpcRouting;
     /**
-     * @return The IAM roles associated to the cluster
+     * @return IAM roles associated to the cluster
      * 
      */
     private List<String> iamRoles;
@@ -137,7 +137,7 @@ public final class GetClusterResult {
      */
     private String id;
     /**
-     * @return The KMS encryption key associated to the cluster
+     * @return KMS encryption key associated to the cluster
      * 
      */
     private String kmsKeyId;
@@ -147,7 +147,7 @@ public final class GetClusterResult {
      */
     private String logDestinationType;
     /**
-     * @return The collection of exported log types. Log types include the connection log, user log and user activity log.
+     * @return Collection of exported log types. Log types include the connection log, user log and user activity log.
      * 
      */
     private List<String> logExports;
@@ -167,17 +167,17 @@ public final class GetClusterResult {
      */
     private String masterUsername;
     /**
-     * @return The cluster node type
+     * @return Cluster node type
      * 
      */
     private String nodeType;
     /**
-     * @return The number of nodes in the cluster
+     * @return Number of nodes in the cluster
      * 
      */
     private Integer numberOfNodes;
     /**
-     * @return The port the cluster responds on
+     * @return Port the cluster responds on
      * 
      */
     private Integer port;
@@ -192,17 +192,17 @@ public final class GetClusterResult {
      */
     private Boolean publiclyAccessible;
     /**
-     * @return The folder inside the S3 bucket where the log files are stored
+     * @return Folder inside the S3 bucket where the log files are stored
      * 
      */
     private String s3KeyPrefix;
     /**
-     * @return The tags associated to the cluster
+     * @return Tags associated to the cluster
      * 
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return The VPC Id associated with the cluster
+     * @return VPC Id associated with the cluster
      * 
      */
     private String vpcId;
@@ -228,7 +228,7 @@ public final class GetClusterResult {
         return this.aquaConfigurationStatus;
     }
     /**
-     * @return Amazon Resource Name (ARN) of cluster.
+     * @return ARN of cluster.
      * 
      */
     public String arn() {
@@ -242,7 +242,7 @@ public final class GetClusterResult {
         return this.automatedSnapshotRetentionPeriod;
     }
     /**
-     * @return The availability zone of the cluster
+     * @return Availability zone of the cluster
      * 
      */
     public String availabilityZone() {
@@ -256,21 +256,21 @@ public final class GetClusterResult {
         return this.availabilityZoneRelocationEnabled;
     }
     /**
-     * @return The name of the S3 bucket where the log files are to be stored
+     * @return Name of the S3 bucket where the log files are to be stored
      * 
      */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return The cluster identifier
+     * @return Cluster identifier
      * 
      */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
     /**
-     * @return The nodes in the cluster. Cluster node blocks are documented below
+     * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
     public List<GetClusterClusterNode> clusterNodes() {
@@ -284,7 +284,7 @@ public final class GetClusterResult {
         return this.clusterParameterGroupName;
     }
     /**
-     * @return The public key for the cluster
+     * @return Public key for the cluster
      * 
      */
     public String clusterPublicKey() {
@@ -312,7 +312,7 @@ public final class GetClusterResult {
         return this.clusterSubnetGroupName;
     }
     /**
-     * @return The cluster type
+     * @return Cluster type
      * 
      */
     public String clusterType() {
@@ -322,21 +322,21 @@ public final class GetClusterResult {
         return this.clusterVersion;
     }
     /**
-     * @return The name of the default database in the cluster
+     * @return Name of the default database in the cluster
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public String defaultIamRoleArn() {
         return this.defaultIamRoleArn;
     }
     /**
-     * @return The Elastic IP of the cluster
+     * @return Elastic IP of the cluster
      * 
      */
     public String elasticIp() {
@@ -357,7 +357,7 @@ public final class GetClusterResult {
         return this.encrypted;
     }
     /**
-     * @return The cluster endpoint
+     * @return Cluster endpoint
      * 
      */
     public String endpoint() {
@@ -371,7 +371,7 @@ public final class GetClusterResult {
         return this.enhancedVpcRouting;
     }
     /**
-     * @return The IAM roles associated to the cluster
+     * @return IAM roles associated to the cluster
      * 
      */
     public List<String> iamRoles() {
@@ -385,7 +385,7 @@ public final class GetClusterResult {
         return this.id;
     }
     /**
-     * @return The KMS encryption key associated to the cluster
+     * @return KMS encryption key associated to the cluster
      * 
      */
     public String kmsKeyId() {
@@ -399,7 +399,7 @@ public final class GetClusterResult {
         return this.logDestinationType;
     }
     /**
-     * @return The collection of exported log types. Log types include the connection log, user log and user activity log.
+     * @return Collection of exported log types. Log types include the connection log, user log and user activity log.
      * 
      */
     public List<String> logExports() {
@@ -427,21 +427,21 @@ public final class GetClusterResult {
         return this.masterUsername;
     }
     /**
-     * @return The cluster node type
+     * @return Cluster node type
      * 
      */
     public String nodeType() {
         return this.nodeType;
     }
     /**
-     * @return The number of nodes in the cluster
+     * @return Number of nodes in the cluster
      * 
      */
     public Integer numberOfNodes() {
         return this.numberOfNodes;
     }
     /**
-     * @return The port the cluster responds on
+     * @return Port the cluster responds on
      * 
      */
     public Integer port() {
@@ -462,21 +462,21 @@ public final class GetClusterResult {
         return this.publiclyAccessible;
     }
     /**
-     * @return The folder inside the S3 bucket where the log files are stored
+     * @return Folder inside the S3 bucket where the log files are stored
      * 
      */
     public String s3KeyPrefix() {
         return this.s3KeyPrefix;
     }
     /**
-     * @return The tags associated to the cluster
+     * @return Tags associated to the cluster
      * 
      */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return The VPC Id associated with the cluster
+     * @return VPC Id associated with the cluster
      * 
      */
     public String vpcId() {

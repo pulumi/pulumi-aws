@@ -16,14 +16,14 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppCustomRuleArgs Empty = new AppCustomRuleArgs();
 
     /**
-     * The condition for a URL rewrite or redirect rule, such as a country code.
+     * Condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<String> condition;
 
     /**
-     * @return The condition for a URL rewrite or redirect rule, such as a country code.
+     * @return Condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
     public Optional<Output<String>> condition() {
@@ -31,14 +31,14 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source pattern for a URL rewrite or redirect rule.
+     * Source pattern for a URL rewrite or redirect rule.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The source pattern for a URL rewrite or redirect rule.
+     * @return Source pattern for a URL rewrite or redirect rule.
      * 
      */
     public Output<String> source() {
@@ -46,14 +46,14 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+     * @return Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -61,14 +61,14 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target pattern for a URL rewrite or redirect rule.
+     * Target pattern for a URL rewrite or redirect rule.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return The target pattern for a URL rewrite or redirect rule.
+     * @return Target pattern for a URL rewrite or redirect rule.
      * 
      */
     public Output<String> target() {
@@ -103,7 +103,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param condition The condition for a URL rewrite or redirect rule, such as a country code.
+         * @param condition Condition for a URL rewrite or redirect rule, such as a country code.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param condition The condition for a URL rewrite or redirect rule, such as a country code.
+         * @param condition Condition for a URL rewrite or redirect rule, such as a country code.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The source pattern for a URL rewrite or redirect rule.
+         * @param source Source pattern for a URL rewrite or redirect rule.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The source pattern for a URL rewrite or redirect rule.
+         * @param source Source pattern for a URL rewrite or redirect rule.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         * @param status Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         * @param status Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target The target pattern for a URL rewrite or redirect rule.
+         * @param target Target pattern for a URL rewrite or redirect rule.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target The target pattern for a URL rewrite or redirect rule.
+         * @param target Target pattern for a URL rewrite or redirect rule.
          * 
          * @return builder
          * 

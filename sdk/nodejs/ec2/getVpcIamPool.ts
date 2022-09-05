@@ -69,15 +69,15 @@ export interface GetVpcIamPoolArgs {
      */
     filters?: inputs.ec2.GetVpcIamPoolFilter[];
     /**
-     * The ID of the IPAM pool.
+     * ID of the IPAM pool.
      */
     id?: string;
     /**
-     * The ID of the IPAM pool you would like information on.
+     * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: string;
     /**
-     * A map of tags to assigned to the resource.
+     * Map of tags to assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -87,7 +87,7 @@ export interface GetVpcIamPoolArgs {
  */
 export interface GetVpcIamPoolResult {
     /**
-     * The IP protocol assigned to this pool.
+     * IP protocol assigned to this pool.
      */
     readonly addressFamily: string;
     /**
@@ -107,7 +107,7 @@ export interface GetVpcIamPoolResult {
      */
     readonly allocationResourceTags: {[key: string]: string};
     /**
-     * Amazon Resource Name (ARN) of the pool
+     * ARN of the pool
      */
     readonly arn: string;
     /**
@@ -119,17 +119,17 @@ export interface GetVpcIamPoolResult {
      */
     readonly awsService: string;
     /**
-     * A description for the IPAM pool.
+     * Description for the IPAM pool.
      */
     readonly description: string;
     readonly filters?: outputs.ec2.GetVpcIamPoolFilter[];
     /**
-     * The ID of the IPAM pool.
+     * ID of the IPAM pool.
      */
     readonly id?: string;
     readonly ipamPoolId?: string;
     /**
-     * The ID of the scope the pool belongs to.
+     * ID of the scope the pool belongs to.
      */
     readonly ipamScopeId: string;
     readonly ipamScopeType: string;
@@ -143,12 +143,12 @@ export interface GetVpcIamPoolResult {
      */
     readonly publiclyAdvertisable: boolean;
     /**
-     * The ID of the source IPAM pool.
+     * ID of the source IPAM pool.
      */
     readonly sourceIpamPoolId: string;
     readonly state: string;
     /**
-     * A map of tags to assigned to the resource.
+     * Map of tags to assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -170,15 +170,15 @@ export interface GetVpcIamPoolOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolFilterArgs>[]>;
     /**
-     * The ID of the IPAM pool.
+     * ID of the IPAM pool.
      */
     id?: pulumi.Input<string>;
     /**
-     * The ID of the IPAM pool you would like information on.
+     * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: pulumi.Input<string>;
     /**
-     * A map of tags to assigned to the resource.
+     * Map of tags to assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

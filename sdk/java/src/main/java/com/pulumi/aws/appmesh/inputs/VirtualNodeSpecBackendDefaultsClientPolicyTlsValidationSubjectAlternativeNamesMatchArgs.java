@@ -15,14 +15,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs();
 
     /**
-     * The values sent must match the specified values exactly.
+     * Values sent must match the specified values exactly.
      * 
      */
     @Import(name="exacts", required=true)
     private Output<List<String>> exacts;
 
     /**
-     * @return The values sent must match the specified values exactly.
+     * @return Values sent must match the specified values exactly.
      * 
      */
     public Output<List<String>> exacts() {
@@ -54,7 +54,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
         }
 
         /**
-         * @param exacts The values sent must match the specified values exactly.
+         * @param exacts Values sent must match the specified values exactly.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
         }
 
         /**
-         * @param exacts The values sent must match the specified values exactly.
+         * @param exacts Values sent must match the specified values exactly.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
         }
 
         /**
-         * @param exacts The values sent must match the specified values exactly.
+         * @param exacts Values sent must match the specified values exactly.
          * 
          * @return builder
          * 

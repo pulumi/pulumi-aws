@@ -37,7 +37,7 @@ export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulu
  */
 export interface GetCodeSigningConfigArgs {
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      */
     arn: string;
 }
@@ -64,7 +64,7 @@ export interface GetCodeSigningConfigResult {
      */
     readonly id: string;
     /**
-     * The date and time that the code signing configuration was last modified.
+     * Date and time that the code signing configuration was last modified.
      */
     readonly lastModified: string;
     /**
@@ -82,7 +82,7 @@ export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs,
  */
 export interface GetCodeSigningConfigOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      */
     arn: pulumi.Input<string>;
 }

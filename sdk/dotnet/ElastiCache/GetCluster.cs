@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ElastiCache
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public InputMap<string> Tags
         {
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ElastiCache
     {
         public readonly string Arn;
         /// <summary>
-        /// The Availability Zone for the cache cluster.
+        /// Availability Zone for the cache cluster.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
@@ -134,12 +134,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterCacheNodeResult> CacheNodes;
         /// <summary>
-        /// (Memcached only) The DNS name of the cache cluster without the port appended.
+        /// (Memcached only) DNS name of the cache cluster without the port appended.
         /// </summary>
         public readonly string ClusterAddress;
         public readonly string ClusterId;
         /// <summary>
-        /// (Memcached only) The configuration endpoint to allow host discovery.
+        /// (Memcached only) Configuration endpoint to allow host discovery.
         /// </summary>
         public readonly string ConfigurationEndpoint;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string NodeType;
         /// <summary>
-        /// An Amazon Resource Name (ARN) of an
+        /// An ARN of an
         /// SNS topic that ElastiCache notifications get sent to.
         /// </summary>
         public readonly string NotificationTopicArn;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int SnapshotRetentionLimit;
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache will
+        /// Daily time range (in UTC) during which ElastiCache will
         /// begin taking a daily snapshot of the cache cluster.
         /// </summary>
         public readonly string SnapshotWindow;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string SubnetGroupName;
         /// <summary>
-        /// The tags assigned to the resource
+        /// Tags assigned to the resource
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -140,7 +140,7 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
 
     :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
     """
     __args__ = dict()
@@ -192,7 +192,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
     """
     ...

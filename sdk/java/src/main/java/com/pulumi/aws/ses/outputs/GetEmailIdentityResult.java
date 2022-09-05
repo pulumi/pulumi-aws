@@ -15,7 +15,7 @@ public final class GetEmailIdentityResult {
      */
     private String arn;
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     private String email;
@@ -34,7 +34,7 @@ public final class GetEmailIdentityResult {
         return this.arn;
     }
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     public String email() {

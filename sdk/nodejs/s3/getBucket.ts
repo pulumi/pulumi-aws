@@ -64,7 +64,7 @@ export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetBucketArgs {
     /**
-     * The name of the bucket
+     * Name of the bucket
      */
     bucket: string;
 }
@@ -74,12 +74,12 @@ export interface GetBucketArgs {
  */
 export interface GetBucketResult {
     /**
-     * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
     readonly arn: string;
     readonly bucket: string;
     /**
-     * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
     readonly bucketDomainName: string;
     /**
@@ -95,15 +95,15 @@ export interface GetBucketResult {
      */
     readonly id: string;
     /**
-     * The AWS region this bucket resides in.
+     * AWS region this bucket resides in.
      */
     readonly region: string;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
     readonly websiteDomain: string;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
     readonly websiteEndpoint: string;
 }
@@ -117,7 +117,7 @@ export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetBucketOutputArgs {
     /**
-     * The name of the bucket
+     * Name of the bucket
      */
     bucket: pulumi.Input<string>;
 }

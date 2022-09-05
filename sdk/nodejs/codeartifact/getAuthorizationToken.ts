@@ -36,15 +36,15 @@ export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pu
  */
 export interface GetAuthorizationTokenArgs {
     /**
-     * The name of the domain that is in scope for the generated authorization token.
+     * Name of the domain that is in scope for the generated authorization token.
      */
     domain: string;
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      */
     domainOwner?: string;
     /**
-     * The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: number;
 }
@@ -61,7 +61,7 @@ export interface GetAuthorizationTokenResult {
     readonly domainOwner: string;
     readonly durationSeconds?: number;
     /**
-     * The time in UTC RFC3339 format when the authorization token expires.
+     * Time in UTC RFC3339 format when the authorization token expires.
      */
     readonly expiration: string;
     /**
@@ -79,15 +79,15 @@ export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArg
  */
 export interface GetAuthorizationTokenOutputArgs {
     /**
-     * The name of the domain that is in scope for the generated authorization token.
+     * Name of the domain that is in scope for the generated authorization token.
      */
     domain: pulumi.Input<string>;
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      */
     domainOwner?: pulumi.Input<string>;
     /**
-     * The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: pulumi.Input<number>;
 }

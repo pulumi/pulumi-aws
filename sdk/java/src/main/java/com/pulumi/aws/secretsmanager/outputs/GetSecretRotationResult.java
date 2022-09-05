@@ -18,17 +18,17 @@ public final class GetSecretRotationResult {
      */
     private String id;
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     private Boolean rotationEnabled;
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a string.
+     * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
     private String rotationLambdaArn;
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      * 
      */
     private List<GetSecretRotationRotationRule> rotationRules;
@@ -43,21 +43,21 @@ public final class GetSecretRotationResult {
         return this.id;
     }
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Boolean rotationEnabled() {
         return this.rotationEnabled;
     }
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a string.
+     * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
     public String rotationLambdaArn() {
         return this.rotationLambdaArn;
     }
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * @return Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      * 
      */
     public List<GetSecretRotationRotationRule> rotationRules() {

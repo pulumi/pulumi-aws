@@ -18,14 +18,14 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
     public static final ScalingPlanApplicationSourceArgs Empty = new ScalingPlanApplicationSourceArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+     * ARN of a AWS CloudFormation stack.
      * 
      */
     @Import(name="cloudformationStackArn")
     private @Nullable Output<String> cloudformationStackArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+     * @return ARN of a AWS CloudFormation stack.
      * 
      */
     public Optional<Output<String>> cloudformationStackArn() {
@@ -33,14 +33,14 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
     }
 
     /**
-     * A set of tags.
+     * Set of tags.
      * 
      */
     @Import(name="tagFilters")
     private @Nullable Output<List<ScalingPlanApplicationSourceTagFilterArgs>> tagFilters;
 
     /**
-     * @return A set of tags.
+     * @return Set of tags.
      * 
      */
     public Optional<Output<List<ScalingPlanApplicationSourceTagFilterArgs>>> tagFilters() {
@@ -73,7 +73,7 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cloudformationStackArn The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+         * @param cloudformationStackArn ARN of a AWS CloudFormation stack.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cloudformationStackArn The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+         * @param cloudformationStackArn ARN of a AWS CloudFormation stack.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagFilters A set of tags.
+         * @param tagFilters Set of tags.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagFilters A set of tags.
+         * @param tagFilters Set of tags.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ScalingPlanApplicationSourceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tagFilters A set of tags.
+         * @param tagFilters Set of tags.
          * 
          * @return builder
          * 

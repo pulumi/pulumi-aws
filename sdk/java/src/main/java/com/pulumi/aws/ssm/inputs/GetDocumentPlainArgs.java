@@ -30,14 +30,14 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The document version for which you want information.
+     * Document version for which you want information.
      * 
      */
     @Import(name="documentVersion")
     private @Nullable String documentVersion;
 
     /**
-     * @return The document version for which you want information.
+     * @return Document version for which you want information.
      * 
      */
     public Optional<String> documentVersion() {
@@ -45,14 +45,14 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name of the Systems Manager document.
+     * Name of the Systems Manager document.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Systems Manager document.
+     * @return Name of the Systems Manager document.
      * 
      */
     public String name() {
@@ -97,7 +97,7 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param documentVersion The document version for which you want information.
+         * @param documentVersion Document version for which you want information.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the Systems Manager document.
+         * @param name Name of the Systems Manager document.
          * 
          * @return builder
          * 

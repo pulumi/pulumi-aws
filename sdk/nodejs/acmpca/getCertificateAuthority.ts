@@ -37,7 +37,7 @@ export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?
  */
 export interface GetCertificateAuthorityArgs {
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     arn: string;
     /**
@@ -53,7 +53,7 @@ export interface GetCertificateAuthorityArgs {
      */
     revocationConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * Key-value map of user-defined tags that are attached to the certificate authority.
      */
     tags?: {[key: string]: string};
 }
@@ -108,11 +108,11 @@ export interface GetCertificateAuthorityResult {
      */
     readonly status: string;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * Key-value map of user-defined tags that are attached to the certificate authority.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of the certificate authority.
+     * Type of the certificate authority.
      */
     readonly type: string;
 }
@@ -126,7 +126,7 @@ export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutpu
  */
 export interface GetCertificateAuthorityOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      */
     arn: pulumi.Input<string>;
     /**
@@ -142,7 +142,7 @@ export interface GetCertificateAuthorityOutputArgs {
      */
     revocationConfigurations?: pulumi.Input<pulumi.Input<inputs.acmpca.GetCertificateAuthorityRevocationConfigurationArgs>[]>;
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * Key-value map of user-defined tags that are attached to the certificate authority.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

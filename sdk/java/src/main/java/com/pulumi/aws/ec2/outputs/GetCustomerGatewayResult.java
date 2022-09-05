@@ -15,29 +15,29 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCustomerGatewayResult {
     /**
-     * @return The ARN of the customer gateway.
+     * @return ARN of the customer gateway.
      * 
      */
     private String arn;
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
     private Integer bgpAsn;
     /**
-     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * @return ARN for the customer gateway certificate.
      * 
      */
     private String certificateArn;
     /**
-     * @return A name for the customer gateway device.
+     * @return Name for the customer gateway device.
      * 
      */
     private String deviceName;
     private @Nullable List<GetCustomerGatewayFilter> filters;
     private String id;
     /**
-     * @return The IP address of the gateway&#39;s Internet-routable external interface.
+     * @return IP address of the gateway&#39;s Internet-routable external interface.
      * 
      */
     private String ipAddress;
@@ -47,35 +47,35 @@ public final class GetCustomerGatewayResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * @return Type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     private String type;
 
     private GetCustomerGatewayResult() {}
     /**
-     * @return The ARN of the customer gateway.
+     * @return ARN of the customer gateway.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
     public Integer bgpAsn() {
         return this.bgpAsn;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * @return ARN for the customer gateway certificate.
      * 
      */
     public String certificateArn() {
         return this.certificateArn;
     }
     /**
-     * @return A name for the customer gateway device.
+     * @return Name for the customer gateway device.
      * 
      */
     public String deviceName() {
@@ -88,7 +88,7 @@ public final class GetCustomerGatewayResult {
         return this.id;
     }
     /**
-     * @return The IP address of the gateway&#39;s Internet-routable external interface.
+     * @return IP address of the gateway&#39;s Internet-routable external interface.
      * 
      */
     public String ipAddress() {
@@ -102,7 +102,7 @@ public final class GetCustomerGatewayResult {
         return this.tags;
     }
     /**
-     * @return The type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * @return Type of customer gateway. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     public String type() {

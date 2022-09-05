@@ -69,39 +69,39 @@ export class Mesh extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the service mesh.
+     * ARN of the service mesh.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The creation date of the service mesh.
+     * Creation date of the service mesh.
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * The last update date of the service mesh.
+     * Last update date of the service mesh.
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     public /*out*/ readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.MeshSpec | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -149,39 +149,39 @@ export class Mesh extends pulumi.CustomResource {
  */
 export interface MeshState {
     /**
-     * The ARN of the service mesh.
+     * ARN of the service mesh.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The creation date of the service mesh.
+     * Creation date of the service mesh.
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * The last update date of the service mesh.
+     * Last update date of the service mesh.
      */
     lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     resourceOwner?: pulumi.Input<string>;
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      */
     spec?: pulumi.Input<inputs.appmesh.MeshSpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -191,15 +191,15 @@ export interface MeshState {
  */
 export interface MeshArgs {
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      */
     spec?: pulumi.Input<inputs.appmesh.MeshSpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

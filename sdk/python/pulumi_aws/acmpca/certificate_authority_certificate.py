@@ -19,9 +19,9 @@ class CertificateAuthorityCertificateArgs:
                  certificate_chain: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityCertificate resource.
-        :param pulumi.Input[str] certificate: The PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the Certificate Authority.
-        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[str] certificate: PEM-encoded certificate for the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -32,7 +32,7 @@ class CertificateAuthorityCertificateArgs:
     @pulumi.getter
     def certificate(self) -> pulumi.Input[str]:
         """
-        The PEM-encoded certificate for the Certificate Authority.
+        PEM-encoded certificate for the Certificate Authority.
         """
         return pulumi.get(self, "certificate")
 
@@ -44,7 +44,7 @@ class CertificateAuthorityCertificateArgs:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the Certificate Authority.
+        ARN of the Certificate Authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -56,7 +56,7 @@ class CertificateAuthorityCertificateArgs:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -73,9 +73,9 @@ class _CertificateAuthorityCertificateState:
                  certificate_chain: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
-        :param pulumi.Input[str] certificate: The PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the Certificate Authority.
-        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[str] certificate: PEM-encoded certificate for the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -88,7 +88,7 @@ class _CertificateAuthorityCertificateState:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        The PEM-encoded certificate for the Certificate Authority.
+        PEM-encoded certificate for the Certificate Authority.
         """
         return pulumi.get(self, "certificate")
 
@@ -100,7 +100,7 @@ class _CertificateAuthorityCertificateState:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Certificate Authority.
+        ARN of the Certificate Authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -112,7 +112,7 @@ class _CertificateAuthorityCertificateState:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -205,9 +205,9 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate: The PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the Certificate Authority.
-        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[str] certificate: PEM-encoded certificate for the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         ...
     @overload
@@ -342,9 +342,9 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate: The PEM-encoded certificate for the Certificate Authority.
-        :param pulumi.Input[str] certificate_authority_arn: Amazon Resource Name (ARN) of the Certificate Authority.
-        :param pulumi.Input[str] certificate_chain: The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[str] certificate: PEM-encoded certificate for the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,7 +359,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
         """
-        The PEM-encoded certificate for the Certificate Authority.
+        PEM-encoded certificate for the Certificate Authority.
         """
         return pulumi.get(self, "certificate")
 
@@ -367,7 +367,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the Certificate Authority.
+        ARN of the Certificate Authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -375,7 +375,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
-        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         return pulumi.get(self, "certificate_chain")
 

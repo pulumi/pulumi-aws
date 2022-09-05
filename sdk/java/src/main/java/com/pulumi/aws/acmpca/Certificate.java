@@ -89,56 +89,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acmpca/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The PEM-encoded certificate value.
+     * PEM-encoded certificate value.
      * 
      */
     @Export(name="certificate", type=String.class, parameters={})
     private Output<String> certificate;
 
     /**
-     * @return The PEM-encoded certificate value.
+     * @return PEM-encoded certificate value.
      * 
      */
     public Output<String> certificate() {
         return this.certificate;
     }
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      * 
      */
     @Export(name="certificateAuthorityArn", type=String.class, parameters={})
     private Output<String> certificateAuthorityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate authority.
+     * @return ARN of the certificate authority.
      * 
      */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     @Export(name="certificateChain", type=String.class, parameters={})
     private Output<String> certificateChain;
 
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     public Output<String> certificateChain() {
@@ -173,14 +173,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.signingAlgorithm;
     }
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     @Export(name="templateArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> templateArn;
 
     /**
-     * @return The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * @return Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     public Output<Optional<String>> templateArn() {

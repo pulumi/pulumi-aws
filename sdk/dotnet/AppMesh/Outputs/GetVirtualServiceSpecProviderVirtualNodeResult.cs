@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualServiceSpecProviderVirtualNodeResult
     {
         /// <summary>
-        /// The name of the virtual node that is acting as a service provider.
+        /// Name of the virtual node that is acting as a service provider.
         /// </summary>
         public readonly string VirtualNodeName;
 

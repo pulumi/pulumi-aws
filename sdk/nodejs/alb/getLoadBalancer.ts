@@ -48,15 +48,15 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
  */
 export interface GetLoadBalancerArgs {
     /**
-     * The full ARN of the load balancer.
+     * Full ARN of the load balancer.
      */
     arn?: string;
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      */
     tags?: {[key: string]: string};
 }
@@ -102,15 +102,15 @@ export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: p
  */
 export interface GetLoadBalancerOutputArgs {
     /**
-     * The full ARN of the load balancer.
+     * Full ARN of the load balancer.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

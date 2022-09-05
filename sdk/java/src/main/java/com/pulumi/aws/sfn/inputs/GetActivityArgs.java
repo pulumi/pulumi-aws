@@ -16,14 +16,14 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetActivityArgs Empty = new GetActivityArgs();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the activity.
+     * ARN that identifies the activity.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the activity.
+     * @return ARN that identifies the activity.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name that identifies the activity.
+     * Name that identifies the activity.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name that identifies the activity.
+     * @return Name that identifies the activity.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the activity.
+         * @param arn ARN that identifies the activity.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the activity.
+         * @param arn ARN that identifies the activity.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name that identifies the activity.
+         * @param name Name that identifies the activity.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetActivityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name that identifies the activity.
+         * @param name Name that identifies the activity.
          * 
          * @return builder
          * 

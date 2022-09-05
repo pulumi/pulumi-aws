@@ -62,28 +62,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/requestValidator:RequestValidator")
 public class RequestValidator extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the request validator
+     * Name of the request validator
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the request validator
+     * @return Name of the request validator
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Output<String> restApi() {

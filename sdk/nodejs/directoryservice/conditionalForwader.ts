@@ -60,7 +60,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
     }
 
     /**
-     * The id of directory.
+     * ID of directory.
      */
     public readonly directoryId!: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
  */
 export interface ConditionalForwaderState {
     /**
-     * The id of directory.
+     * ID of directory.
      */
     directoryId?: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface ConditionalForwaderState {
  */
 export interface ConditionalForwaderArgs {
     /**
-     * The id of directory.
+     * ID of directory.
      */
     directoryId: pulumi.Input<string>;
     /**

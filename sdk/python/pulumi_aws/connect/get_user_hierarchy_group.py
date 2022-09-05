@@ -52,7 +52,7 @@ class GetUserHierarchyGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -65,7 +65,7 @@ class GetUserHierarchyGroupResult:
     @pulumi.getter(name="hierarchyPaths")
     def hierarchy_paths(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathResult']:
         """
-        A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         """
         return pulumi.get(self, "hierarchy_paths")
 
@@ -86,7 +86,7 @@ class GetUserHierarchyGroupResult:
     @pulumi.getter(name="levelId")
     def level_id(self) -> str:
         """
-        The identifier of the level in the hierarchy group.
+        Identifier of the level in the hierarchy group.
         """
         return pulumi.get(self, "level_id")
 
@@ -94,7 +94,7 @@ class GetUserHierarchyGroupResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the hierarchy group.
+        Name of the hierarchy group.
         """
         return pulumi.get(self, "name")
 
@@ -102,7 +102,7 @@ class GetUserHierarchyGroupResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the hierarchy group.
+        Map of tags to assign to the hierarchy group.
         """
         return pulumi.get(self, "tags")
 
@@ -157,7 +157,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific hierarchy group by name
-    :param Mapping[str, str] tags: A map of tags to assign to the hierarchy group.
+    :param Mapping[str, str] tags: Map of tags to assign to the hierarchy group.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id
@@ -213,6 +213,6 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific hierarchy group by name
-    :param Mapping[str, str] tags: A map of tags to assign to the hierarchy group.
+    :param Mapping[str, str] tags: Map of tags to assign to the hierarchy group.
     """
     ...

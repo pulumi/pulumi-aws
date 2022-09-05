@@ -19,14 +19,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
 
     /**
-     * The number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
     @Import(name="checkpointDelay")
     private @Nullable Output<String> checkpointDelay;
 
     /**
-     * @return The number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
     public Optional<Output<String>> checkpointDelay() {
@@ -49,14 +49,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
     @Import(name="instanceWarmup")
     private @Nullable Output<String> instanceWarmup;
 
     /**
-     * @return The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
     public Optional<Output<String>> instanceWarmup() {
@@ -64,14 +64,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     @Import(name="minHealthyPercentage")
     private @Nullable Output<Integer> minHealthyPercentage;
 
     /**
-     * @return The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     public Optional<Output<Integer>> minHealthyPercentage() {
@@ -114,7 +114,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param checkpointDelay The number of seconds to wait after a checkpoint. Defaults to `3600`.
+         * @param checkpointDelay Number of seconds to wait after a checkpoint. Defaults to `3600`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param checkpointDelay The number of seconds to wait after a checkpoint. Defaults to `3600`.
+         * @param checkpointDelay Number of seconds to wait after a checkpoint. Defaults to `3600`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param instanceWarmup The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param instanceWarmup The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param minHealthyPercentage The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param minHealthyPercentage The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+         * @param minHealthyPercentage Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
          * 
          * @return builder
          * 

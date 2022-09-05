@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListenerTlsValidation {
     /**
-     * @return The SANs for a TLS validation context.
+     * @return SANs for a TLS validation context.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames;
     /**
-     * @return The TLS validation context trust.
+     * @return TLS validation context trust.
      * 
      */
     private VirtualNodeSpecListenerTlsValidationTrust trust;
 
     private VirtualNodeSpecListenerTlsValidation() {}
     /**
-     * @return The SANs for a TLS validation context.
+     * @return SANs for a TLS validation context.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
     /**
-     * @return The TLS validation context trust.
+     * @return TLS validation context trust.
      * 
      */
     public VirtualNodeSpecListenerTlsValidationTrust trust() {

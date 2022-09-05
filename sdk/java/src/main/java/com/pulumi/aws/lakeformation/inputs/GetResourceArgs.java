@@ -14,14 +14,14 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetResourceArgs Empty = new GetResourceArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * ARN of the resource, an S3 path.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource, an S3 path.
+     * @return ARN of the resource, an S3 path.
      * 
      */
     public Output<String> arn() {
@@ -53,7 +53,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource, an S3 path.
+         * @param arn ARN of the resource, an S3 path.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource, an S3 path.
+         * @param arn ARN of the resource, an S3 path.
          * 
          * @return builder
          * 

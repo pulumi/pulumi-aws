@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Acm.Inputs
     public sealed class CertificateValidationOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A fully qualified domain name (FQDN) in the certificate.
+        /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        /// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         /// </summary>
         [Input("validationDomain", required: true)]
         public Input<string> ValidationDomain { get; set; } = null!;

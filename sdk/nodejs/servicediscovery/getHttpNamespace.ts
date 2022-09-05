@@ -33,11 +33,11 @@ export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.Invok
  */
 export interface GetHttpNamespaceArgs {
     /**
-     * The name of the http namespace.
+     * Name of the http namespace.
      */
     name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -47,15 +47,15 @@ export interface GetHttpNamespaceArgs {
  */
 export interface GetHttpNamespaceResult {
     /**
-     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     * ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
     readonly arn: string;
     /**
-     * The description that you specify for the namespace when you create it.
+     * Description that you specify for the namespace when you create it.
      */
     readonly description: string;
     /**
-     * The name of an HTTP namespace.
+     * Name of an HTTP namespace.
      */
     readonly httpName: string;
     /**
@@ -64,7 +64,7 @@ export interface GetHttpNamespaceResult {
     readonly id: string;
     readonly name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -78,11 +78,11 @@ export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: 
  */
 export interface GetHttpNamespaceOutputArgs {
     /**
-     * The name of the http namespace.
+     * Name of the http namespace.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

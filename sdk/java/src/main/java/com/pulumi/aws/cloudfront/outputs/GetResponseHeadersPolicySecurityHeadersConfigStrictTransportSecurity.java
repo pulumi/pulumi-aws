@@ -16,17 +16,17 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
      */
     private Integer accessControlMaxAgeSec;
     /**
-     * @return A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+     * @return Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
      * 
      */
     private Boolean includeSubdomains;
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
     /**
-     * @return A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+     * @return Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
      * 
      */
     private Boolean preload;
@@ -40,21 +40,21 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportS
         return this.accessControlMaxAgeSec;
     }
     /**
-     * @return A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+     * @return Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
      * 
      */
     public Boolean includeSubdomains() {
         return this.includeSubdomains;
     }
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {
         return this.override;
     }
     /**
-     * @return A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+     * @return Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
      * 
      */
     public Boolean preload() {

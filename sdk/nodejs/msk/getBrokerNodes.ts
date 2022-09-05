@@ -35,7 +35,7 @@ export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetBrokerNodesArgs {
     /**
-     * The ARN of the cluster the nodes belong to.
+     * ARN of the cluster the nodes belong to.
      */
     clusterArn: string;
 }
@@ -61,7 +61,7 @@ export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulu
  */
 export interface GetBrokerNodesOutputArgs {
     /**
-     * The ARN of the cluster the nodes belong to.
+     * ARN of the cluster the nodes belong to.
      */
     clusterArn: pulumi.Input<string>;
 }

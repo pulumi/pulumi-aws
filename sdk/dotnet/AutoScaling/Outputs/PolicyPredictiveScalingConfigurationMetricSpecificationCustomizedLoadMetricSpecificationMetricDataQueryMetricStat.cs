@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat
     {
         /// <summary>
-        /// A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        /// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric Metric;
         /// <summary>
-        /// The statistic of the metrics to return.
+        /// Statistic of the metrics to return.
         /// </summary>
         public readonly string Stat;
         /// <summary>
-        /// The unit of the metrics to return.
+        /// Unit of the metrics to return.
         /// </summary>
         public readonly string? Unit;
 

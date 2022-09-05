@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInfrastructureConfigurationsFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetInfrastructureConfigurationsFilter {
 
     private GetInfrastructureConfigurationsFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
      * 
      */
     public String name() {

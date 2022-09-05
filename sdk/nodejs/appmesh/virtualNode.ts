@@ -192,43 +192,43 @@ export class VirtualNode extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the virtual node.
+     * ARN of the virtual node.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The creation date of the virtual node.
+     * Creation date of the virtual node.
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * The last update date of the virtual node.
+     * Last update date of the virtual node.
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     public readonly meshOwner!: pulumi.Output<string>;
     /**
-     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     /**
-     * The virtual node specification to apply.
+     * Virtual node specification to apply.
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualNodeSpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -284,43 +284,43 @@ export class VirtualNode extends pulumi.CustomResource {
  */
 export interface VirtualNodeState {
     /**
-     * The ARN of the virtual node.
+     * ARN of the virtual node.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The creation date of the virtual node.
+     * Creation date of the virtual node.
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * The last update date of the virtual node.
+     * Last update date of the virtual node.
      */
     lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     meshName?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     resourceOwner?: pulumi.Input<string>;
     /**
-     * The virtual node specification to apply.
+     * Virtual node specification to apply.
      */
     spec?: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -330,23 +330,23 @@ export interface VirtualNodeState {
  */
 export interface VirtualNodeArgs {
     /**
-     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      */
     meshName: pulumi.Input<string>;
     /**
-     * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual node. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The virtual node specification to apply.
+     * Virtual node specification to apply.
      */
     spec: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

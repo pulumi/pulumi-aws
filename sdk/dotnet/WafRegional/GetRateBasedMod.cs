@@ -70,7 +70,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetRateBasedModArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional rate based rule.
+        /// Name of the WAF Regional rate based rule.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetRateBasedModInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAF Regional rate based rule.
+        /// Name of the WAF Regional rate based rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

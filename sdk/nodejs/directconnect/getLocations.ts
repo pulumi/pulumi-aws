@@ -38,7 +38,7 @@ export interface GetLocationsResult {
      */
     readonly id: string;
     /**
-     * The code for the locations.
+     * Code for the locations.
      */
     readonly locationCodes: string[];
 }

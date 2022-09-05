@@ -48,7 +48,7 @@ export function getOpenidConnectProvider(args?: GetOpenidConnectProviderArgs, op
  */
 export interface GetOpenidConnectProviderArgs {
     /**
-     * The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * ARN of the OpenID Connect provider.
      */
     arn?: string;
     /**
@@ -56,7 +56,7 @@ export interface GetOpenidConnectProviderArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The URL of the OpenID Connect provider.
+     * URL of the OpenID Connect provider.
      */
     url?: string;
 }
@@ -67,7 +67,7 @@ export interface GetOpenidConnectProviderArgs {
 export interface GetOpenidConnectProviderResult {
     readonly arn: string;
     /**
-     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
+     * List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */
     readonly clientIdLists: string[];
     /**
@@ -79,7 +79,7 @@ export interface GetOpenidConnectProviderResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
+     * List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists: string[];
     readonly url: string;
@@ -94,7 +94,7 @@ export function getOpenidConnectProviderOutput(args?: GetOpenidConnectProviderOu
  */
 export interface GetOpenidConnectProviderOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+     * ARN of the OpenID Connect provider.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -102,7 +102,7 @@ export interface GetOpenidConnectProviderOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The URL of the OpenID Connect provider.
+     * URL of the OpenID Connect provider.
      */
     url?: pulumi.Input<string>;
 }

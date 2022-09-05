@@ -212,6 +212,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
+    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      * * `destinationConfig`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
@@ -264,10 +268,14 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      * * `selfManagedEventSource`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
-     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
     public readonly queues!: pulumi.Output<string[] | undefined>;
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
+    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
@@ -311,6 +319,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSourceMappingState | undefined;
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = state ? state.amazonManagedKafkaEventSourceConfig : undefined;
             resourceInputs["batchSize"] = state ? state.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = state ? state.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = state ? state.destinationConfig : undefined;
@@ -328,6 +337,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = state ? state.parallelizationFactor : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
             resourceInputs["selfManagedEventSource"] = state ? state.selfManagedEventSource : undefined;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = state ? state.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = state ? state.sourceAccessConfigurations : undefined;
             resourceInputs["startingPosition"] = state ? state.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
@@ -341,6 +351,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args ? args.amazonManagedKafkaEventSourceConfig : undefined;
             resourceInputs["batchSize"] = args ? args.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
@@ -355,6 +366,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
             resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
@@ -376,6 +388,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSourceMapping resources.
  */
 export interface EventSourceMappingState {
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
+    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -429,10 +445,14 @@ export interface EventSourceMappingState {
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      * * `selfManagedEventSource`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
-     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
+    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
@@ -468,6 +488,10 @@ export interface EventSourceMappingState {
  * The set of arguments for constructing a EventSourceMapping resource.
  */
 export interface EventSourceMappingArgs {
+    /**
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
+     */
+    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * * `bisectBatchOnFunctionError`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -509,10 +533,14 @@ export interface EventSourceMappingArgs {
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      * * `selfManagedEventSource`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
-     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    /**
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
+     * * `sourceAccessConfiguration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
+     */
+    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).

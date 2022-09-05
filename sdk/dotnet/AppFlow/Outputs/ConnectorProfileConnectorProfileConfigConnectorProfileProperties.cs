@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector? CustomConnector;
         /// <summary>
-        /// The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog? Datadog;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus? InforNexus;
         /// <summary>
-        /// The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo? Marketo;
         /// <summary>
-        /// The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift? Redshift;
         /// <summary>
@@ -62,11 +62,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow? ServiceNow;
         /// <summary>
-        /// The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular? Singular;
         /// <summary>
-        /// The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack? Slack;
         /// <summary>
@@ -78,11 +78,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro? Trendmicro;
         /// <summary>
-        /// The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva? Veeva;
         /// <summary>
-        /// The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        /// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk? Zendesk;
 

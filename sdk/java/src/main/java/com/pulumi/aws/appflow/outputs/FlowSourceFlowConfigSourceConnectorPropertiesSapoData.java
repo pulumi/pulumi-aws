@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoData() {}
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public String object() {

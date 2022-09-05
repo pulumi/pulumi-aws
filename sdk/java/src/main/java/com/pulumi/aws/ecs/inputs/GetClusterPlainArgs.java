@@ -13,14 +13,14 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
     /**
-     * The name of the ECS Cluster
+     * Name of the ECS Cluster
      * 
      */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
     /**
-     * @return The name of the ECS Cluster
+     * @return Name of the ECS Cluster
      * 
      */
     public String clusterName() {
@@ -52,7 +52,7 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterName The name of the ECS Cluster
+         * @param clusterName Name of the ECS Cluster
          * 
          * @return builder
          * 

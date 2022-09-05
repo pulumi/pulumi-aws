@@ -56,7 +56,7 @@ import (
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
 
-	// The id of directory.
+	// ID of directory.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayOutput `pulumi:"dnsIps"`
@@ -102,7 +102,7 @@ func GetConditionalForwader(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConditionalForwader resources.
 type conditionalForwaderState struct {
-	// The id of directory.
+	// ID of directory.
 	DirectoryId *string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
@@ -111,7 +111,7 @@ type conditionalForwaderState struct {
 }
 
 type ConditionalForwaderState struct {
-	// The id of directory.
+	// ID of directory.
 	DirectoryId pulumi.StringPtrInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
@@ -124,7 +124,7 @@ func (ConditionalForwaderState) ElementType() reflect.Type {
 }
 
 type conditionalForwaderArgs struct {
-	// The id of directory.
+	// ID of directory.
 	DirectoryId string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
@@ -134,7 +134,7 @@ type conditionalForwaderArgs struct {
 
 // The set of arguments for constructing a ConditionalForwader resource.
 type ConditionalForwaderArgs struct {
-	// The id of directory.
+	// ID of directory.
 	DirectoryId pulumi.StringInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
@@ -229,7 +229,7 @@ func (o ConditionalForwaderOutput) ToConditionalForwaderOutputWithContext(ctx co
 	return o
 }
 
-// The id of directory.
+// ID of directory.
 func (o ConditionalForwaderOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConditionalForwader) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }

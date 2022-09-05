@@ -15,7 +15,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      */
     private String predefinedMetricType;
     /**
-     * @return A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
     private String resourceLabel;
@@ -29,7 +29,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
         return this.predefinedMetricType;
     }
     /**
-     * @return A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
     public String resourceLabel() {

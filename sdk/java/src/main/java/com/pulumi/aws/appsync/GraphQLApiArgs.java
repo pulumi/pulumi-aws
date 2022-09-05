@@ -39,14 +39,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     @Import(name="authenticationType", required=true)
     private Output<String> authenticationType;
 
     /**
-     * @return The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
     public Output<String> authenticationType() {
@@ -84,14 +84,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A user-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphqlApi.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-supplied name for the GraphqlApi.
+     * @return User-supplied name for the GraphqlApi.
      * 
      */
     public Optional<Output<String>> name() {
@@ -114,14 +114,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     * @return Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -129,14 +129,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -144,14 +144,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return The Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. Defined below.
      * 
      */
     public Optional<Output<GraphQLApiUserPoolConfigArgs>> userPoolConfig() {
@@ -238,7 +238,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationType The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationType The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+         * @param authenticationType Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A user-supplied name for the GraphqlApi.
+         * @param name User-supplied name for the GraphqlApi.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A user-supplied name for the GraphqlApi.
+         * @param name User-supplied name for the GraphqlApi.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+         * @param schema Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+         * @param schema Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig The Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig The Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ class ArchiveRuleFilterArgs:
                  exists: Optional[pulumi.Input[str]] = None,
                  neqs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] criteria: The filter criteria.
+        :param pulumi.Input[str] criteria: Filter criteria.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contains: Contains comparator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] eqs: Equals comparator.
         :param pulumi.Input[str] exists: Boolean comparator.
@@ -42,7 +42,7 @@ class ArchiveRuleFilterArgs:
     @pulumi.getter
     def criteria(self) -> pulumi.Input[str]:
         """
-        The filter criteria.
+        Filter criteria.
         """
         return pulumi.get(self, "criteria")
 

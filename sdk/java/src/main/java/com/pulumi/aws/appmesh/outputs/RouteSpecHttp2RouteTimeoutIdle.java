@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class RouteSpecHttp2RouteTimeoutIdle {
     /**
-     * @return The unit of time. Valid values: `ms`, `s`.
+     * @return Unit of time. Valid values: `ms`, `s`.
      * 
      */
     private String unit;
     /**
-     * @return The number of time units. Minimum value of `0`.
+     * @return Number of time units. Minimum value of `0`.
      * 
      */
     private Integer value;
 
     private RouteSpecHttp2RouteTimeoutIdle() {}
     /**
-     * @return The unit of time. Valid values: `ms`, `s`.
+     * @return Unit of time. Valid values: `ms`, `s`.
      * 
      */
     public String unit() {
         return this.unit;
     }
     /**
-     * @return The number of time units. Minimum value of `0`.
+     * @return Number of time units. Minimum value of `0`.
      * 
      */
     public Integer value() {

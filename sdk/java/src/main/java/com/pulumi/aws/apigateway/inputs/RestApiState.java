@@ -36,14 +36,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -81,14 +81,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation date of the REST API
+     * Creation date of the REST API
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The creation date of the REST API
+     * @return Creation date of the REST API
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -111,14 +111,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Import(name="disableExecuteApiEndpoint")
     private @Nullable Output<Boolean> disableExecuteApiEndpoint;
 
     /**
-     * @return Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * @return Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     public Optional<Output<Boolean>> disableExecuteApiEndpoint() {
@@ -141,7 +141,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+     * Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
@@ -150,7 +150,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> executionArn;
 
     /**
-     * @return The execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+     * @return Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
@@ -220,14 +220,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Import(name="putRestApiMode")
     private @Nullable Output<String> putRestApiMode;
 
     /**
-     * @return Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * @return Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     public Optional<Output<String>> putRestApiMode() {
@@ -235,14 +235,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource ID of the REST API&#39;s root
+     * Resource ID of the REST API&#39;s root
      * 
      */
     @Import(name="rootResourceId")
     private @Nullable Output<String> rootResourceId;
 
     /**
-     * @return The resource ID of the REST API&#39;s root
+     * @return Resource ID of the REST API&#39;s root
      * 
      */
     public Optional<Output<String>> rootResourceId() {
@@ -265,14 +265,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -341,7 +341,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the REST API
+         * @param createdDate Creation date of the REST API
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the REST API
+         * @param createdDate Creation date of the REST API
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableExecuteApiEndpoint Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+         * @param disableExecuteApiEndpoint Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableExecuteApiEndpoint Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+         * @param disableExecuteApiEndpoint Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn The execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
          * 
@@ -511,7 +511,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn The execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
          * 
@@ -607,7 +607,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param putRestApiMode Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+         * @param putRestApiMode Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param putRestApiMode Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+         * @param putRestApiMode Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootResourceId The resource ID of the REST API&#39;s root
+         * @param rootResourceId Resource ID of the REST API&#39;s root
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rootResourceId The resource ID of the REST API&#39;s root
+         * @param rootResourceId Resource ID of the REST API&#39;s root
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

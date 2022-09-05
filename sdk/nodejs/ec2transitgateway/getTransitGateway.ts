@@ -74,7 +74,7 @@ export interface GetTransitGatewayResult {
      */
     readonly amazonSideAsn: number;
     /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
+     * EC2 Transit Gateway ARN
      */
     readonly arn: string;
     /**

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualServiceSpecProviderVirtualNode {
     /**
-     * @return The name of the virtual node that is acting as a service provider.
+     * @return Name of the virtual node that is acting as a service provider.
      * 
      */
     private String virtualNodeName;
 
     private GetVirtualServiceSpecProviderVirtualNode() {}
     /**
-     * @return The name of the virtual node that is acting as a service provider.
+     * @return Name of the virtual node that is acting as a service provider.
      * 
      */
     public String virtualNodeName() {

@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetCertificateResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         public readonly string Arn;
         /// <summary>

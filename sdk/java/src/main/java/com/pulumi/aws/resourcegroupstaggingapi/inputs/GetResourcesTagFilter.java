@@ -31,14 +31,14 @@ public final class GetResourcesTagFilter extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The optional part of a key-value pair that make up a tag.
+     * Optional part of a key-value pair that make up a tag.
      * 
      */
     @Import(name="values")
     private @Nullable List<String> values;
 
     /**
-     * @return The optional part of a key-value pair that make up a tag.
+     * @return Optional part of a key-value pair that make up a tag.
      * 
      */
     public Optional<List<String>> values() {
@@ -82,7 +82,7 @@ public final class GetResourcesTagFilter extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param values The optional part of a key-value pair that make up a tag.
+         * @param values Optional part of a key-value pair that make up a tag.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetResourcesTagFilter extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param values The optional part of a key-value pair that make up a tag.
+         * @param values Optional part of a key-value pair that make up a tag.
          * 
          * @return builder
          * 

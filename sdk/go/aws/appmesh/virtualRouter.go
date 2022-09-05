@@ -73,25 +73,25 @@ import (
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the virtual router.
+	// ARN of the virtual router.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The creation date of the virtual router.
+	// Creation date of the virtual router.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The last update date of the virtual router.
+	// Last update date of the virtual router.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// The virtual router specification to apply.
+	// Virtual router specification to apply.
 	Spec VirtualRouterSpecOutput `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -130,48 +130,48 @@ func GetVirtualRouter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualRouter resources.
 type virtualRouterState struct {
-	// The ARN of the virtual router.
+	// ARN of the virtual router.
 	Arn *string `pulumi:"arn"`
-	// The creation date of the virtual router.
+	// Creation date of the virtual router.
 	CreatedDate *string `pulumi:"createdDate"`
-	// The last update date of the virtual router.
+	// Last update date of the virtual router.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// The virtual router specification to apply.
+	// Virtual router specification to apply.
 	Spec *VirtualRouterSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VirtualRouterState struct {
-	// The ARN of the virtual router.
+	// ARN of the virtual router.
 	Arn pulumi.StringPtrInput
-	// The creation date of the virtual router.
+	// Creation date of the virtual router.
 	CreatedDate pulumi.StringPtrInput
-	// The last update date of the virtual router.
+	// Last update date of the virtual router.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// The virtual router specification to apply.
+	// Virtual router specification to apply.
 	Spec VirtualRouterSpecPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -180,29 +180,29 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
-	// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The virtual router specification to apply.
+	// Virtual router specification to apply.
 	Spec VirtualRouterSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
 type VirtualRouterArgs struct {
-	// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+	// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The virtual router specification to apply.
+	// Virtual router specification to apply.
 	Spec VirtualRouterSpecInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -293,52 +293,52 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the virtual router.
+// ARN of the virtual router.
 func (o VirtualRouterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The creation date of the virtual router.
+// Creation date of the virtual router.
 func (o VirtualRouterOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The last update date of the virtual router.
+// Last update date of the virtual router.
 func (o VirtualRouterOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
+// Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
 func (o VirtualRouterOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o VirtualRouterOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// The name to use for the virtual router. Must be between 1 and 255 characters in length.
+// Name to use for the virtual router. Must be between 1 and 255 characters in length.
 func (o VirtualRouterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource owner's AWS account ID.
+// Resource owner's AWS account ID.
 func (o VirtualRouterOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The virtual router specification to apply.
+// Virtual router specification to apply.
 func (o VirtualRouterOutput) Spec() VirtualRouterSpecOutput {
 	return o.ApplyT(func(v *VirtualRouter) VirtualRouterSpecOutput { return v.Spec }).(VirtualRouterSpecOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualRouterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualRouterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

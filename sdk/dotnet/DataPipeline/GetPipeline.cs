@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DataPipeline
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.DataPipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.DataPipeline
         public readonly string Name;
         public readonly string PipelineId;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

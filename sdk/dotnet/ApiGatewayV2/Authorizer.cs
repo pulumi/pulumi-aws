@@ -78,27 +78,27 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class Authorizer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+        /// Required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Output("authorizerCredentialsArn")]
         public Output<string?> AuthorizerCredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         /// Valid values: `1.0`, `2.0`.
         /// </summary>
         [Output("authorizerPayloadFormatVersion")]
         public Output<string?> AuthorizerPayloadFormatVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
         /// Supported only for HTTP API Lambda authorizers.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<int> AuthorizerResultTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The authorizer type. Valid values: `JWT`, `REQUEST`.
+        /// Authorizer type. Valid values: `JWT`, `REQUEST`.
         /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> AuthorizerType { get; private set; } = null!;
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
+        /// Authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> EnableSimpleResponses { get; private set; } = null!;
 
         /// <summary>
-        /// The identity sources for which authorization is requested.
+        /// Identity sources for which authorization is requested.
         /// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
         /// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         /// </summary>
@@ -137,14 +137,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableArray<string>> IdentitySources { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        /// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         /// Supported only for HTTP APIs.
         /// </summary>
         [Output("jwtConfiguration")]
         public Output<Outputs.AuthorizerJwtConfiguration?> JwtConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the authorizer. Must be between 1 and 128 characters in length.
+        /// Name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -196,27 +196,27 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+        /// Required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Input("authorizerCredentialsArn")]
         public Input<string>? AuthorizerCredentialsArn { get; set; }
 
         /// <summary>
-        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         /// Valid values: `1.0`, `2.0`.
         /// </summary>
         [Input("authorizerPayloadFormatVersion")]
         public Input<string>? AuthorizerPayloadFormatVersion { get; set; }
 
         /// <summary>
-        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
         /// Supported only for HTTP API Lambda authorizers.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// The authorizer type. Valid values: `JWT`, `REQUEST`.
+        /// Authorizer type. Valid values: `JWT`, `REQUEST`.
         /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> AuthorizerType { get; set; } = null!;
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
+        /// Authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputList<string>? _identitySources;
 
         /// <summary>
-        /// The identity sources for which authorization is requested.
+        /// Identity sources for which authorization is requested.
         /// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
         /// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         /// </summary>
@@ -261,14 +261,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        /// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         /// Supported only for HTTP APIs.
         /// </summary>
         [Input("jwtConfiguration")]
         public Input<Inputs.AuthorizerJwtConfigurationArgs>? JwtConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the authorizer. Must be between 1 and 128 characters in length.
+        /// Name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -282,27 +282,27 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class AuthorizerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+        /// Required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Input("authorizerCredentialsArn")]
         public Input<string>? AuthorizerCredentialsArn { get; set; }
 
         /// <summary>
-        /// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         /// Valid values: `1.0`, `2.0`.
         /// </summary>
         [Input("authorizerPayloadFormatVersion")]
         public Input<string>? AuthorizerPayloadFormatVersion { get; set; }
 
         /// <summary>
-        /// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
         /// Supported only for HTTP API Lambda authorizers.
         /// </summary>
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// The authorizer type. Valid values: `JWT`, `REQUEST`.
+        /// Authorizer type. Valid values: `JWT`, `REQUEST`.
         /// Specify `REQUEST` for a Lambda function using incoming request parameters.
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizerType { get; set; }
 
         /// <summary>
-        /// The authorizer's Uniform Resource Identifier (URI).
+        /// Authorizer's Uniform Resource Identifier (URI).
         /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputList<string>? _identitySources;
 
         /// <summary>
-        /// The identity sources for which authorization is requested.
+        /// Identity sources for which authorization is requested.
         /// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
         /// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         /// </summary>
@@ -347,14 +347,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        /// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         /// Supported only for HTTP APIs.
         /// </summary>
         [Input("jwtConfiguration")]
         public Input<Inputs.AuthorizerJwtConfigurationGetArgs>? JwtConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the authorizer. Must be between 1 and 128 characters in length.
+        /// Name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

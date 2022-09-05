@@ -74,23 +74,23 @@ export class NamedQuery extends pulumi.CustomResource {
     }
 
     /**
-     * The database to which the query belongs.
+     * Database to which the query belongs.
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * A brief explanation of the query. Maximum length of 1024.
+     * Brief explanation of the query. Maximum length of 1024.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The plain language name for the query. Maximum length of 128.
+     * Plain language name for the query. Maximum length of 128.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     public readonly query!: pulumi.Output<string>;
     /**
-     * The workgroup to which the query belongs. Defaults to `primary`
+     * Workgroup to which the query belongs. Defaults to `primary`
      */
     public readonly workgroup!: pulumi.Output<string | undefined>;
 
@@ -136,23 +136,23 @@ export class NamedQuery extends pulumi.CustomResource {
  */
 export interface NamedQueryState {
     /**
-     * The database to which the query belongs.
+     * Database to which the query belongs.
      */
     database?: pulumi.Input<string>;
     /**
-     * A brief explanation of the query. Maximum length of 1024.
+     * Brief explanation of the query. Maximum length of 1024.
      */
     description?: pulumi.Input<string>;
     /**
-     * The plain language name for the query. Maximum length of 128.
+     * Plain language name for the query. Maximum length of 128.
      */
     name?: pulumi.Input<string>;
     /**
-     * The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     query?: pulumi.Input<string>;
     /**
-     * The workgroup to which the query belongs. Defaults to `primary`
+     * Workgroup to which the query belongs. Defaults to `primary`
      */
     workgroup?: pulumi.Input<string>;
 }
@@ -162,23 +162,23 @@ export interface NamedQueryState {
  */
 export interface NamedQueryArgs {
     /**
-     * The database to which the query belongs.
+     * Database to which the query belongs.
      */
     database: pulumi.Input<string>;
     /**
-     * A brief explanation of the query. Maximum length of 1024.
+     * Brief explanation of the query. Maximum length of 1024.
      */
     description?: pulumi.Input<string>;
     /**
-     * The plain language name for the query. Maximum length of 128.
+     * Plain language name for the query. Maximum length of 128.
      */
     name?: pulumi.Input<string>;
     /**
-     * The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     query: pulumi.Input<string>;
     /**
-     * The workgroup to which the query belongs. Defaults to `primary`
+     * Workgroup to which the query belongs. Defaults to `primary`
      */
     workgroup?: pulumi.Input<string>;
 }

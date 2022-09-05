@@ -36,7 +36,7 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetAccessPointArgs {
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      */
     accessPointId: string;
     /**
@@ -59,7 +59,7 @@ export interface GetAccessPointResult {
      */
     readonly fileSystemArn: string;
     /**
-     * The ID of the file system for which the access point is intended.
+     * ID of the file system for which the access point is intended.
      */
     readonly fileSystemId: string;
     /**
@@ -87,7 +87,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
  */
 export interface GetAccessPointOutputArgs {
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      */
     accessPointId: pulumi.Input<string>;
     /**

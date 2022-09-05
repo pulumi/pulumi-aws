@@ -66,7 +66,7 @@ export class UserStackAssociation extends pulumi.CustomResource {
      */
     public readonly authenticationType!: pulumi.Output<string>;
     /**
-     * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface UserStackAssociationState {
      */
     authenticationType?: pulumi.Input<string>;
     /**
-     * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
     sendEmailNotification?: pulumi.Input<boolean>;
     /**
@@ -147,7 +147,7 @@ export interface UserStackAssociationArgs {
      */
     authenticationType: pulumi.Input<string>;
     /**
-     * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+     * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
     sendEmailNotification?: pulumi.Input<boolean>;
     /**

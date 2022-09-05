@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPatchBaselineResult {
     /**
-     * @return A list of rules used to include patches in the baseline.
+     * @return List of rules used to include patches in the baseline.
      * 
      */
     private List<GetPatchBaselineApprovalRule> approvalRules;
     /**
-     * @return A list of explicitly approved patches for the baseline.
+     * @return List of explicitly approved patches for the baseline.
      * 
      */
     private List<String> approvedPatches;
@@ -38,12 +38,12 @@ public final class GetPatchBaselineResult {
     private Boolean approvedPatchesEnableNonSecurity;
     private @Nullable Boolean defaultBaseline;
     /**
-     * @return The description of the baseline.
+     * @return Description of the baseline.
      * 
      */
     private String description;
     /**
-     * @return A set of global filters used to exclude patches from the baseline.
+     * @return Set of global filters used to exclude patches from the baseline.
      * 
      */
     private List<GetPatchBaselineGlobalFilter> globalFilters;
@@ -61,7 +61,7 @@ public final class GetPatchBaselineResult {
     private @Nullable String operatingSystem;
     private String owner;
     /**
-     * @return A list of rejected patches.
+     * @return List of rejected patches.
      * 
      */
     private List<String> rejectedPatches;
@@ -78,14 +78,14 @@ public final class GetPatchBaselineResult {
 
     private GetPatchBaselineResult() {}
     /**
-     * @return A list of rules used to include patches in the baseline.
+     * @return List of rules used to include patches in the baseline.
      * 
      */
     public List<GetPatchBaselineApprovalRule> approvalRules() {
         return this.approvalRules;
     }
     /**
-     * @return A list of explicitly approved patches for the baseline.
+     * @return List of explicitly approved patches for the baseline.
      * 
      */
     public List<String> approvedPatches() {
@@ -109,14 +109,14 @@ public final class GetPatchBaselineResult {
         return Optional.ofNullable(this.defaultBaseline);
     }
     /**
-     * @return The description of the baseline.
+     * @return Description of the baseline.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return A set of global filters used to exclude patches from the baseline.
+     * @return Set of global filters used to exclude patches from the baseline.
      * 
      */
     public List<GetPatchBaselineGlobalFilter> globalFilters() {
@@ -146,7 +146,7 @@ public final class GetPatchBaselineResult {
         return this.owner;
     }
     /**
-     * @return A list of rejected patches.
+     * @return List of rejected patches.
      * 
      */
     public List<String> rejectedPatches() {

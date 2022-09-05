@@ -33,14 +33,14 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
     }
 
     /**
-     * The method and value to match the header value sent with a request. Specify one match method.
+     * Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecHttpRouteMatchHeaderMatchArgs> match;
 
     /**
-     * @return The method and value to match the header value sent with a request. Specify one match method.
+     * @return Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteMatchHeaderMatchArgs>> match() {
@@ -48,14 +48,14 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
     }
 
     /**
-     * A name for the HTTP header in the client request that will be matched on.
+     * Name for the HTTP header in the client request that will be matched on.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the HTTP header in the client request that will be matched on.
+     * @return Name for the HTTP header in the client request that will be matched on.
      * 
      */
     public Output<String> name() {
@@ -110,7 +110,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param match The method and value to match the header value sent with a request. Specify one match method.
+         * @param match Method and value to match the header value sent with a request. Specify one match method.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param match The method and value to match the header value sent with a request. Specify one match method.
+         * @param match Method and value to match the header value sent with a request. Specify one match method.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the HTTP header in the client request that will be matched on.
+         * @param name Name for the HTTP header in the client request that will be matched on.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the HTTP header in the client request that will be matched on.
+         * @param name Name for the HTTP header in the client request that will be matched on.
          * 
          * @return builder
          * 

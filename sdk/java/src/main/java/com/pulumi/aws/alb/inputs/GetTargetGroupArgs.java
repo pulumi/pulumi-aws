@@ -17,14 +17,14 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTargetGroupArgs Empty = new GetTargetGroupArgs();
 
     /**
-     * The full ARN of the target group.
+     * Full ARN of the target group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The full ARN of the target group.
+     * @return Full ARN of the target group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique name of the target group.
+     * Unique name of the target group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name of the target group.
+     * @return Unique name of the target group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,7 +80,7 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The full ARN of the target group.
+         * @param arn Full ARN of the target group.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The full ARN of the target group.
+         * @param arn Full ARN of the target group.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the target group.
+         * @param name Unique name of the target group.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The unique name of the target group.
+         * @param name Unique name of the target group.
          * 
          * @return builder
          * 

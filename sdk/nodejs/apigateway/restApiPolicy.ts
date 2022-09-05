@@ -82,7 +82,7 @@ export class RestApiPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * The ID of the REST API.
+     * ID of the REST API.
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -126,7 +126,7 @@ export interface RestApiPolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
-     * The ID of the REST API.
+     * ID of the REST API.
      */
     restApiId?: pulumi.Input<string>;
 }
@@ -140,7 +140,7 @@ export interface RestApiPolicyArgs {
      */
     policy: pulumi.Input<string>;
     /**
-     * The ID of the REST API.
+     * ID of the REST API.
      */
     restApiId: pulumi.Input<string>;
 }

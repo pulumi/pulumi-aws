@@ -64,7 +64,7 @@ export interface GetSecurityProfileArgs {
      */
     securityProfileId?: string;
     /**
-     * A map of tags to assign to the Security Profile.
+     * Map of tags to assign to the Security Profile.
      */
     tags?: {[key: string]: string};
 }
@@ -74,11 +74,11 @@ export interface GetSecurityProfileArgs {
  */
 export interface GetSecurityProfileResult {
     /**
-     * The Amazon Resource Name (ARN) of the Security Profile.
+     * ARN of the Security Profile.
      */
     readonly arn: string;
     /**
-     * Specifies the description of the Security Profile.
+     * Description of the Security Profile.
      */
     readonly description: string;
     /**
@@ -92,12 +92,12 @@ export interface GetSecurityProfileResult {
      */
     readonly organizationResourceId: string;
     /**
-     * Specifies a list of permissions assigned to the security profile.
+     * List of permissions assigned to the security profile.
      */
     readonly permissions: string[];
     readonly securityProfileId: string;
     /**
-     * A map of tags to assign to the Security Profile.
+     * Map of tags to assign to the Security Profile.
      */
     readonly tags: {[key: string]: string};
 }
@@ -123,7 +123,7 @@ export interface GetSecurityProfileOutputArgs {
      */
     securityProfileId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the Security Profile.
+     * Map of tags to assign to the Security Profile.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

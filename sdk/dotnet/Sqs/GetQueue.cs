@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sqs
     public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the queue to match.
+        /// Name of the queue to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Sqs
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Sqs
     public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the queue to match.
+        /// Name of the queue to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Sqs
     public sealed class GetQueueResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the queue.
+        /// ARN of the queue.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -137,11 +137,11 @@ namespace Pulumi.Aws.Sqs
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The URL of the queue.
+        /// URL of the queue.
         /// </summary>
         public readonly string Url;
 

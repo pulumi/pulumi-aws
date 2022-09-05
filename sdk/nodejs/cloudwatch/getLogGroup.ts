@@ -35,11 +35,11 @@ export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetLogGroupArgs {
     /**
-     * The name of the Cloudwatch log group
+     * Name of the Cloudwatch log group
      */
     name: string;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -49,11 +49,11 @@ export interface GetLogGroupArgs {
  */
 export interface GetLogGroupResult {
     /**
-     * The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     readonly arn: string;
     /**
-     * The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+     * Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      */
     readonly creationTime: number;
     /**
@@ -61,16 +61,16 @@ export interface GetLogGroupResult {
      */
     readonly id: string;
     /**
-     * The ARN of the KMS Key to use when encrypting log data.
+     * ARN of the KMS Key to use when encrypting log data.
      */
     readonly kmsKeyId: string;
     readonly name: string;
     /**
-     * The number of days log events retained in the specified log group.
+     * Number of days log events retained in the specified log group.
      */
     readonly retentionInDays: number;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -84,11 +84,11 @@ export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.Inv
  */
 export interface GetLogGroupOutputArgs {
     /**
-     * The name of the Cloudwatch log group
+     * Name of the Cloudwatch log group
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

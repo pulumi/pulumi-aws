@@ -62,14 +62,14 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * A map of tags to assign to the Hours of Operation.
+     * Map of tags to assign to the Hours of Operation.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Hours of Operation.
+     * @return Map of tags to assign to the Hours of Operation.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,7 +167,7 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags A map of tags to assign to the Hours of Operation.
+         * @param tags Map of tags to assign to the Hours of Operation.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags A map of tags to assign to the Hours of Operation.
+         * @param tags Map of tags to assign to the Hours of Operation.
          * 
          * @return builder
          * 

@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetServerResult {
     /**
-     * @return Amazon Resource Name (ARN) of Transfer Server.
+     * @return ARN of Transfer Server.
      * 
      */
     private String arn;
     /**
-     * @return The ARN of any certificate.
+     * @return ARN of any certificate.
      * 
      */
     private String certificate;
@@ -26,12 +26,12 @@ public final class GetServerResult {
      */
     private String domain;
     /**
-     * @return The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
+     * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      * 
      */
     private String endpoint;
     /**
-     * @return The type of endpoint that the server is connected to.
+     * @return Type of endpoint that the server is connected to.
      * 
      */
     private String endpointType;
@@ -46,17 +46,17 @@ public final class GetServerResult {
      */
     private String identityProviderType;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     private String invocationRole;
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     private String loggingRole;
     /**
-     * @return The file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
+     * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
      * 
      */
     private List<String> protocols;
@@ -74,14 +74,14 @@ public final class GetServerResult {
 
     private GetServerResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of Transfer Server.
+     * @return ARN of Transfer Server.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The ARN of any certificate.
+     * @return ARN of any certificate.
      * 
      */
     public String certificate() {
@@ -95,14 +95,14 @@ public final class GetServerResult {
         return this.domain;
     }
     /**
-     * @return The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
+     * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      * 
      */
     public String endpoint() {
         return this.endpoint;
     }
     /**
-     * @return The type of endpoint that the server is connected to.
+     * @return Type of endpoint that the server is connected to.
      * 
      */
     public String endpointType() {
@@ -123,21 +123,21 @@ public final class GetServerResult {
         return this.identityProviderType;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     public String invocationRole() {
         return this.invocationRole;
     }
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     public String loggingRole() {
         return this.loggingRole;
     }
     /**
-     * @return The file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
+     * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint.
      * 
      */
     public List<String> protocols() {

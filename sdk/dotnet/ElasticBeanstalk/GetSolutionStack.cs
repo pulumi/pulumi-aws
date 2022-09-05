@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// A regex string to apply to the solution stack list returned
+        /// Regex string to apply to the solution stack list returned
         /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
         /// AWS documentation for reference solution stack names.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// A regex string to apply to the solution stack list returned
+        /// Regex string to apply to the solution stack list returned
         /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
         /// AWS documentation for reference solution stack names.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public readonly string Id;
         public readonly bool? MostRecent;
         /// <summary>
-        /// The name of the solution stack.
+        /// Name of the solution stack.
         /// </summary>
         public readonly string Name;
         public readonly string NameRegex;

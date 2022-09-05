@@ -54,7 +54,7 @@ class GetSecurityProfileResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Security Profile.
+        ARN of the Security Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -62,7 +62,7 @@ class GetSecurityProfileResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Security Profile.
+        Description of the Security Profile.
         """
         return pulumi.get(self, "description")
 
@@ -96,7 +96,7 @@ class GetSecurityProfileResult:
     @pulumi.getter
     def permissions(self) -> Sequence[str]:
         """
-        Specifies a list of permissions assigned to the security profile.
+        List of permissions assigned to the security profile.
         """
         return pulumi.get(self, "permissions")
 
@@ -109,7 +109,7 @@ class GetSecurityProfileResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the Security Profile.
+        Map of tags to assign to the Security Profile.
         """
         return pulumi.get(self, "tags")
 
@@ -165,7 +165,7 @@ def get_security_profile(instance_id: Optional[str] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Security Profile by name
     :param str security_profile_id: Returns information on a specific Security Profile by Security Profile id
-    :param Mapping[str, str] tags: A map of tags to assign to the Security Profile.
+    :param Mapping[str, str] tags: Map of tags to assign to the Security Profile.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -222,6 +222,6 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Security Profile by name
     :param str security_profile_id: Returns information on a specific Security Profile by Security Profile id
-    :param Mapping[str, str] tags: A map of tags to assign to the Security Profile.
+    :param Mapping[str, str] tags: Map of tags to assign to the Security Profile.
     """
     ...

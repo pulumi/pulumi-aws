@@ -74,13 +74,13 @@ namespace Pulumi.Aws.Location
     public sealed class GetTrackerAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+        /// ARN of the geofence collection associated to tracker resource.
         /// </summary>
         [Input("consumerArn", required: true)]
         public string ConsumerArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the tracker resource associated with a geofence collection.
+        /// Name of the tracker resource associated with a geofence collection.
         /// </summary>
         [Input("trackerName", required: true)]
         public string TrackerName { get; set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Aws.Location
     public sealed class GetTrackerAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+        /// ARN of the geofence collection associated to tracker resource.
         /// </summary>
         [Input("consumerArn", required: true)]
         public Input<string> ConsumerArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the tracker resource associated with a geofence collection.
+        /// Name of the tracker resource associated with a geofence collection.
         /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;

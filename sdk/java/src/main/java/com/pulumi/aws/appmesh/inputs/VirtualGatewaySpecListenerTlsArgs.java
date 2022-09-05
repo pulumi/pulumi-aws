@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
     public static final VirtualGatewaySpecListenerTlsArgs Empty = new VirtualGatewaySpecListenerTlsArgs();
 
     /**
-     * The listener&#39;s TLS certificate.
+     * Listener&#39;s TLS certificate.
      * 
      */
     @Import(name="certificate", required=true)
     private Output<VirtualGatewaySpecListenerTlsCertificateArgs> certificate;
 
     /**
-     * @return The listener&#39;s TLS certificate.
+     * @return Listener&#39;s TLS certificate.
      * 
      */
     public Output<VirtualGatewaySpecListenerTlsCertificateArgs> certificate() {
@@ -33,14 +33,14 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
     }
 
     /**
-     * The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+     * Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
      * 
      */
     public Output<String> mode() {
@@ -48,14 +48,14 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
     }
 
     /**
-     * The listener&#39;s Transport Layer Security (TLS) validation context.
+     * Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     @Import(name="validation")
     private @Nullable Output<VirtualGatewaySpecListenerTlsValidationArgs> validation;
 
     /**
-     * @return The listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsValidationArgs>> validation() {
@@ -89,7 +89,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificate The listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificate The listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param mode The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+         * @param mode Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param mode The listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+         * @param mode Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param validation The listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param validation The listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
          * 
          * @return builder
          * 

@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     private String metricName;
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     private String namespace;
     /**
-     * @return The statistic of the metric.
+     * @return Statistic of the metric.
      * 
      */
     private String statistic;
     /**
-     * @return The unit of the metrics to return.
+     * @return Unit of the metrics to return.
      * 
      */
     private @Nullable String unit;
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecification() {}
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions() {
         return this.metricDimensions == null ? List.of() : this.metricDimensions;
     }
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public String metricName() {
         return this.metricName;
     }
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public String namespace() {
         return this.namespace;
     }
     /**
-     * @return The statistic of the metric.
+     * @return Statistic of the metric.
      * 
      */
     public String statistic() {
         return this.statistic;
     }
     /**
-     * @return The unit of the metrics to return.
+     * @return Unit of the metrics to return.
      * 
      */
     public Optional<String> unit() {

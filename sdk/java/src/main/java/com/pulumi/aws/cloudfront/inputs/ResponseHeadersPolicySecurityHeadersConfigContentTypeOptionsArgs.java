@@ -14,14 +14,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsA
     public static final ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs();
 
     /**
-     * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Output<Boolean> override() {
@@ -53,7 +53,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsA
         }
 
         /**
-         * @param override A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+         * @param override Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsA
         }
 
         /**
-         * @param override A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+         * @param override Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 

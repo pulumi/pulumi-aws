@@ -78,29 +78,29 @@ export class MethodResponse extends pulumi.CustomResource {
     }
 
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
-     * A map of the API models used for the response's content type
+     * Map of the API models used for the response's content type
      */
     public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of response parameters that can be sent to the caller.
+     * Map of response parameters that can be sent to the caller.
      * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * The HTTP status code
+     * HTTP status code
      */
     public readonly statusCode!: pulumi.Output<string>;
 
@@ -154,29 +154,29 @@ export class MethodResponse extends pulumi.CustomResource {
  */
 export interface MethodResponseState {
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     httpMethod?: pulumi.Input<string>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * A map of the API models used for the response's content type
+     * Map of the API models used for the response's content type
      */
     responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of response parameters that can be sent to the caller.
+     * Map of response parameters that can be sent to the caller.
      * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * The HTTP status code
+     * HTTP status code
      */
     statusCode?: pulumi.Input<string>;
 }
@@ -186,29 +186,29 @@ export interface MethodResponseState {
  */
 export interface MethodResponseArgs {
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     httpMethod: pulumi.Input<string>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     resourceId: pulumi.Input<string>;
     /**
-     * A map of the API models used for the response's content type
+     * Map of the API models used for the response's content type
      */
     responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of response parameters that can be sent to the caller.
+     * Map of response parameters that can be sent to the caller.
      * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * The HTTP status code
+     * HTTP status code
      */
     statusCode: pulumi.Input<string>;
 }

@@ -73,9 +73,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// The cluster identifier
+	// Cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The tags associated to the cluster
+	// Tags associated to the cluster
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -85,23 +85,23 @@ type LookupClusterResult struct {
 	AllowVersionUpgrade bool `pulumi:"allowVersionUpgrade"`
 	// The value represents how the cluster is configured to use AQUA.
 	AquaConfigurationStatus string `pulumi:"aquaConfigurationStatus"`
-	// Amazon Resource Name (ARN) of cluster.
+	// ARN of cluster.
 	Arn string `pulumi:"arn"`
 	// The backup retention period
 	AutomatedSnapshotRetentionPeriod int `pulumi:"automatedSnapshotRetentionPeriod"`
-	// The availability zone of the cluster
+	// Availability zone of the cluster
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Indicates whether the cluster is able to be relocated to another availability zone.
 	AvailabilityZoneRelocationEnabled bool `pulumi:"availabilityZoneRelocationEnabled"`
-	// The name of the S3 bucket where the log files are to be stored
+	// Name of the S3 bucket where the log files are to be stored
 	BucketName string `pulumi:"bucketName"`
-	// The cluster identifier
+	// Cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The nodes in the cluster. Cluster node blocks are documented below
+	// Nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []GetClusterClusterNode `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster
 	ClusterParameterGroupName string `pulumi:"clusterParameterGroupName"`
-	// The public key for the cluster
+	// Public key for the cluster
 	ClusterPublicKey string `pulumi:"clusterPublicKey"`
 	// The cluster revision number
 	ClusterRevisionNumber string `pulumi:"clusterRevisionNumber"`
@@ -109,32 +109,32 @@ type LookupClusterResult struct {
 	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster
 	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
-	// The cluster type
+	// Cluster type
 	ClusterType    string `pulumi:"clusterType"`
 	ClusterVersion string `pulumi:"clusterVersion"`
-	// The name of the default database in the cluster
+	// Name of the default database in the cluster
 	DatabaseName string `pulumi:"databaseName"`
-	// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
-	// The Elastic IP of the cluster
+	// Elastic IP of the cluster
 	ElasticIp string `pulumi:"elasticIp"`
 	// Whether cluster logging is enabled
 	EnableLogging bool `pulumi:"enableLogging"`
 	// Whether the cluster data is encrypted
 	Encrypted bool `pulumi:"encrypted"`
-	// The cluster endpoint
+	// Cluster endpoint
 	Endpoint string `pulumi:"endpoint"`
 	// Whether enhanced VPC routing is enabled
 	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
-	// The IAM roles associated to the cluster
+	// IAM roles associated to the cluster
 	IamRoles []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The KMS encryption key associated to the cluster
+	// KMS encryption key associated to the cluster
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The log destination type.
 	LogDestinationType string `pulumi:"logDestinationType"`
-	// The collection of exported log types. Log types include the connection log, user log and user activity log.
+	// Collection of exported log types. Log types include the connection log, user log and user activity log.
 	LogExports []string `pulumi:"logExports"`
 	// The name of the maintenance track for the restored cluster.
 	MaintenanceTrackName string `pulumi:"maintenanceTrackName"`
@@ -142,21 +142,21 @@ type LookupClusterResult struct {
 	ManualSnapshotRetentionPeriod int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Username for the master DB user
 	MasterUsername string `pulumi:"masterUsername"`
-	// The cluster node type
+	// Cluster node type
 	NodeType string `pulumi:"nodeType"`
-	// The number of nodes in the cluster
+	// Number of nodes in the cluster
 	NumberOfNodes int `pulumi:"numberOfNodes"`
-	// The port the cluster responds on
+	// Port the cluster responds on
 	Port int `pulumi:"port"`
 	// The maintenance window
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Whether the cluster is publicly accessible
 	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
-	// The folder inside the S3 bucket where the log files are stored
+	// Folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
-	// The tags associated to the cluster
+	// Tags associated to the cluster
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC Id associated with the cluster
+	// VPC Id associated with the cluster
 	VpcId string `pulumi:"vpcId"`
 	// The VPC security group Ids associated with the cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -177,9 +177,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// The cluster identifier
+	// Cluster identifier
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
-	// The tags associated to the cluster
+	// Tags associated to the cluster
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -212,7 +212,7 @@ func (o LookupClusterResultOutput) AquaConfigurationStatus() pulumi.StringOutput
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster.
+// ARN of cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -222,7 +222,7 @@ func (o LookupClusterResultOutput) AutomatedSnapshotRetentionPeriod() pulumi.Int
 	return o.ApplyT(func(v LookupClusterResult) int { return v.AutomatedSnapshotRetentionPeriod }).(pulumi.IntOutput)
 }
 
-// The availability zone of the cluster
+// Availability zone of the cluster
 func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -232,17 +232,17 @@ func (o LookupClusterResultOutput) AvailabilityZoneRelocationEnabled() pulumi.Bo
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AvailabilityZoneRelocationEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the S3 bucket where the log files are to be stored
+// Name of the S3 bucket where the log files are to be stored
 func (o LookupClusterResultOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The cluster identifier
+// Cluster identifier
 func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The nodes in the cluster. Cluster node blocks are documented below
+// Nodes in the cluster. Cluster node blocks are documented below
 func (o LookupClusterResultOutput) ClusterNodes() GetClusterClusterNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterNode { return v.ClusterNodes }).(GetClusterClusterNodeArrayOutput)
 }
@@ -252,7 +252,7 @@ func (o LookupClusterResultOutput) ClusterParameterGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterParameterGroupName }).(pulumi.StringOutput)
 }
 
-// The public key for the cluster
+// Public key for the cluster
 func (o LookupClusterResultOutput) ClusterPublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterPublicKey }).(pulumi.StringOutput)
 }
@@ -272,7 +272,7 @@ func (o LookupClusterResultOutput) ClusterSubnetGroupName() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterSubnetGroupName }).(pulumi.StringOutput)
 }
 
-// The cluster type
+// Cluster type
 func (o LookupClusterResultOutput) ClusterType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterType }).(pulumi.StringOutput)
 }
@@ -281,17 +281,17 @@ func (o LookupClusterResultOutput) ClusterVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
 }
 
-// The name of the default database in the cluster
+// Name of the default database in the cluster
 func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
 func (o LookupClusterResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
-// The Elastic IP of the cluster
+// Elastic IP of the cluster
 func (o LookupClusterResultOutput) ElasticIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ElasticIp }).(pulumi.StringOutput)
 }
@@ -306,7 +306,7 @@ func (o LookupClusterResultOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// The cluster endpoint
+// Cluster endpoint
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -316,7 +316,7 @@ func (o LookupClusterResultOutput) EnhancedVpcRouting() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.EnhancedVpcRouting }).(pulumi.BoolOutput)
 }
 
-// The IAM roles associated to the cluster
+// IAM roles associated to the cluster
 func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
@@ -326,7 +326,7 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The KMS encryption key associated to the cluster
+// KMS encryption key associated to the cluster
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -336,7 +336,7 @@ func (o LookupClusterResultOutput) LogDestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.LogDestinationType }).(pulumi.StringOutput)
 }
 
-// The collection of exported log types. Log types include the connection log, user log and user activity log.
+// Collection of exported log types. Log types include the connection log, user log and user activity log.
 func (o LookupClusterResultOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
@@ -356,17 +356,17 @@ func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
-// The cluster node type
+// Cluster node type
 func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// The number of nodes in the cluster
+// Number of nodes in the cluster
 func (o LookupClusterResultOutput) NumberOfNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumberOfNodes }).(pulumi.IntOutput)
 }
 
-// The port the cluster responds on
+// Port the cluster responds on
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -381,17 +381,17 @@ func (o LookupClusterResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
-// The folder inside the S3 bucket where the log files are stored
+// Folder inside the S3 bucket where the log files are stored
 func (o LookupClusterResultOutput) S3KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
 }
 
-// The tags associated to the cluster
+// Tags associated to the cluster
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The VPC Id associated with the cluster
+// VPC Id associated with the cluster
 func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

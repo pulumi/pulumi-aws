@@ -20,7 +20,7 @@ public final class AmiFromInstanceEbsBlockDevice {
      */
     private @Nullable Boolean deleteOnTermination;
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     private @Nullable String deviceName;
@@ -36,31 +36,31 @@ public final class AmiFromInstanceEbsBlockDevice {
      */
     private @Nullable Integer iops;
     /**
-     * @return The ARN of the Outpost on which the snapshot is stored.
+     * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
     private @Nullable String outpostArn;
     /**
-     * @return The id of an EBS snapshot that will be used to initialize the created
+     * @return ID of an EBS snapshot that will be used to initialize the created
      * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
      * snapshot.
      * 
      */
     private @Nullable String snapshotId;
     /**
-     * @return The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+     * @return Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
      * 
      */
     private @Nullable Integer throughput;
     /**
-     * @return The size of created volumes in GiB.
+     * @return Size of created volumes in GiB.
      * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
      * as the selected snapshot.
      * 
      */
     private @Nullable Integer volumeSize;
     /**
-     * @return The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+     * @return Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
      * 
      */
     private @Nullable String volumeType;
@@ -75,7 +75,7 @@ public final class AmiFromInstanceEbsBlockDevice {
         return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
-     * @return The path at which the device is exposed to created instances.
+     * @return Path at which the device is exposed to created instances.
      * 
      */
     public Optional<String> deviceName() {
@@ -97,14 +97,14 @@ public final class AmiFromInstanceEbsBlockDevice {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return The ARN of the Outpost on which the snapshot is stored.
+     * @return ARN of the Outpost on which the snapshot is stored.
      * 
      */
     public Optional<String> outpostArn() {
         return Optional.ofNullable(this.outpostArn);
     }
     /**
-     * @return The id of an EBS snapshot that will be used to initialize the created
+     * @return ID of an EBS snapshot that will be used to initialize the created
      * EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
      * snapshot.
      * 
@@ -113,14 +113,14 @@ public final class AmiFromInstanceEbsBlockDevice {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
-     * @return The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+     * @return Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
      * 
      */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
     /**
-     * @return The size of created volumes in GiB.
+     * @return Size of created volumes in GiB.
      * If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
      * as the selected snapshot.
      * 
@@ -129,7 +129,7 @@ public final class AmiFromInstanceEbsBlockDevice {
         return Optional.ofNullable(this.volumeSize);
     }
     /**
-     * @return The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+     * @return Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
      * 
      */
     public Optional<String> volumeType() {

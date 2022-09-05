@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly string OutboundCallerIdNumberId;
         /// <summary>
-        /// Specifies the outbound whisper flow to be used during an outbound call.
+        /// Outbound whisper flow to be used during an outbound call.
         /// </summary>
         public readonly string OutboundFlowId;
 

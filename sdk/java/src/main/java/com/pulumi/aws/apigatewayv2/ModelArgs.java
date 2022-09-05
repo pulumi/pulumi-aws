@@ -16,14 +16,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     public static final ModelArgs Empty = new ModelArgs();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -46,14 +46,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the model. Must be between 1 and 128 characters in length.
+     * Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the model. Must be between 1 and 128 characters in length.
+     * @return Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> description() {
@@ -61,14 +61,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+     * @return Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,14 +76,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+     * @return Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
     public Output<String> schema() {
@@ -119,7 +119,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the model. Must be between 1 and 128 characters in length.
+         * @param description Description of the model. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the model. Must be between 1 and 128 characters in length.
+         * @param description Description of the model. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+         * @param name Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
+         * @param name Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+         * @param schema Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
+         * @param schema Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
          * 
          * @return builder
          * 

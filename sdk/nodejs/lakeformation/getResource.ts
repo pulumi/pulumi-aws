@@ -34,7 +34,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetResourceArgs {
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * ARN of the resource, an S3 path.
      */
     arn: string;
 }
@@ -49,7 +49,7 @@ export interface GetResourceResult {
      */
     readonly id: string;
     /**
-     * The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     readonly lastModified: string;
     /**
@@ -67,7 +67,7 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
  */
 export interface GetResourceOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * ARN of the resource, an S3 path.
      */
     arn: pulumi.Input<string>;
 }

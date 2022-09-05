@@ -14,14 +14,14 @@ public final class GetTaskDefinitionArgs extends com.pulumi.resources.InvokeArgs
     public static final GetTaskDefinitionArgs Empty = new GetTaskDefinitionArgs();
 
     /**
-     * The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      * 
      */
     @Import(name="taskDefinition", required=true)
     private Output<String> taskDefinition;
 
     /**
-     * @return The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * @return Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      * 
      */
     public Output<String> taskDefinition() {
@@ -53,7 +53,7 @@ public final class GetTaskDefinitionArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param taskDefinition The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetTaskDefinitionArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param taskDefinition The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
          * 
          * @return builder
          * 

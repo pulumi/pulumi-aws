@@ -10,86 +10,86 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkInterfaceAssociation {
     /**
-     * @return The allocation ID.
+     * @return Allocation ID.
      * 
      */
     private String allocationId;
     /**
-     * @return The association ID.
+     * @return Association ID.
      * 
      */
     private String associationId;
     /**
-     * @return The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+     * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
      * 
      */
     private String carrierIp;
     /**
-     * @return The customer-owned IP address.
+     * @return Customer-owned IP address.
      * 
      */
     private String customerOwnedIp;
     /**
-     * @return The ID of the Elastic IP address owner.
+     * @return ID of the Elastic IP address owner.
      * 
      */
     private String ipOwnerId;
     /**
-     * @return The public DNS name.
+     * @return Public DNS name.
      * 
      */
     private String publicDnsName;
     /**
-     * @return The address of the Elastic IP address bound to the network interface.
+     * @return Address of the Elastic IP address bound to the network interface.
      * 
      */
     private String publicIp;
 
     private GetNetworkInterfaceAssociation() {}
     /**
-     * @return The allocation ID.
+     * @return Allocation ID.
      * 
      */
     public String allocationId() {
         return this.allocationId;
     }
     /**
-     * @return The association ID.
+     * @return Association ID.
      * 
      */
     public String associationId() {
         return this.associationId;
     }
     /**
-     * @return The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+     * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
      * 
      */
     public String carrierIp() {
         return this.carrierIp;
     }
     /**
-     * @return The customer-owned IP address.
+     * @return Customer-owned IP address.
      * 
      */
     public String customerOwnedIp() {
         return this.customerOwnedIp;
     }
     /**
-     * @return The ID of the Elastic IP address owner.
+     * @return ID of the Elastic IP address owner.
      * 
      */
     public String ipOwnerId() {
         return this.ipOwnerId;
     }
     /**
-     * @return The public DNS name.
+     * @return Public DNS name.
      * 
      */
     public String publicDnsName() {
         return this.publicDnsName;
     }
     /**
-     * @return The address of the Elastic IP address bound to the network interface.
+     * @return Address of the Elastic IP address bound to the network interface.
      * 
      */
     public String publicIp() {

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN)
+        /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN)
+        /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall policy.
+        /// ARN of the firewall policy.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The descriptive name of the firewall policy.
+        /// Descriptive name of the firewall policy.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall policy.
+        /// ARN of the firewall policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The descriptive name of the firewall policy.
+        /// Descriptive name of the firewall policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.NetworkFirewall
     {
         public readonly string? Arn;
         /// <summary>
-        /// A description of the firewall policy.
+        /// Description of the firewall policy.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A token used for optimistic locking.
+        /// Token used for optimistic locking.
         /// </summary>
         public readonly string UpdateToken;
 

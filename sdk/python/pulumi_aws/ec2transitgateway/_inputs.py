@@ -29,7 +29,7 @@ class GetAttachmentFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        :param str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
@@ -39,7 +39,7 @@ class GetAttachmentFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         """
         return pulumi.get(self, "name")
 
@@ -140,7 +140,7 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -150,7 +150,7 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         """
         return pulumi.get(self, "name")
 
@@ -177,7 +177,7 @@ class GetMulticastDomainFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -187,7 +187,7 @@ class GetMulticastDomainFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
         """
         return pulumi.get(self, "name")
 
@@ -214,7 +214,7 @@ class GetPeeringAttachmentFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
@@ -226,7 +226,7 @@ class GetPeeringAttachmentFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
         """
         return pulumi.get(self, "name")
@@ -292,7 +292,7 @@ class GetTransitGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+        :param str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
         :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
@@ -302,7 +302,7 @@ class GetTransitGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
         """
         return pulumi.get(self, "name")
 
@@ -403,7 +403,7 @@ class GetVpnAttachmentFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -413,7 +413,7 @@ class GetVpnAttachmentFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         """
         return pulumi.get(self, "name")
 

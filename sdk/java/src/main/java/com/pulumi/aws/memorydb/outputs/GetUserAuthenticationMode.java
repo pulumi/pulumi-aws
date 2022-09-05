@@ -16,7 +16,7 @@ public final class GetUserAuthenticationMode {
      */
     private Integer passwordCount;
     /**
-     * @return Indicates whether the user requires a password to authenticate.
+     * @return Whether the user requires a password to authenticate.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class GetUserAuthenticationMode {
         return this.passwordCount;
     }
     /**
-     * @return Indicates whether the user requires a password to authenticate.
+     * @return Whether the user requires a password to authenticate.
      * 
      */
     public String type() {

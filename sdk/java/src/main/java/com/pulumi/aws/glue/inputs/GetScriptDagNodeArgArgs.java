@@ -17,14 +17,14 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
     public static final GetScriptDagNodeArgArgs Empty = new GetScriptDagNodeArgArgs();
 
     /**
-     * The name of the argument or property.
+     * Name of the argument or property.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the argument or property.
+     * @return Name of the argument or property.
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The value of the argument or property.
+     * Value of the argument or property.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the argument or property.
+     * @return Value of the argument or property.
      * 
      */
     public Output<String> value() {
@@ -88,7 +88,7 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the argument or property.
+         * @param name Name of the argument or property.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the argument or property.
+         * @param name Name of the argument or property.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param value The value of the argument or property.
+         * @param value Value of the argument or property.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetScriptDagNodeArgArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param value The value of the argument or property.
+         * @param value Value of the argument or property.
          * 
          * @return builder
          * 

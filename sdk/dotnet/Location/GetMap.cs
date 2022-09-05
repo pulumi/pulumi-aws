@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetMapArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the map resource.
+        /// Name of the map resource.
         /// </summary>
         [Input("mapName", required: true)]
         public string MapName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetMapInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the map resource.
+        /// Name of the map resource.
         /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
@@ -128,11 +128,11 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMapConfigurationResult> Configurations;
         /// <summary>
-        /// The timestamp for when the map resource was created in ISO 8601 format.
+        /// Timestamp for when the map resource was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The optional description for the map resource.
+        /// Optional description for the map resource.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the map resource.
+        /// ARN for the map resource.
         /// </summary>
         public readonly string MapArn;
         public readonly string MapName;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timestamp for when the map resource was last updated in ISO 8601 format.
+        /// Timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

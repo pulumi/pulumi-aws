@@ -16,14 +16,14 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
     public static final GetFirewallPolicyPlainArgs Empty = new GetFirewallPolicyPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the firewall policy.
+     * ARN of the firewall policy.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall policy.
+     * @return ARN of the firewall policy.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The descriptive name of the firewall policy.
+     * Descriptive name of the firewall policy.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The descriptive name of the firewall policy.
+     * @return Descriptive name of the firewall policy.
      * 
      */
     public Optional<String> name() {
@@ -87,7 +87,7 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the firewall policy.
+         * @param arn ARN of the firewall policy.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The descriptive name of the firewall policy.
+         * @param name Descriptive name of the firewall policy.
          * 
          * @return builder
          * 

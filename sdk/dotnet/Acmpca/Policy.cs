@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> PolicyDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string> PolicyDetails { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? PolicyDetails { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the private CA to associate with the policy.
+        /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

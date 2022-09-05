@@ -26,12 +26,12 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
      */
     private List<GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption> contentTypeOptions;
     /**
-     * @return A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+     * @return Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
      * 
      */
     private List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions;
     /**
-     * @return The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+     * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
     private List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies;
@@ -62,14 +62,14 @@ public final class GetResponseHeadersPolicySecurityHeadersConfig {
         return this.contentTypeOptions;
     }
     /**
-     * @return A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+     * @return Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
      * 
      */
     public List<GetResponseHeadersPolicySecurityHeadersConfigFrameOption> frameOptions() {
         return this.frameOptions;
     }
     /**
-     * @return The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+     * @return Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
     public List<GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicies() {

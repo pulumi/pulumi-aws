@@ -16,14 +16,14 @@ public final class GetGlobalNetworkPlainArgs extends com.pulumi.resources.Invoke
     public static final GetGlobalNetworkPlainArgs Empty = new GetGlobalNetworkPlainArgs();
 
     /**
-     * The id of the specific global network to retrieve.
+     * ID of the specific global network to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The id of the specific global network to retrieve.
+     * @return ID of the specific global network to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -31,14 +31,14 @@ public final class GetGlobalNetworkPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetGlobalNetworkPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param globalNetworkId The id of the specific global network to retrieve.
+         * @param globalNetworkId ID of the specific global network to retrieve.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetGlobalNetworkPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of resource tags.
+         * @param tags Map of resource tags.
          * 
          * @return builder
          * 

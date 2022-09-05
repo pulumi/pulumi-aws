@@ -34,12 +34,12 @@ export interface GetSubnetIdsArgs {
      */
     filters?: inputs.ec2.GetSubnetIdsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: {[key: string]: string};
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId: string;
 }
@@ -54,7 +54,7 @@ export interface GetSubnetIdsResult {
      */
     readonly id: string;
     /**
-     * A set of all the subnet ids found. This data source will fail if none are found.
+     * Set of all the subnet ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -74,12 +74,12 @@ export interface GetSubnetIdsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetIdsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId: pulumi.Input<string>;
 }

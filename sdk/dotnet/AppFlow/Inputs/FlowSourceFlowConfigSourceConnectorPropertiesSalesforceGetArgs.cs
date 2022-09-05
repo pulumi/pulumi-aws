@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         /// </summary>
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
 
         /// <summary>
-        /// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+        /// Whether Amazon AppFlow includes deleted files in the flow run.
         /// </summary>
         [Input("includeDeletedRecords")]
         public Input<bool>? IncludeDeletedRecords { get; set; }
 
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;

@@ -49,14 +49,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the instance.
+     * ARN of the instance.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the instance.
+     * @return ARN of the instance.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -289,6 +289,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    @Import(name="hostResourceGroupArn")
+    private @Nullable Output<String> hostResourceGroupArn;
+
+    /**
+     * @return ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    public Optional<Output<String>> hostResourceGroupArn() {
+        return Optional.ofNullable(this.hostResourceGroupArn);
+    }
+
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
@@ -319,14 +334,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
     @Import(name="instanceState")
     private @Nullable Output<String> instanceState;
 
     /**
-     * @return The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * @return State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
     public Optional<Output<String>> instanceState() {
@@ -334,14 +349,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<Either<String,InstanceType>> instanceType;
 
     /**
-     * @return The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Optional<Output<Either<String,InstanceType>>> instanceType() {
@@ -349,14 +364,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     @Import(name="ipv6AddressCount")
     private @Nullable Output<Integer> ipv6AddressCount;
 
     /**
-     * @return A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * @return Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     public Optional<Output<Integer>> ipv6AddressCount() {
@@ -411,14 +426,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     @Import(name="maintenanceOptions")
     private @Nullable Output<InstanceMaintenanceOptionsArgs> maintenanceOptions;
 
     /**
-     * @return The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * @return Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     public Optional<Output<InstanceMaintenanceOptionsArgs>> maintenanceOptions() {
@@ -471,14 +486,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Outpost the instance is assigned to.
+     * ARN of the Outpost the instance is assigned to.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The ARN of the Outpost the instance is assigned to.
+     * @return ARN of the Outpost the instance is assigned to.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -516,14 +531,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     @Import(name="placementPartitionNumber")
     private @Nullable Output<Integer> placementPartitionNumber;
 
     /**
-     * @return The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     public Optional<Output<Integer>> placementPartitionNumber() {
@@ -531,14 +546,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the instance&#39;s primary network interface.
+     * ID of the instance&#39;s primary network interface.
      * 
      */
     @Import(name="primaryNetworkInterfaceId")
     private @Nullable Output<String> primaryNetworkInterfaceId;
 
     /**
-     * @return The ID of the instance&#39;s primary network interface.
+     * @return ID of the instance&#39;s primary network interface.
      * 
      */
     public Optional<Output<String>> primaryNetworkInterfaceId() {
@@ -546,14 +561,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Import(name="privateDns")
     private @Nullable Output<String> privateDns;
 
     /**
-     * @return The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * @return Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     public Optional<Output<String>> privateDns() {
@@ -561,14 +576,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     @Import(name="privateDnsNameOptions")
     private @Nullable Output<InstancePrivateDnsNameOptionsArgs> privateDnsNameOptions;
 
     /**
-     * @return The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * @return Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     public Optional<Output<InstancePrivateDnsNameOptionsArgs>> privateDnsNameOptions() {
@@ -591,14 +606,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     @Import(name="publicDns")
     private @Nullable Output<String> publicDns;
 
     /**
-     * @return The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+     * @return Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
     public Optional<Output<String>> publicDns() {
@@ -606,14 +621,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+     * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
     @Import(name="publicIp")
     private @Nullable Output<String> publicIp;
 
     /**
-     * @return The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+     * @return Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
     public Optional<Output<String>> publicIp() {
@@ -636,14 +651,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     @Import(name="secondaryPrivateIps")
     private @Nullable Output<List<String>> secondaryPrivateIps;
 
     /**
-     * @return A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     public Optional<Output<List<String>>> secondaryPrivateIps() {
@@ -651,7 +666,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -662,7 +677,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group names to associate with.
+     * @return List of security group names to associate with.
      * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -704,14 +719,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -719,14 +734,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -734,14 +749,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     @Import(name="tenancy")
     private @Nullable Output<Either<String,Tenancy>> tenancy;
 
     /**
-     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     public Optional<Output<Either<String,Tenancy>>> tenancy() {
@@ -794,14 +809,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     @Import(name="volumeTags")
     private @Nullable Output<Map<String,String>> volumeTags;
 
     /**
-     * @return A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     public Optional<Output<Map<String,String>>> volumeTags() {
@@ -809,14 +824,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of security group IDs to associate with.
+     * @return List of security group IDs to associate with.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -843,6 +858,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.getPasswordData = $.getPasswordData;
         this.hibernation = $.hibernation;
         this.hostId = $.hostId;
+        this.hostResourceGroupArn = $.hostResourceGroupArn;
         this.iamInstanceProfile = $.iamInstanceProfile;
         this.instanceInitiatedShutdownBehavior = $.instanceInitiatedShutdownBehavior;
         this.instanceState = $.instanceState;
@@ -920,7 +936,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the instance.
+         * @param arn ARN of the instance.
          * 
          * @return builder
          * 
@@ -931,7 +947,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the instance.
+         * @param arn ARN of the instance.
          * 
          * @return builder
          * 
@@ -1276,6 +1292,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostResourceGroupArn(@Nullable Output<String> hostResourceGroupArn) {
+            $.hostResourceGroupArn = hostResourceGroupArn;
+            return this;
+        }
+
+        /**
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostResourceGroupArn(String hostResourceGroupArn) {
+            return hostResourceGroupArn(Output.of(hostResourceGroupArn));
+        }
+
+        /**
          * @param iamInstanceProfile IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
          * 
          * @return builder
@@ -1318,7 +1355,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceState The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+         * @param instanceState State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
          * 
          * @return builder
          * 
@@ -1329,7 +1366,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceState The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+         * @param instanceState State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
          * 
          * @return builder
          * 
@@ -1339,7 +1376,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1350,7 +1387,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1360,7 +1397,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1370,7 +1407,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1380,7 +1417,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6AddressCount A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+         * @param ipv6AddressCount Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
          * 
          * @return builder
          * 
@@ -1391,7 +1428,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6AddressCount A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+         * @param ipv6AddressCount Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
          * 
          * @return builder
          * 
@@ -1476,7 +1513,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceOptions The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+         * @param maintenanceOptions Maintenance and recovery options for the instance. See Maintenance Options below for more details.
          * 
          * @return builder
          * 
@@ -1487,7 +1524,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceOptions The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+         * @param maintenanceOptions Maintenance and recovery options for the instance. See Maintenance Options below for more details.
          * 
          * @return builder
          * 
@@ -1570,7 +1607,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The ARN of the Outpost the instance is assigned to.
+         * @param outpostArn ARN of the Outpost the instance is assigned to.
          * 
          * @return builder
          * 
@@ -1581,7 +1618,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The ARN of the Outpost the instance is assigned to.
+         * @param outpostArn ARN of the Outpost the instance is assigned to.
          * 
          * @return builder
          * 
@@ -1633,7 +1670,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementPartitionNumber The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
          * 
          * @return builder
          * 
@@ -1644,7 +1681,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param placementPartitionNumber The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
          * 
          * @return builder
          * 
@@ -1654,7 +1691,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryNetworkInterfaceId The ID of the instance&#39;s primary network interface.
+         * @param primaryNetworkInterfaceId ID of the instance&#39;s primary network interface.
          * 
          * @return builder
          * 
@@ -1665,7 +1702,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryNetworkInterfaceId The ID of the instance&#39;s primary network interface.
+         * @param primaryNetworkInterfaceId ID of the instance&#39;s primary network interface.
          * 
          * @return builder
          * 
@@ -1675,7 +1712,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDns The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+         * @param privateDns Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
          * 
          * @return builder
          * 
@@ -1686,7 +1723,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDns The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
+         * @param privateDns Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
          * 
          * @return builder
          * 
@@ -1696,7 +1733,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * @param privateDnsNameOptions Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
          * 
          * @return builder
          * 
@@ -1707,7 +1744,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * @param privateDnsNameOptions Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
          * 
          * @return builder
          * 
@@ -1738,7 +1775,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicDns The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+         * @param publicDns Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
          * 
          * @return builder
          * 
@@ -1749,7 +1786,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicDns The public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
+         * @param publicDns Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
          * 
          * @return builder
          * 
@@ -1759,7 +1796,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+         * @param publicIp Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
          * 
          * @return builder
          * 
@@ -1770,7 +1807,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
+         * @param publicIp Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
          * 
          * @return builder
          * 
@@ -1801,7 +1838,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1812,7 +1849,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1822,7 +1859,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1832,7 +1869,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1847,7 +1884,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1861,7 +1898,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1917,7 +1954,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1928,7 +1965,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1938,7 +1975,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1949,7 +1986,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1959,7 +1996,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -1970,7 +2007,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -1980,7 +2017,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -1990,7 +2027,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -2063,7 +2100,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeTags A map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
          * @return builder
          * 
@@ -2074,7 +2111,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeTags A map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
          * @return builder
          * 
@@ -2084,7 +2121,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 
@@ -2095,7 +2132,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 
@@ -2105,7 +2142,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 

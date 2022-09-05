@@ -18,14 +18,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentState Empty = new DeploymentState();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -48,14 +48,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * @return Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
     /**
-     * @return A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
     public Optional<Output<Map<String,String>>> triggers() {
@@ -105,7 +105,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+         * @param description Description for the deployment resource. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+         * @param description Description for the deployment resource. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
          * 
          * @return builder
          * 

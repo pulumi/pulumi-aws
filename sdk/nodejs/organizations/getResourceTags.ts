@@ -35,7 +35,7 @@ export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeO
  */
 export interface GetResourceTagsArgs {
     /**
-     * The ID of the resource with the tags to list. See details below.
+     * ID of the resource with the tags to list. See details below.
      */
     resourceId: string;
     /**
@@ -68,7 +68,7 @@ export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pu
  */
 export interface GetResourceTagsOutputArgs {
     /**
-     * The ID of the resource with the tags to list. See details below.
+     * ID of the resource with the tags to list. See details below.
      */
     resourceId: pulumi.Input<string>;
     /**

@@ -22,25 +22,25 @@ namespace Pulumi.Aws.Acmpca
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The PEM-encoded certificate value.
+        /// PEM-encoded certificate value.
         /// </summary>
         [Output("certificate")]
         public Output<string> CertificateDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
         [Output("certificateChain")]
         public Output<string> CertificateChain { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> SigningAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Output("templateArn")]
         public Output<string?> TemplateArn { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string> SigningAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }
@@ -154,25 +154,25 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The PEM-encoded certificate value.
+        /// PEM-encoded certificate value.
         /// </summary>
         [Input("certificate")]
         public Input<string>? CertificateDetails { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
         /// <summary>
-        /// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? SigningAlgorithm { get; set; }
 
         /// <summary>
-        /// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+        /// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Input("templateArn")]
         public Input<string>? TemplateArn { get; set; }

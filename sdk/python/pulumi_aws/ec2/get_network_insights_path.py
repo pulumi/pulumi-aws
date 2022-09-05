@@ -62,7 +62,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the selected Network Insights Path.
+        ARN of the selected Network Insights Path.
         """
         return pulumi.get(self, "arn")
 
@@ -70,7 +70,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter
     def destination(self) -> str:
         """
-        The AWS resource that is the destination of the path.
+        AWS resource that is the destination of the path.
         """
         return pulumi.get(self, "destination")
 
@@ -78,7 +78,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> str:
         """
-        The IP address of the AWS resource that is the destination of the path.
+        IP address of the AWS resource that is the destination of the path.
         """
         return pulumi.get(self, "destination_ip")
 
@@ -86,7 +86,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> int:
         """
-        The destination port.
+        Destination port.
         """
         return pulumi.get(self, "destination_port")
 
@@ -112,7 +112,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocol.
+        Protocol.
         """
         return pulumi.get(self, "protocol")
 
@@ -120,7 +120,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter
     def source(self) -> str:
         """
-        The AWS resource that is the source of the path.
+        AWS resource that is the source of the path.
         """
         return pulumi.get(self, "source")
 
@@ -128,7 +128,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> str:
         """
-        The IP address of the AWS resource that is the source of the path.
+        IP address of the AWS resource that is the source of the path.
         """
         return pulumi.get(self, "source_ip")
 
@@ -136,7 +136,7 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -178,8 +178,8 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_path_id: The ID of the Network Insights Path to select.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str network_insights_path_id: ID of the Network Insights Path to select.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -221,7 +221,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_path_id: The ID of the Network Insights Path to select.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str network_insights_path_id: ID of the Network Insights Path to select.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

@@ -49,19 +49,19 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+	// ARN of the certificate issued by the private certificate authority.
 	Arn string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
 	Arn string `pulumi:"arn"`
-	// The PEM-encoded certificate value.
+	// PEM-encoded certificate value.
 	Certificate             string `pulumi:"certificate"`
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -82,9 +82,9 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+	// ARN of the certificate issued by the private certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 }
 
@@ -111,7 +111,7 @@ func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded certificate value.
+// PEM-encoded certificate value.
 func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
@@ -120,7 +120,7 @@ func (o LookupCertificateResultOutput) CertificateAuthorityArn() pulumi.StringOu
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
 }

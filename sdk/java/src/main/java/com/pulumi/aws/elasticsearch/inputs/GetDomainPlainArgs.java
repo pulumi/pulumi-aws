@@ -31,14 +31,14 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags assigned to the domain.
+     * Tags assigned to the domain.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags assigned to the domain.
+     * @return Tags assigned to the domain.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetDomainPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags assigned to the domain.
+         * @param tags Tags assigned to the domain.
          * 
          * @return builder
          * 

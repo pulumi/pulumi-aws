@@ -61,24 +61,24 @@ export interface GetNatGatewayArgs {
      */
     filters?: inputs.ec2.GetNatGatewayFilter[];
     /**
-     * The id of the specific Nat Gateway to retrieve.
+     * ID of the specific Nat Gateway to retrieve.
      */
     id?: string;
     /**
-     * The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * State of the NAT gateway (pending | failed | available | deleting | deleted ).
      */
     state?: string;
     /**
-     * The id of subnet that the Nat Gateway resides in.
+     * ID of subnet that the Nat Gateway resides in.
      */
     subnetId?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Nat Gateway.
      */
     tags?: {[key: string]: string};
     /**
-     * The id of the VPC that the Nat Gateway resides in.
+     * ID of the VPC that the Nat Gateway resides in.
      */
     vpcId?: string;
 }
@@ -88,25 +88,25 @@ export interface GetNatGatewayArgs {
  */
 export interface GetNatGatewayResult {
     /**
-     * The Id of the EIP allocated to the selected Nat Gateway.
+     * ID of the EIP allocated to the selected Nat Gateway.
      */
     readonly allocationId: string;
     /**
-     * The connectivity type of the NAT Gateway.
+     * Connectivity type of the NAT Gateway.
      */
     readonly connectivityType: string;
     readonly filters?: outputs.ec2.GetNatGatewayFilter[];
     readonly id: string;
     /**
-     * The Id of the ENI allocated to the selected Nat Gateway.
+     * The ID of the ENI allocated to the selected Nat Gateway.
      */
     readonly networkInterfaceId: string;
     /**
-     * The private Ip address of the selected Nat Gateway.
+     * Private Ip address of the selected Nat Gateway.
      */
     readonly privateIp: string;
     /**
-     * The public Ip (EIP) address of the selected Nat Gateway.
+     * Public Ip (EIP) address of the selected Nat Gateway.
      */
     readonly publicIp: string;
     readonly state: string;
@@ -128,24 +128,24 @@ export interface GetNatGatewayOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
     /**
-     * The id of the specific Nat Gateway to retrieve.
+     * ID of the specific Nat Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * State of the NAT gateway (pending | failed | available | deleting | deleted ).
      */
     state?: pulumi.Input<string>;
     /**
-     * The id of subnet that the Nat Gateway resides in.
+     * ID of subnet that the Nat Gateway resides in.
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Nat Gateway.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The id of the VPC that the Nat Gateway resides in.
+     * ID of the VPC that the Nat Gateway resides in.
      */
     vpcId?: pulumi.Input<string>;
 }

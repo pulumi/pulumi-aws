@@ -61,36 +61,36 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getStack.
 type LookupStackArgs struct {
-	// The name of the stack
+	// Name of the stack
 	Name string `pulumi:"name"`
-	// A map of tags associated with this stack.
+	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStack.
 type LookupStackResult struct {
-	// A list of capabilities
+	// List of capabilities
 	Capabilities []string `pulumi:"capabilities"`
 	// Description of the stack
 	Description string `pulumi:"description"`
 	// Whether the rollback of the stack is disabled when stack creation fails
 	DisableRollback bool `pulumi:"disableRollback"`
-	// The ARN of the IAM role used to create the stack.
+	// ARN of the IAM role used to create the stack.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A list of SNS topic ARNs to publish stack related events
+	// List of SNS topic ARNs to publish stack related events
 	NotificationArns []string `pulumi:"notificationArns"`
-	// A map of outputs from the stack.
+	// Map of outputs from the stack.
 	Outputs map[string]string `pulumi:"outputs"`
-	// A map of parameters that specify input parameters for the stack.
+	// Map of parameters that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A map of tags associated with this stack.
+	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body.
 	TemplateBody string `pulumi:"templateBody"`
-	// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+	// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
 	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
 }
 
@@ -109,9 +109,9 @@ func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...
 
 // A collection of arguments for invoking getStack.
 type LookupStackOutputArgs struct {
-	// The name of the stack
+	// Name of the stack
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags associated with this stack.
+	// Map of tags associated with this stack.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -134,7 +134,7 @@ func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx contex
 	return o
 }
 
-// A list of capabilities
+// List of capabilities
 func (o LookupStackResultOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupStackResultOutput) DisableRollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStackResult) bool { return v.DisableRollback }).(pulumi.BoolOutput)
 }
 
-// The ARN of the IAM role used to create the stack.
+// ARN of the IAM role used to create the stack.
 func (o LookupStackResultOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
@@ -163,22 +163,22 @@ func (o LookupStackResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of SNS topic ARNs to publish stack related events
+// List of SNS topic ARNs to publish stack related events
 func (o LookupStackResultOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
-// A map of outputs from the stack.
+// Map of outputs from the stack.
 func (o LookupStackResultOutput) Outputs() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
-// A map of parameters that specify input parameters for the stack.
+// Map of parameters that specify input parameters for the stack.
 func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// A map of tags associated with this stack.
+// Map of tags associated with this stack.
 func (o LookupStackResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -188,7 +188,7 @@ func (o LookupStackResultOutput) TemplateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.TemplateBody }).(pulumi.StringOutput)
 }
 
-// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
 func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupStackResult) int { return v.TimeoutInMinutes }).(pulumi.IntOutput)
 }

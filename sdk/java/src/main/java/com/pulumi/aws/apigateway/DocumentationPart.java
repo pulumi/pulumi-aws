@@ -69,42 +69,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/documentationPart:DocumentationPart")
 public class DocumentationPart extends com.pulumi.resources.CustomResource {
     /**
-     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     * Location of the targeted API entity of the to-be-created documentation part. See below.
      * 
      */
     @Export(name="location", type=DocumentationPartLocation.class, parameters={})
     private Output<DocumentationPartLocation> location;
 
     /**
-     * @return The location of the targeted API entity of the to-be-created documentation part. See below.
+     * @return Location of the targeted API entity of the to-be-created documentation part. See below.
      * 
      */
     public Output<DocumentationPartLocation> location() {
         return this.location;
     }
     /**
-     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     @Export(name="properties", type=String.class, parameters={})
     private Output<String> properties;
 
     /**
-     * @return A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     public Output<String> properties() {
         return this.properties;
     }
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Export(name="restApiId", type=String.class, parameters={})
     private Output<String> restApiId;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Output<String> restApiId() {

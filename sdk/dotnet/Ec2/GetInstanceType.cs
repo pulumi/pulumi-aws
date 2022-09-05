@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool DedicatedHostsSupported;
         /// <summary>
-        /// The default number of cores for the instance type.
+        /// Default number of cores for the instance type.
         /// </summary>
         public readonly int DefaultCores;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int DefaultThreadsPerCore;
         /// <summary>
-        /// The default number of vCPUs for the instance type.
+        /// Default number of vCPUs for the instance type.
         /// </summary>
         public readonly int DefaultVcpus;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string EbsEncryptionSupport;
         /// <summary>
-        /// Indicates whether non-volatile memory express (NVMe) is supported.
+        /// Whether non-volatile memory express (NVMe) is supported.
         /// </summary>
         public readonly string EbsNvmeSupport;
         /// <summary>
@@ -168,11 +168,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly double EbsPerformanceMaximumThroughput;
         /// <summary>
-        /// Indicates whether Elastic Fabric Adapter (EFA) is supported.
+        /// Whether Elastic Fabric Adapter (EFA) is supported.
         /// </summary>
         public readonly bool EfaSupported;
         /// <summary>
-        /// Indicates whether Elastic Network Adapter (ENA) is supported.
+        /// Whether Elastic Network Adapter (ENA) is supported.
         /// </summary>
         public readonly string EnaSupport;
         /// <summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool HibernationSupported;
         /// <summary>
-        /// Indicates the hypervisor used for the instance type.
+        /// Hypervisor used for the instance type.
         /// * `inference_accelerators` Describes the Inference accelerators for the instance type.
         /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
         /// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -277,11 +277,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly double SustainedClockSpeed;
         /// <summary>
-        /// The total memory of all FPGA accelerators for the instance type (in MiB).
+        /// Total memory of all FPGA accelerators for the instance type (in MiB).
         /// </summary>
         public readonly int TotalFpgaMemory;
         /// <summary>
-        /// The total size of the memory for the GPU accelerators for the instance type (in MiB).
+        /// Total size of the memory for the GPU accelerators for the instance type (in MiB).
         /// </summary>
         public readonly int TotalGpuMemory;
         /// <summary>

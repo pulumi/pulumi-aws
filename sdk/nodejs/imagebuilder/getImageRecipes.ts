@@ -45,7 +45,7 @@ export interface GetImageRecipesArgs {
      */
     filters?: inputs.imagebuilder.GetImageRecipesFilter[];
     /**
-     * The owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -83,7 +83,7 @@ export interface GetImageRecipesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImageRecipesFilterArgs>[]>;
     /**
-     * The owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

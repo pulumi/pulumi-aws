@@ -77,27 +77,27 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly latest!: pulumi.Output<boolean>;
     /**
-     * The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      */
     public readonly maxConcurrency!: pulumi.Output<number | undefined>;
     /**
-     * The maximal number of instances that App Runner provisions for your service.
+     * Maximal number of instances that App Runner provisions for your service.
      */
     public readonly maxSize!: pulumi.Output<number | undefined>;
     /**
-     * The minimal number of instances that App Runner provisions for your service.
+     * Minimal number of instances that App Runner provisions for your service.
      */
     public readonly minSize!: pulumi.Output<number | undefined>;
     /**
-     * The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -166,27 +166,27 @@ export interface AutoScalingConfigurationVersionState {
      */
     latest?: pulumi.Input<boolean>;
     /**
-     * The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      */
     maxConcurrency?: pulumi.Input<number>;
     /**
-     * The maximal number of instances that App Runner provisions for your service.
+     * Maximal number of instances that App Runner provisions for your service.
      */
     maxSize?: pulumi.Input<number>;
     /**
-     * The minimal number of instances that App Runner provisions for your service.
+     * Minimal number of instances that App Runner provisions for your service.
      */
     minSize?: pulumi.Input<number>;
     /**
-     * The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     status?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -200,19 +200,19 @@ export interface AutoScalingConfigurationVersionArgs {
      */
     autoScalingConfigurationName: pulumi.Input<string>;
     /**
-     * The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      */
     maxConcurrency?: pulumi.Input<number>;
     /**
-     * The maximal number of instances that App Runner provisions for your service.
+     * Maximal number of instances that App Runner provisions for your service.
      */
     maxSize?: pulumi.Input<number>;
     /**
-     * The minimal number of instances that App Runner provisions for your service.
+     * Minimal number of instances that App Runner provisions for your service.
      */
     minSize?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

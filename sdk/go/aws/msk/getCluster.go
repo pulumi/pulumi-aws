@@ -58,7 +58,7 @@ type LookupClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn string `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
@@ -129,7 +129,7 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the MSK cluster.
+// ARN of the MSK cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

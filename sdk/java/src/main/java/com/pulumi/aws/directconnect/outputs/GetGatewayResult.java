@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGatewayResult {
     /**
-     * @return The ASN on the Amazon side of the connection.
+     * @return ASN on the Amazon side of the connection.
      * 
      */
     private String amazonSideAsn;
@@ -28,7 +28,7 @@ public final class GetGatewayResult {
 
     private GetGatewayResult() {}
     /**
-     * @return The ASN on the Amazon side of the connection.
+     * @return ASN on the Amazon side of the connection.
      * 
      */
     public String amazonSideAsn() {

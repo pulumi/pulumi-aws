@@ -178,7 +178,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket
+        /// Name of the bucket
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket
+        /// Name of the bucket
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -208,12 +208,12 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketResult
     {
         /// <summary>
-        /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+        /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
         public readonly string Arn;
         public readonly string Bucket;
         /// <summary>
-        /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
         public readonly string BucketDomainName;
         /// <summary>
@@ -229,15 +229,15 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The AWS region this bucket resides in.
+        /// AWS region this bucket resides in.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        /// Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         /// </summary>
         public readonly string WebsiteDomain;
         /// <summary>
-        /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        /// Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
         public readonly string WebsiteEndpoint;
 

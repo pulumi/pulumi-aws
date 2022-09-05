@@ -18,14 +18,14 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
     public static final EventIntegrationState Empty = new EventIntegrationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Event Integration.
+     * ARN of the Event Integration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Event Integration.
+     * @return ARN of the Event Integration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the description of the Event Integration.
+     * Description of the Event Integration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies the description of the Event Integration.
+     * @return Description of the Event Integration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     @Import(name="eventFilter")
     private @Nullable Output<EventIntegrationEventFilterArgs> eventFilter;
 
     /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     public Optional<Output<EventIntegrationEventFilterArgs>> eventFilter() {
@@ -63,14 +63,14 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the EventBridge bus.
+     * EventBridge bus.
      * 
      */
     @Import(name="eventbridgeBus")
     private @Nullable Output<String> eventbridgeBus;
 
     /**
-     * @return Specifies the EventBridge bus.
+     * @return EventBridge bus.
      * 
      */
     public Optional<Output<String>> eventbridgeBus() {
@@ -78,14 +78,14 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the name of the Event Integration.
+     * Name of the Event Integration.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Event Integration.
+     * @return Name of the Event Integration.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,9 +107,17 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -145,7 +153,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Event Integration.
+         * @param arn ARN of the Event Integration.
          * 
          * @return builder
          * 
@@ -156,7 +164,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Event Integration.
+         * @param arn ARN of the Event Integration.
          * 
          * @return builder
          * 
@@ -166,7 +174,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description Specifies the description of the Event Integration.
+         * @param description Description of the Event Integration.
          * 
          * @return builder
          * 
@@ -177,7 +185,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description Specifies the description of the Event Integration.
+         * @param description Description of the Event Integration.
          * 
          * @return builder
          * 
@@ -187,7 +195,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventFilter A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+         * @param eventFilter Block that defines the configuration information for the event filter. The Event Filter block is documented below.
          * 
          * @return builder
          * 
@@ -198,7 +206,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventFilter A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+         * @param eventFilter Block that defines the configuration information for the event filter. The Event Filter block is documented below.
          * 
          * @return builder
          * 
@@ -208,7 +216,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventbridgeBus Specifies the EventBridge bus.
+         * @param eventbridgeBus EventBridge bus.
          * 
          * @return builder
          * 
@@ -219,7 +227,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param eventbridgeBus Specifies the EventBridge bus.
+         * @param eventbridgeBus EventBridge bus.
          * 
          * @return builder
          * 
@@ -229,7 +237,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the Event Integration.
+         * @param name Name of the Event Integration.
          * 
          * @return builder
          * 
@@ -240,7 +248,7 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the name of the Event Integration.
+         * @param name Name of the Event Integration.
          * 
          * @return builder
          * 
@@ -270,11 +278,23 @@ public final class EventIntegrationState extends com.pulumi.resources.ResourceAr
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

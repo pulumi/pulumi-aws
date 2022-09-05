@@ -46,31 +46,31 @@ namespace Pulumi.Aws.Amplify
     public partial class BackendEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of deployment artifacts.
+        /// Name of deployment artifacts.
         /// </summary>
         [Output("deploymentArtifacts")]
         public Output<string> DeploymentArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the backend environment.
+        /// Name for the backend environment.
         /// </summary>
         [Output("environmentName")]
         public Output<string> EnvironmentName { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS CloudFormation stack name of a backend environment.
+        /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
@@ -122,25 +122,25 @@ namespace Pulumi.Aws.Amplify
     public sealed class BackendEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The name of deployment artifacts.
+        /// Name of deployment artifacts.
         /// </summary>
         [Input("deploymentArtifacts")]
         public Input<string>? DeploymentArtifacts { get; set; }
 
         /// <summary>
-        /// The name for the backend environment.
+        /// Name for the backend environment.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
-        /// The AWS CloudFormation stack name of a backend environment.
+        /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Input("stackName")]
         public Input<string>? StackName { get; set; }
@@ -154,31 +154,31 @@ namespace Pulumi.Aws.Amplify
     public sealed class BackendEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of deployment artifacts.
+        /// Name of deployment artifacts.
         /// </summary>
         [Input("deploymentArtifacts")]
         public Input<string>? DeploymentArtifacts { get; set; }
 
         /// <summary>
-        /// The name for the backend environment.
+        /// Name for the backend environment.
         /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
-        /// The AWS CloudFormation stack name of a backend environment.
+        /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Input("stackName")]
         public Input<string>? StackName { get; set; }

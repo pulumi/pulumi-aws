@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class GetUserFilter {
     /**
-     * @return The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     private String attributePath;
     /**
-     * @return The value for an attribute.
+     * @return Value for an attribute.
      * 
      */
     private String attributeValue;
 
     private GetUserFilter() {}
     /**
-     * @return The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     public String attributePath() {
         return this.attributePath;
     }
     /**
-     * @return The value for an attribute.
+     * @return Value for an attribute.
      * 
      */
     public String attributeValue() {

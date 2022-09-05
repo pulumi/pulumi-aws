@@ -16,14 +16,14 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
     public static final AmiLaunchPermissionState Empty = new AmiLaunchPermissionState();
 
     /**
-     * The AWS account ID for the launch permission.
+     * AWS account ID for the launch permission.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the launch permission.
+     * @return AWS account ID for the launch permission.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -31,14 +31,14 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+     * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
     @Import(name="group")
     private @Nullable Output<String> group;
 
     /**
-     * @return The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+     * @return Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
     public Optional<Output<String>> group() {
@@ -46,14 +46,14 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the AMI.
+     * ID of the AMI.
      * 
      */
     @Import(name="imageId")
     private @Nullable Output<String> imageId;
 
     /**
-     * @return The ID of the AMI.
+     * @return ID of the AMI.
      * 
      */
     public Optional<Output<String>> imageId() {
@@ -61,14 +61,14 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of an organization for the launch permission.
+     * ARN of an organization for the launch permission.
      * 
      */
     @Import(name="organizationArn")
     private @Nullable Output<String> organizationArn;
 
     /**
-     * @return The ARN of an organization for the launch permission.
+     * @return ARN of an organization for the launch permission.
      * 
      */
     public Optional<Output<String>> organizationArn() {
@@ -76,14 +76,14 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of an organizational unit for the launch permission.
+     * ARN of an organizational unit for the launch permission.
      * 
      */
     @Import(name="organizationalUnitArn")
     private @Nullable Output<String> organizationalUnitArn;
 
     /**
-     * @return The ARN of an organizational unit for the launch permission.
+     * @return ARN of an organizational unit for the launch permission.
      * 
      */
     public Optional<Output<String>> organizationalUnitArn() {
@@ -119,7 +119,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the launch permission.
+         * @param accountId AWS account ID for the launch permission.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the launch permission.
+         * @param accountId AWS account ID for the launch permission.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param group The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+         * @param group Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param group The name of the group for the launch permission. Valid values: `&#34;all&#34;`.
+         * @param group Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param imageId The ID of the AMI.
+         * @param imageId ID of the AMI.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param imageId The ID of the AMI.
+         * @param imageId ID of the AMI.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param organizationArn The ARN of an organization for the launch permission.
+         * @param organizationArn ARN of an organization for the launch permission.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param organizationArn The ARN of an organization for the launch permission.
+         * @param organizationArn ARN of an organization for the launch permission.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param organizationalUnitArn The ARN of an organizational unit for the launch permission.
+         * @param organizationalUnitArn ARN of an organizational unit for the launch permission.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AmiLaunchPermissionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param organizationalUnitArn The ARN of an organizational unit for the launch permission.
+         * @param organizationalUnitArn ARN of an organizational unit for the launch permission.
          * 
          * @return builder
          * 

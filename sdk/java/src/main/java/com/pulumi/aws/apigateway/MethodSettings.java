@@ -134,42 +134,42 @@ public class MethodSettings extends com.pulumi.resources.CustomResource {
         return this.methodPath;
     }
     /**
-     * The ID of the REST API
+     * ID of the REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the REST API
+     * @return ID of the REST API
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The settings block, see below.
+     * Settings block, see below.
      * 
      */
     @Export(name="settings", type=MethodSettingsSettings.class, parameters={})
     private Output<MethodSettingsSettings> settings;
 
     /**
-     * @return The settings block, see below.
+     * @return Settings block, see below.
      * 
      */
     public Output<MethodSettingsSettings> settings() {
         return this.settings;
     }
     /**
-     * The name of the stage
+     * Name of the stage
      * 
      */
     @Export(name="stageName", type=String.class, parameters={})
     private Output<String> stageName;
 
     /**
-     * @return The name of the stage
+     * @return Name of the stage
      * 
      */
     public Output<String> stageName() {

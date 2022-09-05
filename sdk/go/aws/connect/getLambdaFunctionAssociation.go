@@ -49,9 +49,9 @@ func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunc
 
 // A collection of arguments for invoking getLambdaFunctionAssociation.
 type LookupLambdaFunctionAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn string `pulumi:"functionArn"`
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
 }
 
@@ -78,9 +78,9 @@ func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambd
 
 // A collection of arguments for invoking getLambdaFunctionAssociation.
 type LookupLambdaFunctionAssociationOutputArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 

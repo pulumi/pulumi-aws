@@ -75,11 +75,11 @@ func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getBundle.
 type GetBundleArgs struct {
-	// The ID of the bundle.
+	// ID of the bundle.
 	BundleId *string `pulumi:"bundleId"`
-	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name *string `pulumi:"name"`
-	// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +93,7 @@ type GetBundleResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the compute type.
+	// Name of the compute type.
 	Name *string `pulumi:"name"`
 	// The owner of the bundle.
 	Owner *string `pulumi:"owner"`
@@ -118,11 +118,11 @@ func GetBundleOutput(ctx *pulumi.Context, args GetBundleOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getBundle.
 type GetBundleOutputArgs struct {
-	// The ID of the bundle.
+	// ID of the bundle.
 	BundleId pulumi.StringPtrInput `pulumi:"bundleId"`
-	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 
@@ -165,7 +165,7 @@ func (o GetBundleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBundleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the compute type.
+// Name of the compute type.
 func (o GetBundleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBundleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

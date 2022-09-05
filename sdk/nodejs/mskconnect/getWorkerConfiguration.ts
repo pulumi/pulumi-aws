@@ -44,7 +44,7 @@ export interface GetWorkerConfigurationArgs {
  */
 export interface GetWorkerConfigurationResult {
     /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
+     * the ARN of the worker configuration.
      */
     readonly arn: string;
     /**

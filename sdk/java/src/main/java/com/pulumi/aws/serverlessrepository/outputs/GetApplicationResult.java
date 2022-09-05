@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationResult {
     /**
-     * @return The ARN of the application.
+     * @return ARN of the application.
      * 
      */
     private String applicationId;
@@ -21,7 +21,7 @@ public final class GetApplicationResult {
      */
     private String id;
     /**
-     * @return The name of the application.
+     * @return Name of the application.
      * 
      */
     private String name;
@@ -32,19 +32,19 @@ public final class GetApplicationResult {
     private List<String> requiredCapabilities;
     private String semanticVersion;
     /**
-     * @return A URL pointing to the source code of the application version.
+     * @return URL pointing to the source code of the application version.
      * 
      */
     private String sourceCodeUrl;
     /**
-     * @return A URL pointing to the Cloud Formation template for the application version.
+     * @return URL pointing to the Cloud Formation template for the application version.
      * 
      */
     private String templateUrl;
 
     private GetApplicationResult() {}
     /**
-     * @return The ARN of the application.
+     * @return ARN of the application.
      * 
      */
     public String applicationId() {
@@ -58,7 +58,7 @@ public final class GetApplicationResult {
         return this.id;
     }
     /**
-     * @return The name of the application.
+     * @return Name of the application.
      * 
      */
     public String name() {
@@ -75,14 +75,14 @@ public final class GetApplicationResult {
         return this.semanticVersion;
     }
     /**
-     * @return A URL pointing to the source code of the application version.
+     * @return URL pointing to the source code of the application version.
      * 
      */
     public String sourceCodeUrl() {
         return this.sourceCodeUrl;
     }
     /**
-     * @return A URL pointing to the Cloud Formation template for the application version.
+     * @return URL pointing to the Cloud Formation template for the application version.
      * 
      */
     public String templateUrl() {

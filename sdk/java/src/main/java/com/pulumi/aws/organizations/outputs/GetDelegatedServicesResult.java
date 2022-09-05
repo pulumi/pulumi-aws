@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetDelegatedServicesResult {
     private String accountId;
     /**
-     * @return The services for which the account is a delegated administrator, which have the following attributes:
+     * @return Services for which the account is a delegated administrator, which have the following attributes:
      * 
      */
     private List<GetDelegatedServicesDelegatedService> delegatedServices;
@@ -28,7 +28,7 @@ public final class GetDelegatedServicesResult {
         return this.accountId;
     }
     /**
-     * @return The services for which the account is a delegated administrator, which have the following attributes:
+     * @return Services for which the account is a delegated administrator, which have the following attributes:
      * 
      */
     public List<GetDelegatedServicesDelegatedService> delegatedServices() {

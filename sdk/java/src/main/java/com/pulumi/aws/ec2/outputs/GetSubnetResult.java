@@ -40,7 +40,7 @@ public final class GetSubnetResult {
     private String customerOwnedIpv4Pool;
     private Boolean defaultForAz;
     /**
-     * @return Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+     * @return Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      * 
      */
     private Boolean enableDns64;
@@ -63,7 +63,7 @@ public final class GetSubnetResult {
      */
     private String ipv6CidrBlockAssociationId;
     /**
-     * @return Indicates whether this is an IPv6-only subnet.
+     * @return Whether this is an IPv6-only subnet.
      * 
      */
     private Boolean ipv6Native;
@@ -138,7 +138,7 @@ public final class GetSubnetResult {
         return this.defaultForAz;
     }
     /**
-     * @return Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+     * @return Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      * 
      */
     public Boolean enableDns64() {
@@ -175,7 +175,7 @@ public final class GetSubnetResult {
         return this.ipv6CidrBlockAssociationId;
     }
     /**
-     * @return Indicates whether this is an IPv6-only subnet.
+     * @return Whether this is an IPv6-only subnet.
      * 
      */
     public Boolean ipv6Native() {

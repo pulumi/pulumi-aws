@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
     /**
-     * @return The values sent must match the specified values exactly.
+     * @return Values sent must match the specified values exactly.
      * 
      */
     private List<String> exacts;
 
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch() {}
     /**
-     * @return The values sent must match the specified values exactly.
+     * @return Values sent must match the specified values exactly.
      * 
      */
     public List<String> exacts() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetRegionsFilterResult
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        /// Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * const mongoService = new aws.ecs.Service("mongoService", {
  *     cluster: foo.id,
  *     desiredCount: 2,
- *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.arn,
+ *     taskDefinition: mongoTaskDefinition.then(mongoTaskDefinition => mongoTaskDefinition.arn),
  * });
  * ```
  */
@@ -59,7 +59,7 @@ export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.Inv
  */
 export interface GetTaskDefinitionArgs {
     /**
-     * The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      */
     taskDefinition: string;
 }
@@ -69,11 +69,11 @@ export interface GetTaskDefinitionArgs {
  */
 export interface GetTaskDefinitionResult {
     /**
-     * The ARN of the task definition
+     * ARN of the task definition
      */
     readonly arn: string;
     /**
-     * The family of this task definition
+     * Family of this task definition
      */
     readonly family: string;
     /**
@@ -81,20 +81,20 @@ export interface GetTaskDefinitionResult {
      */
     readonly id: string;
     /**
-     * The Docker networking mode to use for the containers in this task.
+     * Docker networking mode to use for the containers in this task.
      */
     readonly networkMode: string;
     /**
-     * The revision of this task definition
+     * Revision of this task definition
      */
     readonly revision: number;
     /**
-     * The status of this task definition
+     * Status of this task definition
      */
     readonly status: string;
     readonly taskDefinition: string;
     /**
-     * The ARN of the IAM role that containers in this task can assume
+     * ARN of the IAM role that containers in this task can assume
      */
     readonly taskRoleArn: string;
 }
@@ -108,7 +108,7 @@ export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?
  */
 export interface GetTaskDefinitionOutputArgs {
     /**
-     * The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      */
     taskDefinition: pulumi.Input<string>;
 }

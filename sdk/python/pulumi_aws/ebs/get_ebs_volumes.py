@@ -54,7 +54,7 @@ class GetEbsVolumesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A set of all the EBS Volume IDs found. This data source will fail if
+        Set of all the EBS Volume IDs found. This data source will fail if
         no volumes match the provided criteria.
         """
         return pulumi.get(self, "ids")
@@ -87,7 +87,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
 
 
     :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
     """
     __args__ = dict()
@@ -114,7 +114,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
 
     :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
     """
     ...

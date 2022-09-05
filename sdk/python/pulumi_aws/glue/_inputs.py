@@ -2943,9 +2943,9 @@ class GetScriptDagEdgeArgs:
                  target: str,
                  target_parameter: Optional[str] = None):
         """
-        :param str source: The ID of the node at which the edge starts.
-        :param str target: The ID of the node at which the edge ends.
-        :param str target_parameter: The target of the edge.
+        :param str source: ID of the node at which the edge starts.
+        :param str target: ID of the node at which the edge ends.
+        :param str target_parameter: Target of the edge.
         """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
@@ -2956,7 +2956,7 @@ class GetScriptDagEdgeArgs:
     @pulumi.getter
     def source(self) -> str:
         """
-        The ID of the node at which the edge starts.
+        ID of the node at which the edge starts.
         """
         return pulumi.get(self, "source")
 
@@ -2968,7 +2968,7 @@ class GetScriptDagEdgeArgs:
     @pulumi.getter
     def target(self) -> str:
         """
-        The ID of the node at which the edge ends.
+        ID of the node at which the edge ends.
         """
         return pulumi.get(self, "target")
 
@@ -2980,7 +2980,7 @@ class GetScriptDagEdgeArgs:
     @pulumi.getter(name="targetParameter")
     def target_parameter(self) -> Optional[str]:
         """
-        The target of the edge.
+        Target of the edge.
         """
         return pulumi.get(self, "target_parameter")
 
@@ -2998,9 +2998,9 @@ class GetScriptDagNodeArgs:
                  line_number: Optional[int] = None):
         """
         :param Sequence['GetScriptDagNodeArgArgs'] args: Nested configuration an argument or property of a node. Defined below.
-        :param str id: A node identifier that is unique within the node's graph.
-        :param str node_type: The type of node this is.
-        :param int line_number: The line number of the node.
+        :param str id: Node identifier that is unique within the node's graph.
+        :param str node_type: Type of node this is.
+        :param int line_number: Line number of the node.
         """
         pulumi.set(__self__, "args", args)
         pulumi.set(__self__, "id", id)
@@ -3024,7 +3024,7 @@ class GetScriptDagNodeArgs:
     @pulumi.getter
     def id(self) -> str:
         """
-        A node identifier that is unique within the node's graph.
+        Node identifier that is unique within the node's graph.
         """
         return pulumi.get(self, "id")
 
@@ -3036,7 +3036,7 @@ class GetScriptDagNodeArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
         """
-        The type of node this is.
+        Type of node this is.
         """
         return pulumi.get(self, "node_type")
 
@@ -3048,7 +3048,7 @@ class GetScriptDagNodeArgs:
     @pulumi.getter(name="lineNumber")
     def line_number(self) -> Optional[int]:
         """
-        The line number of the node.
+        Line number of the node.
         """
         return pulumi.get(self, "line_number")
 
@@ -3064,8 +3064,8 @@ class GetScriptDagNodeArgArgs:
                  value: str,
                  param: Optional[bool] = None):
         """
-        :param str name: The name of the argument or property.
-        :param str value: The value of the argument or property.
+        :param str name: Name of the argument or property.
+        :param str value: Value of the argument or property.
         :param bool param: Boolean if the value is used as a parameter. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
@@ -3077,7 +3077,7 @@ class GetScriptDagNodeArgArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the argument or property.
+        Name of the argument or property.
         """
         return pulumi.get(self, "name")
 
@@ -3089,7 +3089,7 @@ class GetScriptDagNodeArgArgs:
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the argument or property.
+        Value of the argument or property.
         """
         return pulumi.get(self, "value")
 

@@ -16,14 +16,14 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfigArgs extends com
     public static final ResolverSyncConfigLambdaConflictHandlerConfigArgs Empty = new ResolverSyncConfigLambdaConflictHandlerConfigArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+     * ARN for the Lambda function to use as the Conflict Handler.
      * 
      */
     @Import(name="lambdaConflictHandlerArn")
     private @Nullable Output<String> lambdaConflictHandlerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+     * @return ARN for the Lambda function to use as the Conflict Handler.
      * 
      */
     public Optional<Output<String>> lambdaConflictHandlerArn() {
@@ -55,7 +55,7 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfigArgs extends com
         }
 
         /**
-         * @param lambdaConflictHandlerArn The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         * @param lambdaConflictHandlerArn ARN for the Lambda function to use as the Conflict Handler.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfigArgs extends com
         }
 
         /**
-         * @param lambdaConflictHandlerArn The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         * @param lambdaConflictHandlerArn ARN for the Lambda function to use as the Conflict Handler.
          * 
          * @return builder
          * 

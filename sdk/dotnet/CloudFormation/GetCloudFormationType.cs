@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetCloudFormationTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+        /// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetCloudFormationTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+        /// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public readonly string DocumentationUrl;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role used to register the CloudFormation Type.
+        /// ARN of the IAM Role used to register the CloudFormation Type.
         /// </summary>
         public readonly string ExecutionRoleArn;
         /// <summary>

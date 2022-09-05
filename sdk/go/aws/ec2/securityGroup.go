@@ -10,6 +10,185 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a security group resource.
+//
+// > **NOTE on Security Groups and Security Group Rules:** This provider currently
+// provides both a standalone Security Group Rule resource (a single `ingress` or
+// `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+// defined in-line. At this time you cannot use a Security Group with in-line rules
+// in conjunction with any Security Group Rule resources. Doing so will cause
+// a conflict of rule settings and will overwrite rules.
+//
+// > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+//
+// > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
+//				Description: pulumi.String("Allow TLS inbound traffic"),
+//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						Description: pulumi.String("TLS from VPC"),
+//						FromPort:    pulumi.Int(443),
+//						ToPort:      pulumi.Int(443),
+//						Protocol:    pulumi.String("tcp"),
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.Any(aws_vpc.Main.Cidr_block),
+//						},
+//						Ipv6CidrBlocks: pulumi.StringArray{
+//							pulumi.Any(aws_vpc.Main.Ipv6_cidr_block),
+//						},
+//					},
+//				},
+//				Egress: ec2.SecurityGroupEgressArray{
+//					&ec2.SecurityGroupEgressArgs{
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//						Protocol: pulumi.String("-1"),
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//						},
+//						Ipv6CidrBlocks: pulumi.StringArray{
+//							pulumi.String("::/0"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("allow_tls"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Egress: ec2.SecurityGroupEgressArray{
+//					&ec2.SecurityGroupEgressArgs{
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//						},
+//						FromPort: pulumi.Int(0),
+//						Ipv6CidrBlocks: pulumi.StringArray{
+//							pulumi.String("::/0"),
+//						},
+//						Protocol: pulumi.String("-1"),
+//						ToPort:   pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Usage With Prefix List IDs
+//
+// Prefix Lists are either managed by AWS internally, or created by the customer using a
+// Prefix List resource. Prefix Lists provided by
+// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
+// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Egress: ec2.SecurityGroupEgressArray{
+//					&ec2.SecurityGroupEgressArgs{
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//						Protocol: pulumi.String("-1"),
+//						PrefixListIds: pulumi.StringArray{
+//							myEndpoint.PrefixListId,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
+// ### Change of name or name-prefix value
+//
+// Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroup(ctx, "sgWithChangeableName", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Security Groups can be imported using the `security group id`, e.g.,

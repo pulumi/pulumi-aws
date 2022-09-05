@@ -14,29 +14,29 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNatGatewayResult {
     /**
-     * @return The Id of the EIP allocated to the selected Nat Gateway.
+     * @return ID of the EIP allocated to the selected Nat Gateway.
      * 
      */
     private String allocationId;
     /**
-     * @return The connectivity type of the NAT Gateway.
+     * @return Connectivity type of the NAT Gateway.
      * 
      */
     private String connectivityType;
     private @Nullable List<GetNatGatewayFilter> filters;
     private String id;
     /**
-     * @return The Id of the ENI allocated to the selected Nat Gateway.
+     * @return The ID of the ENI allocated to the selected Nat Gateway.
      * 
      */
     private String networkInterfaceId;
     /**
-     * @return The private Ip address of the selected Nat Gateway.
+     * @return Private Ip address of the selected Nat Gateway.
      * 
      */
     private String privateIp;
     /**
-     * @return The public Ip (EIP) address of the selected Nat Gateway.
+     * @return Public Ip (EIP) address of the selected Nat Gateway.
      * 
      */
     private String publicIp;
@@ -47,14 +47,14 @@ public final class GetNatGatewayResult {
 
     private GetNatGatewayResult() {}
     /**
-     * @return The Id of the EIP allocated to the selected Nat Gateway.
+     * @return ID of the EIP allocated to the selected Nat Gateway.
      * 
      */
     public String allocationId() {
         return this.allocationId;
     }
     /**
-     * @return The connectivity type of the NAT Gateway.
+     * @return Connectivity type of the NAT Gateway.
      * 
      */
     public String connectivityType() {
@@ -67,21 +67,21 @@ public final class GetNatGatewayResult {
         return this.id;
     }
     /**
-     * @return The Id of the ENI allocated to the selected Nat Gateway.
+     * @return The ID of the ENI allocated to the selected Nat Gateway.
      * 
      */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * @return The private Ip address of the selected Nat Gateway.
+     * @return Private Ip address of the selected Nat Gateway.
      * 
      */
     public String privateIp() {
         return this.privateIp;
     }
     /**
-     * @return The public Ip (EIP) address of the selected Nat Gateway.
+     * @return Public Ip (EIP) address of the selected Nat Gateway.
      * 
      */
     public String publicIp() {

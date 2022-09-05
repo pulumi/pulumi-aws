@@ -64,23 +64,23 @@ export class Model extends pulumi.CustomResource {
     }
 
     /**
-     * The content type of the model
+     * Content type of the model
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * The description of the model
+     * Description of the model
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the model
+     * Name of the model
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * The schema of the model in a JSON form
+     * Schema of the model in a JSON form
      */
     public readonly schema!: pulumi.Output<string | undefined>;
 
@@ -126,23 +126,23 @@ export class Model extends pulumi.CustomResource {
  */
 export interface ModelState {
     /**
-     * The content type of the model
+     * Content type of the model
      */
     contentType?: pulumi.Input<string>;
     /**
-     * The description of the model
+     * Description of the model
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the model
+     * Name of the model
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * The schema of the model in a JSON form
+     * Schema of the model in a JSON form
      */
     schema?: pulumi.Input<string>;
 }
@@ -152,23 +152,23 @@ export interface ModelState {
  */
 export interface ModelArgs {
     /**
-     * The content type of the model
+     * Content type of the model
      */
     contentType: pulumi.Input<string>;
     /**
-     * The description of the model
+     * Description of the model
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the model
+     * Name of the model
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * The schema of the model in a JSON form
+     * Schema of the model in a JSON form
      */
     schema?: pulumi.Input<string>;
 }

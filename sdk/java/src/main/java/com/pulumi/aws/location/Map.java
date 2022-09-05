@@ -139,9 +139,17 @@ public class Map extends com.pulumi.resources.CustomResource {
     public Output<Optional<java.util.Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=java.util.Map.class, parameters={String.class, String.class})
     private Output<java.util.Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<java.util.Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

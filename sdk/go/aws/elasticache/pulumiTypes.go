@@ -656,7 +656,7 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 
 type GetClusterCacheNode struct {
 	Address string `pulumi:"address"`
-	// The Availability Zone for the cache cluster.
+	// Availability Zone for the cache cluster.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	Id               string `pulumi:"id"`
 	// The port number on which each of the cache nodes will
@@ -677,7 +677,7 @@ type GetClusterCacheNodeInput interface {
 
 type GetClusterCacheNodeArgs struct {
 	Address pulumi.StringInput `pulumi:"address"`
-	// The Availability Zone for the cache cluster.
+	// Availability Zone for the cache cluster.
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringInput `pulumi:"id"`
 	// The port number on which each of the cache nodes will
@@ -740,7 +740,7 @@ func (o GetClusterCacheNodeOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The Availability Zone for the cache cluster.
+// Availability Zone for the cache cluster.
 func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }

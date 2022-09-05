@@ -20,14 +20,14 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcArgs Empty = new GetVpcArgs();
 
     /**
-     * The cidr block of the desired VPC.
+     * Cidr block of the desired VPC.
      * 
      */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
     /**
-     * @return The cidr block of the desired VPC.
+     * @return Cidr block of the desired VPC.
      * 
      */
     public Optional<Output<String>> cidrBlock() {
@@ -52,14 +52,14 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The DHCP options id of the desired VPC.
+     * DHCP options id of the desired VPC.
      * 
      */
     @Import(name="dhcpOptionsId")
     private @Nullable Output<String> dhcpOptionsId;
 
     /**
-     * @return The DHCP options id of the desired VPC.
+     * @return DHCP options id of the desired VPC.
      * 
      */
     public Optional<Output<String>> dhcpOptionsId() {
@@ -82,14 +82,14 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The id of the specific VPC to retrieve.
+     * ID of the specific VPC to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The id of the specific VPC to retrieve.
+     * @return ID of the specific VPC to retrieve.
      * 
      */
     public Optional<Output<String>> id() {
@@ -97,7 +97,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The current state of the desired VPC.
+     * Current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
@@ -105,7 +105,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> state;
 
     /**
-     * @return The current state of the desired VPC.
+     * @return Current state of the desired VPC.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
@@ -114,7 +114,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      * 
      */
@@ -122,7 +122,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      * 
      */
@@ -161,7 +161,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cidrBlock The cidr block of the desired VPC.
+         * @param cidrBlock Cidr block of the desired VPC.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cidrBlock The cidr block of the desired VPC.
+         * @param cidrBlock Cidr block of the desired VPC.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dhcpOptionsId The DHCP options id of the desired VPC.
+         * @param dhcpOptionsId DHCP options id of the desired VPC.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dhcpOptionsId The DHCP options id of the desired VPC.
+         * @param dhcpOptionsId DHCP options id of the desired VPC.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The id of the specific VPC to retrieve.
+         * @param id ID of the specific VPC to retrieve.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The id of the specific VPC to retrieve.
+         * @param id ID of the specific VPC to retrieve.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param state The current state of the desired VPC.
+         * @param state Current state of the desired VPC.
          * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
          * 
          * @return builder
@@ -290,7 +290,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param state The current state of the desired VPC.
+         * @param state Current state of the desired VPC.
          * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
          * 
          * @return builder
@@ -301,7 +301,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC.
          * 
          * @return builder
@@ -313,7 +313,7 @@ public final class GetVpcArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC.
          * 
          * @return builder

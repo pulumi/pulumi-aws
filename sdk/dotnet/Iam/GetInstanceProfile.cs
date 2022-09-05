@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM instance profile name to match.
+        /// Friendly IAM instance profile name to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly IAM instance profile name to match.
+        /// Friendly IAM instance profile name to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,12 +104,11 @@ namespace Pulumi.Aws.Iam
     public sealed class GetInstanceProfileResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the instance profile.
+        /// ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The string representation of the date the instance profile
-        /// was created.
+        /// String representation of the date the instance profile was created.
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
@@ -118,19 +117,19 @@ namespace Pulumi.Aws.Iam
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The path to the instance profile.
+        /// Path to the instance profile.
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The role arn associated with this instance profile.
+        /// Role ARN associated with this instance profile.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The role id associated with this instance profile.
+        /// Role ID associated with this instance profile.
         /// </summary>
         public readonly string RoleId;
         /// <summary>
-        /// The role name associated with this instance profile.
+        /// Role name associated with this instance profile.
         /// </summary>
         public readonly string RoleName;
 

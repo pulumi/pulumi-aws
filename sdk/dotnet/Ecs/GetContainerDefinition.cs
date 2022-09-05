@@ -74,13 +74,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetContainerDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the container definition
+        /// Name of the container definition
         /// </summary>
         [Input("containerName", required: true)]
         public string ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the task definition which contains the container
+        /// ARN of the task definition which contains the container
         /// </summary>
         [Input("taskDefinition", required: true)]
         public string TaskDefinition { get; set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetContainerDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the container definition
+        /// Name of the container definition
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the task definition which contains the container
+        /// ARN of the task definition which contains the container
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ecs
     {
         public readonly string ContainerName;
         /// <summary>
-        /// The CPU limit for this container definition
+        /// CPU limit for this container definition
         /// </summary>
         public readonly int Cpu;
         /// <summary>
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> DockerLabels;
         /// <summary>
-        /// The environment in use
+        /// Environment in use
         /// </summary>
         public readonly ImmutableDictionary<string, string> Environment;
         /// <summary>
@@ -137,19 +137,19 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The docker image in use, including the digest
+        /// Docker image in use, including the digest
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The digest of the docker image in use
+        /// Digest of the docker image in use
         /// </summary>
         public readonly string ImageDigest;
         /// <summary>
-        /// The memory limit for this container definition
+        /// Memory limit for this container definition
         /// </summary>
         public readonly int Memory;
         /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
+        /// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         /// </summary>
         public readonly int MemoryReservation;
         public readonly string TaskDefinition;

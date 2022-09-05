@@ -74,12 +74,12 @@ export interface GetNetworkAclsArgs {
      */
     filters?: inputs.ec2.GetNetworkAclsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
      */
     tags?: {[key: string]: string};
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId?: string;
 }
@@ -94,7 +94,7 @@ export interface GetNetworkAclsResult {
      */
     readonly id: string;
     /**
-     * A list of all the network ACL ids found.
+     * List of all the network ACL ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -114,12 +114,12 @@ export interface GetNetworkAclsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId?: pulumi.Input<string>;
 }

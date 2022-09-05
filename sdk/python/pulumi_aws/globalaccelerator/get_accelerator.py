@@ -151,8 +151,8 @@ def get_accelerator(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The full ARN of the Global Accelerator.
-    :param str name: The unique name of the Global Accelerator.
+    :param str arn: Full ARN of the Global Accelerator.
+    :param str name: Unique name of the Global Accelerator.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -200,7 +200,7 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The full ARN of the Global Accelerator.
-    :param str name: The unique name of the Global Accelerator.
+    :param str arn: Full ARN of the Global Accelerator.
+    :param str name: Unique name of the Global Accelerator.
     """
     ...

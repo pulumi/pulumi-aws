@@ -17,14 +17,14 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetApiArgs Empty = new GetApiArgs();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -32,14 +32,14 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of resource tags.
+         * @param tags Map of resource tags.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of resource tags.
+         * @param tags Map of resource tags.
          * 
          * @return builder
          * 

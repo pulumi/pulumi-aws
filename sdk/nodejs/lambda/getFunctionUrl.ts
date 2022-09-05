@@ -42,7 +42,7 @@ export interface GetFunctionUrlArgs {
      */
     functionName: string;
     /**
-     * The alias name or `"$LATEST"`.
+     * Alias name or `"$LATEST"`.
      */
     qualifier?: string;
 }
@@ -52,7 +52,7 @@ export interface GetFunctionUrlArgs {
  */
 export interface GetFunctionUrlResult {
     /**
-     * The type of authentication that the function URL uses.
+     * Type of authentication that the function URL uses.
      */
     readonly authorizationType: string;
     /**
@@ -64,12 +64,12 @@ export interface GetFunctionUrlResult {
      */
     readonly creationTime: string;
     /**
-     * The Amazon Resource Name (ARN) of the function.
+     * ARN of the function.
      */
     readonly functionArn: string;
     readonly functionName: string;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
      */
     readonly functionUrl: string;
     /**
@@ -82,7 +82,7 @@ export interface GetFunctionUrlResult {
     readonly lastModifiedTime: string;
     readonly qualifier?: string;
     /**
-     * A generated ID for the endpoint.
+     * Generated ID for the endpoint.
      */
     readonly urlId: string;
 }
@@ -100,7 +100,7 @@ export interface GetFunctionUrlOutputArgs {
      */
     functionName: pulumi.Input<string>;
     /**
-     * The alias name or `"$LATEST"`.
+     * Alias name or `"$LATEST"`.
      */
     qualifier?: pulumi.Input<string>;
 }

@@ -59,7 +59,7 @@ class GetAddonResult:
     @pulumi.getter(name="addonVersion")
     def addon_version(self) -> str:
         """
-        The version of EKS add-on.
+        Version of EKS add-on.
         """
         return pulumi.get(self, "addon_version")
 
@@ -67,7 +67,7 @@ class GetAddonResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the EKS add-on.
+        ARN of the EKS add-on.
         """
         return pulumi.get(self, "arn")
 

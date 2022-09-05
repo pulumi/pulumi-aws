@@ -36,7 +36,7 @@ export function getDistributionConfiguration(args: GetDistributionConfigurationA
  */
 export interface GetDistributionConfigurationArgs {
     /**
-     * Amazon Resource Name (ARN) of the distribution configuration.
+     * ARN of the distribution configuration.
      */
     arn: string;
     /**
@@ -89,7 +89,7 @@ export function getDistributionConfigurationOutput(args: GetDistributionConfigur
  */
 export interface GetDistributionConfigurationOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the distribution configuration.
+     * ARN of the distribution configuration.
      */
     arn: pulumi.Input<string>;
     /**

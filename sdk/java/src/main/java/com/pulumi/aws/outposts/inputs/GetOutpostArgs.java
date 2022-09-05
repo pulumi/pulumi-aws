@@ -16,14 +16,14 @@ public final class GetOutpostArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetOutpostArgs Empty = new GetOutpostArgs();
 
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN).
+     * @return ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -103,7 +103,7 @@ public final class GetOutpostArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN).
+         * @param arn ARN.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetOutpostArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN).
+         * @param arn ARN.
          * 
          * @return builder
          * 

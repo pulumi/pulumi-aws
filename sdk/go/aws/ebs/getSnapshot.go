@@ -77,46 +77,46 @@ type LookupSnapshotArgs struct {
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds []string `pulumi:"snapshotIds"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId string `pulumi:"dataEncryptionKeyId"`
-	// A description for the snapshot
+	// Description for the snapshot
 	Description string `pulumi:"description"`
 	// Whether the snapshot is encrypted.
 	Encrypted bool                `pulumi:"encrypted"`
 	Filters   []GetSnapshotFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ARN for the KMS encryption key.
+	// ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
-	// The ARN of the Outpost on which the snapshot is stored.
+	// ARN of the Outpost on which the snapshot is stored.
 	OutpostArn string `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias string `pulumi:"ownerAlias"`
-	// The AWS account ID of the EBS snapshot owner.
+	// AWS account ID of the EBS snapshot owner.
 	OwnerId             string   `pulumi:"ownerId"`
 	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
-	// The snapshot ID (e.g., snap-59fcb34e).
+	// Snapshot ID (e.g., snap-59fcb34e).
 	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
-	// The snapshot state.
+	// Snapshot state.
 	State string `pulumi:"state"`
-	// The storage tier in which the snapshot is stored.
+	// Storage tier in which the snapshot is stored.
 	StorageTier string `pulumi:"storageTier"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The volume ID (e.g., vol-59fcb34e).
+	// Volume ID (e.g., vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
-	// The size of the drive in GiBs.
+	// Size of the drive in GiBs.
 	VolumeSize int `pulumi:"volumeSize"`
 }
 
@@ -147,7 +147,7 @@ type LookupSnapshotOutputArgs struct {
 	RestorableByUserIds pulumi.StringArrayInput `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds pulumi.StringArrayInput `pulumi:"snapshotIds"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -170,7 +170,7 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EBS Snapshot.
+// ARN of the EBS Snapshot.
 func (o LookupSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -180,7 +180,7 @@ func (o LookupSnapshotResultOutput) DataEncryptionKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
 }
 
-// A description for the snapshot
+// Description for the snapshot
 func (o LookupSnapshotResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -199,7 +199,7 @@ func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN for the KMS encryption key.
+// ARN for the KMS encryption key.
 func (o LookupSnapshotResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -208,7 +208,7 @@ func (o LookupSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the Outpost on which the snapshot is stored.
+// ARN of the Outpost on which the snapshot is stored.
 func (o LookupSnapshotResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
@@ -218,7 +218,7 @@ func (o LookupSnapshotResultOutput) OwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OwnerAlias }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the EBS snapshot owner.
+// AWS account ID of the EBS snapshot owner.
 func (o LookupSnapshotResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -231,7 +231,7 @@ func (o LookupSnapshotResultOutput) RestorableByUserIds() pulumi.StringArrayOutp
 	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.RestorableByUserIds }).(pulumi.StringArrayOutput)
 }
 
-// The snapshot ID (e.g., snap-59fcb34e).
+// Snapshot ID (e.g., snap-59fcb34e).
 func (o LookupSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
@@ -240,27 +240,27 @@ func (o LookupSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.SnapshotIds }).(pulumi.StringArrayOutput)
 }
 
-// The snapshot state.
+// Snapshot state.
 func (o LookupSnapshotResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The storage tier in which the snapshot is stored.
+// Storage tier in which the snapshot is stored.
 func (o LookupSnapshotResultOutput) StorageTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StorageTier }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The volume ID (e.g., vol-59fcb34e).
+// Volume ID (e.g., vol-59fcb34e).
 func (o LookupSnapshotResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The size of the drive in GiBs.
+// Size of the drive in GiBs.
 func (o LookupSnapshotResultOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.VolumeSize }).(pulumi.IntOutput)
 }

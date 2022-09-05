@@ -13,14 +13,14 @@ public final class GetTrackerAssociationPlainArgs extends com.pulumi.resources.I
     public static final GetTrackerAssociationPlainArgs Empty = new GetTrackerAssociationPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * ARN of the geofence collection associated to tracker resource.
      * 
      */
     @Import(name="consumerArn", required=true)
     private String consumerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * @return ARN of the geofence collection associated to tracker resource.
      * 
      */
     public String consumerArn() {
@@ -28,14 +28,14 @@ public final class GetTrackerAssociationPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The name of the tracker resource associated with a geofence collection.
+     * Name of the tracker resource associated with a geofence collection.
      * 
      */
     @Import(name="trackerName", required=true)
     private String trackerName;
 
     /**
-     * @return The name of the tracker resource associated with a geofence collection.
+     * @return Name of the tracker resource associated with a geofence collection.
      * 
      */
     public String trackerName() {
@@ -68,7 +68,7 @@ public final class GetTrackerAssociationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param consumerArn The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+         * @param consumerArn ARN of the geofence collection associated to tracker resource.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetTrackerAssociationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param trackerName The name of the tracker resource associated with a geofence collection.
+         * @param trackerName Name of the tracker resource associated with a geofence collection.
          * 
          * @return builder
          * 

@@ -16,33 +16,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDirectoryResult {
     /**
-     * @return The directory alias.
+     * @return Directory alias.
      * 
      */
     private String alias;
     /**
-     * @return The user name for the service account.
+     * @return User name for the service account.
      * 
      */
     private String customerUserName;
     private String directoryId;
     /**
-     * @return The name of the directory.
+     * @return Name of the directory.
      * 
      */
     private String directoryName;
     /**
-     * @return The directory type.
+     * @return Directory type.
      * 
      */
     private String directoryType;
     /**
-     * @return The IP addresses of the DNS servers for the directory.
+     * @return IP addresses of the DNS servers for the directory.
      * 
      */
     private List<String> dnsIpAddresses;
     /**
-     * @return The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
     private String iamRoleId;
@@ -52,12 +52,12 @@ public final class GetDirectoryResult {
      */
     private String id;
     /**
-     * @return The identifiers of the IP access control groups associated with the directory.
+     * @return Identifiers of the IP access control groups associated with the directory.
      * 
      */
     private List<String> ipGroupIds;
     /**
-     * @return The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
     private String registrationCode;
@@ -67,7 +67,7 @@ public final class GetDirectoryResult {
      */
     private List<GetDirectorySelfServicePermission> selfServicePermissions;
     /**
-     * @return The identifiers of the subnets where the directory resides.
+     * @return Identifiers of the subnets where the directory resides.
      * 
      */
     private List<String> subnetIds;
@@ -94,14 +94,14 @@ public final class GetDirectoryResult {
 
     private GetDirectoryResult() {}
     /**
-     * @return The directory alias.
+     * @return Directory alias.
      * 
      */
     public String alias() {
         return this.alias;
     }
     /**
-     * @return The user name for the service account.
+     * @return User name for the service account.
      * 
      */
     public String customerUserName() {
@@ -111,28 +111,28 @@ public final class GetDirectoryResult {
         return this.directoryId;
     }
     /**
-     * @return The name of the directory.
+     * @return Name of the directory.
      * 
      */
     public String directoryName() {
         return this.directoryName;
     }
     /**
-     * @return The directory type.
+     * @return Directory type.
      * 
      */
     public String directoryType() {
         return this.directoryType;
     }
     /**
-     * @return The IP addresses of the DNS servers for the directory.
+     * @return IP addresses of the DNS servers for the directory.
      * 
      */
     public List<String> dnsIpAddresses() {
         return this.dnsIpAddresses;
     }
     /**
-     * @return The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     * @return Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
     public String iamRoleId() {
@@ -146,14 +146,14 @@ public final class GetDirectoryResult {
         return this.id;
     }
     /**
-     * @return The identifiers of the IP access control groups associated with the directory.
+     * @return Identifiers of the IP access control groups associated with the directory.
      * 
      */
     public List<String> ipGroupIds() {
         return this.ipGroupIds;
     }
     /**
-     * @return The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
     public String registrationCode() {
@@ -167,7 +167,7 @@ public final class GetDirectoryResult {
         return this.selfServicePermissions;
     }
     /**
-     * @return The identifiers of the subnets where the directory resides.
+     * @return Identifiers of the subnets where the directory resides.
      * 
      */
     public List<String> subnetIds() {

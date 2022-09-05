@@ -13,14 +13,14 @@ public final class GetRateBasedRulePlainArgs extends com.pulumi.resources.Invoke
     public static final GetRateBasedRulePlainArgs Empty = new GetRateBasedRulePlainArgs();
 
     /**
-     * The name of the WAF rate based rule.
+     * Name of the WAF rate based rule.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the WAF rate based rule.
+     * @return Name of the WAF rate based rule.
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetRateBasedRulePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the WAF rate based rule.
+         * @param name Name of the WAF rate based rule.
          * 
          * @return builder
          * 

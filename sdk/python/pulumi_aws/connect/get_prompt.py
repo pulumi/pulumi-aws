@@ -42,7 +42,7 @@ class GetPromptResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Prompt.
+        ARN of the Prompt.
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetPromptResult:
     @pulumi.getter(name="promptId")
     def prompt_id(self) -> str:
         """
-        The identifier for the prompt.
+        Identifier for the prompt.
         """
         return pulumi.get(self, "prompt_id")
 

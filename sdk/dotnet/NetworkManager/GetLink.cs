@@ -72,13 +72,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the link to retrieve.
+        /// ID of the Global Network of the link to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The id of the specific link to retrieve.
+        /// ID of the specific link to retrieve.
         /// </summary>
         [Input("linkId", required: true)]
         public string LinkId { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the link to retrieve.
+        /// ID of the Global Network of the link to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The id of the specific link to retrieve.
+        /// ID of the specific link to retrieve.
         /// </summary>
         [Input("linkId", required: true)]
         public Input<string> LinkId { get; set; } = null!;
@@ -138,15 +138,15 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetLinkResult
     {
         /// <summary>
-        /// The ARN of the link.
+        /// ARN of the link.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The upload speed and download speed of the link as documented below
+        /// Upload speed and download speed of the link as documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinkBandwidthResult> Bandwidths;
         /// <summary>
-        /// The description of the link.
+        /// Description of the link.
         /// </summary>
         public readonly string Description;
         public readonly string GlobalNetworkId;
@@ -156,11 +156,11 @@ namespace Pulumi.Aws.NetworkManager
         public readonly string Id;
         public readonly string LinkId;
         /// <summary>
-        /// The provider of the link.
+        /// Provider of the link.
         /// </summary>
         public readonly string ProviderName;
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
         /// </summary>
         public readonly string SiteId;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of the link.
+        /// Type of the link.
         /// </summary>
         public readonly string Type;
 

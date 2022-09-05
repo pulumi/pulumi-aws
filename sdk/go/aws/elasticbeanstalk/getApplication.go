@@ -50,14 +50,14 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
-	// The name of the application
+	// Name of the application
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
 	AppversionLifecycle GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
-	// The Amazon Resource Name (ARN) of the application.
+	// ARN of the application.
 	Arn string `pulumi:"arn"`
 	// Short description of the application
 	Description string `pulumi:"description"`
@@ -81,7 +81,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
-	// The name of the application
+	// Name of the application
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -108,7 +108,7 @@ func (o LookupApplicationResultOutput) AppversionLifecycle() GetApplicationAppve
 	return o.ApplyT(func(v LookupApplicationResult) GetApplicationAppversionLifecycle { return v.AppversionLifecycle }).(GetApplicationAppversionLifecycleOutput)
 }
 
-// The Amazon Resource Name (ARN) of the application.
+// ARN of the application.
 func (o LookupApplicationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

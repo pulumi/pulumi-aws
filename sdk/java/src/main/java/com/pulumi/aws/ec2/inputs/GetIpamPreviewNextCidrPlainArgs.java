@@ -32,14 +32,14 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Import(name="ipamPoolId", required=true)
     private String ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public String ipamPoolId() {
@@ -47,14 +47,14 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Integer netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * @return Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     public Optional<Integer> netmaskLength() {
@@ -109,7 +109,7 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetIpamPreviewNextCidrPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to preview from the IPAM pool.
+         * @param netmaskLength Netmask length of the CIDR you would like to preview from the IPAM pool.
          * 
          * @return builder
          * 

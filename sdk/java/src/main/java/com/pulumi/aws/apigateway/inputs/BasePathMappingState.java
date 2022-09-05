@@ -31,14 +31,14 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The already-registered domain name to connect the API to.
+     * Already-registered domain name to connect the API to.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The already-registered domain name to connect the API to.
+     * @return Already-registered domain name to connect the API to.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -46,14 +46,14 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The id of the API to connect.
+     * ID of the API to connect.
      * 
      */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
     /**
-     * @return The id of the API to connect.
+     * @return ID of the API to connect.
      * 
      */
     public Optional<Output<String>> restApi() {
@@ -61,14 +61,14 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
     /**
-     * @return The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * @return Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
     public Optional<Output<String>> stageName() {
@@ -124,7 +124,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param domainName The already-registered domain name to connect the API to.
+         * @param domainName Already-registered domain name to connect the API to.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param domainName The already-registered domain name to connect the API to.
+         * @param domainName Already-registered domain name to connect the API to.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param restApi The id of the API to connect.
+         * @param restApi ID of the API to connect.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param restApi The id of the API to connect.
+         * @param restApi ID of the API to connect.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param stageName The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+         * @param stageName Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param stageName The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+         * @param stageName Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
          * 
          * @return builder
          * 

@@ -55,7 +55,7 @@ class GetDevicesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The IDs of the devices.
+        IDs of the devices.
         """
         return pulumi.get(self, "ids")
 
@@ -103,8 +103,8 @@ def get_devices(global_network_id: Optional[str] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the devices to retrieve.
-    :param str site_id: The ID of the site of the devices to retrieve.
+    :param str global_network_id: ID of the Global Network of the devices to retrieve.
+    :param str site_id: ID of the site of the devices to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the devices with these tags.
     """
     __args__ = dict()
@@ -143,8 +143,8 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the devices to retrieve.
-    :param str site_id: The ID of the site of the devices to retrieve.
+    :param str global_network_id: ID of the Global Network of the devices to retrieve.
+    :param str site_id: ID of the site of the devices to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the devices with these tags.
     """
     ...

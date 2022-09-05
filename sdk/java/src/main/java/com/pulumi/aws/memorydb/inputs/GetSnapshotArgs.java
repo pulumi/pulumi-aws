@@ -32,14 +32,14 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the snapshot.
+     * Map of tags assigned to the snapshot.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the snapshot.
+     * @return Map of tags assigned to the snapshot.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,7 +93,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the snapshot.
+         * @param tags Map of tags assigned to the snapshot.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the snapshot.
+         * @param tags Map of tags assigned to the snapshot.
          * 
          * @return builder
          * 

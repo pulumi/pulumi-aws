@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcDhcpOptionsFilter {
     /**
-     * @return The name of the field to filter.
+     * @return Name of the field to filter.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetVpcDhcpOptionsFilter {
 
     private GetVpcDhcpOptionsFilter() {}
     /**
-     * @return The name of the field to filter.
+     * @return Name of the field to filter.
      * 
      */
     public String name() {

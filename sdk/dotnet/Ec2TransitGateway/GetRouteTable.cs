@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class GetRouteTableResult
     {
         /// <summary>
-        /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Route Table ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>

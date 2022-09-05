@@ -148,11 +148,11 @@ export class Flow extends pulumi.CustomResource {
     }
 
     /**
-     * The flow's Amazon Resource Name (ARN).
+     * Flow's ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A description of the flow you want to create.
+     * Description of the flow you want to create.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -160,11 +160,11 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly destinationFlowConfigs!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     /**
-     * The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     public readonly kmsArn!: pulumi.Output<string>;
     /**
-     * The name of the flow.
+     * Name of the flow.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -246,11 +246,11 @@ export class Flow extends pulumi.CustomResource {
  */
 export interface FlowState {
     /**
-     * The flow's Amazon Resource Name (ARN).
+     * Flow's ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * A description of the flow you want to create.
+     * Description of the flow you want to create.
      */
     description?: pulumi.Input<string>;
     /**
@@ -258,11 +258,11 @@ export interface FlowState {
      */
     destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
     /**
-     * The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string>;
     /**
-     * The name of the flow.
+     * Name of the flow.
      */
     name?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface FlowState {
  */
 export interface FlowArgs {
     /**
-     * A description of the flow you want to create.
+     * Description of the flow you want to create.
      */
     description?: pulumi.Input<string>;
     /**
@@ -300,11 +300,11 @@ export interface FlowArgs {
      */
     destinationFlowConfigs: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
     /**
-     * The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string>;
     /**
-     * The name of the flow.
+     * Name of the flow.
      */
     name?: pulumi.Input<string>;
     /**

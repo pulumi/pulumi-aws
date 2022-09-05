@@ -51,9 +51,9 @@ func GetDevices(ctx *pulumi.Context, args *GetDevicesArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getDevices.
 type GetDevicesArgs struct {
-	// The ID of the Global Network of the devices to retrieve.
+	// ID of the Global Network of the devices to retrieve.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The ID of the site of the devices to retrieve.
+	// ID of the site of the devices to retrieve.
 	SiteId *string `pulumi:"siteId"`
 	// Restricts the list to the devices with these tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -64,7 +64,7 @@ type GetDevicesResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The IDs of the devices.
+	// IDs of the devices.
 	Ids    []string          `pulumi:"ids"`
 	SiteId *string           `pulumi:"siteId"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -85,9 +85,9 @@ func GetDevicesOutput(ctx *pulumi.Context, args GetDevicesOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getDevices.
 type GetDevicesOutputArgs struct {
-	// The ID of the Global Network of the devices to retrieve.
+	// ID of the Global Network of the devices to retrieve.
 	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// The ID of the site of the devices to retrieve.
+	// ID of the site of the devices to retrieve.
 	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
 	// Restricts the list to the devices with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -121,7 +121,7 @@ func (o GetDevicesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDevicesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The IDs of the devices.
+// IDs of the devices.
 func (o GetDevicesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDevicesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

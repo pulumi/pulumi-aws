@@ -128,7 +128,7 @@ import (
 type CertificateValidation struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the certificate that is being validated.
+	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayOutput `pulumi:"validationRecordFqdns"`
@@ -166,14 +166,14 @@ func GetCertificateValidation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateValidation resources.
 type certificateValidationState struct {
-	// The ARN of the certificate that is being validated.
+	// ARN of the certificate that is being validated.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
 }
 
 type CertificateValidationState struct {
-	// The ARN of the certificate that is being validated.
+	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringPtrInput
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayInput
@@ -184,7 +184,7 @@ func (CertificateValidationState) ElementType() reflect.Type {
 }
 
 type certificateValidationArgs struct {
-	// The ARN of the certificate that is being validated.
+	// ARN of the certificate that is being validated.
 	CertificateArn string `pulumi:"certificateArn"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
@@ -192,7 +192,7 @@ type certificateValidationArgs struct {
 
 // The set of arguments for constructing a CertificateValidation resource.
 type CertificateValidationArgs struct {
-	// The ARN of the certificate that is being validated.
+	// ARN of the certificate that is being validated.
 	CertificateArn pulumi.StringInput
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 	ValidationRecordFqdns pulumi.StringArrayInput
@@ -285,7 +285,7 @@ func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ct
 	return o
 }
 
-// The ARN of the certificate that is being validated.
+// ARN of the certificate that is being validated.
 func (o CertificateValidationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateValidation) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }

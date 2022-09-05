@@ -18,7 +18,7 @@ class CertificateValidationArgs:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CertificateValidation resource.
-        :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -29,7 +29,7 @@ class CertificateValidationArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the certificate that is being validated.
+        ARN of the certificate that is being validated.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -57,7 +57,7 @@ class _CertificateValidationState:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateValidation resources.
-        :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         if certificate_arn is not None:
@@ -69,7 +69,7 @@ class _CertificateValidationState:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the certificate that is being validated.
+        ARN of the certificate that is being validated.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -149,7 +149,7 @@ class CertificateValidation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         ...
@@ -256,7 +256,7 @@ class CertificateValidation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
+        :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -271,7 +271,7 @@ class CertificateValidation(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the certificate that is being validated.
+        ARN of the certificate that is being validated.
         """
         return pulumi.get(self, "certificate_arn")
 

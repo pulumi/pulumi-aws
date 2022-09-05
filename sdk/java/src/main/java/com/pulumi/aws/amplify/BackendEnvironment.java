@@ -64,70 +64,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amplify/backendEnvironment:BackendEnvironment")
 public class BackendEnvironment extends com.pulumi.resources.CustomResource {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Export(name="appId", type=String.class, parameters={})
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * @return ARN for a backend environment that is part of an Amplify app.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of deployment artifacts.
+     * Name of deployment artifacts.
      * 
      */
     @Export(name="deploymentArtifacts", type=String.class, parameters={})
     private Output<String> deploymentArtifacts;
 
     /**
-     * @return The name of deployment artifacts.
+     * @return Name of deployment artifacts.
      * 
      */
     public Output<String> deploymentArtifacts() {
         return this.deploymentArtifacts;
     }
     /**
-     * The name for the backend environment.
+     * Name for the backend environment.
      * 
      */
     @Export(name="environmentName", type=String.class, parameters={})
     private Output<String> environmentName;
 
     /**
-     * @return The name for the backend environment.
+     * @return Name for the backend environment.
      * 
      */
     public Output<String> environmentName() {
         return this.environmentName;
     }
     /**
-     * The AWS CloudFormation stack name of a backend environment.
+     * AWS CloudFormation stack name of a backend environment.
      * 
      */
     @Export(name="stackName", type=String.class, parameters={})
     private Output<String> stackName;
 
     /**
-     * @return The AWS CloudFormation stack name of a backend environment.
+     * @return AWS CloudFormation stack name of a backend environment.
      * 
      */
     public Output<String> stackName() {

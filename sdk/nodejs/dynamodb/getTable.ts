@@ -37,7 +37,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetTableArgs {
     /**
-     * The name of the DynamoDB table.
+     * Name of the DynamoDB table.
      */
     name: string;
     serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
@@ -83,7 +83,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetTableOutputArgs {
     /**
-     * The name of the DynamoDB table.
+     * Name of the DynamoDB table.
      */
     name: pulumi.Input<string>;
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.GetTableServerSideEncryptionArgs>;

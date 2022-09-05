@@ -290,6 +290,21 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    @Import(name="hostResourceGroupArn")
+    private @Nullable Output<String> hostResourceGroupArn;
+
+    /**
+     * @return ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+     * 
+     */
+    public Optional<Output<String>> hostResourceGroupArn() {
+        return Optional.ofNullable(this.hostResourceGroupArn);
+    }
+
+    /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
@@ -335,14 +350,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -350,14 +365,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     @Import(name="ipv6AddressCount")
     private @Nullable Output<Integer> ipv6AddressCount;
 
     /**
-     * @return A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * @return Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
     public Optional<Output<Integer>> ipv6AddressCount() {
@@ -429,14 +444,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     @Import(name="maintenanceOptions")
     private @Nullable Output<SpotInstanceRequestMaintenanceOptionsArgs> maintenanceOptions;
 
     /**
-     * @return The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     * @return Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
     public Optional<Output<SpotInstanceRequestMaintenanceOptionsArgs>> maintenanceOptions() {
@@ -504,14 +519,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     @Import(name="placementPartitionNumber")
     private @Nullable Output<Integer> placementPartitionNumber;
 
     /**
-     * @return The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+     * @return Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
     public Optional<Output<Integer>> placementPartitionNumber() {
@@ -519,14 +534,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     @Import(name="privateDnsNameOptions")
     private @Nullable Output<SpotInstanceRequestPrivateDnsNameOptionsArgs> privateDnsNameOptions;
 
     /**
-     * @return The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * @return Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
     public Optional<Output<SpotInstanceRequestPrivateDnsNameOptionsArgs>> privateDnsNameOptions() {
@@ -564,14 +579,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     @Import(name="secondaryPrivateIps")
     private @Nullable Output<List<String>> secondaryPrivateIps;
 
     /**
-     * @return A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     public Optional<Output<List<String>>> secondaryPrivateIps() {
@@ -579,14 +594,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of security group names to associate with.
+     * List of security group names to associate with.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group names to associate with.
+     * @return List of security group names to associate with.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -656,14 +671,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -671,14 +686,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     @Import(name="tenancy")
     private @Nullable Output<String> tenancy;
 
     /**
-     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+     * @return Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
     public Optional<Output<String>> tenancy() {
@@ -761,14 +776,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     @Import(name="volumeTags")
     private @Nullable Output<Map<String,String>> volumeTags;
 
     /**
-     * @return A map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
     public Optional<Output<Map<String,String>>> volumeTags() {
@@ -776,14 +791,14 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of security group IDs to associate with.
+     * List of security group IDs to associate with.
      * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of security group IDs to associate with.
+     * @return List of security group IDs to associate with.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -829,6 +844,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.getPasswordData = $.getPasswordData;
         this.hibernation = $.hibernation;
         this.hostId = $.hostId;
+        this.hostResourceGroupArn = $.hostResourceGroupArn;
         this.iamInstanceProfile = $.iamInstanceProfile;
         this.instanceInitiatedShutdownBehavior = $.instanceInitiatedShutdownBehavior;
         this.instanceInterruptionBehavior = $.instanceInterruptionBehavior;
@@ -1265,6 +1281,27 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostResourceGroupArn(@Nullable Output<String> hostResourceGroupArn) {
+            $.hostResourceGroupArn = hostResourceGroupArn;
+            return this;
+        }
+
+        /**
+         * @param hostResourceGroupArn ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostResourceGroupArn(String hostResourceGroupArn) {
+            return hostResourceGroupArn(Output.of(hostResourceGroupArn));
+        }
+
+        /**
          * @param iamInstanceProfile IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
          * 
          * @return builder
@@ -1328,7 +1365,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1339,7 +1376,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceType The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1349,7 +1386,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipv6AddressCount A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+         * @param ipv6AddressCount Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
          * 
          * @return builder
          * 
@@ -1360,7 +1397,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipv6AddressCount A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+         * @param ipv6AddressCount Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
          * 
          * @return builder
          * 
@@ -1468,7 +1505,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maintenanceOptions The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+         * @param maintenanceOptions Maintenance and recovery options for the instance. See Maintenance Options below for more details.
          * 
          * @return builder
          * 
@@ -1479,7 +1516,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maintenanceOptions The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+         * @param maintenanceOptions Maintenance and recovery options for the instance. See Maintenance Options below for more details.
          * 
          * @return builder
          * 
@@ -1583,7 +1620,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param placementPartitionNumber The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
          * 
          * @return builder
          * 
@@ -1594,7 +1631,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param placementPartitionNumber The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
+         * @param placementPartitionNumber Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
          * 
          * @return builder
          * 
@@ -1604,7 +1641,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * @param privateDnsNameOptions Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
          * 
          * @return builder
          * 
@@ -1615,7 +1652,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * @param privateDnsNameOptions Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
          * 
          * @return builder
          * 
@@ -1667,7 +1704,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1678,7 +1715,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1688,7 +1725,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryPrivateIps A list of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+         * @param secondaryPrivateIps List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
          * 
          * @return builder
          * 
@@ -1698,7 +1735,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1709,7 +1746,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1719,7 +1756,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param securityGroups A list of security group names to associate with.
+         * @param securityGroups List of security group names to associate with.
          * 
          * @return builder
          * 
@@ -1815,7 +1852,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1826,7 +1863,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1836,7 +1873,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -1847,7 +1884,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
+         * @param tenancy Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
          * 
          * @return builder
          * 
@@ -1962,7 +1999,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param volumeTags A map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
          * @return builder
          * 
@@ -1973,7 +2010,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param volumeTags A map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
          * @return builder
          * 
@@ -1983,7 +2020,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 
@@ -1994,7 +2031,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 
@@ -2004,7 +2041,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of security group IDs to associate with.
+         * @param vpcSecurityGroupIds List of security group IDs to associate with.
          * 
          * @return builder
          * 

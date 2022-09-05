@@ -81,7 +81,7 @@ class GetClusterResult:
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
         """
-        The ID of the security group associated with the CloudHSM cluster.
+        ID of the security group associated with the CloudHSM cluster.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -89,7 +89,7 @@ class GetClusterResult:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
-        The IDs of subnets in which cluster operates.
+        IDs of subnets in which cluster operates.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -97,7 +97,7 @@ class GetClusterResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The id of the VPC that the CloudHSM cluster resides in.
+        ID of the VPC that the CloudHSM cluster resides in.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -133,8 +133,8 @@ def get_cluster(cluster_id: Optional[str] = None,
     ```
 
 
-    :param str cluster_id: The id of Cloud HSM v2 cluster.
-    :param str cluster_state: The state of the cluster to be found.
+    :param str cluster_id: ID of Cloud HSM v2 cluster.
+    :param str cluster_state: State of the cluster to be found.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -169,7 +169,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_id: The id of Cloud HSM v2 cluster.
-    :param str cluster_state: The state of the cluster to be found.
+    :param str cluster_id: ID of Cloud HSM v2 cluster.
+    :param str cluster_state: State of the cluster to be found.
     """
     ...

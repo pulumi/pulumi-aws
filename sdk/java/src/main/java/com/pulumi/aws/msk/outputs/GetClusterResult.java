@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     private String arn;
@@ -85,7 +85,7 @@ public final class GetClusterResult {
 
     private GetClusterResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public String arn() {

@@ -16,14 +16,14 @@ public final class GetSitesPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSitesPlainArgs Empty = new GetSitesPlainArgs();
 
     /**
-     * The ID of the Global Network of the sites to retrieve.
+     * ID of the Global Network of the sites to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the sites to retrieve.
+     * @return ID of the Global Network of the sites to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -71,7 +71,7 @@ public final class GetSitesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the sites to retrieve.
+         * @param globalNetworkId ID of the Global Network of the sites to retrieve.
          * 
          * @return builder
          * 

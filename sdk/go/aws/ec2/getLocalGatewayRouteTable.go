@@ -57,15 +57,15 @@ func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTa
 // A collection of arguments for invoking getLocalGatewayRouteTable.
 type GetLocalGatewayRouteTableArgs struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
-	// The id of the specific local gateway route table to retrieve.
+	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Local Gateway Route Table Id assigned to desired local gateway route table
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// The arn of the Outpost the local gateway route table is associated with.
+	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The state of the local gateway route table.
+	// State of the local gateway route table.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,15 +98,15 @@ func GetLocalGatewayRouteTableOutput(ctx *pulumi.Context, args GetLocalGatewayRo
 // A collection of arguments for invoking getLocalGatewayRouteTable.
 type GetLocalGatewayRouteTableOutputArgs struct {
 	Filters GetLocalGatewayRouteTableFilterArrayInput `pulumi:"filters"`
-	// The id of the specific local gateway route table to retrieve.
+	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
 	// Local Gateway Route Table Id assigned to desired local gateway route table
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
-	// The arn of the Outpost the local gateway route table is associated with.
+	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The state of the local gateway route table.
+	// State of the local gateway route table.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -42,7 +42,7 @@ class GetIpamPreviewNextCidrResult:
     @pulumi.getter
     def cidr(self) -> str:
         """
-        The previewed CIDR from the pool.
+        Previewed CIDR from the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -105,8 +105,8 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
 
 
     :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-    :param str ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-    :param int netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+    :param int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs
@@ -146,7 +146,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
 
 
     :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-    :param str ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-    :param int netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+    :param int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
     """
     ...

@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBotAssociationLexBot {
     /**
-     * @return The Region that the Amazon Lex (V1) bot was created in.
+     * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
     private String lexRegion;
     /**
-     * @return The name of the Amazon Lex (V1) bot.
+     * @return Name of the Amazon Lex (V1) bot.
      * 
      */
     private String name;
 
     private GetBotAssociationLexBot() {}
     /**
-     * @return The Region that the Amazon Lex (V1) bot was created in.
+     * @return Region that the Amazon Lex (V1) bot was created in.
      * 
      */
     public String lexRegion() {
         return this.lexRegion;
     }
     /**
-     * @return The name of the Amazon Lex (V1) bot.
+     * @return Name of the Amazon Lex (V1) bot.
      * 
      */
     public String name() {

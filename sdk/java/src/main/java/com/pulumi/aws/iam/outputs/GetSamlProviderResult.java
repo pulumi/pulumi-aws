@@ -22,7 +22,7 @@ public final class GetSamlProviderResult {
      */
     private String id;
     /**
-     * @return The name of the provider.
+     * @return Name of the provider.
      * 
      */
     private String name;
@@ -32,12 +32,12 @@ public final class GetSamlProviderResult {
      */
     private String samlMetadataDocument;
     /**
-     * @return The tags attached to the SAML provider.
+     * @return Tags attached to the SAML provider.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
+     * @return Expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
      * 
      */
     private String validUntil;
@@ -61,7 +61,7 @@ public final class GetSamlProviderResult {
         return this.id;
     }
     /**
-     * @return The name of the provider.
+     * @return Name of the provider.
      * 
      */
     public String name() {
@@ -75,14 +75,14 @@ public final class GetSamlProviderResult {
         return this.samlMetadataDocument;
     }
     /**
-     * @return The tags attached to the SAML provider.
+     * @return Tags attached to the SAML provider.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
+     * @return Expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
      * 
      */
     public String validUntil() {

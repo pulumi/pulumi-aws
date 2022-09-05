@@ -104,7 +104,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly contactLensEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies when the instance was created.
+     * When the instance was created.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly instanceAlias!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     public readonly outboundCallsEnabled!: pulumi.Output<boolean>;
     /**
@@ -218,7 +218,7 @@ export interface InstanceState {
      */
     contactLensEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies when the instance was created.
+     * When the instance was created.
      */
     createdTime?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface InstanceState {
     instanceAlias?: pulumi.Input<string>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled?: pulumi.Input<boolean>;
     /**
@@ -294,7 +294,7 @@ export interface InstanceArgs {
     instanceAlias?: pulumi.Input<string>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Specifies Whether use custom tts voices is enabled. Defaults to `false` -->
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled: pulumi.Input<boolean>;
 }

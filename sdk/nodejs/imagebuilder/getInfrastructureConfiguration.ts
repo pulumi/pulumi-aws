@@ -37,7 +37,7 @@ export function getInfrastructureConfiguration(args: GetInfrastructureConfigurat
  */
 export interface GetInfrastructureConfigurationArgs {
     /**
-     * Amazon Resource Name (ARN) of the infrastructure configuration.
+     * ARN of the infrastructure configuration.
      */
     arn: string;
     /**
@@ -101,7 +101,7 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly securityGroupIds: string[];
     /**
-     * Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+     * ARN of the SNS Topic associated with the configuration.
      */
     readonly snsTopicArn: string;
     /**
@@ -127,7 +127,7 @@ export function getInfrastructureConfigurationOutput(args: GetInfrastructureConf
  */
 export interface GetInfrastructureConfigurationOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the infrastructure configuration.
+     * ARN of the infrastructure configuration.
      */
     arn: pulumi.Input<string>;
     /**

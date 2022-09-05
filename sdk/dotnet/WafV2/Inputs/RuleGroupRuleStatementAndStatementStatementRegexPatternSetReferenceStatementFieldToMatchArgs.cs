@@ -25,6 +25,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs>? Body { get; set; }
 
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        [Input("cookies")]
+        public Input<Inputs.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs>? Cookies { get; set; }
+
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        [Input("jsonBody")]
+        public Input<Inputs.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs>? JsonBody { get; set; }
+
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]

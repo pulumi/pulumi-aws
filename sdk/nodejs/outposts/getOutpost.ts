@@ -38,7 +38,7 @@ export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): 
  */
 export interface GetOutpostArgs {
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      */
     arn?: string;
     /**
@@ -90,7 +90,7 @@ export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.Invo
  */
 export interface GetOutpostOutputArgs {
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      */
     arn?: pulumi.Input<string>;
     /**

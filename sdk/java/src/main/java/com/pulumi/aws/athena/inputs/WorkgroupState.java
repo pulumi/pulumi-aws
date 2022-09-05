@@ -19,14 +19,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     public static final WorkgroupState Empty = new WorkgroupState();
 
     /**
-     * Amazon Resource Name (ARN) of the workgroup
+     * ARN of the workgroup
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workgroup
+     * @return ARN of the workgroup
      * 
      */
     public Optional<Output<String>> arn() {
@@ -64,14 +64,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * @return Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -109,14 +109,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -124,14 +124,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -170,7 +170,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workgroup
+         * @param arn ARN of the workgroup
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workgroup
+         * @param arn ARN of the workgroup
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+         * @param forceDestroy Option to delete the workgroup and its contents even if the workgroup contains any named queries.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+         * @param forceDestroy Option to delete the workgroup and its contents even if the workgroup contains any named queries.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

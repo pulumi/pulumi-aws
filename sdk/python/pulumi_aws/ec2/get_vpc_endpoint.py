@@ -92,7 +92,7 @@ class GetVpcEndpointResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the VPC endpoint.
+        ARN of the VPC endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -100,7 +100,7 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[str]:
         """
-        The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -108,7 +108,7 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
         """
-        The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
         return pulumi.get(self, "dns_entries")
 
@@ -144,7 +144,7 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the VPC endpoint.
+        ID of the AWS account that owns the VPC endpoint.
         """
         return pulumi.get(self, "owner_id")
 
@@ -152,7 +152,7 @@ class GetVpcEndpointResult:
     @pulumi.getter
     def policy(self) -> str:
         """
-        The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+        Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "policy")
 
@@ -160,7 +160,7 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> str:
         """
-        The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -223,7 +223,7 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> str:
         """
-        The VPC Endpoint type, `Gateway` or `Interface`.
+        VPC Endpoint type, `Gateway` or `Interface`.
         """
         return pulumi.get(self, "vpc_endpoint_type")
 
@@ -288,12 +288,12 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the specific VPC Endpoint to retrieve.
-    :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str state: The state of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str state: State of the specific VPC Endpoint to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
-    :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
+    :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -356,11 +356,11 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The ID of the specific VPC Endpoint to retrieve.
-    :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str state: The state of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str state: State of the specific VPC Endpoint to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
-    :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
+    :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
     """
     ...

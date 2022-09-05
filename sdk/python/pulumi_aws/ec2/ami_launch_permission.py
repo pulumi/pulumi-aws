@@ -21,11 +21,11 @@ class AmiLaunchPermissionArgs:
                  organizational_unit_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AmiLaunchPermission resource.
-        :param pulumi.Input[str] image_id: The ID of the AMI.
-        :param pulumi.Input[str] account_id: The AWS account ID for the launch permission.
-        :param pulumi.Input[str] group: The name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[str] organization_arn: The ARN of an organization for the launch permission.
-        :param pulumi.Input[str] organizational_unit_arn: The ARN of an organizational unit for the launch permission.
+        :param pulumi.Input[str] image_id: ID of the AMI.
+        :param pulumi.Input[str] account_id: AWS account ID for the launch permission.
+        :param pulumi.Input[str] group: Name of the group for the launch permission. Valid values: `"all"`.
+        :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
+        :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
         pulumi.set(__self__, "image_id", image_id)
         if account_id is not None:
@@ -41,7 +41,7 @@ class AmiLaunchPermissionArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[str]:
         """
-        The ID of the AMI.
+        ID of the AMI.
         """
         return pulumi.get(self, "image_id")
 
@@ -53,7 +53,7 @@ class AmiLaunchPermissionArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID for the launch permission.
+        AWS account ID for the launch permission.
         """
         return pulumi.get(self, "account_id")
 
@@ -65,7 +65,7 @@ class AmiLaunchPermissionArgs:
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the group for the launch permission. Valid values: `"all"`.
+        Name of the group for the launch permission. Valid values: `"all"`.
         """
         return pulumi.get(self, "group")
 
@@ -77,7 +77,7 @@ class AmiLaunchPermissionArgs:
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an organization for the launch permission.
+        ARN of an organization for the launch permission.
         """
         return pulumi.get(self, "organization_arn")
 
@@ -89,7 +89,7 @@ class AmiLaunchPermissionArgs:
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an organizational unit for the launch permission.
+        ARN of an organizational unit for the launch permission.
         """
         return pulumi.get(self, "organizational_unit_arn")
 
@@ -108,11 +108,11 @@ class _AmiLaunchPermissionState:
                  organizational_unit_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AmiLaunchPermission resources.
-        :param pulumi.Input[str] account_id: The AWS account ID for the launch permission.
-        :param pulumi.Input[str] group: The name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[str] image_id: The ID of the AMI.
-        :param pulumi.Input[str] organization_arn: The ARN of an organization for the launch permission.
-        :param pulumi.Input[str] organizational_unit_arn: The ARN of an organizational unit for the launch permission.
+        :param pulumi.Input[str] account_id: AWS account ID for the launch permission.
+        :param pulumi.Input[str] group: Name of the group for the launch permission. Valid values: `"all"`.
+        :param pulumi.Input[str] image_id: ID of the AMI.
+        :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
+        :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -129,7 +129,7 @@ class _AmiLaunchPermissionState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID for the launch permission.
+        AWS account ID for the launch permission.
         """
         return pulumi.get(self, "account_id")
 
@@ -141,7 +141,7 @@ class _AmiLaunchPermissionState:
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the group for the launch permission. Valid values: `"all"`.
+        Name of the group for the launch permission. Valid values: `"all"`.
         """
         return pulumi.get(self, "group")
 
@@ -153,7 +153,7 @@ class _AmiLaunchPermissionState:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the AMI.
+        ID of the AMI.
         """
         return pulumi.get(self, "image_id")
 
@@ -165,7 +165,7 @@ class _AmiLaunchPermissionState:
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an organization for the launch permission.
+        ARN of an organization for the launch permission.
         """
         return pulumi.get(self, "organization_arn")
 
@@ -177,7 +177,7 @@ class _AmiLaunchPermissionState:
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an organizational unit for the launch permission.
+        ARN of an organizational unit for the launch permission.
         """
         return pulumi.get(self, "organizational_unit_arn")
 
@@ -243,11 +243,11 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The AWS account ID for the launch permission.
-        :param pulumi.Input[str] group: The name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[str] image_id: The ID of the AMI.
-        :param pulumi.Input[str] organization_arn: The ARN of an organization for the launch permission.
-        :param pulumi.Input[str] organizational_unit_arn: The ARN of an organizational unit for the launch permission.
+        :param pulumi.Input[str] account_id: AWS account ID for the launch permission.
+        :param pulumi.Input[str] group: Name of the group for the launch permission. Valid values: `"all"`.
+        :param pulumi.Input[str] image_id: ID of the AMI.
+        :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
+        :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
         ...
     @overload
@@ -357,11 +357,11 @@ class AmiLaunchPermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The AWS account ID for the launch permission.
-        :param pulumi.Input[str] group: The name of the group for the launch permission. Valid values: `"all"`.
-        :param pulumi.Input[str] image_id: The ID of the AMI.
-        :param pulumi.Input[str] organization_arn: The ARN of an organization for the launch permission.
-        :param pulumi.Input[str] organizational_unit_arn: The ARN of an organizational unit for the launch permission.
+        :param pulumi.Input[str] account_id: AWS account ID for the launch permission.
+        :param pulumi.Input[str] group: Name of the group for the launch permission. Valid values: `"all"`.
+        :param pulumi.Input[str] image_id: ID of the AMI.
+        :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
+        :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,7 +378,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The AWS account ID for the launch permission.
+        AWS account ID for the launch permission.
         """
         return pulumi.get(self, "account_id")
 
@@ -386,7 +386,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @pulumi.getter
     def group(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the group for the launch permission. Valid values: `"all"`.
+        Name of the group for the launch permission. Valid values: `"all"`.
         """
         return pulumi.get(self, "group")
 
@@ -394,7 +394,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[str]:
         """
-        The ID of the AMI.
+        ID of the AMI.
         """
         return pulumi.get(self, "image_id")
 
@@ -402,7 +402,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of an organization for the launch permission.
+        ARN of an organization for the launch permission.
         """
         return pulumi.get(self, "organization_arn")
 
@@ -410,7 +410,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
     @pulumi.getter(name="organizationalUnitArn")
     def organizational_unit_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of an organizational unit for the launch permission.
+        ARN of an organizational unit for the launch permission.
         """
         return pulumi.get(self, "organizational_unit_arn")
 

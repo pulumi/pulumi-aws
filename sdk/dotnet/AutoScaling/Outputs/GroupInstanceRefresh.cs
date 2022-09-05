@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.GroupInstanceRefreshPreferences? Preferences;
         /// <summary>
-        /// The strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
+        /// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
         /// </summary>
         public readonly string Strategy;
         /// <summary>

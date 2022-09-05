@@ -18,14 +18,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs();
 
     /**
-     * The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
     @Import(name="aggregationConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> aggregationConfig;
 
     /**
-     * @return The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs>> aggregationConfig() {
@@ -33,14 +33,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     @Import(name="fileType")
     private @Nullable Output<String> fileType;
 
     /**
-     * @return Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     public Optional<Output<String>> fileType() {
@@ -89,7 +89,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationConfig The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationConfig The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param fileType Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * @param fileType File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param fileType Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * @param fileType File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          * 
          * @return builder
          * 

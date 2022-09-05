@@ -16,14 +16,14 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
     public static final CertificateOptionsArgs Empty = new CertificateOptionsArgs();
 
     /**
-     * Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+     * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
      * 
      */
     @Import(name="certificateTransparencyLoggingPreference")
     private @Nullable Output<String> certificateTransparencyLoggingPreference;
 
     /**
-     * @return Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+     * @return Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
      * 
      */
     public Optional<Output<String>> certificateTransparencyLoggingPreference() {
@@ -55,7 +55,7 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateTransparencyLoggingPreference Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+         * @param certificateTransparencyLoggingPreference Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateTransparencyLoggingPreference Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+         * @param certificateTransparencyLoggingPreference Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
          * 
          * @return builder
          * 

@@ -87,7 +87,7 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
     ```
 
 
-    :param str load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+    :param str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """
@@ -129,7 +129,7 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
     ```
 
 
-    :param str load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+    :param str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """

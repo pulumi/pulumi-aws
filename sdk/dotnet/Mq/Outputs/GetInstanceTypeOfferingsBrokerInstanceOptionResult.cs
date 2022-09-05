@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class GetInstanceTypeOfferingsBrokerInstanceOptionResult
     {
         /// <summary>
-        /// The list of available AZs. See Availability Zones. below
+        /// List of available AZs. See Availability Zones. below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult> AvailabilityZones;
         /// <summary>

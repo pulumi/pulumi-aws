@@ -42,7 +42,7 @@ export interface GetNetworkInsightsAnalysisArgs {
      */
     filters?: inputs.ec2.GetNetworkInsightsAnalysisFilter[];
     /**
-     * The ID of the Network Insights Analysis to select.
+     * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: string;
     tags?: {[key: string]: string};
@@ -57,7 +57,7 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly alternatePathHints: outputs.ec2.GetNetworkInsightsAnalysisAlternatePathHint[];
     /**
-     * The ARN of the selected Network Insights Analysis.
+     * ARN of the selected Network Insights Analysis.
      */
     readonly arn: string;
     /**
@@ -65,7 +65,7 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly explanations: outputs.ec2.GetNetworkInsightsAnalysisExplanation[];
     /**
-     * The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+     * ARNs of the AWS resources that the path must traverse.
      */
     readonly filterInArns: string[];
     readonly filters?: outputs.ec2.GetNetworkInsightsAnalysisFilter[];
@@ -91,20 +91,20 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly returnPathComponents: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponent[];
     /**
-     * The date/time the analysis was started.
+     * Date/time the analysis was started.
      */
     readonly startDate: string;
     /**
-     * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
+     * Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      */
     readonly status: string;
     /**
-     * A message to provide more context when the `status` is `failed`.
+     * Message to provide more context when the `status` is `failed`.
      */
     readonly statusMessage: string;
     readonly tags: {[key: string]: string};
     /**
-     * The warning message.
+     * Warning message.
      */
     readonly warningMessage: string;
 }
@@ -122,7 +122,7 @@ export interface GetNetworkInsightsAnalysisOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsAnalysisFilterArgs>[]>;
     /**
-     * The ID of the Network Insights Analysis to select.
+     * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -68,7 +68,8 @@ type Workflow struct {
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayOutput `pulumi:"steps"`
 	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -113,7 +114,8 @@ type workflowState struct {
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps []WorkflowStep `pulumi:"steps"`
 	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -127,7 +129,8 @@ type WorkflowState struct {
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayInput
 	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -270,6 +273,7 @@ func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

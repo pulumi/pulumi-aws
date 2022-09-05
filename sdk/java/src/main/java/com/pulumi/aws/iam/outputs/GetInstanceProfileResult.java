@@ -10,13 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceProfileResult {
     /**
-     * @return The Amazon Resource Name (ARN) specifying the instance profile.
+     * @return ARN.
      * 
      */
     private String arn;
     /**
-     * @return The string representation of the date the instance profile
-     * was created.
+     * @return String representation of the date the instance profile was created.
      * 
      */
     private String createDate;
@@ -27,37 +26,36 @@ public final class GetInstanceProfileResult {
     private String id;
     private String name;
     /**
-     * @return The path to the instance profile.
+     * @return Path to the instance profile.
      * 
      */
     private String path;
     /**
-     * @return The role arn associated with this instance profile.
+     * @return Role ARN associated with this instance profile.
      * 
      */
     private String roleArn;
     /**
-     * @return The role id associated with this instance profile.
+     * @return Role ID associated with this instance profile.
      * 
      */
     private String roleId;
     /**
-     * @return The role name associated with this instance profile.
+     * @return Role name associated with this instance profile.
      * 
      */
     private String roleName;
 
     private GetInstanceProfileResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) specifying the instance profile.
+     * @return ARN.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The string representation of the date the instance profile
-     * was created.
+     * @return String representation of the date the instance profile was created.
      * 
      */
     public String createDate() {
@@ -74,28 +72,28 @@ public final class GetInstanceProfileResult {
         return this.name;
     }
     /**
-     * @return The path to the instance profile.
+     * @return Path to the instance profile.
      * 
      */
     public String path() {
         return this.path;
     }
     /**
-     * @return The role arn associated with this instance profile.
+     * @return Role ARN associated with this instance profile.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The role id associated with this instance profile.
+     * @return Role ID associated with this instance profile.
      * 
      */
     public String roleId() {
         return this.roleId;
     }
     /**
-     * @return The role name associated with this instance profile.
+     * @return Role name associated with this instance profile.
      * 
      */
     public String roleName() {

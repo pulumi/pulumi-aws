@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetSubnetGroupResult {
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+     * @return ARN of the Redshift Subnet Group name.
      * 
      */
     private String arn;
     /**
-     * @return The description of the Redshift Subnet group.
+     * @return Description of the Redshift Subnet group.
      * 
      */
     private String description;
@@ -33,21 +33,21 @@ public final class GetSubnetGroupResult {
      */
     private List<String> subnetIds;
     /**
-     * @return The tags associated to the Subnet Group
+     * @return Tags associated to the Subnet Group
      * 
      */
     private Map<String,String> tags;
 
     private GetSubnetGroupResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+     * @return ARN of the Redshift Subnet Group name.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the Redshift Subnet group.
+     * @return Description of the Redshift Subnet group.
      * 
      */
     public String description() {
@@ -71,7 +71,7 @@ public final class GetSubnetGroupResult {
         return this.subnetIds;
     }
     /**
-     * @return The tags associated to the Subnet Group
+     * @return Tags associated to the Subnet Group
      * 
      */
     public Map<String,String> tags() {

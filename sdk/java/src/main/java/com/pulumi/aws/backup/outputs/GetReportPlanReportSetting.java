@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetReportPlanReportSetting {
     /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return ARNs of the frameworks a report covers.
      * 
      */
     private List<String> frameworkArns;
@@ -29,7 +29,7 @@ public final class GetReportPlanReportSetting {
 
     private GetReportPlanReportSetting() {}
     /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return ARNs of the frameworks a report covers.
      * 
      */
     public List<String> frameworkArns() {

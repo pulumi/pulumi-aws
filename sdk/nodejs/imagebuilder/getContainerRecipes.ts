@@ -45,7 +45,7 @@ export interface GetContainerRecipesArgs {
      */
     filters?: inputs.imagebuilder.GetContainerRecipesFilter[];
     /**
-     * The owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -83,7 +83,7 @@ export interface GetContainerRecipesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetContainerRecipesFilterArgs>[]>;
     /**
-     * The owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

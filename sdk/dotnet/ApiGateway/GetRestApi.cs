@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetRestApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+        /// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetRestApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+        /// Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -130,19 +130,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetRestApiResult
     {
         /// <summary>
-        /// The source of the API key for requests.
+        /// Source of the API key for requests.
         /// </summary>
         public readonly string ApiKeySource;
         /// <summary>
-        /// The ARN of the REST API.
+        /// ARN of the REST API.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The list of binary media types supported by the REST API.
+        /// List of binary media types supported by the REST API.
         /// </summary>
         public readonly ImmutableArray<string> BinaryMediaTypes;
         /// <summary>
-        /// The description of the REST API.
+        /// Description of the REST API.
         /// </summary>
         public readonly string Description;
         /// <summary>

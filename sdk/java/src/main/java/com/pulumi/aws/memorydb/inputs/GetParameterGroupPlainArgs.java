@@ -31,14 +31,14 @@ public final class GetParameterGroupPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags assigned to the parameter group.
+     * Map of tags assigned to the parameter group.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the parameter group.
+     * @return Map of tags assigned to the parameter group.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetParameterGroupPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags assigned to the parameter group.
+         * @param tags Map of tags assigned to the parameter group.
          * 
          * @return builder
          * 

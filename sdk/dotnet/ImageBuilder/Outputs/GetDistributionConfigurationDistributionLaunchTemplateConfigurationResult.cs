@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+        /// Whether the specified Amazon EC2 launch template is set as the default launch template.
         /// </summary>
         public readonly bool Default;
         /// <summary>

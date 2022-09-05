@@ -12,6 +12,7 @@ export * from "./getPlaceIndex";
 export * from "./getRouteCalculator";
 export * from "./getTracker";
 export * from "./getTrackerAssociation";
+export * from "./getTrackerAssociations";
 export * from "./map";
 export * from "./placeIndex";
 export * from "./routeCalculation";

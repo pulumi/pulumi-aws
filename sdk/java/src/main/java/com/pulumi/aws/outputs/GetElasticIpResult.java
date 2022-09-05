@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetElasticIpResult {
     /**
-     * @return The ID representing the association of the address with an instance in a VPC.
+     * @return ID representing the association of the address with an instance in a VPC.
      * 
      */
     private String associationId;
     /**
-     * @return The carrier IP address.
+     * @return Carrier IP address.
      * 
      */
     private String carrierIp;
@@ -34,7 +34,7 @@ public final class GetElasticIpResult {
      */
     private String customerOwnedIpv4Pool;
     /**
-     * @return Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      * 
      */
     private String domain;
@@ -45,7 +45,7 @@ public final class GetElasticIpResult {
      */
     private String id;
     /**
-     * @return The ID of the instance that the address is associated with (if any).
+     * @return ID of the instance that the address is associated with (if any).
      * 
      */
     private String instanceId;
@@ -60,12 +60,12 @@ public final class GetElasticIpResult {
      */
     private String networkInterfaceOwnerId;
     /**
-     * @return The Private DNS associated with the Elastic IP address.
+     * @return Private DNS associated with the Elastic IP address.
      * 
      */
     private String privateDns;
     /**
-     * @return The private IP address associated with the Elastic IP address.
+     * @return Private IP address associated with the Elastic IP address.
      * 
      */
     private String privateIp;
@@ -80,7 +80,7 @@ public final class GetElasticIpResult {
      */
     private String publicIp;
     /**
-     * @return The ID of an address pool.
+     * @return ID of an address pool.
      * 
      */
     private String publicIpv4Pool;
@@ -92,14 +92,14 @@ public final class GetElasticIpResult {
 
     private GetElasticIpResult() {}
     /**
-     * @return The ID representing the association of the address with an instance in a VPC.
+     * @return ID representing the association of the address with an instance in a VPC.
      * 
      */
     public String associationId() {
         return this.associationId;
     }
     /**
-     * @return The carrier IP address.
+     * @return Carrier IP address.
      * 
      */
     public String carrierIp() {
@@ -120,7 +120,7 @@ public final class GetElasticIpResult {
         return this.customerOwnedIpv4Pool;
     }
     /**
-     * @return Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      * 
      */
     public String domain() {
@@ -137,7 +137,7 @@ public final class GetElasticIpResult {
         return this.id;
     }
     /**
-     * @return The ID of the instance that the address is associated with (if any).
+     * @return ID of the instance that the address is associated with (if any).
      * 
      */
     public String instanceId() {
@@ -158,14 +158,14 @@ public final class GetElasticIpResult {
         return this.networkInterfaceOwnerId;
     }
     /**
-     * @return The Private DNS associated with the Elastic IP address.
+     * @return Private DNS associated with the Elastic IP address.
      * 
      */
     public String privateDns() {
         return this.privateDns;
     }
     /**
-     * @return The private IP address associated with the Elastic IP address.
+     * @return Private IP address associated with the Elastic IP address.
      * 
      */
     public String privateIp() {
@@ -186,7 +186,7 @@ public final class GetElasticIpResult {
         return this.publicIp;
     }
     /**
-     * @return The ID of an address pool.
+     * @return ID of an address pool.
      * 
      */
     public String publicIpv4Pool() {

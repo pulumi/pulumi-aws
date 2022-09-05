@@ -14,14 +14,14 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     public static final StageAccessLogSettingsArgs Empty = new StageAccessLogSettingsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+     * ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
      * 
      */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+     * @return ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
      * 
      */
     public Output<String> destinationArn() {
@@ -29,7 +29,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The formatting and values recorded in the logs.
+     * Formatting and values recorded in the logs.
      * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
@@ -37,7 +37,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     private Output<String> format;
 
     /**
-     * @return The formatting and values recorded in the logs.
+     * @return Formatting and values recorded in the logs.
      * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
@@ -71,7 +71,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+         * @param destinationArn ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+         * @param destinationArn ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format The formatting and values recorded in the logs.
+         * @param format Formatting and values recorded in the logs.
          * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          * 
          * @return builder
@@ -104,7 +104,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format The formatting and values recorded in the logs.
+         * @param format Formatting and values recorded in the logs.
          * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          * 
          * @return builder

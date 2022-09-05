@@ -49,12 +49,11 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
 export interface GetEngineVersionArgs {
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      */
     engine: string;
     filters?: inputs.rds.GetEngineVersionFilter[];
     /**
-     * The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
     parameterGroupFamily?: string;
     /**
@@ -77,7 +76,7 @@ export interface GetEngineVersionResult {
     readonly defaultCharacterSet: string;
     readonly engine: string;
     /**
-     * The description of the database engine.
+     * Description of the database engine.
      */
     readonly engineDescription: string;
     /**
@@ -92,7 +91,7 @@ export interface GetEngineVersionResult {
     readonly parameterGroupFamily: string;
     readonly preferredVersions?: string[];
     /**
-     * The status of the DB engine version, either available or deprecated.
+     * Status of the DB engine version, either available or deprecated.
      */
     readonly status: string;
     /**
@@ -133,7 +132,7 @@ export interface GetEngineVersionResult {
     readonly validUpgradeTargets: string[];
     readonly version: string;
     /**
-     * The description of the database engine version.
+     * Description of the database engine version.
      */
     readonly versionDescription: string;
 }
@@ -148,12 +147,11 @@ export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: 
 export interface GetEngineVersionOutputArgs {
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-     * * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
      */
     engine: pulumi.Input<string>;
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
     /**
-     * The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
     parameterGroupFamily?: pulumi.Input<string>;
     /**

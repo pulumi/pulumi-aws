@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetSecretResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private String arn;
     /**
-     * @return A description of the secret.
+     * @return Description of the secret.
      * 
      */
     private String description;
@@ -29,13 +29,13 @@ public final class GetSecretResult {
      */
     private String id;
     /**
-     * @return The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      * 
      */
     private String kmsKeyId;
     private String name;
     /**
-     * @return The resource-based policy document that&#39;s attached to the secret.
+     * @return Resource-based policy document that&#39;s attached to the secret.
      * 
      */
     private String policy;
@@ -49,7 +49,7 @@ public final class GetSecretResult {
     @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
     private Boolean rotationEnabled;
     /**
-     * @return Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+     * @return Rotation Lambda function ARN if rotation is enabled.
      * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead
@@ -74,14 +74,14 @@ public final class GetSecretResult {
 
     private GetSecretResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A description of the secret.
+     * @return Description of the secret.
      * 
      */
     public String description() {
@@ -95,7 +95,7 @@ public final class GetSecretResult {
         return this.id;
     }
     /**
-     * @return The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      * 
      */
     public String kmsKeyId() {
@@ -105,7 +105,7 @@ public final class GetSecretResult {
         return this.name;
     }
     /**
-     * @return The resource-based policy document that&#39;s attached to the secret.
+     * @return Resource-based policy document that&#39;s attached to the secret.
      * 
      */
     public String policy() {
@@ -123,7 +123,7 @@ public final class GetSecretResult {
         return this.rotationEnabled;
     }
     /**
-     * @return Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+     * @return Rotation Lambda function ARN if rotation is enabled.
      * 
      * @deprecated
      * Use the aws_secretsmanager_secret_rotation data source instead

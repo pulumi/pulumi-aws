@@ -162,10 +162,10 @@ type GetAvailabilityZonesResult struct {
 	GroupNames           []string                     `pulumi:"groupNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of the Availability Zone names available to the account.
+	// List of the Availability Zone names available to the account.
 	Names []string `pulumi:"names"`
 	State *string  `pulumi:"state"`
-	// A list of the Availability Zone IDs available to the account.
+	// List of the Availability Zone IDs available to the account.
 	ZoneIds []string `pulumi:"zoneIds"`
 }
 
@@ -243,7 +243,7 @@ func (o GetAvailabilityZonesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of the Availability Zone names available to the account.
+// List of the Availability Zone names available to the account.
 func (o GetAvailabilityZonesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }
@@ -252,7 +252,7 @@ func (o GetAvailabilityZonesResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// A list of the Availability Zone IDs available to the account.
+// List of the Availability Zone IDs available to the account.
 func (o GetAvailabilityZonesResultOutput) ZoneIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.ZoneIds }).(pulumi.StringArrayOutput)
 }

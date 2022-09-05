@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetInternetGatewayResult {
     /**
-     * @return The ARN of the Internet Gateway.
+     * @return ARN of the Internet Gateway.
      * 
      */
     private String arn;
@@ -28,7 +28,7 @@ public final class GetInternetGatewayResult {
     private String id;
     private String internetGatewayId;
     /**
-     * @return The ID of the AWS account that owns the internet gateway.
+     * @return ID of the AWS account that owns the internet gateway.
      * 
      */
     private String ownerId;
@@ -36,7 +36,7 @@ public final class GetInternetGatewayResult {
 
     private GetInternetGatewayResult() {}
     /**
-     * @return The ARN of the Internet Gateway.
+     * @return ARN of the Internet Gateway.
      * 
      */
     public String arn() {
@@ -59,7 +59,7 @@ public final class GetInternetGatewayResult {
         return this.internetGatewayId;
     }
     /**
-     * @return The ID of the AWS account that owns the internet gateway.
+     * @return ID of the AWS account that owns the internet gateway.
      * 
      */
     public String ownerId() {

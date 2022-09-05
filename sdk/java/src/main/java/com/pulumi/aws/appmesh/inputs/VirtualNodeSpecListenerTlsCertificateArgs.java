@@ -33,14 +33,14 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
     }
 
     /**
-     * A local file certificate.
+     * Local file certificate.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecListenerTlsCertificateFileArgs> file;
 
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsCertificateFileArgs>> file() {
@@ -110,7 +110,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param file A local file certificate.
+         * @param file Local file certificate.
          * 
          * @return builder
          * 

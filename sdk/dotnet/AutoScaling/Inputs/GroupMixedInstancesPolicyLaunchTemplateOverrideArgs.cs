@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
 
         /// <summary>
-        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
         /// </summary>
         [Input("weightedCapacity")]
         public Input<string>? WeightedCapacity { get; set; }

@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the hierarchy group.
+        /// Map of tags to assign to the hierarchy group.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the hierarchy group.
+        /// Map of tags to assign to the hierarchy group.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,12 +190,12 @@ namespace Pulumi.Aws.Connect
     public sealed class GetUserHierarchyGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
+        /// ARN of the hierarchy group.
         /// </summary>
         public readonly string Arn;
         public readonly string HierarchyGroupId;
         /// <summary>
-        /// A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        /// Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathResult> HierarchyPaths;
         /// <summary>
@@ -204,15 +204,15 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         /// <summary>
-        /// The identifier of the level in the hierarchy group.
+        /// Identifier of the level in the hierarchy group.
         /// </summary>
         public readonly string LevelId;
         /// <summary>
-        /// The name of the hierarchy group.
+        /// Name of the hierarchy group.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A map of tags to assign to the hierarchy group.
+        /// Map of tags to assign to the hierarchy group.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

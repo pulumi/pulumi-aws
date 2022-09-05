@@ -34,7 +34,7 @@ public final class GetOrganizationResult {
      */
     private List<String> enabledPolicyTypes;
     /**
-     * @return The FeatureSet of the organization.
+     * @return FeatureSet of the organization.
      * 
      */
     private String featureSet;
@@ -44,7 +44,7 @@ public final class GetOrganizationResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+     * @return ARN of the account that is designated as the master account for the organization.
      * 
      */
     private String masterAccountArn;
@@ -54,7 +54,7 @@ public final class GetOrganizationResult {
      */
     private String masterAccountEmail;
     /**
-     * @return The unique identifier (ID) of the master account of an organization.
+     * @return Unique identifier (ID) of the master account of an organization.
      * 
      */
     private String masterAccountId;
@@ -99,7 +99,7 @@ public final class GetOrganizationResult {
         return this.enabledPolicyTypes;
     }
     /**
-     * @return The FeatureSet of the organization.
+     * @return FeatureSet of the organization.
      * 
      */
     public String featureSet() {
@@ -113,7 +113,7 @@ public final class GetOrganizationResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+     * @return ARN of the account that is designated as the master account for the organization.
      * 
      */
     public String masterAccountArn() {
@@ -127,7 +127,7 @@ public final class GetOrganizationResult {
         return this.masterAccountEmail;
     }
     /**
-     * @return The unique identifier (ID) of the master account of an organization.
+     * @return Unique identifier (ID) of the master account of an organization.
      * 
      */
     public String masterAccountId() {

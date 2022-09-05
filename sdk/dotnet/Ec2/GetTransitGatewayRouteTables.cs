@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired transit gateway route table.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired transit gateway route table.
         /// </summary>
         public InputMap<string> Tags

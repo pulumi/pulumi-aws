@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLocalDiskResult {
     /**
-     * @return The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+     * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
      */
     private String diskId;
@@ -25,7 +25,7 @@ public final class GetLocalDiskResult {
 
     private GetLocalDiskResult() {}
     /**
-     * @return The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+     * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
      * 
      */
     public String diskId() {

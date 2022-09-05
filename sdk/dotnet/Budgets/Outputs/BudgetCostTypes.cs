@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// </summary>
         public readonly bool? IncludeCredit;
         /// <summary>
-        /// Specifies whether a budget includes discounts. Defaults to `true`
+        /// Whether a budget includes discounts. Defaults to `true`
         /// </summary>
         public readonly bool? IncludeDiscount;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// </summary>
         public readonly bool? IncludeUpfront;
         /// <summary>
-        /// Specifies whether a budget uses the amortized rate. Defaults to `false`
+        /// Whether a budget uses the amortized rate. Defaults to `false`
         /// </summary>
         public readonly bool? UseAmortized;
         /// <summary>

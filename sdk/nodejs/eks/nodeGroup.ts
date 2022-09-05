@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
  *     scalingConfig: {
  *         desiredSize: 1,
- *         maxSize: 1,
+ *         maxSize: 2,
  *         minSize: 1,
  *     },
  *     updateConfig: {
- *         maxUnavailable: 2,
+ *         maxUnavailable: 1,
  *     },
  * }, {
  *     dependsOn: [

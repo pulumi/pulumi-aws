@@ -21,18 +21,18 @@ public final class GetArnResult {
      */
     private String id;
     /**
-     * @return The partition that the resource is in.
+     * @return Partition that the resource is in.
      * 
      */
     private String partition;
     /**
-     * @return The region the resource resides in.
+     * @return Region the resource resides in.
      * Note that the ARNs for some resources do not require a region, so this component might be omitted.
      * 
      */
     private String region;
     /**
-     * @return The content of this part of the ARN varies by service.
+     * @return Content of this part of the ARN varies by service.
      * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */
@@ -62,14 +62,14 @@ public final class GetArnResult {
         return this.id;
     }
     /**
-     * @return The partition that the resource is in.
+     * @return Partition that the resource is in.
      * 
      */
     public String partition() {
         return this.partition;
     }
     /**
-     * @return The region the resource resides in.
+     * @return Region the resource resides in.
      * Note that the ARNs for some resources do not require a region, so this component might be omitted.
      * 
      */
@@ -77,7 +77,7 @@ public final class GetArnResult {
         return this.region;
     }
     /**
-     * @return The content of this part of the ARN varies by service.
+     * @return Content of this part of the ARN varies by service.
      * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */

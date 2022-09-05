@@ -14,14 +14,14 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcmArgs extends com.p
     public static final VirtualGatewaySpecListenerTlsCertificateAcmArgs Empty = new VirtualGatewaySpecListenerTlsCertificateAcmArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public Output<String> certificateArn() {
@@ -53,7 +53,7 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcmArgs extends com.p
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * @param certificateArn ARN for the certificate.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcmArgs extends com.p
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the certificate.
+         * @param certificateArn ARN for the certificate.
          * 
          * @return builder
          * 

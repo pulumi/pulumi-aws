@@ -60,7 +60,7 @@ type User struct {
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Specifies whether the user in the user pool is enabled.
+	// Whether the user in the user pool is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// First name, or given name, of the user.
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
@@ -113,7 +113,7 @@ type userState struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// Specifies whether the user in the user pool is enabled.
+	// Whether the user in the user pool is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// First name, or given name, of the user.
 	FirstName *string `pulumi:"firstName"`
@@ -132,7 +132,7 @@ type UserState struct {
 	AuthenticationType pulumi.StringPtrInput
 	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
 	CreatedTime pulumi.StringPtrInput
-	// Specifies whether the user in the user pool is enabled.
+	// Whether the user in the user pool is enabled.
 	Enabled pulumi.BoolPtrInput
 	// First name, or given name, of the user.
 	FirstName pulumi.StringPtrInput
@@ -151,7 +151,7 @@ func (UserState) ElementType() reflect.Type {
 type userArgs struct {
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Specifies whether the user in the user pool is enabled.
+	// Whether the user in the user pool is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// First name, or given name, of the user.
 	FirstName *string `pulumi:"firstName"`
@@ -167,7 +167,7 @@ type userArgs struct {
 type UserArgs struct {
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType pulumi.StringInput
-	// Specifies whether the user in the user pool is enabled.
+	// Whether the user in the user pool is enabled.
 	Enabled pulumi.BoolPtrInput
 	// First name, or given name, of the user.
 	FirstName pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (o UserOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Specifies whether the user in the user pool is enabled.
+// Whether the user in the user pool is enabled.
 func (o UserOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

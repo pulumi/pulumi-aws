@@ -38,11 +38,11 @@ export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetSiteArgs {
     /**
-     * The ID of the Global Network of the site to retrieve.
+     * ID of the Global Network of the site to retrieve.
      */
     globalNetworkId: string;
     /**
-     * The id of the specific site to retrieve.
+     * ID of the specific site to retrieve.
      */
     siteId: string;
     /**
@@ -56,11 +56,11 @@ export interface GetSiteArgs {
  */
 export interface GetSiteResult {
     /**
-     * The ARN of the site.
+     * ARN of the site.
      */
     readonly arn: string;
     /**
-     * The description of the site.
+     * Description of the site.
      */
     readonly description: string;
     readonly globalNetworkId: string;
@@ -69,7 +69,7 @@ export interface GetSiteResult {
      */
     readonly id: string;
     /**
-     * The site location as documented below.
+     * Site location as documented below.
      */
     readonly locations: outputs.networkmanager.GetSiteLocation[];
     readonly siteId: string;
@@ -88,11 +88,11 @@ export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetSiteOutputArgs {
     /**
-     * The ID of the Global Network of the site to retrieve.
+     * ID of the Global Network of the site to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The id of the specific site to retrieve.
+     * ID of the specific site to retrieve.
      */
     siteId: pulumi.Input<string>;
     /**

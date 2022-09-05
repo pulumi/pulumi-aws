@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk
     {
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
-        /// The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         public readonly string Object;
         /// <summary>

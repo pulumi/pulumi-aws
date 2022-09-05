@@ -72,7 +72,7 @@ import (
 type ManagedScalingPolicy struct {
 	pulumi.CustomResourceState
 
-	// The id of the EMR cluster
+	// ID of the EMR cluster
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayOutput `pulumi:"computeLimits"`
@@ -113,14 +113,14 @@ func GetManagedScalingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedScalingPolicy resources.
 type managedScalingPolicyState struct {
-	// The id of the EMR cluster
+	// ID of the EMR cluster
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
 }
 
 type ManagedScalingPolicyState struct {
-	// The id of the EMR cluster
+	// ID of the EMR cluster
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
@@ -131,7 +131,7 @@ func (ManagedScalingPolicyState) ElementType() reflect.Type {
 }
 
 type managedScalingPolicyArgs struct {
-	// The id of the EMR cluster
+	// ID of the EMR cluster
 	ClusterId string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
@@ -139,7 +139,7 @@ type managedScalingPolicyArgs struct {
 
 // The set of arguments for constructing a ManagedScalingPolicy resource.
 type ManagedScalingPolicyArgs struct {
-	// The id of the EMR cluster
+	// ID of the EMR cluster
 	ClusterId pulumi.StringInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
@@ -232,7 +232,7 @@ func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutputWithContext(ctx 
 	return o
 }
 
-// The id of the EMR cluster
+// ID of the EMR cluster
 func (o ManagedScalingPolicyOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedScalingPolicy) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }

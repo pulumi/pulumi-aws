@@ -57,7 +57,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Contact Flow Module.
+        ARN of the Contact Flow Module.
         """
         return pulumi.get(self, "arn")
 
@@ -70,7 +70,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def content(self) -> str:
         """
-        Specifies the logic of the Contact Flow Module.
+        Logic of the Contact Flow Module.
         """
         return pulumi.get(self, "content")
 
@@ -78,7 +78,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Contact Flow Module.
+        Description of the Contact Flow Module.
         """
         return pulumi.get(self, "description")
 
@@ -104,7 +104,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+        Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
         """
         return pulumi.get(self, "state")
 
@@ -112,7 +112,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+        Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
         """
         return pulumi.get(self, "status")
 
@@ -120,7 +120,7 @@ class GetContactFlowModuleResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the Contact Flow Module.
+        Map of tags to assign to the Contact Flow Module.
         """
         return pulumi.get(self, "tags")
 
@@ -177,7 +177,7 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
     :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Contact Flow Module by name
-    :param Mapping[str, str] tags: A map of tags to assign to the Contact Flow Module.
+    :param Mapping[str, str] tags: Map of tags to assign to the Contact Flow Module.
     """
     __args__ = dict()
     __args__['contactFlowModuleId'] = contact_flow_module_id
@@ -235,6 +235,6 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Contact Flow Module by name
-    :param Mapping[str, str] tags: A map of tags to assign to the Contact Flow Module.
+    :param Mapping[str, str] tags: Map of tags to assign to the Contact Flow Module.
     """
     ...

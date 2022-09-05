@@ -18,7 +18,7 @@ class ClientCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClientCertificate resource.
-        :param pulumi.Input[str] description: The description of the client certificate.
+        :param pulumi.Input[str] description: Description of the client certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
@@ -30,7 +30,7 @@ class ClientCertificateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the client certificate.
+        Description of the client certificate.
         """
         return pulumi.get(self, "description")
 
@@ -63,13 +63,13 @@ class _ClientCertificateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ClientCertificate resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
-        :param pulumi.Input[str] created_date: The date when the client certificate was created.
-        :param pulumi.Input[str] description: The description of the client certificate.
-        :param pulumi.Input[str] expiration_date: The date when the client certificate will expire.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] created_date: Date when the client certificate was created.
+        :param pulumi.Input[str] description: Description of the client certificate.
+        :param pulumi.Input[str] expiration_date: Date when the client certificate will expire.
         :param pulumi.Input[str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -90,7 +90,7 @@ class _ClientCertificateState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -102,7 +102,7 @@ class _ClientCertificateState:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The date when the client certificate was created.
+        Date when the client certificate was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -114,7 +114,7 @@ class _ClientCertificateState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the client certificate.
+        Description of the client certificate.
         """
         return pulumi.get(self, "description")
 
@@ -126,7 +126,7 @@ class _ClientCertificateState:
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The date when the client certificate will expire.
+        Date when the client certificate will expire.
         """
         return pulumi.get(self, "expiration_date")
 
@@ -162,7 +162,7 @@ class _ClientCertificateState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -201,7 +201,7 @@ class ClientCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the client certificate.
+        :param pulumi.Input[str] description: Description of the client certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -287,13 +287,13 @@ class ClientCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
-        :param pulumi.Input[str] created_date: The date when the client certificate was created.
-        :param pulumi.Input[str] description: The description of the client certificate.
-        :param pulumi.Input[str] expiration_date: The date when the client certificate will expire.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] created_date: Date when the client certificate was created.
+        :param pulumi.Input[str] description: Description of the client certificate.
+        :param pulumi.Input[str] expiration_date: Date when the client certificate will expire.
         :param pulumi.Input[str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,7 +312,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -320,7 +320,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
         """
-        The date when the client certificate was created.
+        Date when the client certificate was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -328,7 +328,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the client certificate.
+        Description of the client certificate.
         """
         return pulumi.get(self, "description")
 
@@ -336,7 +336,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> pulumi.Output[str]:
         """
-        The date when the client certificate will expire.
+        Date when the client certificate will expire.
         """
         return pulumi.get(self, "expiration_date")
 
@@ -360,7 +360,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

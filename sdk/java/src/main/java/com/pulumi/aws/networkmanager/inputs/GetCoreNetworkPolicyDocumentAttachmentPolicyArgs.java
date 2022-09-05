@@ -20,14 +20,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyArgs Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs();
 
     /**
-     * The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     @Import(name="action", required=true)
     private Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action;
 
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action() {
@@ -123,7 +123,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 

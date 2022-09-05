@@ -79,6 +79,13 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.sessionName);
     }
 
+    @Import(name="sourceIdentity")
+    private @Nullable Output<String> sourceIdentity;
+
+    public Optional<Output<String>> sourceIdentity() {
+        return Optional.ofNullable(this.sourceIdentity);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -103,6 +110,7 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
         this.policyArns = $.policyArns;
         this.roleArn = $.roleArn;
         this.sessionName = $.sessionName;
+        this.sourceIdentity = $.sourceIdentity;
         this.tags = $.tags;
         this.transitiveTagKeys = $.transitiveTagKeys;
     }
@@ -206,6 +214,15 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
 
         public Builder sessionName(String sessionName) {
             return sessionName(Output.of(sessionName));
+        }
+
+        public Builder sourceIdentity(@Nullable Output<String> sourceIdentity) {
+            $.sourceIdentity = sourceIdentity;
+            return this;
+        }
+
+        public Builder sourceIdentity(String sourceIdentity) {
+            return sourceIdentity(Output.of(sourceIdentity));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

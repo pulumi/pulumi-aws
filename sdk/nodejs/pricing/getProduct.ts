@@ -86,11 +86,11 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetProductArgs {
     /**
-     * A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+     * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
     filters: inputs.pricing.GetProductFilter[];
     /**
-     * The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+     * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */
     serviceCode: string;
 }
@@ -120,11 +120,11 @@ export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.Invok
  */
 export interface GetProductOutputArgs {
     /**
-     * A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+     * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
     filters: pulumi.Input<pulumi.Input<inputs.pricing.GetProductFilterArgs>[]>;
     /**
-     * The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+     * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */
     serviceCode: pulumi.Input<string>;
 }

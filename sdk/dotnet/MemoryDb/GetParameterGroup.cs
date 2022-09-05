@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the parameter group.
+        /// Map of tags assigned to the parameter group.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the parameter group.
+        /// Map of tags assigned to the parameter group.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The engine version that the parameter group can be used with.
+        /// Engine version that the parameter group can be used with.
         /// </summary>
         public readonly string Family;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly ImmutableArray<Outputs.GetParameterGroupParameterResult> Parameters;
         /// <summary>
-        /// A map of tags assigned to the parameter group.
+        /// Map of tags assigned to the parameter group.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

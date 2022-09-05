@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetInfrastructureConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the infrastructure configuration.
+        /// ARN of the infrastructure configuration.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetInfrastructureConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the infrastructure configuration.
+        /// ARN of the infrastructure configuration.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+        /// ARN of the SNS Topic associated with the configuration.
         /// </summary>
         public readonly string SnsTopicArn;
         /// <summary>

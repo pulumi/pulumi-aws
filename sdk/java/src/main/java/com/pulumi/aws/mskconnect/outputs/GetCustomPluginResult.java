@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCustomPluginResult {
     /**
-     * @return the Amazon Resource Name (ARN) of the custom plugin.
+     * @return the ARN of the custom plugin.
      * 
      */
     private String arn;
@@ -39,7 +39,7 @@ public final class GetCustomPluginResult {
 
     private GetCustomPluginResult() {}
     /**
-     * @return the Amazon Resource Name (ARN) of the custom plugin.
+     * @return the ARN of the custom plugin.
      * 
      */
     public String arn() {

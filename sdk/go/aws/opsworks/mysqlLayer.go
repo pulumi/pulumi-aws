@@ -77,7 +77,7 @@ type MysqlLayer struct {
 	RootPassword pulumi.StringPtrOutput `pulumi:"rootPassword"`
 	// Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
 	RootPasswordOnAllInstances pulumi.BoolPtrOutput `pulumi:"rootPasswordOnAllInstances"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -157,7 +157,7 @@ type mysqlLayerState struct {
 	RootPassword *string `pulumi:"rootPassword"`
 	// Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
 	RootPasswordOnAllInstances *bool `pulumi:"rootPasswordOnAllInstances"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -206,7 +206,7 @@ type MysqlLayerState struct {
 	RootPassword pulumi.StringPtrInput
 	// Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
 	RootPasswordOnAllInstances pulumi.BoolPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -257,7 +257,7 @@ type mysqlLayerArgs struct {
 	RootPassword *string `pulumi:"rootPassword"`
 	// Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
 	RootPasswordOnAllInstances *bool `pulumi:"rootPasswordOnAllInstances"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -303,7 +303,7 @@ type MysqlLayerArgs struct {
 	RootPassword pulumi.StringPtrInput
 	// Whether to set the root user password to all instances in the stack so they can access the instances in this layer.
 	RootPasswordOnAllInstances pulumi.BoolPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -499,7 +499,7 @@ func (o MysqlLayerOutput) RootPasswordOnAllInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MysqlLayer) pulumi.BoolPtrOutput { return v.RootPasswordOnAllInstances }).(pulumi.BoolPtrOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o MysqlLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MysqlLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

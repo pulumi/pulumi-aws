@@ -15,12 +15,12 @@ import java.util.Objects;
 @CustomType
 public final class GetResponseHeadersPolicyResult {
     /**
-     * @return A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+     * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
     private String comment;
     /**
-     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
     private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
@@ -30,7 +30,7 @@ public final class GetResponseHeadersPolicyResult {
      */
     private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
     /**
-     * @return The current version of the response headers policy.
+     * @return Current version of the response headers policy.
      * 
      */
     private String etag;
@@ -42,21 +42,21 @@ public final class GetResponseHeadersPolicyResult {
      */
     private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
     /**
-     * @return (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
     private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
 
     private GetResponseHeadersPolicyResult() {}
     /**
-     * @return A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+     * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
     public String comment() {
         return this.comment;
     }
     /**
-     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * @return Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
     public List<GetResponseHeadersPolicyCorsConfig> corsConfigs() {
@@ -70,7 +70,7 @@ public final class GetResponseHeadersPolicyResult {
         return this.customHeadersConfigs;
     }
     /**
-     * @return The current version of the response headers policy.
+     * @return Current version of the response headers policy.
      * 
      */
     public String etag() {
@@ -90,7 +90,7 @@ public final class GetResponseHeadersPolicyResult {
         return this.securityHeadersConfigs;
     }
     /**
-     * @return (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     * @return (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
     public List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs() {

@@ -17,17 +17,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcEndpointResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint.
+     * @return ARN of the VPC endpoint.
      * 
      */
     private String arn;
     /**
-     * @return The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     private List<String> cidrBlocks;
     /**
-     * @return The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
     private List<GetVpcEndpointDnsEntry> dnsEntries;
@@ -41,17 +41,17 @@ public final class GetVpcEndpointResult {
      */
     private List<String> networkInterfaceIds;
     /**
-     * @return The ID of the AWS account that owns the VPC endpoint.
+     * @return ID of the AWS account that owns the VPC endpoint.
      * 
      */
     private String ownerId;
     /**
-     * @return The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+     * @return Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
     private String policy;
     /**
-     * @return The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     private String prefixListId;
@@ -84,7 +84,7 @@ public final class GetVpcEndpointResult {
     private List<String> subnetIds;
     private Map<String,String> tags;
     /**
-     * @return The VPC Endpoint type, `Gateway` or `Interface`.
+     * @return VPC Endpoint type, `Gateway` or `Interface`.
      * 
      */
     private String vpcEndpointType;
@@ -92,21 +92,21 @@ public final class GetVpcEndpointResult {
 
     private GetVpcEndpointResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint.
+     * @return ARN of the VPC endpoint.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     public List<String> cidrBlocks() {
         return this.cidrBlocks;
     }
     /**
-     * @return The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
     public List<GetVpcEndpointDnsEntry> dnsEntries() {
@@ -132,21 +132,21 @@ public final class GetVpcEndpointResult {
         return this.networkInterfaceIds;
     }
     /**
-     * @return The ID of the AWS account that owns the VPC endpoint.
+     * @return ID of the AWS account that owns the VPC endpoint.
      * 
      */
     public String ownerId() {
         return this.ownerId;
     }
     /**
-     * @return The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+     * @return Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      * 
      */
     public String policy() {
         return this.policy;
     }
     /**
-     * @return The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     public String prefixListId() {
@@ -197,7 +197,7 @@ public final class GetVpcEndpointResult {
         return this.tags;
     }
     /**
-     * @return The VPC Endpoint type, `Gateway` or `Interface`.
+     * @return VPC Endpoint type, `Gateway` or `Interface`.
      * 
      */
     public String vpcEndpointType() {

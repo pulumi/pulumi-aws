@@ -14,17 +14,17 @@ import java.util.Objects;
 @CustomType
 public final class GetStreamResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Stream (same as id).
      * 
      */
     private String arn;
     /**
-     * @return The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
     private List<String> closedShards;
     /**
-     * @return The approximate UNIX timestamp that the stream was created.
+     * @return Approximate UNIX timestamp that the stream was created.
      * 
      */
     private Integer creationTimestamp;
@@ -34,12 +34,12 @@ public final class GetStreamResult {
      */
     private String id;
     /**
-     * @return The name of the Kinesis Stream.
+     * @return Name of the Kinesis Stream.
      * 
      */
     private String name;
     /**
-     * @return The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * @return List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
     private List<String> openShards;
@@ -49,43 +49,43 @@ public final class GetStreamResult {
      */
     private Integer retentionPeriod;
     /**
-     * @return A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+     * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      * 
      */
     private List<String> shardLevelMetrics;
     /**
-     * @return The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+     * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      * 
      */
     private String status;
     /**
-     * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     private List<GetStreamStreamModeDetail> streamModeDetails;
     /**
-     * @return A map of tags to assigned to the stream.
+     * @return Map of tags to assigned to the stream.
      * 
      */
     private Map<String,String> tags;
 
     private GetStreamResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Stream (same as id).
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * @return List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
     public List<String> closedShards() {
         return this.closedShards;
     }
     /**
-     * @return The approximate UNIX timestamp that the stream was created.
+     * @return Approximate UNIX timestamp that the stream was created.
      * 
      */
     public Integer creationTimestamp() {
@@ -99,14 +99,14 @@ public final class GetStreamResult {
         return this.id;
     }
     /**
-     * @return The name of the Kinesis Stream.
+     * @return Name of the Kinesis Stream.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * @return List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      * 
      */
     public List<String> openShards() {
@@ -120,28 +120,28 @@ public final class GetStreamResult {
         return this.retentionPeriod;
     }
     /**
-     * @return A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+     * @return List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      * 
      */
     public List<String> shardLevelMetrics() {
         return this.shardLevelMetrics;
     }
     /**
-     * @return The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+     * @return Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     public List<GetStreamStreamModeDetail> streamModeDetails() {
         return this.streamModeDetails;
     }
     /**
-     * @return A map of tags to assigned to the stream.
+     * @return Map of tags to assigned to the stream.
      * 
      */
     public Map<String,String> tags() {

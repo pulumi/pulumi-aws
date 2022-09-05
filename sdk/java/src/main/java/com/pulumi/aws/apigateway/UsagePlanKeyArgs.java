@@ -14,14 +14,14 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final UsagePlanKeyArgs Empty = new UsagePlanKeyArgs();
 
     /**
-     * The identifier of the API key resource.
+     * Identifier of the API key resource.
      * 
      */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
     /**
-     * @return The identifier of the API key resource.
+     * @return Identifier of the API key resource.
      * 
      */
     public Output<String> keyId() {
@@ -29,14 +29,14 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
     /**
-     * @return The type of the API key resource. Currently, the valid key type is API_KEY.
+     * @return Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
     public Output<String> keyType() {
@@ -44,14 +44,14 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Id of the usage plan resource representing to associate the key to.
+     * Id of the usage plan resource representing to associate the key to.
      * 
      */
     @Import(name="usagePlanId", required=true)
     private Output<String> usagePlanId;
 
     /**
-     * @return The Id of the usage plan resource representing to associate the key to.
+     * @return Id of the usage plan resource representing to associate the key to.
      * 
      */
     public Output<String> usagePlanId() {
@@ -85,7 +85,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyId The identifier of the API key resource.
+         * @param keyId Identifier of the API key resource.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyId The identifier of the API key resource.
+         * @param keyId Identifier of the API key resource.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType The type of the API key resource. Currently, the valid key type is API_KEY.
+         * @param keyType Type of the API key resource. Currently, the valid key type is API_KEY.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType The type of the API key resource. Currently, the valid key type is API_KEY.
+         * @param keyType Type of the API key resource. Currently, the valid key type is API_KEY.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usagePlanId The Id of the usage plan resource representing to associate the key to.
+         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usagePlanId The Id of the usage plan resource representing to associate the key to.
+         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
          * 
          * @return builder
          * 

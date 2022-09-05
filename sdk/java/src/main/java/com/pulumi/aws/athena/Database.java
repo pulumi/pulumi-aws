@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:athena/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     @Export(name="aclConfiguration", type=DatabaseAclConfiguration.class, parameters={})
     private Output</* @Nullable */ DatabaseAclConfiguration> aclConfiguration;
 
     /**
-     * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     public Output<Optional<DatabaseAclConfiguration>> aclConfiguration() {
@@ -125,42 +125,42 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
     @Export(name="encryptionConfiguration", type=DatabaseEncryptionConfiguration.class, parameters={})
     private Output</* @Nullable */ DatabaseEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
     public Output<Optional<DatabaseEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     @Export(name="expectedBucketOwner", type=String.class, parameters={})
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
     @Export(name="forceDestroy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * @return Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
@@ -181,14 +181,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A key-value map of custom metadata properties for the database definition.
+     * Key-value map of custom metadata properties for the database definition.
      * 
      */
     @Export(name="properties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> properties;
 
     /**
-     * @return A key-value map of custom metadata properties for the database definition.
+     * @return Key-value map of custom metadata properties for the database definition.
      * 
      */
     public Output<Optional<Map<String,String>>> properties() {

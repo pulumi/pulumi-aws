@@ -16,14 +16,14 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
     public static final ManagedScalingPolicyArgs Empty = new ManagedScalingPolicyArgs();
 
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      * 
      */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
     /**
-     * @return The id of the EMR cluster
+     * @return ID of the EMR cluster
      * 
      */
     public Output<String> clusterId() {
@@ -71,7 +71,7 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param clusterId The id of the EMR cluster
+         * @param clusterId ID of the EMR cluster
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param clusterId The id of the EMR cluster
+         * @param clusterId ID of the EMR cluster
          * 
          * @return builder
          * 

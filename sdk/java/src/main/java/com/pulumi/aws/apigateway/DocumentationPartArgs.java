@@ -15,14 +15,14 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
     public static final DocumentationPartArgs Empty = new DocumentationPartArgs();
 
     /**
-     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     * Location of the targeted API entity of the to-be-created documentation part. See below.
      * 
      */
     @Import(name="location", required=true)
     private Output<DocumentationPartLocationArgs> location;
 
     /**
-     * @return The location of the targeted API entity of the to-be-created documentation part. See below.
+     * @return Location of the targeted API entity of the to-be-created documentation part. See below.
      * 
      */
     public Output<DocumentationPartLocationArgs> location() {
@@ -30,14 +30,14 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     @Import(name="properties", required=true)
     private Output<String> properties;
 
     /**
-     * @return A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
      * 
      */
     public Output<String> properties() {
@@ -45,14 +45,14 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      * 
      */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
     /**
-     * @return The ID of the associated Rest API
+     * @return ID of the associated Rest API
      * 
      */
     public Output<String> restApiId() {
@@ -86,7 +86,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location The location of the targeted API entity of the to-be-created documentation part. See below.
+         * @param location Location of the targeted API entity of the to-be-created documentation part. See below.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location The location of the targeted API entity of the to-be-created documentation part. See below.
+         * @param location Location of the targeted API entity of the to-be-created documentation part. See below.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param properties A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+         * @param properties Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param properties A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
+         * @param properties Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param restApiId The ID of the associated Rest API
+         * @param restApiId ID of the associated Rest API
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param restApiId The ID of the associated Rest API
+         * @param restApiId ID of the associated Rest API
          * 
          * @return builder
          * 

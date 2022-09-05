@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Efs
     public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID that identifies the file system.
+        /// ID that identifies the file system.
         /// </summary>
         [Input("accessPointId", required: true)]
         public string AccessPointId { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Efs
     public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID that identifies the file system.
+        /// ID that identifies the file system.
         /// </summary>
         [Input("accessPointId", required: true)]
         public Input<string> AccessPointId { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string FileSystemArn;
         /// <summary>
-        /// The ID of the file system for which the access point is intended.
+        /// ID of the file system for which the access point is intended.
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>

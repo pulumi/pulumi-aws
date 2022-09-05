@@ -104,25 +104,25 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	// The ID of the associated AppSync API.
+	// ID of the associated AppSync API.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ARN of the Function object.
+	// ARN of the Function object.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Function data source name.
+	// Function data source name.
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
-	// The Function description.
+	// Function description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A unique ID representing the Function object.
+	// Unique ID representing the Function object.
 	FunctionId pulumi.StringOutput `pulumi:"functionId"`
-	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 	FunctionVersion pulumi.StringPtrOutput `pulumi:"functionVersion"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
-	// The Function name. The function name does not have to be unique.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringOutput `pulumi:"requestMappingTemplate"`
-	// The Function response mapping template.
+	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringOutput `pulumi:"responseMappingTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig FunctionSyncConfigPtrOutput `pulumi:"syncConfig"`
@@ -169,50 +169,50 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// The ID of the associated AppSync API.
+	// ID of the associated AppSync API.
 	ApiId *string `pulumi:"apiId"`
-	// The ARN of the Function object.
+	// ARN of the Function object.
 	Arn *string `pulumi:"arn"`
-	// The Function data source name.
+	// Function data source name.
 	DataSource *string `pulumi:"dataSource"`
-	// The Function description.
+	// Function description.
 	Description *string `pulumi:"description"`
-	// A unique ID representing the Function object.
+	// Unique ID representing the Function object.
 	FunctionId *string `pulumi:"functionId"`
-	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 	FunctionVersion *string `pulumi:"functionVersion"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The Function name. The function name does not have to be unique.
+	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
-	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
-	// The Function response mapping template.
+	// Function response mapping template.
 	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
 }
 
 type FunctionState struct {
-	// The ID of the associated AppSync API.
+	// ID of the associated AppSync API.
 	ApiId pulumi.StringPtrInput
-	// The ARN of the Function object.
+	// ARN of the Function object.
 	Arn pulumi.StringPtrInput
-	// The Function data source name.
+	// Function data source name.
 	DataSource pulumi.StringPtrInput
-	// The Function description.
+	// Function description.
 	Description pulumi.StringPtrInput
-	// A unique ID representing the Function object.
+	// Unique ID representing the Function object.
 	FunctionId pulumi.StringPtrInput
-	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 	FunctionVersion pulumi.StringPtrInput
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The Function name. The function name does not have to be unique.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
-	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrInput
-	// The Function response mapping template.
+	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringPtrInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig FunctionSyncConfigPtrInput
@@ -223,21 +223,21 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// The ID of the associated AppSync API.
+	// ID of the associated AppSync API.
 	ApiId string `pulumi:"apiId"`
-	// The Function data source name.
+	// Function data source name.
 	DataSource string `pulumi:"dataSource"`
-	// The Function description.
+	// Function description.
 	Description *string `pulumi:"description"`
-	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 	FunctionVersion *string `pulumi:"functionVersion"`
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The Function name. The function name does not have to be unique.
+	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
-	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate string `pulumi:"requestMappingTemplate"`
-	// The Function response mapping template.
+	// Function response mapping template.
 	ResponseMappingTemplate string `pulumi:"responseMappingTemplate"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
@@ -245,21 +245,21 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// The ID of the associated AppSync API.
+	// ID of the associated AppSync API.
 	ApiId pulumi.StringInput
-	// The Function data source name.
+	// Function data source name.
 	DataSource pulumi.StringInput
-	// The Function description.
+	// Function description.
 	Description pulumi.StringPtrInput
-	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 	FunctionVersion pulumi.StringPtrInput
-	// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The Function name. The function name does not have to be unique.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
-	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringInput
-	// The Function response mapping template.
+	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig FunctionSyncConfigPtrInput
@@ -352,52 +352,52 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
-// The ID of the associated AppSync API.
+// ID of the associated AppSync API.
 func (o FunctionOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The ARN of the Function object.
+// ARN of the Function object.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Function data source name.
+// Function data source name.
 func (o FunctionOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// The Function description.
+// Function description.
 func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A unique ID representing the Function object.
+// Unique ID representing the Function object.
 func (o FunctionOutput) FunctionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionId }).(pulumi.StringOutput)
 }
 
-// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+// Version of the request mapping template. Currently the supported value is `2018-05-29`.
 func (o FunctionOutput) FunctionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionVersion }).(pulumi.StringPtrOutput)
 }
 
-// The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 func (o FunctionOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The Function name. The function name does not have to be unique.
+// Function name. The function name does not have to be unique.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 func (o FunctionOutput) RequestMappingTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.RequestMappingTemplate }).(pulumi.StringOutput)
 }
 
-// The Function response mapping template.
+// Function response mapping template.
 func (o FunctionOutput) ResponseMappingTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.ResponseMappingTemplate }).(pulumi.StringOutput)
 }

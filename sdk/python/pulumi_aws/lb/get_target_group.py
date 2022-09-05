@@ -238,8 +238,8 @@ def get_target_group(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The full ARN of the target group.
-    :param str name: The unique name of the target group.
+    :param str arn: Full ARN of the target group.
+    :param str name: Unique name of the target group.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -302,7 +302,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The full ARN of the target group.
-    :param str name: The unique name of the target group.
+    :param str arn: Full ARN of the target group.
+    :param str name: Unique name of the target group.
     """
     ...

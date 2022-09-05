@@ -71,70 +71,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amplify/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Export(name="appId", type=String.class, parameters={})
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * The Amazon Resource Name (ARN) for the webhook.
+     * ARN for the webhook.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the webhook.
+     * @return ARN for the webhook.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name for a branch that is part of the Amplify app.
+     * Name for a branch that is part of the Amplify app.
      * 
      */
     @Export(name="branchName", type=String.class, parameters={})
     private Output<String> branchName;
 
     /**
-     * @return The name for a branch that is part of the Amplify app.
+     * @return Name for a branch that is part of the Amplify app.
      * 
      */
     public Output<String> branchName() {
         return this.branchName;
     }
     /**
-     * The description for a webhook.
+     * Description for a webhook.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for a webhook.
+     * @return Description for a webhook.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The URL of the webhook.
+     * URL of the webhook.
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
-     * @return The URL of the webhook.
+     * @return URL of the webhook.
      * 
      */
     public Output<String> url() {

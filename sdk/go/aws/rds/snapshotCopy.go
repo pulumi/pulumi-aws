@@ -109,7 +109,8 @@ type SnapshotCopy struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The external custom Availability Zone.
 	TargetCustomAvailabilityZone pulumi.StringPtrOutput `pulumi:"targetCustomAvailabilityZone"`
@@ -189,7 +190,8 @@ type snapshotCopyState struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The external custom Availability Zone.
 	TargetCustomAvailabilityZone *string `pulumi:"targetCustomAvailabilityZone"`
@@ -235,7 +237,8 @@ type SnapshotCopyState struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The external custom Availability Zone.
 	TargetCustomAvailabilityZone pulumi.StringPtrInput
@@ -472,6 +475,7 @@ func (o SnapshotCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotCopyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

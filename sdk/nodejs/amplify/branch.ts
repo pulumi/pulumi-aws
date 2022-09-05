@@ -126,11 +126,11 @@ export class Branch extends pulumi.CustomResource {
     }
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the branch.
+     * ARN for the branch.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -138,31 +138,31 @@ export class Branch extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedResources!: pulumi.Output<string[]>;
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      */
     public readonly backendEnvironmentArn!: pulumi.Output<string | undefined>;
     /**
-     * The basic authorization credentials for the branch.
+     * Basic authorization credentials for the branch.
      */
     public readonly basicAuthCredentials!: pulumi.Output<string | undefined>;
     /**
-     * The name for the branch.
+     * Name for the branch.
      */
     public readonly branchName!: pulumi.Output<string>;
     /**
-     * The custom domains for the branch.
+     * Custom domains for the branch.
      */
     public /*out*/ readonly customDomains!: pulumi.Output<string[]>;
     /**
-     * The description for the branch.
+     * Description for the branch.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The destination branch if the branch is a pull request branch.
+     * Destination branch if the branch is a pull request branch.
      */
     public /*out*/ readonly destinationBranch!: pulumi.Output<string>;
     /**
-     * The display name for a branch. This is used as the default domain prefix.
+     * Display name for a branch. This is used as the default domain prefix.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -186,19 +186,19 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     /**
-     * The environment variables for the branch.
+     * Environment variables for the branch.
      */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The framework for the branch.
+     * Framework for the branch.
      */
     public readonly framework!: pulumi.Output<string | undefined>;
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      */
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
     /**
-     * The source branch if the branch is a pull request branch.
+     * Source branch if the branch is a pull request branch.
      */
     public /*out*/ readonly sourceBranch!: pulumi.Output<string>;
     /**
@@ -210,11 +210,11 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The content Time To Live (TTL) for the website in seconds.
+     * Content Time To Live (TTL) for the website in seconds.
      */
     public readonly ttl!: pulumi.Output<string | undefined>;
 
@@ -296,11 +296,11 @@ export class Branch extends pulumi.CustomResource {
  */
 export interface BranchState {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the branch.
+     * ARN for the branch.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -308,31 +308,31 @@ export interface BranchState {
      */
     associatedResources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      */
     backendEnvironmentArn?: pulumi.Input<string>;
     /**
-     * The basic authorization credentials for the branch.
+     * Basic authorization credentials for the branch.
      */
     basicAuthCredentials?: pulumi.Input<string>;
     /**
-     * The name for the branch.
+     * Name for the branch.
      */
     branchName?: pulumi.Input<string>;
     /**
-     * The custom domains for the branch.
+     * Custom domains for the branch.
      */
     customDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The description for the branch.
+     * Description for the branch.
      */
     description?: pulumi.Input<string>;
     /**
-     * The destination branch if the branch is a pull request branch.
+     * Destination branch if the branch is a pull request branch.
      */
     destinationBranch?: pulumi.Input<string>;
     /**
-     * The display name for a branch. This is used as the default domain prefix.
+     * Display name for a branch. This is used as the default domain prefix.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -356,19 +356,19 @@ export interface BranchState {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
-     * The environment variables for the branch.
+     * Environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The framework for the branch.
+     * Framework for the branch.
      */
     framework?: pulumi.Input<string>;
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
     /**
-     * The source branch if the branch is a pull request branch.
+     * Source branch if the branch is a pull request branch.
      */
     sourceBranch?: pulumi.Input<string>;
     /**
@@ -380,11 +380,11 @@ export interface BranchState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The content Time To Live (TTL) for the website in seconds.
+     * Content Time To Live (TTL) for the website in seconds.
      */
     ttl?: pulumi.Input<string>;
 }
@@ -394,27 +394,27 @@ export interface BranchState {
  */
 export interface BranchArgs {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      */
     backendEnvironmentArn?: pulumi.Input<string>;
     /**
-     * The basic authorization credentials for the branch.
+     * Basic authorization credentials for the branch.
      */
     basicAuthCredentials?: pulumi.Input<string>;
     /**
-     * The name for the branch.
+     * Name for the branch.
      */
     branchName: pulumi.Input<string>;
     /**
-     * The description for the branch.
+     * Description for the branch.
      */
     description?: pulumi.Input<string>;
     /**
-     * The display name for a branch. This is used as the default domain prefix.
+     * Display name for a branch. This is used as the default domain prefix.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -438,15 +438,15 @@ export interface BranchArgs {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
-     * The environment variables for the branch.
+     * Environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The framework for the branch.
+     * Framework for the branch.
      */
     framework?: pulumi.Input<string>;
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
     /**
@@ -458,7 +458,7 @@ export interface BranchArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The content Time To Live (TTL) for the website in seconds.
+     * Content Time To Live (TTL) for the website in seconds.
      */
     ttl?: pulumi.Input<string>;
 }

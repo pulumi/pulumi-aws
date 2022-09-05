@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;

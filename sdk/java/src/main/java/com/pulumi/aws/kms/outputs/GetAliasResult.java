@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAliasResult {
     /**
-     * @return The Amazon Resource Name(ARN) of the key alias.
+     * @return Amazon Resource Name(ARN) of the key alias.
      * 
      */
     private String arn;
@@ -33,7 +33,7 @@ public final class GetAliasResult {
 
     private GetAliasResult() {}
     /**
-     * @return The Amazon Resource Name(ARN) of the key alias.
+     * @return Amazon Resource Name(ARN) of the key alias.
      * 
      */
     public String arn() {

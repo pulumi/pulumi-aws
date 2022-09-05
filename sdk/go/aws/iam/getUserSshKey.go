@@ -52,23 +52,23 @@ func GetUserSshKey(ctx *pulumi.Context, args *GetUserSshKeyArgs, opts ...pulumi.
 type GetUserSshKeyArgs struct {
 	// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
 	Encoding string `pulumi:"encoding"`
-	// The unique identifier for the SSH public key.
+	// Unique identifier for the SSH public key.
 	SshPublicKeyId string `pulumi:"sshPublicKeyId"`
-	// The name of the IAM user associated with the SSH public key.
+	// Name of the IAM user associated with the SSH public key.
 	Username string `pulumi:"username"`
 }
 
 // A collection of values returned by getUserSshKey.
 type GetUserSshKeyResult struct {
 	Encoding string `pulumi:"encoding"`
-	// The MD5 message digest of the SSH public key.
+	// MD5 message digest of the SSH public key.
 	Fingerprint string `pulumi:"fingerprint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The SSH public key.
+	// SSH public key.
 	PublicKey      string `pulumi:"publicKey"`
 	SshPublicKeyId string `pulumi:"sshPublicKeyId"`
-	// The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+	// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
 	Status   string `pulumi:"status"`
 	Username string `pulumi:"username"`
 }
@@ -90,9 +90,9 @@ func GetUserSshKeyOutput(ctx *pulumi.Context, args GetUserSshKeyOutputArgs, opts
 type GetUserSshKeyOutputArgs struct {
 	// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
 	Encoding pulumi.StringInput `pulumi:"encoding"`
-	// The unique identifier for the SSH public key.
+	// Unique identifier for the SSH public key.
 	SshPublicKeyId pulumi.StringInput `pulumi:"sshPublicKeyId"`
-	// The name of the IAM user associated with the SSH public key.
+	// Name of the IAM user associated with the SSH public key.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -119,7 +119,7 @@ func (o GetUserSshKeyResultOutput) Encoding() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Encoding }).(pulumi.StringOutput)
 }
 
-// The MD5 message digest of the SSH public key.
+// MD5 message digest of the SSH public key.
 func (o GetUserSshKeyResultOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Fingerprint }).(pulumi.StringOutput)
 }
@@ -129,7 +129,7 @@ func (o GetUserSshKeyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The SSH public key.
+// SSH public key.
 func (o GetUserSshKeyResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.PublicKey }).(pulumi.StringOutput)
 }
@@ -138,7 +138,7 @@ func (o GetUserSshKeyResultOutput) SshPublicKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.SshPublicKeyId }).(pulumi.StringOutput)
 }
 
-// The status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
+// Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
 func (o GetUserSshKeyResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserSshKeyResult) string { return v.Status }).(pulumi.StringOutput)
 }

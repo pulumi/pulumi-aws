@@ -81,7 +81,7 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     ```
 
 
-    :param str region: The region you'd like the zone for. By default, fetches the current region.
+    :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -122,6 +122,6 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     ```
 
 
-    :param str region: The region you'd like the zone for. By default, fetches the current region.
+    :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
     ...

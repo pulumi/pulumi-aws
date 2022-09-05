@@ -145,7 +145,7 @@ type GetCoreNetworkPolicyDocumentArgs struct {
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
-	// A block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	Segments []GetCoreNetworkPolicyDocumentSegment `pulumi:"segments"`
 	Version  *string                               `pulumi:"version"`
 }
@@ -184,7 +184,7 @@ type GetCoreNetworkPolicyDocumentOutputArgs struct {
 	CoreNetworkConfigurations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput `pulumi:"coreNetworkConfigurations"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions GetCoreNetworkPolicyDocumentSegmentActionArrayInput `pulumi:"segmentActions"`
-	// A block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	Segments GetCoreNetworkPolicyDocumentSegmentArrayInput `pulumi:"segments"`
 	Version  pulumi.StringPtrInput                         `pulumi:"version"`
 }

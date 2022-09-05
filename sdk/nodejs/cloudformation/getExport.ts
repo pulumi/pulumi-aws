@@ -42,7 +42,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetExportArgs {
     /**
-     * The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     name: string;
 }
@@ -52,7 +52,7 @@ export interface GetExportArgs {
  */
 export interface GetExportResult {
     /**
-     * The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * ARN of stack that contains the exported output name and value.
      */
     readonly exportingStackId: string;
     /**
@@ -61,7 +61,7 @@ export interface GetExportResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     readonly value: string;
 }
@@ -75,7 +75,7 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetExportOutputArgs {
     /**
-     * The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     name: pulumi.Input<string>;
 }

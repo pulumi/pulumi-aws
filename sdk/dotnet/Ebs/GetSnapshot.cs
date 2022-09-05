@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Ebs
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetSnapshotResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// ARN of the EBS Snapshot.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string DataEncryptionKeyId;
         /// <summary>
-        /// A description for the snapshot
+        /// Description for the snapshot
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -291,12 +291,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN for the KMS encryption key.
+        /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
-        /// The ARN of the Outpost on which the snapshot is stored.
+        /// ARN of the Outpost on which the snapshot is stored.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
@@ -304,34 +304,34 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string OwnerAlias;
         /// <summary>
-        /// The AWS account ID of the EBS snapshot owner.
+        /// AWS account ID of the EBS snapshot owner.
         /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;
         /// <summary>
-        /// The snapshot ID (e.g., snap-59fcb34e).
+        /// Snapshot ID (e.g., snap-59fcb34e).
         /// </summary>
         public readonly string SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
         /// <summary>
-        /// The snapshot state.
+        /// Snapshot state.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The storage tier in which the snapshot is stored.
+        /// Storage tier in which the snapshot is stored.
         /// </summary>
         public readonly string StorageTier;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The volume ID (e.g., vol-59fcb34e).
+        /// Volume ID (e.g., vol-59fcb34e).
         /// </summary>
         public readonly string VolumeId;
         /// <summary>
-        /// The size of the drive in GiBs.
+        /// Size of the drive in GiBs.
         /// </summary>
         public readonly int VolumeSize;
 

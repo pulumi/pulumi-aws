@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The password that corresponds to the user name.
+        /// Password that corresponds to the user name.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user.
+        /// Name of the user.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

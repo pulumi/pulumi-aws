@@ -74,7 +74,7 @@ class GetOriginAccessIdentityResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The current version of the origin access identity's information.
+        Current version of the origin access identity's information.
         For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
@@ -83,7 +83,7 @@ class GetOriginAccessIdentityResult:
     @pulumi.getter(name="iamArn")
     def iam_arn(self) -> str:
         """
-        A pre-generated ARN for use in S3 bucket policies (see below).
+        Pre-generated ARN for use in S3 bucket policies (see below).
         Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
         E2QWRUHAPOMQZL`.
         """

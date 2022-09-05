@@ -48,14 +48,14 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     @Import(name="traceConfiguration")
     private @Nullable Output<ObservabilityConfigurationTraceConfigurationArgs> traceConfiguration;
 
     /**
-     * @return The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * @return Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
     public Optional<Output<ObservabilityConfigurationTraceConfigurationArgs>> traceConfiguration() {
@@ -131,7 +131,7 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param traceConfiguration The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+         * @param traceConfiguration Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param traceConfiguration The configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+         * @param traceConfiguration Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
          * 
          * @return builder
          * 

@@ -26,11 +26,11 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetDeviceArgs {
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId: string;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId: string;
     /**
@@ -44,15 +44,15 @@ export interface GetDeviceArgs {
  */
 export interface GetDeviceResult {
     /**
-     * The Amazon Resource Name (ARN) of the device.
+     * ARN of the device.
      */
     readonly arn: string;
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      */
     readonly awsLocations: outputs.networkmanager.GetDeviceAwsLocation[];
     /**
-     * A description of the device.
+     * Description of the device.
      */
     readonly description: string;
     readonly deviceId: string;
@@ -62,19 +62,19 @@ export interface GetDeviceResult {
      */
     readonly id: string;
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      */
     readonly locations: outputs.networkmanager.GetDeviceLocation[];
     /**
-     * The model of device.
+     * Model of device.
      */
     readonly model: string;
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      */
     readonly serialNumber: string;
     /**
-     * The ID of the site.
+     * ID of the site.
      */
     readonly siteId: string;
     /**
@@ -82,11 +82,11 @@ export interface GetDeviceResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of device.
+     * Type of device.
      */
     readonly type: string;
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      */
     readonly vendor: string;
 }
@@ -100,11 +100,11 @@ export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetDeviceOutputArgs {
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId: pulumi.Input<string>;
     /**

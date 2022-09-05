@@ -14,14 +14,14 @@ public final class GetClusterAuthArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterAuthArgs Empty = new GetClusterAuthArgs();
 
     /**
-     * The name of the cluster
+     * Name of the cluster
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the cluster
+     * @return Name of the cluster
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetClusterAuthArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the cluster
+         * @param name Name of the cluster
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetClusterAuthArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the cluster
+         * @param name Name of the cluster
          * 
          * @return builder
          * 

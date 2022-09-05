@@ -11,9 +11,9 @@ import (
 )
 
 type GetGroupFilter struct {
-	// The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 	AttributePath string `pulumi:"attributePath"`
-	// The value for an attribute.
+	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -29,9 +29,9 @@ type GetGroupFilterInput interface {
 }
 
 type GetGroupFilterArgs struct {
-	// The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// The value for an attribute.
+	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -86,12 +86,12 @@ func (o GetGroupFilterOutput) ToGetGroupFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 func (o GetGroupFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// The value for an attribute.
+// Value for an attribute.
 func (o GetGroupFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
@@ -117,9 +117,9 @@ func (o GetGroupFilterArrayOutput) Index(i pulumi.IntInput) GetGroupFilterOutput
 }
 
 type GetUserFilter struct {
-	// The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 	AttributePath string `pulumi:"attributePath"`
-	// The value for an attribute.
+	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -135,9 +135,9 @@ type GetUserFilterInput interface {
 }
 
 type GetUserFilterArgs struct {
-	// The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// The value for an attribute.
+	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -192,12 +192,12 @@ func (o GetUserFilterOutput) ToGetUserFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 func (o GetUserFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// The value for an attribute.
+// Value for an attribute.
 func (o GetUserFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }

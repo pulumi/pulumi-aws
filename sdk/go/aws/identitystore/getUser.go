@@ -24,7 +24,7 @@ func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption
 type GetUserArgs struct {
 	// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
 	Filters []GetUserFilter `pulumi:"filters"`
-	// The Identity Store ID associated with the Single Sign-On Instance.
+	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	UserId *string `pulumi:"userId"`
@@ -37,7 +37,7 @@ type GetUserResult struct {
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	UserId          string `pulumi:"userId"`
-	// The user's user name value.
+	// User's user name value.
 	UserName string `pulumi:"userName"`
 }
 
@@ -58,7 +58,7 @@ func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.I
 type GetUserOutputArgs struct {
 	// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
 	Filters GetUserFilterArrayInput `pulumi:"filters"`
-	// The Identity Store ID associated with the Single Sign-On Instance.
+	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
@@ -100,7 +100,7 @@ func (o GetUserResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserResult) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The user's user name value.
+// User's user name value.
 func (o GetUserResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserResult) string { return v.UserName }).(pulumi.StringOutput)
 }

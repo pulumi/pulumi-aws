@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ram.Inputs
     public sealed class GetResourceShareFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the tag key to filter on.
+        /// Name of the tag key to filter on.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ram.Inputs
         private List<string>? _values;
 
         /// <summary>
-        /// The value of the tag key.
+        /// Value of the tag key.
         /// </summary>
         public List<string> Values
         {

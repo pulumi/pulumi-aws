@@ -20,13 +20,13 @@ class AppCookieStickinessPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AppCookieStickinessPolicy resource.
-        :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
+        :param pulumi.Input[int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
-        :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
+        :param pulumi.Input[str] load_balancer: Name of load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the stickiness policy.
+        :param pulumi.Input[str] name: Name of the stickiness policy.
         """
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "lb_port", lb_port)
@@ -38,7 +38,7 @@ class AppCookieStickinessPolicyArgs:
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> pulumi.Input[str]:
         """
-        The application cookie whose lifetime the ELB's cookie should follow.
+        Application cookie whose lifetime the ELB's cookie should follow.
         """
         return pulumi.get(self, "cookie_name")
 
@@ -50,7 +50,7 @@ class AppCookieStickinessPolicyArgs:
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> pulumi.Input[int]:
         """
-        The load balancer port to which the policy
+        Load balancer port to which the policy
         should be applied. This must be an active listener on the load
         balancer.
         """
@@ -64,7 +64,7 @@ class AppCookieStickinessPolicyArgs:
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> pulumi.Input[str]:
         """
-        The name of load balancer to which the policy
+        Name of load balancer to which the policy
         should be attached.
         """
         return pulumi.get(self, "load_balancer")
@@ -77,7 +77,7 @@ class AppCookieStickinessPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stickiness policy.
+        Name of the stickiness policy.
         """
         return pulumi.get(self, "name")
 
@@ -95,13 +95,13 @@ class _AppCookieStickinessPolicyState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppCookieStickinessPolicy resources.
-        :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
+        :param pulumi.Input[int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
-        :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
+        :param pulumi.Input[str] load_balancer: Name of load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the stickiness policy.
+        :param pulumi.Input[str] name: Name of the stickiness policy.
         """
         if cookie_name is not None:
             pulumi.set(__self__, "cookie_name", cookie_name)
@@ -116,7 +116,7 @@ class _AppCookieStickinessPolicyState:
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The application cookie whose lifetime the ELB's cookie should follow.
+        Application cookie whose lifetime the ELB's cookie should follow.
         """
         return pulumi.get(self, "cookie_name")
 
@@ -128,7 +128,7 @@ class _AppCookieStickinessPolicyState:
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The load balancer port to which the policy
+        Load balancer port to which the policy
         should be applied. This must be an active listener on the load
         balancer.
         """
@@ -142,7 +142,7 @@ class _AppCookieStickinessPolicyState:
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of load balancer to which the policy
+        Name of load balancer to which the policy
         should be attached.
         """
         return pulumi.get(self, "load_balancer")
@@ -155,7 +155,7 @@ class _AppCookieStickinessPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stickiness policy.
+        Name of the stickiness policy.
         """
         return pulumi.get(self, "name")
 
@@ -212,13 +212,13 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
+        :param pulumi.Input[int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
-        :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
+        :param pulumi.Input[str] load_balancer: Name of load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the stickiness policy.
+        :param pulumi.Input[str] name: Name of the stickiness policy.
         """
         ...
     @overload
@@ -317,13 +317,13 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
+        :param pulumi.Input[int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
-        :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
+        :param pulumi.Input[str] load_balancer: Name of load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the stickiness policy.
+        :param pulumi.Input[str] name: Name of the stickiness policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,7 +339,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="cookieName")
     def cookie_name(self) -> pulumi.Output[str]:
         """
-        The application cookie whose lifetime the ELB's cookie should follow.
+        Application cookie whose lifetime the ELB's cookie should follow.
         """
         return pulumi.get(self, "cookie_name")
 
@@ -347,7 +347,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> pulumi.Output[int]:
         """
-        The load balancer port to which the policy
+        Load balancer port to which the policy
         should be applied. This must be an active listener on the load
         balancer.
         """
@@ -357,7 +357,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> pulumi.Output[str]:
         """
-        The name of load balancer to which the policy
+        Name of load balancer to which the policy
         should be attached.
         """
         return pulumi.get(self, "load_balancer")
@@ -366,7 +366,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the stickiness policy.
+        Name of the stickiness policy.
         """
         return pulumi.get(self, "name")
 

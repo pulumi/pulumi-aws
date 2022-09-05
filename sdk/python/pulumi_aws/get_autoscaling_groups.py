@@ -43,7 +43,7 @@ class GetAutoscalingGroupsResult:
     @pulumi.getter
     def arns(self) -> Sequence[str]:
         """
-        A list of the Autoscaling Groups Arns in the current region.
+        List of the Autoscaling Groups Arns in the current region.
         """
         return pulumi.get(self, "arns")
 
@@ -64,7 +64,7 @@ class GetAutoscalingGroupsResult:
     @pulumi.getter
     def names(self) -> Sequence[str]:
         """
-        A list of the Autoscaling Groups in the current region.
+        List of the Autoscaling Groups in the current region.
         """
         return pulumi.get(self, "names")
 
@@ -116,8 +116,8 @@ def get_autoscaling_groups(filters: Optional[Sequence[pulumi.InputType['GetAutos
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[str] names: A list of autoscaling group names
+    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: List of autoscaling group names
     """
     pulumi.log.warn("""get_autoscaling_groups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds""")
     __args__ = dict()
@@ -169,8 +169,8 @@ def get_autoscaling_groups_output(filters: Optional[pulumi.Input[Optional[Sequen
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[str] names: A list of autoscaling group names
+    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: List of autoscaling group names
     """
     pulumi.log.warn("""get_autoscaling_groups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds""")
     ...

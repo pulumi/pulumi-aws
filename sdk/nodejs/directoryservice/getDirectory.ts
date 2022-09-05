@@ -36,7 +36,7 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetDirectoryArgs {
     /**
-     * The ID of the directory.
+     * ID of the directory.
      */
     directoryId: string;
     /**
@@ -50,29 +50,29 @@ export interface GetDirectoryArgs {
  */
 export interface GetDirectoryResult {
     /**
-     * The access URL for the directory/connector, such as http://alias.awsapps.com.
+     * Access URL for the directory/connector, such as http://alias.awsapps.com.
      */
     readonly accessUrl: string;
     /**
-     * The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
+     * Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      */
     readonly alias: string;
     readonly connectSettings: outputs.directoryservice.GetDirectoryConnectSetting[];
     /**
-     * A textual description for the directory/connector.
+     * Textual description for the directory/connector.
      */
     readonly description: string;
     readonly directoryId: string;
     /**
-     * A list of IP addresses of the DNS servers for the directory/connector.
+     * List of IP addresses of the DNS servers for the directory/connector.
      */
     readonly dnsIpAddresses: string[];
     /**
-     * (for `MicrosoftAD`) The Microsoft AD edition (`Standard` or `Enterprise`).
+     * (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
      */
     readonly edition: string;
     /**
-     * The directory/connector single-sign on status.
+     * Directory/connector single-sign on status.
      */
     readonly enableSso: boolean;
     /**
@@ -80,20 +80,20 @@ export interface GetDirectoryResult {
      */
     readonly id: string;
     /**
-     * The fully qualified name for the directory/connector.
+     * Fully qualified name for the directory/connector.
      */
     readonly name: string;
     readonly radiusSettings: outputs.directoryservice.GetDirectoryRadiusSetting[];
     /**
-     * The ID of the security group created by the directory/connector.
+     * ID of the security group created by the directory/connector.
      */
     readonly securityGroupId: string;
     /**
-     * The short name of the directory/connector, such as `CORP`.
+     * Short name of the directory/connector, such as `CORP`.
      */
     readonly shortName: string;
     /**
-     * (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
+     * (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
      */
     readonly size: string;
     /**
@@ -101,7 +101,7 @@ export interface GetDirectoryResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
+     * Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */
     readonly type: string;
     readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
@@ -116,7 +116,7 @@ export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.I
  */
 export interface GetDirectoryOutputArgs {
     /**
-     * The ID of the directory.
+     * ID of the directory.
      */
     directoryId: pulumi.Input<string>;
     /**

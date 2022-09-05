@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetClusterSnapshotResult {
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     private Integer allocatedStorage;
@@ -31,13 +31,13 @@ public final class GetClusterSnapshotResult {
      */
     private @Nullable String dbClusterIdentifier;
     /**
-     * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * @return The ARN for the DB Cluster Snapshot.
      * 
      */
     private String dbClusterSnapshotArn;
     private @Nullable String dbClusterSnapshotIdentifier;
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     private String engine;
@@ -77,29 +77,29 @@ public final class GetClusterSnapshotResult {
     private @Nullable String snapshotType;
     private String sourceDbClusterSnapshotArn;
     /**
-     * @return The status of this DB Cluster Snapshot.
+     * @return Status of this DB Cluster Snapshot.
      * 
      */
     private String status;
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     private Boolean storageEncrypted;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The VPC ID associated with the DB cluster snapshot.
+     * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
     private String vpcId;
 
     private GetClusterSnapshotResult() {}
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Integer allocatedStorage() {
@@ -120,7 +120,7 @@ public final class GetClusterSnapshotResult {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * @return The ARN for the DB Cluster Snapshot.
      * 
      */
     public String dbClusterSnapshotArn() {
@@ -130,7 +130,7 @@ public final class GetClusterSnapshotResult {
         return Optional.ofNullable(this.dbClusterSnapshotIdentifier);
     }
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public String engine() {
@@ -194,28 +194,28 @@ public final class GetClusterSnapshotResult {
         return this.sourceDbClusterSnapshotArn;
     }
     /**
-     * @return The status of this DB Cluster Snapshot.
+     * @return Status of this DB Cluster Snapshot.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The VPC ID associated with the DB cluster snapshot.
+     * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
     public String vpcId() {

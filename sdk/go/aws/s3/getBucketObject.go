@@ -109,14 +109,14 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectArgs struct {
-	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
 	// Deprecated: Use the aws_s3_object data source instead
 	Bucket string `pulumi:"bucket"`
-	// The full path to the object inside the bucket
+	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
-	// A map of tags assigned to the object.
+	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
 	VersionId *string `pulumi:"versionId"`
@@ -130,34 +130,34 @@ type LookupBucketObjectResult struct {
 	Bucket string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
-	// Specifies caching behavior along the request/reply chain.
+	// Caching behavior along the request/reply chain.
 	CacheControl string `pulumi:"cacheControl"`
-	// Specifies presentational information for the object.
+	// Presentational information for the object.
 	ContentDisposition string `pulumi:"contentDisposition"`
-	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+	// What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 	ContentEncoding string `pulumi:"contentEncoding"`
-	// The language the content is in.
+	// Language the content is in.
 	ContentLanguage string `pulumi:"contentLanguage"`
 	// Size of the body in bytes.
 	ContentLength int `pulumi:"contentLength"`
-	// A standard MIME type describing the format of the object data.
+	// Standard MIME type describing the format of the object data.
 	ContentType string `pulumi:"contentType"`
 	// [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
 	Etag string `pulumi:"etag"`
 	// If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
 	Expiration string `pulumi:"expiration"`
-	// The date and time at which the object is no longer cacheable.
+	// Date and time at which the object is no longer cacheable.
 	Expires string `pulumi:"expires"`
 	// The provider-assigned unique ID for this managed resource.
 	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 	// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
 	LastModified string `pulumi:"lastModified"`
-	// A map of metadata stored with the object in S3
+	// Map of metadata stored with the object in S3
 	Metadata map[string]string `pulumi:"metadata"`
 	// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 	ObjectLockLegalHoldStatus string `pulumi:"objectLockLegalHoldStatus"`
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
 	ObjectLockMode string `pulumi:"objectLockMode"`
 	// The date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
@@ -168,9 +168,9 @@ type LookupBucketObjectResult struct {
 	SseKmsKeyId string `pulumi:"sseKmsKeyId"`
 	// [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
 	StorageClass string `pulumi:"storageClass"`
-	// A map of tags assigned to the object.
+	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
-	// The latest version ID of the object returned.
+	// Latest version ID of the object returned.
 	VersionId string `pulumi:"versionId"`
 	// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 	WebsiteRedirectLocation string `pulumi:"websiteRedirectLocation"`
@@ -191,14 +191,14 @@ func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutput
 
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectOutputArgs struct {
-	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
 	// Deprecated: Use the aws_s3_object data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The full path to the object inside the bucket
+	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
 	Range pulumi.StringPtrInput `pulumi:"range"`
-	// A map of tags assigned to the object.
+	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
 	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
@@ -238,22 +238,22 @@ func (o LookupBucketObjectResultOutput) BucketKeyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) bool { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
 }
 
-// Specifies caching behavior along the request/reply chain.
+// Caching behavior along the request/reply chain.
 func (o LookupBucketObjectResultOutput) CacheControl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.CacheControl }).(pulumi.StringOutput)
 }
 
-// Specifies presentational information for the object.
+// Presentational information for the object.
 func (o LookupBucketObjectResultOutput) ContentDisposition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
 }
 
-// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+// What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 func (o LookupBucketObjectResultOutput) ContentEncoding() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentEncoding }).(pulumi.StringOutput)
 }
 
-// The language the content is in.
+// Language the content is in.
 func (o LookupBucketObjectResultOutput) ContentLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentLanguage }).(pulumi.StringOutput)
 }
@@ -263,7 +263,7 @@ func (o LookupBucketObjectResultOutput) ContentLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) int { return v.ContentLength }).(pulumi.IntOutput)
 }
 
-// A standard MIME type describing the format of the object data.
+// Standard MIME type describing the format of the object data.
 func (o LookupBucketObjectResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentType }).(pulumi.StringOutput)
 }
@@ -278,7 +278,7 @@ func (o LookupBucketObjectResultOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Expiration }).(pulumi.StringOutput)
 }
 
-// The date and time at which the object is no longer cacheable.
+// Date and time at which the object is no longer cacheable.
 func (o LookupBucketObjectResultOutput) Expires() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Expires }).(pulumi.StringOutput)
 }
@@ -297,7 +297,7 @@ func (o LookupBucketObjectResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// A map of metadata stored with the object in S3
+// Map of metadata stored with the object in S3
 func (o LookupBucketObjectResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
@@ -307,7 +307,7 @@ func (o LookupBucketObjectResultOutput) ObjectLockLegalHoldStatus() pulumi.Strin
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
 }
 
-// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
 func (o LookupBucketObjectResultOutput) ObjectLockMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockMode }).(pulumi.StringOutput)
 }
@@ -336,12 +336,12 @@ func (o LookupBucketObjectResultOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.StorageClass }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the object.
+// Map of tags assigned to the object.
 func (o LookupBucketObjectResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The latest version ID of the object returned.
+// Latest version ID of the object returned.
 func (o LookupBucketObjectResultOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.VersionId }).(pulumi.StringOutput)
 }

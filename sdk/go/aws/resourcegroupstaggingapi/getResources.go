@@ -113,7 +113,7 @@ type GetResourcesArgs struct {
 	IncludeComplianceDetails *bool `pulumi:"includeComplianceDetails"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists []string `pulumi:"resourceArnLists"`
-	// The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
 	ResourceTypeFilters []string `pulumi:"resourceTypeFilters"`
 	// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
 	TagFilters []GetResourcesTagFilter `pulumi:"tagFilters"`
@@ -153,7 +153,7 @@ type GetResourcesOutputArgs struct {
 	IncludeComplianceDetails pulumi.BoolPtrInput `pulumi:"includeComplianceDetails"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists pulumi.StringArrayInput `pulumi:"resourceArnLists"`
-	// The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
 	ResourceTypeFilters pulumi.StringArrayInput `pulumi:"resourceTypeFilters"`
 	// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
 	TagFilters GetResourcesTagFilterArrayInput `pulumi:"tagFilters"`

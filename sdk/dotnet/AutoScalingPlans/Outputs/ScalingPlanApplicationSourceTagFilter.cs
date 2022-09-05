@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     public sealed class ScalingPlanApplicationSourceTagFilter
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The tag values.
+        /// Tag values.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

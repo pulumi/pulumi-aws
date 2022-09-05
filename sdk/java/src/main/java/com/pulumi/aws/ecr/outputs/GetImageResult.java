@@ -20,18 +20,18 @@ public final class GetImageResult {
     private String id;
     private String imageDigest;
     /**
-     * @return The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+     * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      * 
      */
     private Integer imagePushedAt;
     /**
-     * @return The size, in bytes, of the image in the repository.
+     * @return Size, in bytes, of the image in the repository.
      * 
      */
     private Integer imageSizeInBytes;
     private @Nullable String imageTag;
     /**
-     * @return The list of tags associated with this image.
+     * @return List of tags associated with this image.
      * 
      */
     private List<String> imageTags;
@@ -50,14 +50,14 @@ public final class GetImageResult {
         return this.imageDigest;
     }
     /**
-     * @return The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
+     * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
      * 
      */
     public Integer imagePushedAt() {
         return this.imagePushedAt;
     }
     /**
-     * @return The size, in bytes, of the image in the repository.
+     * @return Size, in bytes, of the image in the repository.
      * 
      */
     public Integer imageSizeInBytes() {
@@ -67,7 +67,7 @@ public final class GetImageResult {
         return Optional.ofNullable(this.imageTag);
     }
     /**
-     * @return The list of tags associated with this image.
+     * @return List of tags associated with this image.
      * 
      */
     public List<String> imageTags() {

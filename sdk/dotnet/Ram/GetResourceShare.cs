@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ram
         private List<Inputs.GetResourceShareFilterArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
         public List<Inputs.GetResourceShareFilterArgs> Filters
         {
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// The name of the tag key to filter on.
+        /// Name of the tag key to filter on.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+        /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
         public string ResourceOwner { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Ram
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The Tags attached to the RAM share
+        /// Tags attached to the RAM share
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ram
         private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
         public InputList<Inputs.GetResourceShareFilterInputArgs> Filters
         {
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// The name of the tag key to filter on.
+        /// Name of the tag key to filter on.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+        /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
         public Input<string> ResourceOwner { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The Tags attached to the RAM share
+        /// Tags attached to the RAM share
         /// </summary>
         public InputMap<string> Tags
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Ram
     public sealed class GetResourceShareResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
@@ -240,17 +240,17 @@ namespace Pulumi.Aws.Ram
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The ID of the AWS account that owns the resource share.
+        /// ID of the AWS account that owns the resource share.
         /// </summary>
         public readonly string OwningAccountId;
         public readonly string ResourceOwner;
         public readonly string? ResourceShareStatus;
         /// <summary>
-        /// The Status of the RAM share.
+        /// Status of the RAM share.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The Tags attached to the RAM share
+        /// Tags attached to the RAM share
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

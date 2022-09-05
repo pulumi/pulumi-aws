@@ -20,14 +20,14 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
     public static final ScalingPlanState Empty = new ScalingPlanState();
 
     /**
-     * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
     @Import(name="applicationSource")
     private @Nullable Output<ScalingPlanApplicationSourceArgs> applicationSource;
 
     /**
-     * @return A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+     * @return CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
     public Optional<Output<ScalingPlanApplicationSourceArgs>> applicationSource() {
@@ -35,14 +35,14 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+     * @return Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
     public Optional<Output<String>> name() {
@@ -50,14 +50,14 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
     @Import(name="scalingInstructions")
     private @Nullable Output<List<ScalingPlanScalingInstructionArgs>> scalingInstructions;
 
     /**
-     * @return The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+     * @return Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
     public Optional<Output<List<ScalingPlanScalingInstructionArgs>>> scalingInstructions() {
@@ -107,7 +107,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSource A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+         * @param applicationSource CloudFormation stack or set of tags. You can create one scaling plan per application source.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSource A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+         * @param applicationSource CloudFormation stack or set of tags. You can create one scaling plan per application source.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+         * @param name Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+         * @param name Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingInstructions The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+         * @param scalingInstructions Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingInstructions The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+         * @param scalingInstructions Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ScalingPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingInstructions The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+         * @param scalingInstructions Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
          * 
          * @return builder
          * 

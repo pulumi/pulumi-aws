@@ -103,46 +103,46 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
     public readonly authorization!: pulumi.Output<string>;
     /**
-     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
     public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
-     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
-     * A map of the API models used for the request's content type
+     * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
-     * The ID of a `aws.apigateway.RequestValidator`
+     * ID of a `aws.apigateway.RequestValidator`
      */
     public readonly requestValidatorId!: pulumi.Output<string | undefined>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
 
@@ -210,46 +210,46 @@ export interface MethodState {
      */
     apiKeyRequired?: pulumi.Input<boolean>;
     /**
-     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
     authorization?: pulumi.Input<string>;
     /**
-     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     authorizerId?: pulumi.Input<string>;
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     httpMethod?: pulumi.Input<string>;
     /**
-     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
     operationName?: pulumi.Input<string>;
     /**
-     * A map of the API models used for the request's content type
+     * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of a `aws.apigateway.RequestValidator`
+     * ID of a `aws.apigateway.RequestValidator`
      */
     requestValidatorId?: pulumi.Input<string>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
 }
@@ -263,46 +263,46 @@ export interface MethodArgs {
      */
     apiKeyRequired?: pulumi.Input<boolean>;
     /**
-     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
     authorization: pulumi.Input<string>;
     /**
-     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     authorizerId?: pulumi.Input<string>;
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
     httpMethod: pulumi.Input<string>;
     /**
-     * The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+     * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
     operationName?: pulumi.Input<string>;
     /**
-     * A map of the API models used for the request's content type
+     * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of a `aws.apigateway.RequestValidator`
+     * ID of a `aws.apigateway.RequestValidator`
      */
     requestValidatorId?: pulumi.Input<string>;
     /**
-     * The API resource ID
+     * API resource ID
      */
     resourceId: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi: pulumi.Input<string | RestApi>;
 }

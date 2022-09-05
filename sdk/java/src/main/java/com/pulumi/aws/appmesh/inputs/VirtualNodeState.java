@@ -18,14 +18,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     public static final VirtualNodeState Empty = new VirtualNodeState();
 
     /**
-     * The ARN of the virtual node.
+     * ARN of the virtual node.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the virtual node.
+     * @return ARN of the virtual node.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation date of the virtual node.
+     * Creation date of the virtual node.
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The creation date of the virtual node.
+     * @return Creation date of the virtual node.
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -48,14 +48,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last update date of the virtual node.
+     * Last update date of the virtual node.
      * 
      */
     @Import(name="lastUpdatedDate")
     private @Nullable Output<String> lastUpdatedDate;
 
     /**
-     * @return The last update date of the virtual node.
+     * @return Last update date of the virtual node.
      * 
      */
     public Optional<Output<String>> lastUpdatedDate() {
@@ -63,14 +63,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="meshName")
     private @Nullable Output<String> meshName;
 
     /**
-     * @return The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+     * @return Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> meshName() {
@@ -78,14 +78,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Import(name="meshOwner")
     private @Nullable Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Optional<Output<String>> meshOwner() {
@@ -93,14 +93,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * Name to use for the virtual node. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name to use for the virtual node. Must be between 1 and 255 characters in length.
+     * @return Name to use for the virtual node. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource owner&#39;s AWS account ID.
+     * Resource owner&#39;s AWS account ID.
      * 
      */
     @Import(name="resourceOwner")
     private @Nullable Output<String> resourceOwner;
 
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public Optional<Output<String>> resourceOwner() {
@@ -123,14 +123,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The virtual node specification to apply.
+     * Virtual node specification to apply.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<VirtualNodeSpecArgs> spec;
 
     /**
-     * @return The virtual node specification to apply.
+     * @return Virtual node specification to apply.
      * 
      */
     public Optional<Output<VirtualNodeSpecArgs>> spec() {
@@ -138,14 +138,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -153,14 +153,14 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -201,7 +201,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the virtual node.
+         * @param arn ARN of the virtual node.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the virtual node.
+         * @param arn ARN of the virtual node.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the virtual node.
+         * @param createdDate Creation date of the virtual node.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The creation date of the virtual node.
+         * @param createdDate Creation date of the virtual node.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the virtual node.
+         * @param lastUpdatedDate Last update date of the virtual node.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedDate The last update date of the virtual node.
+         * @param lastUpdatedDate Last update date of the virtual node.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshName The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+         * @param meshName Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshName The name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
+         * @param meshName Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param meshOwner The AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the virtual node. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the virtual node. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the virtual node. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the virtual node. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceOwner The resource owner&#39;s AWS account ID.
+         * @param resourceOwner Resource owner&#39;s AWS account ID.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceOwner The resource owner&#39;s AWS account ID.
+         * @param resourceOwner Resource owner&#39;s AWS account ID.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The virtual node specification to apply.
+         * @param spec Virtual node specification to apply.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The virtual node specification to apply.
+         * @param spec Virtual node specification to apply.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class VirtualNodeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

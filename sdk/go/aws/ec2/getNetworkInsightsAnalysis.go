@@ -50,7 +50,7 @@ func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsig
 type LookupNetworkInsightsAnalysisArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
-	// The ID of the Network Insights Analysis to select.
+	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId *string           `pulumi:"networkInsightsAnalysisId"`
 	Tags                      map[string]string `pulumi:"tags"`
 }
@@ -59,11 +59,11 @@ type LookupNetworkInsightsAnalysisArgs struct {
 type LookupNetworkInsightsAnalysisResult struct {
 	// Potential intermediate components of a feasible path.
 	AlternatePathHints []GetNetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
-	// The ARN of the selected Network Insights Analysis.
+	// ARN of the selected Network Insights Analysis.
 	Arn string `pulumi:"arn"`
 	// Explanation codes for an unreachable path.
 	Explanations []GetNetworkInsightsAnalysisExplanation `pulumi:"explanations"`
-	// The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+	// ARNs of the AWS resources that the path must traverse.
 	FilterInArns []string                           `pulumi:"filterInArns"`
 	Filters      []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
 	// The components in the path from source to destination.
@@ -77,14 +77,14 @@ type LookupNetworkInsightsAnalysisResult struct {
 	PathFound bool `pulumi:"pathFound"`
 	// The components in the path from destination to source.
 	ReturnPathComponents []GetNetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
-	// The date/time the analysis was started.
+	// Date/time the analysis was started.
 	StartDate string `pulumi:"startDate"`
-	// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
+	// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
 	Status string `pulumi:"status"`
-	// A message to provide more context when the `status` is `failed`.
+	// Message to provide more context when the `status` is `failed`.
 	StatusMessage string            `pulumi:"statusMessage"`
 	Tags          map[string]string `pulumi:"tags"`
-	// The warning message.
+	// Warning message.
 	WarningMessage string `pulumi:"warningMessage"`
 }
 
@@ -105,7 +105,7 @@ func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetwork
 type LookupNetworkInsightsAnalysisOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
-	// The ID of the Network Insights Analysis to select.
+	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`
 	Tags                      pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -136,7 +136,7 @@ func (o LookupNetworkInsightsAnalysisResultOutput) AlternatePathHints() GetNetwo
 	}).(GetNetworkInsightsAnalysisAlternatePathHintArrayOutput)
 }
 
-// The ARN of the selected Network Insights Analysis.
+// ARN of the selected Network Insights Analysis.
 func (o LookupNetworkInsightsAnalysisResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -148,7 +148,7 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Explanations() GetNetworkInsi
 	}).(GetNetworkInsightsAnalysisExplanationArrayOutput)
 }
 
-// The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.
+// ARNs of the AWS resources that the path must traverse.
 func (o LookupNetworkInsightsAnalysisResultOutput) FilterInArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.FilterInArns }).(pulumi.StringArrayOutput)
 }
@@ -190,17 +190,17 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ReturnPathComponents() GetNet
 	}).(GetNetworkInsightsAnalysisReturnPathComponentArrayOutput)
 }
 
-// The date/time the analysis was started.
+// Date/time the analysis was started.
 func (o LookupNetworkInsightsAnalysisResultOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
-// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
+// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
 func (o LookupNetworkInsightsAnalysisResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A message to provide more context when the `status` is `failed`.
+// Message to provide more context when the `status` is `failed`.
 func (o LookupNetworkInsightsAnalysisResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
@@ -209,7 +209,7 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Tags() pulumi.StringMapOutput
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The warning message.
+// Warning message.
 func (o LookupNetworkInsightsAnalysisResultOutput) WarningMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.WarningMessage }).(pulumi.StringOutput)
 }

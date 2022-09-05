@@ -39,7 +39,7 @@ export interface GetPipelineArgs {
      */
     pipelineId: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -62,7 +62,7 @@ export interface GetPipelineResult {
     readonly name: string;
     readonly pipelineId: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -80,7 +80,7 @@ export interface GetPipelineOutputArgs {
      */
     pipelineId: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

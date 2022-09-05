@@ -52,7 +52,7 @@ class GetSitesResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The IDs of the sites.
+        IDs of the sites.
         """
         return pulumi.get(self, "ids")
 
@@ -93,7 +93,7 @@ def get_sites(global_network_id: Optional[str] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the sites to retrieve.
+    :param str global_network_id: ID of the Global Network of the sites to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the sites with these tags.
     """
     __args__ = dict()
@@ -129,7 +129,7 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the sites to retrieve.
+    :param str global_network_id: ID of the Global Network of the sites to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the sites with these tags.
     """
     ...

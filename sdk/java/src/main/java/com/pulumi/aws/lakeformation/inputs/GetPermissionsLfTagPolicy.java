@@ -30,14 +30,14 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     @Import(name="expressions", required=true)
     private List<GetPermissionsLfTagPolicyExpression> expressions;
 
     /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
      */
     public List<GetPermissionsLfTagPolicyExpression> expressions() {
@@ -45,14 +45,14 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     @Import(name="resourceType", required=true)
     private String resourceType;
 
     /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
     public String resourceType() {
@@ -97,7 +97,7 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param resourceType The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+         * @param resourceType Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
          * 
          * @return builder
          * 

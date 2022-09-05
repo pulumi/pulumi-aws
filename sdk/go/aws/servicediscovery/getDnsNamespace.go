@@ -49,26 +49,26 @@ func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pul
 
 // A collection of arguments for invoking getDnsNamespace.
 type GetDnsNamespaceArgs struct {
-	// The name of the namespace.
+	// Name of the namespace.
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+	// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
 	Type string `pulumi:"type"`
 }
 
 // A collection of values returned by getDnsNamespace.
 type GetDnsNamespaceResult struct {
-	// The Amazon Resource Name (ARN) of the namespace.
+	// ARN of the namespace.
 	Arn string `pulumi:"arn"`
-	// A description of the namespace.
+	// Description of the namespace.
 	Description string `pulumi:"description"`
-	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+	// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
 	HostedZone string `pulumi:"hostedZone"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	Type string            `pulumi:"type"`
 }
@@ -88,11 +88,11 @@ func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, 
 
 // A collection of arguments for invoking getDnsNamespace.
 type GetDnsNamespaceOutputArgs struct {
-	// The name of the namespace.
+	// Name of the namespace.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+	// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -115,17 +115,17 @@ func (o GetDnsNamespaceResultOutput) ToGetDnsNamespaceResultOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the namespace.
+// ARN of the namespace.
 func (o GetDnsNamespaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the namespace.
+// Description of the namespace.
 func (o GetDnsNamespaceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
 func (o GetDnsNamespaceResultOutput) HostedZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.HostedZone }).(pulumi.StringOutput)
 }
@@ -139,7 +139,7 @@ func (o GetDnsNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o GetDnsNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -44,11 +44,11 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetBrokerArgs {
     /**
-     * The unique id of the mq broker.
+     * Unique id of the mq broker.
      */
     brokerId?: string;
     /**
-     * The unique name of the mq broker.
+     * Unique name of the mq broker.
      */
     brokerName?: string;
     tags?: {[key: string]: string};
@@ -94,11 +94,11 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetBrokerOutputArgs {
     /**
-     * The unique id of the mq broker.
+     * Unique id of the mq broker.
      */
     brokerId?: pulumi.Input<string>;
     /**
-     * The unique name of the mq broker.
+     * Unique name of the mq broker.
      */
     brokerName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

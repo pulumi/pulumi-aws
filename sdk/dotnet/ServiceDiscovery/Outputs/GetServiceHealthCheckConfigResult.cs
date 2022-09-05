@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
         /// </summary>
         public readonly int FailureThreshold;
         /// <summary>
-        /// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+        /// Path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
         /// </summary>
         public readonly string ResourcePath;
         /// <summary>

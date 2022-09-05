@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
@@ -43,7 +43,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
 
     private GetCoreNetworkPolicyDocumentAttachmentPolicy() {}
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public GetCoreNetworkPolicyDocumentAttachmentPolicyAction action() {

@@ -54,7 +54,7 @@ class GetBotAliasResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the bot alias.
+        ARN of the bot alias.
         """
         return pulumi.get(self, "arn")
 
@@ -62,7 +62,7 @@ class GetBotAliasResult:
     @pulumi.getter(name="botName")
     def bot_name(self) -> str:
         """
-        The name of the bot.
+        Name of the bot.
         """
         return pulumi.get(self, "bot_name")
 
@@ -70,7 +70,7 @@ class GetBotAliasResult:
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> str:
         """
-        The version of the bot that the alias points to.
+        Version of the bot that the alias points to.
         """
         return pulumi.get(self, "bot_version")
 
@@ -86,7 +86,7 @@ class GetBotAliasResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date that the bot alias was created.
+        Date that the bot alias was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -94,7 +94,7 @@ class GetBotAliasResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the alias.
+        Description of the alias.
         """
         return pulumi.get(self, "description")
 
@@ -110,7 +110,7 @@ class GetBotAliasResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+        Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -118,7 +118,7 @@ class GetBotAliasResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the alias. The name is not case sensitive.
+        Name of the alias. The name is not case sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -157,8 +157,8 @@ def get_bot_alias(bot_name: Optional[str] = None,
     ```
 
 
-    :param str bot_name: The name of the bot.
-    :param str name: The name of the bot alias. The name is case sensitive.
+    :param str bot_name: Name of the bot.
+    :param str name: Name of the bot alias. The name is case sensitive.
     """
     __args__ = dict()
     __args__['botName'] = bot_name
@@ -196,7 +196,7 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str bot_name: The name of the bot.
-    :param str name: The name of the bot alias. The name is case sensitive.
+    :param str bot_name: Name of the bot.
+    :param str name: Name of the bot alias. The name is case sensitive.
     """
     ...

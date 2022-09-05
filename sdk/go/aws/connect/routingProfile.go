@@ -89,7 +89,8 @@ type RoutingProfile struct {
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput    `pulumi:"routingProfileId"`
 	Tags             pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRoutingProfile registers a new resource with the given unique name, arguments, and options.
@@ -151,7 +152,8 @@ type routingProfileState struct {
 	// The identifier for the Routing Profile.
 	RoutingProfileId *string           `pulumi:"routingProfileId"`
 	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RoutingProfileState struct {
@@ -173,7 +175,8 @@ type RoutingProfileState struct {
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
 	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RoutingProfileState) ElementType() reflect.Type {
@@ -350,6 +353,7 @@ func (o RoutingProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RoutingProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

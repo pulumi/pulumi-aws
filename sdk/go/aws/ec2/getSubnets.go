@@ -24,7 +24,7 @@ func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.Invoke
 type GetSubnetsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSubnetsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -34,7 +34,7 @@ type GetSubnetsResult struct {
 	Filters []GetSubnetsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the subnet ids found.
+	// List of all the subnet ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -56,7 +56,7 @@ func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pu
 type GetSubnetsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetSubnetsFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -89,7 +89,7 @@ func (o GetSubnetsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the subnet ids found.
+// List of all the subnet ids found.
 func (o GetSubnetsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSubnetsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

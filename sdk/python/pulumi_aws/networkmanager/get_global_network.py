@@ -42,7 +42,7 @@ class GetGlobalNetworkResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the global network.
+        ARN of the global network.
         """
         return pulumi.get(self, "arn")
 
@@ -50,7 +50,7 @@ class GetGlobalNetworkResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the global network.
+        Description of the global network.
         """
         return pulumi.get(self, "description")
 
@@ -71,7 +71,7 @@ class GetGlobalNetworkResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of resource tags.
+        Map of resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -105,8 +105,8 @@ def get_global_network(global_network_id: Optional[str] = None,
     ```
 
 
-    :param str global_network_id: The id of the specific global network to retrieve.
-    :param Mapping[str, str] tags: A map of resource tags.
+    :param str global_network_id: ID of the specific global network to retrieve.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -139,7 +139,7 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
     ```
 
 
-    :param str global_network_id: The id of the specific global network to retrieve.
-    :param Mapping[str, str] tags: A map of resource tags.
+    :param str global_network_id: ID of the specific global network to retrieve.
+    :param Mapping[str, str] tags: Map of resource tags.
     """
     ...

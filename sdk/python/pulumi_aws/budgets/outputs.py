@@ -436,7 +436,7 @@ class BudgetCostTypes(dict):
                  use_blended: Optional[bool] = None):
         """
         :param bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`
-        :param bool include_discount: Specifies whether a budget includes discounts. Defaults to `true`
+        :param bool include_discount: Whether a budget includes discounts. Defaults to `true`
         :param bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
         :param bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
         :param bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`
@@ -444,7 +444,7 @@ class BudgetCostTypes(dict):
         :param bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`
         :param bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`
         :param bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        :param bool use_amortized: Specifies whether a budget uses the amortized rate. Defaults to `false`
+        :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
         :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
         """
         if include_credit is not None:
@@ -482,7 +482,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="includeDiscount")
     def include_discount(self) -> Optional[bool]:
         """
-        Specifies whether a budget includes discounts. Defaults to `true`
+        Whether a budget includes discounts. Defaults to `true`
         """
         return pulumi.get(self, "include_discount")
 
@@ -546,7 +546,7 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="useAmortized")
     def use_amortized(self) -> Optional[bool]:
         """
-        Specifies whether a budget uses the amortized rate. Defaults to `false`
+        Whether a budget uses the amortized rate. Defaults to `false`
         """
         return pulumi.get(self, "use_amortized")
 

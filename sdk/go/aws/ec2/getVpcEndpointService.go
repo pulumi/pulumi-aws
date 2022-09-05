@@ -123,13 +123,13 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServic
 type LookupVpcEndpointServiceArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetVpcEndpointServiceFilter `pulumi:"filters"`
-	// The common name of an AWS service (e.g., `s3`).
+	// Common name of an AWS service (e.g., `s3`).
 	Service *string `pulumi:"service"`
-	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
-	// The service type, `Gateway` or `Interface`.
+	// Service type, `Gateway` or `Interface`.
 	ServiceType *string `pulumi:"serviceType"`
-	// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -137,9 +137,9 @@ type LookupVpcEndpointServiceArgs struct {
 type LookupVpcEndpointServiceResult struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
-	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	// ARN of the VPC endpoint service.
 	Arn string `pulumi:"arn"`
-	// The Availability Zones in which the service is available.
+	// Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
 	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
@@ -148,18 +148,18 @@ type LookupVpcEndpointServiceResult struct {
 	Id string `pulumi:"id"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints bool `pulumi:"managesVpcEndpoints"`
-	// The AWS account ID of the service owner or `amazon`.
+	// AWS account ID of the service owner or `amazon`.
 	Owner string `pulumi:"owner"`
-	// The private DNS name for the service.
+	// Private DNS name for the service.
 	PrivateDnsName string  `pulumi:"privateDnsName"`
 	Service        *string `pulumi:"service"`
-	// The ID of the endpoint service.
+	// ID of the endpoint service.
 	ServiceId   string `pulumi:"serviceId"`
 	ServiceName string `pulumi:"serviceName"`
 	ServiceType string `pulumi:"serviceType"`
 	// The supported IP address types.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`
@@ -182,13 +182,13 @@ func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointS
 type LookupVpcEndpointServiceOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetVpcEndpointServiceFilterArrayInput `pulumi:"filters"`
-	// The common name of an AWS service (e.g., `s3`).
+	// Common name of an AWS service (e.g., `s3`).
 	Service pulumi.StringPtrInput `pulumi:"service"`
-	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-	// The service type, `Gateway` or `Interface`.
+	// Service type, `Gateway` or `Interface`.
 	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
-	// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -216,12 +216,12 @@ func (o LookupVpcEndpointServiceResultOutput) AcceptanceRequired() pulumi.BoolOu
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) bool { return v.AcceptanceRequired }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPC endpoint service.
+// ARN of the VPC endpoint service.
 func (o LookupVpcEndpointServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zones in which the service is available.
+// Availability Zones in which the service is available.
 func (o LookupVpcEndpointServiceResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -245,12 +245,12 @@ func (o LookupVpcEndpointServiceResultOutput) ManagesVpcEndpoints() pulumi.BoolO
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) bool { return v.ManagesVpcEndpoints }).(pulumi.BoolOutput)
 }
 
-// The AWS account ID of the service owner or `amazon`.
+// AWS account ID of the service owner or `amazon`.
 func (o LookupVpcEndpointServiceResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The private DNS name for the service.
+// Private DNS name for the service.
 func (o LookupVpcEndpointServiceResultOutput) PrivateDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.PrivateDnsName }).(pulumi.StringOutput)
 }
@@ -259,7 +259,7 @@ func (o LookupVpcEndpointServiceResultOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the endpoint service.
+// ID of the endpoint service.
 func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceId }).(pulumi.StringOutput)
 }
@@ -277,7 +277,7 @@ func (o LookupVpcEndpointServiceResultOutput) SupportedIpAddressTypes() pulumi.S
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupVpcEndpointServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

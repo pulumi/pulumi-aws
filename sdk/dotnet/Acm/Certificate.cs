@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Acm
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the certificate
+        /// ARN of the certificate
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -141,20 +141,20 @@ namespace Pulumi.Aws.Acm
         public Output<string?> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate's PEM-formatted public key
+        /// Certificate's PEM-formatted public key
         /// </summary>
         [Output("certificateBody")]
         public Output<string?> CertificateBody { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate's PEM-formatted chain
+        /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
         /// <summary>
-        /// A fully qualified domain name (FQDN) in the certificate.
+        /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The expiration date and time of the certificate.
+        /// Expiration date and time of the certificate.
         /// </summary>
         [Output("notAfter")]
         public Output<string> NotAfter { get; private set; } = null!;
 
         /// <summary>
-        /// The start of the validity period of the certificate.
+        /// Start of the validity period of the certificate.
         /// </summary>
         [Output("notBefore")]
         public Output<string> NotBefore { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Acm
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate's PEM-formatted private key
+        /// Certificate's PEM-formatted private key
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -202,26 +202,23 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        /// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         /// </summary>
         [Output("validationEmails")]
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
 
@@ -285,20 +282,20 @@ namespace Pulumi.Aws.Acm
         public Input<string>? CertificateAuthorityArn { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted public key
+        /// Certificate's PEM-formatted public key
         /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted chain
+        /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// A fully qualified domain name (FQDN) in the certificate.
+        /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -310,7 +307,7 @@ namespace Pulumi.Aws.Acm
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted private key
+        /// Certificate's PEM-formatted private key
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
@@ -331,7 +328,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -339,9 +336,6 @@ namespace Pulumi.Aws.Acm
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
 
@@ -367,7 +361,7 @@ namespace Pulumi.Aws.Acm
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the certificate
+        /// ARN of the certificate
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -379,20 +373,20 @@ namespace Pulumi.Aws.Acm
         public Input<string>? CertificateAuthorityArn { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted public key
+        /// Certificate's PEM-formatted public key
         /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted chain
+        /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// A fully qualified domain name (FQDN) in the certificate.
+        /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -410,13 +404,13 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// The expiration date and time of the certificate.
+        /// Expiration date and time of the certificate.
         /// </summary>
         [Input("notAfter")]
         public Input<string>? NotAfter { get; set; }
 
         /// <summary>
-        /// The start of the validity period of the certificate.
+        /// Start of the validity period of the certificate.
         /// </summary>
         [Input("notBefore")]
         public Input<string>? NotBefore { get; set; }
@@ -428,7 +422,7 @@ namespace Pulumi.Aws.Acm
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
-        /// The certificate's PEM-formatted private key
+        /// Certificate's PEM-formatted private key
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
@@ -455,7 +449,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -467,7 +461,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -479,7 +473,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _validationEmails;
 
         /// <summary>
-        /// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        /// List of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         /// </summary>
         public InputList<string> ValidationEmails
         {
@@ -487,9 +481,6 @@ namespace Pulumi.Aws.Acm
             set => _validationEmails = value;
         }
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-        /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
 

@@ -26,7 +26,7 @@ public final class GetRandomPasswordResult {
     private @Nullable Boolean includeSpace;
     private @Nullable Integer passwordLength;
     /**
-     * @return The random password.
+     * @return Random password.
      * 
      */
     private String randomPassword;
@@ -62,7 +62,7 @@ public final class GetRandomPasswordResult {
         return Optional.ofNullable(this.passwordLength);
     }
     /**
-     * @return The random password.
+     * @return Random password.
      * 
      */
     public String randomPassword() {

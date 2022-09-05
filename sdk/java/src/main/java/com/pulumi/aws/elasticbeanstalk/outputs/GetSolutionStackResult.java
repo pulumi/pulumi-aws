@@ -19,7 +19,7 @@ public final class GetSolutionStackResult {
     private String id;
     private @Nullable Boolean mostRecent;
     /**
-     * @return The name of the solution stack.
+     * @return Name of the solution stack.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class GetSolutionStackResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return The name of the solution stack.
+     * @return Name of the solution stack.
      * 
      */
     public String name() {

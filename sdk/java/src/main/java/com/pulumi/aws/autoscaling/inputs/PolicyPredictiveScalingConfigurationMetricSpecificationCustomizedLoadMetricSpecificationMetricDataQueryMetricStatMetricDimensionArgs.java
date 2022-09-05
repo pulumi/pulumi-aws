@@ -14,14 +14,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs();
 
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the dimension.
+     * @return Name of the dimension.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * The value of the dimension.
+     * Value of the dimension.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the dimension.
+     * @return Value of the dimension.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param name The name of the dimension.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param name The name of the dimension.
+         * @param name Name of the dimension.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param value The value of the dimension.
+         * @param value Value of the dimension.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param value The value of the dimension.
+         * @param value Value of the dimension.
          * 
          * @return builder
          * 

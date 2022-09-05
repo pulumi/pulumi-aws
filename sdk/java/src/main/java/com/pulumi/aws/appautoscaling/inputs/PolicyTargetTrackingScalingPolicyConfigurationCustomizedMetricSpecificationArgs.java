@@ -33,14 +33,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     }
 
     /**
-     * The name of the metric.
+     * Name of the metric.
      * 
      */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public Output<String> metricName() {
@@ -48,14 +48,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     }
 
     /**
-     * The namespace of the metric.
+     * Namespace of the metric.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public Output<String> namespace() {
@@ -63,14 +63,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     }
 
     /**
-     * The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
     /**
-     * @return The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     public Output<String> statistic() {
@@ -78,14 +78,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     }
 
     /**
-     * The unit of the metric.
+     * Unit of the metric.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -152,7 +152,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param metricName The name of the metric.
+         * @param metricName Name of the metric.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param statistic The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+         * @param statistic Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param statistic The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+         * @param statistic Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param unit The unit of the metric.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param unit The unit of the metric.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 

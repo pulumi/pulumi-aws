@@ -16,14 +16,14 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetConnectionsPlainArgs Empty = new GetConnectionsPlainArgs();
 
     /**
-     * The ID of the device of the connections to retrieve.
+     * ID of the device of the connections to retrieve.
      * 
      */
     @Import(name="deviceId")
     private @Nullable String deviceId;
 
     /**
-     * @return The ID of the device of the connections to retrieve.
+     * @return ID of the device of the connections to retrieve.
      * 
      */
     public Optional<String> deviceId() {
@@ -31,14 +31,14 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the Global Network of the connections to retrieve.
+     * ID of the Global Network of the connections to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the connections to retrieve.
+     * @return ID of the Global Network of the connections to retrieve.
      * 
      */
     public String globalNetworkId() {
@@ -87,7 +87,7 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param deviceId The ID of the device of the connections to retrieve.
+         * @param deviceId ID of the device of the connections to retrieve.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the connections to retrieve.
+         * @param globalNetworkId ID of the Global Network of the connections to retrieve.
          * 
          * @return builder
          * 

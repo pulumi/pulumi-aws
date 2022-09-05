@@ -38,11 +38,11 @@ export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListA
  */
 export interface GetQuerySuggestionsBlockListArgs {
     /**
-     * The identifier of the index that contains the block list.
+     * Identifier of the index that contains the block list.
      */
     indexId: string;
     /**
-     * The identifier of the block list.
+     * Identifier of the block list.
      */
     querySuggestionsBlockListId: string;
     /**
@@ -56,23 +56,23 @@ export interface GetQuerySuggestionsBlockListArgs {
  */
 export interface GetQuerySuggestionsBlockListResult {
     /**
-     * The Amazon Resource Name (ARN) of the block list.
+     * ARN of the block list.
      */
     readonly arn: string;
     /**
-     * The date-time a block list was created.
+     * Date-time a block list was created.
      */
     readonly createdAt: string;
     /**
-     * The description for the block list.
+     * Description for the block list.
      */
     readonly description: string;
     /**
-     * The error message containing details if there are issues processing the block list.
+     * Error message containing details if there are issues processing the block list.
      */
     readonly errorMessage: string;
     /**
-     * The current size of the block list text file in S3.
+     * Current size of the block list text file in S3.
      */
     readonly fileSizeBytes: number;
     /**
@@ -81,24 +81,24 @@ export interface GetQuerySuggestionsBlockListResult {
     readonly id: string;
     readonly indexId: string;
     /**
-     * The current number of valid, non-empty words or phrases in the block list text file.
+     * Current number of valid, non-empty words or phrases in the block list text file.
      */
     readonly itemCount: number;
     /**
-     * The name of the block list.
+     * Name of the block list.
      */
     readonly name: string;
     readonly querySuggestionsBlockListId: string;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     readonly roleArn: string;
     /**
-     * The S3 location of the block list input data. Detailed below.
+     * S3 location of the block list input data. Detailed below.
      */
     readonly sourceS3Paths: outputs.kendra.GetQuerySuggestionsBlockListSourceS3Path[];
     /**
-     * The current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+     * Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
      */
     readonly status: string;
     /**
@@ -106,7 +106,7 @@ export interface GetQuerySuggestionsBlockListResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The date and time that the block list was last updated.
+     * Date and time that the block list was last updated.
      */
     readonly updatedAt: string;
 }
@@ -120,11 +120,11 @@ export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBloc
  */
 export interface GetQuerySuggestionsBlockListOutputArgs {
     /**
-     * The identifier of the index that contains the block list.
+     * Identifier of the index that contains the block list.
      */
     indexId: pulumi.Input<string>;
     /**
-     * The identifier of the block list.
+     * Identifier of the block list.
      */
     querySuggestionsBlockListId: pulumi.Input<string>;
     /**

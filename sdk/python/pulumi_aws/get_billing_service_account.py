@@ -32,7 +32,7 @@ class GetBillingServiceAccountResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the AWS billing service account.
+        ARN of the AWS billing service account.
         """
         return pulumi.get(self, "arn")
 

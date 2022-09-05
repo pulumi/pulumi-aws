@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ObservabilityConfigurationTraceConfiguration
     {
         /// <summary>
-        /// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        /// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
         /// </summary>
         public readonly string? Vendor;
 

@@ -66,7 +66,7 @@ export interface GetMountTargetResult {
      */
     readonly availabilityZoneName: string;
     /**
-     * The DNS name for the EFS file system.
+     * DNS name for the EFS file system.
      */
     readonly dnsName: string;
     /**

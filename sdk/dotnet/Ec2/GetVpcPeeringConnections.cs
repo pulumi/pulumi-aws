@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired VPC Peering Connection.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired VPC Peering Connection.
         /// </summary>
         public InputMap<string> Tags
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the VPC Peering Connections.
+        /// IDs of the VPC Peering Connections.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;

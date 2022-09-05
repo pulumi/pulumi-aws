@@ -42,7 +42,7 @@ class DatabaseAclConfiguration(dict):
     def __init__(__self__, *,
                  s3_acl_option: str):
         """
-        :param str s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        :param str s3_acl_option: Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         """
         pulumi.set(__self__, "s3_acl_option", s3_acl_option)
 
@@ -50,7 +50,7 @@ class DatabaseAclConfiguration(dict):
     @pulumi.getter(name="s3AclOption")
     def s3_acl_option(self) -> str:
         """
-        The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         """
         return pulumi.get(self, "s3_acl_option")
 
@@ -80,8 +80,8 @@ class DatabaseEncryptionConfiguration(dict):
                  encryption_option: str,
                  kms_key: Optional[str] = None):
         """
-        :param str encryption_option: The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        :param str kms_key: The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        :param str encryption_option: Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        :param str kms_key: KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         """
         pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key is not None:
@@ -91,7 +91,7 @@ class DatabaseEncryptionConfiguration(dict):
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> str:
         """
-        The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
         """
         return pulumi.get(self, "encryption_option")
 
@@ -99,7 +99,7 @@ class DatabaseEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[str]:
         """
-        The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         """
         return pulumi.get(self, "kms_key")
 
@@ -236,7 +236,7 @@ class WorkgroupConfigurationEngineVersion(dict):
                  selected_engine_version: Optional[str] = None):
         """
         :param str effective_engine_version: The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
-        :param str selected_engine_version: The requested engine version. Defaults to `AUTO`.
+        :param str selected_engine_version: Requested engine version. Defaults to `AUTO`.
         """
         if effective_engine_version is not None:
             pulumi.set(__self__, "effective_engine_version", effective_engine_version)
@@ -255,7 +255,7 @@ class WorkgroupConfigurationEngineVersion(dict):
     @pulumi.getter(name="selectedEngineVersion")
     def selected_engine_version(self) -> Optional[str]:
         """
-        The requested engine version. Defaults to `AUTO`.
+        Requested engine version. Defaults to `AUTO`.
         """
         return pulumi.get(self, "selected_engine_version")
 
@@ -291,10 +291,10 @@ class WorkgroupConfigurationResultConfiguration(dict):
                  expected_bucket_owner: Optional[str] = None,
                  output_location: Optional[str] = None):
         """
-        :param 'WorkgroupConfigurationResultConfigurationAclConfigurationArgs' acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param 'WorkgroupConfigurationResultConfigurationAclConfigurationArgs' acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param 'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs' encryption_configuration: Configuration block with encryption settings. See Encryption Configuration below.
-        :param str expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        :param str output_location: The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+        :param str expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        :param str output_location: Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -309,7 +309,7 @@ class WorkgroupConfigurationResultConfiguration(dict):
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional['outputs.WorkgroupConfigurationResultConfigurationAclConfiguration']:
         """
-        Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
@@ -325,7 +325,7 @@ class WorkgroupConfigurationResultConfiguration(dict):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[str]:
         """
-        The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -333,7 +333,7 @@ class WorkgroupConfigurationResultConfiguration(dict):
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[str]:
         """
-        The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+        Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
         return pulumi.get(self, "output_location")
 
@@ -360,7 +360,7 @@ class WorkgroupConfigurationResultConfigurationAclConfiguration(dict):
     def __init__(__self__, *,
                  s3_acl_option: str):
         """
-        :param str s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        :param str s3_acl_option: Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         """
         pulumi.set(__self__, "s3_acl_option", s3_acl_option)
 
@@ -368,7 +368,7 @@ class WorkgroupConfigurationResultConfigurationAclConfiguration(dict):
     @pulumi.getter(name="s3AclOption")
     def s3_acl_option(self) -> str:
         """
-        The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         """
         return pulumi.get(self, "s3_acl_option")
 
@@ -398,8 +398,8 @@ class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
                  encryption_option: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
         """
-        :param str encryption_option: Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-        :param str kms_key_arn: For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
+        :param str encryption_option: Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+        :param str kms_key_arn: For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
         """
         if encryption_option is not None:
             pulumi.set(__self__, "encryption_option", encryption_option)
@@ -410,7 +410,7 @@ class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional[str]:
         """
-        Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+        Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
         """
         return pulumi.get(self, "encryption_option")
 
@@ -418,7 +418,7 @@ class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
+        For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
         """
         return pulumi.get(self, "kms_key_arn")
 

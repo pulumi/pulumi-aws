@@ -135,7 +135,7 @@ import (
 //
 // ## Import
 //
-// `aws_acmpca_certificate_authority` can be imported by using the certificate authority Amazon Resource Name (ARN), e.g.,
+// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
 //
 // ```sh
 //
@@ -145,7 +145,7 @@ import (
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
@@ -161,7 +161,7 @@ type CertificateAuthority struct {
 	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
-	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays pulumi.IntPtrOutput `pulumi:"permanentDeletionTimeInDays"`
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
@@ -171,11 +171,11 @@ type CertificateAuthority struct {
 	//
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -211,7 +211,7 @@ func GetCertificateAuthority(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateAuthority resources.
 type certificateAuthorityState struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	Arn *string `pulumi:"arn"`
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 	Certificate *string `pulumi:"certificate"`
@@ -227,7 +227,7 @@ type certificateAuthorityState struct {
 	NotAfter *string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore *string `pulumi:"notBefore"`
-	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays *int `pulumi:"permanentDeletionTimeInDays"`
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
@@ -237,16 +237,16 @@ type certificateAuthorityState struct {
 	//
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status *string `pulumi:"status"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
 
 type CertificateAuthorityState struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	Arn pulumi.StringPtrInput
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 	Certificate pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type CertificateAuthorityState struct {
 	NotAfter pulumi.StringPtrInput
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore pulumi.StringPtrInput
-	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays pulumi.IntPtrInput
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
@@ -272,11 +272,11 @@ type CertificateAuthorityState struct {
 	//
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 	Status pulumi.StringPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -289,13 +289,13 @@ type certificateAuthorityArgs struct {
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfiguration `pulumi:"certificateAuthorityConfiguration"`
 	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays *int `pulumi:"permanentDeletionTimeInDays"`
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -305,13 +305,13 @@ type CertificateAuthorityArgs struct {
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfigurationInput
 	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled pulumi.BoolPtrInput
-	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 	PermanentDeletionTimeInDays pulumi.IntPtrInput
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
-	// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -402,7 +402,7 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the certificate authority.
+// ARN of the certificate authority.
 func (o CertificateAuthorityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -444,7 +444,7 @@ func (o CertificateAuthorityOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
 }
 
-// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 func (o CertificateAuthorityOutput) PermanentDeletionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.IntPtrOutput { return v.PermanentDeletionTimeInDays }).(pulumi.IntPtrOutput)
 }
@@ -468,17 +468,17 @@ func (o CertificateAuthorityOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateAuthorityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateAuthorityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 func (o CertificateAuthorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

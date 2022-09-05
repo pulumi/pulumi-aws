@@ -73,7 +73,7 @@ class GetFaqResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the FAQ.
+        ARN of the FAQ.
         """
         return pulumi.get(self, "arn")
 
@@ -81,7 +81,7 @@ class GetFaqResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix datetime that the faq was created.
+        Unix datetime that the faq was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -89,7 +89,7 @@ class GetFaqResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the FAQ.
+        Description of the FAQ.
         """
         return pulumi.get(self, "description")
 
@@ -110,7 +110,7 @@ class GetFaqResult:
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> str:
         """
-        The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         """
         return pulumi.get(self, "file_format")
 
@@ -131,7 +131,7 @@ class GetFaqResult:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> str:
         """
-        The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         """
         return pulumi.get(self, "language_code")
 
@@ -139,7 +139,7 @@ class GetFaqResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the FAQ.
+        Name of the FAQ.
         """
         return pulumi.get(self, "name")
 
@@ -147,7 +147,7 @@ class GetFaqResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 
@@ -155,7 +155,7 @@ class GetFaqResult:
     @pulumi.getter(name="s3Paths")
     def s3_paths(self) -> Sequence['outputs.GetFaqS3PathResult']:
         """
-        The S3 location of the FAQ input data. Detailed below.
+        S3 location of the FAQ input data. Detailed below.
         """
         return pulumi.get(self, "s3_paths")
 
@@ -163,7 +163,7 @@ class GetFaqResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the FAQ. It is ready to use when the status is ACTIVE.
+        Status of the FAQ. It is ready to use when the status is ACTIVE.
         """
         return pulumi.get(self, "status")
 
@@ -179,7 +179,7 @@ class GetFaqResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        The date and time that the FAQ was last updated.
+        Date and time that the FAQ was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -225,8 +225,8 @@ def get_faq(faq_id: Optional[str] = None,
     ```
 
 
-    :param str faq_id: The identifier of the FAQ.
-    :param str index_id: The identifier of the index that contains the FAQ.
+    :param str faq_id: Identifier of the FAQ.
+    :param str index_id: Identifier of the index that contains the FAQ.
     :param Mapping[str, str] tags: Metadata that helps organize the FAQs you create.
     """
     __args__ = dict()
@@ -273,8 +273,8 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str faq_id: The identifier of the FAQ.
-    :param str index_id: The identifier of the index that contains the FAQ.
+    :param str faq_id: Identifier of the FAQ.
+    :param str index_id: Identifier of the index that contains the FAQ.
     :param Mapping[str, str] tags: Metadata that helps organize the FAQs you create.
     """
     ...

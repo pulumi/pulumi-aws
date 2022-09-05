@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupInstanceRefreshPreferences {
     /**
-     * @return The number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
     private @Nullable String checkpointDelay;
@@ -25,12 +25,12 @@ public final class GroupInstanceRefreshPreferences {
      */
     private @Nullable List<Integer> checkpointPercentages;
     /**
-     * @return The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
     private @Nullable String instanceWarmup;
     /**
-     * @return The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     private @Nullable Integer minHealthyPercentage;
@@ -38,7 +38,7 @@ public final class GroupInstanceRefreshPreferences {
 
     private GroupInstanceRefreshPreferences() {}
     /**
-     * @return The number of seconds to wait after a checkpoint. Defaults to `3600`.
+     * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
     public Optional<String> checkpointDelay() {
@@ -52,14 +52,14 @@ public final class GroupInstanceRefreshPreferences {
         return this.checkpointPercentages == null ? List.of() : this.checkpointPercentages;
     }
     /**
-     * @return The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
     public Optional<String> instanceWarmup() {
         return Optional.ofNullable(this.instanceWarmup);
     }
     /**
-     * @return The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+     * @return Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
     public Optional<Integer> minHealthyPercentage() {

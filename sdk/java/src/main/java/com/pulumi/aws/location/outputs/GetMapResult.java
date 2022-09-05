@@ -18,12 +18,12 @@ public final class GetMapResult {
      */
     private List<GetMapConfiguration> configurations;
     /**
-     * @return The timestamp for when the map resource was created in ISO 8601 format.
+     * @return Timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
     private String createTime;
     /**
-     * @return The optional description for the map resource.
+     * @return Optional description for the map resource.
      * 
      */
     private String description;
@@ -33,7 +33,7 @@ public final class GetMapResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) for the map resource.
+     * @return ARN for the map resource.
      * 
      */
     private String mapArn;
@@ -44,7 +44,7 @@ public final class GetMapResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     private String updateTime;
@@ -58,14 +58,14 @@ public final class GetMapResult {
         return this.configurations;
     }
     /**
-     * @return The timestamp for when the map resource was created in ISO 8601 format.
+     * @return Timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return The optional description for the map resource.
+     * @return Optional description for the map resource.
      * 
      */
     public String description() {
@@ -79,7 +79,7 @@ public final class GetMapResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the map resource.
+     * @return ARN for the map resource.
      * 
      */
     public String mapArn() {
@@ -96,7 +96,7 @@ public final class GetMapResult {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

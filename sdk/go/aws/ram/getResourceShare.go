@@ -83,33 +83,33 @@ func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opt
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareArgs struct {
-	// A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters []GetResourceShareFilter `pulumi:"filters"`
-	// The name of the tag key to filter on.
+	// Name of the tag key to filter on.
 	Name string `pulumi:"name"`
-	// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
 	ResourceShareStatus *string `pulumi:"resourceShareStatus"`
-	// The Tags attached to the RAM share
+	// Tags attached to the RAM share
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getResourceShare.
 type LookupResourceShareResult struct {
-	// The Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	Arn     string                   `pulumi:"arn"`
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The ID of the AWS account that owns the resource share.
+	// ID of the AWS account that owns the resource share.
 	OwningAccountId     string  `pulumi:"owningAccountId"`
 	ResourceOwner       string  `pulumi:"resourceOwner"`
 	ResourceShareStatus *string `pulumi:"resourceShareStatus"`
-	// The Status of the RAM share.
+	// Status of the RAM share.
 	Status string `pulumi:"status"`
-	// The Tags attached to the RAM share
+	// Tags attached to the RAM share
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -128,15 +128,15 @@ func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutp
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareOutputArgs struct {
-	// A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
-	// The name of the tag key to filter on.
+	// Name of the tag key to filter on.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
 	ResourceShareStatus pulumi.StringPtrInput `pulumi:"resourceShareStatus"`
-	// The Tags attached to the RAM share
+	// Tags attached to the RAM share
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -159,7 +159,7 @@ func (o LookupResourceShareResultOutput) ToLookupResourceShareResultOutputWithCo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource share.
+// ARN of the resource share.
 func (o LookupResourceShareResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -177,7 +177,7 @@ func (o LookupResourceShareResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the resource share.
+// ID of the AWS account that owns the resource share.
 func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.OwningAccountId }).(pulumi.StringOutput)
 }
@@ -190,12 +190,12 @@ func (o LookupResourceShareResultOutput) ResourceShareStatus() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.ResourceShareStatus }).(pulumi.StringPtrOutput)
 }
 
-// The Status of the RAM share.
+// Status of the RAM share.
 func (o LookupResourceShareResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The Tags attached to the RAM share
+// Tags attached to the RAM share
 func (o LookupResourceShareResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

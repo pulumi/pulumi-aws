@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRouteTablesFilter {
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
      * 
      */
@@ -25,7 +25,7 @@ public final class GetRouteTablesFilter {
 
     private GetRouteTablesFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
      * 
      */

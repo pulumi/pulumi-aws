@@ -96,7 +96,7 @@ func GetBillingServiceAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) 
 
 // A collection of values returned by getBillingServiceAccount.
 type GetBillingServiceAccountResult struct {
-	// The ARN of the AWS billing service account.
+	// ARN of the AWS billing service account.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

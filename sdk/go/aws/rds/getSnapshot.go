@@ -87,7 +87,7 @@ type LookupSnapshotArgs struct {
 	// If more than one result is returned, use the most
 	// recent Snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// The type of snapshots to be returned. If you don't specify a SnapshotType
+	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType *string `pulumi:"snapshotType"`
@@ -95,27 +95,27 @@ type LookupSnapshotArgs struct {
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage int `pulumi:"allocatedStorage"`
-	// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+	// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
 	AvailabilityZone     string  `pulumi:"availabilityZone"`
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn        string  `pulumi:"dbSnapshotArn"`
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
-	// Specifies whether the DB snapshot is encrypted.
+	// Whether the DB snapshot is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine string `pulumi:"engine"`
-	// Specifies the version of the database engine.
+	// Version of the database engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	IncludePublic *bool  `pulumi:"includePublic"`
 	IncludeShared *bool  `pulumi:"includeShared"`
-	// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+	// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 	Iops int `pulumi:"iops"`
-	// The ARN for the KMS encryption key.
+	// ARN for the KMS encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for the restored DB instance.
 	LicenseModel string `pulumi:"licenseModel"`
@@ -126,15 +126,15 @@ type LookupSnapshotResult struct {
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
-	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+	// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
-	// The region that the DB snapshot was created in or copied from.
+	// Region that the DB snapshot was created in or copied from.
 	SourceRegion string `pulumi:"sourceRegion"`
-	// Specifies the status of this DB snapshot.
+	// Status of this DB snapshot.
 	Status string `pulumi:"status"`
-	// Specifies the storage type associated with DB snapshot.
+	// Storage type associated with DB snapshot.
 	StorageType string `pulumi:"storageType"`
-	// Specifies the ID of the VPC associated with the DB snapshot.
+	// ID of the VPC associated with the DB snapshot.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -167,7 +167,7 @@ type LookupSnapshotOutputArgs struct {
 	// If more than one result is returned, use the most
 	// recent Snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// The type of snapshots to be returned. If you don't specify a SnapshotType
+	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
@@ -192,12 +192,12 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 	return o
 }
 
-// Specifies the allocated storage size in gigabytes (GB).
+// Allocated storage size in gigabytes (GB).
 func (o LookupSnapshotResultOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
 func (o LookupSnapshotResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -206,7 +206,7 @@ func (o LookupSnapshotResultOutput) DbInstanceIdentifier() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB snapshot.
+// ARN for the DB snapshot.
 func (o LookupSnapshotResultOutput) DbSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.DbSnapshotArn }).(pulumi.StringOutput)
 }
@@ -215,17 +215,17 @@ func (o LookupSnapshotResultOutput) DbSnapshotIdentifier() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.DbSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the DB snapshot is encrypted.
+// Whether the DB snapshot is encrypted.
 func (o LookupSnapshotResultOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// Specifies the name of the database engine.
+// Name of the database engine.
 func (o LookupSnapshotResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the database engine.
+// Version of the database engine.
 func (o LookupSnapshotResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -243,12 +243,12 @@ func (o LookupSnapshotResultOutput) IncludeShared() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *bool { return v.IncludeShared }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 func (o LookupSnapshotResultOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// The ARN for the KMS encryption key.
+// ARN for the KMS encryption key.
 func (o LookupSnapshotResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -280,27 +280,27 @@ func (o LookupSnapshotResultOutput) SnapshotType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.SnapshotType }).(pulumi.StringPtrOutput)
 }
 
-// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 func (o LookupSnapshotResultOutput) SourceDbSnapshotIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SourceDbSnapshotIdentifier }).(pulumi.StringOutput)
 }
 
-// The region that the DB snapshot was created in or copied from.
+// Region that the DB snapshot was created in or copied from.
 func (o LookupSnapshotResultOutput) SourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SourceRegion }).(pulumi.StringOutput)
 }
 
-// Specifies the status of this DB snapshot.
+// Status of this DB snapshot.
 func (o LookupSnapshotResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies the storage type associated with DB snapshot.
+// Storage type associated with DB snapshot.
 func (o LookupSnapshotResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the VPC associated with the DB snapshot.
+// ID of the VPC associated with the DB snapshot.
 func (o LookupSnapshotResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

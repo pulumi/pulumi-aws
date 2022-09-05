@@ -23,10 +23,10 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID that you want to filter from.
+	// VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -35,7 +35,7 @@ type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the network ACL ids found.
+	// List of all the network ACL ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -58,10 +58,10 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 type GetNetworkAclsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The VPC ID that you want to filter from.
+	// VPC ID that you want to filter from.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -93,7 +93,7 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the network ACL ids found.
+// List of all the network ACL ids found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
