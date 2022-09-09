@@ -215,7 +215,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        /// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         /// </summary>
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<Outputs.ServiceSourceConfiguration> SourceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the App Runner service.
+        /// Current state of the App Runner service.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        /// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceSourceConfigurationGetArgs>? SourceConfiguration { get; set; }
 
         /// <summary>
-        /// The current state of the App Runner service.
+        /// Current state of the App Runner service.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.AppRunner
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

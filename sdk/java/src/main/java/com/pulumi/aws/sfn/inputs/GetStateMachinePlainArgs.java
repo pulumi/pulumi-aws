@@ -13,14 +13,14 @@ public final class GetStateMachinePlainArgs extends com.pulumi.resources.InvokeA
     public static final GetStateMachinePlainArgs Empty = new GetStateMachinePlainArgs();
 
     /**
-     * The friendly name of the state machine to match.
+     * Friendly name of the state machine to match.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The friendly name of the state machine to match.
+     * @return Friendly name of the state machine to match.
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetStateMachinePlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The friendly name of the state machine to match.
+         * @param name Friendly name of the state machine to match.
          * 
          * @return builder
          * 

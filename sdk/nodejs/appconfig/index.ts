@@ -5,22 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./configurationProfile";
-export * from "./deployment";
-export * from "./deploymentStrategy";
-export * from "./environment";
-export * from "./eventIntegration";
-export * from "./hostedConfigurationVersion";
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
 
-// Import resources to register:
-import { Application } from "./application";
-import { ConfigurationProfile } from "./configurationProfile";
-import { Deployment } from "./deployment";
-import { DeploymentStrategy } from "./deploymentStrategy";
-import { Environment } from "./environment";
-import { EventIntegration } from "./eventIntegration";
-import { HostedConfigurationVersion } from "./hostedConfigurationVersion";
+export { ConfigurationProfileArgs, ConfigurationProfileState } from "./configurationProfile";
+export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
+export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
+
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { DeploymentStrategyArgs, DeploymentStrategyState } from "./deploymentStrategy";
+export type DeploymentStrategy = import("./deploymentStrategy").DeploymentStrategy;
+export const DeploymentStrategy: typeof import("./deploymentStrategy").DeploymentStrategy = null as any;
+
+export { EnvironmentArgs, EnvironmentState } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+
+export { EventIntegrationArgs, EventIntegrationState } from "./eventIntegration";
+export type EventIntegration = import("./eventIntegration").EventIntegration;
+export const EventIntegration: typeof import("./eventIntegration").EventIntegration = null as any;
+
+export { HostedConfigurationVersionArgs, HostedConfigurationVersionState } from "./hostedConfigurationVersion";
+export type HostedConfigurationVersion = import("./hostedConfigurationVersion").HostedConfigurationVersion;
+export const HostedConfigurationVersion: typeof import("./hostedConfigurationVersion").HostedConfigurationVersion = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
+utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
 
 const _module = {
     version: utilities.getVersion(),

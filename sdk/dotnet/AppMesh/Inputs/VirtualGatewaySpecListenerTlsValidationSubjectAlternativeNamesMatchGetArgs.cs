@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<string>? _exacts;
 
         /// <summary>
-        /// The values sent must match the specified values exactly.
+        /// Values sent must match the specified values exactly.
         /// </summary>
         public InputList<string> Exacts
         {

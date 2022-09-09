@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
@@ -27,6 +29,16 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody body;
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
@@ -67,6 +79,20 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
+    }
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -115,6 +141,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
     public static final class Builder {
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody body;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
@@ -125,6 +153,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
+    	      this.cookies = defaults.cookies;
+    	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
@@ -140,6 +170,16 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cookies(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookies cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsonBody(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
+            this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +211,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
             final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch();
             o.allQueryArguments = allQueryArguments;
             o.body = body;
+            o.cookies = cookies;
+            o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;
             o.singleHeader = singleHeader;

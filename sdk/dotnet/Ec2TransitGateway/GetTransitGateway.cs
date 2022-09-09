@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly int AmazonSideAsn;
         /// <summary>
-        /// EC2 Transit Gateway Amazon Resource Name (ARN)
+        /// EC2 Transit Gateway ARN
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./pipeline";
-export * from "./preset";
+export { PipelineArgs, PipelineState } from "./pipeline";
+export type Pipeline = import("./pipeline").Pipeline;
+export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 
-// Import resources to register:
-import { Pipeline } from "./pipeline";
-import { Preset } from "./preset";
+export { PresetArgs, PresetState } from "./preset";
+export type Preset = import("./preset").Preset;
+export const Preset: typeof import("./preset").Preset = null as any;
+
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+utilities.lazyLoad(exports, ["Preset"], () => require("./preset"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -77,7 +77,8 @@ type OpenZfsFileSystem struct {
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
@@ -162,7 +163,8 @@ type openZfsFileSystemState struct {
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
@@ -210,7 +212,8 @@ type OpenZfsFileSystemState struct {
 	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 	SubnetIds pulumi.StringPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 	ThroughputCapacity pulumi.IntPtrInput
@@ -481,6 +484,7 @@ func (o OpenZfsFileSystemOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OpenZfsFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

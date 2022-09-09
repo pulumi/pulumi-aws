@@ -89,7 +89,7 @@ class GetAvailabilityZonesResult:
     @pulumi.getter
     def names(self) -> Sequence[str]:
         """
-        A list of the Availability Zone names available to the account.
+        List of the Availability Zone names available to the account.
         """
         return pulumi.get(self, "names")
 
@@ -102,7 +102,7 @@ class GetAvailabilityZonesResult:
     @pulumi.getter(name="zoneIds")
     def zone_ids(self) -> Sequence[str]:
         """
-        A list of the Availability Zone IDs available to the account.
+        List of the Availability Zone IDs available to the account.
         """
         return pulumi.get(self, "zone_ids")
 

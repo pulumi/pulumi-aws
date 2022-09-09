@@ -58,7 +58,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the job queue.
+        ARN of the job queue.
         """
         return pulumi.get(self, "arn")
 
@@ -90,7 +90,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def priority(self) -> int:
         """
-        The priority of the job queue. Job queues with a higher priority are evaluated first when
+        Priority of the job queue. Job queues with a higher priority are evaluated first when
         associated with the same compute environment.
         """
         return pulumi.get(self, "priority")
@@ -115,7 +115,7 @@ class GetJobQueueResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the job queue (for example, `CREATING` or `VALID`).
+        Current status of the job queue (for example, `CREATING` or `VALID`).
         """
         return pulumi.get(self, "status")
 
@@ -123,7 +123,7 @@ class GetJobQueueResult:
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> str:
         """
-        A short, human-readable string to provide additional details about the current status
+        Short, human-readable string to provide additional details about the current status
         of the job queue.
         """
         return pulumi.get(self, "status_reason")
@@ -172,7 +172,7 @@ def get_job_queue(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the job queue.
+    :param str name: Name of the job queue.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
@@ -212,7 +212,7 @@ def get_job_queue_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the job queue.
+    :param str name: Name of the job queue.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     ...

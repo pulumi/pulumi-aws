@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetAvailabilityZoneFilterResult
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -72,70 +72,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
     /**
-     * The content type of the model
+     * Content type of the model
      * 
      */
     @Export(name="contentType", type=String.class, parameters={})
     private Output<String> contentType;
 
     /**
-     * @return The content type of the model
+     * @return Content type of the model
      * 
      */
     public Output<String> contentType() {
         return this.contentType;
     }
     /**
-     * The description of the model
+     * Description of the model
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the model
+     * @return Description of the model
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the model
+     * Name of the model
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the model
+     * @return Name of the model
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The schema of the model in a JSON form
+     * Schema of the model in a JSON form
      * 
      */
     @Export(name="schema", type=String.class, parameters={})
     private Output</* @Nullable */ String> schema;
 
     /**
-     * @return The schema of the model in a JSON form
+     * @return Schema of the model in a JSON form
      * 
      */
     public Output<Optional<String>> schema() {

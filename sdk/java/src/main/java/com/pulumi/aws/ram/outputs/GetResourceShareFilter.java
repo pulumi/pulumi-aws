@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetResourceShareFilter {
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     private String name;
     /**
-     * @return The value of the tag key.
+     * @return Value of the tag key.
      * 
      */
     private List<String> values;
 
     private GetResourceShareFilter() {}
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value of the tag key.
+     * @return Value of the tag key.
      * 
      */
     public List<String> values() {

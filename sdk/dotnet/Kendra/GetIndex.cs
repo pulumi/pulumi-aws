@@ -124,19 +124,19 @@ namespace Pulumi.Aws.Kendra
     public sealed class GetIndexResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Index.
+        /// ARN of the Index.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexCapacityUnitResult> CapacityUnits;
         /// <summary>
-        /// The Unix datetime that the index was created.
+        /// Unix datetime that the index was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The description of the Index.
+        /// Description of the Index.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexDocumentMetadataConfigurationUpdateResult> DocumentMetadataConfigurationUpdates;
         /// <summary>
-        /// The Amazon Kendra edition for the index.
+        /// Amazon Kendra edition for the index.
         /// </summary>
         public readonly string Edition;
         /// <summary>
@@ -152,15 +152,15 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
-        /// The identifier of the Index.
+        /// Identifier of the Index.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        /// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexIndexStatisticResult> IndexStatistics;
         /// <summary>
-        /// The name of the index field. Minimum length of 1. Maximum length of 30.
+        /// Name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIndexServerSideEncryptionConfigurationResult> ServerSideEncryptionConfigurations;
         /// <summary>
-        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+        /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -180,11 +180,11 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Unix datetime that the index was last updated.
+        /// Unix datetime that the index was last updated.
         /// </summary>
         public readonly string UpdatedAt;
         /// <summary>
-        /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
+        /// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
         /// html#Kendra-CreateIndex-request-UserContextPolicy).
         /// </summary>
         public readonly string UserContextPolicy;

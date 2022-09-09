@@ -17,14 +17,14 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
     public static final ResponseState Empty = new ResponseState();
 
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,String>> responseParameters;
 
     /**
-     * @return A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * @return Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
     public Optional<Output<Map<String,String>>> responseParameters() {
@@ -32,14 +32,14 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map specifying the templates used to transform the response body.
+     * Map of templates used to transform the response body.
      * 
      */
     @Import(name="responseTemplates")
     private @Nullable Output<Map<String,String>> responseTemplates;
 
     /**
-     * @return A map specifying the templates used to transform the response body.
+     * @return Map of templates used to transform the response body.
      * 
      */
     public Optional<Output<Map<String,String>>> responseTemplates() {
@@ -47,14 +47,14 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse.
      * 
      */
     @Import(name="responseType")
     private @Nullable Output<String> responseType;
 
     /**
-     * @return The response type of the associated GatewayResponse.
+     * @return Response type of the associated GatewayResponse.
      * 
      */
     public Optional<Output<String>> responseType() {
@@ -62,14 +62,14 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      * 
      */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
     /**
-     * @return The string identifier of the associated REST API.
+     * @return String identifier of the associated REST API.
      * 
      */
     public Optional<Output<String>> restApiId() {
@@ -77,14 +77,14 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP status code of the Gateway Response.
+     * HTTP status code of the Gateway Response.
      * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
-     * @return The HTTP status code of the Gateway Response.
+     * @return HTTP status code of the Gateway Response.
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -120,7 +120,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseParameters A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+         * @param responseParameters Map of parameters (paths, query strings and headers) of the Gateway Response.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseParameters A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+         * @param responseParameters Map of parameters (paths, query strings and headers) of the Gateway Response.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTemplates A map specifying the templates used to transform the response body.
+         * @param responseTemplates Map of templates used to transform the response body.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTemplates A map specifying the templates used to transform the response body.
+         * @param responseTemplates Map of templates used to transform the response body.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseType The response type of the associated GatewayResponse.
+         * @param responseType Response type of the associated GatewayResponse.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseType The response type of the associated GatewayResponse.
+         * @param responseType Response type of the associated GatewayResponse.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApiId The string identifier of the associated REST API.
+         * @param restApiId String identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApiId The string identifier of the associated REST API.
+         * @param restApiId String identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusCode The HTTP status code of the Gateway Response.
+         * @param statusCode HTTP status code of the Gateway Response.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ResponseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statusCode The HTTP status code of the Gateway Response.
+         * @param statusCode HTTP status code of the Gateway Response.
          * 
          * @return builder
          * 

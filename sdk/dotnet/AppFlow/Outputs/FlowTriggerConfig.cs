@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowTriggerConfig
     {
         /// <summary>
-        /// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+        /// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
         /// </summary>
         public readonly Outputs.FlowTriggerConfigTriggerProperties? TriggerProperties;
         /// <summary>
-        /// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+        /// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
         /// </summary>
         public readonly string TriggerType;
 

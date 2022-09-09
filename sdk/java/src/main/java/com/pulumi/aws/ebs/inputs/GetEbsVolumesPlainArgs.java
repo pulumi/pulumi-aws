@@ -33,7 +33,7 @@ public final class GetEbsVolumesPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired volumes.
      * 
      */
@@ -41,7 +41,7 @@ public final class GetEbsVolumesPlainArgs extends com.pulumi.resources.InvokeArg
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired volumes.
      * 
      */
@@ -96,7 +96,7 @@ public final class GetEbsVolumesPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired volumes.
          * 
          * @return builder

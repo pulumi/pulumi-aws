@@ -72,27 +72,27 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+	// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
 	Domain string `pulumi:"domain"`
-	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes []string `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
 	Statuses []string `pulumi:"statuses"`
-	// A mapping of tags for the resource.
+	// Mapping of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
 	Types []string `pulumi:"types"`
 }
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+	// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn string `pulumi:"arn"`
-	// The ACM-issued certificate.
+	// ACM-issued certificate.
 	Certificate string `pulumi:"certificate"`
 	// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
 	CertificateChain string `pulumi:"certificateChain"`
@@ -104,7 +104,7 @@ type LookupCertificateResult struct {
 	// Status of the found certificate.
 	Status   string   `pulumi:"status"`
 	Statuses []string `pulumi:"statuses"`
-	// A mapping of tags for the resource.
+	// Mapping of tags for the resource.
 	Tags  map[string]string `pulumi:"tags"`
 	Types []string          `pulumi:"types"`
 }
@@ -124,19 +124,19 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+	// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes pulumi.StringArrayInput `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
 	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
-	// A mapping of tags for the resource.
+	// Mapping of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -159,12 +159,12 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+// ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
 func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ACM-issued certificate.
+// ACM-issued certificate.
 func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
@@ -200,7 +200,7 @@ func (o LookupCertificateResultOutput) Statuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCertificateResult) []string { return v.Statuses }).(pulumi.StringArrayOutput)
 }
 
-// A mapping of tags for the resource.
+// Mapping of tags for the resource.
 func (o LookupCertificateResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCertificateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

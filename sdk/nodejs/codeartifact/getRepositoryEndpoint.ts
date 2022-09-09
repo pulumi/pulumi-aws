@@ -39,11 +39,11 @@ export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pu
  */
 export interface GetRepositoryEndpointArgs {
     /**
-     * The name of the domain that contains the repository.
+     * Name of the domain that contains the repository.
      */
     domain: string;
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      */
     domainOwner?: string;
     /**
@@ -51,7 +51,7 @@ export interface GetRepositoryEndpointArgs {
      */
     format: string;
     /**
-     * The name of the repository.
+     * Name of the repository.
      */
     repository: string;
 }
@@ -69,7 +69,7 @@ export interface GetRepositoryEndpointResult {
     readonly id: string;
     readonly repository: string;
     /**
-     * The URL of the returned endpoint.
+     * URL of the returned endpoint.
      */
     readonly repositoryEndpoint: string;
 }
@@ -83,11 +83,11 @@ export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArg
  */
 export interface GetRepositoryEndpointOutputArgs {
     /**
-     * The name of the domain that contains the repository.
+     * Name of the domain that contains the repository.
      */
     domain: pulumi.Input<string>;
     /**
-     * The account number of the AWS account that owns the domain.
+     * Account number of the AWS account that owns the domain.
      */
     domainOwner?: pulumi.Input<string>;
     /**
@@ -95,7 +95,7 @@ export interface GetRepositoryEndpointOutputArgs {
      */
     format: pulumi.Input<string>;
     /**
-     * The name of the repository.
+     * Name of the repository.
      */
     repository: pulumi.Input<string>;
 }

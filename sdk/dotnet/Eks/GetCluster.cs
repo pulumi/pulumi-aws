@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> CertificateAuthorities;
         /// <summary>
-        /// The Unix epoch time stamp in seconds for when the cluster was created.
+        /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
@@ -169,15 +169,15 @@ namespace Pulumi.Aws.Eks
         public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> KubernetesNetworkConfigs;
         public readonly string Name;
         /// <summary>
-        /// The platform version for the cluster.
+        /// Platform version for the cluster.
         /// </summary>
         public readonly string PlatformVersion;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Kubernetes server version for the cluster.
+        /// Kubernetes server version for the cluster.
         /// </summary>
         public readonly string Version;
         /// <summary>

@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
@@ -27,6 +29,16 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
      * 
      */
     private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody body;
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
@@ -67,6 +79,20 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
      */
     public Optional<RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
+    }
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -115,6 +141,8 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody body;
+        private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString queryString;
         private @Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
@@ -125,6 +153,8 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
+    	      this.cookies = defaults.cookies;
+    	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
@@ -140,6 +170,16 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
         @CustomType.Setter
         public Builder body(@Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cookies(@Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsonBody(@Nullable RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
+            this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +211,8 @@ public final class RuleGroupRuleStatementAndStatementStatementAndStatementStatem
             final var o = new RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch();
             o.allQueryArguments = allQueryArguments;
             o.body = body;
+            o.cookies = cookies;
+            o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;
             o.singleHeader = singleHeader;

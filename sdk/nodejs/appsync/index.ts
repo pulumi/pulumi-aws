@@ -5,24 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./apiCache";
-export * from "./apiKey";
-export * from "./dataSource";
-export * from "./domainName";
-export * from "./domainNameApiAssociation";
-export * from "./function";
-export * from "./graphQLApi";
-export * from "./resolver";
+export { ApiCacheArgs, ApiCacheState } from "./apiCache";
+export type ApiCache = import("./apiCache").ApiCache;
+export const ApiCache: typeof import("./apiCache").ApiCache = null as any;
 
-// Import resources to register:
-import { ApiCache } from "./apiCache";
-import { ApiKey } from "./apiKey";
-import { DataSource } from "./dataSource";
-import { DomainName } from "./domainName";
-import { DomainNameApiAssociation } from "./domainNameApiAssociation";
-import { Function } from "./function";
-import { GraphQLApi } from "./graphQLApi";
-import { Resolver } from "./resolver";
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+
+export { DataSourceArgs, DataSourceState } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
+
+export { DomainNameArgs, DomainNameState } from "./domainName";
+export type DomainName = import("./domainName").DomainName;
+export const DomainName: typeof import("./domainName").DomainName = null as any;
+
+export { DomainNameApiAssociationArgs, DomainNameApiAssociationState } from "./domainNameApiAssociation";
+export type DomainNameApiAssociation = import("./domainNameApiAssociation").DomainNameApiAssociation;
+export const DomainNameApiAssociation: typeof import("./domainNameApiAssociation").DomainNameApiAssociation = null as any;
+
+export { FunctionArgs, FunctionState } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+
+export { GraphQLApiArgs, GraphQLApiState } from "./graphQLApi";
+export type GraphQLApi = import("./graphQLApi").GraphQLApi;
+export const GraphQLApi: typeof import("./graphQLApi").GraphQLApi = null as any;
+
+export { ResolverArgs, ResolverState } from "./resolver";
+export type Resolver = import("./resolver").Resolver;
+export const Resolver: typeof import("./resolver").Resolver = null as any;
+
+utilities.lazyLoad(exports, ["ApiCache"], () => require("./apiCache"));
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
+utilities.lazyLoad(exports, ["DomainNameApiAssociation"], () => require("./domainNameApiAssociation"));
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+utilities.lazyLoad(exports, ["GraphQLApi"], () => require("./graphQLApi"));
+utilities.lazyLoad(exports, ["Resolver"], () => require("./resolver"));
 
 const _module = {
     version: utilities.getVersion(),

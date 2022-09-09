@@ -20,9 +20,9 @@ class ApiMappingArgs:
                  api_mapping_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
-        :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        :param pulumi.Input[str] api_id: API identifier.
+        :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -35,7 +35,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -47,7 +47,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -59,7 +59,7 @@ class ApiMappingArgs:
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
         """
-        The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         return pulumi.get(self, "stage")
 
@@ -89,10 +89,10 @@ class _ApiMappingState:
                  stage: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiMapping resources.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -107,7 +107,7 @@ class _ApiMappingState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -131,7 +131,7 @@ class _ApiMappingState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -143,7 +143,7 @@ class _ApiMappingState:
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
         """
-        The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         return pulumi.get(self, "stage")
 
@@ -189,10 +189,10 @@ class ApiMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         ...
     @overload
@@ -284,10 +284,10 @@ class ApiMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,7 +303,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -319,7 +319,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -327,7 +327,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter
     def stage(self) -> pulumi.Output[str]:
         """
-        The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
+        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         return pulumi.get(self, "stage")
 

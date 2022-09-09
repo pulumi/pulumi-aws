@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific Internet Gateway to retrieve.
+        /// ID of the specific Internet Gateway to retrieve.
         /// </summary>
         [Input("internetGatewayId")]
         public string? InternetGatewayId { get; set; }
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired Internet Gateway.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific Internet Gateway to retrieve.
+        /// ID of the specific Internet Gateway to retrieve.
         /// </summary>
         [Input("internetGatewayId")]
         public Input<string>? InternetGatewayId { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired Internet Gateway.
         /// </summary>
         public InputMap<string> Tags
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetInternetGatewayResult
     {
         /// <summary>
-        /// The ARN of the Internet Gateway.
+        /// ARN of the Internet Gateway.
         /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> Attachments;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly string InternetGatewayId;
         /// <summary>
-        /// The ID of the AWS account that owns the internet gateway.
+        /// ID of the AWS account that owns the internet gateway.
         /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableDictionary<string, string> Tags;

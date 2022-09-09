@@ -48,7 +48,7 @@ func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opt
 
 // A collection of arguments for invoking getRateBasedRule.
 type LookupRateBasedRuleArgs struct {
-	// The name of the WAF rate based rule.
+	// Name of the WAF rate based rule.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +74,7 @@ func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutp
 
 // A collection of arguments for invoking getRateBasedRule.
 type LookupRateBasedRuleOutputArgs struct {
-	// The name of the WAF rate based rule.
+	// Name of the WAF rate based rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

@@ -13,12 +13,12 @@ public final class GetAssetResult {
     private String arn;
     private String assetId;
     /**
-     * @return The type of the asset.
+     * @return Type of the asset.
      * 
      */
     private String assetType;
     /**
-     * @return The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+     * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      * 
      */
     private String hostId;
@@ -28,12 +28,12 @@ public final class GetAssetResult {
      */
     private String id;
     /**
-     * @return The position of an asset in a rack measured in rack units.
+     * @return Position of an asset in a rack measured in rack units.
      * 
      */
     private Integer rackElevation;
     /**
-     * @return The rack ID of the asset.
+     * @return Rack ID of the asset.
      * 
      */
     private String rackId;
@@ -46,14 +46,14 @@ public final class GetAssetResult {
         return this.assetId;
     }
     /**
-     * @return The type of the asset.
+     * @return Type of the asset.
      * 
      */
     public String assetType() {
         return this.assetType;
     }
     /**
-     * @return The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+     * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
      * 
      */
     public String hostId() {
@@ -67,14 +67,14 @@ public final class GetAssetResult {
         return this.id;
     }
     /**
-     * @return The position of an asset in a rack measured in rack units.
+     * @return Position of an asset in a rack measured in rack units.
      * 
      */
     public Integer rackElevation() {
         return this.rackElevation;
     }
     /**
-     * @return The rack ID of the asset.
+     * @return Rack ID of the asset.
      * 
      */
     public String rackId() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupWarmPoolInstanceReusePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+        /// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
         /// </summary>
         [Input("reuseOnScaleIn")]
         public Input<bool>? ReuseOnScaleIn { get; set; }

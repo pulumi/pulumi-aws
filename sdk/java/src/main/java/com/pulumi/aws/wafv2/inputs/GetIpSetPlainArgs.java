@@ -13,14 +13,14 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetIpSetPlainArgs Empty = new GetIpSetPlainArgs();
 
     /**
-     * The name of the WAFv2 IP Set.
+     * Name of the WAFv2 IP Set.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the WAFv2 IP Set.
+     * @return Name of the WAFv2 IP Set.
      * 
      */
     public String name() {
@@ -68,7 +68,7 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the WAFv2 IP Set.
+         * @param name Name of the WAFv2 IP Set.
          * 
          * @return builder
          * 

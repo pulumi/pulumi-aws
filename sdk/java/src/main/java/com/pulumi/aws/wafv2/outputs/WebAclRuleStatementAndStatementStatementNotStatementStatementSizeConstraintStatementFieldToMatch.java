@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
@@ -27,6 +29,16 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody body;
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
@@ -67,6 +79,20 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
+    }
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -115,6 +141,8 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     public static final class Builder {
         private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody body;
+        private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies cookies;
+        private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
@@ -125,6 +153,8 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
+    	      this.cookies = defaults.cookies;
+    	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
@@ -140,6 +170,16 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cookies(@Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsonBody(@Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
+            this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +211,8 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
             final var o = new WebAclRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch();
             o.allQueryArguments = allQueryArguments;
             o.body = body;
+            o.cookies = cookies;
+            o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;
             o.singleHeader = singleHeader;

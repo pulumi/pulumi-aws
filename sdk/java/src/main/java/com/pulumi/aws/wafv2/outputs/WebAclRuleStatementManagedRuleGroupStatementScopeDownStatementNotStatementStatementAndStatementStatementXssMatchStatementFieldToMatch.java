@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader;
@@ -27,6 +29,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody body;
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody jsonBody;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
@@ -67,6 +79,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
+    }
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchCookies> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -115,6 +141,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final class Builder {
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody body;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchCookies cookies;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
@@ -125,6 +153,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
+    	      this.cookies = defaults.cookies;
+    	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
@@ -140,6 +170,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cookies(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchCookies cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsonBody(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody jsonBody) {
+            this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +211,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatch();
             o.allQueryArguments = allQueryArguments;
             o.body = body;
+            o.cookies = cookies;
+            o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;
             o.singleHeader = singleHeader;

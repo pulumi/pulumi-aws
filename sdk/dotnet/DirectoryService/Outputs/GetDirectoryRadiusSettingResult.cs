@@ -22,19 +22,19 @@ namespace Pulumi.Aws.DirectoryService.Outputs
         /// </summary>
         public readonly string DisplayLabel;
         /// <summary>
-        /// The port that your RADIUS server is using for communications.
+        /// Port that your RADIUS server is using for communications.
         /// </summary>
         public readonly int RadiusPort;
         /// <summary>
-        /// The maximum number of times that communication with the RADIUS server is attempted.
+        /// Maximum number of times that communication with the RADIUS server is attempted.
         /// </summary>
         public readonly int RadiusRetries;
         /// <summary>
-        /// A set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        /// Set of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         /// </summary>
         public readonly ImmutableArray<string> RadiusServers;
         /// <summary>
-        /// The amount of time, in seconds, to wait for the RADIUS server to respond.
+        /// Amount of time, in seconds, to wait for the RADIUS server to respond.
         /// </summary>
         public readonly int RadiusTimeout;
         /// <summary>

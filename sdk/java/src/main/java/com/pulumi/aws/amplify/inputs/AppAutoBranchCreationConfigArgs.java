@@ -18,14 +18,14 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
     public static final AppAutoBranchCreationConfigArgs Empty = new AppAutoBranchCreationConfigArgs();
 
     /**
-     * The basic authorization credentials for the autocreated branch.
+     * Basic authorization credentials for the autocreated branch.
      * 
      */
     @Import(name="basicAuthCredentials")
     private @Nullable Output<String> basicAuthCredentials;
 
     /**
-     * @return The basic authorization credentials for the autocreated branch.
+     * @return Basic authorization credentials for the autocreated branch.
      * 
      */
     public Optional<Output<String>> basicAuthCredentials() {
@@ -33,14 +33,14 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * The build specification (build spec) for the autocreated branch.
+     * Build specification (build spec) for the autocreated branch.
      * 
      */
     @Import(name="buildSpec")
     private @Nullable Output<String> buildSpec;
 
     /**
-     * @return The build specification (build spec) for the autocreated branch.
+     * @return Build specification (build spec) for the autocreated branch.
      * 
      */
     public Optional<Output<String>> buildSpec() {
@@ -108,14 +108,14 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * The environment variables for the autocreated branch.
+     * Environment variables for the autocreated branch.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return The environment variables for the autocreated branch.
+     * @return Environment variables for the autocreated branch.
      * 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
@@ -123,14 +123,14 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * The framework for the autocreated branch.
+     * Framework for the autocreated branch.
      * 
      */
     @Import(name="framework")
     private @Nullable Output<String> framework;
 
     /**
-     * @return The framework for the autocreated branch.
+     * @return Framework for the autocreated branch.
      * 
      */
     public Optional<Output<String>> framework() {
@@ -138,14 +138,14 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      * 
      */
     @Import(name="pullRequestEnvironmentName")
     private @Nullable Output<String> pullRequestEnvironmentName;
 
     /**
-     * @return The Amplify environment name for the pull request.
+     * @return Amplify environment name for the pull request.
      * 
      */
     public Optional<Output<String>> pullRequestEnvironmentName() {
@@ -201,7 +201,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param basicAuthCredentials The basic authorization credentials for the autocreated branch.
+         * @param basicAuthCredentials Basic authorization credentials for the autocreated branch.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param basicAuthCredentials The basic authorization credentials for the autocreated branch.
+         * @param basicAuthCredentials Basic authorization credentials for the autocreated branch.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param buildSpec The build specification (build spec) for the autocreated branch.
+         * @param buildSpec Build specification (build spec) for the autocreated branch.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param buildSpec The build specification (build spec) for the autocreated branch.
+         * @param buildSpec Build specification (build spec) for the autocreated branch.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param environmentVariables The environment variables for the autocreated branch.
+         * @param environmentVariables Environment variables for the autocreated branch.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param environmentVariables The environment variables for the autocreated branch.
+         * @param environmentVariables Environment variables for the autocreated branch.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param framework The framework for the autocreated branch.
+         * @param framework Framework for the autocreated branch.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param framework The framework for the autocreated branch.
+         * @param framework Framework for the autocreated branch.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pullRequestEnvironmentName The Amplify environment name for the pull request.
+         * @param pullRequestEnvironmentName Amplify environment name for the pull request.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class AppAutoBranchCreationConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pullRequestEnvironmentName The Amplify environment name for the pull request.
+         * @param pullRequestEnvironmentName Amplify environment name for the pull request.
          * 
          * @return builder
          * 

@@ -100,19 +100,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpnGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+        /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("amazonSideAsn")]
         public string? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// The ID of a VPC attached to the specific VPN Gateway to retrieve.
+        /// ID of a VPC attached to the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("attachedVpcId")]
         public string? AttachedVpcId { get; set; }
 
         /// <summary>
-        /// The Availability Zone of the specific VPN Gateway to retrieve.
+        /// Availability Zone of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("availabilityZone")]
         public string? AvailabilityZone { get; set; }
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific VPN Gateway to retrieve.
+        /// ID of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The state of the specific VPN Gateway to retrieve.
+        /// State of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired VPN Gateway.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -163,19 +163,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpnGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+        /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// The ID of a VPC attached to the specific VPN Gateway to retrieve.
+        /// ID of a VPC attached to the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("attachedVpcId")]
         public Input<string>? AttachedVpcId { get; set; }
 
         /// <summary>
-        /// The Availability Zone of the specific VPN Gateway to retrieve.
+        /// Availability Zone of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -193,13 +193,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the specific VPN Gateway to retrieve.
+        /// ID of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The state of the specific VPN Gateway to retrieve.
+        /// State of the specific VPN Gateway to retrieve.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired VPN Gateway.
         /// </summary>
         public InputMap<string> Tags

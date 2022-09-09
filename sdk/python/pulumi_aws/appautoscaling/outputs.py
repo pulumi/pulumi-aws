@@ -52,11 +52,11 @@ class PolicyStepScalingPolicyConfiguration(dict):
                  min_adjustment_magnitude: Optional[int] = None,
                  step_adjustments: Optional[Sequence['outputs.PolicyStepScalingPolicyConfigurationStepAdjustment']] = None):
         """
-        :param str adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        :param int cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        :param str metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        :param int min_adjustment_magnitude: The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
-        :param Sequence['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs'] step_adjustments: A set of adjustments that manage scaling. These have the following structure:
+        :param str adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        :param int cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param str metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        :param int min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        :param Sequence['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs'] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
         """
         if adjustment_type is not None:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
@@ -73,7 +73,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
     @pulumi.getter(name="adjustmentType")
     def adjustment_type(self) -> Optional[str]:
         """
-        Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         """
         return pulumi.get(self, "adjustment_type")
 
@@ -81,7 +81,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
     @pulumi.getter
     def cooldown(self) -> Optional[int]:
         """
-        The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         """
         return pulumi.get(self, "cooldown")
 
@@ -89,7 +89,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
     @pulumi.getter(name="metricAggregationType")
     def metric_aggregation_type(self) -> Optional[str]:
         """
-        The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         """
         return pulumi.get(self, "metric_aggregation_type")
 
@@ -97,7 +97,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
     @pulumi.getter(name="minAdjustmentMagnitude")
     def min_adjustment_magnitude(self) -> Optional[int]:
         """
-        The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         """
         return pulumi.get(self, "min_adjustment_magnitude")
 
@@ -105,7 +105,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
     @pulumi.getter(name="stepAdjustments")
     def step_adjustments(self) -> Optional[Sequence['outputs.PolicyStepScalingPolicyConfigurationStepAdjustment']]:
         """
-        A set of adjustments that manage scaling. These have the following structure:
+        Set of adjustments that manage scaling. These have the following structure:
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -138,9 +138,9 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
                  metric_interval_lower_bound: Optional[str] = None,
                  metric_interval_upper_bound: Optional[str] = None):
         """
-        :param int scaling_adjustment: The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        :param str metric_interval_lower_bound: The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        :param str metric_interval_upper_bound: The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+        :param int scaling_adjustment: Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+        :param str metric_interval_lower_bound: Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+        :param str metric_interval_upper_bound: Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
         """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
@@ -152,7 +152,7 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> int:
         """
-        The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+        Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
         """
         return pulumi.get(self, "scaling_adjustment")
 
@@ -160,7 +160,7 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
     @pulumi.getter(name="metricIntervalLowerBound")
     def metric_interval_lower_bound(self) -> Optional[str]:
         """
-        The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+        Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
         """
         return pulumi.get(self, "metric_interval_lower_bound")
 
@@ -168,7 +168,7 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
     @pulumi.getter(name="metricIntervalUpperBound")
     def metric_interval_upper_bound(self) -> Optional[str]:
         """
-        The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+        Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
         """
         return pulumi.get(self, "metric_interval_upper_bound")
 
@@ -210,12 +210,12 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
                  scale_in_cooldown: Optional[int] = None,
                  scale_out_cooldown: Optional[int] = None):
         """
-        :param float target_value: The target value for the metric.
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs' customized_metric_specification: A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-        :param bool disable_scale_in: Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs' predefined_metric_specification: A predefined metric. See supported fields below.
-        :param int scale_in_cooldown: The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-        :param int scale_out_cooldown: The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+        :param float target_value: Target value for the metric.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs' customized_metric_specification: Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        :param bool disable_scale_in: Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs' predefined_metric_specification: Predefined metric. See supported fields below.
+        :param int scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        :param int scale_out_cooldown: Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         """
         pulumi.set(__self__, "target_value", target_value)
         if customized_metric_specification is not None:
@@ -233,7 +233,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="targetValue")
     def target_value(self) -> float:
         """
-        The target value for the metric.
+        Target value for the metric.
         """
         return pulumi.get(self, "target_value")
 
@@ -241,7 +241,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="customizedMetricSpecification")
     def customized_metric_specification(self) -> Optional['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification']:
         """
-        A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
         """
         return pulumi.get(self, "customized_metric_specification")
 
@@ -249,7 +249,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="disableScaleIn")
     def disable_scale_in(self) -> Optional[bool]:
         """
-        Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
         """
         return pulumi.get(self, "disable_scale_in")
 
@@ -257,7 +257,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="predefinedMetricSpecification")
     def predefined_metric_specification(self) -> Optional['outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification']:
         """
-        A predefined metric. See supported fields below.
+        Predefined metric. See supported fields below.
         """
         return pulumi.get(self, "predefined_metric_specification")
 
@@ -265,7 +265,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="scaleInCooldown")
     def scale_in_cooldown(self) -> Optional[int]:
         """
-        The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         """
         return pulumi.get(self, "scale_in_cooldown")
 
@@ -273,7 +273,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @pulumi.getter(name="scaleOutCooldown")
     def scale_out_cooldown(self) -> Optional[int]:
         """
-        The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+        Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         """
         return pulumi.get(self, "scale_out_cooldown")
 
@@ -304,11 +304,11 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  dimensions: Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension']] = None,
                  unit: Optional[str] = None):
         """
-        :param str metric_name: The name of the metric.
-        :param str namespace: The namespace of the metric.
-        :param str statistic: The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        :param str metric_name: Name of the metric.
+        :param str namespace: Namespace of the metric.
+        :param str statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs'] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
-        :param str unit: The unit of the metric.
+        :param str unit: Unit of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -322,7 +322,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
         """
-        The name of the metric.
+        Name of the metric.
         """
         return pulumi.get(self, "metric_name")
 
@@ -330,7 +330,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def namespace(self) -> str:
         """
-        The namespace of the metric.
+        Namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 
@@ -338,7 +338,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def statistic(self) -> str:
         """
-        The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         """
         return pulumi.get(self, "statistic")
 
@@ -354,7 +354,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit of the metric.
+        Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
@@ -365,7 +365,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  name: str,
                  value: str):
         """
-        :param str name: The name of the policy. Must be between 1 and 255 characters in length.
+        :param str name: Name of the policy. Must be between 1 and 255 characters in length.
         :param str value: Value of the dimension.
         """
         pulumi.set(__self__, "name", name)
@@ -375,7 +375,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the policy. Must be between 1 and 255 characters in length.
+        Name of the policy. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -413,7 +413,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
         """
-        :param str predefined_metric_type: The metric type.
+        :param str predefined_metric_type: Metric type.
         :param str resource_label: Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
@@ -424,7 +424,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> str:
         """
-        The metric type.
+        Metric type.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -462,8 +462,8 @@ class ScheduledActionScalableTargetAction(dict):
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None):
         """
-        :param int max_capacity: The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        :param int min_capacity: The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+        :param int max_capacity: Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        :param int min_capacity: Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -474,7 +474,7 @@ class ScheduledActionScalableTargetAction(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[int]:
         """
-        The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -482,7 +482,7 @@ class ScheduledActionScalableTargetAction(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[int]:
         """
-        The minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+        Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         return pulumi.get(self, "min_capacity")
 

@@ -11,6 +11,8 @@ import (
 )
 
 type DomainAdvancedSecurityOptions struct {
+	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
+	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
 	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
@@ -31,6 +33,8 @@ type DomainAdvancedSecurityOptionsInput interface {
 }
 
 type DomainAdvancedSecurityOptionsArgs struct {
+	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
+	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
 	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
@@ -116,6 +120,11 @@ func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrO
 	}).(DomainAdvancedSecurityOptionsPtrOutput)
 }
 
+// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
+func (o DomainAdvancedSecurityOptionsOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -155,6 +164,16 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOpt
 		var ret DomainAdvancedSecurityOptions
 		return ret
 	}).(DomainAdvancedSecurityOptionsOutput)
+}
+
+// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
+func (o DomainAdvancedSecurityOptionsPtrOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousAuthEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
@@ -3292,7 +3311,7 @@ func (o GetDomainAutoTuneOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAu
 }
 
 type GetDomainAutoTuneOptionMaintenanceSchedule struct {
-	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	// Cron expression for an Auto-Tune maintenance schedule.
 	CronExpressionForRecurrence string `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations []GetDomainAutoTuneOptionMaintenanceScheduleDuration `pulumi:"durations"`
@@ -3312,7 +3331,7 @@ type GetDomainAutoTuneOptionMaintenanceScheduleInput interface {
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleArgs struct {
-	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	// Cron expression for an Auto-Tune maintenance schedule.
 	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput `pulumi:"durations"`
@@ -3371,7 +3390,7 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOpt
 	return o
 }
 
-// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+// Cron expression for an Auto-Tune maintenance schedule.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.CronExpressionForRecurrence }).(pulumi.StringOutput)
 }
@@ -3409,9 +3428,9 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) Index(i pulumi.In
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDuration struct {
-	// Unit of time specifying the duration of an Auto-Tune maintenance window.
+	// Unit of time.
 	Unit string `pulumi:"unit"`
-	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	// Duration of an Auto-Tune maintenance window.
 	Value int `pulumi:"value"`
 }
 
@@ -3427,9 +3446,9 @@ type GetDomainAutoTuneOptionMaintenanceScheduleDurationInput interface {
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs struct {
-	// Unit of time specifying the duration of an Auto-Tune maintenance window.
+	// Unit of time.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	// Duration of an Auto-Tune maintenance window.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -3484,12 +3503,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAut
 	return o
 }
 
-// Unit of time specifying the duration of an Auto-Tune maintenance window.
+// Unit of time.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+// Duration of an Auto-Tune maintenance window.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -3529,7 +3548,7 @@ type GetDomainClusterConfig struct {
 	InstanceType string `pulumi:"instanceType"`
 	// Number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
-	// Indicates warm storage is enabled.
+	// Warm storage is enabled.
 	WarmEnabled *bool `pulumi:"warmEnabled"`
 	// Instance type for the OpenSearch cluster's warm nodes.
 	WarmType string `pulumi:"warmType"`
@@ -3565,7 +3584,7 @@ type GetDomainClusterConfigArgs struct {
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
-	// Indicates warm storage is enabled.
+	// Warm storage is enabled.
 	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
 	// Instance type for the OpenSearch cluster's warm nodes.
 	WarmType pulumi.StringInput `pulumi:"warmType"`
@@ -3661,7 +3680,7 @@ func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.WarmCount }).(pulumi.IntOutput)
 }
 
-// Indicates warm storage is enabled.
+// Warm storage is enabled.
 func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -5,20 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./autoScalingConfigurationVersion";
-export * from "./connection";
-export * from "./customDomainAssociation";
-export * from "./observabilityConfiguration";
-export * from "./service";
-export * from "./vpcConnector";
+export { AutoScalingConfigurationVersionArgs, AutoScalingConfigurationVersionState } from "./autoScalingConfigurationVersion";
+export type AutoScalingConfigurationVersion = import("./autoScalingConfigurationVersion").AutoScalingConfigurationVersion;
+export const AutoScalingConfigurationVersion: typeof import("./autoScalingConfigurationVersion").AutoScalingConfigurationVersion = null as any;
 
-// Import resources to register:
-import { AutoScalingConfigurationVersion } from "./autoScalingConfigurationVersion";
-import { Connection } from "./connection";
-import { CustomDomainAssociation } from "./customDomainAssociation";
-import { ObservabilityConfiguration } from "./observabilityConfiguration";
-import { Service } from "./service";
-import { VpcConnector } from "./vpcConnector";
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+
+export { CustomDomainAssociationArgs, CustomDomainAssociationState } from "./customDomainAssociation";
+export type CustomDomainAssociation = import("./customDomainAssociation").CustomDomainAssociation;
+export const CustomDomainAssociation: typeof import("./customDomainAssociation").CustomDomainAssociation = null as any;
+
+export { ObservabilityConfigurationArgs, ObservabilityConfigurationState } from "./observabilityConfiguration";
+export type ObservabilityConfiguration = import("./observabilityConfiguration").ObservabilityConfiguration;
+export const ObservabilityConfiguration: typeof import("./observabilityConfiguration").ObservabilityConfiguration = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { VpcConnectorArgs, VpcConnectorState } from "./vpcConnector";
+export type VpcConnector = import("./vpcConnector").VpcConnector;
+export const VpcConnector: typeof import("./vpcConnector").VpcConnector = null as any;
+
+utilities.lazyLoad(exports, ["AutoScalingConfigurationVersion"], () => require("./autoScalingConfigurationVersion"));
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+utilities.lazyLoad(exports, ["CustomDomainAssociation"], () => require("./customDomainAssociation"));
+utilities.lazyLoad(exports, ["ObservabilityConfiguration"], () => require("./observabilityConfiguration"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["VpcConnector"], () => require("./vpcConnector"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs;
@@ -49,6 +51,36 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs>> body() {
         return Optional.ofNullable(this.body);
+    }
+
+    /**
+     * Inspect the request cookies.
+     * 
+     */
+    @Import(name="cookies")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs> cookies;
+
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs>> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    @Import(name="jsonBody")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs> jsonBody;
+
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs>> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
 
     /**
@@ -131,6 +163,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
     private WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs $) {
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
+        this.cookies = $.cookies;
+        this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
@@ -196,6 +230,48 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementAndSta
          */
         public Builder body(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs body) {
             return body(Output.of(body));
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs> cookies) {
+            $.cookies = cookies;
+            return this;
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs cookies) {
+            return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs> jsonBody) {
+            $.jsonBody = jsonBody;
+            return this;
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs jsonBody) {
+            return jsonBody(Output.of(jsonBody));
         }
 
         /**

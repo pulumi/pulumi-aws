@@ -292,6 +292,9 @@ export class Database extends pulumi.CustomResource {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -501,6 +504,9 @@ export interface DatabaseState {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

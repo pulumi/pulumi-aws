@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
@@ -27,6 +29,16 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
      * 
      */
     private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
@@ -67,6 +79,20 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
      */
     public Optional<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
+    }
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
     /**
      * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -115,6 +141,8 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     public static final class Builder {
         private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
+        private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
+        private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
@@ -125,6 +153,8 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     	      Objects.requireNonNull(defaults);
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
+    	      this.cookies = defaults.cookies;
+    	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
@@ -140,6 +170,16 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         @CustomType.Setter
         public Builder body(@Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody body) {
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cookies(@Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies) {
+            this.cookies = cookies;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsonBody(@Nullable WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody) {
+            this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +211,8 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
             final var o = new WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch();
             o.allQueryArguments = allQueryArguments;
             o.body = body;
+            o.cookies = cookies;
+            o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;
             o.singleHeader = singleHeader;

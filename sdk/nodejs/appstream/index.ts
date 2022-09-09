@@ -5,22 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./directoryConfig";
-export * from "./fleet";
-export * from "./fleetStackAssociation";
-export * from "./imageBuilder";
-export * from "./stack";
-export * from "./user";
-export * from "./userStackAssociation";
+export { DirectoryConfigArgs, DirectoryConfigState } from "./directoryConfig";
+export type DirectoryConfig = import("./directoryConfig").DirectoryConfig;
+export const DirectoryConfig: typeof import("./directoryConfig").DirectoryConfig = null as any;
 
-// Import resources to register:
-import { DirectoryConfig } from "./directoryConfig";
-import { Fleet } from "./fleet";
-import { FleetStackAssociation } from "./fleetStackAssociation";
-import { ImageBuilder } from "./imageBuilder";
-import { Stack } from "./stack";
-import { User } from "./user";
-import { UserStackAssociation } from "./userStackAssociation";
+export { FleetArgs, FleetState } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+
+export { FleetStackAssociationArgs, FleetStackAssociationState } from "./fleetStackAssociation";
+export type FleetStackAssociation = import("./fleetStackAssociation").FleetStackAssociation;
+export const FleetStackAssociation: typeof import("./fleetStackAssociation").FleetStackAssociation = null as any;
+
+export { ImageBuilderArgs, ImageBuilderState } from "./imageBuilder";
+export type ImageBuilder = import("./imageBuilder").ImageBuilder;
+export const ImageBuilder: typeof import("./imageBuilder").ImageBuilder = null as any;
+
+export { StackArgs, StackState } from "./stack";
+export type Stack = import("./stack").Stack;
+export const Stack: typeof import("./stack").Stack = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserStackAssociationArgs, UserStackAssociationState } from "./userStackAssociation";
+export type UserStackAssociation = import("./userStackAssociation").UserStackAssociation;
+export const UserStackAssociation: typeof import("./userStackAssociation").UserStackAssociation = null as any;
+
+utilities.lazyLoad(exports, ["DirectoryConfig"], () => require("./directoryConfig"));
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+utilities.lazyLoad(exports, ["FleetStackAssociation"], () => require("./fleetStackAssociation"));
+utilities.lazyLoad(exports, ["ImageBuilder"], () => require("./imageBuilder"));
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserStackAssociation"], () => require("./userStackAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

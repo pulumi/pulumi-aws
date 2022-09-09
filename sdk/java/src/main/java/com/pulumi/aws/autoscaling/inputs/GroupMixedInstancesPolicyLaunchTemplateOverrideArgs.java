@@ -63,14 +63,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
     }
 
     /**
-     * The number of capacity units, which gives the instance type a proportional weight to other instance types.
+     * Number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
     @Import(name="weightedCapacity")
     private @Nullable Output<String> weightedCapacity;
 
     /**
-     * @return The number of capacity units, which gives the instance type a proportional weight to other instance types.
+     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
     public Optional<Output<String>> weightedCapacity() {
@@ -168,7 +168,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
         }
 
         /**
-         * @param weightedCapacity The number of capacity units, which gives the instance type a proportional weight to other instance types.
+         * @param weightedCapacity Number of capacity units, which gives the instance type a proportional weight to other instance types.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
         }
 
         /**
-         * @param weightedCapacity The number of capacity units, which gives the instance type a proportional weight to other instance types.
+         * @param weightedCapacity Number of capacity units, which gives the instance type a proportional weight to other instance types.
          * 
          * @return builder
          * 

@@ -11,23 +11,23 @@ import java.util.Objects;
 @CustomType
 public final class GetRouteCalculatorResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     private String calculatorArn;
     private String calculatorName;
     /**
-     * @return The timestamp for when the route calculator resource was created in ISO 8601 format.
+     * @return Timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
     private String createTime;
     /**
-     * @return The data provider of traffic and road network data.
+     * @return Data provider of traffic and road network data.
      * 
      */
     private String dataSource;
     /**
-     * @return The optional description of the route calculator resource.
+     * @return Optional description of the route calculator resource.
      * 
      */
     private String description;
@@ -42,14 +42,14 @@ public final class GetRouteCalculatorResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The timestamp for when the route calculator resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the route calculator resource was last updated in ISO 8601 format.
      * 
      */
     private String updateTime;
 
     private GetRouteCalculatorResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     public String calculatorArn() {
@@ -59,21 +59,21 @@ public final class GetRouteCalculatorResult {
         return this.calculatorName;
     }
     /**
-     * @return The timestamp for when the route calculator resource was created in ISO 8601 format.
+     * @return Timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return The data provider of traffic and road network data.
+     * @return Data provider of traffic and road network data.
      * 
      */
     public String dataSource() {
         return this.dataSource;
     }
     /**
-     * @return The optional description of the route calculator resource.
+     * @return Optional description of the route calculator resource.
      * 
      */
     public String description() {
@@ -94,7 +94,7 @@ public final class GetRouteCalculatorResult {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the route calculator resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the route calculator resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

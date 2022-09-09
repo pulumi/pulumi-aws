@@ -31,14 +31,14 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `&#34;$LATEST&#34;`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `&#34;$LATEST&#34;`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -92,7 +92,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
          * 
          * @return builder
          * 

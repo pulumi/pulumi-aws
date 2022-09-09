@@ -15,14 +15,14 @@ public final class GetBotPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBotPlainArgs Empty = new GetBotPlainArgs();
 
     /**
-     * The name of the bot. The name is case sensitive.
+     * Name of the bot. The name is case sensitive.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the bot. The name is case sensitive.
+     * @return Name of the bot. The name is case sensitive.
      * 
      */
     public String name() {
@@ -30,14 +30,14 @@ public final class GetBotPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The version or alias of the bot.
+     * Version or alias of the bot.
      * 
      */
     @Import(name="version")
     private @Nullable String version;
 
     /**
-     * @return The version or alias of the bot.
+     * @return Version or alias of the bot.
      * 
      */
     public Optional<String> version() {
@@ -70,7 +70,7 @@ public final class GetBotPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the bot. The name is case sensitive.
+         * @param name Name of the bot. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetBotPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version or alias of the bot.
+         * @param version Version or alias of the bot.
          * 
          * @return builder
          * 

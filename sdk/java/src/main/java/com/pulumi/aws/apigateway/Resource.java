@@ -66,56 +66,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the parent API resource
+     * ID of the parent API resource
      * 
      */
     @Export(name="parentId", type=String.class, parameters={})
     private Output<String> parentId;
 
     /**
-     * @return The ID of the parent API resource
+     * @return ID of the parent API resource
      * 
      */
     public Output<String> parentId() {
         return this.parentId;
     }
     /**
-     * The complete path for this API resource, including all parent paths.
+     * Complete path for this API resource, including all parent paths.
      * 
      */
     @Export(name="path", type=String.class, parameters={})
     private Output<String> path;
 
     /**
-     * @return The complete path for this API resource, including all parent paths.
+     * @return Complete path for this API resource, including all parent paths.
      * 
      */
     public Output<String> path() {
         return this.path;
     }
     /**
-     * The last path segment of this API resource.
+     * Last path segment of this API resource.
      * 
      */
     @Export(name="pathPart", type=String.class, parameters={})
     private Output<String> pathPart;
 
     /**
-     * @return The last path segment of this API resource.
+     * @return Last path segment of this API resource.
      * 
      */
     public Output<String> pathPart() {
         return this.pathPart;
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {

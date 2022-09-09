@@ -16,14 +16,14 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
     public static final CertificateAuthorityCertificateArgs Empty = new CertificateAuthorityCertificateArgs();
 
     /**
-     * The PEM-encoded certificate for the Certificate Authority.
+     * PEM-encoded certificate for the Certificate Authority.
      * 
      */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
     /**
-     * @return The PEM-encoded certificate for the Certificate Authority.
+     * @return PEM-encoded certificate for the Certificate Authority.
      * 
      */
     public Output<String> certificate() {
@@ -31,14 +31,14 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Certificate Authority.
+     * ARN of the Certificate Authority.
      * 
      */
     @Import(name="certificateAuthorityArn", required=true)
     private Output<String> certificateAuthorityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Certificate Authority.
+     * @return ARN of the Certificate Authority.
      * 
      */
     public Output<String> certificateAuthorityArn() {
@@ -46,14 +46,14 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
     }
 
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
     public Optional<Output<String>> certificateChain() {
@@ -87,7 +87,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificate The PEM-encoded certificate for the Certificate Authority.
+         * @param certificate PEM-encoded certificate for the Certificate Authority.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificate The PEM-encoded certificate for the Certificate Authority.
+         * @param certificate PEM-encoded certificate for the Certificate Authority.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the Certificate Authority.
+         * @param certificateAuthorityArn ARN of the Certificate Authority.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the Certificate Authority.
+         * @param certificateAuthorityArn ARN of the Certificate Authority.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificateChain The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         /**
-         * @param certificateChain The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
          * 
          * @return builder
          * 

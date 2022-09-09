@@ -13,14 +13,14 @@ public final class GetContainerDefinitionPlainArgs extends com.pulumi.resources.
     public static final GetContainerDefinitionPlainArgs Empty = new GetContainerDefinitionPlainArgs();
 
     /**
-     * The name of the container definition
+     * Name of the container definition
      * 
      */
     @Import(name="containerName", required=true)
     private String containerName;
 
     /**
-     * @return The name of the container definition
+     * @return Name of the container definition
      * 
      */
     public String containerName() {
@@ -28,14 +28,14 @@ public final class GetContainerDefinitionPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ARN of the task definition which contains the container
+     * ARN of the task definition which contains the container
      * 
      */
     @Import(name="taskDefinition", required=true)
     private String taskDefinition;
 
     /**
-     * @return The ARN of the task definition which contains the container
+     * @return ARN of the task definition which contains the container
      * 
      */
     public String taskDefinition() {
@@ -68,7 +68,7 @@ public final class GetContainerDefinitionPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param containerName The name of the container definition
+         * @param containerName Name of the container definition
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetContainerDefinitionPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param taskDefinition The ARN of the task definition which contains the container
+         * @param taskDefinition ARN of the task definition which contains the container
          * 
          * @return builder
          * 

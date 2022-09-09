@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client policy for the backend.
+        /// Client policy for the backend.
         /// </summary>
         [Input("clientPolicy")]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs>? ClientPolicy { get; set; }
 
         /// <summary>
-        /// The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+        /// Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualServiceName", required: true)]
         public Input<string> VirtualServiceName { get; set; } = null!;

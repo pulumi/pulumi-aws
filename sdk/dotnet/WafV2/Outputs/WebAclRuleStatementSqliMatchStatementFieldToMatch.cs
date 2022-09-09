@@ -22,6 +22,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody? Body;
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? Method;
@@ -48,6 +56,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody? body,
 
+            Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies? cookies,
+
+            Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? jsonBody,
+
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? method,
 
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString? queryString,
@@ -60,6 +72,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            Cookies = cookies;
+            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

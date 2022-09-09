@@ -16,14 +16,14 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetDirectoryPlainArgs Empty = new GetDirectoryPlainArgs();
 
     /**
-     * The directory identifier for registration in WorkSpaces service.
+     * Directory identifier for registration in WorkSpaces service.
      * 
      */
     @Import(name="directoryId", required=true)
     private String directoryId;
 
     /**
-     * @return The directory identifier for registration in WorkSpaces service.
+     * @return Directory identifier for registration in WorkSpaces service.
      * 
      */
     public String directoryId() {
@@ -71,7 +71,7 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param directoryId The directory identifier for registration in WorkSpaces service.
+         * @param directoryId Directory identifier for registration in WorkSpaces service.
          * 
          * @return builder
          * 

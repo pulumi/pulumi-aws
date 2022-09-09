@@ -58,7 +58,7 @@ func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pul
 type GetImageRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
-	// The owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -91,7 +91,7 @@ func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, 
 type GetImageRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImageRecipesFilterArrayInput `pulumi:"filters"`
-	// The owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

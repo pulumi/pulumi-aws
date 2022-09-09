@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Efs
         public string? CreationToken { get; set; }
 
         /// <summary>
-        /// The ID that identifies the file system (e.g., fs-ccfc0d65).
+        /// ID that identifies the file system (e.g., fs-ccfc0d65).
         /// </summary>
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? CreationToken { get; set; }
 
         /// <summary>
-        /// The ID that identifies the file system (e.g., fs-ccfc0d65).
+        /// ID that identifies the file system (e.g., fs-ccfc0d65).
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Efs
         public readonly string AvailabilityZoneName;
         public readonly string CreationToken;
         /// <summary>
-        /// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         public readonly string DnsName;
         /// <summary>
@@ -182,15 +182,15 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN for the KMS encryption key.
+        /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+        /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         /// </summary>
         public readonly Outputs.GetFileSystemLifecyclePolicyResult LifecyclePolicy;
         /// <summary>
-        /// The file system performance mode.
+        /// File system performance mode.
         /// </summary>
         public readonly string PerformanceMode;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
         /// <summary>
-        /// The current byte count used by the file system.
+        /// Current byte count used by the file system.
         /// </summary>
         public readonly int SizeInBytes;
         public readonly ImmutableDictionary<string, string> Tags;

@@ -5,41 +5,95 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activeReceiptRuleSet";
-export * from "./confgurationSet";
-export * from "./configurationSet";
-export * from "./domainDkim";
-export * from "./domainIdentity";
-export * from "./domainIdentityVerification";
-export * from "./emailIdentity";
-export * from "./eventDestination";
-export * from "./getActiveReceiptRuleSet";
-export * from "./getDomainIdentity";
-export * from "./getEmailIdentity";
-export * from "./identityNotificationTopic";
-export * from "./identityPolicy";
-export * from "./mailFrom";
-export * from "./receiptFilter";
-export * from "./receiptRule";
-export * from "./receiptRuleSet";
-export * from "./template";
+export { ActiveReceiptRuleSetArgs, ActiveReceiptRuleSetState } from "./activeReceiptRuleSet";
+export type ActiveReceiptRuleSet = import("./activeReceiptRuleSet").ActiveReceiptRuleSet;
+export const ActiveReceiptRuleSet: typeof import("./activeReceiptRuleSet").ActiveReceiptRuleSet = null as any;
 
-// Import resources to register:
-import { ActiveReceiptRuleSet } from "./activeReceiptRuleSet";
-import { ConfgurationSet } from "./confgurationSet";
-import { ConfigurationSet } from "./configurationSet";
-import { DomainDkim } from "./domainDkim";
-import { DomainIdentity } from "./domainIdentity";
-import { DomainIdentityVerification } from "./domainIdentityVerification";
-import { EmailIdentity } from "./emailIdentity";
-import { EventDestination } from "./eventDestination";
-import { IdentityNotificationTopic } from "./identityNotificationTopic";
-import { IdentityPolicy } from "./identityPolicy";
-import { MailFrom } from "./mailFrom";
-import { ReceiptFilter } from "./receiptFilter";
-import { ReceiptRule } from "./receiptRule";
-import { ReceiptRuleSet } from "./receiptRuleSet";
-import { Template } from "./template";
+export { ConfgurationSetArgs, ConfgurationSetState } from "./confgurationSet";
+export type ConfgurationSet = import("./confgurationSet").ConfgurationSet;
+export const ConfgurationSet: typeof import("./confgurationSet").ConfgurationSet = null as any;
+
+export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet";
+export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
+export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
+
+export { DomainDkimArgs, DomainDkimState } from "./domainDkim";
+export type DomainDkim = import("./domainDkim").DomainDkim;
+export const DomainDkim: typeof import("./domainDkim").DomainDkim = null as any;
+
+export { DomainIdentityArgs, DomainIdentityState } from "./domainIdentity";
+export type DomainIdentity = import("./domainIdentity").DomainIdentity;
+export const DomainIdentity: typeof import("./domainIdentity").DomainIdentity = null as any;
+
+export { DomainIdentityVerificationArgs, DomainIdentityVerificationState } from "./domainIdentityVerification";
+export type DomainIdentityVerification = import("./domainIdentityVerification").DomainIdentityVerification;
+export const DomainIdentityVerification: typeof import("./domainIdentityVerification").DomainIdentityVerification = null as any;
+
+export { EmailIdentityArgs, EmailIdentityState } from "./emailIdentity";
+export type EmailIdentity = import("./emailIdentity").EmailIdentity;
+export const EmailIdentity: typeof import("./emailIdentity").EmailIdentity = null as any;
+
+export { EventDestinationArgs, EventDestinationState } from "./eventDestination";
+export type EventDestination = import("./eventDestination").EventDestination;
+export const EventDestination: typeof import("./eventDestination").EventDestination = null as any;
+
+export { GetActiveReceiptRuleSetResult } from "./getActiveReceiptRuleSet";
+export const getActiveReceiptRuleSet: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSet = null as any;
+
+export { GetDomainIdentityArgs, GetDomainIdentityResult, GetDomainIdentityOutputArgs } from "./getDomainIdentity";
+export const getDomainIdentity: typeof import("./getDomainIdentity").getDomainIdentity = null as any;
+export const getDomainIdentityOutput: typeof import("./getDomainIdentity").getDomainIdentityOutput = null as any;
+
+export { GetEmailIdentityArgs, GetEmailIdentityResult, GetEmailIdentityOutputArgs } from "./getEmailIdentity";
+export const getEmailIdentity: typeof import("./getEmailIdentity").getEmailIdentity = null as any;
+export const getEmailIdentityOutput: typeof import("./getEmailIdentity").getEmailIdentityOutput = null as any;
+
+export { IdentityNotificationTopicArgs, IdentityNotificationTopicState } from "./identityNotificationTopic";
+export type IdentityNotificationTopic = import("./identityNotificationTopic").IdentityNotificationTopic;
+export const IdentityNotificationTopic: typeof import("./identityNotificationTopic").IdentityNotificationTopic = null as any;
+
+export { IdentityPolicyArgs, IdentityPolicyState } from "./identityPolicy";
+export type IdentityPolicy = import("./identityPolicy").IdentityPolicy;
+export const IdentityPolicy: typeof import("./identityPolicy").IdentityPolicy = null as any;
+
+export { MailFromArgs, MailFromState } from "./mailFrom";
+export type MailFrom = import("./mailFrom").MailFrom;
+export const MailFrom: typeof import("./mailFrom").MailFrom = null as any;
+
+export { ReceiptFilterArgs, ReceiptFilterState } from "./receiptFilter";
+export type ReceiptFilter = import("./receiptFilter").ReceiptFilter;
+export const ReceiptFilter: typeof import("./receiptFilter").ReceiptFilter = null as any;
+
+export { ReceiptRuleArgs, ReceiptRuleState } from "./receiptRule";
+export type ReceiptRule = import("./receiptRule").ReceiptRule;
+export const ReceiptRule: typeof import("./receiptRule").ReceiptRule = null as any;
+
+export { ReceiptRuleSetArgs, ReceiptRuleSetState } from "./receiptRuleSet";
+export type ReceiptRuleSet = import("./receiptRuleSet").ReceiptRuleSet;
+export const ReceiptRuleSet: typeof import("./receiptRuleSet").ReceiptRuleSet = null as any;
+
+export { TemplateArgs, TemplateState } from "./template";
+export type Template = import("./template").Template;
+export const Template: typeof import("./template").Template = null as any;
+
+utilities.lazyLoad(exports, ["ActiveReceiptRuleSet"], () => require("./activeReceiptRuleSet"));
+utilities.lazyLoad(exports, ["ConfgurationSet"], () => require("./confgurationSet"));
+utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
+utilities.lazyLoad(exports, ["DomainDkim"], () => require("./domainDkim"));
+utilities.lazyLoad(exports, ["DomainIdentity"], () => require("./domainIdentity"));
+utilities.lazyLoad(exports, ["DomainIdentityVerification"], () => require("./domainIdentityVerification"));
+utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
+utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestination"));
+utilities.lazyLoad(exports, ["getActiveReceiptRuleSet"], () => require("./getActiveReceiptRuleSet"));
+utilities.lazyLoad(exports, ["getDomainIdentity","getDomainIdentityOutput"], () => require("./getDomainIdentity"));
+utilities.lazyLoad(exports, ["getEmailIdentity","getEmailIdentityOutput"], () => require("./getEmailIdentity"));
+utilities.lazyLoad(exports, ["IdentityNotificationTopic"], () => require("./identityNotificationTopic"));
+utilities.lazyLoad(exports, ["IdentityPolicy"], () => require("./identityPolicy"));
+utilities.lazyLoad(exports, ["MailFrom"], () => require("./mailFrom"));
+utilities.lazyLoad(exports, ["ReceiptFilter"], () => require("./receiptFilter"));
+utilities.lazyLoad(exports, ["ReceiptRule"], () => require("./receiptRule"));
+utilities.lazyLoad(exports, ["ReceiptRuleSet"], () => require("./receiptRuleSet"));
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -16,14 +16,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
     /**
-     * The CodeStar Connection ARN.
+     * CodeStar Connection ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The CodeStar Connection ARN.
+     * @return CodeStar Connection ARN.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The CodeStar Connection name.
+     * CodeStar Connection name.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The CodeStar Connection name.
+     * @return CodeStar Connection name.
      * 
      */
     public Optional<String> name() {
@@ -87,7 +87,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param arn The CodeStar Connection ARN.
+         * @param arn CodeStar Connection ARN.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The CodeStar Connection name.
+         * @param name CodeStar Connection name.
          * 
          * @return builder
          * 

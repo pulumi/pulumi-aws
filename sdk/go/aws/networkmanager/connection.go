@@ -67,8 +67,9 @@ type Connection struct {
 	// The ID of the global network.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
-	LinkId  pulumi.StringPtrOutput `pulumi:"linkId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -123,8 +124,9 @@ type connectionState struct {
 	// The ID of the global network.
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
-	LinkId  *string           `pulumi:"linkId"`
-	Tags    map[string]string `pulumi:"tags"`
+	LinkId *string           `pulumi:"linkId"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -142,8 +144,9 @@ type ConnectionState struct {
 	// The ID of the global network.
 	GlobalNetworkId pulumi.StringPtrInput
 	// The ID of the link for the first device.
-	LinkId  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	LinkId pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -310,6 +313,7 @@ func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

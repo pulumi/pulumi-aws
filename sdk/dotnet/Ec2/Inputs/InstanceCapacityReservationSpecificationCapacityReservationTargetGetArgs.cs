@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceCapacityReservationSpecificationCapacityReservationTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Capacity Reservation in which to run the instance.
+        /// ID of the Capacity Reservation in which to run the instance.
         /// </summary>
         [Input("capacityReservationId")]
         public Input<string>? CapacityReservationId { get; set; }
 
         /// <summary>
-        /// The ARN of the Capacity Reservation resource group in which to run the instance.
+        /// ARN of the Capacity Reservation resource group in which to run the instance.
         /// </summary>
         [Input("capacityReservationResourceGroupArn")]
         public Input<string>? CapacityReservationResourceGroupArn { get; set; }

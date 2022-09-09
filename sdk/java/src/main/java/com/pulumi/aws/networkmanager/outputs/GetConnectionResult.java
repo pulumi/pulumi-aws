@@ -11,28 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class GetConnectionResult {
     /**
-     * @return The ARN of the connection.
+     * @return ARN of the connection.
      * 
      */
     private String arn;
     /**
-     * @return The ID of the second device in the connection.
+     * @return ID of the second device in the connection.
      * 
      */
     private String connectedDeviceId;
     /**
-     * @return The ID of the link for the second device.
+     * @return ID of the link for the second device.
      * 
      */
     private String connectedLinkId;
     private String connectionId;
     /**
-     * @return A description of the connection.
+     * @return Description of the connection.
      * 
      */
     private String description;
     /**
-     * @return The ID of the first device in the connection.
+     * @return ID of the first device in the connection.
      * 
      */
     private String deviceId;
@@ -43,7 +43,7 @@ public final class GetConnectionResult {
      */
     private String id;
     /**
-     * @return The ID of the link for the first device.
+     * @return ID of the link for the first device.
      * 
      */
     private String linkId;
@@ -55,21 +55,21 @@ public final class GetConnectionResult {
 
     private GetConnectionResult() {}
     /**
-     * @return The ARN of the connection.
+     * @return ARN of the connection.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The ID of the second device in the connection.
+     * @return ID of the second device in the connection.
      * 
      */
     public String connectedDeviceId() {
         return this.connectedDeviceId;
     }
     /**
-     * @return The ID of the link for the second device.
+     * @return ID of the link for the second device.
      * 
      */
     public String connectedLinkId() {
@@ -79,14 +79,14 @@ public final class GetConnectionResult {
         return this.connectionId;
     }
     /**
-     * @return A description of the connection.
+     * @return Description of the connection.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The ID of the first device in the connection.
+     * @return ID of the first device in the connection.
      * 
      */
     public String deviceId() {
@@ -103,7 +103,7 @@ public final class GetConnectionResult {
         return this.id;
     }
     /**
-     * @return The ID of the link for the first device.
+     * @return ID of the link for the first device.
      * 
      */
     public String linkId() {

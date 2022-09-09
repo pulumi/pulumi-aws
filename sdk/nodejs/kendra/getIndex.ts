@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -50,19 +52,19 @@ export interface GetIndexArgs {
  */
 export interface GetIndexResult {
     /**
-     * The Amazon Resource Name (ARN) of the Index.
+     * ARN of the Index.
      */
     readonly arn: string;
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+     * Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      */
     readonly capacityUnits: outputs.kendra.GetIndexCapacityUnit[];
     /**
-     * The Unix datetime that the index was created.
+     * Unix datetime that the index was created.
      */
     readonly createdAt: string;
     /**
-     * The description of the Index.
+     * Description of the Index.
      */
     readonly description: string;
     /**
@@ -70,7 +72,7 @@ export interface GetIndexResult {
      */
     readonly documentMetadataConfigurationUpdates: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdate[];
     /**
-     * The Amazon Kendra edition for the index.
+     * Amazon Kendra edition for the index.
      */
     readonly edition: string;
     /**
@@ -78,15 +80,15 @@ export interface GetIndexResult {
      */
     readonly errorMessage: string;
     /**
-     * The identifier of the Index.
+     * Identifier of the Index.
      */
     readonly id: string;
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      */
     readonly indexStatistics: outputs.kendra.GetIndexIndexStatistic[];
     /**
-     * The name of the index field. Minimum length of 1. Maximum length of 30.
+     * Name of the index field. Minimum length of 1. Maximum length of 30.
      */
     readonly name: string;
     /**
@@ -98,7 +100,7 @@ export interface GetIndexResult {
      */
     readonly serverSideEncryptionConfigurations: outputs.kendra.GetIndexServerSideEncryptionConfiguration[];
     /**
-     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+     * Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
     readonly status: string;
     /**
@@ -106,11 +108,11 @@ export interface GetIndexResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Unix datetime that the index was last updated.
+     * Unix datetime that the index was last updated.
      */
     readonly updatedAt: string;
     /**
-     * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
+     * User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
      * html#Kendra-CreateIndex-request-UserContextPolicy).
      */
     readonly userContextPolicy: string;

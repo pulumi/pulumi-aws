@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImagePipelineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
+        /// ARN of the image pipeline.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImagePipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
+        /// ARN of the image pipeline.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ImageBuilder
     {
         public readonly string Arn;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         public readonly string ContainerRecipeArn;
         /// <summary>
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
         public readonly string DistributionConfigurationArn;
         /// <summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         public readonly string ImageRecipeArn;
         /// <summary>
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImagePipelineImageTestsConfigurationResult> ImageTestsConfigurations;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
         public readonly string InfrastructureConfigurationArn;
         /// <summary>

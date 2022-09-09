@@ -30,17 +30,17 @@ public final class GetClusterResult {
      */
     private String id;
     /**
-     * @return The ID of the security group associated with the CloudHSM cluster.
+     * @return ID of the security group associated with the CloudHSM cluster.
      * 
      */
     private String securityGroupId;
     /**
-     * @return The IDs of subnets in which cluster operates.
+     * @return IDs of subnets in which cluster operates.
      * 
      */
     private List<String> subnetIds;
     /**
-     * @return The id of the VPC that the CloudHSM cluster resides in.
+     * @return ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     private String vpcId;
@@ -73,21 +73,21 @@ public final class GetClusterResult {
         return this.id;
     }
     /**
-     * @return The ID of the security group associated with the CloudHSM cluster.
+     * @return ID of the security group associated with the CloudHSM cluster.
      * 
      */
     public String securityGroupId() {
         return this.securityGroupId;
     }
     /**
-     * @return The IDs of subnets in which cluster operates.
+     * @return IDs of subnets in which cluster operates.
      * 
      */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * @return The id of the VPC that the CloudHSM cluster resides in.
+     * @return ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     public String vpcId() {

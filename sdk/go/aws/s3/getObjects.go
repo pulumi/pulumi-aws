@@ -23,7 +23,7 @@ func GetObjects(ctx *pulumi.Context, args *GetObjectsArgs, opts ...pulumi.Invoke
 type GetObjectsArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket string `pulumi:"bucket"`
-	// A character used to group keys (Default: none)
+	// Character used to group keys (Default: none)
 	Delimiter *string `pulumi:"delimiter"`
 	// Encodes keys using this method (Default: none; besides none, only "url" can be used)
 	EncodingType *string `pulumi:"encodingType"`
@@ -73,7 +73,7 @@ func GetObjectsOutput(ctx *pulumi.Context, args GetObjectsOutputArgs, opts ...pu
 type GetObjectsOutputArgs struct {
 	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// A character used to group keys (Default: none)
+	// Character used to group keys (Default: none)
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
 	// Encodes keys using this method (Default: none; besides none, only "url" can be used)
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`

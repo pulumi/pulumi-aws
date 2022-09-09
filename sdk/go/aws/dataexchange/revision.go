@@ -60,7 +60,8 @@ type Revision struct {
 	// The Id of the revision.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -105,7 +106,8 @@ type revisionState struct {
 	// The Id of the revision.
 	RevisionId *string `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -119,7 +121,8 @@ type RevisionState struct {
 	// The Id of the revision.
 	RevisionId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -258,6 +261,7 @@ func (o RevisionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RevisionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

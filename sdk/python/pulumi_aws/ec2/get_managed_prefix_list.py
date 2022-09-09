@@ -59,7 +59,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> str:
         """
-        The address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+        Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
         """
         return pulumi.get(self, "address_family")
 
@@ -67,7 +67,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the selected prefix list.
+        ARN of the selected prefix list.
         """
         return pulumi.get(self, "arn")
 
@@ -75,7 +75,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter
     def entries(self) -> Sequence['outputs.GetManagedPrefixListEntryResult']:
         """
-        The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+        Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
         """
         return pulumi.get(self, "entries")
 
@@ -88,7 +88,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the selected prefix list.
+        ID of the selected prefix list.
         """
         return pulumi.get(self, "id")
 
@@ -104,7 +104,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the selected prefix list.
+        Name of the selected prefix list.
         """
         return pulumi.get(self, "name")
 
@@ -112,7 +112,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+        Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
         """
         return pulumi.get(self, "owner_id")
 
@@ -120,7 +120,7 @@ class GetManagedPrefixListResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -181,9 +181,9 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str id: The ID of the prefix list to select.
-    :param str name: The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str id: ID of the prefix list to select.
+    :param str name: Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -240,8 +240,8 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str id: The ID of the prefix list to select.
-    :param str name: The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
-    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    :param str id: ID of the prefix list to select.
+    :param str name: Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

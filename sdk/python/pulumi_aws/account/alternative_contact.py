@@ -22,12 +22,12 @@ class AlternativeContactArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlternativeContact resource.
-        :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        :param pulumi.Input[str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
-        :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
-        :param pulumi.Input[str] title: A title for the alternate contact.
-        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[str] name: The name of the alternate contact.
+        :param pulumi.Input[str] phone_number: Phone number for the alternate contact.
+        :param pulumi.Input[str] title: Title for the alternate contact.
+        :param pulumi.Input[str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        :param pulumi.Input[str] name: Name of the alternate contact.
         """
         pulumi.set(__self__, "alternate_contact_type", alternate_contact_type)
         pulumi.set(__self__, "email_address", email_address)
@@ -42,7 +42,7 @@ class AlternativeContactArgs:
     @pulumi.getter(name="alternateContactType")
     def alternate_contact_type(self) -> pulumi.Input[str]:
         """
-        The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         """
         return pulumi.get(self, "alternate_contact_type")
 
@@ -66,7 +66,7 @@ class AlternativeContactArgs:
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Input[str]:
         """
-        A phone number for the alternate contact.
+        Phone number for the alternate contact.
         """
         return pulumi.get(self, "phone_number")
 
@@ -78,7 +78,7 @@ class AlternativeContactArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        A title for the alternate contact.
+        Title for the alternate contact.
         """
         return pulumi.get(self, "title")
 
@@ -90,7 +90,7 @@ class AlternativeContactArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -102,7 +102,7 @@ class AlternativeContactArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the alternate contact.
+        Name of the alternate contact.
         """
         return pulumi.get(self, "name")
 
@@ -122,12 +122,12 @@ class _AlternativeContactState:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlternativeContact resources.
-        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        :param pulumi.Input[str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        :param pulumi.Input[str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
-        :param pulumi.Input[str] name: The name of the alternate contact.
-        :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
-        :param pulumi.Input[str] title: A title for the alternate contact.
+        :param pulumi.Input[str] name: Name of the alternate contact.
+        :param pulumi.Input[str] phone_number: Phone number for the alternate contact.
+        :param pulumi.Input[str] title: Title for the alternate contact.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -146,7 +146,7 @@ class _AlternativeContactState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -158,7 +158,7 @@ class _AlternativeContactState:
     @pulumi.getter(name="alternateContactType")
     def alternate_contact_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         """
         return pulumi.get(self, "alternate_contact_type")
 
@@ -182,7 +182,7 @@ class _AlternativeContactState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the alternate contact.
+        Name of the alternate contact.
         """
         return pulumi.get(self, "name")
 
@@ -194,7 +194,7 @@ class _AlternativeContactState:
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[str]]:
         """
-        A phone number for the alternate contact.
+        Phone number for the alternate contact.
         """
         return pulumi.get(self, "phone_number")
 
@@ -206,7 +206,7 @@ class _AlternativeContactState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        A title for the alternate contact.
+        Title for the alternate contact.
         """
         return pulumi.get(self, "title")
 
@@ -259,12 +259,12 @@ class AlternativeContact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        :param pulumi.Input[str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        :param pulumi.Input[str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
-        :param pulumi.Input[str] name: The name of the alternate contact.
-        :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
-        :param pulumi.Input[str] title: A title for the alternate contact.
+        :param pulumi.Input[str] name: Name of the alternate contact.
+        :param pulumi.Input[str] phone_number: Phone number for the alternate contact.
+        :param pulumi.Input[str] title: Title for the alternate contact.
         """
         ...
     @overload
@@ -369,12 +369,12 @@ class AlternativeContact(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        :param pulumi.Input[str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        :param pulumi.Input[str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
-        :param pulumi.Input[str] name: The name of the alternate contact.
-        :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
-        :param pulumi.Input[str] title: A title for the alternate contact.
+        :param pulumi.Input[str] name: Name of the alternate contact.
+        :param pulumi.Input[str] phone_number: Phone number for the alternate contact.
+        :param pulumi.Input[str] title: Title for the alternate contact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -392,7 +392,7 @@ class AlternativeContact(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
@@ -400,7 +400,7 @@ class AlternativeContact(pulumi.CustomResource):
     @pulumi.getter(name="alternateContactType")
     def alternate_contact_type(self) -> pulumi.Output[str]:
         """
-        The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         """
         return pulumi.get(self, "alternate_contact_type")
 
@@ -416,7 +416,7 @@ class AlternativeContact(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the alternate contact.
+        Name of the alternate contact.
         """
         return pulumi.get(self, "name")
 
@@ -424,7 +424,7 @@ class AlternativeContact(pulumi.CustomResource):
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Output[str]:
         """
-        A phone number for the alternate contact.
+        Phone number for the alternate contact.
         """
         return pulumi.get(self, "phone_number")
 
@@ -432,7 +432,7 @@ class AlternativeContact(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        A title for the alternate contact.
+        Title for the alternate contact.
         """
         return pulumi.get(self, "title")
 

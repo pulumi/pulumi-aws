@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualGatewaySpecListenerTlsCertificateAcmGetArgs>? Acm { get; set; }
 
         /// <summary>
-        /// A local file certificate.
+        /// Local file certificate.
         /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsCertificateFileGetArgs>? File { get; set; }

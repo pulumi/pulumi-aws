@@ -113,9 +113,9 @@ func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getProduct.
 type GetProductArgs struct {
-	// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
 	Filters []GetProductFilter `pulumi:"filters"`
-	// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
 	ServiceCode string `pulumi:"serviceCode"`
 }
 
@@ -144,9 +144,9 @@ func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getProduct.
 type GetProductOutputArgs struct {
-	// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
 	Filters GetProductFilterArrayInput `pulumi:"filters"`
-	// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
 	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
 }
 

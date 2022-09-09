@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<string>? EffectiveEngineVersion { get; set; }
 
         /// <summary>
-        /// The requested engine version. Defaults to `AUTO`.
+        /// Requested engine version. Defaults to `AUTO`.
         /// </summary>
         [Input("selectedEngineVersion")]
         public Input<string>? SelectedEngineVersion { get; set; }

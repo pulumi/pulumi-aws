@@ -28,13 +28,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetDeviceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the device.
+        /// ID of the device.
         /// </summary>
         [Input("deviceId", required: true)]
         public string DeviceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the device.
+        /// ID of the device.
         /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
@@ -94,15 +94,15 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetDeviceResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the device.
+        /// ARN of the device.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The AWS location of the device. Documented below.
+        /// AWS location of the device. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeviceAwsLocationResult> AwsLocations;
         /// <summary>
-        /// A description of the device.
+        /// Description of the device.
         /// </summary>
         public readonly string Description;
         public readonly string DeviceId;
@@ -112,19 +112,19 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the device. Documented below.
+        /// Location of the device. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeviceLocationResult> Locations;
         /// <summary>
-        /// The model of device.
+        /// Model of device.
         /// </summary>
         public readonly string Model;
         /// <summary>
-        /// The serial number of the device.
+        /// Serial number of the device.
         /// </summary>
         public readonly string SerialNumber;
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
         /// </summary>
         public readonly string SiteId;
         /// <summary>
@@ -132,11 +132,11 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of device.
+        /// Type of device.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The vendor of the device.
+        /// Vendor of the device.
         /// </summary>
         public readonly string Vendor;
 

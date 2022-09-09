@@ -13,18 +13,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetContactFlowResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow.
+     * @return ARN of the Contact Flow.
      * 
      */
     private String arn;
     private String contactFlowId;
     /**
-     * @return Specifies the logic of the Contact Flow.
+     * @return Logic of the Contact Flow.
      * 
      */
     private String content;
     /**
-     * @return Specifies the description of the Contact Flow.
+     * @return Description of the Contact Flow.
      * 
      */
     private String description;
@@ -36,19 +36,19 @@ public final class GetContactFlowResult {
     private String instanceId;
     private String name;
     /**
-     * @return A the map of tags to assign to the Contact Flow.
+     * @return Tags to assign to the Contact Flow.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return Specifies the type of Contact Flow.
+     * @return Type of Contact Flow.
      * 
      */
     private @Nullable String type;
 
     private GetContactFlowResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow.
+     * @return ARN of the Contact Flow.
      * 
      */
     public String arn() {
@@ -58,14 +58,14 @@ public final class GetContactFlowResult {
         return this.contactFlowId;
     }
     /**
-     * @return Specifies the logic of the Contact Flow.
+     * @return Logic of the Contact Flow.
      * 
      */
     public String content() {
         return this.content;
     }
     /**
-     * @return Specifies the description of the Contact Flow.
+     * @return Description of the Contact Flow.
      * 
      */
     public String description() {
@@ -85,14 +85,14 @@ public final class GetContactFlowResult {
         return this.name;
     }
     /**
-     * @return A the map of tags to assign to the Contact Flow.
+     * @return Tags to assign to the Contact Flow.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return Specifies the type of Contact Flow.
+     * @return Type of Contact Flow.
      * 
      */
     public Optional<String> type() {

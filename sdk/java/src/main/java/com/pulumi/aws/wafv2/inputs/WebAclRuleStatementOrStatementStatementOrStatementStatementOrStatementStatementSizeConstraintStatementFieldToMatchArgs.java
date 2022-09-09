@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs;
@@ -49,6 +51,36 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyArgs>> body() {
         return Optional.ofNullable(this.body);
+    }
+
+    /**
+     * Inspect the request cookies.
+     * 
+     */
+    @Import(name="cookies")
+    private @Nullable Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs> cookies;
+
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs>> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    @Import(name="jsonBody")
+    private @Nullable Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs> jsonBody;
+
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs>> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
 
     /**
@@ -131,6 +163,8 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
     private WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs $) {
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
+        this.cookies = $.cookies;
+        this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
@@ -196,6 +230,48 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementOr
          */
         public Builder body(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBodyArgs body) {
             return body(Output.of(body));
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(@Nullable Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs> cookies) {
+            $.cookies = cookies;
+            return this;
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs cookies) {
+            return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(@Nullable Output<WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs> jsonBody) {
+            $.jsonBody = jsonBody;
+            return this;
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs jsonBody) {
+            return jsonBody(Output.of(jsonBody));
         }
 
         /**

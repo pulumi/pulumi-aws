@@ -56,11 +56,11 @@ export interface GetDocumentArgs {
      */
     documentFormat?: string;
     /**
-     * The document version for which you want information.
+     * Document version for which you want information.
      */
     documentVersion?: string;
     /**
-     * The name of the Systems Manager document.
+     * Name of the Systems Manager document.
      */
     name: string;
 }
@@ -70,16 +70,16 @@ export interface GetDocumentArgs {
  */
 export interface GetDocumentResult {
     /**
-     * The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+     * ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      */
     readonly arn: string;
     /**
-     * The contents of the document.
+     * Contents of the document.
      */
     readonly content: string;
     readonly documentFormat?: string;
     /**
-     * The type of the document.
+     * Type of the document.
      */
     readonly documentType: string;
     readonly documentVersion?: string;
@@ -103,11 +103,11 @@ export interface GetDocumentOutputArgs {
      */
     documentFormat?: pulumi.Input<string>;
     /**
-     * The document version for which you want information.
+     * Document version for which you want information.
      */
     documentVersion?: pulumi.Input<string>;
     /**
-     * The name of the Systems Manager document.
+     * Name of the Systems Manager document.
      */
     name: pulumi.Input<string>;
 }

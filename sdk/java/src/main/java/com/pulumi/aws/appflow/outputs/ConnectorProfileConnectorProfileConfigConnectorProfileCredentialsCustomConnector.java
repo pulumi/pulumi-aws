@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey;
@@ -26,7 +26,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String authenticationType;
     /**
-     * @return The basic credentials that are required for the authentication of the user.
+     * @return Basic credentials that are required for the authentication of the user.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic;
@@ -36,14 +36,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom;
     /**
-     * @return The OAuth 2.0 credentials required for the authentication of the user.
+     * @return OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector() {}
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey> apiKey() {
@@ -57,7 +57,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.authenticationType;
     }
     /**
-     * @return The basic credentials that are required for the authentication of the user.
+     * @return Basic credentials that are required for the authentication of the user.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic> basic() {
@@ -71,7 +71,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return Optional.ofNullable(this.custom);
     }
     /**
-     * @return The OAuth 2.0 credentials required for the authentication of the user.
+     * @return OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2> oauth2() {

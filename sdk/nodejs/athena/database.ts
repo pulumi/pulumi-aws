@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
     public readonly aclConfiguration!: pulumi.Output<outputs.athena.DatabaseAclConfiguration | undefined>;
     /**
@@ -86,15 +88,15 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -102,7 +104,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A key-value map of custom metadata properties for the database definition.
+     * Key-value map of custom metadata properties for the database definition.
      */
     public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -148,7 +150,7 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
     aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
     /**
@@ -160,15 +162,15 @@ export interface DatabaseState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -176,7 +178,7 @@ export interface DatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A key-value map of custom metadata properties for the database definition.
+     * Key-value map of custom metadata properties for the database definition.
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -186,7 +188,7 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
     aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
     /**
@@ -198,15 +200,15 @@ export interface DatabaseArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -214,7 +216,7 @@ export interface DatabaseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A key-value map of custom metadata properties for the database definition.
+     * Key-value map of custom metadata properties for the database definition.
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

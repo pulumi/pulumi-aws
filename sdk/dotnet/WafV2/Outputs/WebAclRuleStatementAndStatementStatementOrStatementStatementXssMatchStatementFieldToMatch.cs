@@ -22,6 +22,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody? Body;
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBody? JsonBody;
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod? Method;
@@ -48,6 +56,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody? body,
 
+            Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchCookies? cookies,
+
+            Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBody? jsonBody,
+
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod? method,
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString? queryString,
@@ -60,6 +72,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            Cookies = cookies;
+            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

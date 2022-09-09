@@ -407,14 +407,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.useOpsworksSecurityGroups);
     }
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      * 
      */
     @Export(name="vpcId", type=String.class, parameters={})
     private Output<String> vpcId;
 
     /**
-     * @return The id of the VPC that this stack belongs to.
+     * @return ID of the VPC that this stack belongs to.
      * 
      */
     public Output<String> vpcId() {

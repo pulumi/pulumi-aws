@@ -5,26 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./containerService";
-export * from "./containerServiceDeploymentVersion";
-export * from "./database";
-export * from "./domain";
-export * from "./instance";
-export * from "./instancePublicPorts";
-export * from "./keyPair";
-export * from "./staticIp";
-export * from "./staticIpAttachment";
+export { ContainerServiceArgs, ContainerServiceState } from "./containerService";
+export type ContainerService = import("./containerService").ContainerService;
+export const ContainerService: typeof import("./containerService").ContainerService = null as any;
 
-// Import resources to register:
-import { ContainerService } from "./containerService";
-import { ContainerServiceDeploymentVersion } from "./containerServiceDeploymentVersion";
-import { Database } from "./database";
-import { Domain } from "./domain";
-import { Instance } from "./instance";
-import { InstancePublicPorts } from "./instancePublicPorts";
-import { KeyPair } from "./keyPair";
-import { StaticIp } from "./staticIp";
-import { StaticIpAttachment } from "./staticIpAttachment";
+export { ContainerServiceDeploymentVersionArgs, ContainerServiceDeploymentVersionState } from "./containerServiceDeploymentVersion";
+export type ContainerServiceDeploymentVersion = import("./containerServiceDeploymentVersion").ContainerServiceDeploymentVersion;
+export const ContainerServiceDeploymentVersion: typeof import("./containerServiceDeploymentVersion").ContainerServiceDeploymentVersion = null as any;
+
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
+export { InstancePublicPortsArgs, InstancePublicPortsState } from "./instancePublicPorts";
+export type InstancePublicPorts = import("./instancePublicPorts").InstancePublicPorts;
+export const InstancePublicPorts: typeof import("./instancePublicPorts").InstancePublicPorts = null as any;
+
+export { KeyPairArgs, KeyPairState } from "./keyPair";
+export type KeyPair = import("./keyPair").KeyPair;
+export const KeyPair: typeof import("./keyPair").KeyPair = null as any;
+
+export { StaticIpArgs, StaticIpState } from "./staticIp";
+export type StaticIp = import("./staticIp").StaticIp;
+export const StaticIp: typeof import("./staticIp").StaticIp = null as any;
+
+export { StaticIpAttachmentArgs, StaticIpAttachmentState } from "./staticIpAttachment";
+export type StaticIpAttachment = import("./staticIpAttachment").StaticIpAttachment;
+export const StaticIpAttachment: typeof import("./staticIpAttachment").StaticIpAttachment = null as any;
+
+utilities.lazyLoad(exports, ["ContainerService"], () => require("./containerService"));
+utilities.lazyLoad(exports, ["ContainerServiceDeploymentVersion"], () => require("./containerServiceDeploymentVersion"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+utilities.lazyLoad(exports, ["InstancePublicPorts"], () => require("./instancePublicPorts"));
+utilities.lazyLoad(exports, ["KeyPair"], () => require("./keyPair"));
+utilities.lazyLoad(exports, ["StaticIp"], () => require("./staticIp"));
+utilities.lazyLoad(exports, ["StaticIpAttachment"], () => require("./staticIpAttachment"));
 
 const _module = {
     version: utilities.getVersion(),

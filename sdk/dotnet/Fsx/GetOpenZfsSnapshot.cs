@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Fsx
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// The name of the snapshot.
+        /// Name of the snapshot.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Fsx
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A list of Tag values, with a maximum of 50 elements.
+        /// List of Tag values, with a maximum of 50 elements.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// The name of the snapshot.
+        /// Name of the snapshot.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of Tag values, with a maximum of 50 elements.
+        /// List of Tag values, with a maximum of 50 elements.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The time that the resource was created.
+        /// Time that the resource was created.
         /// </summary>
         public readonly string CreationTime;
         public readonly ImmutableArray<Outputs.GetOpenZfsSnapshotFilterResult> Filters;
@@ -224,20 +224,20 @@ namespace Pulumi.Aws.Fsx
         public readonly string Id;
         public readonly bool? MostRecent;
         /// <summary>
-        /// The name of the snapshot.
+        /// Name of the snapshot.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The ID of the snapshot.
+        /// ID of the snapshot.
         /// </summary>
         public readonly string SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
         /// <summary>
-        /// A list of Tag values, with a maximum of 50 elements.
+        /// List of Tag values, with a maximum of 50 elements.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The ID of the volume that the snapshot is of.
+        /// ID of the volume that the snapshot is of.
         /// </summary>
         public readonly string VolumeId;
 

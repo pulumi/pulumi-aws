@@ -15,7 +15,7 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
      */
     private Boolean displayable;
     /**
-     * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+     * @return Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
     private Boolean facetable;
@@ -39,7 +39,7 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
         return this.displayable;
     }
     /**
-     * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+     * @return Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
     public Boolean facetable() {

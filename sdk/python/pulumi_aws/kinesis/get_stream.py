@@ -61,7 +61,7 @@ class GetStreamResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+        ARN of the Kinesis Stream (same as id).
         """
         return pulumi.get(self, "arn")
 
@@ -69,7 +69,7 @@ class GetStreamResult:
     @pulumi.getter(name="closedShards")
     def closed_shards(self) -> Sequence[str]:
         """
-        The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         return pulumi.get(self, "closed_shards")
 
@@ -77,7 +77,7 @@ class GetStreamResult:
     @pulumi.getter(name="creationTimestamp")
     def creation_timestamp(self) -> int:
         """
-        The approximate UNIX timestamp that the stream was created.
+        Approximate UNIX timestamp that the stream was created.
         """
         return pulumi.get(self, "creation_timestamp")
 
@@ -93,7 +93,7 @@ class GetStreamResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Kinesis Stream.
+        Name of the Kinesis Stream.
         """
         return pulumi.get(self, "name")
 
@@ -101,7 +101,7 @@ class GetStreamResult:
     @pulumi.getter(name="openShards")
     def open_shards(self) -> Sequence[str]:
         """
-        The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         return pulumi.get(self, "open_shards")
 
@@ -117,7 +117,7 @@ class GetStreamResult:
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> Sequence[str]:
         """
-        A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+        List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         """
         return pulumi.get(self, "shard_level_metrics")
 
@@ -125,7 +125,7 @@ class GetStreamResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+        Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
         """
         return pulumi.get(self, "status")
 
@@ -133,7 +133,7 @@ class GetStreamResult:
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> Sequence['outputs.GetStreamStreamModeDetailResult']:
         """
-        Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
@@ -141,7 +141,7 @@ class GetStreamResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assigned to the stream.
+        Map of tags to assigned to the stream.
         """
         return pulumi.get(self, "tags")
 
@@ -184,8 +184,8 @@ def get_stream(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the Kinesis Stream.
-    :param Mapping[str, str] tags: A map of tags to assigned to the stream.
+    :param str name: Name of the Kinesis Stream.
+    :param Mapping[str, str] tags: Map of tags to assigned to the stream.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -227,7 +227,7 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the Kinesis Stream.
-    :param Mapping[str, str] tags: A map of tags to assigned to the stream.
+    :param str name: Name of the Kinesis Stream.
+    :param Mapping[str, str] tags: Map of tags to assigned to the stream.
     """
     ...

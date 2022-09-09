@@ -10,20 +10,20 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkInsightsAnalysisReturnPathComponentSubnet {
     /**
-     * @return The ARN of the selected Network Insights Analysis.
+     * @return ARN of the selected Network Insights Analysis.
      * 
      */
     private String arn;
     private String id;
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
      * 
      */
     private String name;
 
     private GetNetworkInsightsAnalysisReturnPathComponentSubnet() {}
     /**
-     * @return The ARN of the selected Network Insights Analysis.
+     * @return ARN of the selected Network Insights Analysis.
      * 
      */
     public String arn() {
@@ -33,7 +33,7 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentSubnet {
         return this.id;
     }
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
      * 
      */
     public String name() {

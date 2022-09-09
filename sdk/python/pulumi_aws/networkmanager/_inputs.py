@@ -243,7 +243,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
                  condition_logic: Optional[str] = None,
                  description: Optional[str] = None):
         """
-        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: The action to take for the chosen segment. Valid values `create-route` or `share`.
+        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: Action to take for the chosen segment. Valid values `create-route` or `share`.
         :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs'] conditions: A block argument. Detailed Below.
         :param int rule_number: An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
         :param str condition_logic: Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
@@ -261,7 +261,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
     @pulumi.getter
     def action(self) -> 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs':
         """
-        The action to take for the chosen segment. Valid values `create-route` or `share`.
+        Action to take for the chosen segment. Valid values `create-route` or `share`.
         """
         return pulumi.get(self, "action")
 
@@ -328,7 +328,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
         """
         :param str association_method: Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         :param bool require_acceptance: Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
-        :param str segment: The name of the segment.
+        :param str segment: Name of the segment.
         :param str tag_value_of_key: Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         """
         pulumi.set(__self__, "association_method", association_method)
@@ -367,7 +367,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
     @pulumi.getter
     def segment(self) -> Optional[str]:
         """
-        The name of the segment.
+        Name of the segment.
         """
         return pulumi.get(self, "segment")
 
@@ -534,7 +534,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
                  asn: Optional[int] = None,
                  inside_cidr_blocks: Optional[Sequence[str]] = None):
         """
-        :param int asn: The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+        :param int asn: ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         :param Sequence[str] inside_cidr_blocks: The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
         """
         pulumi.set(__self__, "location", location)
@@ -556,7 +556,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
     @pulumi.getter
     def asn(self) -> Optional[int]:
         """
-        The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+        ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         """
         return pulumi.get(self, "asn")
 
@@ -588,7 +588,7 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
                  isolate_attachments: Optional[bool] = None,
                  require_attachment_acceptance: Optional[bool] = None):
         """
-        :param str name: A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+        :param str name: Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
         :param Sequence[str] allow_filters: List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
         :param Sequence[str] deny_filters: An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
         :param str description: A user-defined string describing the segment action.
@@ -614,7 +614,7 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+        Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
         """
         return pulumi.get(self, "name")
 
@@ -707,12 +707,12 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
                  share_with_excepts: Optional[Sequence[str]] = None,
                  share_withs: Optional[Sequence[str]] = None):
         """
-        :param str action: The action to take for the chosen segment. Valid values `create-route` or `share`.
-        :param str segment: The name of the segment.
+        :param str action: Action to take for the chosen segment. Valid values `create-route` or `share`.
+        :param str segment: Name of the segment.
         :param str description: A user-defined string describing the segment action.
         :param Sequence[str] destination_cidr_blocks: List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
         :param Sequence[str] destinations: A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
-        :param str mode: A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        :param str mode: String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
         :param Sequence[str] share_with_excepts: A set subtraction of segments to not share with.
         :param Sequence[str] share_withs: A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
         """
@@ -735,7 +735,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
     @pulumi.getter
     def action(self) -> str:
         """
-        The action to take for the chosen segment. Valid values `create-route` or `share`.
+        Action to take for the chosen segment. Valid values `create-route` or `share`.
         """
         return pulumi.get(self, "action")
 
@@ -747,7 +747,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
     @pulumi.getter
     def segment(self) -> str:
         """
-        The name of the segment.
+        Name of the segment.
         """
         return pulumi.get(self, "segment")
 
@@ -795,7 +795,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
         """
         return pulumi.get(self, "mode")
 

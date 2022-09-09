@@ -36,11 +36,11 @@ type GetAvailabilityZoneArgs struct {
 	AllAvailabilityZones *bool `pulumi:"allAvailabilityZones"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetAvailabilityZoneFilter `pulumi:"filters"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
 	Name *string `pulumi:"name"`
-	// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State *string `pulumi:"state"`
-	// The zone ID of the availability zone to select.
+	// Zone ID of the availability zone to select.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -53,7 +53,7 @@ type GetAvailabilityZoneResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+	// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
 	// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
 	// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
 	NameSuffix string `pulumi:"nameSuffix"`
@@ -61,15 +61,15 @@ type GetAvailabilityZoneResult struct {
 	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
 	// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
-	// The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+	// ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
 	ParentZoneId string `pulumi:"parentZoneId"`
-	// The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+	// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
 	ParentZoneName string `pulumi:"parentZoneName"`
-	// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+	// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
 	Region string `pulumi:"region"`
 	State  string `pulumi:"state"`
 	ZoneId string `pulumi:"zoneId"`
-	// The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+	// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
 	ZoneType string `pulumi:"zoneType"`
 }
 
@@ -92,11 +92,11 @@ type GetAvailabilityZoneOutputArgs struct {
 	AllAvailabilityZones pulumi.BoolPtrInput `pulumi:"allAvailabilityZones"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetAvailabilityZoneFilterArrayInput `pulumi:"filters"`
-	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// The zone ID of the availability zone to select.
+	// Zone ID of the availability zone to select.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 
@@ -141,7 +141,7 @@ func (o GetAvailabilityZoneResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
 // For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
 // For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
 func (o GetAvailabilityZoneResultOutput) NameSuffix() pulumi.StringOutput {
@@ -158,17 +158,17 @@ func (o GetAvailabilityZoneResultOutput) OptInStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.OptInStatus }).(pulumi.StringOutput)
 }
 
-// The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+// ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
 func (o GetAvailabilityZoneResultOutput) ParentZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ParentZoneId }).(pulumi.StringOutput)
 }
 
-// The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
 func (o GetAvailabilityZoneResultOutput) ParentZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ParentZoneName }).(pulumi.StringOutput)
 }
 
-// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
 func (o GetAvailabilityZoneResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -181,7 +181,7 @@ func (o GetAvailabilityZoneResultOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ZoneId }).(pulumi.StringOutput)
 }
 
-// The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
 func (o GetAvailabilityZoneResultOutput) ZoneType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ZoneType }).(pulumi.StringOutput)
 }

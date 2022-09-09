@@ -79,7 +79,7 @@ namespace Pulumi.Aws.MemoryDb
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the subnet group.
+        /// Map of tags assigned to the subnet group.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the subnet group.
+        /// Map of tags assigned to the subnet group.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -141,11 +141,11 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// A map of tags assigned to the subnet group.
+        /// Map of tags assigned to the subnet group.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The VPC in which the subnet group exists.
+        /// VPC in which the subnet group exists.
         /// </summary>
         public readonly string VpcId;
 

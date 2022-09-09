@@ -59,7 +59,7 @@ class GetExportResult:
     @pulumi.getter
     def body(self) -> str:
         """
-        The API Spec.
+        API Spec.
         """
         return pulumi.get(self, "body")
 
@@ -67,7 +67,7 @@ class GetExportResult:
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> str:
         """
-        The content-disposition header value in the HTTP response.
+        Content-disposition header value in the HTTP response.
         """
         return pulumi.get(self, "content_disposition")
 
@@ -75,7 +75,7 @@ class GetExportResult:
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
         """
-        The content-type header value in the HTTP response.
+        Content-type header value in the HTTP response.
         """
         return pulumi.get(self, "content_type")
 
@@ -144,11 +144,11 @@ def get_export(accepts: Optional[str] = None,
     ```
 
 
-    :param str accepts: The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
-    :param str export_type: The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
-    :param Mapping[str, str] parameters: A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
-    :param str rest_api_id: The identifier of the associated REST API.
-    :param str stage_name: The name of the Stage that will be exported.
+    :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+    :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+    :param Mapping[str, str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param str rest_api_id: Identifier of the associated REST API.
+    :param str stage_name: Name of the Stage that will be exported.
     """
     __args__ = dict()
     __args__['accepts'] = accepts
@@ -191,10 +191,10 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str accepts: The content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
-    :param str export_type: The type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
-    :param Mapping[str, str] parameters: A key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
-    :param str rest_api_id: The identifier of the associated REST API.
-    :param str stage_name: The name of the Stage that will be exported.
+    :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+    :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+    :param Mapping[str, str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param str rest_api_id: Identifier of the associated REST API.
+    :param str stage_name: Name of the Stage that will be exported.
     """
     ...

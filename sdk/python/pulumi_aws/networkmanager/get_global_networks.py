@@ -44,7 +44,7 @@ class GetGlobalNetworksResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The IDs of the global networks.
+        IDs of the global networks.
         """
         return pulumi.get(self, "ids")
 

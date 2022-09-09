@@ -56,7 +56,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
     /**
@@ -76,7 +76,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     public /*out*/ readonly engine!: pulumi.Output<string>;
     /**
@@ -102,7 +102,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
@@ -184,7 +184,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
  */
 export interface ClusterSnapshotState {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     allocatedStorage?: pulumi.Input<number>;
     /**
@@ -204,7 +204,7 @@ export interface ClusterSnapshotState {
      */
     dbClusterSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface ClusterSnapshotState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**

@@ -22,6 +22,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody? Body;
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody? JsonBody;
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod? Method;
@@ -48,6 +56,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody? body,
 
+            Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies? cookies,
+
+            Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody? jsonBody,
+
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod? method,
 
             Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString? queryString,
@@ -60,6 +72,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            Cookies = cookies;
+            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

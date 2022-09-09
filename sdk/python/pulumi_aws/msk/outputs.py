@@ -1052,12 +1052,12 @@ class GetBrokerNodesNodeInfoListResult(dict):
                  endpoints: Sequence[str],
                  node_arn: str):
         """
-        :param str attached_eni_id: The attached elastic network interface of the broker
-        :param float broker_id: The ID of the broker
-        :param str client_subnet: The client subnet to which this broker node belongs
+        :param str attached_eni_id: Attached elastic network interface of the broker
+        :param float broker_id: ID of the broker
+        :param str client_subnet: Client subnet to which this broker node belongs
         :param str client_vpc_ip_address: The client virtual private cloud (VPC) IP address
         :param Sequence[str] endpoints: Set of endpoints for accessing the broker. This does not include ports
-        :param str node_arn: The Amazon Resource Name (ARN) of the node
+        :param str node_arn: ARN of the node
         """
         pulumi.set(__self__, "attached_eni_id", attached_eni_id)
         pulumi.set(__self__, "broker_id", broker_id)
@@ -1070,7 +1070,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @pulumi.getter(name="attachedEniId")
     def attached_eni_id(self) -> str:
         """
-        The attached elastic network interface of the broker
+        Attached elastic network interface of the broker
         """
         return pulumi.get(self, "attached_eni_id")
 
@@ -1078,7 +1078,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @pulumi.getter(name="brokerId")
     def broker_id(self) -> float:
         """
-        The ID of the broker
+        ID of the broker
         """
         return pulumi.get(self, "broker_id")
 
@@ -1086,7 +1086,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @pulumi.getter(name="clientSubnet")
     def client_subnet(self) -> str:
         """
-        The client subnet to which this broker node belongs
+        Client subnet to which this broker node belongs
         """
         return pulumi.get(self, "client_subnet")
 
@@ -1110,7 +1110,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @pulumi.getter(name="nodeArn")
     def node_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the node
+        ARN of the node
         """
         return pulumi.get(self, "node_arn")
 

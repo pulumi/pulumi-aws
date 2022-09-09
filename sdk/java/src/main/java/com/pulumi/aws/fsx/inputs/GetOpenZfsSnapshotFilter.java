@@ -14,14 +14,14 @@ public final class GetOpenZfsSnapshotFilter extends com.pulumi.resources.InvokeA
     public static final GetOpenZfsSnapshotFilter Empty = new GetOpenZfsSnapshotFilter();
 
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the snapshot.
+     * @return Name of the snapshot.
      * 
      */
     public String name() {
@@ -61,7 +61,7 @@ public final class GetOpenZfsSnapshotFilter extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The name of the snapshot.
+         * @param name Name of the snapshot.
          * 
          * @return builder
          * 

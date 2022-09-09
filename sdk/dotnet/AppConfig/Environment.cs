@@ -63,25 +63,25 @@ namespace Pulumi.Aws.AppConfig
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AppConfig application ID. Must be between 4 and 7 characters in length.
+        /// AppConfig application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Environment.
+        /// ARN of the AppConfig Environment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the environment. Can be at most 1024 characters.
+        /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The AppConfig environment ID.
+        /// AppConfig environment ID.
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<ImmutableArray<Outputs.EnvironmentMonitor>> Monitors { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the environment. Must be between 1 and 64 characters in length.
+        /// Name for the environment. Must be between 1 and 64 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,13 +160,13 @@ namespace Pulumi.Aws.AppConfig
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AppConfig application ID. Must be between 4 and 7 characters in length.
+        /// AppConfig application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The description of the environment. Can be at most 1024 characters.
+        /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.AppConfig
         }
 
         /// <summary>
-        /// The name for the environment. Must be between 1 and 64 characters in length.
+        /// Name for the environment. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -210,25 +210,25 @@ namespace Pulumi.Aws.AppConfig
     public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AppConfig application ID. Must be between 4 and 7 characters in length.
+        /// AppConfig application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Environment.
+        /// ARN of the AppConfig Environment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the environment. Can be at most 1024 characters.
+        /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The AppConfig environment ID.
+        /// AppConfig environment ID.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.AppConfig
         }
 
         /// <summary>
-        /// The name for the environment. Must be between 1 and 64 characters in length.
+        /// Name for the environment. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

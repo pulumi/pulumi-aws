@@ -76,7 +76,7 @@ class GetThesaurusResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Thesaurus.
+        ARN of the Thesaurus.
         """
         return pulumi.get(self, "arn")
 
@@ -84,7 +84,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix datetime that the Thesaurus was created.
+        Unix datetime that the Thesaurus was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -92,7 +92,7 @@ class GetThesaurusResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the Thesaurus.
+        Description of the Thesaurus.
         """
         return pulumi.get(self, "description")
 
@@ -108,7 +108,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="fileSizeBytes")
     def file_size_bytes(self) -> int:
         """
-        The size of the Thesaurus file in bytes.
+        Size of the Thesaurus file in bytes.
         """
         return pulumi.get(self, "file_size_bytes")
 
@@ -129,7 +129,7 @@ class GetThesaurusResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Thesaurus.
+        Name of the Thesaurus.
         """
         return pulumi.get(self, "name")
 
@@ -137,7 +137,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 
@@ -145,7 +145,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="sourceS3Paths")
     def source_s3_paths(self) -> Sequence['outputs.GetThesaurusSourceS3PathResult']:
         """
-        The S3 location of the Thesaurus input data. Detailed below.
+        S3 location of the Thesaurus input data. Detailed below.
         """
         return pulumi.get(self, "source_s3_paths")
 
@@ -153,7 +153,7 @@ class GetThesaurusResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
+        Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
         """
         return pulumi.get(self, "status")
 
@@ -161,7 +161,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="synonymRuleCount")
     def synonym_rule_count(self) -> int:
         """
-        The number of synonym rules in the Thesaurus file.
+        Number of synonym rules in the Thesaurus file.
         """
         return pulumi.get(self, "synonym_rule_count")
 
@@ -177,7 +177,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="termCount")
     def term_count(self) -> int:
         """
-        The number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
+        Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
         """
         return pulumi.get(self, "term_count")
 
@@ -190,7 +190,7 @@ class GetThesaurusResult:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        The date and time that the Thesaurus was last updated.
+        Date and time that the Thesaurus was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -237,9 +237,9 @@ def get_thesaurus(index_id: Optional[str] = None,
     ```
 
 
-    :param str index_id: The identifier of the index that contains the Thesaurus.
+    :param str index_id: Identifier of the index that contains the Thesaurus.
     :param Mapping[str, str] tags: Metadata that helps organize the Thesaurus you create.
-    :param str thesaurus_id: The identifier of the Thesaurus.
+    :param str thesaurus_id: Identifier of the Thesaurus.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
@@ -286,8 +286,8 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str index_id: The identifier of the index that contains the Thesaurus.
+    :param str index_id: Identifier of the index that contains the Thesaurus.
     :param Mapping[str, str] tags: Metadata that helps organize the Thesaurus you create.
-    :param str thesaurus_id: The identifier of the Thesaurus.
+    :param str thesaurus_id: Identifier of the Thesaurus.
     """
     ...

@@ -272,7 +272,7 @@ func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pul
 type TrailAdvancedEventSelector struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []TrailAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name *string `pulumi:"name"`
 }
 
@@ -290,7 +290,7 @@ type TrailAdvancedEventSelectorInput interface {
 type TrailAdvancedEventSelectorArgs struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors TrailAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -350,7 +350,7 @@ func (o TrailAdvancedEventSelectorOutput) FieldSelectors() TrailAdvancedEventSel
 	return o.ApplyT(func(v TrailAdvancedEventSelector) []TrailAdvancedEventSelectorFieldSelector { return v.FieldSelectors }).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-// Specifies the name of the advanced event selector.
+// Name of the advanced event selector.
 func (o TrailAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -380,7 +380,7 @@ type TrailAdvancedEventSelectorFieldSelector struct {
 	EndsWiths []string `pulumi:"endsWiths"`
 	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
 	Equals []string `pulumi:"equals"`
-	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
 	Field string `pulumi:"field"`
 	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
 	NotEndsWiths []string `pulumi:"notEndsWiths"`
@@ -408,7 +408,7 @@ type TrailAdvancedEventSelectorFieldSelectorArgs struct {
 	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
 	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
 	Equals pulumi.StringArrayInput `pulumi:"equals"`
-	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
 	Field pulumi.StringInput `pulumi:"field"`
 	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
 	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
@@ -481,7 +481,7 @@ func (o TrailAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArr
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.Equals }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+// Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) string { return v.Field }).(pulumi.StringOutput)
 }

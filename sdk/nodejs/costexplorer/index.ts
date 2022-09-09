@@ -5,18 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./anomalyMonitor";
-export * from "./anomalySubscription";
-export * from "./costAllocationTag";
-export * from "./costCategory";
-export * from "./getCostCategory";
-export * from "./getTags";
+export { AnomalyMonitorArgs, AnomalyMonitorState } from "./anomalyMonitor";
+export type AnomalyMonitor = import("./anomalyMonitor").AnomalyMonitor;
+export const AnomalyMonitor: typeof import("./anomalyMonitor").AnomalyMonitor = null as any;
 
-// Import resources to register:
-import { AnomalyMonitor } from "./anomalyMonitor";
-import { AnomalySubscription } from "./anomalySubscription";
-import { CostAllocationTag } from "./costAllocationTag";
-import { CostCategory } from "./costCategory";
+export { AnomalySubscriptionArgs, AnomalySubscriptionState } from "./anomalySubscription";
+export type AnomalySubscription = import("./anomalySubscription").AnomalySubscription;
+export const AnomalySubscription: typeof import("./anomalySubscription").AnomalySubscription = null as any;
+
+export { CostAllocationTagArgs, CostAllocationTagState } from "./costAllocationTag";
+export type CostAllocationTag = import("./costAllocationTag").CostAllocationTag;
+export const CostAllocationTag: typeof import("./costAllocationTag").CostAllocationTag = null as any;
+
+export { CostCategoryArgs, CostCategoryState } from "./costCategory";
+export type CostCategory = import("./costCategory").CostCategory;
+export const CostCategory: typeof import("./costCategory").CostCategory = null as any;
+
+export { GetCostCategoryArgs, GetCostCategoryResult, GetCostCategoryOutputArgs } from "./getCostCategory";
+export const getCostCategory: typeof import("./getCostCategory").getCostCategory = null as any;
+export const getCostCategoryOutput: typeof import("./getCostCategory").getCostCategoryOutput = null as any;
+
+export { GetTagsArgs, GetTagsResult, GetTagsOutputArgs } from "./getTags";
+export const getTags: typeof import("./getTags").getTags = null as any;
+export const getTagsOutput: typeof import("./getTags").getTagsOutput = null as any;
+
+utilities.lazyLoad(exports, ["AnomalyMonitor"], () => require("./anomalyMonitor"));
+utilities.lazyLoad(exports, ["AnomalySubscription"], () => require("./anomalySubscription"));
+utilities.lazyLoad(exports, ["CostAllocationTag"], () => require("./costAllocationTag"));
+utilities.lazyLoad(exports, ["CostCategory"], () => require("./costCategory"));
+utilities.lazyLoad(exports, ["getCostCategory","getCostCategoryOutput"], () => require("./getCostCategory"));
+utilities.lazyLoad(exports, ["getTags","getTagsOutput"], () => require("./getTags"));
 
 const _module = {
     version: utilities.getVersion(),

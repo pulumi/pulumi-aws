@@ -53,6 +53,6 @@ func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Loo
 type LookupDefaultKmsKeyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
+	// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 	KeyArn string `pulumi:"keyArn"`
 }

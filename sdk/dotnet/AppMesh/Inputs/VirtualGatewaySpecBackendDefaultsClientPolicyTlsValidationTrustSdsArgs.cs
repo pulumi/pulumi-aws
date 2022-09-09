@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        /// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;

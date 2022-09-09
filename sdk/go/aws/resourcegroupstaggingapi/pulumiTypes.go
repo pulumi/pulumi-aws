@@ -247,7 +247,7 @@ func (o GetResourcesResourceTagMappingListComplianceDetailArrayOutput) Index(i p
 type GetResourcesTagFilter struct {
 	// One part of a key-value pair that makes up a tag.
 	Key string `pulumi:"key"`
-	// The optional part of a key-value pair that make up a tag.
+	// Optional part of a key-value pair that make up a tag.
 	Values []string `pulumi:"values"`
 }
 
@@ -265,7 +265,7 @@ type GetResourcesTagFilterInput interface {
 type GetResourcesTagFilterArgs struct {
 	// One part of a key-value pair that makes up a tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The optional part of a key-value pair that make up a tag.
+	// Optional part of a key-value pair that make up a tag.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -325,7 +325,7 @@ func (o GetResourcesTagFilterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourcesTagFilter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The optional part of a key-value pair that make up a tag.
+// Optional part of a key-value pair that make up a tag.
 func (o GetResourcesTagFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetResourcesTagFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

@@ -73,42 +73,42 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     @Export(name="securityGroups", type=List.class, parameters={String.class})
     private Output<List<String>> securityGroups;
 
     /**
-     * @return A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * @return List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
     /**
-     * The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+     * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+     * @return Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     @Export(name="subnets", type=List.class, parameters={String.class})
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * @return List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     public Output<List<String>> subnets() {
@@ -129,14 +129,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
         return this.tags;
     }
     /**
-     * A name for the VPC connector.
+     * Name for the VPC connector.
      * 
      */
     @Export(name="vpcConnectorName", type=String.class, parameters={})
     private Output<String> vpcConnectorName;
 
     /**
-     * @return A name for the VPC connector.
+     * @return Name for the VPC connector.
      * 
      */
     public Output<String> vpcConnectorName() {

@@ -14,14 +14,14 @@ public final class GetLaunchConfigurationArgs extends com.pulumi.resources.Invok
     public static final GetLaunchConfigurationArgs Empty = new GetLaunchConfigurationArgs();
 
     /**
-     * The name of the launch configuration.
+     * Name of the launch configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the launch configuration.
+     * @return Name of the launch configuration.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetLaunchConfigurationArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The name of the launch configuration.
+         * @param name Name of the launch configuration.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetLaunchConfigurationArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name The name of the launch configuration.
+         * @param name Name of the launch configuration.
          * 
          * @return builder
          * 

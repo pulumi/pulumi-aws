@@ -68,7 +68,8 @@ type Snapshot struct {
 	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source pulumi.StringOutput `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,7 +120,8 @@ type snapshotState struct {
 	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source *string `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -139,7 +141,8 @@ type SnapshotState struct {
 	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -301,6 +304,7 @@ func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

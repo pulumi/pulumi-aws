@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceMaintenanceOptions {
     /**
-     * @return The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+     * @return Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
     private @Nullable String autoRecovery;
 
     private InstanceMaintenanceOptions() {}
     /**
-     * @return The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+     * @return Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
     public Optional<String> autoRecovery() {

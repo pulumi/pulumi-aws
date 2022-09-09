@@ -50,7 +50,7 @@ func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...p
 type GetEngineVersionArgs struct {
 	// DB engine. (Default: `docdb`)
 	Engine *string `pulumi:"engine"`
-	// The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+	// Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
 	ParameterGroupFamily *string `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions []string `pulumi:"preferredVersions"`
@@ -61,7 +61,7 @@ type GetEngineVersionArgs struct {
 // A collection of values returned by getEngineVersion.
 type GetEngineVersionResult struct {
 	Engine *string `pulumi:"engine"`
-	// The description of the database engine.
+	// Description of the database engine.
 	EngineDescription string `pulumi:"engineDescription"`
 	// Set of log types that the database engine has available for export to CloudWatch Logs.
 	ExportableLogTypes []string `pulumi:"exportableLogTypes"`
@@ -74,7 +74,7 @@ type GetEngineVersionResult struct {
 	// A set of engine versions that this database engine version can be upgraded to.
 	ValidUpgradeTargets []string `pulumi:"validUpgradeTargets"`
 	Version             string   `pulumi:"version"`
-	// The description of the database engine version.
+	// Description of the database engine version.
 	VersionDescription string `pulumi:"versionDescription"`
 }
 
@@ -95,7 +95,7 @@ func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs
 type GetEngineVersionOutputArgs struct {
 	// DB engine. (Default: `docdb`)
 	Engine pulumi.StringPtrInput `pulumi:"engine"`
-	// The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+	// Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
 	ParameterGroupFamily pulumi.StringPtrInput `pulumi:"parameterGroupFamily"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
@@ -126,7 +126,7 @@ func (o GetEngineVersionResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// The description of the database engine.
+// Description of the database engine.
 func (o GetEngineVersionResultOutput) EngineDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.EngineDescription }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o GetEngineVersionResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// The description of the database engine version.
+// Description of the database engine version.
 func (o GetEngineVersionResultOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) string { return v.VersionDescription }).(pulumi.StringOutput)
 }

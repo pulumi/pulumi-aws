@@ -28,16 +28,16 @@ class DataSourceArgs:
                  service_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the data source.
-        :param pulumi.Input[str] type: The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-        :param pulumi.Input[str] description: A description of the data source.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
-        :param pulumi.Input[str] name: A user-supplied name for the data source.
+        :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "type", type)
@@ -62,7 +62,7 @@ class DataSourceArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API ID for the GraphQL API for the data source.
+        API ID for the GraphQL API for the data source.
         """
         return pulumi.get(self, "api_id")
 
@@ -74,7 +74,7 @@ class DataSourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 
@@ -86,7 +86,7 @@ class DataSourceArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the data source.
+        Description of the data source.
         """
         return pulumi.get(self, "description")
 
@@ -146,7 +146,7 @@ class DataSourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-supplied name for the data source.
+        User-supplied name for the data source.
         """
         return pulumi.get(self, "name")
 
@@ -170,7 +170,7 @@ class DataSourceArgs:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM service role ARN for the data source.
+        IAM service role ARN for the data source.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -195,17 +195,17 @@ class _DataSourceState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the data source.
-        :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[str] description: A description of the data source.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
-        :param pulumi.Input[str] name: A user-supplied name for the data source.
+        :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -234,7 +234,7 @@ class _DataSourceState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API ID for the GraphQL API for the data source.
+        API ID for the GraphQL API for the data source.
         """
         return pulumi.get(self, "api_id")
 
@@ -246,7 +246,7 @@ class _DataSourceState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -258,7 +258,7 @@ class _DataSourceState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the data source.
+        Description of the data source.
         """
         return pulumi.get(self, "description")
 
@@ -318,7 +318,7 @@ class _DataSourceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-supplied name for the data source.
+        User-supplied name for the data source.
         """
         return pulumi.get(self, "name")
 
@@ -342,7 +342,7 @@ class _DataSourceState:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM service role ARN for the data source.
+        IAM service role ARN for the data source.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -354,7 +354,7 @@ class _DataSourceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 
@@ -447,16 +447,16 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the data source.
-        :param pulumi.Input[str] description: A description of the data source.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
+        :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']] elasticsearch_config: Amazon Elasticsearch settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
-        :param pulumi.Input[str] name: A user-supplied name for the data source.
+        :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         ...
     @overload
@@ -607,17 +607,17 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the data source.
-        :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[str] description: A description of the data source.
+        :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
+        :param pulumi.Input[str] arn: ARN
+        :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']] elasticsearch_config: Amazon Elasticsearch settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
-        :param pulumi.Input[str] name: A user-supplied name for the data source.
+        :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -640,7 +640,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API ID for the GraphQL API for the data source.
+        API ID for the GraphQL API for the data source.
         """
         return pulumi.get(self, "api_id")
 
@@ -648,7 +648,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -656,7 +656,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the data source.
+        Description of the data source.
         """
         return pulumi.get(self, "description")
 
@@ -696,7 +696,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A user-supplied name for the data source.
+        User-supplied name for the data source.
         """
         return pulumi.get(self, "name")
 
@@ -712,7 +712,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The IAM service role ARN for the data source.
+        IAM service role ARN for the data source.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -720,7 +720,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
         """
         return pulumi.get(self, "type")
 

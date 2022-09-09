@@ -138,11 +138,11 @@ type MethodSettings struct {
 
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringOutput `pulumi:"methodPath"`
-	// The ID of the REST API
+	// ID of the REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// The settings block, see below.
+	// Settings block, see below.
 	Settings MethodSettingsSettingsOutput `pulumi:"settings"`
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringOutput `pulumi:"stageName"`
 }
 
@@ -189,22 +189,22 @@ func GetMethodSettings(ctx *pulumi.Context,
 type methodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath *string `pulumi:"methodPath"`
-	// The ID of the REST API
+	// ID of the REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The settings block, see below.
+	// Settings block, see below.
 	Settings *MethodSettingsSettings `pulumi:"settings"`
-	// The name of the stage
+	// Name of the stage
 	StageName *string `pulumi:"stageName"`
 }
 
 type MethodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringPtrInput
-	// The ID of the REST API
+	// ID of the REST API
 	RestApi pulumi.Input
-	// The settings block, see below.
+	// Settings block, see below.
 	Settings MethodSettingsSettingsPtrInput
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringPtrInput
 }
 
@@ -215,11 +215,11 @@ func (MethodSettingsState) ElementType() reflect.Type {
 type methodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath string `pulumi:"methodPath"`
-	// The ID of the REST API
+	// ID of the REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The settings block, see below.
+	// Settings block, see below.
 	Settings MethodSettingsSettings `pulumi:"settings"`
-	// The name of the stage
+	// Name of the stage
 	StageName string `pulumi:"stageName"`
 }
 
@@ -227,11 +227,11 @@ type methodSettingsArgs struct {
 type MethodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringInput
-	// The ID of the REST API
+	// ID of the REST API
 	RestApi pulumi.Input
-	// The settings block, see below.
+	// Settings block, see below.
 	Settings MethodSettingsSettingsInput
-	// The name of the stage
+	// Name of the stage
 	StageName pulumi.StringInput
 }
 
@@ -327,17 +327,17 @@ func (o MethodSettingsOutput) MethodPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.MethodPath }).(pulumi.StringOutput)
 }
 
-// The ID of the REST API
+// ID of the REST API
 func (o MethodSettingsOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// The settings block, see below.
+// Settings block, see below.
 func (o MethodSettingsOutput) Settings() MethodSettingsSettingsOutput {
 	return o.ApplyT(func(v *MethodSettings) MethodSettingsSettingsOutput { return v.Settings }).(MethodSettingsSettingsOutput)
 }
 
-// The name of the stage
+// Name of the stage
 func (o MethodSettingsOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodSettings) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }

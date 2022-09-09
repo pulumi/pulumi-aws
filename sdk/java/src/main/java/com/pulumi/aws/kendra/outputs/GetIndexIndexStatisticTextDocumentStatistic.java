@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexIndexStatisticTextDocumentStatistic {
     /**
-     * @return The total size, in bytes, of the indexed documents.
+     * @return Total size, in bytes, of the indexed documents.
      * 
      */
     private Integer indexedTextBytes;
@@ -22,7 +22,7 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
 
     private GetIndexIndexStatisticTextDocumentStatistic() {}
     /**
-     * @return The total size, in bytes, of the indexed documents.
+     * @return Total size, in bytes, of the indexed documents.
      * 
      */
     public Integer indexedTextBytes() {

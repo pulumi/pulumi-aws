@@ -75,13 +75,13 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyArgs struct {
-	// The ARN of the IAM policy.
+	// ARN of the IAM policy.
 	// Conflicts with `name` and `pathPrefix`.
 	Arn *string `pulumi:"arn"`
-	// The name of the IAM policy.
+	// Name of the IAM policy.
 	// Conflicts with `arn`.
 	Name *string `pulumi:"name"`
-	// The prefix of the path to the IAM policy.
+	// Prefix of the path to the IAM policy.
 	// Defaults to a slash (`/`).
 	// Conflicts with `arn`.
 	PathPrefix *string `pulumi:"pathPrefix"`
@@ -91,19 +91,19 @@ type LookupPolicyArgs struct {
 
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
-	// The ARN of the policy.
+	// ARN of the policy.
 	Arn string `pulumi:"arn"`
-	// The description of the policy.
+	// Description of the policy.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// The path to the policy.
+	// Path to the policy.
 	Path       string  `pulumi:"path"`
 	PathPrefix *string `pulumi:"pathPrefix"`
-	// The policy document of the policy.
+	// Policy document of the policy.
 	Policy string `pulumi:"policy"`
-	// The policy's ID.
+	// Policy's ID.
 	PolicyId string `pulumi:"policyId"`
 	// Key-value mapping of tags for the IAM Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,13 +124,13 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyOutputArgs struct {
-	// The ARN of the IAM policy.
+	// ARN of the IAM policy.
 	// Conflicts with `name` and `pathPrefix`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The name of the IAM policy.
+	// Name of the IAM policy.
 	// Conflicts with `arn`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The prefix of the path to the IAM policy.
+	// Prefix of the path to the IAM policy.
 	// Defaults to a slash (`/`).
 	// Conflicts with `arn`.
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
@@ -157,12 +157,12 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the policy.
+// ARN of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the policy.
+// Description of the policy.
 func (o LookupPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -176,7 +176,7 @@ func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The path to the policy.
+// Path to the policy.
 func (o LookupPolicyResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -185,12 +185,12 @@ func (o LookupPolicyResultOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The policy document of the policy.
+// Policy document of the policy.
 func (o LookupPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The policy's ID.
+// Policy's ID.
 func (o LookupPolicyResultOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.PolicyId }).(pulumi.StringOutput)
 }

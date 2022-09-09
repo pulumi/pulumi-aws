@@ -666,7 +666,7 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
                  share_decay_seconds: int,
                  share_distributions: Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']):
         """
-        :param int compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        :param int compute_reservation: Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         :param Sequence['GetSchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
         pulumi.set(__self__, "compute_reservation", compute_reservation)
@@ -677,7 +677,7 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
     @pulumi.getter(name="computeReservation")
     def compute_reservation(self) -> int:
         """
-        A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+        Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         """
         return pulumi.get(self, "compute_reservation")
 
@@ -701,8 +701,8 @@ class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
                  share_identifier: str,
                  weight_factor: float):
         """
-        :param str share_identifier: A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        :param float weight_factor: The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        :param str share_identifier: Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        :param float weight_factor: Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
         pulumi.set(__self__, "share_identifier", share_identifier)
         pulumi.set(__self__, "weight_factor", weight_factor)
@@ -711,7 +711,7 @@ class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
     @pulumi.getter(name="shareIdentifier")
     def share_identifier(self) -> str:
         """
-        A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
         return pulumi.get(self, "share_identifier")
 
@@ -719,7 +719,7 @@ class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
     @pulumi.getter(name="weightFactor")
     def weight_factor(self) -> float:
         """
-        The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
         return pulumi.get(self, "weight_factor")
 

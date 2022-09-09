@@ -6,55 +6,133 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cloudwatchMixins";
-export * from "./compositeAlarm";
-export * from "./dashboard";
-export * from "./eventApiDestination";
-export * from "./eventArchive";
-export * from "./eventBus";
-export * from "./eventBusPolicy";
-export * from "./eventConnection";
-export * from "./eventPermission";
-export * from "./eventRule";
-export * from "./eventRuleMixins";
-export * from "./eventTarget";
-export * from "./getEventBus";
-export * from "./getEventConnection";
-export * from "./getEventSource";
-export * from "./getLogGroup";
-export * from "./getLogGroups";
-export * from "./logDestination";
-export * from "./logDestinationPolicy";
-export * from "./logGroup";
-export * from "./logGroupMixins";
-export * from "./logMetricFilter";
-export * from "./logResourcePolicy";
-export * from "./logStream";
-export * from "./logSubscriptionFilter";
-export * from "./metricAlarm";
-export * from "./metricStream";
-export * from "./queryDefinition";
+export { CompositeAlarmArgs, CompositeAlarmState } from "./compositeAlarm";
+export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
+export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
 
-// Import resources to register:
-import { CompositeAlarm } from "./compositeAlarm";
-import { Dashboard } from "./dashboard";
-import { EventApiDestination } from "./eventApiDestination";
-import { EventArchive } from "./eventArchive";
-import { EventBus } from "./eventBus";
-import { EventBusPolicy } from "./eventBusPolicy";
-import { EventConnection } from "./eventConnection";
-import { EventPermission } from "./eventPermission";
-import { EventRule } from "./eventRule";
-import { EventTarget } from "./eventTarget";
-import { LogDestination } from "./logDestination";
-import { LogDestinationPolicy } from "./logDestinationPolicy";
-import { LogGroup } from "./logGroup";
-import { LogMetricFilter } from "./logMetricFilter";
-import { LogResourcePolicy } from "./logResourcePolicy";
-import { LogStream } from "./logStream";
-import { LogSubscriptionFilter } from "./logSubscriptionFilter";
-import { MetricAlarm } from "./metricAlarm";
-import { MetricStream } from "./metricStream";
-import { QueryDefinition } from "./queryDefinition";
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+
+export { EventApiDestinationArgs, EventApiDestinationState } from "./eventApiDestination";
+export type EventApiDestination = import("./eventApiDestination").EventApiDestination;
+export const EventApiDestination: typeof import("./eventApiDestination").EventApiDestination = null as any;
+
+export { EventArchiveArgs, EventArchiveState } from "./eventArchive";
+export type EventArchive = import("./eventArchive").EventArchive;
+export const EventArchive: typeof import("./eventArchive").EventArchive = null as any;
+
+export { EventBusArgs, EventBusState } from "./eventBus";
+export type EventBus = import("./eventBus").EventBus;
+export const EventBus: typeof import("./eventBus").EventBus = null as any;
+
+export { EventBusPolicyArgs, EventBusPolicyState } from "./eventBusPolicy";
+export type EventBusPolicy = import("./eventBusPolicy").EventBusPolicy;
+export const EventBusPolicy: typeof import("./eventBusPolicy").EventBusPolicy = null as any;
+
+export { EventConnectionArgs, EventConnectionState } from "./eventConnection";
+export type EventConnection = import("./eventConnection").EventConnection;
+export const EventConnection: typeof import("./eventConnection").EventConnection = null as any;
+
+export { EventPermissionArgs, EventPermissionState } from "./eventPermission";
+export type EventPermission = import("./eventPermission").EventPermission;
+export const EventPermission: typeof import("./eventPermission").EventPermission = null as any;
+
+export { EventRuleArgs, EventRuleState } from "./eventRule";
+export type EventRule = import("./eventRule").EventRule;
+export const EventRule: typeof import("./eventRule").EventRule = null as any;
+
+export * from "./eventRuleMixins";
+export { EventTargetArgs, EventTargetState } from "./eventTarget";
+export type EventTarget = import("./eventTarget").EventTarget;
+export const EventTarget: typeof import("./eventTarget").EventTarget = null as any;
+
+export { GetEventBusArgs, GetEventBusResult, GetEventBusOutputArgs } from "./getEventBus";
+export const getEventBus: typeof import("./getEventBus").getEventBus = null as any;
+export const getEventBusOutput: typeof import("./getEventBus").getEventBusOutput = null as any;
+
+export { GetEventConnectionArgs, GetEventConnectionResult, GetEventConnectionOutputArgs } from "./getEventConnection";
+export const getEventConnection: typeof import("./getEventConnection").getEventConnection = null as any;
+export const getEventConnectionOutput: typeof import("./getEventConnection").getEventConnectionOutput = null as any;
+
+export { GetEventSourceArgs, GetEventSourceResult, GetEventSourceOutputArgs } from "./getEventSource";
+export const getEventSource: typeof import("./getEventSource").getEventSource = null as any;
+export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
+
+export { GetLogGroupArgs, GetLogGroupResult, GetLogGroupOutputArgs } from "./getLogGroup";
+export const getLogGroup: typeof import("./getLogGroup").getLogGroup = null as any;
+export const getLogGroupOutput: typeof import("./getLogGroup").getLogGroupOutput = null as any;
+
+export { GetLogGroupsArgs, GetLogGroupsResult, GetLogGroupsOutputArgs } from "./getLogGroups";
+export const getLogGroups: typeof import("./getLogGroups").getLogGroups = null as any;
+export const getLogGroupsOutput: typeof import("./getLogGroups").getLogGroupsOutput = null as any;
+
+export { LogDestinationArgs, LogDestinationState } from "./logDestination";
+export type LogDestination = import("./logDestination").LogDestination;
+export const LogDestination: typeof import("./logDestination").LogDestination = null as any;
+
+export { LogDestinationPolicyArgs, LogDestinationPolicyState } from "./logDestinationPolicy";
+export type LogDestinationPolicy = import("./logDestinationPolicy").LogDestinationPolicy;
+export const LogDestinationPolicy: typeof import("./logDestinationPolicy").LogDestinationPolicy = null as any;
+
+export { LogGroupArgs, LogGroupState } from "./logGroup";
+export type LogGroup = import("./logGroup").LogGroup;
+export const LogGroup: typeof import("./logGroup").LogGroup = null as any;
+
+export * from "./logGroupMixins";
+export { LogMetricFilterArgs, LogMetricFilterState } from "./logMetricFilter";
+export type LogMetricFilter = import("./logMetricFilter").LogMetricFilter;
+export const LogMetricFilter: typeof import("./logMetricFilter").LogMetricFilter = null as any;
+
+export { LogResourcePolicyArgs, LogResourcePolicyState } from "./logResourcePolicy";
+export type LogResourcePolicy = import("./logResourcePolicy").LogResourcePolicy;
+export const LogResourcePolicy: typeof import("./logResourcePolicy").LogResourcePolicy = null as any;
+
+export { LogStreamArgs, LogStreamState } from "./logStream";
+export type LogStream = import("./logStream").LogStream;
+export const LogStream: typeof import("./logStream").LogStream = null as any;
+
+export { LogSubscriptionFilterArgs, LogSubscriptionFilterState } from "./logSubscriptionFilter";
+export type LogSubscriptionFilter = import("./logSubscriptionFilter").LogSubscriptionFilter;
+export const LogSubscriptionFilter: typeof import("./logSubscriptionFilter").LogSubscriptionFilter = null as any;
+
+export { MetricAlarmArgs, MetricAlarmState } from "./metricAlarm";
+export type MetricAlarm = import("./metricAlarm").MetricAlarm;
+export const MetricAlarm: typeof import("./metricAlarm").MetricAlarm = null as any;
+
+export { MetricStreamArgs, MetricStreamState } from "./metricStream";
+export type MetricStream = import("./metricStream").MetricStream;
+export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
+
+export { QueryDefinitionArgs, QueryDefinitionState } from "./queryDefinition";
+export type QueryDefinition = import("./queryDefinition").QueryDefinition;
+export const QueryDefinition: typeof import("./queryDefinition").QueryDefinition = null as any;
+
+utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+utilities.lazyLoad(exports, ["EventApiDestination"], () => require("./eventApiDestination"));
+utilities.lazyLoad(exports, ["EventArchive"], () => require("./eventArchive"));
+utilities.lazyLoad(exports, ["EventBus"], () => require("./eventBus"));
+utilities.lazyLoad(exports, ["EventBusPolicy"], () => require("./eventBusPolicy"));
+utilities.lazyLoad(exports, ["EventConnection"], () => require("./eventConnection"));
+utilities.lazyLoad(exports, ["EventPermission"], () => require("./eventPermission"));
+utilities.lazyLoad(exports, ["EventRule"], () => require("./eventRule"));
+utilities.lazyLoad(exports, ["EventTarget"], () => require("./eventTarget"));
+utilities.lazyLoad(exports, ["getEventBus","getEventBusOutput"], () => require("./getEventBus"));
+utilities.lazyLoad(exports, ["getEventConnection","getEventConnectionOutput"], () => require("./getEventConnection"));
+utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
+utilities.lazyLoad(exports, ["getLogGroup","getLogGroupOutput"], () => require("./getLogGroup"));
+utilities.lazyLoad(exports, ["getLogGroups","getLogGroupsOutput"], () => require("./getLogGroups"));
+utilities.lazyLoad(exports, ["LogDestination"], () => require("./logDestination"));
+utilities.lazyLoad(exports, ["LogDestinationPolicy"], () => require("./logDestinationPolicy"));
+utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
+utilities.lazyLoad(exports, ["LogMetricFilter"], () => require("./logMetricFilter"));
+utilities.lazyLoad(exports, ["LogResourcePolicy"], () => require("./logResourcePolicy"));
+utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
+utilities.lazyLoad(exports, ["LogSubscriptionFilter"], () => require("./logSubscriptionFilter"));
+utilities.lazyLoad(exports, ["MetricAlarm"], () => require("./metricAlarm"));
+utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
+utilities.lazyLoad(exports, ["QueryDefinition"], () => require("./queryDefinition"));
 
 const _module = {
     version: utilities.getVersion(),

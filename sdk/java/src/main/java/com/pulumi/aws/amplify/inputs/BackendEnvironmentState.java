@@ -16,14 +16,14 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
     public static final BackendEnvironmentState Empty = new BackendEnvironmentState();
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Import(name="appId")
     private @Nullable Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Optional<Output<String>> appId() {
@@ -31,14 +31,14 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * @return ARN for a backend environment that is part of an Amplify app.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -46,14 +46,14 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of deployment artifacts.
+     * Name of deployment artifacts.
      * 
      */
     @Import(name="deploymentArtifacts")
     private @Nullable Output<String> deploymentArtifacts;
 
     /**
-     * @return The name of deployment artifacts.
+     * @return Name of deployment artifacts.
      * 
      */
     public Optional<Output<String>> deploymentArtifacts() {
@@ -61,14 +61,14 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name for the backend environment.
+     * Name for the backend environment.
      * 
      */
     @Import(name="environmentName")
     private @Nullable Output<String> environmentName;
 
     /**
-     * @return The name for the backend environment.
+     * @return Name for the backend environment.
      * 
      */
     public Optional<Output<String>> environmentName() {
@@ -76,14 +76,14 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The AWS CloudFormation stack name of a backend environment.
+     * AWS CloudFormation stack name of a backend environment.
      * 
      */
     @Import(name="stackName")
     private @Nullable Output<String> stackName;
 
     /**
-     * @return The AWS CloudFormation stack name of a backend environment.
+     * @return AWS CloudFormation stack name of a backend environment.
      * 
      */
     public Optional<Output<String>> stackName() {
@@ -119,7 +119,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+         * @param arn ARN for a backend environment that is part of an Amplify app.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+         * @param arn ARN for a backend environment that is part of an Amplify app.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deploymentArtifacts The name of deployment artifacts.
+         * @param deploymentArtifacts Name of deployment artifacts.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deploymentArtifacts The name of deployment artifacts.
+         * @param deploymentArtifacts Name of deployment artifacts.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param environmentName The name for the backend environment.
+         * @param environmentName Name for the backend environment.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param environmentName The name for the backend environment.
+         * @param environmentName Name for the backend environment.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stackName The AWS CloudFormation stack name of a backend environment.
+         * @param stackName AWS CloudFormation stack name of a backend environment.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class BackendEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stackName The AWS CloudFormation stack name of a backend environment.
+         * @param stackName AWS CloudFormation stack name of a backend environment.
          * 
          * @return builder
          * 

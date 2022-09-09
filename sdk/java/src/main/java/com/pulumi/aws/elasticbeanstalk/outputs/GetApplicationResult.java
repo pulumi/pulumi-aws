@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetApplicationResult {
     private GetApplicationAppversionLifecycle appversionLifecycle;
     /**
-     * @return The Amazon Resource Name (ARN) of the application.
+     * @return ARN of the application.
      * 
      */
     private String arn;
@@ -33,7 +33,7 @@ public final class GetApplicationResult {
         return this.appversionLifecycle;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the application.
+     * @return ARN of the application.
      * 
      */
     public String arn() {

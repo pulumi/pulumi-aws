@@ -76,7 +76,7 @@ type GangliaLayer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password to use for Ganglia.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
@@ -161,7 +161,7 @@ type gangliaLayerState struct {
 	Name *string `pulumi:"name"`
 	// The password to use for Ganglia.
 	Password *string `pulumi:"password"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -212,7 +212,7 @@ type GangliaLayerState struct {
 	Name pulumi.StringPtrInput
 	// The password to use for Ganglia.
 	Password pulumi.StringPtrInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -265,7 +265,7 @@ type gangliaLayerArgs struct {
 	Name *string `pulumi:"name"`
 	// The password to use for Ganglia.
 	Password string `pulumi:"password"`
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
@@ -313,7 +313,7 @@ type GangliaLayerArgs struct {
 	Name pulumi.StringPtrInput
 	// The password to use for Ganglia.
 	Password pulumi.StringInput
-	// The id of the stack the layer will belong to.
+	// ID of the stack the layer will belong to.
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
@@ -508,7 +508,7 @@ func (o GangliaLayerOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// The id of the stack the layer will belong to.
+// ID of the stack the layer will belong to.
 func (o GangliaLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

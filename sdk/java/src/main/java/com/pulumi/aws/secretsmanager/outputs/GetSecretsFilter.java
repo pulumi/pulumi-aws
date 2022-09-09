@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSecretsFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+     * @return Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetSecretsFilter {
 
     private GetSecretsFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+     * @return Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
      * 
      */
     public String name() {

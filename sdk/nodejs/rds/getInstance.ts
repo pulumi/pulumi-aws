@@ -35,7 +35,7 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetInstanceArgs {
     /**
-     * The name of the RDS instance
+     * Name of the RDS instance
      */
     dbInstanceIdentifier: string;
     tags?: {[key: string]: string};
@@ -46,11 +46,11 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     * Hostname of the RDS instance. See also `endpoint` and `port`.
      */
     readonly address: string;
     /**
-     * Specifies the allocated storage size specified in gigabytes.
+     * Allocated storage size specified in gigabytes.
      */
     readonly allocatedStorage: number;
     /**
@@ -58,7 +58,7 @@ export interface GetInstanceResult {
      */
     readonly autoMinorVersionUpgrade: boolean;
     /**
-     * Specifies the name of the Availability Zone the DB instance is located in.
+     * Name of the Availability Zone the DB instance is located in.
      */
     readonly availabilityZone: string;
     /**
@@ -66,7 +66,7 @@ export interface GetInstanceResult {
      */
     readonly backupRetentionPeriod: number;
     /**
-     * Specifies the identifier of the CA certificate for the DB instance.
+     * Identifier of the CA certificate for the DB instance.
      */
     readonly caCertIdentifier: string;
     /**
@@ -74,7 +74,7 @@ export interface GetInstanceResult {
      */
     readonly dbClusterIdentifier: string;
     /**
-     * The Amazon Resource Name (ARN) for the DB instance.
+     * ARN for the DB instance.
      */
     readonly dbInstanceArn: string;
     /**
@@ -83,7 +83,7 @@ export interface GetInstanceResult {
     readonly dbInstanceClass: string;
     readonly dbInstanceIdentifier: string;
     /**
-     * Specifies the port that the DB instance listens on.
+     * Port that the DB instance listens on.
      */
     readonly dbInstancePort: number;
     /**
@@ -99,7 +99,7 @@ export interface GetInstanceResult {
      */
     readonly dbSecurityGroups: string[];
     /**
-     * Specifies the name of the subnet group associated with the DB instance.
+     * Name of the subnet group associated with the DB instance.
      */
     readonly dbSubnetGroup: string;
     /**
@@ -107,7 +107,7 @@ export interface GetInstanceResult {
      */
     readonly enabledCloudwatchLogsExports: string[];
     /**
-     * The connection endpoint in `address:port` format.
+     * Connection endpoint in `address:port` format.
      */
     readonly endpoint: string;
     /**
@@ -115,11 +115,11 @@ export interface GetInstanceResult {
      */
     readonly engine: string;
     /**
-     * Indicates the database engine version.
+     * Database engine version.
      */
     readonly engineVersion: string;
     /**
-     * The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
+     * Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
      */
     readonly hostedZoneId: string;
     /**
@@ -127,7 +127,7 @@ export interface GetInstanceResult {
      */
     readonly id: string;
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value.
+     * Provisioned IOPS (I/O operations per second) value.
      */
     readonly iops: number;
     /**
@@ -143,19 +143,19 @@ export interface GetInstanceResult {
      */
     readonly masterUsername: string;
     /**
-     * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+     * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      */
     readonly monitoringInterval: number;
     /**
-     * The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     * ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
      */
     readonly monitoringRoleArn: string;
     /**
-     * Specifies if the DB instance is a Multi-AZ deployment.
+     * If the DB instance is a Multi-AZ deployment.
      */
     readonly multiAz: boolean;
     /**
-     * The network type of the DB instance.
+     * Network type of the DB instance.
      */
     readonly networkType: string;
     /**
@@ -163,7 +163,7 @@ export interface GetInstanceResult {
      */
     readonly optionGroupMemberships: string[];
     /**
-     * The database port.
+     * Database port.
      */
     readonly port: number;
     /**
@@ -175,28 +175,28 @@ export interface GetInstanceResult {
      */
     readonly preferredMaintenanceWindow: string;
     /**
-     * Specifies the accessibility options for the DB instance.
+     * Accessibility options for the DB instance.
      */
     readonly publiclyAccessible: boolean;
     /**
-     * The identifier of the source DB that this is a replica of.
+     * Identifier of the source DB that this is a replica of.
      */
     readonly replicateSourceDb: string;
     /**
-     * The RDS Resource ID of this instance.
+     * RDS Resource ID of this instance.
      */
     readonly resourceId: string;
     /**
-     * Specifies whether the DB instance is encrypted.
+     * Whether the DB instance is encrypted.
      */
     readonly storageEncrypted: boolean;
     /**
-     * Specifies the storage type associated with DB instance.
+     * Storage type associated with DB instance.
      */
     readonly storageType: string;
     readonly tags: {[key: string]: string};
     /**
-     * The time zone of the DB instance.
+     * Time zone of the DB instance.
      */
     readonly timezone: string;
     /**
@@ -214,7 +214,7 @@ export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.Inv
  */
 export interface GetInstanceOutputArgs {
     /**
-     * The name of the RDS instance
+     * Name of the RDS instance
      */
     dbInstanceIdentifier: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

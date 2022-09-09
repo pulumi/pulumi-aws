@@ -55,12 +55,14 @@ type DefaultVpc struct {
 	Arn                          pulumi.StringOutput  `pulumi:"arn"`
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                   pulumi.StringOutput  `pulumi:"cidrBlock"`
-	DefaultNetworkAclId         pulumi.StringOutput  `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId         pulumi.StringOutput  `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId      pulumi.StringOutput  `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId               pulumi.StringOutput  `pulumi:"dhcpOptionsId"`
-	EnableClassiclink           pulumi.BoolOutput    `pulumi:"enableClassiclink"`
+	CidrBlock              pulumi.StringOutput `pulumi:"cidrBlock"`
+	DefaultNetworkAclId    pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId    pulumi.StringOutput `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId pulumi.StringOutput `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+	EnableClassiclink pulumi.BoolOutput `pulumi:"enableClassiclink"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
 	EnableClassiclinkDnsSupport pulumi.BoolOutput    `pulumi:"enableClassiclinkDnsSupport"`
 	EnableDnsHostnames          pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
 	EnableDnsSupport            pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
@@ -112,16 +114,18 @@ type defaultVpcState struct {
 	Arn                          *string `pulumi:"arn"`
 	AssignGeneratedIpv6CidrBlock *bool   `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                   *string `pulumi:"cidrBlock"`
-	DefaultNetworkAclId         *string `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId         *string `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId      *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId               *string `pulumi:"dhcpOptionsId"`
-	EnableClassiclink           *bool   `pulumi:"enableClassiclink"`
-	EnableClassiclinkDnsSupport *bool   `pulumi:"enableClassiclinkDnsSupport"`
-	EnableDnsHostnames          *bool   `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport            *bool   `pulumi:"enableDnsSupport"`
-	ExistingDefaultVpc          *bool   `pulumi:"existingDefaultVpc"`
+	CidrBlock              *string `pulumi:"cidrBlock"`
+	DefaultNetworkAclId    *string `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId    *string `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId *string `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+	EnableClassiclink *bool `pulumi:"enableClassiclink"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
+	EnableDnsHostnames          *bool `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport            *bool `pulumi:"enableDnsSupport"`
+	ExistingDefaultVpc          *bool `pulumi:"existingDefaultVpc"`
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The allowed tenancy of instances launched into the VPC
@@ -141,12 +145,14 @@ type DefaultVpcState struct {
 	Arn                          pulumi.StringPtrInput
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                   pulumi.StringPtrInput
-	DefaultNetworkAclId         pulumi.StringPtrInput
-	DefaultRouteTableId         pulumi.StringPtrInput
-	DefaultSecurityGroupId      pulumi.StringPtrInput
-	DhcpOptionsId               pulumi.StringPtrInput
-	EnableClassiclink           pulumi.BoolPtrInput
+	CidrBlock              pulumi.StringPtrInput
+	DefaultNetworkAclId    pulumi.StringPtrInput
+	DefaultRouteTableId    pulumi.StringPtrInput
+	DefaultSecurityGroupId pulumi.StringPtrInput
+	DhcpOptionsId          pulumi.StringPtrInput
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+	EnableClassiclink pulumi.BoolPtrInput
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
 	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
 	EnableDnsHostnames          pulumi.BoolPtrInput
 	EnableDnsSupport            pulumi.BoolPtrInput
@@ -172,10 +178,12 @@ func (DefaultVpcState) ElementType() reflect.Type {
 
 type defaultVpcArgs struct {
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
-	EnableClassiclink            *bool `pulumi:"enableClassiclink"`
-	EnableClassiclinkDnsSupport  *bool `pulumi:"enableClassiclinkDnsSupport"`
-	EnableDnsHostnames           *bool `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport             *bool `pulumi:"enableDnsSupport"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+	EnableClassiclink *bool `pulumi:"enableClassiclink"`
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
+	EnableDnsHostnames          *bool `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport            *bool `pulumi:"enableDnsSupport"`
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy                    *bool             `pulumi:"forceDestroy"`
 	Ipv6CidrBlock                   *string           `pulumi:"ipv6CidrBlock"`
@@ -188,10 +196,12 @@ type defaultVpcArgs struct {
 // The set of arguments for constructing a DefaultVpc resource.
 type DefaultVpcArgs struct {
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
-	EnableClassiclink            pulumi.BoolPtrInput
-	EnableClassiclinkDnsSupport  pulumi.BoolPtrInput
-	EnableDnsHostnames           pulumi.BoolPtrInput
-	EnableDnsSupport             pulumi.BoolPtrInput
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
+	EnableClassiclink pulumi.BoolPtrInput
+	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
+	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
+	EnableDnsHostnames          pulumi.BoolPtrInput
+	EnableDnsSupport            pulumi.BoolPtrInput
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy                    pulumi.BoolPtrInput
 	Ipv6CidrBlock                   pulumi.StringPtrInput
@@ -317,10 +327,12 @@ func (o DefaultVpcOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
+// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
 func (o DefaultVpcOutput) EnableClassiclink() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.EnableClassiclink }).(pulumi.BoolOutput)
 }
 
+// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
 func (o DefaultVpcOutput) EnableClassiclinkDnsSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.EnableClassiclinkDnsSupport }).(pulumi.BoolOutput)
 }

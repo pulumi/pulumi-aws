@@ -49,7 +49,7 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 
 // A collection of arguments for invoking getRuleGroup.
 type LookupRuleGroupArgs struct {
-	// The name of the WAFv2 Rule Group.
+	// Name of the WAFv2 Rule Group.
 	Name string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
@@ -57,9 +57,9 @@ type LookupRuleGroupArgs struct {
 
 // A collection of values returned by getRuleGroup.
 type LookupRuleGroupResult struct {
-	// The Amazon Resource Name (ARN) of the entity.
+	// ARN of the entity.
 	Arn string `pulumi:"arn"`
-	// The description of the rule group that helps with identification.
+	// Description of the rule group that helps with identification.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id    string `pulumi:"id"`
@@ -82,7 +82,7 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 
 // A collection of arguments for invoking getRuleGroup.
 type LookupRuleGroupOutputArgs struct {
-	// The name of the WAFv2 Rule Group.
+	// Name of the WAFv2 Rule Group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -107,12 +107,12 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the entity.
+// ARN of the entity.
 func (o LookupRuleGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the rule group that helps with identification.
+// Description of the rule group that helps with identification.
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }

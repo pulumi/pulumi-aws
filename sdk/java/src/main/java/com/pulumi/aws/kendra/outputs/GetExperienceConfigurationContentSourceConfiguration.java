@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetExperienceConfigurationContentSourceConfiguration {
     /**
-     * @return The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+     * @return Identifiers of the data sources you want to use for your Amazon Kendra Experience.
      * 
      */
     private List<String> dataSourceIds;
@@ -22,14 +22,14 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
      */
     private Boolean directPutContent;
     /**
-     * @return The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+     * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
      * 
      */
     private List<String> faqIds;
 
     private GetExperienceConfigurationContentSourceConfiguration() {}
     /**
-     * @return The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+     * @return Identifiers of the data sources you want to use for your Amazon Kendra Experience.
      * 
      */
     public List<String> dataSourceIds() {
@@ -43,7 +43,7 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
         return this.directPutContent;
     }
     /**
-     * @return The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+     * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
      * 
      */
     public List<String> faqIds() {

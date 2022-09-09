@@ -62,7 +62,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> str:
         """
-        The Id of the EIP allocated to the selected Nat Gateway.
+        ID of the EIP allocated to the selected Nat Gateway.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -70,7 +70,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> str:
         """
-        The connectivity type of the NAT Gateway.
+        Connectivity type of the NAT Gateway.
         """
         return pulumi.get(self, "connectivity_type")
 
@@ -88,7 +88,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         """
-        The Id of the ENI allocated to the selected Nat Gateway.
+        The ID of the ENI allocated to the selected Nat Gateway.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -96,7 +96,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
         """
-        The private Ip address of the selected Nat Gateway.
+        Private Ip address of the selected Nat Gateway.
         """
         return pulumi.get(self, "private_ip")
 
@@ -104,7 +104,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> str:
         """
-        The public Ip (EIP) address of the selected Nat Gateway.
+        Public Ip (EIP) address of the selected Nat Gateway.
         """
         return pulumi.get(self, "public_ip")
 
@@ -183,12 +183,12 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific Nat Gateway to retrieve.
-    :param str state: The state of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: The id of subnet that the Nat Gateway resides in.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific Nat Gateway to retrieve.
+    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Nat Gateway.
-    :param str vpc_id: The id of the VPC that the Nat Gateway resides in.
+    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -250,11 +250,11 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific Nat Gateway to retrieve.
-    :param str state: The state of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: The id of subnet that the Nat Gateway resides in.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str id: ID of the specific Nat Gateway to retrieve.
+    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Nat Gateway.
-    :param str vpc_id: The id of the VPC that the Nat Gateway resides in.
+    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
     """
     ...

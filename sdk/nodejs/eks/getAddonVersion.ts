@@ -81,7 +81,7 @@ export interface GetAddonVersionResult {
     readonly kubernetesVersion: string;
     readonly mostRecent?: boolean;
     /**
-     * The version of the EKS add-on.
+     * Version of the EKS add-on.
      */
     readonly version: string;
 }

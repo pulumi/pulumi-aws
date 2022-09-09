@@ -72,19 +72,19 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class GetLocalDiskArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The device node of the local disk to retrieve. For example, `/dev/sdb`.
+        /// Device node of the local disk to retrieve. For example, `/dev/sdb`.
         /// </summary>
         [Input("diskNode")]
         public string? DiskNode { get; set; }
 
         /// <summary>
-        /// The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+        /// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
         /// </summary>
         [Input("diskPath")]
         public string? DiskPath { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
         public string GatewayArn { get; set; } = null!;
@@ -98,19 +98,19 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class GetLocalDiskInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The device node of the local disk to retrieve. For example, `/dev/sdb`.
+        /// Device node of the local disk to retrieve. For example, `/dev/sdb`.
         /// </summary>
         [Input("diskNode")]
         public Input<string>? DiskNode { get; set; }
 
         /// <summary>
-        /// The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+        /// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
         /// </summary>
         [Input("diskPath")]
         public Input<string>? DiskPath { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class GetLocalDiskResult
     {
         /// <summary>
-        /// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+        /// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         /// </summary>
         public readonly string DiskId;
         public readonly string DiskNode;

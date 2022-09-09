@@ -60,7 +60,7 @@ class GetRoleResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) specifying the role.
+        ARN of the role.
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetRoleResult:
     @pulumi.getter(name="assumeRolePolicy")
     def assume_role_policy(self) -> str:
         """
-        The policy document associated with the role.
+        Policy document associated with the role.
         """
         return pulumi.get(self, "assume_role_policy")
 
@@ -113,7 +113,7 @@ class GetRoleResult:
     @pulumi.getter
     def path(self) -> str:
         """
-        The path to the role.
+        Path to the role.
         """
         return pulumi.get(self, "path")
 
@@ -129,7 +129,7 @@ class GetRoleResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags attached to the role.
+        Tags attached to the role.
         """
         return pulumi.get(self, "tags")
 
@@ -137,7 +137,7 @@ class GetRoleResult:
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> str:
         """
-        The stable and unique string identifying the role.
+        Stable and unique string identifying the role.
         """
         return pulumi.get(self, "unique_id")
 
@@ -179,8 +179,8 @@ def get_role(name: Optional[str] = None,
     ```
 
 
-    :param str name: The friendly IAM role name to match.
-    :param Mapping[str, str] tags: The tags attached to the role.
+    :param str name: Friendly IAM role name to match.
+    :param Mapping[str, str] tags: Tags attached to the role.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -221,7 +221,7 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The friendly IAM role name to match.
-    :param Mapping[str, str] tags: The tags attached to the role.
+    :param str name: Friendly IAM role name to match.
+    :param Mapping[str, str] tags: Tags attached to the role.
     """
     ...

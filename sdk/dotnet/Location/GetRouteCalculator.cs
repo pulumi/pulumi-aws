@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetRouteCalculatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the route calculator resource.
+        /// Name of the route calculator resource.
         /// </summary>
         [Input("calculatorName", required: true)]
         public string CalculatorName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetRouteCalculatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the route calculator resource.
+        /// Name of the route calculator resource.
         /// </summary>
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
@@ -124,20 +124,20 @@ namespace Pulumi.Aws.Location
     public sealed class GetRouteCalculatorResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+        /// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
         public readonly string CalculatorArn;
         public readonly string CalculatorName;
         /// <summary>
-        /// The timestamp for when the route calculator resource was created in ISO 8601 format.
+        /// Timestamp for when the route calculator resource was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The data provider of traffic and road network data.
+        /// Data provider of traffic and road network data.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// The optional description of the route calculator resource.
+        /// Optional description of the route calculator resource.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timestamp for when the route calculator resource was last updated in ISO 8601 format.
+        /// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

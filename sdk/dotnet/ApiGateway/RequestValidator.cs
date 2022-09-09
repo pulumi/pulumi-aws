@@ -43,13 +43,13 @@ namespace Pulumi.Aws.ApiGateway
     public partial class RequestValidator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the request validator
+        /// Name of the request validator
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
@@ -113,13 +113,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the request validator
+        /// Name of the request validator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class RequestValidatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the request validator
+        /// Name of the request validator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the associated Rest API
+        /// ID of the associated Rest API
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserResult {
     /**
-     * @return The access permissions string used for this user.
+     * @return Access permissions string used for this user.
      * 
      */
     private String accessString;
@@ -38,7 +38,7 @@ public final class GetUserResult {
      */
     private String minimumEngineVersion;
     /**
-     * @return A map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the subnet group.
      * 
      */
     private Map<String,String> tags;
@@ -46,7 +46,7 @@ public final class GetUserResult {
 
     private GetUserResult() {}
     /**
-     * @return The access permissions string used for this user.
+     * @return Access permissions string used for this user.
      * 
      */
     public String accessString() {
@@ -81,7 +81,7 @@ public final class GetUserResult {
         return this.minimumEngineVersion;
     }
     /**
-     * @return A map of tags assigned to the subnet group.
+     * @return Map of tags assigned to the subnet group.
      * 
      */
     public Map<String,String> tags() {

@@ -13,7 +13,7 @@ public final class GetPermissionSetResult {
     private String arn;
     private String createdDate;
     /**
-     * @return The description of the Permission Set.
+     * @return Description of the Permission Set.
      * 
      */
     private String description;
@@ -25,12 +25,12 @@ public final class GetPermissionSetResult {
     private String instanceArn;
     private String name;
     /**
-     * @return The relay state URL used to redirect users within the application during the federation authentication process.
+     * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
     private String relayState;
     /**
-     * @return The length of time that the application user sessions are valid in the ISO-8601 standard.
+     * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
      * 
      */
     private String sessionDuration;
@@ -48,7 +48,7 @@ public final class GetPermissionSetResult {
         return this.createdDate;
     }
     /**
-     * @return The description of the Permission Set.
+     * @return Description of the Permission Set.
      * 
      */
     public String description() {
@@ -68,14 +68,14 @@ public final class GetPermissionSetResult {
         return this.name;
     }
     /**
-     * @return The relay state URL used to redirect users within the application during the federation authentication process.
+     * @return Relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
     public String relayState() {
         return this.relayState;
     }
     /**
-     * @return The length of time that the application user sessions are valid in the ISO-8601 standard.
+     * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
      * 
      */
     public String sessionDuration() {

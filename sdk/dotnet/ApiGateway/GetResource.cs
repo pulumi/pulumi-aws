@@ -84,13 +84,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full path of the resource.  If no path is found, an error will be returned.
+        /// Full path of the resource.  If no path is found, an error will be returned.
         /// </summary>
         [Input("path", required: true)]
         public string Path { get; set; } = null!;
 
         /// <summary>
-        /// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+        /// REST API id that owns the resource. If no REST API is found, an error will be returned.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full path of the resource.  If no path is found, an error will be returned.
+        /// Full path of the resource.  If no path is found, an error will be returned.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+        /// REST API id that owns the resource. If no REST API is found, an error will be returned.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNodeSpecListenerTlsCertificateAcm {
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     private String certificateArn;
 
     private VirtualNodeSpecListenerTlsCertificateAcm() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public String certificateArn() {

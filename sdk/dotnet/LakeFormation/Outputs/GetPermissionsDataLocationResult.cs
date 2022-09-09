@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     public sealed class GetPermissionsDataLocationResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        /// ARN that uniquely identifies the data location resource.
         /// </summary>
         public readonly string Arn;
         /// <summary>

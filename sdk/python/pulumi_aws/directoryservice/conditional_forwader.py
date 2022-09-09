@@ -19,7 +19,7 @@ class ConditionalForwaderArgs:
                  remote_domain_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ConditionalForwader resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
@@ -31,7 +31,7 @@ class ConditionalForwaderArgs:
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 
@@ -72,7 +72,7 @@ class _ConditionalForwaderState:
                  remote_domain_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConditionalForwader resources.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
@@ -87,7 +87,7 @@ class _ConditionalForwaderState:
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 
@@ -157,7 +157,7 @@ class ConditionalForwader(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
@@ -249,7 +249,7 @@ class ConditionalForwader(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] directory_id: The id of directory.
+        :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
@@ -266,7 +266,7 @@ class ConditionalForwader(pulumi.CustomResource):
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
         """
-        The id of directory.
+        ID of directory.
         """
         return pulumi.get(self, "directory_id")
 

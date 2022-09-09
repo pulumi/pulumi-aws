@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     private @Nullable String appIdClientRegex;
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     private @Nullable String awsRegion;
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     private String userPoolId;
 
     private GraphQLApiAdditionalAuthenticationProviderUserPoolConfig() {}
     /**
-     * @return A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+     * @return Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
     public Optional<String> appIdClientRegex() {
         return Optional.ofNullable(this.appIdClientRegex);
     }
     /**
-     * @return The AWS region in which the user pool was created.
+     * @return AWS region in which the user pool was created.
      * 
      */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
     /**
-     * @return The user pool ID.
+     * @return User pool ID.
      * 
      */
     public String userPoolId() {

@@ -34,7 +34,7 @@ export function getUserPoolClients(args: GetUserPoolClientsArgs, opts?: pulumi.I
  */
 export interface GetUserPoolClientsArgs {
     /**
-     * The Cognito user pool ID.
+     * Cognito user pool ID.
      */
     userPoolId: string;
 }
@@ -67,7 +67,7 @@ export function getUserPoolClientsOutput(args: GetUserPoolClientsOutputArgs, opt
  */
 export interface GetUserPoolClientsOutputArgs {
     /**
-     * The Cognito user pool ID.
+     * Cognito user pool ID.
      */
     userPoolId: pulumi.Input<string>;
 }

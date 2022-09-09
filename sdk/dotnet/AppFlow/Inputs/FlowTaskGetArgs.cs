@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<Inputs.FlowTaskConnectorOperatorGetArgs>? _connectorOperators;
 
         /// <summary>
-        /// The operation to be performed on the provided source fields. See Connector Operator for details.
+        /// Operation to be performed on the provided source fields. See Connector Operator for details.
         /// </summary>
         public InputList<Inputs.FlowTaskConnectorOperatorGetArgs> ConnectorOperators
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        /// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         /// </summary>
         [Input("destinationField")]
         public Input<string>? DestinationField { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<string>? _sourceFields;
 
         /// <summary>
-        /// The source fields to which a particular task is applied.
+        /// Source fields to which a particular task is applied.
         /// </summary>
         public InputList<string> SourceFields
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputMap<string>? _taskProperties;
 
         /// <summary>
-        /// A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+        /// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         /// </summary>
         public InputMap<string> TaskProperties
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+        /// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

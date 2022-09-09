@@ -51,7 +51,7 @@ class GetRouteCalculatorResult:
     @pulumi.getter(name="calculatorArn")
     def calculator_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+        ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         """
         return pulumi.get(self, "calculator_arn")
 
@@ -64,7 +64,7 @@ class GetRouteCalculatorResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the route calculator resource was created in ISO 8601 format.
+        Timestamp for when the route calculator resource was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -72,7 +72,7 @@ class GetRouteCalculatorResult:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        The data provider of traffic and road network data.
+        Data provider of traffic and road network data.
         """
         return pulumi.get(self, "data_source")
 
@@ -80,7 +80,7 @@ class GetRouteCalculatorResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The optional description of the route calculator resource.
+        Optional description of the route calculator resource.
         """
         return pulumi.get(self, "description")
 
@@ -104,7 +104,7 @@ class GetRouteCalculatorResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the route calculator resource was last updated in ISO 8601 format.
+        Timestamp for when the route calculator resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -141,7 +141,7 @@ def get_route_calculator(calculator_name: Optional[str] = None,
     ```
 
 
-    :param str calculator_name: The name of the route calculator resource.
+    :param str calculator_name: Name of the route calculator resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
     """
     __args__ = dict()
@@ -178,7 +178,7 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
     ```
 
 
-    :param str calculator_name: The name of the route calculator resource.
+    :param str calculator_name: Name of the route calculator resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
     """
     ...

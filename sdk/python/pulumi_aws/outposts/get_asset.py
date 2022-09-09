@@ -58,7 +58,7 @@ class GetAssetResult:
     @pulumi.getter(name="assetType")
     def asset_type(self) -> str:
         """
-        The type of the asset.
+        Type of the asset.
         """
         return pulumi.get(self, "asset_type")
 
@@ -66,7 +66,7 @@ class GetAssetResult:
     @pulumi.getter(name="hostId")
     def host_id(self) -> str:
         """
-        The host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
+        Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
         """
         return pulumi.get(self, "host_id")
 
@@ -82,7 +82,7 @@ class GetAssetResult:
     @pulumi.getter(name="rackElevation")
     def rack_elevation(self) -> int:
         """
-        The position of an asset in a rack measured in rack units.
+        Position of an asset in a rack measured in rack units.
         """
         return pulumi.get(self, "rack_elevation")
 
@@ -90,7 +90,7 @@ class GetAssetResult:
     @pulumi.getter(name="rackId")
     def rack_id(self) -> str:
         """
-        The rack ID of the asset.
+        Rack ID of the asset.
         """
         return pulumi.get(self, "rack_id")
 
@@ -118,7 +118,7 @@ def get_asset(arn: Optional[str] = None,
 
 
     :param str arn: Outpost ARN.
-    :param str asset_id: The ID of the asset.
+    :param str asset_id: ID of the asset.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -145,6 +145,6 @@ def get_asset_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: Outpost ARN.
-    :param str asset_id: The ID of the asset.
+    :param str asset_id: ID of the asset.
     """
     ...

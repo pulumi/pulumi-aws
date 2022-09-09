@@ -16,14 +16,14 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
     public static final GetPermissionSetPlainArgs Empty = new GetPermissionSetPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the permission set.
+     * ARN of the permission set.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the permission set.
+     * @return ARN of the permission set.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+     * ARN of the SSO Instance associated with the permission set.
      * 
      */
     @Import(name="instanceArn", required=true)
     private String instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+     * @return ARN of the SSO Instance associated with the permission set.
      * 
      */
     public String instanceArn() {
@@ -46,14 +46,14 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the SSO Permission Set.
+     * Name of the SSO Permission Set.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the SSO Permission Set.
+     * @return Name of the SSO Permission Set.
      * 
      */
     public Optional<String> name() {
@@ -103,7 +103,7 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the permission set.
+         * @param arn ARN of the permission set.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+         * @param instanceArn ARN of the SSO Instance associated with the permission set.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the SSO Permission Set.
+         * @param name Name of the SSO Permission Set.
          * 
          * @return builder
          * 

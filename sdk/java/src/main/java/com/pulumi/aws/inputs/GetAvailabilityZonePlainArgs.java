@@ -48,14 +48,14 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      * 
      */
     public Optional<String> name() {
@@ -63,14 +63,14 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * A specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+     * Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
      * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
-     * @return A specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+     * @return Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
      * 
      */
     public Optional<String> state() {
@@ -78,14 +78,14 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The zone ID of the availability zone to select.
+     * Zone ID of the availability zone to select.
      * 
      */
     @Import(name="zoneId")
     private @Nullable String zoneId;
 
     /**
-     * @return The zone ID of the availability zone to select.
+     * @return Zone ID of the availability zone to select.
      * 
      */
     public Optional<String> zoneId() {
@@ -153,7 +153,7 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param state A specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
+         * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param zoneId The zone ID of the availability zone to select.
+         * @param zoneId Zone ID of the availability zone to select.
          * 
          * @return builder
          * 

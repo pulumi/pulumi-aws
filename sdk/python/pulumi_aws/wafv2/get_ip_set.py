@@ -56,7 +56,7 @@ class GetIpSetResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the entity.
+        ARN of the entity.
         """
         return pulumi.get(self, "arn")
 
@@ -64,7 +64,7 @@ class GetIpSetResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the set that helps with identification.
+        Description of the set that helps with identification.
         """
         return pulumi.get(self, "description")
 
@@ -80,7 +80,7 @@ class GetIpSetResult:
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> str:
         """
-        The IP address version of the set.
+        IP address version of the set.
         """
         return pulumi.get(self, "ip_address_version")
 
@@ -127,7 +127,7 @@ def get_ip_set(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the WAFv2 IP Set.
+    :param str name: Name of the WAFv2 IP Set.
     :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
@@ -164,7 +164,7 @@ def get_ip_set_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the WAFv2 IP Set.
+    :param str name: Name of the WAFv2 IP Set.
     :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     ...

@@ -122,7 +122,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the global networks.
+        /// IDs of the global networks.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;

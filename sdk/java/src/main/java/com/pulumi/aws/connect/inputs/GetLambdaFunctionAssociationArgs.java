@@ -14,14 +14,14 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
     public static final GetLambdaFunctionAssociationArgs Empty = new GetLambdaFunctionAssociationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     public Output<String> functionArn() {
@@ -29,14 +29,14 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
-     * @return The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+     * @return Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
     public Output<String> instanceId() {
@@ -69,7 +69,7 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instanceId The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetLambdaFunctionAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instanceId The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+         * @param instanceId Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
          * 
          * @return builder
          * 

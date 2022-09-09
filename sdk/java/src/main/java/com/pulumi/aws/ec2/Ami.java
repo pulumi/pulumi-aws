@@ -92,56 +92,56 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.architecture);
     }
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Export(name="bootMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> bootMode;
 
     /**
-     * @return The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public Output<Optional<String>> bootMode() {
         return Codegen.optional(this.bootMode);
     }
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Export(name="deprecationTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Output<Optional<String>> deprecationTime() {
         return Codegen.optional(this.deprecationTime);
     }
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Output<Optional<String>> description() {
@@ -164,14 +164,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return this.ebsBlockDevices;
     }
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Export(name="enaSupport", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enaSupport;
 
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enaSupport() {
@@ -194,14 +194,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return this.ephemeralBlockDevices;
     }
     /**
-     * The hypervisor type of the image.
+     * Hypervisor type of the image.
      * 
      */
     @Export(name="hypervisor", type=String.class, parameters={})
     private Output<String> hypervisor;
 
     /**
-     * @return The hypervisor type of the image.
+     * @return Hypervisor type of the image.
      * 
      */
     public Output<String> hypervisor() {
@@ -224,35 +224,35 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return this.imageLocation;
     }
     /**
-     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
     @Export(name="imageOwnerAlias", type=String.class, parameters={})
     private Output<String> imageOwnerAlias;
 
     /**
-     * @return The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * @return AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
     public Output<String> imageOwnerAlias() {
         return this.imageOwnerAlias;
     }
     /**
-     * The type of image.
+     * Type of image.
      * 
      */
     @Export(name="imageType", type=String.class, parameters={})
     private Output<String> imageType;
 
     /**
-     * @return The type of image.
+     * @return Type of image.
      * 
      */
     public Output<String> imageType() {
         return this.imageType;
     }
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -260,7 +260,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> kernelId;
 
     /**
-     * @return The id of the kernel image (AKI) that will be used as the paravirtual
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -274,28 +274,28 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return this.manageEbsSnapshots;
     }
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The AWS account ID of the image owner.
+     * AWS account ID of the image owner.
      * 
      */
     @Export(name="ownerId", type=String.class, parameters={})
     private Output<String> ownerId;
 
     /**
-     * @return The AWS account ID of the image owner.
+     * @return AWS account ID of the image owner.
      * 
      */
     public Output<String> ownerId() {
@@ -316,35 +316,35 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return this.platform;
     }
     /**
-     * The platform details associated with the billing code of the AMI.
+     * Platform details associated with the billing code of the AMI.
      * 
      */
     @Export(name="platformDetails", type=String.class, parameters={})
     private Output<String> platformDetails;
 
     /**
-     * @return The platform details associated with the billing code of the AMI.
+     * @return Platform details associated with the billing code of the AMI.
      * 
      */
     public Output<String> platformDetails() {
         return this.platformDetails;
     }
     /**
-     * Indicates whether the image has public launch permissions.
+     * Whether the image has public launch permissions.
      * 
      */
     @Export(name="public", type=Boolean.class, parameters={})
     private Output<Boolean> public_;
 
     /**
-     * @return Indicates whether the image has public launch permissions.
+     * @return Whether the image has public launch permissions.
      * 
      */
     public Output<Boolean> public_() {
         return this.public_;
     }
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -352,7 +352,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> ramdiskId;
 
     /**
-     * @return The id of an initrd image (ARI) that will be used when booting the
+     * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -360,28 +360,28 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ramdiskId);
     }
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Export(name="rootDeviceName", type=String.class, parameters={})
     private Output</* @Nullable */ String> rootDeviceName;
 
     /**
-     * @return The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     public Output<Optional<String>> rootDeviceName() {
         return Codegen.optional(this.rootDeviceName);
     }
     /**
-     * The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
     @Export(name="rootSnapshotId", type=String.class, parameters={})
     private Output<String> rootSnapshotId;
 
     /**
-     * @return The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * @return Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
     public Output<String> rootSnapshotId() {
@@ -404,28 +404,28 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sriovNetSupport);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -446,14 +446,14 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tpmSupport);
     }
     /**
-     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     @Export(name="usageOperation", type=String.class, parameters={})
     private Output<String> usageOperation;
 
     /**
-     * @return The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
     public Output<String> usageOperation() {

@@ -61,55 +61,55 @@ namespace Pulumi.Aws.AppMesh
     public partial class Mesh : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the service mesh.
+        /// ARN of the service mesh.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The creation date of the service mesh.
+        /// Creation date of the service mesh.
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The last update date of the service mesh.
+        /// Last update date of the service mesh.
         /// </summary>
         [Output("lastUpdatedDate")]
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Output("meshOwner")]
         public Output<string> MeshOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        /// Name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         [Output("resourceOwner")]
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The service mesh specification to apply.
+        /// Service mesh specification to apply.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.MeshSpec?> Spec { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.AppMesh
     public sealed class MeshArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        /// Name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The service mesh specification to apply.
+        /// Service mesh specification to apply.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.MeshSpecArgs>? Spec { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -193,43 +193,43 @@ namespace Pulumi.Aws.AppMesh
     public sealed class MeshState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the service mesh.
+        /// ARN of the service mesh.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The creation date of the service mesh.
+        /// Creation date of the service mesh.
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The last update date of the service mesh.
+        /// Last update date of the service mesh.
         /// </summary>
         [Input("lastUpdatedDate")]
         public Input<string>? LastUpdatedDate { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
+        /// Name to use for the service mesh. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         [Input("resourceOwner")]
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// The service mesh specification to apply.
+        /// Service mesh specification to apply.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.MeshSpecGetArgs>? Spec { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

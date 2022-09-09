@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export interface GetSnapshotArgs {
      */
     name: string;
     /**
-     * A map of tags assigned to the snapshot.
+     * Map of tags assigned to the snapshot.
      */
     tags?: {[key: string]: string};
 }
@@ -50,7 +52,7 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
-     * The ARN of the snapshot.
+     * ARN of the snapshot.
      */
     readonly arn: string;
     /**
@@ -74,11 +76,11 @@ export interface GetSnapshotResult {
      */
     readonly name: string;
     /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
     readonly source: string;
     /**
-     * A map of tags assigned to the snapshot.
+     * Map of tags assigned to the snapshot.
      */
     readonly tags: {[key: string]: string};
 }
@@ -96,7 +98,7 @@ export interface GetSnapshotOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the snapshot.
+     * Map of tags assigned to the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

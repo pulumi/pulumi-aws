@@ -47,13 +47,13 @@ namespace Pulumi.Aws.AppSync
     public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the associated AppSync API
+        /// ID of the associated AppSync API
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The API key description. Defaults to "Managed by Pulumi".
+        /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Expires { get; private set; } = null!;
 
         /// <summary>
-        /// The API key
+        /// API key
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.AppSync
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated AppSync API
+        /// ID of the associated AppSync API
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The API key description. Defaults to "Managed by Pulumi".
+        /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.AppSync
     public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated AppSync API
+        /// ID of the associated AppSync API
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The API key description. Defaults to "Managed by Pulumi".
+        /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Expires { get; set; }
 
         /// <summary>
-        /// The API key
+        /// API key
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

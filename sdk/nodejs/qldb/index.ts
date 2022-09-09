@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getLedger";
-export * from "./ledger";
-export * from "./stream";
+export { GetLedgerArgs, GetLedgerResult, GetLedgerOutputArgs } from "./getLedger";
+export const getLedger: typeof import("./getLedger").getLedger = null as any;
+export const getLedgerOutput: typeof import("./getLedger").getLedgerOutput = null as any;
 
-// Import resources to register:
-import { Ledger } from "./ledger";
-import { Stream } from "./stream";
+export { LedgerArgs, LedgerState } from "./ledger";
+export type Ledger = import("./ledger").Ledger;
+export const Ledger: typeof import("./ledger").Ledger = null as any;
+
+export { StreamArgs, StreamState } from "./stream";
+export type Stream = import("./stream").Stream;
+export const Stream: typeof import("./stream").Stream = null as any;
+
+utilities.lazyLoad(exports, ["getLedger","getLedgerOutput"], () => require("./getLedger"));
+utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
 
 const _module = {
     version: utilities.getVersion(),

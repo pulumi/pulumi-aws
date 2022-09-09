@@ -29,9 +29,9 @@ type GetCoipPoolArgs struct {
 	Filters []GetCoipPoolFilter `pulumi:"filters"`
 	// Local Gateway Route Table Id assigned to desired COIP Pool
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// The id of the specific COIP Pool to retrieve.
+	// ID of the specific COIP Pool to retrieve.
 	PoolId *string `pulumi:"poolId"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -68,9 +68,9 @@ type GetCoipPoolOutputArgs struct {
 	Filters GetCoipPoolFilterArrayInput `pulumi:"filters"`
 	// Local Gateway Route Table Id assigned to desired COIP Pool
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
-	// The id of the specific COIP Pool to retrieve.
+	// ID of the specific COIP Pool to retrieve.
 	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

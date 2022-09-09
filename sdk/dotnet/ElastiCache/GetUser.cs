@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
         /// </summary>
         [Input("accessString")]
         public string? AccessString { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         [Input("userId", required: true)]
         public string UserId { get; set; } = null!;
 
         /// <summary>
-        /// The user name of the user.
+        /// User name of the user.
         /// </summary>
         [Input("userName")]
         public string? UserName { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// The user name of the user.
+        /// User name of the user.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetUserResult
     {
         /// <summary>
-        /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
         /// </summary>
         public readonly string? AccessString;
         public readonly string? Engine;
@@ -163,11 +163,11 @@ namespace Pulumi.Aws.ElastiCache
         public readonly bool? NoPasswordRequired;
         public readonly ImmutableArray<string> Passwords;
         /// <summary>
-        /// The identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         public readonly string UserId;
         /// <summary>
-        /// The user name of the user.
+        /// User name of the user.
         /// </summary>
         public readonly string? UserName;
 

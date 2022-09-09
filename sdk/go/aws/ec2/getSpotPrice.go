@@ -57,11 +57,11 @@ func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSpotPrice.
 type GetSpotPriceArgs struct {
-	// The availability zone in which to query Spot price information.
+	// Availability zone in which to query Spot price information.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
 	Filters []GetSpotPriceFilter `pulumi:"filters"`
-	// The type of instance for which to query Spot Price information.
+	// Type of instance for which to query Spot Price information.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -72,7 +72,7 @@ type GetSpotPriceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	InstanceType *string `pulumi:"instanceType"`
-	// The most recent Spot Price value for the given instance type and AZ.
+	// Most recent Spot Price value for the given instance type and AZ.
 	SpotPrice string `pulumi:"spotPrice"`
 	// The timestamp at which the Spot Price value was published.
 	SpotPriceTimestamp string `pulumi:"spotPriceTimestamp"`
@@ -93,11 +93,11 @@ func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts .
 
 // A collection of arguments for invoking getSpotPrice.
 type GetSpotPriceOutputArgs struct {
-	// The availability zone in which to query Spot price information.
+	// Availability zone in which to query Spot price information.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
 	Filters GetSpotPriceFilterArrayInput `pulumi:"filters"`
-	// The type of instance for which to query Spot Price information.
+	// Type of instance for which to query Spot Price information.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -137,7 +137,7 @@ func (o GetSpotPriceResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The most recent Spot Price value for the given instance type and AZ.
+// Most recent Spot Price value for the given instance type and AZ.
 func (o GetSpotPriceResultOutput) SpotPrice() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSpotPriceResult) string { return v.SpotPrice }).(pulumi.StringOutput)
 }

@@ -13,7 +13,7 @@ import (
 type ArchiveRuleFilter struct {
 	// Contains comparator.
 	Contains []string `pulumi:"contains"`
-	// The filter criteria.
+	// Filter criteria.
 	Criteria string `pulumi:"criteria"`
 	// Equals comparator.
 	Eqs []string `pulumi:"eqs"`
@@ -37,7 +37,7 @@ type ArchiveRuleFilterInput interface {
 type ArchiveRuleFilterArgs struct {
 	// Contains comparator.
 	Contains pulumi.StringArrayInput `pulumi:"contains"`
-	// The filter criteria.
+	// Filter criteria.
 	Criteria pulumi.StringInput `pulumi:"criteria"`
 	// Equals comparator.
 	Eqs pulumi.StringArrayInput `pulumi:"eqs"`
@@ -103,7 +103,7 @@ func (o ArchiveRuleFilterOutput) Contains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Contains }).(pulumi.StringArrayOutput)
 }
 
-// The filter criteria.
+// Filter criteria.
 func (o ArchiveRuleFilterOutput) Criteria() pulumi.StringOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) string { return v.Criteria }).(pulumi.StringOutput)
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetExportResult {
     /**
-     * @return The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return ARN of stack that contains the exported output name and value.
      * 
      */
     private String exportingStackId;
@@ -21,14 +21,14 @@ public final class GetExportResult {
     private String id;
     private String name;
     /**
-     * @return The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     private String value;
 
     private GetExportResult() {}
     /**
-     * @return The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return ARN of stack that contains the exported output name and value.
      * 
      */
     public String exportingStackId() {
@@ -45,7 +45,7 @@ public final class GetExportResult {
         return this.name;
     }
     /**
-     * @return The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     public String value() {

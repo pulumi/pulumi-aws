@@ -48,7 +48,7 @@ class GetVpcLinkResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the VPC link.
+        Description of the VPC link.
         """
         return pulumi.get(self, "description")
 
@@ -69,7 +69,7 @@ class GetVpcLinkResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the VPC link.
+        Status of the VPC link.
         """
         return pulumi.get(self, "status")
 
@@ -77,7 +77,7 @@ class GetVpcLinkResult:
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> str:
         """
-        The status message of the VPC link.
+        Status message of the VPC link.
         """
         return pulumi.get(self, "status_message")
 
@@ -93,7 +93,7 @@ class GetVpcLinkResult:
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> Sequence[str]:
         """
-        The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         return pulumi.get(self, "target_arns")
 
@@ -132,7 +132,7 @@ def get_vpc_link(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+    :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
@@ -172,7 +172,7 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+    :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """

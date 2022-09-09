@@ -50,7 +50,7 @@ class GetSecurityGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The computed ARN of the security group.
+        Computed ARN of the security group.
         """
         return pulumi.get(self, "arn")
 
@@ -58,7 +58,7 @@ class GetSecurityGroupResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the security group.
+        Description of the security group.
         """
         return pulumi.get(self, "description")
 
@@ -135,12 +135,12 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific security group to retrieve.
-    :param str name: The name of the field to filter by, as defined by
+    :param str id: Id of the specific security group to retrieve.
+    :param str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
-    :param str vpc_id: The id of the VPC that the desired security group belongs to.
+    :param str vpc_id: Id of the VPC that the desired security group belongs to.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -194,11 +194,11 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
-    :param str id: The id of the specific security group to retrieve.
-    :param str name: The name of the field to filter by, as defined by
+    :param str id: Id of the specific security group to retrieve.
+    :param str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
-    :param str vpc_id: The id of the VPC that the desired security group belongs to.
+    :param str vpc_id: Id of the VPC that the desired security group belongs to.
     """
     ...

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLoggingAccessLog
     {
         /// <summary>
-        /// The file object to send virtual gateway access logs to.
+        /// File object to send virtual gateway access logs to.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecLoggingAccessLogFile? File;
 

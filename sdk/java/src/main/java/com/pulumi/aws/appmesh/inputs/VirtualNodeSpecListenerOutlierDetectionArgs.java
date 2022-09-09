@@ -16,14 +16,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
     public static final VirtualNodeSpecListenerOutlierDetectionArgs Empty = new VirtualNodeSpecListenerOutlierDetectionArgs();
 
     /**
-     * The base amount of time for which a host is ejected.
+     * Base amount of time for which a host is ejected.
      * 
      */
     @Import(name="baseEjectionDuration", required=true)
     private Output<VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> baseEjectionDuration;
 
     /**
-     * @return The base amount of time for which a host is ejected.
+     * @return Base amount of time for which a host is ejected.
      * 
      */
     public Output<VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> baseEjectionDuration() {
@@ -31,14 +31,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
     }
 
     /**
-     * The time interval between ejection sweep analysis.
+     * Time interval between ejection sweep analysis.
      * 
      */
     @Import(name="interval", required=true)
     private Output<VirtualNodeSpecListenerOutlierDetectionIntervalArgs> interval;
 
     /**
-     * @return The time interval between ejection sweep analysis.
+     * @return Time interval between ejection sweep analysis.
      * 
      */
     public Output<VirtualNodeSpecListenerOutlierDetectionIntervalArgs> interval() {
@@ -105,7 +105,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param baseEjectionDuration The base amount of time for which a host is ejected.
+         * @param baseEjectionDuration Base amount of time for which a host is ejected.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param baseEjectionDuration The base amount of time for which a host is ejected.
+         * @param baseEjectionDuration Base amount of time for which a host is ejected.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param interval The time interval between ejection sweep analysis.
+         * @param interval Time interval between ejection sweep analysis.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param interval The time interval between ejection sweep analysis.
+         * @param interval Time interval between ejection sweep analysis.
          * 
          * @return builder
          * 

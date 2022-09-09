@@ -47,7 +47,7 @@ class GetCertificateResult:
     @pulumi.getter
     def certificate(self) -> str:
         """
-        The PEM-encoded certificate value.
+        PEM-encoded certificate value.
         """
         return pulumi.get(self, "certificate")
 
@@ -60,7 +60,7 @@ class GetCertificateResult:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
         """
-        The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -103,8 +103,8 @@ def get_certificate(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
-    :param str certificate_authority_arn: Amazon Resource Name (ARN) of the certificate authority.
+    :param str arn: ARN of the certificate issued by the private certificate authority.
+    :param str certificate_authority_arn: ARN of the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -138,7 +138,7 @@ def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
-    :param str certificate_authority_arn: Amazon Resource Name (ARN) of the certificate authority.
+    :param str arn: ARN of the certificate issued by the private certificate authority.
+    :param str certificate_authority_arn: ARN of the certificate authority.
     """
     ...

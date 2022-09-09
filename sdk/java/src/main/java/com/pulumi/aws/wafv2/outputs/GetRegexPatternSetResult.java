@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRegexPatternSetResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     private String arn;
     /**
-     * @return The description of the set that helps with identification.
+     * @return Description of the set that helps with identification.
      * 
      */
     private String description;
@@ -36,14 +36,14 @@ public final class GetRegexPatternSetResult {
 
     private GetRegexPatternSetResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the entity.
+     * @return ARN of the entity.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the set that helps with identification.
+     * @return Description of the set that helps with identification.
      * 
      */
     public String description() {

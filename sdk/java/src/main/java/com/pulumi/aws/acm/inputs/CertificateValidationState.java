@@ -17,14 +17,14 @@ public final class CertificateValidationState extends com.pulumi.resources.Resou
     public static final CertificateValidationState Empty = new CertificateValidationState();
 
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      * 
      */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
     /**
-     * @return The ARN of the certificate that is being validated.
+     * @return ARN of the certificate that is being validated.
      * 
      */
     public Optional<Output<String>> certificateArn() {
@@ -72,7 +72,7 @@ public final class CertificateValidationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param certificateArn The ARN of the certificate that is being validated.
+         * @param certificateArn ARN of the certificate that is being validated.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CertificateValidationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param certificateArn The ARN of the certificate that is being validated.
+         * @param certificateArn ARN of the certificate that is being validated.
          * 
          * @return builder
          * 

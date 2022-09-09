@@ -74,19 +74,19 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> BasePath { get; private set; } = null!;
 
         /// <summary>
-        /// The already-registered domain name to connect the API to.
+        /// Already-registered domain name to connect the API to.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the API to connect.
+        /// ID of the API to connect.
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
@@ -144,19 +144,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? BasePath { get; set; }
 
         /// <summary>
-        /// The already-registered domain name to connect the API to.
+        /// Already-registered domain name to connect the API to.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the API to connect.
+        /// ID of the API to connect.
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -176,19 +176,19 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? BasePath { get; set; }
 
         /// <summary>
-        /// The already-registered domain name to connect the API to.
+        /// Already-registered domain name to connect the API to.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The id of the API to connect.
+        /// ID of the API to connect.
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

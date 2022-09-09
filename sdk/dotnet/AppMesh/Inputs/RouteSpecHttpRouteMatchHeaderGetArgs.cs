@@ -19,13 +19,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<bool>? Invert { get; set; }
 
         /// <summary>
-        /// The method and value to match the header value sent with a request. Specify one match method.
+        /// Method and value to match the header value sent with a request. Specify one match method.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecHttpRouteMatchHeaderMatchGetArgs>? Match { get; set; }
 
         /// <summary>
-        /// A name for the HTTP header in the client request that will be matched on.
+        /// Name for the HTTP header in the client request that will be matched on.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppConfig.Outputs
     public sealed class EventIntegrationEventFilter
     {
         /// <summary>
-        /// The source of the events.
+        /// Source of the events.
         /// </summary>
         public readonly string Source;
 

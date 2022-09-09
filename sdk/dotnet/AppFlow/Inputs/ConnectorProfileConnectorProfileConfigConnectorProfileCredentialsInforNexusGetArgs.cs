@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> AccessKeyId { get; set; } = null!;
 
         /// <summary>
-        /// The encryption keys used to encrypt data.
+        /// Encryption keys used to encrypt data.
         /// </summary>
         [Input("datakey", required: true)]
         public Input<string> Datakey { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> SecretAccessKey { get; set; } = null!;
 
         /// <summary>
-        /// The identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;

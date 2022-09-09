@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export interface GetClusterArgs {
      */
     name: string;
     /**
-     * A map of tags assigned to the cluster.
+     * Map of tags assigned to the cluster.
      */
     tags?: {[key: string]: string};
 }
@@ -50,11 +52,11 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * The name of the Access Control List associated with the cluster.
+     * Name of the Access Control List associated with the cluster.
      */
     readonly aclName: string;
     /**
-     * The ARN of the cluster.
+     * ARN of the cluster.
      */
     readonly arn: string;
     /**
@@ -88,7 +90,7 @@ export interface GetClusterResult {
      */
     readonly kmsKeyArn: string;
     /**
-     * The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      */
     readonly maintenanceWindow: string;
     /**
@@ -97,7 +99,7 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * The compute and memory capacity of the nodes in the cluster.
+     * Compute and memory capacity of the nodes in the cluster.
      */
     readonly nodeType: string;
     /**
@@ -105,7 +107,7 @@ export interface GetClusterResult {
      */
     readonly numReplicasPerShard: number;
     /**
-     * The number of shards in the cluster.
+     * Number of shards in the cluster.
      */
     readonly numShards: number;
     /**
@@ -129,7 +131,7 @@ export interface GetClusterResult {
      */
     readonly snapshotRetentionLimit: number;
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
     readonly snapshotWindow: string;
     /**
@@ -139,7 +141,7 @@ export interface GetClusterResult {
     readonly snsTopicArn: string;
     readonly subnetGroupName: string;
     /**
-     * A map of tags assigned to the cluster.
+     * Map of tags assigned to the cluster.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -161,7 +163,7 @@ export interface GetClusterOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the cluster.
+     * Map of tags assigned to the cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

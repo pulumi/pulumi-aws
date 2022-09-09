@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool DeleteOnTermination;
         /// <summary>
-        /// The physical name of the device.
+        /// Physical name of the device.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
@@ -31,20 +31,20 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int Iops;
         public readonly string KmsKeyId;
         /// <summary>
-        /// A map of tags assigned to the Instance.
+        /// Map of tags assigned to the Instance.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The throughput of the volume, in MiB/s.
+        /// Throughput of the volume, in MiB/s.
         /// </summary>
         public readonly int Throughput;
         public readonly string VolumeId;
         /// <summary>
-        /// The size of the volume, in GiB.
+        /// Size of the volume, in GiB.
         /// </summary>
         public readonly int VolumeSize;
         /// <summary>
-        /// The type of the volume.
+        /// Type of the volume.
         /// </summary>
         public readonly string VolumeType;
 

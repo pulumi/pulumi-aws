@@ -27,6 +27,7 @@ public final class AssumeRole {
     private @Nullable List<String> policyArns;
     private @Nullable String roleArn;
     private @Nullable String sessionName;
+    private @Nullable String sourceIdentity;
     private @Nullable Map<String,String> tags;
     private @Nullable List<String> transitiveTagKeys;
 
@@ -58,6 +59,9 @@ public final class AssumeRole {
     public Optional<String> sessionName() {
         return Optional.ofNullable(this.sessionName);
     }
+    public Optional<String> sourceIdentity() {
+        return Optional.ofNullable(this.sourceIdentity);
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -81,6 +85,7 @@ public final class AssumeRole {
         private @Nullable List<String> policyArns;
         private @Nullable String roleArn;
         private @Nullable String sessionName;
+        private @Nullable String sourceIdentity;
         private @Nullable Map<String,String> tags;
         private @Nullable List<String> transitiveTagKeys;
         public Builder() {}
@@ -93,6 +98,7 @@ public final class AssumeRole {
     	      this.policyArns = defaults.policyArns;
     	      this.roleArn = defaults.roleArn;
     	      this.sessionName = defaults.sessionName;
+    	      this.sourceIdentity = defaults.sourceIdentity;
     	      this.tags = defaults.tags;
     	      this.transitiveTagKeys = defaults.transitiveTagKeys;
         }
@@ -136,6 +142,11 @@ public final class AssumeRole {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceIdentity(@Nullable String sourceIdentity) {
+            this.sourceIdentity = sourceIdentity;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
@@ -157,6 +168,7 @@ public final class AssumeRole {
             o.policyArns = policyArns;
             o.roleArn = roleArn;
             o.sessionName = sessionName;
+            o.sourceIdentity = sourceIdentity;
             o.tags = tags;
             o.transitiveTagKeys = transitiveTagKeys;
             return o;

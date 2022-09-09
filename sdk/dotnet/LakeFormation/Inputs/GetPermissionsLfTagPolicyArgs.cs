@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>? _expressions;
 
         /// <summary>
-        /// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
         /// </summary>
         public InputList<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs> Expressions
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         }
 
         /// <summary>
-        /// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        /// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

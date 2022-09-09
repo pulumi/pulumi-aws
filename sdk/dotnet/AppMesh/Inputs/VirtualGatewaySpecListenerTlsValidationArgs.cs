@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecListenerTlsValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        /// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         /// </summary>
         [Input("subjectAlternativeNames")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs>? SubjectAlternativeNames { get; set; }
 
         /// <summary>
-        /// The TLS validation context trust.
+        /// TLS validation context trust.
         /// </summary>
         [Input("trust", required: true)]
         public Input<Inputs.VirtualGatewaySpecListenerTlsValidationTrustArgs> Trust { get; set; } = null!;

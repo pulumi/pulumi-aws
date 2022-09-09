@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -106,11 +106,11 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventConnectionResult
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) for the connection.
+        /// ARN (Amazon Resource Name) for the connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
@@ -118,11 +118,11 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+        /// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
         /// </summary>
         public readonly string SecretArn;
 

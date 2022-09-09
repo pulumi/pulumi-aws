@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connection";
-export * from "./getConnection";
-export * from "./host";
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
 
-// Import resources to register:
-import { Connection } from "./connection";
-import { Host } from "./host";
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+
+export { HostArgs, HostState } from "./host";
+export type Host = import("./host").Host;
+export const Host: typeof import("./host").Host = null as any;
+
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+utilities.lazyLoad(exports, ["Host"], () => require("./host"));
 
 const _module = {
     version: utilities.getVersion(),

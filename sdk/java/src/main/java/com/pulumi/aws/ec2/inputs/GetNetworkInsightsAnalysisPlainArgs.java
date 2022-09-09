@@ -33,14 +33,14 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * The ID of the Network Insights Analysis to select.
+     * ID of the Network Insights Analysis to select.
      * 
      */
     @Import(name="networkInsightsAnalysisId")
     private @Nullable String networkInsightsAnalysisId;
 
     /**
-     * @return The ID of the Network Insights Analysis to select.
+     * @return ID of the Network Insights Analysis to select.
      * 
      */
     public Optional<String> networkInsightsAnalysisId() {
@@ -102,7 +102,7 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkInsightsAnalysisId The ID of the Network Insights Analysis to select.
+         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
          * 
          * @return builder
          * 

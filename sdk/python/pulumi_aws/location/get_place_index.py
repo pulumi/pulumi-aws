@@ -55,7 +55,7 @@ class GetPlaceIndexResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the place index resource was created in ISO 8601 format.
+        Timestamp for when the place index resource was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -63,7 +63,7 @@ class GetPlaceIndexResult:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        The data provider of geospatial data.
+        Data provider of geospatial data.
         """
         return pulumi.get(self, "data_source")
 
@@ -79,7 +79,7 @@ class GetPlaceIndexResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The optional description for the place index resource.
+        Optional description for the place index resource.
         """
         return pulumi.get(self, "description")
 
@@ -95,7 +95,7 @@ class GetPlaceIndexResult:
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the place index resource.
+        ARN for the place index resource.
         """
         return pulumi.get(self, "index_arn")
 
@@ -116,7 +116,7 @@ class GetPlaceIndexResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the place index resource was last updated in ISO 8601 format.
+        Timestamp for when the place index resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -154,7 +154,7 @@ def get_place_index(index_name: Optional[str] = None,
     ```
 
 
-    :param str index_name: The name of the place index resource.
+    :param str index_name: Name of the place index resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()
@@ -192,7 +192,7 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str index_name: The name of the place index resource.
+    :param str index_name: Name of the place index resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
     """
     ...

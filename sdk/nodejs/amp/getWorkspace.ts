@@ -36,11 +36,11 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetWorkspaceArgs {
     /**
-     * The tags assigned to the resource.
+     * Tags assigned to the resource.
      */
     tags?: {[key: string]: string};
     /**
-     * The Prometheus workspace ID.
+     * Prometheus workspace ID.
      */
     workspaceId: string;
 }
@@ -50,15 +50,15 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * The Prometheus workspace alias.
+     * Prometheus workspace alias.
      */
     readonly alias: string;
     /**
-     * The Amazon Resource Name (ARN) of the Prometheus workspace.
+     * ARN of the Prometheus workspace.
      */
     readonly arn: string;
     /**
-     * The creation date of the Prometheus workspace.
+     * Creation date of the Prometheus workspace.
      */
     readonly createdDate: string;
     /**
@@ -66,15 +66,15 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
-     * The endpoint of the Prometheus workspace.
+     * Endpoint of the Prometheus workspace.
      */
     readonly prometheusEndpoint: string;
     /**
-     * The status of the Prometheus workspace.
+     * Status of the Prometheus workspace.
      */
     readonly status: string;
     /**
-     * The tags assigned to the resource.
+     * Tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     readonly workspaceId: string;
@@ -89,11 +89,11 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  */
 export interface GetWorkspaceOutputArgs {
     /**
-     * The tags assigned to the resource.
+     * Tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Prometheus workspace ID.
+     * Prometheus workspace ID.
      */
     workspaceId: pulumi.Input<string>;
 }

@@ -17,17 +17,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetFirewallResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall.
+     * @return ARN of the firewall.
      * 
      */
     private String arn;
     /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall.
+     * @return Boolean flag indicating whether it is possible to delete the firewall.
      * 
      */
     private Boolean deleteProtection;
     /**
-     * @return A description of the firewall.
+     * @return Description of the firewall.
      * 
      */
     private String description;
@@ -37,7 +37,7 @@ public final class GetFirewallResult {
      */
     private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * @return ARN of the VPC Firewall policy.
      * 
      */
     private String firewallPolicyArn;
@@ -57,7 +57,7 @@ public final class GetFirewallResult {
      */
     private String id;
     /**
-     * @return The descriptive name of the firewall.
+     * @return Descriptive name of the firewall.
      * 
      */
     private String name;
@@ -77,33 +77,33 @@ public final class GetFirewallResult {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return A string token used when updating a firewall.
+     * @return String token used when updating a firewall.
      * 
      */
     private String updateToken;
     /**
-     * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
     private String vpcId;
 
     private GetFirewallResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall.
+     * @return ARN of the firewall.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall.
+     * @return Boolean flag indicating whether it is possible to delete the firewall.
      * 
      */
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
     /**
-     * @return A description of the firewall.
+     * @return Description of the firewall.
      * 
      */
     public String description() {
@@ -117,7 +117,7 @@ public final class GetFirewallResult {
         return this.encryptionConfigurations;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * @return ARN of the VPC Firewall policy.
      * 
      */
     public String firewallPolicyArn() {
@@ -145,7 +145,7 @@ public final class GetFirewallResult {
         return this.id;
     }
     /**
-     * @return The descriptive name of the firewall.
+     * @return Descriptive name of the firewall.
      * 
      */
     public String name() {
@@ -173,14 +173,14 @@ public final class GetFirewallResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return A string token used when updating a firewall.
+     * @return String token used when updating a firewall.
      * 
      */
     public String updateToken() {
         return this.updateToken;
     }
     /**
-     * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
     public String vpcId() {

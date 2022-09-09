@@ -63,7 +63,8 @@ type RouteCalculation struct {
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
@@ -114,7 +115,8 @@ type routeCalculationState struct {
 	// The optional description for the route calculator resource.
 	Description *string           `pulumi:"description"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime *string `pulumi:"updateTime"`
 }
@@ -131,7 +133,8 @@ type RouteCalculationState struct {
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringPtrInput
 }
@@ -277,6 +280,7 @@ func (o RouteCalculationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteCalculationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

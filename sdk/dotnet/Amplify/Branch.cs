@@ -170,13 +170,13 @@ namespace Pulumi.Aws.Amplify
     public partial class Branch : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the branch.
+        /// ARN for the branch.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -188,43 +188,43 @@ namespace Pulumi.Aws.Amplify
         public Output<ImmutableArray<string>> AssociatedResources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Output("backendEnvironmentArn")]
         public Output<string?> BackendEnvironmentArn { get; private set; } = null!;
 
         /// <summary>
-        /// The basic authorization credentials for the branch.
+        /// Basic authorization credentials for the branch.
         /// </summary>
         [Output("basicAuthCredentials")]
         public Output<string?> BasicAuthCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the branch.
+        /// Name for the branch.
         /// </summary>
         [Output("branchName")]
         public Output<string> BranchName { get; private set; } = null!;
 
         /// <summary>
-        /// The custom domains for the branch.
+        /// Custom domains for the branch.
         /// </summary>
         [Output("customDomains")]
         public Output<ImmutableArray<string>> CustomDomains { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the branch.
+        /// Description for the branch.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The destination branch if the branch is a pull request branch.
+        /// Destination branch if the branch is a pull request branch.
         /// </summary>
         [Output("destinationBranch")]
         public Output<string> DestinationBranch { get; private set; } = null!;
 
         /// <summary>
-        /// The display name for a branch. This is used as the default domain prefix.
+        /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -260,25 +260,25 @@ namespace Pulumi.Aws.Amplify
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
 
         /// <summary>
-        /// The environment variables for the branch.
+        /// Environment variables for the branch.
         /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// The framework for the branch.
+        /// Framework for the branch.
         /// </summary>
         [Output("framework")]
         public Output<string?> Framework { get; private set; } = null!;
 
         /// <summary>
-        /// The Amplify environment name for the pull request.
+        /// Amplify environment name for the pull request.
         /// </summary>
         [Output("pullRequestEnvironmentName")]
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
 
         /// <summary>
-        /// The source branch if the branch is a pull request branch.
+        /// Source branch if the branch is a pull request branch.
         /// </summary>
         [Output("sourceBranch")]
         public Output<string> SourceBranch { get; private set; } = null!;
@@ -296,13 +296,13 @@ namespace Pulumi.Aws.Amplify
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The content Time To Live (TTL) for the website in seconds.
+        /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
         [Output("ttl")]
         public Output<string?> Ttl { get; private set; } = null!;
@@ -354,37 +354,37 @@ namespace Pulumi.Aws.Amplify
     public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Input("backendEnvironmentArn")]
         public Input<string>? BackendEnvironmentArn { get; set; }
 
         /// <summary>
-        /// The basic authorization credentials for the branch.
+        /// Basic authorization credentials for the branch.
         /// </summary>
         [Input("basicAuthCredentials")]
         public Input<string>? BasicAuthCredentials { get; set; }
 
         /// <summary>
-        /// The name for the branch.
+        /// Name for the branch.
         /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
-        /// The description for the branch.
+        /// Description for the branch.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name for a branch. This is used as the default domain prefix.
+        /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// The environment variables for the branch.
+        /// Environment variables for the branch.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -432,13 +432,13 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The framework for the branch.
+        /// Framework for the branch.
         /// </summary>
         [Input("framework")]
         public Input<string>? Framework { get; set; }
 
         /// <summary>
-        /// The Amplify environment name for the pull request.
+        /// Amplify environment name for the pull request.
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The content Time To Live (TTL) for the website in seconds.
+        /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
         [Input("ttl")]
         public Input<string>? Ttl { get; set; }
@@ -476,13 +476,13 @@ namespace Pulumi.Aws.Amplify
     public sealed class BranchState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the branch.
+        /// ARN for the branch.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -500,19 +500,19 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Input("backendEnvironmentArn")]
         public Input<string>? BackendEnvironmentArn { get; set; }
 
         /// <summary>
-        /// The basic authorization credentials for the branch.
+        /// Basic authorization credentials for the branch.
         /// </summary>
         [Input("basicAuthCredentials")]
         public Input<string>? BasicAuthCredentials { get; set; }
 
         /// <summary>
-        /// The name for the branch.
+        /// Name for the branch.
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<string>? _customDomains;
 
         /// <summary>
-        /// The custom domains for the branch.
+        /// Custom domains for the branch.
         /// </summary>
         public InputList<string> CustomDomains
         {
@@ -530,19 +530,19 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The description for the branch.
+        /// Description for the branch.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The destination branch if the branch is a pull request branch.
+        /// Destination branch if the branch is a pull request branch.
         /// </summary>
         [Input("destinationBranch")]
         public Input<string>? DestinationBranch { get; set; }
 
         /// <summary>
-        /// The display name for a branch. This is used as the default domain prefix.
+        /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -581,7 +581,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// The environment variables for the branch.
+        /// Environment variables for the branch.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -590,19 +590,19 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The framework for the branch.
+        /// Framework for the branch.
         /// </summary>
         [Input("framework")]
         public Input<string>? Framework { get; set; }
 
         /// <summary>
-        /// The Amplify environment name for the pull request.
+        /// Amplify environment name for the pull request.
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
         /// <summary>
-        /// The source branch if the branch is a pull request branch.
+        /// Source branch if the branch is a pull request branch.
         /// </summary>
         [Input("sourceBranch")]
         public Input<string>? SourceBranch { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// The content Time To Live (TTL) for the website in seconds.
+        /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
         [Input("ttl")]
         public Input<string>? Ttl { get; set; }

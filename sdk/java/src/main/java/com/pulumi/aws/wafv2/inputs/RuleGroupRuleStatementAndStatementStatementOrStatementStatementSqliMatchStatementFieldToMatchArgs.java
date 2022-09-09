@@ -5,6 +5,8 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchCookiesArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeaderArgs;
@@ -49,6 +51,36 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
      */
     public Optional<Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs>> body() {
         return Optional.ofNullable(this.body);
+    }
+
+    /**
+     * Inspect the request cookies.
+     * 
+     */
+    @Import(name="cookies")
+    private @Nullable Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchCookiesArgs> cookies;
+
+    /**
+     * @return Inspect the request cookies.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchCookiesArgs>> cookies() {
+        return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    @Import(name="jsonBody")
+    private @Nullable Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
+
+    /**
+     * @return Inspect the request body as JSON. See JSON Body for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyArgs>> jsonBody() {
+        return Optional.ofNullable(this.jsonBody);
     }
 
     /**
@@ -131,6 +163,8 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
     private RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs(RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs $) {
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
+        this.cookies = $.cookies;
+        this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
@@ -196,6 +230,48 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
          */
         public Builder body(RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBodyArgs body) {
             return body(Output.of(body));
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(@Nullable Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchCookiesArgs> cookies) {
+            $.cookies = cookies;
+            return this;
+        }
+
+        /**
+         * @param cookies Inspect the request cookies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cookies(RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchCookiesArgs cookies) {
+            return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(@Nullable Output<RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyArgs> jsonBody) {
+            $.jsonBody = jsonBody;
+            return this;
+        }
+
+        /**
+         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsonBody(RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchJsonBodyArgs jsonBody) {
+            return jsonBody(Output.of(jsonBody));
         }
 
         /**

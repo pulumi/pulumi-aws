@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {Deployment, RestApi} from "./index";
@@ -120,15 +122,15 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies whether a cache cluster is enabled for the stage
+     * Whether a cache cluster is enabled for the stage
      */
     public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
     /**
@@ -136,51 +138,54 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly canarySettings!: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
     /**
-     * The identifier of a client certificate for the stage.
+     * Identifier of a client certificate for the stage.
      */
     public readonly clientCertificateId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the deployment that the stage points to
+     * ID of the deployment that the stage points to
      */
     public readonly deployment!: pulumi.Output<string>;
     /**
-     * The description of the stage.
+     * Description of the stage.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The version of the associated API documentation
+     * Version of the associated API documentation
      */
     public readonly documentationVersion!: pulumi.Output<string | undefined>;
     /**
-     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     public readonly stageName!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A map that defines the stage variables
+     * Map that defines the stage variables
      */
     public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ARN of the WebAcl associated with the Stage.
+     * ARN of the WebAcl associated with the Stage.
      */
     public /*out*/ readonly webAclArn!: pulumi.Output<string>;
     /**
@@ -263,15 +268,15 @@ export interface StageState {
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specifies whether a cache cluster is enabled for the stage
+     * Whether a cache cluster is enabled for the stage
      */
     cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     cacheClusterSize?: pulumi.Input<string>;
     /**
@@ -279,51 +284,54 @@ export interface StageState {
      */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
     /**
-     * The identifier of a client certificate for the stage.
+     * Identifier of a client certificate for the stage.
      */
     clientCertificateId?: pulumi.Input<string>;
     /**
-     * The ID of the deployment that the stage points to
+     * ID of the deployment that the stage points to
      */
     deployment?: pulumi.Input<string | Deployment>;
     /**
-     * The description of the stage.
+     * Description of the stage.
      */
     description?: pulumi.Input<string>;
     /**
-     * The version of the associated API documentation
+     * Version of the associated API documentation
      */
     documentationVersion?: pulumi.Input<string>;
     /**
-     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     executionArn?: pulumi.Input<string>;
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     invokeUrl?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     stageName?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map that defines the stage variables
+     * Map that defines the stage variables
      */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the WebAcl associated with the Stage.
+     * ARN of the WebAcl associated with the Stage.
      */
     webAclArn?: pulumi.Input<string>;
     /**
@@ -341,11 +349,11 @@ export interface StageArgs {
      */
     accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
-     * Specifies whether a cache cluster is enabled for the stage
+     * Whether a cache cluster is enabled for the stage
      */
     cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
-     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
     cacheClusterSize?: pulumi.Input<string>;
     /**
@@ -353,35 +361,35 @@ export interface StageArgs {
      */
     canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
     /**
-     * The identifier of a client certificate for the stage.
+     * Identifier of a client certificate for the stage.
      */
     clientCertificateId?: pulumi.Input<string>;
     /**
-     * The ID of the deployment that the stage points to
+     * ID of the deployment that the stage points to
      */
     deployment: pulumi.Input<string | Deployment>;
     /**
-     * The description of the stage.
+     * Description of the stage.
      */
     description?: pulumi.Input<string>;
     /**
-     * The version of the associated API documentation
+     * Version of the associated API documentation
      */
     documentationVersion?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * The name of the stage
+     * Name of the stage
      */
     stageName: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map that defines the stage variables
+     * Map that defines the stage variables
      */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

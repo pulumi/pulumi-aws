@@ -871,8 +871,8 @@ class GetFrameworkControlResult(dict):
                  scopes: Sequence['outputs.GetFrameworkControlScopeResult']):
         """
         :param Sequence['GetFrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
-        :param str name: The backup framework name.
-        :param Sequence['GetFrameworkControlScopeArgs'] scopes: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        :param str name: Backup framework name.
+        :param Sequence['GetFrameworkControlScopeArgs'] scopes: Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         pulumi.set(__self__, "input_parameters", input_parameters)
         pulumi.set(__self__, "name", name)
@@ -890,7 +890,7 @@ class GetFrameworkControlResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The backup framework name.
+        Backup framework name.
         """
         return pulumi.get(self, "name")
 
@@ -898,7 +898,7 @@ class GetFrameworkControlResult(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.GetFrameworkControlScopeResult']:
         """
-        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         return pulumi.get(self, "scopes")
 
@@ -909,8 +909,8 @@ class GetFrameworkControlInputParameterResult(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The backup framework name.
-        :param str value: The value of parameter, for example, hourly.
+        :param str name: Backup framework name.
+        :param str value: Value of parameter, for example, hourly.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -919,7 +919,7 @@ class GetFrameworkControlInputParameterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The backup framework name.
+        Backup framework name.
         """
         return pulumi.get(self, "name")
 
@@ -927,7 +927,7 @@ class GetFrameworkControlInputParameterResult(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of parameter, for example, hourly.
+        Value of parameter, for example, hourly.
         """
         return pulumi.get(self, "value")
 
@@ -941,7 +941,7 @@ class GetFrameworkControlScopeResult(dict):
         """
         :param Sequence[str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain.
         :param Sequence[str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-        :param Mapping[str, str] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
         pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
@@ -967,7 +967,7 @@ class GetFrameworkControlScopeResult(dict):
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         return pulumi.get(self, "tags")
 
@@ -979,9 +979,9 @@ class GetReportPlanReportDeliveryChannelResult(dict):
                  s3_bucket_name: str,
                  s3_key_prefix: str):
         """
-        :param Sequence[str] formats: A list of the format of your reports: CSV, JSON, or both.
-        :param str s3_bucket_name: The unique name of the S3 bucket that receives your reports.
-        :param str s3_key_prefix: The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+        :param Sequence[str] formats: List of the format of your reports: CSV, JSON, or both.
+        :param str s3_bucket_name: Unique name of the S3 bucket that receives your reports.
+        :param str s3_key_prefix: Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
         """
         pulumi.set(__self__, "formats", formats)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -991,7 +991,7 @@ class GetReportPlanReportDeliveryChannelResult(dict):
     @pulumi.getter
     def formats(self) -> Sequence[str]:
         """
-        A list of the format of your reports: CSV, JSON, or both.
+        List of the format of your reports: CSV, JSON, or both.
         """
         return pulumi.get(self, "formats")
 
@@ -999,7 +999,7 @@ class GetReportPlanReportDeliveryChannelResult(dict):
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
         """
-        The unique name of the S3 bucket that receives your reports.
+        Unique name of the S3 bucket that receives your reports.
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -1007,7 +1007,7 @@ class GetReportPlanReportDeliveryChannelResult(dict):
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> str:
         """
-        The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+        Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
         """
         return pulumi.get(self, "s3_key_prefix")
 
@@ -1019,7 +1019,7 @@ class GetReportPlanReportSettingResult(dict):
                  number_of_frameworks: int,
                  report_template: str):
         """
-        :param Sequence[str] framework_arns: Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param Sequence[str] framework_arns: ARNs of the frameworks a report covers.
         :param int number_of_frameworks: Specifies the number of frameworks a report covers.
         :param str report_template: Identifies the report template for the report. Reports are built using a report template.
         """
@@ -1031,7 +1031,7 @@ class GetReportPlanReportSettingResult(dict):
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Sequence[str]:
         """
-        Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        ARNs of the frameworks a report covers.
         """
         return pulumi.get(self, "framework_arns")
 

@@ -48,30 +48,30 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
-	// The name of the connection to retrieve.
+	// Name of the connection to retrieve.
 	Name string `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
-	// The ARN of the connection.
+	// ARN of the connection.
 	Arn string `pulumi:"arn"`
-	// The Direct Connect endpoint on which the physical connection terminates.
+	// Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice string `pulumi:"awsDevice"`
-	// The bandwidth of the connection.
+	// Bandwidth of the connection.
 	Bandwidth string `pulumi:"bandwidth"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The AWS Direct Connect location where the connection is located.
+	// AWS Direct Connect location where the connection is located.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
-	// The ID of the AWS account that owns the connection.
+	// ID of the AWS account that owns the connection.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
-	// The name of the service provider associated with the connection.
+	// Name of the service provider associated with the connection.
 	ProviderName string `pulumi:"providerName"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -90,9 +90,9 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
-	// The name of the connection to retrieve.
+	// Name of the connection to retrieve.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags for the resource.
+	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -115,17 +115,17 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 	return o
 }
 
-// The ARN of the connection.
+// ARN of the connection.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Direct Connect endpoint on which the physical connection terminates.
+// Direct Connect endpoint on which the physical connection terminates.
 func (o LookupConnectionResultOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The bandwidth of the connection.
+// Bandwidth of the connection.
 func (o LookupConnectionResultOutput) Bandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Bandwidth }).(pulumi.StringOutput)
 }
@@ -135,7 +135,7 @@ func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The AWS Direct Connect location where the connection is located.
+// AWS Direct Connect location where the connection is located.
 func (o LookupConnectionResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -144,17 +144,17 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the connection.
+// ID of the AWS account that owns the connection.
 func (o LookupConnectionResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The name of the service provider associated with the connection.
+// Name of the service provider associated with the connection.
 func (o LookupConnectionResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// A map of tags for the resource.
+// Map of tags for the resource.
 func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

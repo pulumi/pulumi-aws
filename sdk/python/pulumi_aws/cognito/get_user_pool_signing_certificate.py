@@ -36,7 +36,7 @@ class GetUserPoolSigningCertificateResult:
     @pulumi.getter
     def certificate(self) -> str:
         """
-        The certificate string
+        Certificate string
         """
         return pulumi.get(self, "certificate")
 
@@ -80,7 +80,7 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     ```
 
 
-    :param str user_pool_id: The Cognito user pool ID.
+    :param str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
@@ -109,6 +109,6 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
     ```
 
 
-    :param str user_pool_id: The Cognito user pool ID.
+    :param str user_pool_id: Cognito user pool ID.
     """
     ...

@@ -64,7 +64,7 @@ class GetSlotTypeResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date when the slot type version was created.
+        Date when the slot type version was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -72,7 +72,7 @@ class GetSlotTypeResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the slot type.
+        Description of the slot type.
         """
         return pulumi.get(self, "description")
 
@@ -80,7 +80,7 @@ class GetSlotTypeResult:
     @pulumi.getter(name="enumerationValues")
     def enumeration_values(self) -> Sequence['outputs.GetSlotTypeEnumerationValueResult']:
         """
-        A set of EnumerationValue objects that defines the values that
+        Set of EnumerationValue objects that defines the values that
         the slot type can take. Each value can have a set of synonyms, which are additional values that help
         train the machine learning model about the values that it resolves for a slot.
         """
@@ -98,7 +98,7 @@ class GetSlotTypeResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The date when the $LATEST version of this slot type was updated.
+        Date when the $LATEST version of this slot type was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -106,7 +106,7 @@ class GetSlotTypeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the slot type. The name is not case sensitive.
+        Name of the slot type. The name is not case sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -125,7 +125,7 @@ class GetSlotTypeResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the slot type.
+        Version of the slot type.
         """
         return pulumi.get(self, "version")
 
@@ -164,8 +164,8 @@ def get_slot_type(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the slot type. The name is case sensitive.
-    :param str version: The version of the slot type.
+    :param str name: Name of the slot type. The name is case sensitive.
+    :param str version: Version of the slot type.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -203,7 +203,7 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the slot type. The name is case sensitive.
-    :param str version: The version of the slot type.
+    :param str name: Name of the slot type. The name is case sensitive.
+    :param str version: Version of the slot type.
     """
     ...

@@ -16,14 +16,14 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
     public static final ConfigurationProfileValidatorArgs Empty = new ConfigurationProfileValidatorArgs();
 
     /**
-     * Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+     * Either the JSON Schema content or the ARN of an AWS Lambda function.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+     * @return Either the JSON Schema content or the ARN of an AWS Lambda function.
      * 
      */
     public Optional<Output<String>> content() {
@@ -31,14 +31,14 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
     }
 
     /**
-     * The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+     * Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+     * @return Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
      * 
      */
     public Output<String> type() {
@@ -71,7 +71,7 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param content Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+         * @param content Either the JSON Schema content or the ARN of an AWS Lambda function.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param content Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+         * @param content Either the JSON Schema content or the ARN of an AWS Lambda function.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+         * @param type Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConfigurationProfileValidatorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+         * @param type Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
          * 
          * @return builder
          * 

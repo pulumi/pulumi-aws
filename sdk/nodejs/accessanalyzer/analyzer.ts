@@ -74,7 +74,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly analyzerName!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Analyzer.
+     * ARN of the Analyzer.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -82,7 +82,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -133,7 +133,7 @@ export interface AnalyzerState {
      */
     analyzerName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Analyzer.
+     * ARN of the Analyzer.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -141,7 +141,7 @@ export interface AnalyzerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

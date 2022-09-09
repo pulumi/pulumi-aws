@@ -19,7 +19,7 @@ class AccountArgs:
                  cloudwatch_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
         if cloudwatch_role_arn is not None:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
@@ -28,7 +28,7 @@ class AccountArgs:
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
         return pulumi.get(self, "cloudwatch_role_arn")
 
@@ -44,7 +44,7 @@ class _AccountState:
                  throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if cloudwatch_role_arn is not None:
@@ -56,7 +56,7 @@ class _AccountState:
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
         return pulumi.get(self, "cloudwatch_role_arn")
 
@@ -143,7 +143,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
         ...
     @overload
@@ -254,7 +254,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArgs']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -269,7 +269,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
         return pulumi.get(self, "cloudwatch_role_arn")
 

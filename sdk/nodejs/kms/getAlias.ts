@@ -36,7 +36,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetAliasArgs {
     /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: string;
 }
@@ -46,7 +46,7 @@ export interface GetAliasArgs {
  */
 export interface GetAliasResult {
     /**
-     * The Amazon Resource Name(ARN) of the key alias.
+     * Amazon Resource Name(ARN) of the key alias.
      */
     readonly arn: string;
     /**
@@ -73,7 +73,7 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetAliasOutputArgs {
     /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: pulumi.Input<string>;
 }

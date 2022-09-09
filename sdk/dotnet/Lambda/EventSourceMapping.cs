@@ -289,6 +289,12 @@ namespace Pulumi.Aws.Lambda
     public partial class EventSourceMapping : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        /// </summary>
+        [Output("amazonManagedKafkaEventSourceConfig")]
+        public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         /// * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
@@ -371,13 +377,19 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
         /// * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
         [Output("queues")]
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         [Output("selfManagedEventSource")]
         public Output<Outputs.EventSourceMappingSelfManagedEventSource?> SelfManagedEventSource { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
+        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+        /// </summary>
+        [Output("selfManagedKafkaEventSourceConfig")]
+        public Output<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig> SelfManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         [Output("sourceAccessConfigurations")]
         public Output<ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration>> SourceAccessConfigurations { get; private set; } = null!;
@@ -471,6 +483,12 @@ namespace Pulumi.Aws.Lambda
     public sealed class EventSourceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        /// </summary>
+        [Input("amazonManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
+
+        /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         /// * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
@@ -544,7 +562,6 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
         /// * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
         public InputList<string> Queues
         {
@@ -554,6 +571,13 @@ namespace Pulumi.Aws.Lambda
 
         [Input("selfManagedEventSource")]
         public Input<Inputs.EventSourceMappingSelfManagedEventSourceArgs>? SelfManagedEventSource { get; set; }
+
+        /// <summary>
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
+        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+        /// </summary>
+        [Input("selfManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>? SelfManagedKafkaEventSourceConfig { get; set; }
 
         [Input("sourceAccessConfigurations")]
         private InputList<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? _sourceAccessConfigurations;
@@ -601,6 +625,12 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class EventSourceMappingState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        /// </summary>
+        [Input("amazonManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigGetArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
+
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -693,7 +723,6 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
         /// * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
         public InputList<string> Queues
         {
@@ -703,6 +732,13 @@ namespace Pulumi.Aws.Lambda
 
         [Input("selfManagedEventSource")]
         public Input<Inputs.EventSourceMappingSelfManagedEventSourceGetArgs>? SelfManagedEventSource { get; set; }
+
+        /// <summary>
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
+        /// * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+        /// </summary>
+        [Input("selfManagedKafkaEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigGetArgs>? SelfManagedKafkaEventSourceConfig { get; set; }
 
         [Input("sourceAccessConfigurations")]
         private InputList<Inputs.EventSourceMappingSourceAccessConfigurationGetArgs>? _sourceAccessConfigurations;

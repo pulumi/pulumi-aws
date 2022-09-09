@@ -36,11 +36,11 @@ export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetIntentArgs {
     /**
-     * The name of the intent. The name is case sensitive.
+     * Name of the intent. The name is case sensitive.
      */
     name: string;
     /**
-     * The version of the intent.
+     * Version of the intent.
      */
     version?: string;
 }
@@ -50,7 +50,7 @@ export interface GetIntentArgs {
  */
 export interface GetIntentResult {
     /**
-     * The ARN of the Lex intent.
+     * ARN of the Lex intent.
      */
     readonly arn: string;
     /**
@@ -59,11 +59,11 @@ export interface GetIntentResult {
      */
     readonly checksum: string;
     /**
-     * The date when the intent version was created.
+     * Date when the intent version was created.
      */
     readonly createdDate: string;
     /**
-     * A description of the intent.
+     * Description of the intent.
      */
     readonly description: string;
     /**
@@ -71,11 +71,11 @@ export interface GetIntentResult {
      */
     readonly id: string;
     /**
-     * The date when the $LATEST version of this intent was updated.
+     * Date when the $LATEST version of this intent was updated.
      */
     readonly lastUpdatedDate: string;
     /**
-     * The name of the intent, not case sensitive.
+     * Name of the intent, not case sensitive.
      */
     readonly name: string;
     /**
@@ -86,7 +86,7 @@ export interface GetIntentResult {
      */
     readonly parentIntentSignature: string;
     /**
-     * The version of the bot.
+     * Version of the bot.
      */
     readonly version?: string;
 }
@@ -100,11 +100,11 @@ export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetIntentOutputArgs {
     /**
-     * The name of the intent. The name is case sensitive.
+     * Name of the intent. The name is case sensitive.
      */
     name: pulumi.Input<string>;
     /**
-     * The version of the intent.
+     * Version of the intent.
      */
     version?: pulumi.Input<string>;
 }

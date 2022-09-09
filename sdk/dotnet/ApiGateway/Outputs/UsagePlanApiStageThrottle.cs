@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly int? BurstLimit;
         /// <summary>
-        /// The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        /// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
         /// </summary>
         public readonly string Path;
         /// <summary>

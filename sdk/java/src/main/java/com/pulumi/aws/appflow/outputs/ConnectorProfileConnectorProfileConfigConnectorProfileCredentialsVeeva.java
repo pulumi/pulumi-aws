@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
     /**
-     * @return The password that corresponds to the user name.
+     * @return Password that corresponds to the user name.
      * 
      */
     private String password;
     /**
-     * @return The name of the user.
+     * @return Name of the user.
      * 
      */
     private String username;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva() {}
     /**
-     * @return The password that corresponds to the user name.
+     * @return Password that corresponds to the user name.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return The name of the user.
+     * @return Name of the user.
      * 
      */
     public String username() {

@@ -71,70 +71,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acmpca/permission:Permission")
 public class Permission extends com.pulumi.resources.CustomResource {
     /**
-     * The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
     @Export(name="actions", type=List.class, parameters={String.class})
     private Output<List<String>> actions;
 
     /**
-     * @return The actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+     * @return Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
     public Output<List<String>> actions() {
         return this.actions;
     }
     /**
-     * The Amazon Resource Name (ARN) of the CA that grants the permissions.
+     * ARN of the CA that grants the permissions.
      * 
      */
     @Export(name="certificateAuthorityArn", type=String.class, parameters={})
     private Output<String> certificateAuthorityArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CA that grants the permissions.
+     * @return ARN of the CA that grants the permissions.
      * 
      */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
     /**
-     * The IAM policy that is associated with the permission.
+     * IAM policy that is associated with the permission.
      * 
      */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
     /**
-     * @return The IAM policy that is associated with the permission.
+     * @return IAM policy that is associated with the permission.
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
     @Export(name="principal", type=String.class, parameters={})
     private Output<String> principal;
 
     /**
-     * @return The AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+     * @return AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
     public Output<String> principal() {
         return this.principal;
     }
     /**
-     * The ID of the calling account
+     * ID of the calling account
      * 
      */
     @Export(name="sourceAccount", type=String.class, parameters={})
     private Output<String> sourceAccount;
 
     /**
-     * @return The ID of the calling account
+     * @return ID of the calling account
      * 
      */
     public Output<String> sourceAccount() {

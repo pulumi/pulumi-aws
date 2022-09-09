@@ -14,14 +14,14 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetEmailIdentityArgs Empty = new GetEmailIdentityArgs();
 
     /**
-     * The email identity.
+     * Email identity.
      * 
      */
     @Import(name="email", required=true)
     private Output<String> email;
 
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     public Output<String> email() {
@@ -53,7 +53,7 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param email The email identity.
+         * @param email Email identity.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetEmailIdentityArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param email The email identity.
+         * @param email Email identity.
          * 
          * @return builder
          * 

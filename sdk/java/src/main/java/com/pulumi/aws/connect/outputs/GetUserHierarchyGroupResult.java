@@ -13,13 +13,13 @@ import java.util.Objects;
 @CustomType
 public final class GetUserHierarchyGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return ARN of the hierarchy group.
      * 
      */
     private String arn;
     private String hierarchyGroupId;
     /**
-     * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
@@ -30,24 +30,24 @@ public final class GetUserHierarchyGroupResult {
     private String id;
     private String instanceId;
     /**
-     * @return The identifier of the level in the hierarchy group.
+     * @return Identifier of the level in the hierarchy group.
      * 
      */
     private String levelId;
     /**
-     * @return The name of the hierarchy group.
+     * @return Name of the hierarchy group.
      * 
      */
     private String name;
     /**
-     * @return A map of tags to assign to the hierarchy group.
+     * @return Map of tags to assign to the hierarchy group.
      * 
      */
     private Map<String,String> tags;
 
     private GetUserHierarchyGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return ARN of the hierarchy group.
      * 
      */
     public String arn() {
@@ -57,7 +57,7 @@ public final class GetUserHierarchyGroupResult {
         return this.hierarchyGroupId;
     }
     /**
-     * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths() {
@@ -74,21 +74,21 @@ public final class GetUserHierarchyGroupResult {
         return this.instanceId;
     }
     /**
-     * @return The identifier of the level in the hierarchy group.
+     * @return Identifier of the level in the hierarchy group.
      * 
      */
     public String levelId() {
         return this.levelId;
     }
     /**
-     * @return The name of the hierarchy group.
+     * @return Name of the hierarchy group.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A map of tags to assign to the hierarchy group.
+     * @return Map of tags to assign to the hierarchy group.
      * 
      */
     public Map<String,String> tags() {

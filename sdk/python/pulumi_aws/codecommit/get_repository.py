@@ -45,7 +45,7 @@ class GetRepositoryResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the repository
+        ARN of the repository
         """
         return pulumi.get(self, "arn")
 
@@ -53,7 +53,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="cloneUrlHttp")
     def clone_url_http(self) -> str:
         """
-        The URL to use for cloning the repository over HTTPS.
+        URL to use for cloning the repository over HTTPS.
         """
         return pulumi.get(self, "clone_url_http")
 
@@ -61,7 +61,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="cloneUrlSsh")
     def clone_url_ssh(self) -> str:
         """
-        The URL to use for cloning the repository over SSH.
+        URL to use for cloning the repository over SSH.
         """
         return pulumi.get(self, "clone_url_ssh")
 
@@ -77,7 +77,7 @@ class GetRepositoryResult:
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> str:
         """
-        The ID of the repository
+        ID of the repository
         """
         return pulumi.get(self, "repository_id")
 
@@ -116,7 +116,7 @@ def get_repository(repository_name: Optional[str] = None,
     ```
 
 
-    :param str repository_name: The name for the repository. This needs to be less than 100 characters.
+    :param str repository_name: Name for the repository. This needs to be less than 100 characters.
     """
     __args__ = dict()
     __args__['repositoryName'] = repository_name
@@ -148,6 +148,6 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str repository_name: The name for the repository. This needs to be less than 100 characters.
+    :param str repository_name: Name for the repository. This needs to be less than 100 characters.
     """
     ...

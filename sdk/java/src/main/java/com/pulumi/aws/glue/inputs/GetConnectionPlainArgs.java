@@ -16,7 +16,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
     /**
-     * A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      * 
      */
@@ -24,7 +24,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     private String id;
 
     /**
-     * @return A concatenation of the catalog ID and connection name. For example, if your account ID is
+     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      * 
      */
@@ -33,14 +33,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -73,7 +73,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id A concatenation of the catalog ID and connection name. For example, if your account ID is
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
          * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
          * 
          * @return builder
@@ -85,7 +85,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags The tags assigned to the resource
+         * @param tags Tags assigned to the resource
          * 
          * @return builder
          * 

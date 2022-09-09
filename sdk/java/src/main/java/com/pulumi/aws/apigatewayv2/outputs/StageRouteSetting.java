@@ -26,7 +26,7 @@ public final class StageRouteSetting {
      */
     private @Nullable Boolean detailedMetricsEnabled;
     /**
-     * @return The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+     * @return Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
@@ -37,12 +37,12 @@ public final class StageRouteSetting {
      */
     private String routeKey;
     /**
-     * @return The throttling burst limit for the route.
+     * @return Throttling burst limit for the route.
      * 
      */
     private @Nullable Integer throttlingBurstLimit;
     /**
-     * @return The throttling rate limit for the route.
+     * @return Throttling rate limit for the route.
      * 
      */
     private @Nullable Double throttlingRateLimit;
@@ -64,7 +64,7 @@ public final class StageRouteSetting {
         return Optional.ofNullable(this.detailedMetricsEnabled);
     }
     /**
-     * @return The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+     * @return Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
@@ -79,14 +79,14 @@ public final class StageRouteSetting {
         return this.routeKey;
     }
     /**
-     * @return The throttling burst limit for the route.
+     * @return Throttling burst limit for the route.
      * 
      */
     public Optional<Integer> throttlingBurstLimit() {
         return Optional.ofNullable(this.throttlingBurstLimit);
     }
     /**
-     * @return The throttling rate limit for the route.
+     * @return Throttling rate limit for the route.
      * 
      */
     public Optional<Double> throttlingRateLimit() {

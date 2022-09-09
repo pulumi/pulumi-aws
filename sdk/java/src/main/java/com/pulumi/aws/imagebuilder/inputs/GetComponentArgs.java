@@ -17,14 +17,14 @@ public final class GetComponentArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetComponentArgs Empty = new GetComponentArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the component.
+     * ARN of the component.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the component.
+     * @return ARN of the component.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetComponentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the component.
+         * @param arn ARN of the component.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetComponentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the component.
+         * @param arn ARN of the component.
          * 
          * @return builder
          * 

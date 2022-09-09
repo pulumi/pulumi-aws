@@ -126,7 +126,8 @@ type ContactFlowModule struct {
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -178,7 +179,8 @@ type contactFlowModuleState struct {
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -199,7 +201,8 @@ type ContactFlowModuleState struct {
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -371,6 +374,7 @@ func (o ContactFlowModuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContactFlowModuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

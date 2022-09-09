@@ -1062,7 +1062,7 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type GetTableAttribute struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name string `pulumi:"name"`
 	Type string `pulumi:"type"`
 }
@@ -1079,7 +1079,7 @@ type GetTableAttributeInput interface {
 }
 
 type GetTableAttributeArgs struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name pulumi.StringInput `pulumi:"name"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1135,7 +1135,7 @@ func (o GetTableAttributeOutput) ToGetTableAttributeOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the DynamoDB table.
+// Name of the DynamoDB table.
 func (o GetTableAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1166,7 +1166,7 @@ func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttribute
 
 type GetTableGlobalSecondaryIndex struct {
 	HashKey string `pulumi:"hashKey"`
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name             string   `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	ProjectionType   string   `pulumi:"projectionType"`
@@ -1188,7 +1188,7 @@ type GetTableGlobalSecondaryIndexInput interface {
 
 type GetTableGlobalSecondaryIndexArgs struct {
 	HashKey pulumi.StringInput `pulumi:"hashKey"`
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name             pulumi.StringInput      `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
@@ -1252,7 +1252,7 @@ func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// The name of the DynamoDB table.
+// Name of the DynamoDB table.
 func (o GetTableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1298,7 +1298,7 @@ func (o GetTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTab
 }
 
 type GetTableLocalSecondaryIndex struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name             string   `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	ProjectionType   string   `pulumi:"projectionType"`
@@ -1317,7 +1317,7 @@ type GetTableLocalSecondaryIndexInput interface {
 }
 
 type GetTableLocalSecondaryIndexArgs struct {
-	// The name of the DynamoDB table.
+	// Name of the DynamoDB table.
 	Name             pulumi.StringInput      `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
@@ -1375,7 +1375,7 @@ func (o GetTableLocalSecondaryIndexOutput) ToGetTableLocalSecondaryIndexOutputWi
 	return o
 }
 
-// The name of the DynamoDB table.
+// Name of the DynamoDB table.
 func (o GetTableLocalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableLocalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +51,7 @@ export interface GetFileSystemArgs {
      */
     creationToken?: string;
     /**
-     * The ID that identifies the file system (e.g., fs-ccfc0d65).
+     * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: string;
     /**
@@ -76,7 +78,7 @@ export interface GetFileSystemResult {
     readonly availabilityZoneName: string;
     readonly creationToken: string;
     /**
-     * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
     readonly dnsName: string;
     /**
@@ -89,15 +91,15 @@ export interface GetFileSystemResult {
      */
     readonly id: string;
     /**
-     * The ARN for the KMS encryption key.
+     * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+     * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      */
     readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
     /**
-     * The file system performance mode.
+     * File system performance mode.
      */
     readonly performanceMode: string;
     /**
@@ -106,7 +108,7 @@ export interface GetFileSystemResult {
      */
     readonly provisionedThroughputInMibps: number;
     /**
-     * The current byte count used by the file system.
+     * Current byte count used by the file system.
      */
     readonly sizeInBytes: number;
     readonly tags: {[key: string]: string};
@@ -129,7 +131,7 @@ export interface GetFileSystemOutputArgs {
      */
     creationToken?: pulumi.Input<string>;
     /**
-     * The ID that identifies the file system (e.g., fs-ccfc0d65).
+     * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: pulumi.Input<string>;
     /**

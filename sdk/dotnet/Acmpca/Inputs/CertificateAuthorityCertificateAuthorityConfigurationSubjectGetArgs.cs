@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? Initials { get; set; }
 
         /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        /// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("locality")]
         public Input<string>? Locality { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? Organization { get; set; }
 
         /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        /// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? Surname { get; set; }
 
         /// <summary>
-        /// A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+        /// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

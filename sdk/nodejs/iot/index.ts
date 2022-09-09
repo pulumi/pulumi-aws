@@ -5,39 +5,86 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./authorizer";
-export * from "./certificate";
-export * from "./getEndpoint";
-export * from "./indexingConfiguration";
-export * from "./loggingOptions";
-export * from "./policy";
-export * from "./policyAttachment";
-export * from "./provisioningTemplate";
-export * from "./roleAlias";
-export * from "./thing";
-export * from "./thingGroup";
-export * from "./thingGroupMembership";
-export * from "./thingPrincipalAttachment";
-export * from "./thingType";
-export * from "./topicRule";
-export * from "./topicRuleDestination";
+export { AuthorizerArgs, AuthorizerState } from "./authorizer";
+export type Authorizer = import("./authorizer").Authorizer;
+export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
 
-// Import resources to register:
-import { Authorizer } from "./authorizer";
-import { Certificate } from "./certificate";
-import { IndexingConfiguration } from "./indexingConfiguration";
-import { LoggingOptions } from "./loggingOptions";
-import { Policy } from "./policy";
-import { PolicyAttachment } from "./policyAttachment";
-import { ProvisioningTemplate } from "./provisioningTemplate";
-import { RoleAlias } from "./roleAlias";
-import { Thing } from "./thing";
-import { ThingGroup } from "./thingGroup";
-import { ThingGroupMembership } from "./thingGroupMembership";
-import { ThingPrincipalAttachment } from "./thingPrincipalAttachment";
-import { ThingType } from "./thingType";
-import { TopicRule } from "./topicRule";
-import { TopicRuleDestination } from "./topicRuleDestination";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { IndexingConfigurationArgs, IndexingConfigurationState } from "./indexingConfiguration";
+export type IndexingConfiguration = import("./indexingConfiguration").IndexingConfiguration;
+export const IndexingConfiguration: typeof import("./indexingConfiguration").IndexingConfiguration = null as any;
+
+export { LoggingOptionsArgs, LoggingOptionsState } from "./loggingOptions";
+export type LoggingOptions = import("./loggingOptions").LoggingOptions;
+export const LoggingOptions: typeof import("./loggingOptions").LoggingOptions = null as any;
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { PolicyAttachmentArgs, PolicyAttachmentState } from "./policyAttachment";
+export type PolicyAttachment = import("./policyAttachment").PolicyAttachment;
+export const PolicyAttachment: typeof import("./policyAttachment").PolicyAttachment = null as any;
+
+export { ProvisioningTemplateArgs, ProvisioningTemplateState } from "./provisioningTemplate";
+export type ProvisioningTemplate = import("./provisioningTemplate").ProvisioningTemplate;
+export const ProvisioningTemplate: typeof import("./provisioningTemplate").ProvisioningTemplate = null as any;
+
+export { RoleAliasArgs, RoleAliasState } from "./roleAlias";
+export type RoleAlias = import("./roleAlias").RoleAlias;
+export const RoleAlias: typeof import("./roleAlias").RoleAlias = null as any;
+
+export { ThingArgs, ThingState } from "./thing";
+export type Thing = import("./thing").Thing;
+export const Thing: typeof import("./thing").Thing = null as any;
+
+export { ThingGroupArgs, ThingGroupState } from "./thingGroup";
+export type ThingGroup = import("./thingGroup").ThingGroup;
+export const ThingGroup: typeof import("./thingGroup").ThingGroup = null as any;
+
+export { ThingGroupMembershipArgs, ThingGroupMembershipState } from "./thingGroupMembership";
+export type ThingGroupMembership = import("./thingGroupMembership").ThingGroupMembership;
+export const ThingGroupMembership: typeof import("./thingGroupMembership").ThingGroupMembership = null as any;
+
+export { ThingPrincipalAttachmentArgs, ThingPrincipalAttachmentState } from "./thingPrincipalAttachment";
+export type ThingPrincipalAttachment = import("./thingPrincipalAttachment").ThingPrincipalAttachment;
+export const ThingPrincipalAttachment: typeof import("./thingPrincipalAttachment").ThingPrincipalAttachment = null as any;
+
+export { ThingTypeArgs, ThingTypeState } from "./thingType";
+export type ThingType = import("./thingType").ThingType;
+export const ThingType: typeof import("./thingType").ThingType = null as any;
+
+export { TopicRuleArgs, TopicRuleState } from "./topicRule";
+export type TopicRule = import("./topicRule").TopicRule;
+export const TopicRule: typeof import("./topicRule").TopicRule = null as any;
+
+export { TopicRuleDestinationArgs, TopicRuleDestinationState } from "./topicRuleDestination";
+export type TopicRuleDestination = import("./topicRuleDestination").TopicRuleDestination;
+export const TopicRuleDestination: typeof import("./topicRuleDestination").TopicRuleDestination = null as any;
+
+utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["IndexingConfiguration"], () => require("./indexingConfiguration"));
+utilities.lazyLoad(exports, ["LoggingOptions"], () => require("./loggingOptions"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
+utilities.lazyLoad(exports, ["ProvisioningTemplate"], () => require("./provisioningTemplate"));
+utilities.lazyLoad(exports, ["RoleAlias"], () => require("./roleAlias"));
+utilities.lazyLoad(exports, ["Thing"], () => require("./thing"));
+utilities.lazyLoad(exports, ["ThingGroup"], () => require("./thingGroup"));
+utilities.lazyLoad(exports, ["ThingGroupMembership"], () => require("./thingGroupMembership"));
+utilities.lazyLoad(exports, ["ThingPrincipalAttachment"], () => require("./thingPrincipalAttachment"));
+utilities.lazyLoad(exports, ["ThingType"], () => require("./thingType"));
+utilities.lazyLoad(exports, ["TopicRule"], () => require("./topicRule"));
+utilities.lazyLoad(exports, ["TopicRuleDestination"], () => require("./topicRuleDestination"));
 
 const _module = {
     version: utilities.getVersion(),

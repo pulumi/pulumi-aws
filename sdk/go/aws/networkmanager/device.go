@@ -68,8 +68,9 @@ type Device struct {
 	// The serial number of the device.
 	SerialNumber pulumi.StringPtrOutput `pulumi:"serialNumber"`
 	// The ID of the site.
-	SiteId  pulumi.StringPtrOutput `pulumi:"siteId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	SiteId pulumi.StringPtrOutput `pulumi:"siteId"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of device.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -124,8 +125,9 @@ type deviceState struct {
 	// The serial number of the device.
 	SerialNumber *string `pulumi:"serialNumber"`
 	// The ID of the site.
-	SiteId  *string           `pulumi:"siteId"`
-	Tags    map[string]string `pulumi:"tags"`
+	SiteId *string           `pulumi:"siteId"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of device.
 	Type *string `pulumi:"type"`
@@ -149,8 +151,9 @@ type DeviceState struct {
 	// The serial number of the device.
 	SerialNumber pulumi.StringPtrInput
 	// The ID of the site.
-	SiteId  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	SiteId pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of device.
 	Type pulumi.StringPtrInput
@@ -338,6 +341,7 @@ func (o DeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DeviceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

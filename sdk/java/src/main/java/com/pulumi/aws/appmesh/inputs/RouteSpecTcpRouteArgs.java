@@ -17,14 +17,14 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
     public static final RouteSpecTcpRouteArgs Empty = new RouteSpecTcpRouteArgs();
 
     /**
-     * The action to take if a match is determined.
+     * Action to take if a match is determined.
      * 
      */
     @Import(name="action", required=true)
     private Output<RouteSpecTcpRouteActionArgs> action;
 
     /**
-     * @return The action to take if a match is determined.
+     * @return Action to take if a match is determined.
      * 
      */
     public Output<RouteSpecTcpRouteActionArgs> action() {
@@ -32,14 +32,14 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The types of timeouts.
+     * Types of timeouts.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecTcpRouteTimeoutArgs> timeout;
 
     /**
-     * @return The types of timeouts.
+     * @return Types of timeouts.
      * 
      */
     public Optional<Output<RouteSpecTcpRouteTimeoutArgs>> timeout() {
@@ -72,7 +72,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param timeout The types of timeouts.
+         * @param timeout Types of timeouts.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param timeout The types of timeouts.
+         * @param timeout Types of timeouts.
          * 
          * @return builder
          * 

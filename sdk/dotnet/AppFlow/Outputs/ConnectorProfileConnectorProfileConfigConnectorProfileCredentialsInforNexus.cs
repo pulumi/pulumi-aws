@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string AccessKeyId;
         /// <summary>
-        /// The encryption keys used to encrypt data.
+        /// Encryption keys used to encrypt data.
         /// </summary>
         public readonly string Datakey;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string SecretAccessKey;
         /// <summary>
-        /// The identifier for the user.
+        /// Identifier for the user.
         /// </summary>
         public readonly string UserId;
 

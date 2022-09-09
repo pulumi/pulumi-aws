@@ -63,14 +63,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
     @Import(name="datadog")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs> datadog;
 
     /**
-     * @return The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs>> datadog() {
@@ -138,14 +138,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
     @Import(name="marketo")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs> marketo;
 
     /**
-     * @return The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs>> marketo() {
@@ -153,14 +153,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
     @Import(name="redshift")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs> redshift;
 
     /**
-     * @return The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs>> redshift() {
@@ -213,14 +213,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
     @Import(name="singular")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs> singular;
 
     /**
-     * @return The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs>> singular() {
@@ -228,14 +228,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
     @Import(name="slack")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs> slack;
 
     /**
-     * @return The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs>> slack() {
@@ -273,14 +273,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
     @Import(name="veeva")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs> veeva;
 
     /**
-     * @return The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs>> veeva() {
@@ -288,14 +288,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
     @Import(name="zendesk")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs> zendesk;
 
     /**
-     * @return The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs>> zendesk() {
@@ -386,7 +386,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param singular The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param singular The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
          * 
          * @return builder
          * 

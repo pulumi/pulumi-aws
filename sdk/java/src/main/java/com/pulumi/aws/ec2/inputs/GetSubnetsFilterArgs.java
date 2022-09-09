@@ -15,7 +15,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
     public static final GetSubnetsFilterArgs Empty = new GetSubnetsFilterArgs();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
      * 
@@ -24,7 +24,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
      * 
@@ -76,7 +76,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          * 
@@ -89,7 +89,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          * 

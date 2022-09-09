@@ -48,7 +48,7 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexArgs struct {
-	// The name of the place index resource.
+	// Name of the place index resource.
 	IndexName string `pulumi:"indexName"`
 	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
@@ -56,22 +56,22 @@ type LookupPlaceIndexArgs struct {
 
 // A collection of values returned by getPlaceIndex.
 type LookupPlaceIndexResult struct {
-	// The timestamp for when the place index resource was created in ISO 8601 format.
+	// Timestamp for when the place index resource was created in ISO 8601 format.
 	CreateTime string `pulumi:"createTime"`
-	// The data provider of geospatial data.
+	// Data provider of geospatial data.
 	DataSource string `pulumi:"dataSource"`
 	// List of configurations that specify data storage option for requesting Places.
 	DataSourceConfigurations []GetPlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfigurations"`
-	// The optional description for the place index resource.
+	// Optional description for the place index resource.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) for the place index resource.
+	// ARN for the place index resource.
 	IndexArn  string `pulumi:"indexArn"`
 	IndexName string `pulumi:"indexName"`
 	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
-	// The timestamp for when the place index resource was last updated in ISO 8601 format.
+	// Timestamp for when the place index resource was last updated in ISO 8601 format.
 	UpdateTime string `pulumi:"updateTime"`
 }
 
@@ -90,7 +90,7 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexOutputArgs struct {
-	// The name of the place index resource.
+	// Name of the place index resource.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// Key-value map of resource tags for the place index.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -115,12 +115,12 @@ func (o LookupPlaceIndexResultOutput) ToLookupPlaceIndexResultOutputWithContext(
 	return o
 }
 
-// The timestamp for when the place index resource was created in ISO 8601 format.
+// Timestamp for when the place index resource was created in ISO 8601 format.
 func (o LookupPlaceIndexResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The data provider of geospatial data.
+// Data provider of geospatial data.
 func (o LookupPlaceIndexResultOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -132,7 +132,7 @@ func (o LookupPlaceIndexResultOutput) DataSourceConfigurations() GetPlaceIndexDa
 	}).(GetPlaceIndexDataSourceConfigurationArrayOutput)
 }
 
-// The optional description for the place index resource.
+// Optional description for the place index resource.
 func (o LookupPlaceIndexResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -142,7 +142,7 @@ func (o LookupPlaceIndexResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the place index resource.
+// ARN for the place index resource.
 func (o LookupPlaceIndexResultOutput) IndexArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.IndexArn }).(pulumi.StringOutput)
 }
@@ -156,7 +156,7 @@ func (o LookupPlaceIndexResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timestamp for when the place index resource was last updated in ISO 8601 format.
+// Timestamp for when the place index resource was last updated in ISO 8601 format.
 func (o LookupPlaceIndexResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

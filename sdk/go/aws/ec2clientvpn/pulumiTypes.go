@@ -1055,7 +1055,7 @@ func (o GetEndpointConnectionLogOptionArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetEndpointFilter struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
@@ -1073,7 +1073,7 @@ type GetEndpointFilterInput interface {
 }
 
 type GetEndpointFilterArgs struct {
-	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1130,7 +1130,7 @@ func (o GetEndpointFilterOutput) ToGetEndpointFilterOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
 func (o GetEndpointFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
 }

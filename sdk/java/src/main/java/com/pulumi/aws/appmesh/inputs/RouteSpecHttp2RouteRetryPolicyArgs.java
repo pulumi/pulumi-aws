@@ -38,14 +38,14 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * The maximum number of retries.
+     * Maximum number of retries.
      * 
      */
     @Import(name="maxRetries", required=true)
     private Output<Integer> maxRetries;
 
     /**
-     * @return The maximum number of retries.
+     * @return Maximum number of retries.
      * 
      */
     public Output<Integer> maxRetries() {
@@ -53,14 +53,14 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * The per-retry timeout.
+     * Per-retry timeout.
      * 
      */
     @Import(name="perRetryTimeout", required=true)
     private Output<RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs> perRetryTimeout;
 
     /**
-     * @return The per-retry timeout.
+     * @return Per-retry timeout.
      * 
      */
     public Output<RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs> perRetryTimeout() {
@@ -147,7 +147,7 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param maxRetries The maximum number of retries.
+         * @param maxRetries Maximum number of retries.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param maxRetries The maximum number of retries.
+         * @param maxRetries Maximum number of retries.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param perRetryTimeout The per-retry timeout.
+         * @param perRetryTimeout Per-retry timeout.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param perRetryTimeout The per-retry timeout.
+         * @param perRetryTimeout Per-retry timeout.
          * 
          * @return builder
          * 

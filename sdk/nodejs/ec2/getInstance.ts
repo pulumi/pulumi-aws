@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the ID of an Amazon EC2 Instance for use in other
- * resources.
+ * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
  *
  * ## Example Usage
  *
@@ -70,12 +71,12 @@ export interface GetInstanceArgs {
      */
     instanceId?: string;
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      */
     instanceTags?: {[key: string]: string};
     /**
-     * A map of tags assigned to the Instance.
+     * Map of tags assigned to the Instance.
      */
     tags?: {[key: string]: string};
 }
@@ -85,11 +86,11 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * The ID of the AMI used to launch the instance.
+     * ID of the AMI used to launch the instance.
      */
     readonly ami: string;
     /**
-     * The ARN of the instance.
+     * ARN of the instance.
      */
     readonly arn: string;
     /**
@@ -97,11 +98,11 @@ export interface GetInstanceResult {
      */
     readonly associatePublicIpAddress: boolean;
     /**
-     * The availability zone of the Instance.
+     * Availability zone of the Instance.
      */
     readonly availabilityZone: string;
     /**
-     * The credit specification of the Instance.
+     * Credit specification of the Instance.
      */
     readonly creditSpecifications: outputs.ec2.GetInstanceCreditSpecification[];
     /**
@@ -113,7 +114,7 @@ export interface GetInstanceResult {
      */
     readonly disableApiTermination: boolean;
     /**
-     * The EBS block device mappings of the Instance.
+     * EBS block device mappings of the Instance.
      */
     readonly ebsBlockDevices: outputs.ec2.GetInstanceEbsBlockDevice[];
     /**
@@ -121,22 +122,26 @@ export interface GetInstanceResult {
      */
     readonly ebsOptimized: boolean;
     /**
-     * The enclave options of the instance.
+     * Enclave options of the instance.
      */
     readonly enclaveOptions: outputs.ec2.GetInstanceEnclaveOption[];
     /**
-     * The ephemeral block device mappings of the Instance.
+     * Ephemeral block device mappings of the Instance.
      */
     readonly ephemeralBlockDevices: outputs.ec2.GetInstanceEphemeralBlockDevice[];
     readonly filters?: outputs.ec2.GetInstanceFilter[];
     readonly getPasswordData?: boolean;
     readonly getUserData?: boolean;
     /**
-     * The Id of the dedicated host the instance will be assigned to.
+     * ID of the dedicated host the instance will be assigned to.
      */
     readonly hostId: string;
     /**
-     * The name of the instance profile associated with the Instance.
+     * ARN of the host resource group the instance is associated with.
+     */
+    readonly hostResourceGroupArn: string;
+    /**
+     * Name of the instance profile associated with the Instance.
      */
     readonly iamInstanceProfile: string;
     /**
@@ -145,28 +150,28 @@ export interface GetInstanceResult {
     readonly id: string;
     readonly instanceId?: string;
     /**
-     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     readonly instanceState: string;
     readonly instanceTags: {[key: string]: string};
     /**
-     * The type of the Instance.
+     * Type of the Instance.
      */
     readonly instanceType: string;
     /**
-     * The IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
+     * IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
      */
     readonly ipv6Addresses: string[];
     /**
-     * The key name of the Instance.
+     * Key name of the Instance.
      */
     readonly keyName: string;
     /**
-     * The maintenance and recovery options for the instance.
+     * Maintenance and recovery options for the instance.
      */
     readonly maintenanceOptions: outputs.ec2.GetInstanceMaintenanceOption[];
     /**
-     * The metadata options of the Instance.
+     * Metadata options of the Instance.
      */
     readonly metadataOptions: outputs.ec2.GetInstanceMetadataOption[];
     /**
@@ -174,61 +179,55 @@ export interface GetInstanceResult {
      */
     readonly monitoring: boolean;
     /**
-     * The ID of the network interface that was created with the Instance.
+     * ID of the network interface that was created with the Instance.
      */
     readonly networkInterfaceId: string;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     readonly outpostArn: string;
     /**
-     * Base-64 encoded encrypted password data for the instance.
-     * Useful for getting the administrator password for instances running Microsoft Windows.
-     * This attribute is only exported if `getPasswordData` is true.
-     * See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly passwordData: string;
     /**
-     * The placement group of the Instance.
+     * Placement group of the Instance.
      */
     readonly placementGroup: string;
     /**
-     * The number of the partition the instance is in.
+     * Number of the partition the instance is in.
      */
     readonly placementPartitionNumber: number;
     /**
-     * The private DNS name assigned to the Instance. Can only be
-     * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-     * for your VPC.
+     * Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
      */
     readonly privateDns: string;
     /**
-     * The options for the instance hostname.
+     * Options for the instance hostname.
      */
     readonly privateDnsNameOptions: outputs.ec2.GetInstancePrivateDnsNameOption[];
     /**
-     * The private IP address assigned to the Instance.
+     * Private IP address assigned to the Instance.
      */
     readonly privateIp: string;
     /**
-     * The public DNS name assigned to the Instance. For EC2-VPC, this
-     * is only available if you've enabled DNS hostnames for your VPC.
+     * Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
      */
     readonly publicDns: string;
     /**
-     * The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+     * Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     readonly publicIp: string;
     /**
-     * The root block device mappings of the Instance
+     * Root block device mappings of the Instance
      */
     readonly rootBlockDevices: outputs.ec2.GetInstanceRootBlockDevice[];
     /**
-     * The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+     * Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
      */
     readonly secondaryPrivateIps: string[];
     /**
-     * The associated security groups.
+     * Associated security groups.
      */
     readonly securityGroups: string[];
     /**
@@ -236,15 +235,15 @@ export interface GetInstanceResult {
      */
     readonly sourceDestCheck: boolean;
     /**
-     * The VPC subnet ID.
+     * VPC subnet ID.
      */
     readonly subnetId: string;
     /**
-     * A map of tags assigned to the Instance.
+     * Map of tags assigned to the Instance.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The tenancy of the instance: `dedicated`, `default`, `host`.
+     * Tenancy of the instance: `dedicated`, `default`, `host`.
      */
     readonly tenancy: string;
     /**
@@ -256,7 +255,7 @@ export interface GetInstanceResult {
      */
     readonly userDataBase64: string;
     /**
-     * The associated security groups in a non-default VPC.
+     * Associated security groups in a non-default VPC.
      */
     readonly vpcSecurityGroupIds: string[];
 }
@@ -288,12 +287,12 @@ export interface GetInstanceOutputArgs {
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the Instance.
+     * Map of tags assigned to the Instance.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

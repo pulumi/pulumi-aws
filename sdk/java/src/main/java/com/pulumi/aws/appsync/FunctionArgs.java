@@ -18,14 +18,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     public static final FunctionArgs Empty = new FunctionArgs();
 
     /**
-     * The ID of the associated AppSync API.
+     * ID of the associated AppSync API.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The ID of the associated AppSync API.
+     * @return ID of the associated AppSync API.
      * 
      */
     public Output<String> apiId() {
@@ -33,14 +33,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function data source name.
+     * Function data source name.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The Function data source name.
+     * @return Function data source name.
      * 
      */
     public Output<String> dataSource() {
@@ -48,14 +48,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function description.
+     * Function description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The Function description.
+     * @return Function description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
      * 
      */
     @Import(name="functionVersion")
     private @Nullable Output<String> functionVersion;
 
     /**
-     * @return The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`.
      * 
      */
     public Optional<Output<String>> functionVersion() {
@@ -78,14 +78,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     @Import(name="maxBatchSize")
     private @Nullable Output<Integer> maxBatchSize;
 
     /**
-     * @return The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     public Optional<Output<Integer>> maxBatchSize() {
@@ -93,14 +93,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function name. The function name does not have to be unique.
+     * Function name. The function name does not have to be unique.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Function name. The function name does not have to be unique.
+     * @return Function name. The function name does not have to be unique.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
     @Import(name="requestMappingTemplate", required=true)
     private Output<String> requestMappingTemplate;
 
     /**
-     * @return The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * @return Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
     public Output<String> requestMappingTemplate() {
@@ -123,14 +123,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function response mapping template.
+     * Function response mapping template.
      * 
      */
     @Import(name="responseMappingTemplate", required=true)
     private Output<String> responseMappingTemplate;
 
     /**
-     * @return The Function response mapping template.
+     * @return Function response mapping template.
      * 
      */
     public Output<String> responseMappingTemplate() {
@@ -185,7 +185,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The ID of the associated AppSync API.
+         * @param apiId ID of the associated AppSync API.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The ID of the associated AppSync API.
+         * @param apiId ID of the associated AppSync API.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The Function data source name.
+         * @param dataSource Function data source name.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The Function data source name.
+         * @param dataSource Function data source name.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The Function description.
+         * @param description Function description.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The Function description.
+         * @param description Function description.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion The version of the request mapping template. Currently the supported value is `2018-05-29`.
+         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion The version of the request mapping template. Currently the supported value is `2018-05-29`.
+         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxBatchSize The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+         * @param maxBatchSize Maximum batching size for a resolver. Valid values are between `0` and `2000`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxBatchSize The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+         * @param maxBatchSize Maximum batching size for a resolver. Valid values are between `0` and `2000`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Function name. The function name does not have to be unique.
+         * @param name Function name. The function name does not have to be unique.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Function name. The function name does not have to be unique.
+         * @param name Function name. The function name does not have to be unique.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestMappingTemplate The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+         * @param requestMappingTemplate Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestMappingTemplate The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+         * @param requestMappingTemplate Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseMappingTemplate The Function response mapping template.
+         * @param responseMappingTemplate Function response mapping template.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseMappingTemplate The Function response mapping template.
+         * @param responseMappingTemplate Function response mapping template.
          * 
          * @return builder
          * 

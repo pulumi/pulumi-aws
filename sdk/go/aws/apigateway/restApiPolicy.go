@@ -85,7 +85,7 @@ type RestApiPolicy struct {
 
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The ID of the REST API.
+	// ID of the REST API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -126,14 +126,14 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 type restApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
-	// The ID of the REST API.
+	// ID of the REST API.
 	RestApiId *string `pulumi:"restApiId"`
 }
 
 type RestApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
-	// The ID of the REST API.
+	// ID of the REST API.
 	RestApiId pulumi.StringPtrInput
 }
 
@@ -144,7 +144,7 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 type restApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
-	// The ID of the REST API.
+	// ID of the REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -152,7 +152,7 @@ type restApiPolicyArgs struct {
 type RestApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringInput
-	// The ID of the REST API.
+	// ID of the REST API.
 	RestApiId pulumi.StringInput
 }
 
@@ -248,7 +248,7 @@ func (o RestApiPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The ID of the REST API.
+// ID of the REST API.
 func (o RestApiPolicyOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

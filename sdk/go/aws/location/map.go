@@ -65,6 +65,7 @@ type Map struct {
 	// The name for the map resource.
 	MapName pulumi.StringOutput    `pulumi:"mapName"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -116,6 +117,7 @@ type mapState struct {
 	// The name for the map resource.
 	MapName *string           `pulumi:"mapName"`
 	Tags    map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -133,6 +135,7 @@ type MapState struct {
 	// The name for the map resource.
 	MapName pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringPtrInput
@@ -279,6 +282,7 @@ func (o MapOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MapOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetTrackerResult {
     /**
-     * @return The timestamp for when the tracker resource was created in ISO 8601 format.
+     * @return Timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
     private String createTime;
     /**
-     * @return The optional description for the tracker resource.
+     * @return Optional description for the tracker resource.
      * 
      */
     private String description;
@@ -26,12 +26,12 @@ public final class GetTrackerResult {
      */
     private String id;
     /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     private String kmsKeyId;
     /**
-     * @return The position filtering method of the tracker resource.
+     * @return Position filtering method of the tracker resource.
      * 
      */
     private String positionFiltering;
@@ -41,27 +41,27 @@ public final class GetTrackerResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     private String trackerArn;
     private String trackerName;
     /**
-     * @return The timestamp for when the tracker resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
     private String updateTime;
 
     private GetTrackerResult() {}
     /**
-     * @return The timestamp for when the tracker resource was created in ISO 8601 format.
+     * @return Timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return The optional description for the tracker resource.
+     * @return Optional description for the tracker resource.
      * 
      */
     public String description() {
@@ -75,14 +75,14 @@ public final class GetTrackerResult {
         return this.id;
     }
     /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * @return The position filtering method of the tracker resource.
+     * @return Position filtering method of the tracker resource.
      * 
      */
     public String positionFiltering() {
@@ -96,7 +96,7 @@ public final class GetTrackerResult {
         return this.tags;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public String trackerArn() {
@@ -106,7 +106,7 @@ public final class GetTrackerResult {
         return this.trackerName;
     }
     /**
-     * @return The timestamp for when the tracker resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

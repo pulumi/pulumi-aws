@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSigningProfileResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the signing profile.
+     * @return ARN for the signing profile.
      * 
      */
     private String arn;
@@ -30,7 +30,7 @@ public final class GetSigningProfileResult {
      */
     private String platformDisplayName;
     /**
-     * @return The ID of the platform that is used by the target signing profile.
+     * @return ID of the platform that is used by the target signing profile.
      * 
      */
     private String platformId;
@@ -45,29 +45,29 @@ public final class GetSigningProfileResult {
      */
     private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
     /**
-     * @return The status of the target signing profile.
+     * @return Status of the target signing profile.
      * 
      */
     private String status;
     /**
-     * @return A list of tags associated with the signing profile.
+     * @return List of tags associated with the signing profile.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The current version of the signing profile.
+     * @return Current version of the signing profile.
      * 
      */
     private String version;
     /**
-     * @return The signing profile ARN, including the profile version.
+     * @return Signing profile ARN, including the profile version.
      * 
      */
     private String versionArn;
 
     private GetSigningProfileResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the signing profile.
+     * @return ARN for the signing profile.
      * 
      */
     public String arn() {
@@ -91,7 +91,7 @@ public final class GetSigningProfileResult {
         return this.platformDisplayName;
     }
     /**
-     * @return The ID of the platform that is used by the target signing profile.
+     * @return ID of the platform that is used by the target signing profile.
      * 
      */
     public String platformId() {
@@ -112,28 +112,28 @@ public final class GetSigningProfileResult {
         return this.signatureValidityPeriods;
     }
     /**
-     * @return The status of the target signing profile.
+     * @return Status of the target signing profile.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A list of tags associated with the signing profile.
+     * @return List of tags associated with the signing profile.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The current version of the signing profile.
+     * @return Current version of the signing profile.
      * 
      */
     public String version() {
         return this.version;
     }
     /**
-     * @return The signing profile ARN, including the profile version.
+     * @return Signing profile ARN, including the profile version.
      * 
      */
     public String versionArn() {

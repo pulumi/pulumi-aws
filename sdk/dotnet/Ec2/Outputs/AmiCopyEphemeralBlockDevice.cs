@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class AmiCopyEphemeralBlockDevice
     {
         /// <summary>
-        /// The path at which the device is exposed to created instances.
+        /// Path at which the device is exposed to created instances.
         /// </summary>
         public readonly string? DeviceName;
         /// <summary>
-        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// Name for the ephemeral device, of the form "ephemeralN" where
         /// *N* is a volume number starting from zero.
         /// </summary>
         public readonly string? VirtualName;

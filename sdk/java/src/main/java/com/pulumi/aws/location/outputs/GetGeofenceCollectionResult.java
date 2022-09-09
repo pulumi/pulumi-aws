@@ -11,18 +11,18 @@ import java.util.Objects;
 @CustomType
 public final class GetGeofenceCollectionResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     private String collectionArn;
     private String collectionName;
     /**
-     * @return The timestamp for when the geofence collection resource was created in ISO 8601 format.
+     * @return Timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
     private String createTime;
     /**
-     * @return The optional description of the geofence collection resource.
+     * @return Optional description of the geofence collection resource.
      * 
      */
     private String description;
@@ -32,7 +32,7 @@ public final class GetGeofenceCollectionResult {
      */
     private String id;
     /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     private String kmsKeyId;
@@ -42,14 +42,14 @@ public final class GetGeofenceCollectionResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
     private String updateTime;
 
     private GetGeofenceCollectionResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public String collectionArn() {
@@ -59,14 +59,14 @@ public final class GetGeofenceCollectionResult {
         return this.collectionName;
     }
     /**
-     * @return The timestamp for when the geofence collection resource was created in ISO 8601 format.
+     * @return Timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return The optional description of the geofence collection resource.
+     * @return Optional description of the geofence collection resource.
      * 
      */
     public String description() {
@@ -80,7 +80,7 @@ public final class GetGeofenceCollectionResult {
         return this.id;
     }
     /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
     public String kmsKeyId() {
@@ -94,7 +94,7 @@ public final class GetGeofenceCollectionResult {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+     * @return Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

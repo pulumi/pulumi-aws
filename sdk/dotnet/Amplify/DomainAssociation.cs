@@ -74,13 +74,13 @@ namespace Pulumi.Aws.Amplify
     public partial class DomainAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the domain association.
+        /// ARN for the domain association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Amplify
         public Output<string> CertificateVerificationDnsRecord { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name for the domain association.
+        /// Domain name for the domain association.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The setting for the subdomain. Documented below.
+        /// Setting for the subdomain. Documented below.
         /// </summary>
         [Output("subDomains")]
         public Output<ImmutableArray<Outputs.DomainAssociationSubDomain>> SubDomains { get; private set; } = null!;
@@ -156,13 +156,13 @@ namespace Pulumi.Aws.Amplify
     public sealed class DomainAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The domain name for the domain association.
+        /// Domain name for the domain association.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.DomainAssociationSubDomainArgs>? _subDomains;
 
         /// <summary>
-        /// The setting for the subdomain. Documented below.
+        /// Setting for the subdomain. Documented below.
         /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainArgs> SubDomains
         {
@@ -194,13 +194,13 @@ namespace Pulumi.Aws.Amplify
     public sealed class DomainAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID for an Amplify app.
+        /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the domain association.
+        /// ARN for the domain association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? CertificateVerificationDnsRecord { get; set; }
 
         /// <summary>
-        /// The domain name for the domain association.
+        /// Domain name for the domain association.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.DomainAssociationSubDomainGetArgs>? _subDomains;
 
         /// <summary>
-        /// The setting for the subdomain. Documented below.
+        /// Setting for the subdomain. Documented below.
         /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainGetArgs> SubDomains
         {

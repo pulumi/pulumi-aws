@@ -128,13 +128,13 @@ class _DeploymentState:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[str] created_date: The creation date of the deployment
+        :param pulumi.Input[str] created_date: Creation date of the deployment
         :param pulumi.Input[str] description: Description of the deployment
-        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
+        :param pulumi.Input[str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
-               e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[str] invoke_url: URL to invoke the API pointing to the stage,
+               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[str] rest_api: REST API identifier.
         :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
         :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
@@ -164,7 +164,7 @@ class _DeploymentState:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The creation date of the deployment
+        Creation date of the deployment
         """
         return pulumi.get(self, "created_date")
 
@@ -188,7 +188,7 @@ class _DeploymentState:
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The execution ARN to be used in `lambda_permission` resource's `source_arn`
+        Execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
         e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
@@ -202,8 +202,8 @@ class _DeploymentState:
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to invoke the API pointing to the stage,
-        e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        URL to invoke the API pointing to the stage,
+        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
 
@@ -538,13 +538,13 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_date: The creation date of the deployment
+        :param pulumi.Input[str] created_date: Creation date of the deployment
         :param pulumi.Input[str] description: Description of the deployment
-        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
+        :param pulumi.Input[str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
-               e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[str] invoke_url: URL to invoke the API pointing to the stage,
+               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[str] rest_api: REST API identifier.
         :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
         :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
@@ -570,7 +570,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
         """
-        The creation date of the deployment
+        Creation date of the deployment
         """
         return pulumi.get(self, "created_date")
 
@@ -586,7 +586,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Output[str]:
         """
-        The execution ARN to be used in `lambda_permission` resource's `source_arn`
+        Execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
         e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
@@ -596,8 +596,8 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Output[str]:
         """
-        The URL to invoke the API pointing to the stage,
-        e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        URL to invoke the API pointing to the stage,
+        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
 

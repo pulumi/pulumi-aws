@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class GetActivityResult {
     private String arn;
     /**
-     * @return The date the activity was created.
+     * @return Date the activity was created.
      * 
      */
     private String creationDate;
@@ -27,7 +27,7 @@ public final class GetActivityResult {
         return this.arn;
     }
     /**
-     * @return The date the activity was created.
+     * @return Date the activity was created.
      * 
      */
     public String creationDate() {

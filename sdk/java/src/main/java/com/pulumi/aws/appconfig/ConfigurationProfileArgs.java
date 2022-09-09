@@ -19,14 +19,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     public static final ConfigurationProfileArgs Empty = new ConfigurationProfileArgs();
 
     /**
-     * The application ID. Must be between 4 and 7 characters in length.
+     * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID. Must be between 4 and 7 characters in length.
+     * @return Application ID. Must be between 4 and 7 characters in length.
      * 
      */
     public Output<String> applicationId() {
@@ -34,14 +34,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The description of the configuration profile. Can be at most 1024 characters.
+     * Description of the configuration profile. Can be at most 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the configuration profile. Can be at most 1024 characters.
+     * @return Description of the configuration profile. Can be at most 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
+     * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
     @Import(name="locationUri", required=true)
     private Output<String> locationUri;
 
     /**
-     * @return A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
+     * @return URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
     public Output<String> locationUri() {
@@ -64,14 +64,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the configuration profile. Must be between 1 and 64 characters in length.
+     * @return Name for the configuration profile. Must be between 1 and 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+     * ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      * 
      */
     @Import(name="retrievalRoleArn")
     private @Nullable Output<String> retrievalRoleArn;
 
     /**
-     * @return The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+     * @return ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      * 
      */
     public Optional<Output<String>> retrievalRoleArn() {
@@ -94,14 +94,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -109,14 +109,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+     * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+     * @return Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -124,14 +124,14 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      * 
      */
     @Import(name="validators")
     private @Nullable Output<List<ConfigurationProfileValidatorArgs>> validators;
 
     /**
-     * @return A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * @return Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      * 
      */
     public Optional<Output<List<ConfigurationProfileValidatorArgs>>> validators() {
@@ -170,7 +170,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationId The application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId Application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applicationId The application ID. Must be between 4 and 7 characters in length.
+         * @param applicationId Application ID. Must be between 4 and 7 characters in length.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description The description of the configuration profile. Can be at most 1024 characters.
+         * @param description Description of the configuration profile. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description The description of the configuration profile. Can be at most 1024 characters.
+         * @param description Description of the configuration profile. Can be at most 1024 characters.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param locationUri A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
+         * @param locationUri URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param locationUri A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
+         * @param locationUri URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name for the configuration profile. Must be between 1 and 64 characters in length.
+         * @param name Name for the configuration profile. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name for the configuration profile. Must be between 1 and 64 characters in length.
+         * @param name Name for the configuration profile. Must be between 1 and 64 characters in length.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param retrievalRoleArn The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+         * @param retrievalRoleArn ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param retrievalRoleArn The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+         * @param retrievalRoleArn ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+         * @param type Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+         * @param type Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param validators A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param validators A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param validators A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
          * 
          * @return builder
          * 

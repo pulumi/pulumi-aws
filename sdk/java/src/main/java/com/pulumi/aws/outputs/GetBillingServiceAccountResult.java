@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBillingServiceAccountResult {
     /**
-     * @return The ARN of the AWS billing service account.
+     * @return ARN of the AWS billing service account.
      * 
      */
     private String arn;
@@ -22,7 +22,7 @@ public final class GetBillingServiceAccountResult {
 
     private GetBillingServiceAccountResult() {}
     /**
-     * @return The ARN of the AWS billing service account.
+     * @return ARN of the AWS billing service account.
      * 
      */
     public String arn() {

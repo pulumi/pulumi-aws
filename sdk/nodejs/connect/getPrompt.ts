@@ -52,7 +52,7 @@ export interface GetPromptArgs {
  */
 export interface GetPromptResult {
     /**
-     * The Amazon Resource Name (ARN) of the Prompt.
+     * ARN of the Prompt.
      */
     readonly arn: string;
     /**
@@ -62,7 +62,7 @@ export interface GetPromptResult {
     readonly instanceId: string;
     readonly name: string;
     /**
-     * The identifier for the prompt.
+     * Identifier for the prompt.
      */
     readonly promptId: string;
 }

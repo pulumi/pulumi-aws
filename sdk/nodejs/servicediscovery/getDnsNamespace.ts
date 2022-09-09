@@ -37,15 +37,15 @@ export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeO
  */
 export interface GetDnsNamespaceArgs {
     /**
-     * The name of the namespace.
+     * Name of the namespace.
      */
     name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
     /**
-     * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+     * Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      */
     type: string;
 }
@@ -55,15 +55,15 @@ export interface GetDnsNamespaceArgs {
  */
 export interface GetDnsNamespaceResult {
     /**
-     * The Amazon Resource Name (ARN) of the namespace.
+     * ARN of the namespace.
      */
     readonly arn: string;
     /**
-     * A description of the namespace.
+     * Description of the namespace.
      */
     readonly description: string;
     /**
-     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     * ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
     readonly hostedZone: string;
     /**
@@ -72,7 +72,7 @@ export interface GetDnsNamespaceResult {
     readonly id: string;
     readonly name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     readonly type: string;
@@ -87,15 +87,15 @@ export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pu
  */
 export interface GetDnsNamespaceOutputArgs {
     /**
-     * The name of the namespace.
+     * Name of the namespace.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+     * Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      */
     type: pulumi.Input<string>;
 }

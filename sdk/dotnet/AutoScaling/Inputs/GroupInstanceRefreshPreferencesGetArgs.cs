@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupInstanceRefreshPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of seconds to wait after a checkpoint. Defaults to `3600`.
+        /// Number of seconds to wait after a checkpoint. Defaults to `3600`.
         /// </summary>
         [Input("checkpointDelay")]
         public Input<string>? CheckpointDelay { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         }
 
         /// <summary>
-        /// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        /// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         /// </summary>
         [Input("instanceWarmup")]
         public Input<string>? InstanceWarmup { get; set; }
 
         /// <summary>
-        /// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        /// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         /// </summary>
         [Input("minHealthyPercentage")]
         public Input<int>? MinHealthyPercentage { get; set; }

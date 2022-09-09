@@ -19,12 +19,12 @@ public final class ServiceSourceConfigurationCodeRepository {
      */
     private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
     /**
-     * @return The location of the repository that contains the source code.
+     * @return Location of the repository that contains the source code.
      * 
      */
     private String repositoryUrl;
     /**
-     * @return The version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
     private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
@@ -38,14 +38,14 @@ public final class ServiceSourceConfigurationCodeRepository {
         return Optional.ofNullable(this.codeConfiguration);
     }
     /**
-     * @return The location of the repository that contains the source code.
+     * @return Location of the repository that contains the source code.
      * 
      */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }
     /**
-     * @return The version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion() {

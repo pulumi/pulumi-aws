@@ -19,14 +19,14 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
     public static final RouteSpecHttpRouteArgs Empty = new RouteSpecHttpRouteArgs();
 
     /**
-     * The action to take if a match is determined.
+     * Action to take if a match is determined.
      * 
      */
     @Import(name="action", required=true)
     private Output<RouteSpecHttpRouteActionArgs> action;
 
     /**
-     * @return The action to take if a match is determined.
+     * @return Action to take if a match is determined.
      * 
      */
     public Output<RouteSpecHttpRouteActionArgs> action() {
@@ -34,14 +34,14 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The criteria for determining an HTTP request match.
+     * Criteria for determining an HTTP request match.
      * 
      */
     @Import(name="match", required=true)
     private Output<RouteSpecHttpRouteMatchArgs> match;
 
     /**
-     * @return The criteria for determining an HTTP request match.
+     * @return Criteria for determining an HTTP request match.
      * 
      */
     public Output<RouteSpecHttpRouteMatchArgs> match() {
@@ -49,14 +49,14 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The retry policy.
+     * Retry policy.
      * 
      */
     @Import(name="retryPolicy")
     private @Nullable Output<RouteSpecHttpRouteRetryPolicyArgs> retryPolicy;
 
     /**
-     * @return The retry policy.
+     * @return Retry policy.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteRetryPolicyArgs>> retryPolicy() {
@@ -64,14 +64,14 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The types of timeouts.
+     * Types of timeouts.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecHttpRouteTimeoutArgs> timeout;
 
     /**
-     * @return The types of timeouts.
+     * @return Types of timeouts.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteTimeoutArgs>> timeout() {
@@ -106,7 +106,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action The action to take if a match is determined.
+         * @param action Action to take if a match is determined.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param match The criteria for determining an HTTP request match.
+         * @param match Criteria for determining an HTTP request match.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param match The criteria for determining an HTTP request match.
+         * @param match Criteria for determining an HTTP request match.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param retryPolicy The retry policy.
+         * @param retryPolicy Retry policy.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param retryPolicy The retry policy.
+         * @param retryPolicy Retry policy.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeout The types of timeouts.
+         * @param timeout Types of timeouts.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeout The types of timeouts.
+         * @param timeout Types of timeouts.
          * 
          * @return builder
          * 

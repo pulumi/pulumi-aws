@@ -16,14 +16,14 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
     public static final NamedQueryState Empty = new NamedQueryState();
 
     /**
-     * The database to which the query belongs.
+     * Database to which the query belongs.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database to which the query belongs.
+     * @return Database to which the query belongs.
      * 
      */
     public Optional<Output<String>> database() {
@@ -31,14 +31,14 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A brief explanation of the query. Maximum length of 1024.
+     * Brief explanation of the query. Maximum length of 1024.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A brief explanation of the query. Maximum length of 1024.
+     * @return Brief explanation of the query. Maximum length of 1024.
      * 
      */
     public Optional<Output<String>> description() {
@@ -46,14 +46,14 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The plain language name for the query. Maximum length of 128.
+     * Plain language name for the query. Maximum length of 128.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The plain language name for the query. Maximum length of 128.
+     * @return Plain language name for the query. Maximum length of 128.
      * 
      */
     public Optional<Output<String>> name() {
@@ -61,14 +61,14 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * @return Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
     public Optional<Output<String>> query() {
@@ -76,14 +76,14 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The workgroup to which the query belongs. Defaults to `primary`
+     * Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
     @Import(name="workgroup")
     private @Nullable Output<String> workgroup;
 
     /**
-     * @return The workgroup to which the query belongs. Defaults to `primary`
+     * @return Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
     public Optional<Output<String>> workgroup() {
@@ -119,7 +119,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database to which the query belongs.
+         * @param database Database to which the query belongs.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database to which the query belongs.
+         * @param database Database to which the query belongs.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A brief explanation of the query. Maximum length of 1024.
+         * @param description Brief explanation of the query. Maximum length of 1024.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A brief explanation of the query. Maximum length of 1024.
+         * @param description Brief explanation of the query. Maximum length of 1024.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The plain language name for the query. Maximum length of 128.
+         * @param name Plain language name for the query. Maximum length of 128.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The plain language name for the query. Maximum length of 128.
+         * @param name Plain language name for the query. Maximum length of 128.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param query The text of the query itself. In other words, all query statements. Maximum length of 262144.
+         * @param query Text of the query itself. In other words, all query statements. Maximum length of 262144.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param query The text of the query itself. In other words, all query statements. Maximum length of 262144.
+         * @param query Text of the query itself. In other words, all query statements. Maximum length of 262144.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workgroup The workgroup to which the query belongs. Defaults to `primary`
+         * @param workgroup Workgroup to which the query belongs. Defaults to `primary`
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class NamedQueryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workgroup The workgroup to which the query belongs. Defaults to `primary`
+         * @param workgroup Workgroup to which the query belongs. Defaults to `primary`
          * 
          * @return builder
          * 

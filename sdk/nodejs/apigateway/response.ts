@@ -64,23 +64,23 @@ export class Response extends pulumi.CustomResource {
     }
 
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map specifying the templates used to transform the response body.
+     * Map of templates used to transform the response body.
      */
     public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse.
      */
     public readonly responseType!: pulumi.Output<string>;
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      */
     public readonly restApiId!: pulumi.Output<string>;
     /**
-     * The HTTP status code of the Gateway Response.
+     * HTTP status code of the Gateway Response.
      */
     public readonly statusCode!: pulumi.Output<string | undefined>;
 
@@ -126,23 +126,23 @@ export class Response extends pulumi.CustomResource {
  */
 export interface ResponseState {
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
     responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map specifying the templates used to transform the response body.
+     * Map of templates used to transform the response body.
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse.
      */
     responseType?: pulumi.Input<string>;
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      */
     restApiId?: pulumi.Input<string>;
     /**
-     * The HTTP status code of the Gateway Response.
+     * HTTP status code of the Gateway Response.
      */
     statusCode?: pulumi.Input<string>;
 }
@@ -152,23 +152,23 @@ export interface ResponseState {
  */
 export interface ResponseArgs {
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
     responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map specifying the templates used to transform the response body.
+     * Map of templates used to transform the response body.
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The response type of the associated GatewayResponse.
+     * Response type of the associated GatewayResponse.
      */
     responseType: pulumi.Input<string>;
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * The HTTP status code of the Gateway Response.
+     * HTTP status code of the Gateway Response.
      */
     statusCode?: pulumi.Input<string>;
 }

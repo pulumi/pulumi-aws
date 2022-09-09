@@ -54,7 +54,7 @@ class GetSubnetsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        A list of all the subnet ids found.
+        List of all the subnet ids found.
         """
         return pulumi.get(self, "ids")
 
@@ -84,7 +84,7 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
 
 
     :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
     """
     __args__ = dict()
@@ -109,7 +109,7 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
 
     :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
     """
     ...

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
     /**
-     * @return The regular expression that identifies the claim.
+     * @return Regular expression that identifies the claim.
      * 
      */
     private String claimRegex;
@@ -20,22 +20,22 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
      */
     private String groupAttributeField;
     /**
-     * @return The issuer of the token.
+     * @return Issuer of the token.
      * 
      */
     private String issuer;
     /**
-     * @return The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
     private String keyLocation;
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private String secretsManagerArn;
     /**
-     * @return The signing key URL.
+     * @return Signing key URL.
      * 
      */
     private String url;
@@ -47,7 +47,7 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
 
     private GetIndexUserTokenConfigurationJwtTokenTypeConfiguration() {}
     /**
-     * @return The regular expression that identifies the claim.
+     * @return Regular expression that identifies the claim.
      * 
      */
     public String claimRegex() {
@@ -61,28 +61,28 @@ public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
         return this.groupAttributeField;
     }
     /**
-     * @return The issuer of the token.
+     * @return Issuer of the token.
      * 
      */
     public String issuer() {
         return this.issuer;
     }
     /**
-     * @return The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
     public String keyLocation() {
         return this.keyLocation;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public String secretsManagerArn() {
         return this.secretsManagerArn;
     }
     /**
-     * @return The signing key URL.
+     * @return Signing key URL.
      * 
      */
     public String url() {

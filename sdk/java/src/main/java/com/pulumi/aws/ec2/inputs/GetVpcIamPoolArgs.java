@@ -49,14 +49,14 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the IPAM pool.
+     * ID of the IPAM pool.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the IPAM pool.
+     * @return ID of the IPAM pool.
      * 
      */
     public Optional<Output<String>> id() {
@@ -64,14 +64,14 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the IPAM pool you would like information on.
+     * ID of the IPAM pool you would like information on.
      * 
      */
     @Import(name="ipamPoolId")
     private @Nullable Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the IPAM pool you would like information on.
+     * @return ID of the IPAM pool you would like information on.
      * 
      */
     public Optional<Output<String>> ipamPoolId() {
@@ -79,14 +79,14 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags to assigned to the resource.
+     * Map of tags to assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assigned to the resource.
+     * @return Map of tags to assigned to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -174,7 +174,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the IPAM pool.
+         * @param id ID of the IPAM pool.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the IPAM pool.
+         * @param id ID of the IPAM pool.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ipamPoolId The ID of the IPAM pool you would like information on.
+         * @param ipamPoolId ID of the IPAM pool you would like information on.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param ipamPoolId The ID of the IPAM pool you would like information on.
+         * @param ipamPoolId ID of the IPAM pool you would like information on.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assigned to the resource.
+         * @param tags Map of tags to assigned to the resource.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetVpcIamPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assigned to the resource.
+         * @param tags Map of tags to assigned to the resource.
          * 
          * @return builder
          * 

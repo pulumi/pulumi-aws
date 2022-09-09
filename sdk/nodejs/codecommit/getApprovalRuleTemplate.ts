@@ -34,7 +34,7 @@ export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?
  */
 export interface GetApprovalRuleTemplateArgs {
     /**
-     * The name for the approval rule template. This needs to be less than 100 characters.
+     * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: string;
 }
@@ -48,15 +48,15 @@ export interface GetApprovalRuleTemplateResult {
      */
     readonly approvalRuleTemplateId: string;
     /**
-     * The content of the approval rule template.
+     * Content of the approval rule template.
      */
     readonly content: string;
     /**
-     * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     readonly creationDate: string;
     /**
-     * The description of the approval rule template.
+     * Description of the approval rule template.
      */
     readonly description: string;
     /**
@@ -64,16 +64,16 @@ export interface GetApprovalRuleTemplateResult {
      */
     readonly id: string;
     /**
-     * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     readonly lastModifiedDate: string;
     /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * ARN of the user who made the most recent changes to the approval rule template.
      */
     readonly lastModifiedUser: string;
     readonly name: string;
     /**
-     * The SHA-256 hash signature for the content of the approval rule template.
+     * SHA-256 hash signature for the content of the approval rule template.
      */
     readonly ruleContentSha256: string;
 }
@@ -87,7 +87,7 @@ export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutpu
  */
 export interface GetApprovalRuleTemplateOutputArgs {
     /**
-     * The name for the approval rule template. This needs to be less than 100 characters.
+     * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: pulumi.Input<string>;
 }

@@ -57,7 +57,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the compute environment.
+        ARN of the compute environment.
         """
         return pulumi.get(self, "arn")
 
@@ -70,7 +70,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="ecsClusterArn")
     def ecs_cluster_arn(self) -> str:
         """
-        The ARN of the underlying Amazon ECS cluster used by the compute environment.
+        ARN of the underlying Amazon ECS cluster used by the compute environment.
         """
         return pulumi.get(self, "ecs_cluster_arn")
 
@@ -86,7 +86,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> str:
         """
-        The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
         return pulumi.get(self, "service_role")
 
@@ -94,7 +94,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+        State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
         """
         return pulumi.get(self, "state")
 
@@ -102,7 +102,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the compute environment (for example, `CREATING` or `VALID`).
+        Current status of the compute environment (for example, `CREATING` or `VALID`).
         """
         return pulumi.get(self, "status")
 
@@ -110,7 +110,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> str:
         """
-        A short, human-readable string to provide additional details about the current status of the compute environment.
+        Short, human-readable string to provide additional details about the current status of the compute environment.
         """
         return pulumi.get(self, "status_reason")
 
@@ -126,7 +126,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+        Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         """
         return pulumi.get(self, "type")
 
@@ -166,7 +166,7 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
     ```
 
 
-    :param str compute_environment_name: The name of the Batch Compute Environment
+    :param str compute_environment_name: Name of the Batch Compute Environment
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
@@ -206,7 +206,7 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
     ```
 
 
-    :param str compute_environment_name: The name of the Batch Compute Environment
+    :param str compute_environment_name: Name of the Batch Compute Environment
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
     ...

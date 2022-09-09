@@ -628,7 +628,7 @@ func (o OrganizationalUnitAccountArrayOutput) Index(i pulumi.IntInput) Organizat
 }
 
 type GetDelegatedAdministratorsDelegatedAdministrator struct {
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// The ARN of the delegated administrator's account.
 	Arn string `pulumi:"arn"`
 	// The date when the account was made a delegated administrator.
 	DelegationEnabledDate string `pulumi:"delegationEnabledDate"`
@@ -658,7 +658,7 @@ type GetDelegatedAdministratorsDelegatedAdministratorInput interface {
 }
 
 type GetDelegatedAdministratorsDelegatedAdministratorArgs struct {
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// The ARN of the delegated administrator's account.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The date when the account was made a delegated administrator.
 	DelegationEnabledDate pulumi.StringInput `pulumi:"delegationEnabledDate"`
@@ -727,7 +727,7 @@ func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToGetDelegatedAd
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delegated administrator's account.
+// The ARN of the delegated administrator's account.
 func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDelegatedAdministratorsDelegatedAdministrator) string { return v.Arn }).(pulumi.StringOutput)
 }

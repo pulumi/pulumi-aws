@@ -74,7 +74,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly EventBridge event bus name.
+        /// Friendly EventBridge event bus name.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly EventBridge event bus name.
+        /// Friendly EventBridge event bus name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the role.
+        /// ARN.
         /// </summary>
         public readonly string Arn;
         /// <summary>

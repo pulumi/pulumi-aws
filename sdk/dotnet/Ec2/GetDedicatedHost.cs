@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Dedicated Host.
+        /// ID of the Dedicated Host.
         /// </summary>
         [Input("hostId")]
         public string? HostId { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the Dedicated Host.
+        /// ID of the Dedicated Host.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetDedicatedHostResult
     {
         /// <summary>
-        /// The ARN of the Dedicated Host.
+        /// ARN of the Dedicated Host.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -170,17 +170,17 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AutoPlacement;
         /// <summary>
-        /// The Availability Zone of the Dedicated Host.
+        /// Availability Zone of the Dedicated Host.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The number of cores on the Dedicated Host.
+        /// Number of cores on the Dedicated Host.
         /// </summary>
         public readonly int Cores;
         public readonly ImmutableArray<Outputs.GetDedicatedHostFilterResult> Filters;
         public readonly string HostId;
         /// <summary>
-        /// Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+        /// Whether host recovery is enabled or disabled for the Dedicated Host.
         /// </summary>
         public readonly string HostRecovery;
         /// <summary>
@@ -188,28 +188,28 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The instance family supported by the Dedicated Host. For example, "m5".
+        /// Instance family supported by the Dedicated Host. For example, "m5".
         /// </summary>
         public readonly string InstanceFamily;
         /// <summary>
-        /// The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        /// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+        /// ARN of the AWS Outpost on which the Dedicated Host is allocated.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// The ID of the AWS account that owns the Dedicated Host.
+        /// ID of the AWS account that owns the Dedicated Host.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The number of sockets on the Dedicated Host.
+        /// Number of sockets on the Dedicated Host.
         /// </summary>
         public readonly int Sockets;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The total number of vCPUs on the Dedicated Host.
+        /// Total number of vCPUs on the Dedicated Host.
         /// </summary>
         public readonly int TotalVcpus;
 

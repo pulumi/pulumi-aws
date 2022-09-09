@@ -58,39 +58,39 @@ func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opt
 type LookupDedicatedHostArgs struct {
 	// Configuration block. Detailed below.
 	Filters []GetDedicatedHostFilter `pulumi:"filters"`
-	// The ID of the Dedicated Host.
+	// ID of the Dedicated Host.
 	HostId *string           `pulumi:"hostId"`
 	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDedicatedHost.
 type LookupDedicatedHostResult struct {
-	// The ARN of the Dedicated Host.
+	// ARN of the Dedicated Host.
 	Arn string `pulumi:"arn"`
 	// Whether auto-placement is on or off.
 	AutoPlacement string `pulumi:"autoPlacement"`
-	// The Availability Zone of the Dedicated Host.
+	// Availability Zone of the Dedicated Host.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The number of cores on the Dedicated Host.
+	// Number of cores on the Dedicated Host.
 	Cores   int                      `pulumi:"cores"`
 	Filters []GetDedicatedHostFilter `pulumi:"filters"`
 	HostId  string                   `pulumi:"hostId"`
-	// Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+	// Whether host recovery is enabled or disabled for the Dedicated Host.
 	HostRecovery string `pulumi:"hostRecovery"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The instance family supported by the Dedicated Host. For example, "m5".
+	// Instance family supported by the Dedicated Host. For example, "m5".
 	InstanceFamily string `pulumi:"instanceFamily"`
-	// The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+	// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
 	InstanceType string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+	// ARN of the AWS Outpost on which the Dedicated Host is allocated.
 	OutpostArn string `pulumi:"outpostArn"`
-	// The ID of the AWS account that owns the Dedicated Host.
+	// ID of the AWS account that owns the Dedicated Host.
 	OwnerId string `pulumi:"ownerId"`
-	// The number of sockets on the Dedicated Host.
+	// Number of sockets on the Dedicated Host.
 	Sockets int               `pulumi:"sockets"`
 	Tags    map[string]string `pulumi:"tags"`
-	// The total number of vCPUs on the Dedicated Host.
+	// Total number of vCPUs on the Dedicated Host.
 	TotalVcpus int `pulumi:"totalVcpus"`
 }
 
@@ -111,7 +111,7 @@ func LookupDedicatedHostOutput(ctx *pulumi.Context, args LookupDedicatedHostOutp
 type LookupDedicatedHostOutputArgs struct {
 	// Configuration block. Detailed below.
 	Filters GetDedicatedHostFilterArrayInput `pulumi:"filters"`
-	// The ID of the Dedicated Host.
+	// ID of the Dedicated Host.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -135,7 +135,7 @@ func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutputWithCo
 	return o
 }
 
-// The ARN of the Dedicated Host.
+// ARN of the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -145,12 +145,12 @@ func (o LookupDedicatedHostResultOutput) AutoPlacement() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.AutoPlacement }).(pulumi.StringOutput)
 }
 
-// The Availability Zone of the Dedicated Host.
+// Availability Zone of the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The number of cores on the Dedicated Host.
+// Number of cores on the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) Cores() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) int { return v.Cores }).(pulumi.IntOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupDedicatedHostResultOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.HostId }).(pulumi.StringOutput)
 }
 
-// Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+// Whether host recovery is enabled or disabled for the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) HostRecovery() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.HostRecovery }).(pulumi.StringOutput)
 }
@@ -173,27 +173,27 @@ func (o LookupDedicatedHostResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The instance family supported by the Dedicated Host. For example, "m5".
+// Instance family supported by the Dedicated Host. For example, "m5".
 func (o LookupDedicatedHostResultOutput) InstanceFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.InstanceFamily }).(pulumi.StringOutput)
 }
 
-// The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
 func (o LookupDedicatedHostResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+// ARN of the AWS Outpost on which the Dedicated Host is allocated.
 func (o LookupDedicatedHostResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the Dedicated Host.
+// ID of the AWS account that owns the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The number of sockets on the Dedicated Host.
+// Number of sockets on the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) Sockets() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) int { return v.Sockets }).(pulumi.IntOutput)
 }
@@ -202,7 +202,7 @@ func (o LookupDedicatedHostResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The total number of vCPUs on the Dedicated Host.
+// Total number of vCPUs on the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) TotalVcpus() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) int { return v.TotalVcpus }).(pulumi.IntOutput)
 }

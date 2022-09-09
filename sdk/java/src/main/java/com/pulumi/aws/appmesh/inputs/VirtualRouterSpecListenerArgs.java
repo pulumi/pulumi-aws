@@ -14,14 +14,14 @@ public final class VirtualRouterSpecListenerArgs extends com.pulumi.resources.Re
     public static final VirtualRouterSpecListenerArgs Empty = new VirtualRouterSpecListenerArgs();
 
     /**
-     * The port mapping information for the listener.
+     * Port mapping information for the listener.
      * 
      */
     @Import(name="portMapping", required=true)
     private Output<VirtualRouterSpecListenerPortMappingArgs> portMapping;
 
     /**
-     * @return The port mapping information for the listener.
+     * @return Port mapping information for the listener.
      * 
      */
     public Output<VirtualRouterSpecListenerPortMappingArgs> portMapping() {
@@ -53,7 +53,7 @@ public final class VirtualRouterSpecListenerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param portMapping The port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualRouterSpecListenerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param portMapping The port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener.
          * 
          * @return builder
          * 

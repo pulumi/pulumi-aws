@@ -49,7 +49,7 @@ func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ..
 
 // A collection of arguments for invoking getRandomPassword.
 type GetRandomPasswordArgs struct {
-	// A string of the characters that you don't want in the password.
+	// String of the characters that you don't want in the password.
 	ExcludeCharacters *string `pulumi:"excludeCharacters"`
 	// Specifies whether to exclude lowercase letters from the password.
 	ExcludeLowercase *bool `pulumi:"excludeLowercase"`
@@ -61,9 +61,9 @@ type GetRandomPasswordArgs struct {
 	ExcludeUppercase *bool `pulumi:"excludeUppercase"`
 	// Specifies whether to include the space character.
 	IncludeSpace *bool `pulumi:"includeSpace"`
-	// The length of the password.
+	// Length of the password.
 	PasswordLength *int `pulumi:"passwordLength"`
-	// The random password.
+	// Random password.
 	RandomPassword *string `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
@@ -80,7 +80,7 @@ type GetRandomPasswordResult struct {
 	Id             string `pulumi:"id"`
 	IncludeSpace   *bool  `pulumi:"includeSpace"`
 	PasswordLength *int   `pulumi:"passwordLength"`
-	// The random password.
+	// Random password.
 	RandomPassword          string `pulumi:"randomPassword"`
 	RequireEachIncludedType *bool  `pulumi:"requireEachIncludedType"`
 }
@@ -100,7 +100,7 @@ func GetRandomPasswordOutput(ctx *pulumi.Context, args GetRandomPasswordOutputAr
 
 // A collection of arguments for invoking getRandomPassword.
 type GetRandomPasswordOutputArgs struct {
-	// A string of the characters that you don't want in the password.
+	// String of the characters that you don't want in the password.
 	ExcludeCharacters pulumi.StringPtrInput `pulumi:"excludeCharacters"`
 	// Specifies whether to exclude lowercase letters from the password.
 	ExcludeLowercase pulumi.BoolPtrInput `pulumi:"excludeLowercase"`
@@ -112,9 +112,9 @@ type GetRandomPasswordOutputArgs struct {
 	ExcludeUppercase pulumi.BoolPtrInput `pulumi:"excludeUppercase"`
 	// Specifies whether to include the space character.
 	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
-	// The length of the password.
+	// Length of the password.
 	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
-	// The random password.
+	// Random password.
 	RandomPassword pulumi.StringPtrInput `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
@@ -172,7 +172,7 @@ func (o GetRandomPasswordResultOutput) PasswordLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetRandomPasswordResult) *int { return v.PasswordLength }).(pulumi.IntPtrOutput)
 }
 
-// The random password.
+// Random password.
 func (o GetRandomPasswordResultOutput) RandomPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRandomPasswordResult) string { return v.RandomPassword }).(pulumi.StringOutput)
 }

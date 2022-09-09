@@ -54,7 +54,7 @@ type LookupWorkerConfigurationArgs struct {
 
 // A collection of values returned by getWorkerConfiguration.
 type LookupWorkerConfigurationResult struct {
-	// the Amazon Resource Name (ARN) of the worker configuration.
+	// the ARN of the worker configuration.
 	Arn string `pulumi:"arn"`
 	// a summary description of the worker configuration.
 	Description string `pulumi:"description"`
@@ -105,7 +105,7 @@ func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResult
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the worker configuration.
+// the ARN of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

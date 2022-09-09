@@ -36,10 +36,10 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The certificate CNAME record name.
-        :param pulumi.Input[str] status: The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-        :param pulumi.Input[str] type: The record type, always `CNAME`.
-        :param pulumi.Input[str] value: The certificate CNAME record value.
+        :param pulumi.Input[str] name: Certificate CNAME record name.
+        :param pulumi.Input[str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        :param pulumi.Input[str] type: Record type, always `CNAME`.
+        :param pulumi.Input[str] value: Certificate CNAME record value.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -54,7 +54,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate CNAME record name.
+        Certificate CNAME record name.
         """
         return pulumi.get(self, "name")
 
@@ -66,7 +66,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 
@@ -78,7 +78,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The record type, always `CNAME`.
+        Record type, always `CNAME`.
         """
         return pulumi.get(self, "type")
 
@@ -90,7 +90,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The certificate CNAME record value.
+        Certificate CNAME record value.
         """
         return pulumi.get(self, "value")
 
@@ -104,7 +104,7 @@ class ObservabilityConfigurationTraceConfigurationArgs:
     def __init__(__self__, *,
                  vendor: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] vendor: The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        :param pulumi.Input[str] vendor: Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
         """
         if vendor is not None:
             pulumi.set(__self__, "vendor", vendor)
@@ -113,7 +113,7 @@ class ObservabilityConfigurationTraceConfigurationArgs:
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
         """
-        The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
         """
         return pulumi.get(self, "vendor")
 
@@ -127,7 +127,7 @@ class ServiceEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] kms_key: The ARN of the KMS key used for encryption.
+        :param pulumi.Input[str] kms_key: ARN of the KMS key used for encryption.
         """
         pulumi.set(__self__, "kms_key", kms_key)
 
@@ -135,7 +135,7 @@ class ServiceEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[str]:
         """
-        The ARN of the KMS key used for encryption.
+        ARN of the KMS key used for encryption.
         """
         return pulumi.get(self, "kms_key")
 
@@ -154,12 +154,12 @@ class ServiceHealthCheckConfigurationArgs:
                  timeout: Optional[pulumi.Input[int]] = None,
                  unhealthy_threshold: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] healthy_threshold: The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
-        :param pulumi.Input[int] interval: The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
-        :param pulumi.Input[str] path: The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
-        :param pulumi.Input[str] protocol: The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
-        :param pulumi.Input[int] timeout: The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
-        :param pulumi.Input[int] unhealthy_threshold: The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+        :param pulumi.Input[int] healthy_threshold: Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+        :param pulumi.Input[int] interval: Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+        :param pulumi.Input[str] path: URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+        :param pulumi.Input[str] protocol: IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+        :param pulumi.Input[int] timeout: Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+        :param pulumi.Input[int] unhealthy_threshold: Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
         """
         if healthy_threshold is not None:
             pulumi.set(__self__, "healthy_threshold", healthy_threshold)
@@ -178,7 +178,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
+        Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
         """
         return pulumi.get(self, "healthy_threshold")
 
@@ -190,7 +190,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
-        The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
+        Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
         """
         return pulumi.get(self, "interval")
 
@@ -202,7 +202,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
+        URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
         """
         return pulumi.get(self, "path")
 
@@ -214,7 +214,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
+        IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
         """
         return pulumi.get(self, "protocol")
 
@@ -226,7 +226,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
+        Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
         """
         return pulumi.get(self, "timeout")
 
@@ -238,7 +238,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
+        Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
@@ -254,9 +254,9 @@ class ServiceInstanceConfigurationArgs:
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cpu: The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
-        :param pulumi.Input[str] instance_role_arn: The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-        :param pulumi.Input[str] memory: The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+        :param pulumi.Input[str] cpu: Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+        :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+        :param pulumi.Input[str] memory: Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -269,7 +269,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+        Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
         """
         return pulumi.get(self, "cpu")
 
@@ -281,7 +281,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+        ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         """
         return pulumi.get(self, "instance_role_arn")
 
@@ -293,7 +293,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
-        The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+        Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
         """
         return pulumi.get(self, "memory")
 
@@ -331,8 +331,8 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
                  egress_type: Optional[pulumi.Input[str]] = None,
                  vpc_connector_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] egress_type: The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
-        :param pulumi.Input[str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        :param pulumi.Input[str] egress_type: Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        :param pulumi.Input[str] vpc_connector_arn: ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
         """
         if egress_type is not None:
             pulumi.set(__self__, "egress_type", egress_type)
@@ -343,7 +343,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="egressType")
     def egress_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+        Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
         """
         return pulumi.get(self, "egress_type")
 
@@ -355,7 +355,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="vpcConnectorArn")
     def vpc_connector_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+        ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
         """
         return pulumi.get(self, "vpc_connector_arn")
 
@@ -370,7 +370,7 @@ class ServiceObservabilityConfigurationArgs:
                  observability_configuration_arn: pulumi.Input[str],
                  observability_enabled: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] observability_configuration_arn: The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        :param pulumi.Input[str] observability_configuration_arn: ARN of the observability configuration that is associated with the service.
         :param pulumi.Input[bool] observability_enabled: When `true`, an observability configuration resource is associated with the service.
         """
         pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
@@ -380,7 +380,7 @@ class ServiceObservabilityConfigurationArgs:
     @pulumi.getter(name="observabilityConfigurationArn")
     def observability_configuration_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        ARN of the observability configuration that is associated with the service.
         """
         return pulumi.get(self, "observability_configuration_arn")
 
@@ -518,8 +518,8 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
                  source_code_version: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'],
                  code_configuration: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] repository_url: The location of the repository that contains the source code.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: The version that should be used within the source code repository. See Source Code Version below for more details.
+        :param pulumi.Input[str] repository_url: Location of the repository that contains the source code.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
         pulumi.set(__self__, "repository_url", repository_url)
@@ -531,7 +531,7 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> pulumi.Input[str]:
         """
-        The location of the repository that contains the source code.
+        Location of the repository that contains the source code.
         """
         return pulumi.get(self, "repository_url")
 
@@ -543,7 +543,7 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
     @pulumi.getter(name="sourceCodeVersion")
     def source_code_version(self) -> pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs']:
         """
-        The version that should be used within the source code repository. See Source Code Version below for more details.
+        Version that should be used within the source code repository. See Source Code Version below for more details.
         """
         return pulumi.get(self, "source_code_version")
 
@@ -570,7 +570,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
                  configuration_source: pulumi.Input[str],
                  code_configuration_values: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']] = None):
         """
-        :param pulumi.Input[str] configuration_source: The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+        :param pulumi.Input[str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
@@ -581,7 +581,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
     @pulumi.getter(name="configurationSource")
     def configuration_source(self) -> pulumi.Input[str]:
         """
-        The source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+        Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         """
         return pulumi.get(self, "configuration_source")
 
@@ -611,11 +611,11 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
                  runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] runtime: A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
-        :param pulumi.Input[str] build_command: The command App Runner runs to build your application.
-        :param pulumi.Input[str] port: The port that your application listens to in the container. Defaults to `"8080"`.
+        :param pulumi.Input[str] runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        :param pulumi.Input[str] build_command: Command App Runner runs to build your application.
+        :param pulumi.Input[str] port: Port that your application listens to in the container. Defaults to `"8080"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-        :param pulumi.Input[str] start_command: The command App Runner runs to start your application.
+        :param pulumi.Input[str] start_command: Command App Runner runs to start your application.
         """
         pulumi.set(__self__, "runtime", runtime)
         if build_command is not None:
@@ -631,7 +631,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
         """
-        A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+        Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
         """
         return pulumi.get(self, "runtime")
 
@@ -643,7 +643,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter(name="buildCommand")
     def build_command(self) -> Optional[pulumi.Input[str]]:
         """
-        The command App Runner runs to build your application.
+        Command App Runner runs to build your application.
         """
         return pulumi.get(self, "build_command")
 
@@ -655,7 +655,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        The port that your application listens to in the container. Defaults to `"8080"`.
+        Port that your application listens to in the container. Defaults to `"8080"`.
         """
         return pulumi.get(self, "port")
 
@@ -679,7 +679,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter(name="startCommand")
     def start_command(self) -> Optional[pulumi.Input[str]]:
         """
-        The command App Runner runs to start your application.
+        Command App Runner runs to start your application.
         """
         return pulumi.get(self, "start_command")
 
@@ -694,8 +694,8 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-        :param pulumi.Input[str] value: A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+        :param pulumi.Input[str] type: Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+        :param pulumi.Input[str] value: Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -704,7 +704,7 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
+        Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
         """
         return pulumi.get(self, "type")
 
@@ -716,7 +716,7 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        A source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
+        Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
         """
         return pulumi.get(self, "value")
 
@@ -732,9 +732,9 @@ class ServiceSourceConfigurationImageRepositoryArgs:
                  image_repository_type: pulumi.Input[str],
                  image_configuration: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] image_identifier: The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+        :param pulumi.Input[str] image_identifier: Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
                image name format, see Pulling an image in the Amazon ECR User Guide.
-        :param pulumi.Input[str] image_repository_type: The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+        :param pulumi.Input[str] image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
         :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs'] image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
@@ -746,7 +746,7 @@ class ServiceSourceConfigurationImageRepositoryArgs:
     @pulumi.getter(name="imageIdentifier")
     def image_identifier(self) -> pulumi.Input[str]:
         """
-        The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+        Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
         image name format, see Pulling an image in the Amazon ECR User Guide.
         """
         return pulumi.get(self, "image_identifier")
@@ -759,7 +759,7 @@ class ServiceSourceConfigurationImageRepositoryArgs:
     @pulumi.getter(name="imageRepositoryType")
     def image_repository_type(self) -> pulumi.Input[str]:
         """
-        The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+        Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
         """
         return pulumi.get(self, "image_repository_type")
 
@@ -787,9 +787,9 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
                  runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] port: The port that your application listens to in the container. Defaults to `"8080"`.
+        :param pulumi.Input[str] port: Port that your application listens to in the container. Defaults to `"8080"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-        :param pulumi.Input[str] start_command: A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+        :param pulumi.Input[str] start_command: Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -802,7 +802,7 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        The port that your application listens to in the container. Defaults to `"8080"`.
+        Port that your application listens to in the container. Defaults to `"8080"`.
         """
         return pulumi.get(self, "port")
 
@@ -826,7 +826,7 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
     @pulumi.getter(name="startCommand")
     def start_command(self) -> Optional[pulumi.Input[str]]:
         """
-        A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+        Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
         """
         return pulumi.get(self, "start_command")
 

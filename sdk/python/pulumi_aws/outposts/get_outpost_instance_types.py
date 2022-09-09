@@ -80,7 +80,7 @@ def get_outpost_instance_types(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Outpost Amazon Resource Name (ARN).
+    :param str arn: Outpost ARN.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -109,6 +109,6 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Outpost Amazon Resource Name (ARN).
+    :param str arn: Outpost ARN.
     """
     ...

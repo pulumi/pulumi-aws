@@ -154,6 +154,7 @@ class _ProvisioningTemplateState:
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         if arn is not None:
@@ -276,6 +277,9 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -534,6 +538,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProvisioningTemplatePreProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -619,6 +624,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +65,7 @@ export interface GetSecurityGroupsArgs {
      */
     filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match for desired security groups.
+     * Map of tags, each pair of which must exactly match for desired security groups.
      */
     tags?: {[key: string]: string};
 }
@@ -87,7 +89,7 @@ export interface GetSecurityGroupsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
     /**
-     * The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+     * VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
 }
@@ -105,7 +107,7 @@ export interface GetSecurityGroupsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match for desired security groups.
+     * Map of tags, each pair of which must exactly match for desired security groups.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

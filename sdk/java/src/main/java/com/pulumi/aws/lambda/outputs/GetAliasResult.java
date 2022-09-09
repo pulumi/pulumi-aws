@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAliasResult {
     /**
-     * @return The Amazon Resource Name (ARN) identifying the Lambda function alias.
+     * @return ARN identifying the Lambda function alias.
      * 
      */
     private String arn;
@@ -31,7 +31,7 @@ public final class GetAliasResult {
      */
     private String id;
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
      * 
      */
     private String invokeArn;
@@ -39,7 +39,7 @@ public final class GetAliasResult {
 
     private GetAliasResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) identifying the Lambda function alias.
+     * @return ARN identifying the Lambda function alias.
      * 
      */
     public String arn() {
@@ -70,7 +70,7 @@ public final class GetAliasResult {
         return this.id;
     }
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
      * 
      */
     public String invokeArn() {

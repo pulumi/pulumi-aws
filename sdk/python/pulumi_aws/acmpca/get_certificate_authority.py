@@ -150,7 +150,7 @@ class GetCertificateAuthorityResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        Key-value map of user-defined tags that are attached to the certificate authority.
         """
         return pulumi.get(self, "tags")
 
@@ -158,7 +158,7 @@ class GetCertificateAuthorityResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the certificate authority.
+        Type of the certificate authority.
         """
         return pulumi.get(self, "type")
 
@@ -200,7 +200,7 @@ def get_certificate_authority(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the certificate authority.
+    :param str arn: ARN of the certificate authority.
     :param Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
            * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
            * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
@@ -210,7 +210,7 @@ def get_certificate_authority(arn: Optional[str] = None,
            * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
            * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
            * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-    :param Mapping[str, str] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+    :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -252,7 +252,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the certificate authority.
+    :param str arn: ARN of the certificate authority.
     :param Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
            * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
            * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
@@ -262,6 +262,6 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
            * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
            * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
            * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-    :param Mapping[str, str] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+    :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     ...

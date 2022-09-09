@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionRewritePrefix {
     /**
-     * @return The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+     * @return Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     private @Nullable String defaultPrefix;
     /**
-     * @return The value used to replace the incoming route prefix when rewritten.
+     * @return Value used to replace the incoming route prefix when rewritten.
      * 
      */
     private @Nullable String value;
 
     private GatewayRouteSpecHttp2RouteActionRewritePrefix() {}
     /**
-     * @return The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+     * @return Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Optional<String> defaultPrefix() {
         return Optional.ofNullable(this.defaultPrefix);
     }
     /**
-     * @return The value used to replace the incoming route prefix when rewritten.
+     * @return Value used to replace the incoming route prefix when rewritten.
      * 
      */
     public Optional<String> value() {

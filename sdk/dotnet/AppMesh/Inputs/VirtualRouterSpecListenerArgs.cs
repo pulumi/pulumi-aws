@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualRouterSpecListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port mapping information for the listener.
+        /// Port mapping information for the listener.
         /// </summary>
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualRouterSpecListenerPortMappingArgs> PortMapping { get; set; } = null!;

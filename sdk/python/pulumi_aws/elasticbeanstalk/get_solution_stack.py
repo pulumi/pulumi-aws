@@ -52,7 +52,7 @@ class GetSolutionStackResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the solution stack.
+        Name of the solution stack.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ def get_solution_stack(most_recent: Optional[bool] = None,
 
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.
-    :param str name_regex: A regex string to apply to the solution stack list returned
+    :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
     """
@@ -130,7 +130,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
 
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.
-    :param str name_regex: A regex string to apply to the solution stack list returned
+    :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
     """

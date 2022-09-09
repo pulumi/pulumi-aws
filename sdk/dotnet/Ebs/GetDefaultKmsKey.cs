@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
+        /// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
         /// </summary>
         public readonly string KeyArn;
 

@@ -32,14 +32,14 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+     * @return Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -101,7 +101,7 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
+         * @param qualifier Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
          * 
          * @return builder
          * 

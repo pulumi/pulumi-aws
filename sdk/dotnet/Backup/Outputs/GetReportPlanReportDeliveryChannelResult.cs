@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class GetReportPlanReportDeliveryChannelResult
     {
         /// <summary>
-        /// A list of the format of your reports: CSV, JSON, or both.
+        /// List of the format of your reports: CSV, JSON, or both.
         /// </summary>
         public readonly ImmutableArray<string> Formats;
         /// <summary>
-        /// The unique name of the S3 bucket that receives your reports.
+        /// Unique name of the S3 bucket that receives your reports.
         /// </summary>
         public readonly string S3BucketName;
         /// <summary>
-        /// The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
+        /// Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
         /// </summary>
         public readonly string S3KeyPrefix;
 

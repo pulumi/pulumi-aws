@@ -58,7 +58,7 @@ class GetConnectionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Glue Connection.
+        ARN of the Glue Connection.
         """
         return pulumi.get(self, "arn")
 
@@ -66,7 +66,7 @@ class GetConnectionResult:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
         """
-        The catalog ID of the Glue Connection.
+        Catalog ID of the Glue Connection.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -79,7 +79,7 @@ class GetConnectionResult:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> str:
         """
-        The type of Glue Connection.
+        Type of Glue Connection.
         """
         return pulumi.get(self, "connection_type")
 
@@ -108,7 +108,7 @@ class GetConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Glue Connection.
+        Name of the Glue Connection.
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +124,7 @@ class GetConnectionResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tags assigned to the resource
+        Tags assigned to the resource
         """
         return pulumi.get(self, "tags")
 
@@ -163,9 +163,9 @@ def get_connection(id: Optional[str] = None,
     ```
 
 
-    :param str id: A concatenation of the catalog ID and connection name. For example, if your account ID is
+    :param str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-    :param Mapping[str, str] tags: The tags assigned to the resource
+    :param Mapping[str, str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['id'] = id
@@ -203,8 +203,8 @@ def get_connection_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: A concatenation of the catalog ID and connection name. For example, if your account ID is
+    :param str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-    :param Mapping[str, str] tags: The tags assigned to the resource
+    :param Mapping[str, str] tags: Tags assigned to the resource
     """
     ...

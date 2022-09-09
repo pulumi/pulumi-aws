@@ -48,7 +48,7 @@ func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclArgs struct {
-	// The name of the WAF Web ACL.
+	// Name of the WAF Web ACL.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +74,7 @@ func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts .
 
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclOutputArgs struct {
-	// The name of the WAF Web ACL.
+	// Name of the WAF Web ACL.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match for desired security groups.
+        /// Map of tags, each pair of which must exactly match for desired security groups.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match for desired security groups.
+        /// Map of tags, each pair of which must exactly match for desired security groups.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+        /// VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
         /// </summary>
         public readonly ImmutableArray<string> VpcIds;
 

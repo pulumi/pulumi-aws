@@ -14,14 +14,14 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGatewayArgs Empty = new GetGatewayArgs();
 
     /**
-     * The name of the gateway to retrieve.
+     * Name of the gateway to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the gateway to retrieve.
+     * @return Name of the gateway to retrieve.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the gateway to retrieve.
+         * @param name Name of the gateway to retrieve.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the gateway to retrieve.
+         * @param name Name of the gateway to retrieve.
          * 
          * @return builder
          * 

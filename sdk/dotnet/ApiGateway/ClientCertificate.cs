@@ -41,25 +41,25 @@ namespace Pulumi.Aws.ApiGateway
     public partial class ClientCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The date when the client certificate was created.
+        /// Date when the client certificate was created.
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the client certificate.
+        /// Description of the client certificate.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The date when the client certificate will expire.
+        /// Date when the client certificate will expire.
         /// </summary>
         [Output("expirationDate")]
         public Output<string> ExpirationDate { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the client certificate.
+        /// Description of the client certificate.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -155,25 +155,25 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ClientCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The date when the client certificate was created.
+        /// Date when the client certificate was created.
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The description of the client certificate.
+        /// Description of the client certificate.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The date when the client certificate will expire.
+        /// Date when the client certificate will expire.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

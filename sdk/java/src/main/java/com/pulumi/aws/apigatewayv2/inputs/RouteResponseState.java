@@ -17,14 +17,14 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
     public static final RouteResponseState Empty = new RouteResponseState();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -47,14 +47,14 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The response models for the route response.
+     * Response models for the route response.
      * 
      */
     @Import(name="responseModels")
     private @Nullable Output<Map<String,String>> responseModels;
 
     /**
-     * @return The response models for the route response.
+     * @return Response models for the route response.
      * 
      */
     public Optional<Output<Map<String,String>>> responseModels() {
@@ -62,14 +62,14 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The identifier of the `aws.apigatewayv2.Route`.
+     * Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
     @Import(name="routeId")
     private @Nullable Output<String> routeId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Route`.
+     * @return Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
     public Optional<Output<String>> routeId() {
@@ -77,14 +77,14 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The route response key.
+     * Route response key.
      * 
      */
     @Import(name="routeResponseKey")
     private @Nullable Output<String> routeResponseKey;
 
     /**
-     * @return The route response key.
+     * @return Route response key.
      * 
      */
     public Optional<Output<String>> routeResponseKey() {
@@ -120,7 +120,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param responseModels The response models for the route response.
+         * @param responseModels Response models for the route response.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param responseModels The response models for the route response.
+         * @param responseModels Response models for the route response.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routeId The identifier of the `aws.apigatewayv2.Route`.
+         * @param routeId Identifier of the `aws.apigatewayv2.Route`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routeId The identifier of the `aws.apigatewayv2.Route`.
+         * @param routeId Identifier of the `aws.apigatewayv2.Route`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routeResponseKey The route response key.
+         * @param routeResponseKey Route response key.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param routeResponseKey The route response key.
+         * @param routeResponseKey Route response key.
          * 
          * @return builder
          * 

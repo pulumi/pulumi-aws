@@ -70,13 +70,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the cache policy.
+        /// Identifier for the cache policy.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// A unique name to identify the cache policy.
+        /// Unique name to identify the cache policy.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the cache policy.
+        /// Identifier for the cache policy.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// A unique name to identify the cache policy.
+        /// Unique name to identify the cache policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -112,24 +112,24 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetCachePolicyResult
     {
         /// <summary>
-        /// A comment to describe the cache policy.
+        /// Comment to describe the cache policy.
         /// </summary>
         public readonly string Comment;
         /// <summary>
-        /// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         public readonly int DefaultTtl;
         /// <summary>
-        /// The current version of the cache policy.
+        /// Current version of the cache policy.
         /// </summary>
         public readonly string Etag;
         public readonly string? Id;
         /// <summary>
-        /// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         public readonly int MaxTtl;
         /// <summary>
-        /// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         public readonly int MinTtl;
         public readonly string? Name;

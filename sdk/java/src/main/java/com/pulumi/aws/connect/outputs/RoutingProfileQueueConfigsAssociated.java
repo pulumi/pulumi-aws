@@ -28,7 +28,7 @@ public final class RoutingProfileQueueConfigsAssociated {
      */
     private @Nullable Integer priority;
     /**
-     * @return Specifies the ARN for the queue.
+     * @return ARN for the queue.
      * 
      */
     private @Nullable String queueArn;
@@ -38,7 +38,7 @@ public final class RoutingProfileQueueConfigsAssociated {
      */
     private @Nullable String queueId;
     /**
-     * @return Specifies the name for the queue.
+     * @return Name for the queue.
      * 
      */
     private @Nullable String queueName;
@@ -66,7 +66,7 @@ public final class RoutingProfileQueueConfigsAssociated {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return Specifies the ARN for the queue.
+     * @return ARN for the queue.
      * 
      */
     public Optional<String> queueArn() {
@@ -80,7 +80,7 @@ public final class RoutingProfileQueueConfigsAssociated {
         return Optional.ofNullable(this.queueId);
     }
     /**
-     * @return Specifies the name for the queue.
+     * @return Name for the queue.
      * 
      */
     public Optional<String> queueName() {

@@ -34,7 +34,7 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetWebAclArgs {
     /**
-     * The name of the WAF Web ACL.
+     * Name of the WAF Web ACL.
      */
     name: string;
 }
@@ -59,7 +59,7 @@ export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetWebAclOutputArgs {
     /**
-     * The name of the WAF Web ACL.
+     * Name of the WAF Web ACL.
      */
     name: pulumi.Input<string>;
 }

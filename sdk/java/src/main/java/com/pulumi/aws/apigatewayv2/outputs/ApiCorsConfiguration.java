@@ -20,27 +20,27 @@ public final class ApiCorsConfiguration {
      */
     private @Nullable Boolean allowCredentials;
     /**
-     * @return The set of allowed HTTP headers.
+     * @return Set of allowed HTTP headers.
      * 
      */
     private @Nullable List<String> allowHeaders;
     /**
-     * @return The set of allowed HTTP methods.
+     * @return Set of allowed HTTP methods.
      * 
      */
     private @Nullable List<String> allowMethods;
     /**
-     * @return The set of allowed origins.
+     * @return Set of allowed origins.
      * 
      */
     private @Nullable List<String> allowOrigins;
     /**
-     * @return The set of exposed HTTP headers.
+     * @return Set of exposed HTTP headers.
      * 
      */
     private @Nullable List<String> exposeHeaders;
     /**
-     * @return The number of seconds that the browser should cache preflight request results.
+     * @return Number of seconds that the browser should cache preflight request results.
      * 
      */
     private @Nullable Integer maxAge;
@@ -54,35 +54,35 @@ public final class ApiCorsConfiguration {
         return Optional.ofNullable(this.allowCredentials);
     }
     /**
-     * @return The set of allowed HTTP headers.
+     * @return Set of allowed HTTP headers.
      * 
      */
     public List<String> allowHeaders() {
         return this.allowHeaders == null ? List.of() : this.allowHeaders;
     }
     /**
-     * @return The set of allowed HTTP methods.
+     * @return Set of allowed HTTP methods.
      * 
      */
     public List<String> allowMethods() {
         return this.allowMethods == null ? List.of() : this.allowMethods;
     }
     /**
-     * @return The set of allowed origins.
+     * @return Set of allowed origins.
      * 
      */
     public List<String> allowOrigins() {
         return this.allowOrigins == null ? List.of() : this.allowOrigins;
     }
     /**
-     * @return The set of exposed HTTP headers.
+     * @return Set of exposed HTTP headers.
      * 
      */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
     /**
-     * @return The number of seconds that the browser should cache preflight request results.
+     * @return Number of seconds that the browser should cache preflight request results.
      * 
      */
     public Optional<Integer> maxAge() {

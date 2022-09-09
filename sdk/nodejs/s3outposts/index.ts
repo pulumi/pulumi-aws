@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./endpoint";
+export { EndpointArgs, EndpointState } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
 
-// Import resources to register:
-import { Endpoint } from "./endpoint";
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
 const _module = {
     version: utilities.getVersion(),

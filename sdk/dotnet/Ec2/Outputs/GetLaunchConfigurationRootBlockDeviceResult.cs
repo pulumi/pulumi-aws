@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
-        /// The provisioned IOPs of the volume.
+        /// Provisioned IOPs of the volume.
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// The Throughput of the volume.
+        /// Throughput of the volume.
         /// </summary>
         public readonly int Throughput;
         /// <summary>
-        /// The Size of the volume.
+        /// Size of the volume.
         /// </summary>
         public readonly int VolumeSize;
         /// <summary>
-        /// The Type of the volume.
+        /// Type of the volume.
         /// </summary>
         public readonly string VolumeType;
 

@@ -55,25 +55,25 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Architecture { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AMI.
+        /// ARN of the AMI.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Output("bootMode")]
         public Output<string> BootMode { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
         [Output("deprecationTime")]
         public Output<string?> DeprecationTime { get; private set; } = null!;
 
         /// <summary>
-        /// A longer, human-readable description for the AMI.
+        /// Longer, human-readable description for the AMI.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.AmiFromInstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         /// </summary>
         [Output("enaSupport")]
         public Output<bool> EnaSupport { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ImageType { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the kernel image (AKI) that will be used as the paravirtual
+        /// ID of the kernel image (AKI) that will be used as the paravirtual
         /// kernel in created instances.
         /// </summary>
         [Output("kernelId")]
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> ManageEbsSnapshots { get; private set; } = null!;
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// Region-unique name for the AMI.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,14 +143,14 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> Public { get; private set; } = null!;
 
         /// <summary>
-        /// The id of an initrd image (ARI) that will be used when booting the
+        /// ID of an initrd image (ARI) that will be used when booting the
         /// created instances.
         /// </summary>
         [Output("ramdiskId")]
         public Output<string> RamdiskId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
         [Output("rootDeviceName")]
         public Output<string> RootDeviceName { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> SnapshotWithoutReboot { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the instance to use as the basis of the AMI.
+        /// ID of the instance to use as the basis of the AMI.
         /// </summary>
         [Output("sourceInstanceId")]
         public Output<string> SourceInstanceId { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SriovNetSupport { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -253,13 +253,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiFromInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
         [Input("deprecationTime")]
         public Input<string>? DeprecationTime { get; set; }
 
         /// <summary>
-        /// A longer, human-readable description for the AMI.
+        /// Longer, human-readable description for the AMI.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// Region-unique name for the AMI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? SnapshotWithoutReboot { get; set; }
 
         /// <summary>
-        /// The id of the instance to use as the basis of the AMI.
+        /// ID of the instance to use as the basis of the AMI.
         /// </summary>
         [Input("sourceInstanceId", required: true)]
         public Input<string> SourceInstanceId { get; set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -338,25 +338,25 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Architecture { get; set; }
 
         /// <summary>
-        /// The ARN of the AMI.
+        /// ARN of the AMI.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Input("bootMode")]
         public Input<string>? BootMode { get; set; }
 
         /// <summary>
-        /// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
         [Input("deprecationTime")]
         public Input<string>? DeprecationTime { get; set; }
 
         /// <summary>
-        /// A longer, human-readable description for the AMI.
+        /// Longer, human-readable description for the AMI.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+        /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         /// </summary>
         [Input("enaSupport")]
         public Input<bool>? EnaSupport { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ImageType { get; set; }
 
         /// <summary>
-        /// The id of the kernel image (AKI) that will be used as the paravirtual
+        /// ID of the kernel image (AKI) that will be used as the paravirtual
         /// kernel in created instances.
         /// </summary>
         [Input("kernelId")]
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ManageEbsSnapshots { get; set; }
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// Region-unique name for the AMI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -438,14 +438,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Public { get; set; }
 
         /// <summary>
-        /// The id of an initrd image (ARI) that will be used when booting the
+        /// ID of an initrd image (ARI) that will be used when booting the
         /// created instances.
         /// </summary>
         [Input("ramdiskId")]
         public Input<string>? RamdiskId { get; set; }
 
         /// <summary>
-        /// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
         [Input("rootDeviceName")]
         public Input<string>? RootDeviceName { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? SnapshotWithoutReboot { get; set; }
 
         /// <summary>
-        /// The id of the instance to use as the basis of the AMI.
+        /// ID of the instance to use as the basis of the AMI.
         /// </summary>
         [Input("sourceInstanceId")]
         public Input<string>? SourceInstanceId { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -67,7 +67,7 @@ class GetProxyResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the DB Proxy.
+        ARN of the DB Proxy.
         """
         return pulumi.get(self, "arn")
 
@@ -75,7 +75,7 @@ class GetProxyResult:
     @pulumi.getter
     def auths(self) -> Sequence['outputs.GetProxyAuthResult']:
         """
-        The configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
         """
         return pulumi.get(self, "auths")
 
@@ -91,7 +91,7 @@ class GetProxyResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The endpoint that you can use to connect to the DB proxy.
+        Endpoint that you can use to connect to the DB proxy.
         """
         return pulumi.get(self, "endpoint")
 
@@ -99,7 +99,7 @@ class GetProxyResult:
     @pulumi.getter(name="engineFamily")
     def engine_family(self) -> str:
         """
-        The kinds of databases that the proxy can connect to.
+        Kinds of databases that the proxy can connect to.
         """
         return pulumi.get(self, "engine_family")
 
@@ -115,7 +115,7 @@ class GetProxyResult:
     @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> int:
         """
-        The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
+        Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
         """
         return pulumi.get(self, "idle_client_timeout")
 
@@ -128,7 +128,7 @@ class GetProxyResult:
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> bool:
         """
-        Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -136,7 +136,7 @@ class GetProxyResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
+        ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 
@@ -160,7 +160,7 @@ class GetProxyResult:
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> Sequence[str]:
         """
-        The EC2 subnet IDs for the proxy.
+        EC2 subnet IDs for the proxy.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 
@@ -201,7 +201,7 @@ def get_proxy(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the DB proxy.
+    :param str name: Name of the DB proxy.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -240,6 +240,6 @@ def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the DB proxy.
+    :param str name: Name of the DB proxy.
     """
     ...

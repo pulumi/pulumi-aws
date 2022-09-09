@@ -15,14 +15,14 @@ public final class GetImagePipelinesFilterArgs extends com.pulumi.resources.Reso
     public static final GetImagePipelinesFilterArgs Empty = new GetImagePipelinesFilterArgs();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+     * Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetImagePipelinesFilterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetImagePipelinesFilterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
          * 
          * @return builder
          * 

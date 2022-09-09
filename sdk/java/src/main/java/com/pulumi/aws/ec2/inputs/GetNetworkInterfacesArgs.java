@@ -34,7 +34,7 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      * 
      */
@@ -42,7 +42,7 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      * 
      */
@@ -107,7 +107,7 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired network interfaces.
          * 
          * @return builder
@@ -119,7 +119,7 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired network interfaces.
          * 
          * @return builder

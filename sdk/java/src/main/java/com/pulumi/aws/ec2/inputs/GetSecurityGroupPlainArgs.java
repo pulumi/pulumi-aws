@@ -33,14 +33,14 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The id of the specific security group to retrieve.
+     * Id of the specific security group to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The id of the specific security group to retrieve.
+     * @return Id of the specific security group to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -48,7 +48,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      * 
      */
@@ -56,7 +56,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     private @Nullable String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
      * 
      */
@@ -65,7 +65,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired security group.
      * 
      */
@@ -73,7 +73,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired security group.
      * 
      */
@@ -82,14 +82,14 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The id of the VPC that the desired security group belongs to.
+     * Id of the VPC that the desired security group belongs to.
      * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
-     * @return The id of the VPC that the desired security group belongs to.
+     * @return Id of the VPC that the desired security group belongs to.
      * 
      */
     public Optional<String> vpcId() {
@@ -146,7 +146,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id The id of the specific security group to retrieve.
+         * @param id Id of the specific security group to retrieve.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
          * 
          * @return builder
@@ -169,7 +169,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired security group.
          * 
          * @return builder
@@ -181,7 +181,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param vpcId The id of the VPC that the desired security group belongs to.
+         * @param vpcId Id of the VPC that the desired security group belongs to.
          * 
          * @return builder
          * 

@@ -253,7 +253,7 @@ def get_load_balancer(name: Optional[str] = None,
     ```
 
 
-    :param str name: The unique name of the load balancer.
+    :param str name: Unique name of the load balancer.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favor of aws.elb.getLoadBalancer""")
     __args__ = dict()
@@ -313,7 +313,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The unique name of the load balancer.
+    :param str name: Unique name of the load balancer.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favor of aws.elb.getLoadBalancer""")
     ...

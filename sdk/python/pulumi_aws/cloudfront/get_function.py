@@ -57,7 +57,7 @@ class GetFunctionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) identifying your CloudFront Function.
+        ARN identifying your CloudFront Function.
         """
         return pulumi.get(self, "arn")
 
@@ -165,7 +165,7 @@ def get_function(name: Optional[str] = None,
 
 
     :param str name: Name of the CloudFront function.
-    :param str stage: The function’s stage, either `DEVELOPMENT` or `LIVE`.
+    :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -206,6 +206,6 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the CloudFront function.
-    :param str stage: The function’s stage, either `DEVELOPMENT` or `LIVE`.
+    :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
     ...

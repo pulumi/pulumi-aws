@@ -18,14 +18,14 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     public static final RouteSpecGrpcRouteMatchArgs Empty = new RouteSpecGrpcRouteMatchArgs();
 
     /**
-     * The data to match from the gRPC request.
+     * Data to match from the gRPC request.
      * 
      */
     @Import(name="metadatas")
     private @Nullable Output<List<RouteSpecGrpcRouteMatchMetadataArgs>> metadatas;
 
     /**
-     * @return The data to match from the gRPC request.
+     * @return Data to match from the gRPC request.
      * 
      */
     public Optional<Output<List<RouteSpecGrpcRouteMatchMetadataArgs>>> metadatas() {
@@ -33,14 +33,14 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * Method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
     @Import(name="methodName")
     private @Nullable Output<String> methodName;
 
     /**
-     * @return The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
     public Optional<Output<String>> methodName() {
@@ -48,7 +48,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -56,7 +56,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -65,14 +65,14 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified domain name for the service to match from the request.
+     * Fully qualified domain name for the service to match from the request.
      * 
      */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
     /**
-     * @return The fully qualified domain name for the service to match from the request.
+     * @return Fully qualified domain name for the service to match from the request.
      * 
      */
     public Optional<Output<String>> serviceName() {
@@ -107,7 +107,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas The data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas The data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas The data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param methodName The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+         * @param methodName Method name to match from the request. If you specify a name, you must also specify a `service_name`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param methodName The method name to match from the request. If you specify a name, you must also specify a `service_name`.
+         * @param methodName Method name to match from the request. If you specify a name, you must also specify a `service_name`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -171,7 +171,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -182,7 +182,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceName The fully qualified domain name for the service to match from the request.
+         * @param serviceName Fully qualified domain name for the service to match from the request.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceName The fully qualified domain name for the service to match from the request.
+         * @param serviceName Fully qualified domain name for the service to match from the request.
          * 
          * @return builder
          * 

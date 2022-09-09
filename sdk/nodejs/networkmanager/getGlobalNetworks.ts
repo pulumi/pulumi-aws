@@ -51,7 +51,7 @@ export interface GetGlobalNetworksResult {
      */
     readonly id: string;
     /**
-     * The IDs of the global networks.
+     * IDs of the global networks.
      */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};

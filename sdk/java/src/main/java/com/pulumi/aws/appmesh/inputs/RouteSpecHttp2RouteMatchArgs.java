@@ -18,14 +18,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     public static final RouteSpecHttp2RouteMatchArgs Empty = new RouteSpecHttp2RouteMatchArgs();
 
     /**
-     * The client request headers to match on.
+     * Client request headers to match on.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<RouteSpecHttp2RouteMatchHeaderArgs>> headers;
 
     /**
-     * @return The client request headers to match on.
+     * @return Client request headers to match on.
      * 
      */
     public Optional<Output<List<RouteSpecHttp2RouteMatchHeaderArgs>>> headers() {
@@ -33,14 +33,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+     * Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
      * 
      */
     @Import(name="method")
     private @Nullable Output<String> method;
 
     /**
-     * @return The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+     * @return Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
      * 
      */
     public Optional<Output<String>> method() {
@@ -48,7 +48,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -56,7 +56,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     private Output<String> prefix;
 
     /**
-     * @return The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
@@ -65,14 +65,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The client request header scheme to match on. Valid values: `http`, `https`.
+     * Client request header scheme to match on. Valid values: `http`, `https`.
      * 
      */
     @Import(name="scheme")
     private @Nullable Output<String> scheme;
 
     /**
-     * @return The client request header scheme to match on. Valid values: `http`, `https`.
+     * @return Client request header scheme to match on. Valid values: `http`, `https`.
      * 
      */
     public Optional<Output<String>> scheme() {
@@ -107,7 +107,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers The client request headers to match on.
+         * @param headers Client request headers to match on.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers The client request headers to match on.
+         * @param headers Client request headers to match on.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers The client request headers to match on.
+         * @param headers Client request headers to match on.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param method The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         * @param method Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param method The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         * @param method Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -171,7 +171,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix The value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          * 
          * @return builder
@@ -182,7 +182,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scheme The client request header scheme to match on. Valid values: `http`, `https`.
+         * @param scheme Client request header scheme to match on. Valid values: `http`, `https`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scheme The client request header scheme to match on. Valid values: `http`, `https`.
+         * @param scheme Client request header scheme to match on. Valid values: `http`, `https`.
          * 
          * @return builder
          * 

@@ -34,14 +34,14 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The set of allowed HTTP headers.
+     * Set of allowed HTTP headers.
      * 
      */
     @Import(name="allowHeaders")
     private @Nullable Output<List<String>> allowHeaders;
 
     /**
-     * @return The set of allowed HTTP headers.
+     * @return Set of allowed HTTP headers.
      * 
      */
     public Optional<Output<List<String>>> allowHeaders() {
@@ -49,14 +49,14 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The set of allowed HTTP methods.
+     * Set of allowed HTTP methods.
      * 
      */
     @Import(name="allowMethods")
     private @Nullable Output<List<String>> allowMethods;
 
     /**
-     * @return The set of allowed HTTP methods.
+     * @return Set of allowed HTTP methods.
      * 
      */
     public Optional<Output<List<String>>> allowMethods() {
@@ -64,14 +64,14 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The set of allowed origins.
+     * Set of allowed origins.
      * 
      */
     @Import(name="allowOrigins")
     private @Nullable Output<List<String>> allowOrigins;
 
     /**
-     * @return The set of allowed origins.
+     * @return Set of allowed origins.
      * 
      */
     public Optional<Output<List<String>>> allowOrigins() {
@@ -79,14 +79,14 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The set of exposed HTTP headers.
+     * Set of exposed HTTP headers.
      * 
      */
     @Import(name="exposeHeaders")
     private @Nullable Output<List<String>> exposeHeaders;
 
     /**
-     * @return The set of exposed HTTP headers.
+     * @return Set of exposed HTTP headers.
      * 
      */
     public Optional<Output<List<String>>> exposeHeaders() {
@@ -94,14 +94,14 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The number of seconds that the browser should cache preflight request results.
+     * Number of seconds that the browser should cache preflight request results.
      * 
      */
     @Import(name="maxAge")
     private @Nullable Output<Integer> maxAge;
 
     /**
-     * @return The number of seconds that the browser should cache preflight request results.
+     * @return Number of seconds that the browser should cache preflight request results.
      * 
      */
     public Optional<Output<Integer>> maxAge() {
@@ -159,7 +159,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowHeaders The set of allowed HTTP headers.
+         * @param allowHeaders Set of allowed HTTP headers.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowHeaders The set of allowed HTTP headers.
+         * @param allowHeaders Set of allowed HTTP headers.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowHeaders The set of allowed HTTP headers.
+         * @param allowHeaders Set of allowed HTTP headers.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowMethods The set of allowed HTTP methods.
+         * @param allowMethods Set of allowed HTTP methods.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowMethods The set of allowed HTTP methods.
+         * @param allowMethods Set of allowed HTTP methods.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowMethods The set of allowed HTTP methods.
+         * @param allowMethods Set of allowed HTTP methods.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowOrigins The set of allowed origins.
+         * @param allowOrigins Set of allowed origins.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowOrigins The set of allowed origins.
+         * @param allowOrigins Set of allowed origins.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowOrigins The set of allowed origins.
+         * @param allowOrigins Set of allowed origins.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param exposeHeaders The set of exposed HTTP headers.
+         * @param exposeHeaders Set of exposed HTTP headers.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param exposeHeaders The set of exposed HTTP headers.
+         * @param exposeHeaders Set of exposed HTTP headers.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param exposeHeaders The set of exposed HTTP headers.
+         * @param exposeHeaders Set of exposed HTTP headers.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxAge The number of seconds that the browser should cache preflight request results.
+         * @param maxAge Number of seconds that the browser should cache preflight request results.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ApiCorsConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxAge The number of seconds that the browser should cache preflight request results.
+         * @param maxAge Number of seconds that the browser should cache preflight request results.
          * 
          * @return builder
          * 

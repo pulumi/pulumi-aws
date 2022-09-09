@@ -13,14 +13,14 @@ public final class GetBucketPolicyPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetBucketPolicyPlainArgs Empty = new GetBucketPolicyPlainArgs();
 
     /**
-     * The bucket name.
+     * Bucket name.
      * 
      */
     @Import(name="bucket", required=true)
     private String bucket;
 
     /**
-     * @return The bucket name.
+     * @return Bucket name.
      * 
      */
     public String bucket() {
@@ -52,7 +52,7 @@ public final class GetBucketPolicyPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param bucket The bucket name.
+         * @param bucket Bucket name.
          * 
          * @return builder
          * 

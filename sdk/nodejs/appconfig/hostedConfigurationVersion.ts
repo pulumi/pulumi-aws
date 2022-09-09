@@ -119,31 +119,31 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The application ID.
+     * Application ID.
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * ARN of the AppConfig  hosted configuration version.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      */
     public readonly configurationProfileId!: pulumi.Output<string>;
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      */
     public readonly content!: pulumi.Output<string>;
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The version number of the hosted configuration.
+     * Version number of the hosted configuration.
      */
     public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
@@ -199,31 +199,31 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
  */
 export interface HostedConfigurationVersionState {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * ARN of the AppConfig  hosted configuration version.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      */
     configurationProfileId?: pulumi.Input<string>;
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      */
     content?: pulumi.Input<string>;
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      */
     contentType?: pulumi.Input<string>;
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      */
     description?: pulumi.Input<string>;
     /**
-     * The version number of the hosted configuration.
+     * Version number of the hosted configuration.
      */
     versionNumber?: pulumi.Input<number>;
 }
@@ -233,23 +233,23 @@ export interface HostedConfigurationVersionState {
  */
 export interface HostedConfigurationVersionArgs {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      */
     configurationProfileId: pulumi.Input<string>;
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      */
     content: pulumi.Input<string>;
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      */
     contentType: pulumi.Input<string>;
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      */
     description?: pulumi.Input<string>;
 }

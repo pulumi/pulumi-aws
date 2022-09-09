@@ -16,22 +16,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetServiceResult {
     /**
-     * @return The ARN of the service.
+     * @return ARN of the service.
      * 
      */
     private String arn;
     /**
-     * @return The description of the service.
+     * @return Description of the service.
      * 
      */
     private String description;
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      * 
      */
     private List<GetServiceDnsConfig> dnsConfigs;
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      * 
      */
     private List<GetServiceHealthCheckConfig> healthCheckConfigs;
@@ -47,45 +47,45 @@ public final class GetServiceResult {
     private String id;
     private String name;
     /**
-     * @return The ID of the namespace to use for DNS configuration.
+     * @return ID of the namespace to use for DNS configuration.
      * 
      */
     private String namespaceId;
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     private Map<String,String> tagsAll;
 
     private GetServiceResult() {}
     /**
-     * @return The ARN of the service.
+     * @return ARN of the service.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the service.
+     * @return Description of the service.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      * 
      */
     public List<GetServiceDnsConfig> dnsConfigs() {
         return this.dnsConfigs;
     }
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      * 
      */
     public List<GetServiceHealthCheckConfig> healthCheckConfigs() {
@@ -109,21 +109,21 @@ public final class GetServiceResult {
         return this.name;
     }
     /**
-     * @return The ID of the namespace to use for DNS configuration.
+     * @return ID of the namespace to use for DNS configuration.
      * 
      */
     public String namespaceId() {
         return this.namespaceId;
     }
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Map<String,String> tagsAll() {

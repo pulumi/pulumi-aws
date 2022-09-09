@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Msk
     public sealed class GetBrokerNodesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the cluster the nodes belong to.
+        /// ARN of the cluster the nodes belong to.
         /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Msk
     public sealed class GetBrokerNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the cluster the nodes belong to.
+        /// ARN of the cluster the nodes belong to.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;

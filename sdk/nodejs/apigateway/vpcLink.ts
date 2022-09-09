@@ -48,23 +48,23 @@ export class VpcLink extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name used to label and identify the VPC link.
+     * Name used to label and identify the VPC link.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
     public readonly targetArn!: pulumi.Output<string>;
 
@@ -110,23 +110,23 @@ export class VpcLink extends pulumi.CustomResource {
 export interface VpcLinkState {
     arn?: pulumi.Input<string>;
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name used to label and identify the VPC link.
+     * Name used to label and identify the VPC link.
      */
     name?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
     targetArn?: pulumi.Input<string>;
 }
@@ -136,19 +136,19 @@ export interface VpcLinkState {
  */
 export interface VpcLinkArgs {
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name used to label and identify the VPC link.
+     * Name used to label and identify the VPC link.
      */
     name?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
     targetArn: pulumi.Input<string>;
 }

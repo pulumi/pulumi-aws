@@ -16,14 +16,14 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
     public static final StackAccessEndpointArgs Empty = new StackAccessEndpointArgs();
 
     /**
-     * The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     @Import(name="endpointType", required=true)
     private Output<String> endpointType;
 
     /**
-     * @return The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+     * @return Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
     public Output<String> endpointType() {
@@ -31,14 +31,14 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the VPC in which the interface endpoint is used.
+     * ID of the VPC in which the interface endpoint is used.
      * 
      */
     @Import(name="vpceId")
     private @Nullable Output<String> vpceId;
 
     /**
-     * @return The ID of the VPC in which the interface endpoint is used.
+     * @return ID of the VPC in which the interface endpoint is used.
      * 
      */
     public Optional<Output<String>> vpceId() {
@@ -71,7 +71,7 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpointType The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+         * @param endpointType Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpointType The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+         * @param endpointType Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpceId The ID of the VPC in which the interface endpoint is used.
+         * @param vpceId ID of the VPC in which the interface endpoint is used.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpceId The ID of the VPC in which the interface endpoint is used.
+         * @param vpceId ID of the VPC in which the interface endpoint is used.
          * 
          * @return builder
          * 

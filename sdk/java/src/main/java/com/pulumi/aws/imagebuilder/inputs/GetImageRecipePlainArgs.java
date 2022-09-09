@@ -16,14 +16,14 @@ public final class GetImageRecipePlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetImageRecipePlainArgs Empty = new GetImageRecipePlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public String arn() {
@@ -71,7 +71,7 @@ public final class GetImageRecipePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image recipe.
+         * @param arn ARN of the image recipe.
          * 
          * @return builder
          * 

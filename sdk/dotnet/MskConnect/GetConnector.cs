@@ -100,11 +100,11 @@ namespace Pulumi.Aws.MskConnect
     public sealed class GetConnectorResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connector.
+        /// ARN of the connector.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A summary description of the connector.
+        /// Summary description of the connector.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.MskConnect
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The current version of the connector.
+        /// Current version of the connector.
         /// </summary>
         public readonly string Version;
 

@@ -16,18 +16,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetKeyPairResult {
     /**
-     * @return The ARN of the Key Pair.
+     * @return ARN of the Key Pair.
      * 
      */
     private String arn;
     /**
-     * @return The timestamp for when the key pair was created in ISO 8601 format.
+     * @return Timestamp for when the key pair was created in ISO 8601 format.
      * 
      */
     private String createTime;
     private @Nullable List<GetKeyPairFilter> filters;
     /**
-     * @return The SHA-1 digest of the DER encoded private key.
+     * @return SHA-1 digest of the DER encoded private key.
      * 
      */
     private String fingerprint;
@@ -40,12 +40,12 @@ public final class GetKeyPairResult {
     private @Nullable String keyName;
     private @Nullable String keyPairId;
     /**
-     * @return The type of key pair.
+     * @return Type of key pair.
      * 
      */
     private String keyType;
     /**
-     * @return The public key material.
+     * @return Public key material.
      * 
      */
     private String publicKey;
@@ -57,14 +57,14 @@ public final class GetKeyPairResult {
 
     private GetKeyPairResult() {}
     /**
-     * @return The ARN of the Key Pair.
+     * @return ARN of the Key Pair.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The timestamp for when the key pair was created in ISO 8601 format.
+     * @return Timestamp for when the key pair was created in ISO 8601 format.
      * 
      */
     public String createTime() {
@@ -74,7 +74,7 @@ public final class GetKeyPairResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The SHA-1 digest of the DER encoded private key.
+     * @return SHA-1 digest of the DER encoded private key.
      * 
      */
     public String fingerprint() {
@@ -97,14 +97,14 @@ public final class GetKeyPairResult {
         return Optional.ofNullable(this.keyPairId);
     }
     /**
-     * @return The type of key pair.
+     * @return Type of key pair.
      * 
      */
     public String keyType() {
         return this.keyType;
     }
     /**
-     * @return The public key material.
+     * @return Public key material.
      * 
      */
     public String publicKey() {

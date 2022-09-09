@@ -20,7 +20,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     public static final ScalingPlanScalingInstructionTargetTrackingConfigurationArgs Empty = new ScalingPlanScalingInstructionTargetTrackingConfigurationArgs();
 
     /**
-     * A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+     * Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
      * 
      */
@@ -28,7 +28,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     private @Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
 
     /**
-     * @return A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+     * @return Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
      * 
      */
@@ -52,7 +52,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     }
 
     /**
-     * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+     * Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
      * This value is used only if the resource is an Auto Scaling group.
      * 
      */
@@ -60,7 +60,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     private @Nullable Output<Integer> estimatedInstanceWarmup;
 
     /**
-     * @return The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+     * @return Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
      * This value is used only if the resource is an Auto Scaling group.
      * 
      */
@@ -69,7 +69,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     }
 
     /**
-     * A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+     * Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
      * 
      */
@@ -77,7 +77,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     private @Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
 
     /**
-     * @return A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+     * @return Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
      * 
      */
@@ -86,7 +86,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     }
 
     /**
-     * The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+     * Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
@@ -94,7 +94,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     private @Nullable Output<Integer> scaleInCooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+     * @return Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
@@ -103,7 +103,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     }
 
     /**
-     * The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+     * Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
@@ -111,7 +111,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     private @Nullable Output<Integer> scaleOutCooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+     * @return Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
@@ -120,14 +120,14 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
     }
 
     /**
-     * The target value for the metric.
+     * Target value for the metric.
      * 
      */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Output<Double> targetValue() {
@@ -165,7 +165,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param customizedScalingMetricSpecification A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+         * @param customizedScalingMetricSpecification Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
          * 
          * @return builder
@@ -177,7 +177,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param customizedScalingMetricSpecification A customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+         * @param customizedScalingMetricSpecification Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
          * 
          * @return builder
@@ -209,7 +209,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param estimatedInstanceWarmup The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
          * This value is used only if the resource is an Auto Scaling group.
          * 
          * @return builder
@@ -221,7 +221,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param estimatedInstanceWarmup The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
          * This value is used only if the resource is an Auto Scaling group.
          * 
          * @return builder
@@ -232,7 +232,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param predefinedScalingMetricSpecification A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+         * @param predefinedScalingMetricSpecification Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
          * 
          * @return builder
@@ -244,7 +244,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param predefinedScalingMetricSpecification A predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+         * @param predefinedScalingMetricSpecification Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
          * 
          * @return builder
@@ -255,7 +255,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param scaleInCooldown The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
          * This value is not used if the scalable resource is an Auto Scaling group.
          * 
          * @return builder
@@ -267,7 +267,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param scaleInCooldown The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
          * This value is not used if the scalable resource is an Auto Scaling group.
          * 
          * @return builder
@@ -278,7 +278,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param scaleOutCooldown The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+         * @param scaleOutCooldown Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
          * This value is not used if the scalable resource is an Auto Scaling group.
          * 
          * @return builder
@@ -290,7 +290,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param scaleOutCooldown The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+         * @param scaleOutCooldown Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
          * This value is not used if the scalable resource is an Auto Scaling group.
          * 
          * @return builder
@@ -301,7 +301,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 

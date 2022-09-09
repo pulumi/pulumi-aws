@@ -18,14 +18,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     public static final GetRandomPasswordArgs Empty = new GetRandomPasswordArgs();
 
     /**
-     * A string of the characters that you don&#39;t want in the password.
+     * String of the characters that you don&#39;t want in the password.
      * 
      */
     @Import(name="excludeCharacters")
     private @Nullable Output<String> excludeCharacters;
 
     /**
-     * @return A string of the characters that you don&#39;t want in the password.
+     * @return String of the characters that you don&#39;t want in the password.
      * 
      */
     public Optional<Output<String>> excludeCharacters() {
@@ -108,14 +108,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The length of the password.
+     * Length of the password.
      * 
      */
     @Import(name="passwordLength")
     private @Nullable Output<Integer> passwordLength;
 
     /**
-     * @return The length of the password.
+     * @return Length of the password.
      * 
      */
     public Optional<Output<Integer>> passwordLength() {
@@ -123,14 +123,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The random password.
+     * Random password.
      * 
      */
     @Import(name="randomPassword")
     private @Nullable Output<String> randomPassword;
 
     /**
-     * @return The random password.
+     * @return Random password.
      * 
      */
     public Optional<Output<String>> randomPassword() {
@@ -185,7 +185,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeCharacters A string of the characters that you don&#39;t want in the password.
+         * @param excludeCharacters String of the characters that you don&#39;t want in the password.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeCharacters A string of the characters that you don&#39;t want in the password.
+         * @param excludeCharacters String of the characters that you don&#39;t want in the password.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param passwordLength The length of the password.
+         * @param passwordLength Length of the password.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param passwordLength The length of the password.
+         * @param passwordLength Length of the password.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param randomPassword The random password.
+         * @param randomPassword Random password.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param randomPassword The random password.
+         * @param randomPassword Random password.
          * 
          * @return builder
          * 

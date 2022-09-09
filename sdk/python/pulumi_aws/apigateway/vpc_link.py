@@ -20,10 +20,10 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
-        :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-        :param pulumi.Input[str] description: The description of the VPC link.
-        :param pulumi.Input[str] name: The name used to label and identify the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        :param pulumi.Input[str] description: Description of the VPC link.
+        :param pulumi.Input[str] name: Name used to label and identify the VPC link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if description is not None:
@@ -37,7 +37,7 @@ class VpcLinkArgs:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
         """
-        The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         return pulumi.get(self, "target_arn")
 
@@ -49,7 +49,7 @@ class VpcLinkArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the VPC link.
+        Description of the VPC link.
         """
         return pulumi.get(self, "description")
 
@@ -61,7 +61,7 @@ class VpcLinkArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name used to label and identify the VPC link.
+        Name used to label and identify the VPC link.
         """
         return pulumi.get(self, "name")
 
@@ -73,7 +73,7 @@ class VpcLinkArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -93,11 +93,11 @@ class _VpcLinkState:
                  target_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcLink resources.
-        :param pulumi.Input[str] description: The description of the VPC link.
-        :param pulumi.Input[str] name: The name used to label and identify the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        :param pulumi.Input[str] description: Description of the VPC link.
+        :param pulumi.Input[str] name: Name used to label and identify the VPC link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -125,7 +125,7 @@ class _VpcLinkState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the VPC link.
+        Description of the VPC link.
         """
         return pulumi.get(self, "description")
 
@@ -137,7 +137,7 @@ class _VpcLinkState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name used to label and identify the VPC link.
+        Name used to label and identify the VPC link.
         """
         return pulumi.get(self, "name")
 
@@ -149,7 +149,7 @@ class _VpcLinkState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -161,7 +161,7 @@ class _VpcLinkState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -173,7 +173,7 @@ class _VpcLinkState:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         return pulumi.get(self, "target_arn")
 
@@ -208,10 +208,10 @@ class VpcLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the VPC link.
-        :param pulumi.Input[str] name: The name used to label and identify the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        :param pulumi.Input[str] description: Description of the VPC link.
+        :param pulumi.Input[str] name: Name used to label and identify the VPC link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         ...
     @overload
@@ -292,11 +292,11 @@ class VpcLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the VPC link.
-        :param pulumi.Input[str] name: The name used to label and identify the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        :param pulumi.Input[str] description: Description of the VPC link.
+        :param pulumi.Input[str] name: Name used to label and identify the VPC link.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -319,7 +319,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the VPC link.
+        Description of the VPC link.
         """
         return pulumi.get(self, "description")
 
@@ -327,7 +327,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name used to label and identify the VPC link.
+        Name used to label and identify the VPC link.
         """
         return pulumi.get(self, "name")
 
@@ -335,7 +335,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -343,7 +343,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -351,7 +351,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
         """
-        The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         """
         return pulumi.get(self, "target_arn")
 

@@ -48,7 +48,7 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRule.
 type LookupRuleArgs struct {
-	// The name of the WAF Regional rule.
+	// Name of the WAF Regional rule.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +74,7 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRule.
 type LookupRuleOutputArgs struct {
-	// The name of the WAF Regional rule.
+	// Name of the WAF Regional rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

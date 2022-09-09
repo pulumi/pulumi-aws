@@ -76,14 +76,14 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of a managed prefix list destination of the Route belonging to the Route Table.
+     * ID of a managed prefix list destination of the Route belonging to the Route Table.
      * 
      */
     @Import(name="destinationPrefixListId")
     private @Nullable Output<String> destinationPrefixListId;
 
     /**
-     * @return The ID of a managed prefix list destination of the Route belonging to the Route Table.
+     * @return ID of a managed prefix list destination of the Route belonging to the Route Table.
      * 
      */
     public Optional<Output<String>> destinationPrefixListId() {
@@ -181,14 +181,14 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the specific Route Table containing the Route entry.
+     * ID of the specific Route Table containing the Route entry.
      * 
      */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
     /**
-     * @return The ID of the specific Route Table containing the Route entry.
+     * @return ID of the specific Route Table containing the Route entry.
      * 
      */
     public Output<String> routeTableId() {
@@ -347,7 +347,7 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param destinationPrefixListId The ID of a managed prefix list destination of the Route belonging to the Route Table.
+         * @param destinationPrefixListId ID of a managed prefix list destination of the Route belonging to the Route Table.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param destinationPrefixListId The ID of a managed prefix list destination of the Route belonging to the Route Table.
+         * @param destinationPrefixListId ID of a managed prefix list destination of the Route belonging to the Route Table.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param routeTableId The ID of the specific Route Table containing the Route entry.
+         * @param routeTableId ID of the specific Route Table containing the Route entry.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param routeTableId The ID of the specific Route Table containing the Route entry.
+         * @param routeTableId ID of the specific Route Table containing the Route entry.
          * 
          * @return builder
          * 

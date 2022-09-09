@@ -252,11 +252,11 @@ func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getScript.
 type GetScriptArgs struct {
-	// A list of the edges in the DAG. Defined below.
+	// List of the edges in the DAG. Defined below.
 	DagEdges []GetScriptDagEdge `pulumi:"dagEdges"`
-	// A list of the nodes in the DAG. Defined below.
+	// List of the nodes in the DAG. Defined below.
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
-	// The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language *string `pulumi:"language"`
 }
 
@@ -267,9 +267,9 @@ type GetScriptResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string  `pulumi:"id"`
 	Language *string `pulumi:"language"`
-	// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+	// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 	PythonScript string `pulumi:"pythonScript"`
-	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+	// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 	ScalaCode string `pulumi:"scalaCode"`
 }
 
@@ -288,11 +288,11 @@ func GetScriptOutput(ctx *pulumi.Context, args GetScriptOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getScript.
 type GetScriptOutputArgs struct {
-	// A list of the edges in the DAG. Defined below.
+	// List of the edges in the DAG. Defined below.
 	DagEdges GetScriptDagEdgeArrayInput `pulumi:"dagEdges"`
-	// A list of the nodes in the DAG. Defined below.
+	// List of the nodes in the DAG. Defined below.
 	DagNodes GetScriptDagNodeArrayInput `pulumi:"dagNodes"`
-	// The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language pulumi.StringPtrInput `pulumi:"language"`
 }
 
@@ -332,12 +332,12 @@ func (o GetScriptResultOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetScriptResult) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 func (o GetScriptResultOutput) PythonScript() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptResult) string { return v.PythonScript }).(pulumi.StringOutput)
 }
 
-// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 func (o GetScriptResultOutput) ScalaCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetScriptResult) string { return v.ScalaCode }).(pulumi.StringOutput)
 }

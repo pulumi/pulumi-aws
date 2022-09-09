@@ -56,11 +56,11 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The API ID.
+     * API ID.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The Appsync domain name.
+     * Appsync domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
 
@@ -100,11 +100,11 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
  */
 export interface DomainNameApiAssociationState {
     /**
-     * The API ID.
+     * API ID.
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The Appsync domain name.
+     * Appsync domain name.
      */
     domainName?: pulumi.Input<string>;
 }
@@ -114,11 +114,11 @@ export interface DomainNameApiAssociationState {
  */
 export interface DomainNameApiAssociationArgs {
     /**
-     * The API ID.
+     * API ID.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The Appsync domain name.
+     * Appsync domain name.
      */
     domainName: pulumi.Input<string>;
 }

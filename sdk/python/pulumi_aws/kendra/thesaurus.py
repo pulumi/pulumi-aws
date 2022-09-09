@@ -132,6 +132,7 @@ class _ThesaurusState:
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[str] status: The current status of the thesaurus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -250,6 +251,9 @@ class _ThesaurusState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -426,6 +430,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[str] status: The current status of the thesaurus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,6 +512,9 @@ class Thesaurus(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

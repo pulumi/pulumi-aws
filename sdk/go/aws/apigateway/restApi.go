@@ -124,21 +124,21 @@ type RestApi struct {
 
 	// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	ApiKeySource pulumi.StringOutput `pulumi:"apiKeySource"`
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	BinaryMediaTypes pulumi.StringArrayOutput `pulumi:"binaryMediaTypes"`
 	// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Body pulumi.StringPtrOutput `pulumi:"body"`
-	// The creation date of the REST API
+	// Creation date of the REST API
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	DisableExecuteApiEndpoint pulumi.BoolOutput `pulumi:"disableExecuteApiEndpoint"`
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
-	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
@@ -150,13 +150,13 @@ type RestApi struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	PutRestApiMode pulumi.StringPtrOutput `pulumi:"putRestApiMode"`
-	// The resource ID of the REST API's root
+	// Resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -191,21 +191,21 @@ func GetRestApi(ctx *pulumi.Context,
 type restApiState struct {
 	// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	ApiKeySource *string `pulumi:"apiKeySource"`
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Body *string `pulumi:"body"`
-	// The creation date of the REST API
+	// Creation date of the REST API
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Description *string `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn *string `pulumi:"executionArn"`
@@ -217,34 +217,34 @@ type restApiState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Policy *string `pulumi:"policy"`
-	// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	PutRestApiMode *string `pulumi:"putRestApiMode"`
-	// The resource ID of the REST API's root
+	// Resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RestApiState struct {
 	// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	ApiKeySource pulumi.StringPtrInput
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	BinaryMediaTypes pulumi.StringArrayInput
 	// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
 	Body pulumi.StringPtrInput
-	// The creation date of the REST API
+	// Creation date of the REST API
 	CreatedDate pulumi.StringPtrInput
 	// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Description pulumi.StringPtrInput
-	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
-	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
+	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringPtrInput
@@ -256,13 +256,13 @@ type RestApiState struct {
 	Parameters pulumi.StringMapInput
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Policy pulumi.StringPtrInput
-	// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	PutRestApiMode pulumi.StringPtrInput
-	// The resource ID of the REST API's root
+	// Resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -279,7 +279,7 @@ type restApiArgs struct {
 	Body *string `pulumi:"body"`
 	// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Description *string `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
@@ -291,7 +291,7 @@ type restApiArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Policy *string `pulumi:"policy"`
-	// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	PutRestApiMode *string `pulumi:"putRestApiMode"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -307,7 +307,7 @@ type RestApiArgs struct {
 	Body pulumi.StringPtrInput
 	// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Description pulumi.StringPtrInput
-	// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
@@ -319,7 +319,7 @@ type RestApiArgs struct {
 	Parameters pulumi.StringMapInput
 	// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Policy pulumi.StringPtrInput
-	// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+	// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	PutRestApiMode pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -417,7 +417,7 @@ func (o RestApiOutput) ApiKeySource() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.ApiKeySource }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o RestApiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -432,7 +432,7 @@ func (o RestApiOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// The creation date of the REST API
+// Creation date of the REST API
 func (o RestApiOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -442,7 +442,7 @@ func (o RestApiOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 func (o RestApiOutput) DisableExecuteApiEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolOutput)
 }
@@ -452,7 +452,7 @@ func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationOutpu
 	return o.ApplyT(func(v *RestApi) RestApiEndpointConfigurationOutput { return v.EndpointConfiguration }).(RestApiEndpointConfigurationOutput)
 }
 
-// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
+// Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 func (o RestApiOutput) ExecutionArn() pulumi.StringOutput {
@@ -479,12 +479,12 @@ func (o RestApiOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 func (o RestApiOutput) PutRestApiMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.PutRestApiMode }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the REST API's root
+// Resource ID of the REST API's root
 func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RootResourceId }).(pulumi.StringOutput)
 }
@@ -494,7 +494,7 @@ func (o RestApiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RestApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -54,6 +54,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
+        /// The unique identifier of an origin access control for this origin.
+        /// </summary>
+        [Input("originAccessControlId")]
+        public Input<string>? OriginAccessControlId { get; set; }
+
+        /// <summary>
         /// The unique identifier of the member origin
         /// </summary>
         [Input("originId", required: true)]

@@ -35,7 +35,7 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPlanArgs {
     /**
-     * The backup plan ID.
+     * Backup plan ID.
      */
     planId: string;
     /**
@@ -49,7 +49,7 @@ export interface GetPlanArgs {
  */
 export interface GetPlanResult {
     /**
-     * The ARN of the backup plan.
+     * ARN of the backup plan.
      */
     readonly arn: string;
     /**
@@ -57,7 +57,7 @@ export interface GetPlanResult {
      */
     readonly id: string;
     /**
-     * The display name of a backup plan.
+     * Display name of a backup plan.
      */
     readonly name: string;
     readonly planId: string;
@@ -80,7 +80,7 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetPlanOutputArgs {
     /**
-     * The backup plan ID.
+     * Backup plan ID.
      */
     planId: pulumi.Input<string>;
     /**

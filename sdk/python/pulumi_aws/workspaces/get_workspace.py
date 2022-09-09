@@ -72,7 +72,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="computerName")
     def computer_name(self) -> str:
         """
-        The name of the WorkSpace, as seen by the operating system.
+        Name of the WorkSpace, as seen by the operating system.
         """
         return pulumi.get(self, "computer_name")
 
@@ -93,7 +93,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        The IP address of the WorkSpace.
+        IP address of the WorkSpace.
         """
         return pulumi.get(self, "ip_address")
 
@@ -106,7 +106,7 @@ class GetWorkspaceResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The operational state of the WorkSpace.
+        Operational state of the WorkSpace.
         """
         return pulumi.get(self, "state")
 
@@ -190,10 +190,10 @@ def get_workspace(directory_id: Optional[str] = None,
     ```
 
 
-    :param str directory_id: The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param Mapping[str, str] tags: The tags for the WorkSpace.
-    :param str user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param str workspace_id: The ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    :param Mapping[str, str] tags: Tags for the WorkSpace.
+    :param str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+    :param str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -248,9 +248,9 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
     ```
 
 
-    :param str directory_id: The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param Mapping[str, str] tags: The tags for the WorkSpace.
-    :param str user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param str workspace_id: The ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    :param Mapping[str, str] tags: Tags for the WorkSpace.
+    :param str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+    :param str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
     """
     ...

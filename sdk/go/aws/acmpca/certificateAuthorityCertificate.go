@@ -151,11 +151,11 @@ import (
 type CertificateAuthorityCertificate struct {
 	pulumi.CustomResourceState
 
-	// The PEM-encoded certificate for the Certificate Authority.
+	// PEM-encoded certificate for the Certificate Authority.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// Amazon Resource Name (ARN) of the Certificate Authority.
+	// ARN of the Certificate Authority.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 }
 
@@ -194,20 +194,20 @@ func GetCertificateAuthorityCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
 type certificateAuthorityCertificateState struct {
-	// The PEM-encoded certificate for the Certificate Authority.
+	// PEM-encoded certificate for the Certificate Authority.
 	Certificate *string `pulumi:"certificate"`
-	// Amazon Resource Name (ARN) of the Certificate Authority.
+	// ARN of the Certificate Authority.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 type CertificateAuthorityCertificateState struct {
-	// The PEM-encoded certificate for the Certificate Authority.
+	// PEM-encoded certificate for the Certificate Authority.
 	Certificate pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Certificate Authority.
+	// ARN of the Certificate Authority.
 	CertificateAuthorityArn pulumi.StringPtrInput
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
 }
 
@@ -216,21 +216,21 @@ func (CertificateAuthorityCertificateState) ElementType() reflect.Type {
 }
 
 type certificateAuthorityCertificateArgs struct {
-	// The PEM-encoded certificate for the Certificate Authority.
+	// PEM-encoded certificate for the Certificate Authority.
 	Certificate string `pulumi:"certificate"`
-	// Amazon Resource Name (ARN) of the Certificate Authority.
+	// ARN of the Certificate Authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
 }
 
 // The set of arguments for constructing a CertificateAuthorityCertificate resource.
 type CertificateAuthorityCertificateArgs struct {
-	// The PEM-encoded certificate for the Certificate Authority.
+	// PEM-encoded certificate for the Certificate Authority.
 	Certificate pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Certificate Authority.
+	// ARN of the Certificate Authority.
 	CertificateAuthorityArn pulumi.StringInput
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
 }
 
@@ -321,17 +321,17 @@ func (o CertificateAuthorityCertificateOutput) ToCertificateAuthorityCertificate
 	return o
 }
 
-// The PEM-encoded certificate for the Certificate Authority.
+// PEM-encoded certificate for the Certificate Authority.
 func (o CertificateAuthorityCertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Certificate Authority.
+// ARN of the Certificate Authority.
 func (o CertificateAuthorityCertificateOutput) CertificateAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 func (o CertificateAuthorityCertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }

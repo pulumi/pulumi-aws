@@ -25,6 +25,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs>? Body { get; set; }
 
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        [Input("cookies")]
+        public Input<Inputs.WebAclRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs>? Cookies { get; set; }
+
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        [Input("jsonBody")]
+        public Input<Inputs.WebAclRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs>? JsonBody { get; set; }
+
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]

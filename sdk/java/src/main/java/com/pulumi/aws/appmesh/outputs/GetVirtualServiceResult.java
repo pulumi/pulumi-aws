@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVirtualServiceResult {
     /**
-     * @return The ARN of the virtual service.
+     * @return ARN of the virtual service.
      * 
      */
     private String arn;
     /**
-     * @return The creation date of the virtual service.
+     * @return Creation date of the virtual service.
      * 
      */
     private String createdDate;
@@ -29,7 +29,7 @@ public final class GetVirtualServiceResult {
      */
     private String id;
     /**
-     * @return The last update date of the virtual service.
+     * @return Last update date of the virtual service.
      * 
      */
     private String lastUpdatedDate;
@@ -37,31 +37,31 @@ public final class GetVirtualServiceResult {
     private String meshOwner;
     private String name;
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     private String resourceOwner;
     /**
-     * @return The virtual service specification
+     * @return Virtual service specification
      * 
      */
     private List<GetVirtualServiceSpec> specs;
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     private @Nullable Map<String,String> tags;
 
     private GetVirtualServiceResult() {}
     /**
-     * @return The ARN of the virtual service.
+     * @return ARN of the virtual service.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The creation date of the virtual service.
+     * @return Creation date of the virtual service.
      * 
      */
     public String createdDate() {
@@ -75,7 +75,7 @@ public final class GetVirtualServiceResult {
         return this.id;
     }
     /**
-     * @return The last update date of the virtual service.
+     * @return Last update date of the virtual service.
      * 
      */
     public String lastUpdatedDate() {
@@ -91,21 +91,21 @@ public final class GetVirtualServiceResult {
         return this.name;
     }
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public String resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * @return The virtual service specification
+     * @return Virtual service specification
      * 
      */
     public List<GetVirtualServiceSpec> specs() {
         return this.specs;
     }
     /**
-     * @return A map of tags.
+     * @return Map of tags.
      * 
      */
     public Map<String,String> tags() {

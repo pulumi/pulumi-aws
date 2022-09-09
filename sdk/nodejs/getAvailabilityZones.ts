@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
@@ -123,12 +125,12 @@ export interface GetAvailabilityZonesResult {
      */
     readonly id: string;
     /**
-     * A list of the Availability Zone names available to the account.
+     * List of the Availability Zone names available to the account.
      */
     readonly names: string[];
     readonly state?: string;
     /**
-     * A list of the Availability Zone IDs available to the account.
+     * List of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
 }

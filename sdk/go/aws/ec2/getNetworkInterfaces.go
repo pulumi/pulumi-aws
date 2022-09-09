@@ -23,7 +23,7 @@ func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, o
 type GetNetworkInterfacesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network interfaces.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -33,7 +33,7 @@ type GetNetworkInterfacesResult struct {
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the network interface ids found.
+	// List of all the network interface ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -55,7 +55,7 @@ func GetNetworkInterfacesOutput(ctx *pulumi.Context, args GetNetworkInterfacesOu
 type GetNetworkInterfacesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetNetworkInterfacesFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network interfaces.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -88,7 +88,7 @@ func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the network interface ids found.
+// List of all the network interface ids found.
 func (o GetNetworkInterfacesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

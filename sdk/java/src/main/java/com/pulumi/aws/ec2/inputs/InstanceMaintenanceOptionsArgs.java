@@ -16,14 +16,14 @@ public final class InstanceMaintenanceOptionsArgs extends com.pulumi.resources.R
     public static final InstanceMaintenanceOptionsArgs Empty = new InstanceMaintenanceOptionsArgs();
 
     /**
-     * The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+     * Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
     @Import(name="autoRecovery")
     private @Nullable Output<String> autoRecovery;
 
     /**
-     * @return The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+     * @return Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
     public Optional<Output<String>> autoRecovery() {
@@ -55,7 +55,7 @@ public final class InstanceMaintenanceOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param autoRecovery The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         * @param autoRecovery Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class InstanceMaintenanceOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param autoRecovery The automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         * @param autoRecovery Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
          * 
          * @return builder
          * 

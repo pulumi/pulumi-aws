@@ -35,7 +35,7 @@ export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeO
  */
 export interface GetDistributionArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
     id: string;
     tags?: {[key: string]: string};
@@ -46,32 +46,32 @@ export interface GetDistributionArgs {
  */
 export interface GetDistributionResult {
     /**
-     * A list that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+     * List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
      */
     readonly aliases: string[];
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
     readonly arn: string;
     /**
-     * The domain name corresponding to the distribution. For
+     * Domain name corresponding to the distribution. For
      * example: `d604721fxaaqy9.cloudfront.net`.
      */
     readonly domainName: string;
     readonly enabled: boolean;
     /**
-     * The current version of the distribution's information. For example:
+     * Current version of the distribution's information. For example:
      * `E2QWRUHAPOMQZL`.
      */
     readonly etag: string;
     /**
-     * The CloudFront Route 53 zone ID that can be used to
+     * CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
     readonly hostedZoneId: string;
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
     readonly id: string;
     /**
@@ -80,11 +80,11 @@ export interface GetDistributionResult {
      */
     readonly inProgressValidationBatches: number;
     /**
-     * The date and time the distribution was last modified.
+     * Date and time the distribution was last modified.
      */
     readonly lastModifiedTime: string;
     /**
-     * The current status of the distribution. `Deployed` if the
+     * Current status of the distribution. `Deployed` if the
      * distribution's information is fully propagated throughout the Amazon
      * CloudFront system.
      */
@@ -101,7 +101,7 @@ export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pu
  */
 export interface GetDistributionOutputArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
     id: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

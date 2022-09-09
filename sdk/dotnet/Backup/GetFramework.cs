@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup framework name.
+        /// Backup framework name.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Backup
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backup framework name.
+        /// Backup framework name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetFrameworkResult
     {
         /// <summary>
-        /// The ARN of the backup framework.
+        /// ARN of the backup framework.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -132,15 +132,15 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlResult> Controls;
         /// <summary>
-        /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+        /// Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+        /// Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
         /// </summary>
         public readonly string DeploymentStatus;
         /// <summary>
-        /// The description of the framework.
+        /// Description of the framework.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -148,15 +148,15 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// Name of a parameter, for example, BackupPlanFrequency.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+        /// Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

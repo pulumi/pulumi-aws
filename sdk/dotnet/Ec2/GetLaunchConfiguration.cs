@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLaunchConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the launch configuration.
+        /// Name of the launch configuration.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLaunchConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the launch configuration.
+        /// Name of the launch configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLaunchConfigurationResult
     {
         /// <summary>
-        /// The Amazon Resource Name of the launch configuration.
+        /// Amazon Resource Name of the launch configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AssociatePublicIpAddress;
         /// <summary>
-        /// The EBS Block Devices attached to the instance.
+        /// EBS Block Devices attached to the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationEbsBlockDeviceResult> EbsBlockDevices;
         /// <summary>
@@ -132,47 +132,47 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The EC2 Image ID of the instance.
+        /// EC2 Image ID of the instance.
         /// </summary>
         public readonly string ImageId;
         /// <summary>
-        /// The Instance Type of the instance to launch.
+        /// Instance Type of the instance to launch.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The Key Name that should be used for the instance.
+        /// Key Name that should be used for the instance.
         /// </summary>
         public readonly string KeyName;
         /// <summary>
-        /// The metadata options for the instance.
+        /// Metadata options for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationMetadataOptionResult> MetadataOptions;
         /// <summary>
-        /// The Name of the launch configuration.
+        /// Name of the launch configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Tenancy of the instance.
+        /// Tenancy of the instance.
         /// </summary>
         public readonly string PlacementTenancy;
         /// <summary>
-        /// The Root Block Device of the instance.
+        /// Root Block Device of the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationRootBlockDeviceResult> RootBlockDevices;
         /// <summary>
-        /// A list of associated Security Group IDS.
+        /// List of associated Security Group IDS.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The Price to use for reserving Spot instances.
+        /// Price to use for reserving Spot instances.
         /// </summary>
         public readonly string SpotPrice;
         /// <summary>
-        /// The User Data of the instance.
+        /// User Data of the instance.
         /// </summary>
         public readonly string UserData;
         /// <summary>
-        /// The ID of a ClassicLink-enabled VPC.
+        /// ID of a ClassicLink-enabled VPC.
         /// </summary>
         public readonly string VpcClassicLinkId;
         /// <summary>

@@ -28,14 +28,14 @@ public final class GetAssetPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the asset.
+     * ID of the asset.
      * 
      */
     @Import(name="assetId", required=true)
     private String assetId;
 
     /**
-     * @return The ID of the asset.
+     * @return ID of the asset.
      * 
      */
     public String assetId() {
@@ -79,7 +79,7 @@ public final class GetAssetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param assetId The ID of the asset.
+         * @param assetId ID of the asset.
          * 
          * @return builder
          * 

@@ -102,7 +102,7 @@ class GetEngineVersionResult:
     @pulumi.getter(name="engineDescription")
     def engine_description(self) -> str:
         """
-        The description of the database engine.
+        Description of the database engine.
         """
         return pulumi.get(self, "engine_description")
 
@@ -141,7 +141,7 @@ class GetEngineVersionResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the DB engine version, either available or deprecated.
+        Status of the DB engine version, either available or deprecated.
         """
         return pulumi.get(self, "status")
 
@@ -226,7 +226,7 @@ class GetEngineVersionResult:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> str:
         """
-        The description of the database engine version.
+        Description of the database engine version.
         """
         return pulumi.get(self, "version_description")
 
@@ -288,8 +288,7 @@ def get_engine_version(engine: Optional[str] = None,
 
 
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-           * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
-    :param str parameter_group_family: The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+    :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     :param str version: Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """
@@ -355,8 +354,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
 
 
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-           * * `filter` - (Optional) One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-db-engine-versions in the AWS CLI reference][1].
-    :param str parameter_group_family: The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+    :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     :param str version: Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """

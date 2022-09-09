@@ -39,14 +39,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -54,14 +54,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
     @Import(name="autoDeploy")
     private @Nullable Output<Boolean> autoDeploy;
 
     /**
-     * @return Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+     * @return Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
     public Optional<Output<Boolean>> autoDeploy() {
@@ -69,7 +69,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      * 
      */
@@ -77,7 +77,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> clientCertificateId;
 
     /**
-     * @return The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+     * @return Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      * 
      */
@@ -86,14 +86,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default route settings for the stage.
+     * Default route settings for the stage.
      * 
      */
     @Import(name="defaultRouteSettings")
     private @Nullable Output<StageDefaultRouteSettingsArgs> defaultRouteSettings;
 
     /**
-     * @return The default route settings for the stage.
+     * @return Default route settings for the stage.
      * 
      */
     public Optional<Output<StageDefaultRouteSettingsArgs>> defaultRouteSettings() {
@@ -101,14 +101,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
     @Import(name="deploymentId")
     private @Nullable Output<String> deploymentId;
 
     /**
-     * @return The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+     * @return Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
     public Optional<Output<String>> deploymentId() {
@@ -116,14 +116,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for the stage. Must be less than or equal to 1024 characters in length.
+     * Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for the stage. Must be less than or equal to 1024 characters in length.
+     * @return Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Optional<Output<String>> description() {
@@ -131,14 +131,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the stage. Must be between 1 and 128 characters in length.
+     * Name of the stage. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the stage. Must be between 1 and 128 characters in length.
+     * @return Name of the stage. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -161,14 +161,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map that defines the stage variables for the stage.
+     * Map that defines the stage variables for the stage.
      * 
      */
     @Import(name="stageVariables")
     private @Nullable Output<Map<String,String>> stageVariables;
 
     /**
-     * @return A map that defines the stage variables for the stage.
+     * @return Map that defines the stage variables for the stage.
      * 
      */
     public Optional<Output<Map<String,String>>> stageVariables() {
@@ -176,14 +176,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -248,7 +248,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
+         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
          * Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -302,7 +302,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId The identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
          * Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -313,7 +313,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRouteSettings The default route settings for the stage.
+         * @param defaultRouteSettings Default route settings for the stage.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRouteSettings The default route settings for the stage.
+         * @param defaultRouteSettings Default route settings for the stage.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentId The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+         * @param deploymentId Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentId The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+         * @param deploymentId Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the stage. Must be less than or equal to 1024 characters in length.
+         * @param description Description for the stage. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for the stage. Must be less than or equal to 1024 characters in length.
+         * @param description Description for the stage. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the stage. Must be between 1 and 128 characters in length.
+         * @param name Name of the stage. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the stage. Must be between 1 and 128 characters in length.
+         * @param name Name of the stage. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageVariables A map that defines the stage variables for the stage.
+         * @param stageVariables Map that defines the stage variables for the stage.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stageVariables A map that defines the stage variables for the stage.
+         * @param stageVariables Map that defines the stage variables for the stage.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

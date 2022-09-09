@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetConnectionResult {
     /**
-     * @return The ARN of the connection.
+     * @return ARN of the connection.
      * 
      */
     private String arn;
     /**
-     * @return The Direct Connect endpoint on which the physical connection terminates.
+     * @return Direct Connect endpoint on which the physical connection terminates.
      * 
      */
     private String awsDevice;
     /**
-     * @return The bandwidth of the connection.
+     * @return Bandwidth of the connection.
      * 
      */
     private String bandwidth;
@@ -31,44 +31,44 @@ public final class GetConnectionResult {
      */
     private String id;
     /**
-     * @return The AWS Direct Connect location where the connection is located.
+     * @return AWS Direct Connect location where the connection is located.
      * 
      */
     private String location;
     private String name;
     /**
-     * @return The ID of the AWS account that owns the connection.
+     * @return ID of the AWS account that owns the connection.
      * 
      */
     private String ownerAccountId;
     /**
-     * @return The name of the service provider associated with the connection.
+     * @return Name of the service provider associated with the connection.
      * 
      */
     private String providerName;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
 
     private GetConnectionResult() {}
     /**
-     * @return The ARN of the connection.
+     * @return ARN of the connection.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The Direct Connect endpoint on which the physical connection terminates.
+     * @return Direct Connect endpoint on which the physical connection terminates.
      * 
      */
     public String awsDevice() {
         return this.awsDevice;
     }
     /**
-     * @return The bandwidth of the connection.
+     * @return Bandwidth of the connection.
      * 
      */
     public String bandwidth() {
@@ -82,7 +82,7 @@ public final class GetConnectionResult {
         return this.id;
     }
     /**
-     * @return The AWS Direct Connect location where the connection is located.
+     * @return AWS Direct Connect location where the connection is located.
      * 
      */
     public String location() {
@@ -92,21 +92,21 @@ public final class GetConnectionResult {
         return this.name;
     }
     /**
-     * @return The ID of the AWS account that owns the connection.
+     * @return ID of the AWS account that owns the connection.
      * 
      */
     public String ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * @return The name of the service provider associated with the connection.
+     * @return Name of the service provider associated with the connection.
      * 
      */
     public String providerName() {
         return this.providerName;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {

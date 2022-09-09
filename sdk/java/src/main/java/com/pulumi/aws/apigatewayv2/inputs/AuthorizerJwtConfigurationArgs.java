@@ -17,14 +17,14 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
     public static final AuthorizerJwtConfigurationArgs Empty = new AuthorizerJwtConfigurationArgs();
 
     /**
-     * A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+     * List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
      * 
      */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
     /**
-     * @return A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+     * @return List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
      * 
      */
     public Optional<Output<List<String>>> audiences() {
@@ -32,14 +32,14 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+     * Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
      * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
-     * @return The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+     * @return Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -72,7 +72,7 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         * @param audiences List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         * @param audiences List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param audiences A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         * @param audiences List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param issuer The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+         * @param issuer Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AuthorizerJwtConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param issuer The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+         * @param issuer Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
          * 
          * @return builder
          * 

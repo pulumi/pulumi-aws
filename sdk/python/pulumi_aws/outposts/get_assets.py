@@ -41,7 +41,7 @@ class GetAssetsResult:
     @pulumi.getter(name="assetIds")
     def asset_ids(self) -> Sequence[str]:
         """
-        A list of all the subnet ids found. This data source will fail if none are found.
+        List of all the subnet ids found. This data source will fail if none are found.
         """
         return pulumi.get(self, "asset_ids")
 

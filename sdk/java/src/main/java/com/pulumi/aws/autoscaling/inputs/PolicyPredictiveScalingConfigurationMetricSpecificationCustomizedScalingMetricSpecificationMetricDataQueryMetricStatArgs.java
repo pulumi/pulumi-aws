@@ -17,14 +17,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs();
 
     /**
-     * A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+     * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
     @Import(name="metric", required=true)
     private Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs> metric;
 
     /**
-     * @return A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
     public Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs> metric() {
@@ -32,14 +32,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * The statistic of the metrics to return.
+     * Statistic of the metrics to return.
      * 
      */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
     /**
-     * @return The statistic of the metrics to return.
+     * @return Statistic of the metrics to return.
      * 
      */
     public Output<String> stat() {
@@ -47,14 +47,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * The unit of the metrics to return.
+     * Unit of the metrics to return.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit of the metrics to return.
+     * @return Unit of the metrics to return.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -88,7 +88,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metric A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param metric A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param stat The statistic of the metrics to return.
+         * @param stat Statistic of the metrics to return.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param stat The statistic of the metrics to return.
+         * @param stat Statistic of the metrics to return.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param unit The unit of the metrics to return.
+         * @param unit Unit of the metrics to return.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param unit The unit of the metrics to return.
+         * @param unit Unit of the metrics to return.
          * 
          * @return builder
          * 

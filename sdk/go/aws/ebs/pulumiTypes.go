@@ -555,7 +555,7 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Key() pulumi.StringPtr
 }
 
 type GetEbsVolumesFilter struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	Name string `pulumi:"name"`
@@ -576,7 +576,7 @@ type GetEbsVolumesFilterInput interface {
 }
 
 type GetEbsVolumesFilterArgs struct {
-	// The name of the field to filter by, as defined by
+	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	Name pulumi.StringInput `pulumi:"name"`
@@ -636,7 +636,7 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 	return o
 }
 
-// The name of the field to filter by, as defined by
+// Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 // For example, if matching against the `size` filter, use:
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {

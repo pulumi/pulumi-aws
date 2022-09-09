@@ -17,14 +17,14 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
     public static final GraphQLApiLambdaAuthorizerConfigArgs Empty = new GraphQLApiLambdaAuthorizerConfigArgs();
 
     /**
-     * The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+     * Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
      * 
      */
     @Import(name="authorizerResultTtlInSeconds")
     private @Nullable Output<Integer> authorizerResultTtlInSeconds;
 
     /**
-     * @return The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+     * @return Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
      * 
      */
     public Optional<Output<Integer>> authorizerResultTtlInSeconds() {
@@ -32,14 +32,14 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+     * ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
      * 
      */
     @Import(name="authorizerUri", required=true)
     private Output<String> authorizerUri;
 
     /**
-     * @return The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+     * @return ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
      * 
      */
     public Output<String> authorizerUri() {
@@ -47,14 +47,14 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * A regular expression for validation of tokens before the Lambda function is called.
+     * Regular expression for validation of tokens before the Lambda function is called.
      * 
      */
     @Import(name="identityValidationExpression")
     private @Nullable Output<String> identityValidationExpression;
 
     /**
-     * @return A regular expression for validation of tokens before the Lambda function is called.
+     * @return Regular expression for validation of tokens before the Lambda function is called.
      * 
      */
     public Optional<Output<String>> identityValidationExpression() {
@@ -88,7 +88,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param authorizerResultTtlInSeconds The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+         * @param authorizerResultTtlInSeconds Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param authorizerResultTtlInSeconds The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+         * @param authorizerResultTtlInSeconds Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param authorizerUri The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+         * @param authorizerUri ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param authorizerUri The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+         * @param authorizerUri ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param identityValidationExpression A regular expression for validation of tokens before the Lambda function is called.
+         * @param identityValidationExpression Regular expression for validation of tokens before the Lambda function is called.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param identityValidationExpression A regular expression for validation of tokens before the Lambda function is called.
+         * @param identityValidationExpression Regular expression for validation of tokens before the Lambda function is called.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPlanPlainArgs Empty = new GetPlanPlainArgs();
 
     /**
-     * The backup plan ID.
+     * Backup plan ID.
      * 
      */
     @Import(name="planId", required=true)
     private String planId;
 
     /**
-     * @return The backup plan ID.
+     * @return Backup plan ID.
      * 
      */
     public String planId() {
@@ -71,7 +71,7 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param planId The backup plan ID.
+         * @param planId Backup plan ID.
          * 
          * @return builder
          * 

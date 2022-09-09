@@ -18,7 +18,7 @@ public final class ArchiveRuleFilter {
      */
     private @Nullable List<String> contains;
     /**
-     * @return The filter criteria.
+     * @return Filter criteria.
      * 
      */
     private String criteria;
@@ -47,7 +47,7 @@ public final class ArchiveRuleFilter {
         return this.contains == null ? List.of() : this.contains;
     }
     /**
-     * @return The filter criteria.
+     * @return Filter criteria.
      * 
      */
     public String criteria() {

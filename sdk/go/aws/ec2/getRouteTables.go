@@ -24,10 +24,10 @@ func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulum
 type GetRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID that you want to filter from.
+	// VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -36,7 +36,7 @@ type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the route table ids found.
+	// List of all the route table ids found.
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -59,10 +59,10 @@ func GetRouteTablesOutput(ctx *pulumi.Context, args GetRouteTablesOutputArgs, op
 type GetRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetRouteTablesFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The VPC ID that you want to filter from.
+	// VPC ID that you want to filter from.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -94,7 +94,7 @@ func (o GetRouteTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the route table ids found.
+// List of all the route table ids found.
 func (o GetRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

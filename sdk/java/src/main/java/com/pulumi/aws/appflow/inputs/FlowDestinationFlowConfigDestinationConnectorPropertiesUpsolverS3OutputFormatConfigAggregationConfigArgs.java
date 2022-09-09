@@ -16,14 +16,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs();
 
     /**
-     * Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+     * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
     @Import(name="aggregationType")
     private @Nullable Output<String> aggregationType;
 
     /**
-     * @return Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
     public Optional<Output<String>> aggregationType() {
@@ -55,7 +55,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param aggregationType Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param aggregationType Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
          * 
          * @return builder
          * 

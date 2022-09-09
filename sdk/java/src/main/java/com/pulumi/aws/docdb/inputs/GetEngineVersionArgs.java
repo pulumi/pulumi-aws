@@ -32,14 +32,14 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+     * Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
      * 
      */
     @Import(name="parameterGroupFamily")
     private @Nullable Output<String> parameterGroupFamily;
 
     /**
-     * @return The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+     * @return Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
      * 
      */
     public Optional<Output<String>> parameterGroupFamily() {
@@ -125,7 +125,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param parameterGroupFamily The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param parameterGroupFamily The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
          * 
          * @return builder
          * 

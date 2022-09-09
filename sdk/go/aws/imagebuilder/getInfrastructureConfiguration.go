@@ -48,7 +48,7 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the infrastructure configuration.
+	// ARN of the infrastructure configuration.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -82,7 +82,7 @@ type LookupInfrastructureConfigurationResult struct {
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers associated with the configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+	// ARN of the SNS Topic associated with the configuration.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 	// Identifier of the EC2 Subnet associated with the configuration.
 	SubnetId string `pulumi:"subnetId"`
@@ -107,7 +107,7 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationOutputArgs struct {
-	// Amazon Resource Name (ARN) of the infrastructure configuration.
+	// ARN of the infrastructure configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
@@ -201,7 +201,7 @@ func (o LookupInfrastructureConfigurationResultOutput) SecurityGroupIds() pulumi
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the SNS Topic associated with the configuration.
+// ARN of the SNS Topic associated with the configuration.
 func (o LookupInfrastructureConfigurationResultOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }

@@ -66,7 +66,7 @@ class GetServerResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of Transfer Server.
+        ARN of Transfer Server.
         """
         return pulumi.get(self, "arn")
 
@@ -74,7 +74,7 @@ class GetServerResult:
     @pulumi.getter
     def certificate(self) -> str:
         """
-        The ARN of any certificate.
+        ARN of any certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -90,7 +90,7 @@ class GetServerResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
+        Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
         """
         return pulumi.get(self, "endpoint")
 
@@ -98,7 +98,7 @@ class GetServerResult:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
         """
-        The type of endpoint that the server is connected to.
+        Type of endpoint that the server is connected to.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -122,7 +122,7 @@ class GetServerResult:
     @pulumi.getter(name="invocationRole")
     def invocation_role(self) -> str:
         """
-        Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+        ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         """
         return pulumi.get(self, "invocation_role")
 
@@ -130,7 +130,7 @@ class GetServerResult:
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> str:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         """
         return pulumi.get(self, "logging_role")
 
@@ -138,7 +138,7 @@ class GetServerResult:
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        The file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
+        File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
         """
         return pulumi.get(self, "protocols")
 

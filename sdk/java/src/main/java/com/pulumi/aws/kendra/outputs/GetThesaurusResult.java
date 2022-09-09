@@ -14,17 +14,17 @@ import java.util.Objects;
 @CustomType
 public final class GetThesaurusResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Thesaurus.
+     * @return ARN of the Thesaurus.
      * 
      */
     private String arn;
     /**
-     * @return The Unix datetime that the Thesaurus was created.
+     * @return Unix datetime that the Thesaurus was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description of the Thesaurus.
+     * @return Description of the Thesaurus.
      * 
      */
     private String description;
@@ -34,7 +34,7 @@ public final class GetThesaurusResult {
      */
     private String errorMessage;
     /**
-     * @return The size of the Thesaurus file in bytes.
+     * @return Size of the Thesaurus file in bytes.
      * 
      */
     private Integer fileSizeBytes;
@@ -45,27 +45,27 @@ public final class GetThesaurusResult {
     private String id;
     private String indexId;
     /**
-     * @return Specifies the name of the Thesaurus.
+     * @return Name of the Thesaurus.
      * 
      */
     private String name;
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     private String roleArn;
     /**
-     * @return The S3 location of the Thesaurus input data. Detailed below.
+     * @return S3 location of the Thesaurus input data. Detailed below.
      * 
      */
     private List<GetThesaurusSourceS3Path> sourceS3Paths;
     /**
-     * @return The status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
+     * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      * 
      */
     private String status;
     /**
-     * @return The number of synonym rules in the Thesaurus file.
+     * @return Number of synonym rules in the Thesaurus file.
      * 
      */
     private Integer synonymRuleCount;
@@ -75,34 +75,34 @@ public final class GetThesaurusResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
+     * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
      * 
      */
     private Integer termCount;
     private String thesaurusId;
     /**
-     * @return The date and time that the Thesaurus was last updated.
+     * @return Date and time that the Thesaurus was last updated.
      * 
      */
     private String updatedAt;
 
     private GetThesaurusResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Thesaurus.
+     * @return ARN of the Thesaurus.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The Unix datetime that the Thesaurus was created.
+     * @return Unix datetime that the Thesaurus was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description of the Thesaurus.
+     * @return Description of the Thesaurus.
      * 
      */
     public String description() {
@@ -116,7 +116,7 @@ public final class GetThesaurusResult {
         return this.errorMessage;
     }
     /**
-     * @return The size of the Thesaurus file in bytes.
+     * @return Size of the Thesaurus file in bytes.
      * 
      */
     public Integer fileSizeBytes() {
@@ -133,35 +133,35 @@ public final class GetThesaurusResult {
         return this.indexId;
     }
     /**
-     * @return Specifies the name of the Thesaurus.
+     * @return Name of the Thesaurus.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The S3 location of the Thesaurus input data. Detailed below.
+     * @return S3 location of the Thesaurus input data. Detailed below.
      * 
      */
     public List<GetThesaurusSourceS3Path> sourceS3Paths() {
         return this.sourceS3Paths;
     }
     /**
-     * @return The status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
+     * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The number of synonym rules in the Thesaurus file.
+     * @return Number of synonym rules in the Thesaurus file.
      * 
      */
     public Integer synonymRuleCount() {
@@ -175,7 +175,7 @@ public final class GetThesaurusResult {
         return this.tags;
     }
     /**
-     * @return The number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
+     * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
      * 
      */
     public Integer termCount() {
@@ -185,7 +185,7 @@ public final class GetThesaurusResult {
         return this.thesaurusId;
     }
     /**
-     * @return The date and time that the Thesaurus was last updated.
+     * @return Date and time that the Thesaurus was last updated.
      * 
      */
     public String updatedAt() {

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Athena
     public partial class Workgroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workgroup
+        /// ARN of the workgroup
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Athena
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Athena
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Athena
     public sealed class WorkgroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workgroup
+        /// ARN of the workgroup
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

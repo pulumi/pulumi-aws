@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:athena/workgroup:Workgroup")
 public class Workgroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the workgroup
+     * ARN of the workgroup
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workgroup
+     * @return ARN of the workgroup
      * 
      */
     public Output<String> arn() {
@@ -117,14 +117,14 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     @Export(name="forceDestroy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * @return Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
@@ -159,28 +159,28 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.state);
     }
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

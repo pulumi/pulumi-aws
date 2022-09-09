@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class VirtualGatewaySpecListenerTlsCertificateFile {
     /**
-     * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     private String certificateChain;
     /**
-     * @return The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     private String privateKey;
 
     private VirtualGatewaySpecListenerTlsCertificateFile() {}
     /**
-     * @return The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     public String certificateChain() {
         return this.certificateChain;
     }
     /**
-     * @return The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+     * @return Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
     public String privateKey() {

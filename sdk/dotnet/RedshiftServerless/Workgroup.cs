@@ -60,6 +60,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<ImmutableArray<Outputs.WorkgroupConfigParameter>> ConfigParameters { get; private set; } = null!;
 
         /// <summary>
+        /// The endpoint that is created from the workgroup. See `Endpoint` below.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableArray<Outputs.WorkgroupEndpoint>> Endpoints { get; private set; } = null!;
+
+        /// <summary>
         /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         /// </summary>
         [Output("enhancedVpcRouting")]
@@ -89,6 +95,9 @@ namespace Pulumi.Aws.RedshiftServerless
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -215,14 +224,6 @@ namespace Pulumi.Aws.RedshiftServerless
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The name of the workgroup.
         /// </summary>
@@ -259,6 +260,18 @@ namespace Pulumi.Aws.RedshiftServerless
         {
             get => _configParameters ?? (_configParameters = new InputList<Inputs.WorkgroupConfigParameterGetArgs>());
             set => _configParameters = value;
+        }
+
+        [Input("endpoints")]
+        private InputList<Inputs.WorkgroupEndpointGetArgs>? _endpoints;
+
+        /// <summary>
+        /// The endpoint that is created from the workgroup. See `Endpoint` below.
+        /// </summary>
+        public InputList<Inputs.WorkgroupEndpointGetArgs> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.WorkgroupEndpointGetArgs>());
+            set => _endpoints = value;
         }
 
         /// <summary>
@@ -310,6 +323,10 @@ namespace Pulumi.Aws.RedshiftServerless
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

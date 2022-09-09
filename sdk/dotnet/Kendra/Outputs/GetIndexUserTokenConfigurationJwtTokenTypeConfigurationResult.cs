@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult
     {
         /// <summary>
-        /// The regular expression that identifies the claim.
+        /// Regular expression that identifies the claim.
         /// </summary>
         public readonly string ClaimRegex;
         /// <summary>
@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string GroupAttributeField;
         /// <summary>
-        /// The issuer of the token.
+        /// Issuer of the token.
         /// </summary>
         public readonly string Issuer;
         /// <summary>
-        /// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+        /// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
         /// </summary>
         public readonly string KeyLocation;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string SecretsManagerArn;
         /// <summary>
-        /// The signing key URL.
+        /// Signing key URL.
         /// </summary>
         public readonly string Url;
         /// <summary>

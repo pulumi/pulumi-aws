@@ -37,11 +37,11 @@ export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pu
  */
 export interface GetTrackerAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * ARN of the geofence collection associated to tracker resource.
      */
     consumerArn: string;
     /**
-     * The name of the tracker resource associated with a geofence collection.
+     * Name of the tracker resource associated with a geofence collection.
      */
     trackerName: string;
 }
@@ -67,11 +67,11 @@ export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArg
  */
 export interface GetTrackerAssociationOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the geofence collection associated to tracker resource.
+     * ARN of the geofence collection associated to tracker resource.
      */
     consumerArn: pulumi.Input<string>;
     /**
-     * The name of the tracker resource associated with a geofence collection.
+     * Name of the tracker resource associated with a geofence collection.
      */
     trackerName: pulumi.Input<string>;
 }

@@ -13,25 +13,25 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection pool information for the listener.
+        /// Connection pool information for the listener.
         /// </summary>
         [Input("connectionPool")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGetArgs>? ConnectionPool { get; set; }
 
         /// <summary>
-        /// The health check information for the listener.
+        /// Health check information for the listener.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.VirtualNodeSpecListenerHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// The outlier detection information for the listener.
+        /// Outlier detection information for the listener.
         /// </summary>
         [Input("outlierDetection")]
         public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionGetArgs>? OutlierDetection { get; set; }
 
         /// <summary>
-        /// The port mapping information for the listener.
+        /// Port mapping information for the listener.
         /// </summary>
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerPortMappingGetArgs> PortMapping { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualNodeSpecListenerTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The Transport Layer Security (TLS) properties for the listener
+        /// Transport Layer Security (TLS) properties for the listener
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualNodeSpecListenerTlsGetArgs>? Tls { get; set; }

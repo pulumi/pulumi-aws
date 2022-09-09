@@ -17,14 +17,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleState Empty = new ScheduleState();
 
     /**
-     * The ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the autoscaling schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to the autoscaling schedule.
+     * @return ARN assigned by AWS to the autoscaling schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     * Name or ARN of the Auto Scaling group.
      * 
      */
     @Import(name="autoscalingGroupName")
     private @Nullable Output<String> autoscalingGroupName;
 
     /**
-     * @return The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     * @return Name or ARN of the Auto Scaling group.
      * 
      */
     public Optional<Output<String>> autoscalingGroupName() {
@@ -47,14 +47,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
      * 
      */
     @Import(name="desiredCapacity")
     private @Nullable Output<Integer> desiredCapacity;
 
     /**
-     * @return The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * @return Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
      * 
      */
     public Optional<Output<Integer>> desiredCapacity() {
@@ -62,7 +62,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -70,7 +70,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> endTime;
 
     /**
-     * @return The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * @return Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -79,7 +79,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum size for the Auto Scaling group. Default 0.
+     * Maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
      * 
      */
@@ -87,7 +87,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> maxSize;
 
     /**
-     * @return The maximum size for the Auto Scaling group. Default 0.
+     * @return Maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
      * 
      */
@@ -96,7 +96,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum size for the Auto Scaling group. Default 0.
+     * Minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
      * 
      */
@@ -104,7 +104,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return The minimum size for the Auto Scaling group. Default 0.
+     * @return Minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
      * 
      */
@@ -113,14 +113,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      * 
      */
     @Import(name="recurrence")
     private @Nullable Output<String> recurrence;
 
     /**
-     * @return The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * @return Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      * 
      */
     public Optional<Output<String>> recurrence() {
@@ -128,14 +128,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of this scaling action.
+     * Name of this scaling action.
      * 
      */
     @Import(name="scheduledActionName")
     private @Nullable Output<String> scheduledActionName;
 
     /**
-     * @return The name of this scaling action.
+     * @return Name of this scaling action.
      * 
      */
     public Optional<Output<String>> scheduledActionName() {
@@ -143,7 +143,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -151,7 +151,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> startTime;
 
     /**
-     * @return The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * @return Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
@@ -208,7 +208,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS to the autoscaling schedule.
+         * @param arn ARN assigned by AWS to the autoscaling schedule.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS to the autoscaling schedule.
+         * @param arn ARN assigned by AWS to the autoscaling schedule.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+         * @param autoscalingGroupName Name or ARN of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+         * @param autoscalingGroupName Name or ARN of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+         * @param desiredCapacity Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+         * @param desiredCapacity Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endTime The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+         * @param endTime Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
          * If you try to schedule your action in the past, Auto Scaling returns an error message.
          * 
          * @return builder
@@ -283,7 +283,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endTime The time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+         * @param endTime Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
          * If you try to schedule your action in the past, Auto Scaling returns an error message.
          * 
          * @return builder
@@ -294,7 +294,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize The maximum size for the Auto Scaling group. Default 0.
+         * @param maxSize Maximum size for the Auto Scaling group. Default 0.
          * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
          * 
          * @return builder
@@ -306,7 +306,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize The maximum size for the Auto Scaling group. Default 0.
+         * @param maxSize Maximum size for the Auto Scaling group. Default 0.
          * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
          * 
          * @return builder
@@ -317,7 +317,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize The minimum size for the Auto Scaling group. Default 0.
+         * @param minSize Minimum size for the Auto Scaling group. Default 0.
          * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
          * 
          * @return builder
@@ -329,7 +329,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize The minimum size for the Auto Scaling group. Default 0.
+         * @param minSize Minimum size for the Auto Scaling group. Default 0.
          * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
          * 
          * @return builder
@@ -340,7 +340,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recurrence The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+         * @param recurrence Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recurrence The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+         * @param recurrence Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledActionName The name of this scaling action.
+         * @param scheduledActionName Name of this scaling action.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledActionName The name of this scaling action.
+         * @param scheduledActionName Name of this scaling action.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+         * @param startTime Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
          * If you try to schedule your action in the past, Auto Scaling returns an error message.
          * 
          * @return builder
@@ -394,7 +394,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime The time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+         * @param startTime Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
          * If you try to schedule your action in the past, Auto Scaling returns an error message.
          * 
          * @return builder

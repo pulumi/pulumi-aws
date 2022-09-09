@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly string? EffectiveEngineVersion;
         /// <summary>
-        /// The requested engine version. Defaults to `AUTO`.
+        /// Requested engine version. Defaults to `AUTO`.
         /// </summary>
         public readonly string? SelectedEngineVersion;
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLaunchTemplateFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetLaunchTemplateFilter {
 
     private GetLaunchTemplateFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
     public String name() {

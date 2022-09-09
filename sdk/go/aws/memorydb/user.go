@@ -75,7 +75,8 @@ type User struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -129,7 +130,8 @@ type userState struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName *string `pulumi:"userName"`
@@ -146,7 +148,8 @@ type UserState struct {
 	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName pulumi.StringPtrInput
@@ -292,6 +295,7 @@ func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

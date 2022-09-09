@@ -34,7 +34,7 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetRepositoryArgs {
     /**
-     * The name for the repository. This needs to be less than 100 characters.
+     * Name for the repository. This needs to be less than 100 characters.
      */
     repositoryName: string;
 }
@@ -44,15 +44,15 @@ export interface GetRepositoryArgs {
  */
 export interface GetRepositoryResult {
     /**
-     * The ARN of the repository
+     * ARN of the repository
      */
     readonly arn: string;
     /**
-     * The URL to use for cloning the repository over HTTPS.
+     * URL to use for cloning the repository over HTTPS.
      */
     readonly cloneUrlHttp: string;
     /**
-     * The URL to use for cloning the repository over SSH.
+     * URL to use for cloning the repository over SSH.
      */
     readonly cloneUrlSsh: string;
     /**
@@ -60,7 +60,7 @@ export interface GetRepositoryResult {
      */
     readonly id: string;
     /**
-     * The ID of the repository
+     * ID of the repository
      */
     readonly repositoryId: string;
     readonly repositoryName: string;
@@ -75,7 +75,7 @@ export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi
  */
 export interface GetRepositoryOutputArgs {
     /**
-     * The name for the repository. This needs to be less than 100 characters.
+     * Name for the repository. This needs to be less than 100 characters.
      */
     repositoryName: pulumi.Input<string>;
 }

@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Elb
     public partial class AppCookieStickinessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application cookie whose lifetime the ELB's cookie should follow.
+        /// Application cookie whose lifetime the ELB's cookie should follow.
         /// </summary>
         [Output("cookieName")]
         public Output<string> CookieName { get; private set; } = null!;
 
         /// <summary>
-        /// The load balancer port to which the policy
+        /// Load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         /// </summary>
@@ -75,14 +75,14 @@ namespace Pulumi.Aws.Elb
         public Output<int> LbPort { get; private set; } = null!;
 
         /// <summary>
-        /// The name of load balancer to which the policy
+        /// Name of load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stickiness policy.
+        /// Name of the stickiness policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.Elb
     public sealed class AppCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application cookie whose lifetime the ELB's cookie should follow.
+        /// Application cookie whose lifetime the ELB's cookie should follow.
         /// </summary>
         [Input("cookieName", required: true)]
         public Input<string> CookieName { get; set; } = null!;
 
         /// <summary>
-        /// The load balancer port to which the policy
+        /// Load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         /// </summary>
@@ -152,14 +152,14 @@ namespace Pulumi.Aws.Elb
         public Input<int> LbPort { get; set; } = null!;
 
         /// <summary>
-        /// The name of load balancer to which the policy
+        /// Name of load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
 
         /// <summary>
-        /// The name of the stickiness policy.
+        /// Name of the stickiness policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -173,13 +173,13 @@ namespace Pulumi.Aws.Elb
     public sealed class AppCookieStickinessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application cookie whose lifetime the ELB's cookie should follow.
+        /// Application cookie whose lifetime the ELB's cookie should follow.
         /// </summary>
         [Input("cookieName")]
         public Input<string>? CookieName { get; set; }
 
         /// <summary>
-        /// The load balancer port to which the policy
+        /// Load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         /// </summary>
@@ -187,14 +187,14 @@ namespace Pulumi.Aws.Elb
         public Input<int>? LbPort { get; set; }
 
         /// <summary>
-        /// The name of load balancer to which the policy
+        /// Name of load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }
 
         /// <summary>
-        /// The name of the stickiness policy.
+        /// Name of the stickiness policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -87,7 +87,7 @@ export interface GetServiceAccountArgs {
  */
 export interface GetServiceAccountResult {
     /**
-     * The ARN of the AWS ELB service account in the selected region.
+     * ARN of the AWS ELB service account in the selected region.
      */
     readonly arn: string;
     /**

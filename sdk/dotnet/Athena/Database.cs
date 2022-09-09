@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Athena
     public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
         [Output("aclConfiguration")]
         public Output<Outputs.DatabaseAclConfiguration?> AclConfiguration { get; private set; } = null!;
@@ -78,19 +78,19 @@ namespace Pulumi.Aws.Athena
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.DatabaseEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Athena
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map of custom metadata properties for the database definition.
+        /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Athena
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DatabaseAclConfigurationArgs>? AclConfiguration { get; set; }
@@ -172,19 +172,19 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _properties;
 
         /// <summary>
-        /// A key-value map of custom metadata properties for the database definition.
+        /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
         public InputMap<string> Properties
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Athena
     public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DatabaseAclConfigurationGetArgs>? AclConfiguration { get; set; }
@@ -234,19 +234,19 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DatabaseEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _properties;
 
         /// <summary>
-        /// A key-value map of custom metadata properties for the database definition.
+        /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
         public InputMap<string> Properties
         {

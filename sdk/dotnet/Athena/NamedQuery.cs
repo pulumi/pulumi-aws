@@ -72,31 +72,31 @@ namespace Pulumi.Aws.Athena
     public partial class NamedQuery : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The database to which the query belongs.
+        /// Database to which the query belongs.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// A brief explanation of the query. Maximum length of 1024.
+        /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The plain language name for the query. Maximum length of 128.
+        /// Plain language name for the query. Maximum length of 128.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
         [Output("workgroup")]
         public Output<string?> Workgroup { get; private set; } = null!;
@@ -148,31 +148,31 @@ namespace Pulumi.Aws.Athena
     public sealed class NamedQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The database to which the query belongs.
+        /// Database to which the query belongs.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// A brief explanation of the query. Maximum length of 1024.
+        /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The plain language name for the query. Maximum length of 128.
+        /// Plain language name for the query. Maximum length of 128.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
@@ -186,31 +186,31 @@ namespace Pulumi.Aws.Athena
     public sealed class NamedQueryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The database to which the query belongs.
+        /// Database to which the query belongs.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// A brief explanation of the query. Maximum length of 1024.
+        /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The plain language name for the query. Maximum length of 128.
+        /// Plain language name for the query. Maximum length of 128.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }

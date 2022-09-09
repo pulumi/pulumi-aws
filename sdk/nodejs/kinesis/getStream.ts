@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,11 +41,11 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetStreamArgs {
     /**
-     * The name of the Kinesis Stream.
+     * Name of the Kinesis Stream.
      */
     name: string;
     /**
-     * A map of tags to assigned to the stream.
+     * Map of tags to assigned to the stream.
      */
     tags?: {[key: string]: string};
 }
@@ -53,15 +55,15 @@ export interface GetStreamArgs {
  */
 export interface GetStreamResult {
     /**
-     * The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+     * ARN of the Kinesis Stream (same as id).
      */
     readonly arn: string;
     /**
-     * The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly closedShards: string[];
     /**
-     * The approximate UNIX timestamp that the stream was created.
+     * Approximate UNIX timestamp that the stream was created.
      */
     readonly creationTimestamp: number;
     /**
@@ -69,11 +71,11 @@ export interface GetStreamResult {
      */
     readonly id: string;
     /**
-     * The name of the Kinesis Stream.
+     * Name of the Kinesis Stream.
      */
     readonly name: string;
     /**
-     * The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+     * List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly openShards: string[];
     /**
@@ -81,19 +83,19 @@ export interface GetStreamResult {
      */
     readonly retentionPeriod: number;
     /**
-     * A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+     * List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      */
     readonly shardLevelMetrics: string[];
     /**
-     * The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+     * Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      */
     readonly status: string;
     /**
-     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
     readonly streamModeDetails: outputs.kinesis.GetStreamStreamModeDetail[];
     /**
-     * A map of tags to assigned to the stream.
+     * Map of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: string};
 }
@@ -107,11 +109,11 @@ export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetStreamOutputArgs {
     /**
-     * The name of the Kinesis Stream.
+     * Name of the Kinesis Stream.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags to assigned to the stream.
+     * Map of tags to assigned to the stream.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

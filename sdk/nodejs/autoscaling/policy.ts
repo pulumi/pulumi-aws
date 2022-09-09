@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -158,31 +160,31 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
     public readonly adjustmentType!: pulumi.Output<string | undefined>;
     /**
-     * The ARN assigned by AWS to the scaling policy.
+     * ARN assigned by AWS to the scaling policy.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the autoscaling group.
+     * Name of the autoscaling group.
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
     public readonly cooldown!: pulumi.Output<number | undefined>;
     /**
-     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * Whether the scaling policy is enabled or disabled. Default: `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+     * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
     public readonly estimatedInstanceWarmup!: pulumi.Output<number | undefined>;
     /**
-     * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+     * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     public readonly metricAggregationType!: pulumi.Output<string>;
     /**
@@ -190,30 +192,30 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
-     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
     public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
     public readonly scalingAdjustment!: pulumi.Output<number | undefined>;
     /**
-     * A set of adjustments that manage
+     * Set of adjustments that manage
      * group scaling. These have the following structure:
      */
     public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
     /**
-     * A target tracking policy. These have the following structure:
+     * Target tracking policy. These have the following structure:
      */
     public readonly targetTrackingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
 
@@ -274,31 +276,31 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
     adjustmentType?: pulumi.Input<string>;
     /**
-     * The ARN assigned by AWS to the scaling policy.
+     * ARN assigned by AWS to the scaling policy.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the autoscaling group.
+     * Name of the autoscaling group.
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
     cooldown?: pulumi.Input<number>;
     /**
-     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * Whether the scaling policy is enabled or disabled. Default: `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+     * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
     estimatedInstanceWarmup?: pulumi.Input<number>;
     /**
-     * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+     * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     metricAggregationType?: pulumi.Input<string>;
     /**
@@ -306,30 +308,30 @@ export interface PolicyState {
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      */
     name?: pulumi.Input<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     policyType?: pulumi.Input<string>;
     /**
-     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
     predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
     scalingAdjustment?: pulumi.Input<number>;
     /**
-     * A set of adjustments that manage
+     * Set of adjustments that manage
      * group scaling. These have the following structure:
      */
     stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
-     * A target tracking policy. These have the following structure:
+     * Target tracking policy. These have the following structure:
      */
     targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }
@@ -339,27 +341,27 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
     adjustmentType?: pulumi.Input<string>;
     /**
-     * The name of the autoscaling group.
+     * Name of the autoscaling group.
      */
     autoscalingGroupName: pulumi.Input<string>;
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
     cooldown?: pulumi.Input<number>;
     /**
-     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     * Whether the scaling policy is enabled or disabled. Default: `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+     * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
     estimatedInstanceWarmup?: pulumi.Input<number>;
     /**
-     * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+     * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
     metricAggregationType?: pulumi.Input<string>;
     /**
@@ -367,30 +369,30 @@ export interface PolicyArgs {
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
-     * The name of the dimension.
+     * Name of the dimension.
      */
     name?: pulumi.Input<string>;
     /**
-     * The policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+     * Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
     policyType?: pulumi.Input<string>;
     /**
-     * The predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+     * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
     predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
     scalingAdjustment?: pulumi.Input<number>;
     /**
-     * A set of adjustments that manage
+     * Set of adjustments that manage
      * group scaling. These have the following structure:
      */
     stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
-     * A target tracking policy. These have the following structure:
+     * Target tracking policy. These have the following structure:
      */
     targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }

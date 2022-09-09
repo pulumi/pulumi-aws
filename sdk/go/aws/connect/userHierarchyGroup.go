@@ -111,7 +111,8 @@ type UserHierarchyGroup struct {
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewUserHierarchyGroup registers a new resource with the given unique name, arguments, and options.
@@ -161,7 +162,8 @@ type userHierarchyGroupState struct {
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId *string           `pulumi:"parentGroupId"`
 	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type UserHierarchyGroupState struct {
@@ -180,7 +182,8 @@ type UserHierarchyGroupState struct {
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (UserHierarchyGroupState) ElementType() reflect.Type {
@@ -334,6 +337,7 @@ func (o UserHierarchyGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserHierarchyGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

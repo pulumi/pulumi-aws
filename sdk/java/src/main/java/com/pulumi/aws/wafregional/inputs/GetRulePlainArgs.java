@@ -13,14 +13,14 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRulePlainArgs Empty = new GetRulePlainArgs();
 
     /**
-     * The name of the WAF Regional rule.
+     * Name of the WAF Regional rule.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the WAF Regional rule.
+     * @return Name of the WAF Regional rule.
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the WAF Regional rule.
+         * @param name Name of the WAF Regional rule.
          * 
          * @return builder
          * 

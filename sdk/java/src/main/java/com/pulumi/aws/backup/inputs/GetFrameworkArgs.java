@@ -17,14 +17,14 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFrameworkArgs Empty = new GetFrameworkArgs();
 
     /**
-     * The backup framework name.
+     * Backup framework name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The backup framework name.
+     * @return Backup framework name.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The backup framework name.
+         * @param name Backup framework name.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The backup framework name.
+         * @param name Backup framework name.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          * 
          * @return builder
          * 

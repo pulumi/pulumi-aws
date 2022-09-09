@@ -17,14 +17,14 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     public static final GetRandomPasswordPlainArgs Empty = new GetRandomPasswordPlainArgs();
 
     /**
-     * A string of the characters that you don&#39;t want in the password.
+     * String of the characters that you don&#39;t want in the password.
      * 
      */
     @Import(name="excludeCharacters")
     private @Nullable String excludeCharacters;
 
     /**
-     * @return A string of the characters that you don&#39;t want in the password.
+     * @return String of the characters that you don&#39;t want in the password.
      * 
      */
     public Optional<String> excludeCharacters() {
@@ -107,14 +107,14 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The length of the password.
+     * Length of the password.
      * 
      */
     @Import(name="passwordLength")
     private @Nullable Integer passwordLength;
 
     /**
-     * @return The length of the password.
+     * @return Length of the password.
      * 
      */
     public Optional<Integer> passwordLength() {
@@ -122,14 +122,14 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The random password.
+     * Random password.
      * 
      */
     @Import(name="randomPassword")
     private @Nullable String randomPassword;
 
     /**
-     * @return The random password.
+     * @return Random password.
      * 
      */
     public Optional<String> randomPassword() {
@@ -184,7 +184,7 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param excludeCharacters A string of the characters that you don&#39;t want in the password.
+         * @param excludeCharacters String of the characters that you don&#39;t want in the password.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param passwordLength The length of the password.
+         * @param passwordLength Length of the password.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param randomPassword The random password.
+         * @param randomPassword Random password.
          * 
          * @return builder
          * 

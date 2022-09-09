@@ -50,7 +50,7 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 type LookupSubnetGroupArgs struct {
 	// Name of the subnet group.
 	Name string `pulumi:"name"`
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -65,9 +65,9 @@ type LookupSubnetGroupResult struct {
 	Name string `pulumi:"name"`
 	// Set of VPC Subnet ID-s of the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC in which the subnet group exists.
+	// VPC in which the subnet group exists.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -88,7 +88,7 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 type LookupSubnetGroupOutputArgs struct {
 	// Name of the subnet group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -135,12 +135,12 @@ func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags assigned to the subnet group.
+// Map of tags assigned to the subnet group.
 func (o LookupSubnetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The VPC in which the subnet group exists.
+// VPC in which the subnet group exists.
 func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

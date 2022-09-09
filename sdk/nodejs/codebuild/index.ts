@@ -5,18 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./project";
-export * from "./reportGroup";
-export * from "./resourcePolicy";
-export * from "./sourceCredential";
-export * from "./webhook";
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
 
-// Import resources to register:
-import { Project } from "./project";
-import { ReportGroup } from "./reportGroup";
-import { ResourcePolicy } from "./resourcePolicy";
-import { SourceCredential } from "./sourceCredential";
-import { Webhook } from "./webhook";
+export { ReportGroupArgs, ReportGroupState } from "./reportGroup";
+export type ReportGroup = import("./reportGroup").ReportGroup;
+export const ReportGroup: typeof import("./reportGroup").ReportGroup = null as any;
+
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+
+export { SourceCredentialArgs, SourceCredentialState } from "./sourceCredential";
+export type SourceCredential = import("./sourceCredential").SourceCredential;
+export const SourceCredential: typeof import("./sourceCredential").SourceCredential = null as any;
+
+export { WebhookArgs, WebhookState } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["ReportGroup"], () => require("./reportGroup"));
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+utilities.lazyLoad(exports, ["SourceCredential"], () => require("./sourceCredential"));
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 const _module = {
     version: utilities.getVersion(),

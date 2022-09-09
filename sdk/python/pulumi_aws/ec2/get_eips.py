@@ -44,7 +44,7 @@ class GetEipsResult:
     @pulumi.getter(name="allocationIds")
     def allocation_ids(self) -> Sequence[str]:
         """
-        A list of all the allocation IDs for address for use with EC2-VPC.
+        List of all the allocation IDs for address for use with EC2-VPC.
         """
         return pulumi.get(self, "allocation_ids")
 
@@ -65,7 +65,7 @@ class GetEipsResult:
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[str]:
         """
-        A list of all the Elastic IP addresses.
+        List of all the Elastic IP addresses.
         """
         return pulumi.get(self, "public_ips")
 
@@ -111,7 +111,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
 
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -151,6 +151,6 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
 
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     ...

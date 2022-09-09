@@ -543,7 +543,7 @@ type GetSecretsSecret struct {
 	Context map[string]string `pulumi:"context"`
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens []string `pulumi:"grantTokens"`
-	// The name to export this secret under in the attributes.
+	// Name to export this secret under in the attributes.
 	Name string `pulumi:"name"`
 	// Base64 encoded payload, as returned from a KMS encrypt operation.
 	Payload string `pulumi:"payload"`
@@ -565,7 +565,7 @@ type GetSecretsSecretArgs struct {
 	Context pulumi.StringMapInput `pulumi:"context"`
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
-	// The name to export this secret under in the attributes.
+	// Name to export this secret under in the attributes.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Base64 encoded payload, as returned from a KMS encrypt operation.
 	Payload pulumi.StringInput `pulumi:"payload"`
@@ -632,7 +632,7 @@ func (o GetSecretsSecretOutput) GrantTokens() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsSecret) []string { return v.GrantTokens }).(pulumi.StringArrayOutput)
 }
 
-// The name to export this secret under in the attributes.
+// Name to export this secret under in the attributes.
 func (o GetSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
 }

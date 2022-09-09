@@ -66,28 +66,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/apiKey:ApiKey")
 public class ApiKey extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the associated AppSync API
+     * ID of the associated AppSync API
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The ID of the associated AppSync API
+     * @return ID of the associated AppSync API
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
-     * @return The API key description. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<String> description() {
@@ -108,14 +108,14 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expires);
     }
     /**
-     * The API key
+     * API key
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return The API key
+     * @return API key
      * 
      */
     public Output<String> key() {

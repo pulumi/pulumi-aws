@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetSamlProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS for the provider.
+        /// ARN assigned by AWS for the provider.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Iam
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags attached to the SAML provider.
+        /// Tags attached to the SAML provider.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetSamlProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS for the provider.
+        /// ARN assigned by AWS for the provider.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags attached to the SAML provider.
+        /// Tags attached to the SAML provider.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the provider.
+        /// Name of the provider.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -145,11 +145,11 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string SamlMetadataDocument;
         /// <summary>
-        /// The tags attached to the SAML provider.
+        /// Tags attached to the SAML provider.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
+        /// Expiration date and time for the SAML provider in RFC1123 format, e.g. `Mon, 02 Jan 2007 15:04:05 MST`.
         /// </summary>
         public readonly string ValidUntil;
 

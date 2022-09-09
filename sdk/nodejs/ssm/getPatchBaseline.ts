@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -64,11 +66,11 @@ export interface GetPatchBaselineArgs {
      */
     namePrefix?: string;
     /**
-     * The specified OS for the baseline.
+     * Specified OS for the baseline.
      */
     operatingSystem?: string;
     /**
-     * The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      */
     owner: string;
 }
@@ -78,11 +80,11 @@ export interface GetPatchBaselineArgs {
  */
 export interface GetPatchBaselineResult {
     /**
-     * A list of rules used to include patches in the baseline.
+     * List of rules used to include patches in the baseline.
      */
     readonly approvalRules: outputs.ssm.GetPatchBaselineApprovalRule[];
     /**
-     * A list of explicitly approved patches for the baseline.
+     * List of explicitly approved patches for the baseline.
      */
     readonly approvedPatches: string[];
     /**
@@ -95,11 +97,11 @@ export interface GetPatchBaselineResult {
     readonly approvedPatchesEnableNonSecurity: boolean;
     readonly defaultBaseline?: boolean;
     /**
-     * The description of the baseline.
+     * Description of the baseline.
      */
     readonly description: string;
     /**
-     * A set of global filters used to exclude patches from the baseline.
+     * Set of global filters used to exclude patches from the baseline.
      */
     readonly globalFilters: outputs.ssm.GetPatchBaselineGlobalFilter[];
     /**
@@ -114,7 +116,7 @@ export interface GetPatchBaselineResult {
     readonly operatingSystem?: string;
     readonly owner: string;
     /**
-     * A list of rejected patches.
+     * List of rejected patches.
      */
     readonly rejectedPatches: string[];
     /**
@@ -144,11 +146,11 @@ export interface GetPatchBaselineOutputArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The specified OS for the baseline.
+     * Specified OS for the baseline.
      */
     operatingSystem?: pulumi.Input<string>;
     /**
-     * The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      */
     owner: pulumi.Input<string>;
 }

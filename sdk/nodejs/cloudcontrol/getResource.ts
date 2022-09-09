@@ -42,7 +42,7 @@ export interface GetResourceArgs {
      */
     identifier: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      */
     roleArn?: string;
     /**
@@ -86,7 +86,7 @@ export interface GetResourceOutputArgs {
      */
     identifier: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      */
     roleArn?: pulumi.Input<string>;
     /**

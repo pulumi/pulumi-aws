@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Kinesis Stream.
+        /// Name of the Kinesis Stream.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Kinesis
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assigned to the stream.
+        /// Map of tags to assigned to the stream.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Kinesis Stream.
+        /// Name of the Kinesis Stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assigned to the stream.
+        /// Map of tags to assigned to the stream.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -130,15 +130,15 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Kinesis Stream (same as id).
+        /// ARN of the Kinesis Stream (same as id).
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        /// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
         public readonly ImmutableArray<string> ClosedShards;
         /// <summary>
-        /// The approximate UNIX timestamp that the stream was created.
+        /// Approximate UNIX timestamp that the stream was created.
         /// </summary>
         public readonly int CreationTimestamp;
         /// <summary>
@@ -146,11 +146,11 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Kinesis Stream.
+        /// Name of the Kinesis Stream.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+        /// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
         public readonly ImmutableArray<string> OpenShards;
         /// <summary>
@@ -158,19 +158,19 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int RetentionPeriod;
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
+        /// List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         /// </summary>
         public readonly ImmutableArray<string> ShardLevelMetrics;
         /// <summary>
-        /// The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
+        /// Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamStreamModeDetailResult> StreamModeDetails;
         /// <summary>
-        /// A map of tags to assigned to the stream.
+        /// Map of tags to assigned to the stream.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

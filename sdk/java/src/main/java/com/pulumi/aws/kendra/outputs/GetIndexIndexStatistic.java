@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexIndexStatistic {
     /**
-     * @return A block that specifies the number of question and answer topics in the index. Documented below.
+     * @return Block that specifies the number of question and answer topics in the index. Documented below.
      * 
      */
     private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
@@ -24,7 +24,7 @@ public final class GetIndexIndexStatistic {
 
     private GetIndexIndexStatistic() {}
     /**
-     * @return A block that specifies the number of question and answer topics in the index. Documented below.
+     * @return Block that specifies the number of question and answer topics in the index. Documented below.
      * 
      */
     public List<GetIndexIndexStatisticFaqStatistic> faqStatistics() {

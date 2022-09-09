@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobQueueResult {
     /**
-     * @return The ARN of the job queue.
+     * @return ARN of the job queue.
      * 
      */
     private String arn;
@@ -33,7 +33,7 @@ public final class GetJobQueueResult {
     private String id;
     private String name;
     /**
-     * @return The priority of the job queue. Job queues with a higher priority are evaluated first when
+     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.
      * 
      */
@@ -49,12 +49,12 @@ public final class GetJobQueueResult {
      */
     private String state;
     /**
-     * @return The current status of the job queue (for example, `CREATING` or `VALID`).
+     * @return Current status of the job queue (for example, `CREATING` or `VALID`).
      * 
      */
     private String status;
     /**
-     * @return A short, human-readable string to provide additional details about the current status
+     * @return Short, human-readable string to provide additional details about the current status
      * of the job queue.
      * 
      */
@@ -67,7 +67,7 @@ public final class GetJobQueueResult {
 
     private GetJobQueueResult() {}
     /**
-     * @return The ARN of the job queue.
+     * @return ARN of the job queue.
      * 
      */
     public String arn() {
@@ -94,7 +94,7 @@ public final class GetJobQueueResult {
         return this.name;
     }
     /**
-     * @return The priority of the job queue. Job queues with a higher priority are evaluated first when
+     * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.
      * 
      */
@@ -116,14 +116,14 @@ public final class GetJobQueueResult {
         return this.state;
     }
     /**
-     * @return The current status of the job queue (for example, `CREATING` or `VALID`).
+     * @return Current status of the job queue (for example, `CREATING` or `VALID`).
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A short, human-readable string to provide additional details about the current status
+     * @return Short, human-readable string to provide additional details about the current status
      * of the job queue.
      * 
      */

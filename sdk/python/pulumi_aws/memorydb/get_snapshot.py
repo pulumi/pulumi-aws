@@ -52,7 +52,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -100,7 +100,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def source(self) -> str:
         """
-        Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         """
         return pulumi.get(self, "source")
 
@@ -108,7 +108,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the snapshot.
+        Map of tags assigned to the snapshot.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ def get_snapshot(name: Optional[str] = None,
 
 
     :param str name: Name of the snapshot.
-    :param Mapping[str, str] tags: A map of tags assigned to the snapshot.
+    :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -183,6 +183,6 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the snapshot.
-    :param Mapping[str, str] tags: A map of tags assigned to the snapshot.
+    :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
     """
     ...

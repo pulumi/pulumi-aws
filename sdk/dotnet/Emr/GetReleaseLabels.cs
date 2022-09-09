@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The returned release labels.
+        /// Returned release labels.
         /// </summary>
         public readonly ImmutableArray<string> ReleaseLabels;
 

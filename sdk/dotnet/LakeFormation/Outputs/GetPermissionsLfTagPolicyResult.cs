@@ -18,11 +18,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPermissionsLfTagPolicyExpressionResult> Expressions;
         /// <summary>
-        /// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        /// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         /// </summary>
         public readonly string ResourceType;
 

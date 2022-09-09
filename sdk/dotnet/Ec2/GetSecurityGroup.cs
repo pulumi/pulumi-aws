@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific security group to retrieve.
+        /// Id of the specific security group to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the field to filter by, as defined by
+        /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
         /// </summary>
         [Input("name")]
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired security group.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the VPC that the desired security group belongs to.
+        /// Id of the VPC that the desired security group belongs to.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -164,13 +164,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific security group to retrieve.
+        /// Id of the specific security group to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the field to filter by, as defined by
+        /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
         /// </summary>
         [Input("name")]
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match
+        /// Map of tags, each pair of which must exactly match
         /// a pair on the desired security group.
         /// </summary>
         public InputMap<string> Tags
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the VPC that the desired security group belongs to.
+        /// Id of the VPC that the desired security group belongs to.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -206,11 +206,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetSecurityGroupResult
     {
         /// <summary>
-        /// The computed ARN of the security group.
+        /// Computed ARN of the security group.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the security group.
+        /// Description of the security group.
         /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetSecurityGroupFilterResult> Filters;

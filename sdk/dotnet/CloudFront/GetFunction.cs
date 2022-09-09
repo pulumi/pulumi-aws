@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudFront
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+        /// Function’s stage, either `DEVELOPMENT` or `LIVE`.
         /// </summary>
         [Input("stage", required: true)]
         public string Stage { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+        /// Function’s stage, either `DEVELOPMENT` or `LIVE`.
         /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetFunctionResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront Function.
+        /// ARN identifying your CloudFront Function.
         /// </summary>
         public readonly string Arn;
         /// <summary>

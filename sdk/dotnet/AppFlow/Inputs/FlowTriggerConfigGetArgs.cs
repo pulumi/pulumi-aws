@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowTriggerConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+        /// Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
         /// </summary>
         [Input("triggerProperties")]
         public Input<Inputs.FlowTriggerConfigTriggerPropertiesGetArgs>? TriggerProperties { get; set; }
 
         /// <summary>
-        /// Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+        /// Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
         /// </summary>
         [Input("triggerType", required: true)]
         public Input<string> TriggerType { get; set; } = null!;

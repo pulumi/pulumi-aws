@@ -43,19 +43,19 @@ export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetSdkArgs {
     /**
-     * A key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+     * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
      */
     parameters?: {[key: string]: string};
     /**
-     * The identifier of the associated REST API.
+     * Identifier of the associated REST API.
      */
     restApiId: string;
     /**
-     * The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+     * Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
      */
     sdkType: string;
     /**
-     * The name of the Stage that will be exported.
+     * Name of the Stage that will be exported.
      */
     stageName: string;
 }
@@ -65,15 +65,15 @@ export interface GetSdkArgs {
  */
 export interface GetSdkResult {
     /**
-     * The SDK as a string.
+     * SDK as a string.
      */
     readonly body: string;
     /**
-     * The content-disposition header value in the HTTP response.
+     * Content-disposition header value in the HTTP response.
      */
     readonly contentDisposition: string;
     /**
-     * The content-type header value in the HTTP response.
+     * Content-type header value in the HTTP response.
      */
     readonly contentType: string;
     /**
@@ -95,19 +95,19 @@ export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetSdkOutputArgs {
     /**
-     * A key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+     * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the associated REST API.
+     * Identifier of the associated REST API.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+     * Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
      */
     sdkType: pulumi.Input<string>;
     /**
-     * The name of the Stage that will be exported.
+     * Name of the Stage that will be exported.
      */
     stageName: pulumi.Input<string>;
 }

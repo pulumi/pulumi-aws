@@ -18,23 +18,23 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly bool? AllowCredentials;
         /// <summary>
-        /// The set of allowed HTTP headers.
+        /// Set of allowed HTTP headers.
         /// </summary>
         public readonly ImmutableArray<string> AllowHeaders;
         /// <summary>
-        /// The set of allowed HTTP methods.
+        /// Set of allowed HTTP methods.
         /// </summary>
         public readonly ImmutableArray<string> AllowMethods;
         /// <summary>
-        /// The set of allowed origins.
+        /// Set of allowed origins.
         /// </summary>
         public readonly ImmutableArray<string> AllowOrigins;
         /// <summary>
-        /// The set of exposed HTTP headers.
+        /// Set of exposed HTTP headers.
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
         /// <summary>
-        /// The number of seconds that the browser should cache preflight request results.
+        /// Number of seconds that the browser should cache preflight request results.
         /// </summary>
         public readonly int? MaxAge;
 

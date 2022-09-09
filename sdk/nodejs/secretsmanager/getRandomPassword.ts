@@ -44,7 +44,7 @@ export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.In
  */
 export interface GetRandomPasswordArgs {
     /**
-     * A string of the characters that you don't want in the password.
+     * String of the characters that you don't want in the password.
      */
     excludeCharacters?: string;
     /**
@@ -68,11 +68,11 @@ export interface GetRandomPasswordArgs {
      */
     includeSpace?: boolean;
     /**
-     * The length of the password.
+     * Length of the password.
      */
     passwordLength?: number;
     /**
-     * The random password.
+     * Random password.
      */
     randomPassword?: string;
     /**
@@ -97,7 +97,7 @@ export interface GetRandomPasswordResult {
     readonly includeSpace?: boolean;
     readonly passwordLength?: number;
     /**
-     * The random password.
+     * Random password.
      */
     readonly randomPassword: string;
     readonly requireEachIncludedType?: boolean;
@@ -112,7 +112,7 @@ export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts
  */
 export interface GetRandomPasswordOutputArgs {
     /**
-     * A string of the characters that you don't want in the password.
+     * String of the characters that you don't want in the password.
      */
     excludeCharacters?: pulumi.Input<string>;
     /**
@@ -136,11 +136,11 @@ export interface GetRandomPasswordOutputArgs {
      */
     includeSpace?: pulumi.Input<boolean>;
     /**
-     * The length of the password.
+     * Length of the password.
      */
     passwordLength?: pulumi.Input<number>;
     /**
-     * The random password.
+     * Random password.
      */
     randomPassword?: pulumi.Input<string>;
     /**

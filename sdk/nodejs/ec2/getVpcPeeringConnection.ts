@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +59,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
  */
 export interface GetVpcPeeringConnectionArgs {
     /**
-     * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     cidrBlock?: string;
     /**
@@ -65,44 +67,44 @@ export interface GetVpcPeeringConnectionArgs {
      */
     filters?: inputs.ec2.GetVpcPeeringConnectionFilter[];
     /**
-     * The ID of the specific VPC Peering Connection to retrieve.
+     * ID of the specific VPC Peering Connection to retrieve.
      */
     id?: string;
     /**
-     * The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     ownerId?: string;
     /**
-     * The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerCidrBlock?: string;
     /**
-     * The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerOwnerId?: string;
     /**
-     * The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerRegion?: string;
     /**
-     * The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerVpcId?: string;
     /**
-     * The region of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * Region of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     region?: string;
     /**
-     * The status of the specific VPC Peering Connection to retrieve.
+     * Status of the specific VPC Peering Connection to retrieve.
      */
     status?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
     tags?: {[key: string]: string};
     /**
-     * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     vpcId?: string;
 }
@@ -112,12 +114,12 @@ export interface GetVpcPeeringConnectionArgs {
  */
 export interface GetVpcPeeringConnectionResult {
     /**
-     * A configuration block that describes [VPC Peering Connection]
+     * Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter: {[key: string]: boolean};
     /**
-     * A CIDR block associated to the VPC of the specific VPC Peering Connection.
+     * CIDR block associated to the VPC of the specific VPC Peering Connection.
      */
     readonly cidrBlock: string;
     /**
@@ -137,7 +139,7 @@ export interface GetVpcPeeringConnectionResult {
     readonly peerVpcId: string;
     readonly region: string;
     /**
-     * A configuration block that describes [VPC Peering Connection]
+     * Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester: {[key: string]: boolean};
@@ -155,7 +157,7 @@ export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutp
  */
 export interface GetVpcPeeringConnectionOutputArgs {
     /**
-     * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     cidrBlock?: pulumi.Input<string>;
     /**
@@ -163,44 +165,44 @@ export interface GetVpcPeeringConnectionOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionFilterArgs>[]>;
     /**
-     * The ID of the specific VPC Peering Connection to retrieve.
+     * ID of the specific VPC Peering Connection to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerCidrBlock?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
-     * The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerRegion?: pulumi.Input<string>;
     /**
-     * The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+     * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerVpcId?: pulumi.Input<string>;
     /**
-     * The region of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * Region of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     region?: pulumi.Input<string>;
     /**
-     * The status of the specific VPC Peering Connection to retrieve.
+     * Status of the specific VPC Peering Connection to retrieve.
      */
     status?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+     * ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
     vpcId?: pulumi.Input<string>;
 }

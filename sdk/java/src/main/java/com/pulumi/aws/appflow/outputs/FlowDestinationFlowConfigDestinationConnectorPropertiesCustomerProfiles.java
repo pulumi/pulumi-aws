@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
     /**
-     * @return The unique name of the Amazon Connect Customer Profiles domain.
+     * @return Unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
     private String domainName;
     /**
-     * @return The object specified in the Amazon Connect Customer Profiles flow destination.
+     * @return Object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
     private @Nullable String objectTypeName;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles() {}
     /**
-     * @return The unique name of the Amazon Connect Customer Profiles domain.
+     * @return Unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
     public String domainName() {
         return this.domainName;
     }
     /**
-     * @return The object specified in the Amazon Connect Customer Profiles flow destination.
+     * @return Object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
     public Optional<String> objectTypeName() {

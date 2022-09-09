@@ -61,14 +61,14 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags to assign to the Routing Profile.
+     * Map of tags to assign to the Routing Profile.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags to assign to the Routing Profile.
+     * @return Map of tags to assign to the Routing Profile.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -136,7 +136,7 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags to assign to the Routing Profile.
+         * @param tags Map of tags to assign to the Routing Profile.
          * 
          * @return builder
          * 

@@ -13,17 +13,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
     /**
-     * @return The command App Runner runs to build your application.
+     * @return Command App Runner runs to build your application.
      * 
      */
     private @Nullable String buildCommand;
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     private @Nullable String port;
     /**
-     * @return A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
      * 
      */
     private String runtime;
@@ -33,28 +33,28 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
      */
     private @Nullable Map<String,String> runtimeEnvironmentVariables;
     /**
-     * @return The command App Runner runs to start your application.
+     * @return Command App Runner runs to start your application.
      * 
      */
     private @Nullable String startCommand;
 
     private ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues() {}
     /**
-     * @return The command App Runner runs to build your application.
+     * @return Command App Runner runs to build your application.
      * 
      */
     public Optional<String> buildCommand() {
         return Optional.ofNullable(this.buildCommand);
     }
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
+     * @return Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
      * 
      */
     public String runtime() {
@@ -68,7 +68,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         return this.runtimeEnvironmentVariables == null ? Map.of() : this.runtimeEnvironmentVariables;
     }
     /**
-     * @return The command App Runner runs to start your application.
+     * @return Command App Runner runs to start your application.
      * 
      */
     public Optional<String> startCommand() {

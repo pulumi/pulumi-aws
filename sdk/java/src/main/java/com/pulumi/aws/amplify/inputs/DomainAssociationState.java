@@ -19,14 +19,14 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     public static final DomainAssociationState Empty = new DomainAssociationState();
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Import(name="appId")
     private @Nullable Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Optional<Output<String>> appId() {
@@ -34,14 +34,14 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the domain association.
+     * ARN for the domain association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the domain association.
+     * @return ARN for the domain association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -64,14 +64,14 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name for the domain association.
+     * @return Domain name for the domain association.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -79,14 +79,14 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      * 
      */
     @Import(name="subDomains")
     private @Nullable Output<List<DomainAssociationSubDomainArgs>> subDomains;
 
     /**
-     * @return The setting for the subdomain. Documented below.
+     * @return Setting for the subdomain. Documented below.
      * 
      */
     public Optional<Output<List<DomainAssociationSubDomainArgs>>> subDomains() {
@@ -138,7 +138,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appId The unique ID for an Amplify app.
+         * @param appId Unique ID for an Amplify app.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the domain association.
+         * @param arn ARN for the domain association.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the domain association.
+         * @param arn ARN for the domain association.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The domain name for the domain association.
+         * @param domainName Domain name for the domain association.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The domain name for the domain association.
+         * @param domainName Domain name for the domain association.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subDomains The setting for the subdomain. Documented below.
+         * @param subDomains Setting for the subdomain. Documented below.
          * 
          * @return builder
          * 

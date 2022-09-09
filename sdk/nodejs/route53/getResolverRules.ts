@@ -65,7 +65,7 @@ export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.Invo
  */
 export interface GetResolverRulesArgs {
     /**
-     * A regex string to filter resolver rule names.
+     * Regex string to filter resolver rule names.
      * The filtering is done locally, so could have a performance impact if the result is large.
      * This argument should be used along with other arguments to limit the number of results returned.
      */
@@ -75,11 +75,11 @@ export interface GetResolverRulesArgs {
      */
     ownerId?: string;
     /**
-     * The ID of the outbound resolver endpoint for the desired resolver rules.
+     * ID of the outbound resolver endpoint for the desired resolver rules.
      */
     resolverEndpointId?: string;
     /**
-     * The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
     ruleType?: string;
     /**
@@ -100,7 +100,7 @@ export interface GetResolverRulesResult {
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
-     * The IDs of the matched resolver rules.
+     * IDs of the matched resolver rules.
      */
     readonly resolverRuleIds: string[];
     readonly ruleType?: string;
@@ -116,7 +116,7 @@ export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?:
  */
 export interface GetResolverRulesOutputArgs {
     /**
-     * A regex string to filter resolver rule names.
+     * Regex string to filter resolver rule names.
      * The filtering is done locally, so could have a performance impact if the result is large.
      * This argument should be used along with other arguments to limit the number of results returned.
      */
@@ -126,11 +126,11 @@ export interface GetResolverRulesOutputArgs {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The ID of the outbound resolver endpoint for the desired resolver rules.
+     * ID of the outbound resolver endpoint for the desired resolver rules.
      */
     resolverEndpointId?: pulumi.Input<string>;
     /**
-     * The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
     ruleType?: pulumi.Input<string>;
     /**

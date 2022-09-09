@@ -5,20 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./bot";
-export * from "./botAlias";
-export * from "./getBot";
-export * from "./getBotAlias";
-export * from "./getIntent";
-export * from "./getSlotType";
-export * from "./intent";
-export * from "./slotType";
+export { BotArgs, BotState } from "./bot";
+export type Bot = import("./bot").Bot;
+export const Bot: typeof import("./bot").Bot = null as any;
 
-// Import resources to register:
-import { Bot } from "./bot";
-import { BotAlias } from "./botAlias";
-import { Intent } from "./intent";
-import { SlotType } from "./slotType";
+export { BotAliasArgs, BotAliasState } from "./botAlias";
+export type BotAlias = import("./botAlias").BotAlias;
+export const BotAlias: typeof import("./botAlias").BotAlias = null as any;
+
+export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
+export const getBot: typeof import("./getBot").getBot = null as any;
+export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+
+export { GetBotAliasArgs, GetBotAliasResult, GetBotAliasOutputArgs } from "./getBotAlias";
+export const getBotAlias: typeof import("./getBotAlias").getBotAlias = null as any;
+export const getBotAliasOutput: typeof import("./getBotAlias").getBotAliasOutput = null as any;
+
+export { GetIntentArgs, GetIntentResult, GetIntentOutputArgs } from "./getIntent";
+export const getIntent: typeof import("./getIntent").getIntent = null as any;
+export const getIntentOutput: typeof import("./getIntent").getIntentOutput = null as any;
+
+export { GetSlotTypeArgs, GetSlotTypeResult, GetSlotTypeOutputArgs } from "./getSlotType";
+export const getSlotType: typeof import("./getSlotType").getSlotType = null as any;
+export const getSlotTypeOutput: typeof import("./getSlotType").getSlotTypeOutput = null as any;
+
+export { IntentArgs, IntentState } from "./intent";
+export type Intent = import("./intent").Intent;
+export const Intent: typeof import("./intent").Intent = null as any;
+
+export { SlotTypeArgs, SlotTypeState } from "./slotType";
+export type SlotType = import("./slotType").SlotType;
+export const SlotType: typeof import("./slotType").SlotType = null as any;
+
+utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
+utilities.lazyLoad(exports, ["BotAlias"], () => require("./botAlias"));
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
+utilities.lazyLoad(exports, ["getBotAlias","getBotAliasOutput"], () => require("./getBotAlias"));
+utilities.lazyLoad(exports, ["getIntent","getIntentOutput"], () => require("./getIntent"));
+utilities.lazyLoad(exports, ["getSlotType","getSlotTypeOutput"], () => require("./getSlotType"));
+utilities.lazyLoad(exports, ["Intent"], () => require("./intent"));
+utilities.lazyLoad(exports, ["SlotType"], () => require("./slotType"));
 
 const _module = {
     version: utilities.getVersion(),

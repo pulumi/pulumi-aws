@@ -19,9 +19,9 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] description: The description of the application. Can be at most 1024 characters.
-        :param pulumi.Input[str] name: The name for the application. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] description: Description of the application. Can be at most 1024 characters.
+        :param pulumi.Input[str] name: Name for the application. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -34,7 +34,7 @@ class ApplicationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the application. Can be at most 1024 characters.
+        Description of the application. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -46,7 +46,7 @@ class ApplicationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the application. Must be between 1 and 64 characters in length.
+        Name for the application. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -58,7 +58,7 @@ class ApplicationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -77,11 +77,11 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Application.
-        :param pulumi.Input[str] description: The description of the application. Can be at most 1024 characters.
-        :param pulumi.Input[str] name: The name for the application. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Application.
+        :param pulumi.Input[str] description: Description of the application. Can be at most 1024 characters.
+        :param pulumi.Input[str] name: Name for the application. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -98,7 +98,7 @@ class _ApplicationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Application.
+        ARN of the AppConfig Application.
         """
         return pulumi.get(self, "arn")
 
@@ -110,7 +110,7 @@ class _ApplicationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the application. Can be at most 1024 characters.
+        Description of the application. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -122,7 +122,7 @@ class _ApplicationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the application. Must be between 1 and 64 characters in length.
+        Name for the application. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +134,7 @@ class _ApplicationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ class _ApplicationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -190,9 +190,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the application. Can be at most 1024 characters.
-        :param pulumi.Input[str] name: The name for the application. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] description: Description of the application. Can be at most 1024 characters.
+        :param pulumi.Input[str] name: Name for the application. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -278,11 +278,11 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Application.
-        :param pulumi.Input[str] description: The description of the application. Can be at most 1024 characters.
-        :param pulumi.Input[str] name: The name for the application. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Application.
+        :param pulumi.Input[str] description: Description of the application. Can be at most 1024 characters.
+        :param pulumi.Input[str] name: Name for the application. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,7 +299,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Application.
+        ARN of the AppConfig Application.
         """
         return pulumi.get(self, "arn")
 
@@ -307,7 +307,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the application. Can be at most 1024 characters.
+        Description of the application. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -315,7 +315,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name for the application. Must be between 1 and 64 characters in length.
+        Name for the application. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -323,7 +323,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -331,7 +331,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

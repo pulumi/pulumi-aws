@@ -63,24 +63,24 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * The Amazon Resource Name (ARN) of the instance.
+     * ARN of the instance.
      */
     readonly arn: string;
     readonly autoResolveBestVoicesEnabled: boolean;
     /**
-     * Specifies Whether contact flow logs are enabled.
+     * Whether contact flow logs are enabled.
      */
     readonly contactFlowLogsEnabled: boolean;
     /**
-     * Specifies Whether contact lens is enabled.
+     * Whether contact lens is enabled.
      */
     readonly contactLensEnabled: boolean;
     /**
-     * Specifies When the instance was created.
+     * When the instance was created.
      */
     readonly createdTime: string;
     /**
-     * Specifies Whether early media for outbound calls is enabled .
+     * Whether early media for outbound calls is enabled .
      */
     readonly earlyMediaEnabled: boolean;
     /**
@@ -92,21 +92,21 @@ export interface GetInstanceResult {
      */
     readonly identityManagementType: string;
     /**
-     * Specifies Whether inbound calls are enabled.
+     * Whether inbound calls are enabled.
      */
     readonly inboundCallsEnabled: boolean;
     readonly instanceAlias: string;
     readonly instanceId: string;
     /**
-     * Specifies Whether outbound calls are enabled.
+     * Whether outbound calls are enabled.
      */
     readonly outboundCallsEnabled: boolean;
     /**
-     * The service role of the instance.
+     * Service role of the instance.
      */
     readonly serviceRole: string;
     /**
-     * Specifies The state of the instance.
+     * State of the instance.
      */
     readonly status: string;
 }

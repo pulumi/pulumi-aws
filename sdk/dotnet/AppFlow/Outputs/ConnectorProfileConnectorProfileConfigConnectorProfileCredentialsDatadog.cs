@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
     {
         /// <summary>
-        /// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         /// </summary>
         public readonly string ApiKey;
         /// <summary>

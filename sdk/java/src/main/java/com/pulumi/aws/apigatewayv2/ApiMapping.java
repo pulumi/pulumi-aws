@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/apiMapping:ApiMapping")
 public class ApiMapping extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -91,28 +91,28 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiMappingKey);
     }
     /**
-     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * @return Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
     @Export(name="stage", type=String.class, parameters={})
     private Output<String> stage;
 
     /**
-     * @return The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * @return API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
     public Output<String> stage() {

@@ -59,13 +59,13 @@ type GetPromptArgs struct {
 
 // A collection of values returned by getPrompt.
 type GetPromptResult struct {
-	// The Amazon Resource Name (ARN) of the Prompt.
+	// ARN of the Prompt.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
-	// The identifier for the prompt.
+	// Identifier for the prompt.
 	PromptId string `pulumi:"promptId"`
 }
 
@@ -109,7 +109,7 @@ func (o GetPromptResultOutput) ToGetPromptResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Prompt.
+// ARN of the Prompt.
 func (o GetPromptResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -127,7 +127,7 @@ func (o GetPromptResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The identifier for the prompt.
+// Identifier for the prompt.
 func (o GetPromptResultOutput) PromptId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPromptResult) string { return v.PromptId }).(pulumi.StringOutput)
 }

@@ -3845,7 +3845,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 type GetOpenZfsSnapshotFilter struct {
-	// The name of the snapshot.
+	// Name of the snapshot.
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
@@ -3862,7 +3862,7 @@ type GetOpenZfsSnapshotFilterInput interface {
 }
 
 type GetOpenZfsSnapshotFilterArgs struct {
-	// The name of the snapshot.
+	// Name of the snapshot.
 	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3918,7 +3918,7 @@ func (o GetOpenZfsSnapshotFilterOutput) ToGetOpenZfsSnapshotFilterOutputWithCont
 	return o
 }
 
-// The name of the snapshot.
+// Name of the snapshot.
 func (o GetOpenZfsSnapshotFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOpenZfsSnapshotFilter) string { return v.Name }).(pulumi.StringOutput)
 }

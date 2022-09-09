@@ -95,6 +95,7 @@ class _RouteCalculationState:
         :param pulumi.Input[str] create_time: The timestamp for when the route calculator resource was created in ISO 8601 format.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the route calculator resource was last update in ISO 8601.
         """
         if calculator_arn is not None:
@@ -186,6 +187,9 @@ class _RouteCalculationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -341,6 +345,7 @@ class RouteCalculation(pulumi.CustomResource):
         :param pulumi.Input[str] create_time: The timestamp for when the route calculator resource was created in ISO 8601 format.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the route calculator resource was last update in ISO 8601.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,6 +410,9 @@ class RouteCalculation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

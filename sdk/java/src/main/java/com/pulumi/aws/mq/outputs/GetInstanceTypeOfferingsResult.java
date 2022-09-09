@@ -19,12 +19,12 @@ public final class GetInstanceTypeOfferingsResult {
      */
     private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     private @Nullable String engineType;
     /**
-     * @return The broker&#39;s instance type.
+     * @return Broker&#39;s instance type.
      * 
      */
     private @Nullable String hostInstanceType;
@@ -34,7 +34,7 @@ public final class GetInstanceTypeOfferingsResult {
      */
     private String id;
     /**
-     * @return The broker&#39;s storage type.
+     * @return Broker&#39;s storage type.
      * 
      */
     private @Nullable String storageType;
@@ -48,14 +48,14 @@ public final class GetInstanceTypeOfferingsResult {
         return this.brokerInstanceOptions;
     }
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     public Optional<String> engineType() {
         return Optional.ofNullable(this.engineType);
     }
     /**
-     * @return The broker&#39;s instance type.
+     * @return Broker&#39;s instance type.
      * 
      */
     public Optional<String> hostInstanceType() {
@@ -69,7 +69,7 @@ public final class GetInstanceTypeOfferingsResult {
         return this.id;
     }
     /**
-     * @return The broker&#39;s storage type.
+     * @return Broker&#39;s storage type.
      * 
      */
     public Optional<String> storageType() {

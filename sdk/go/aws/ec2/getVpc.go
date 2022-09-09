@@ -26,30 +26,30 @@ func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getVpc.
 type LookupVpcArgs struct {
-	// The cidr block of the desired VPC.
+	// Cidr block of the desired VPC.
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// Boolean constraint on whether the desired VPC is
 	// the default VPC for the region.
 	Default *bool `pulumi:"default"`
-	// The DHCP options id of the desired VPC.
+	// DHCP options id of the desired VPC.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Custom filter block as described below.
 	Filters []GetVpcFilter `pulumi:"filters"`
-	// The id of the specific VPC to retrieve.
+	// ID of the specific VPC to retrieve.
 	Id *string `pulumi:"id"`
-	// The current state of the desired VPC.
+	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpc.
 type LookupVpcResult struct {
-	// Amazon Resource Name (ARN) of VPC
+	// ARN of VPC
 	Arn string `pulumi:"arn"`
-	// The CIDR block for the association.
+	// CIDR block for the association.
 	CidrBlock             string                       `pulumi:"cidrBlock"`
 	CidrBlockAssociations []GetVpcCidrBlockAssociation `pulumi:"cidrBlockAssociations"`
 	Default               bool                         `pulumi:"default"`
@@ -60,18 +60,18 @@ type LookupVpcResult struct {
 	EnableDnsSupport bool           `pulumi:"enableDnsSupport"`
 	Filters          []GetVpcFilter `pulumi:"filters"`
 	Id               string         `pulumi:"id"`
-	// The allowed tenancy of instances launched into the
+	// Allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 	InstanceTenancy string `pulumi:"instanceTenancy"`
-	// The association ID for the IPv6 CIDR block.
+	// Association ID for the IPv6 CIDR block.
 	Ipv6AssociationId string `pulumi:"ipv6AssociationId"`
-	// The IPv6 CIDR block.
+	// IPv6 CIDR block.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
-	// The ID of the main route table associated with this VPC.
+	// ID of the main route table associated with this VPC.
 	MainRouteTableId string `pulumi:"mainRouteTableId"`
-	// The ID of the AWS account that owns the VPC.
+	// ID of the AWS account that owns the VPC.
 	OwnerId string `pulumi:"ownerId"`
-	// The State of the association.
+	// State of the association.
 	State string            `pulumi:"state"`
 	Tags  map[string]string `pulumi:"tags"`
 }
@@ -91,21 +91,21 @@ func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getVpc.
 type LookupVpcOutputArgs struct {
-	// The cidr block of the desired VPC.
+	// Cidr block of the desired VPC.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	// Boolean constraint on whether the desired VPC is
 	// the default VPC for the region.
 	Default pulumi.BoolPtrInput `pulumi:"default"`
-	// The DHCP options id of the desired VPC.
+	// DHCP options id of the desired VPC.
 	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
 	// Custom filter block as described below.
 	Filters GetVpcFilterArrayInput `pulumi:"filters"`
-	// The id of the specific VPC to retrieve.
+	// ID of the specific VPC to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The current state of the desired VPC.
+	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -129,12 +129,12 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of VPC
+// ARN of VPC
 func (o LookupVpcResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The CIDR block for the association.
+// CIDR block for the association.
 func (o LookupVpcResultOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
@@ -169,33 +169,33 @@ func (o LookupVpcResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The allowed tenancy of instances launched into the
+// Allowed tenancy of instances launched into the
 // selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 func (o LookupVpcResultOutput) InstanceTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.InstanceTenancy }).(pulumi.StringOutput)
 }
 
-// The association ID for the IPv6 CIDR block.
+// Association ID for the IPv6 CIDR block.
 func (o LookupVpcResultOutput) Ipv6AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6AssociationId }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR block.
+// IPv6 CIDR block.
 func (o LookupVpcResultOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
-// The ID of the main route table associated with this VPC.
+// ID of the main route table associated with this VPC.
 func (o LookupVpcResultOutput) MainRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.MainRouteTableId }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the VPC.
+// ID of the AWS account that owns the VPC.
 func (o LookupVpcResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The State of the association.
+// State of the association.
 func (o LookupVpcResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.State }).(pulumi.StringOutput)
 }

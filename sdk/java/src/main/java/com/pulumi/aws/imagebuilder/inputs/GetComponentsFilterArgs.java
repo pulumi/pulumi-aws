@@ -15,14 +15,14 @@ public final class GetComponentsFilterArgs extends com.pulumi.resources.Resource
     public static final GetComponentsFilterArgs Empty = new GetComponentsFilterArgs();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+     * Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetComponentsFilterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetComponentsFilterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
          * 
          * @return builder
          * 

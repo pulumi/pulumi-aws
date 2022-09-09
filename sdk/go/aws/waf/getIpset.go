@@ -48,7 +48,7 @@ func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getIpset.
 type GetIpsetArgs struct {
-	// The name of the WAF IP set.
+	// Name of the WAF IP set.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +74,7 @@ func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getIpset.
 type GetIpsetOutputArgs struct {
-	// The name of the WAF IP set.
+	// Name of the WAF IP set.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

@@ -17,14 +17,14 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccessPointArgs Empty = new GetAccessPointArgs();
 
     /**
-     * The ID that identifies the file system.
+     * ID that identifies the file system.
      * 
      */
     @Import(name="accessPointId", required=true)
     private Output<String> accessPointId;
 
     /**
-     * @return The ID that identifies the file system.
+     * @return ID that identifies the file system.
      * 
      */
     public Output<String> accessPointId() {
@@ -72,7 +72,7 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPointId The ID that identifies the file system.
+         * @param accessPointId ID that identifies the file system.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPointId The ID that identifies the file system.
+         * @param accessPointId ID that identifies the file system.
          * 
          * @return builder
          * 

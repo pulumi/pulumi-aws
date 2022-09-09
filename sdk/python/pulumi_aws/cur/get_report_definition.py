@@ -148,7 +148,7 @@ class GetReportDefinitionResult:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> str:
         """
-        The frequency on which report data are measured and displayed.
+        Frequency on which report data are measured and displayed.
         """
         return pulumi.get(self, "time_unit")
 
@@ -192,7 +192,7 @@ def get_report_definition(report_name: Optional[str] = None,
     ```
 
 
-    :param str report_name: The name of the report definition to match.
+    :param str report_name: Name of the report definition to match.
     """
     __args__ = dict()
     __args__['reportName'] = report_name
@@ -234,6 +234,6 @@ def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None
     ```
 
 
-    :param str report_name: The name of the report definition to match.
+    :param str report_name: Name of the report definition to match.
     """
     ...

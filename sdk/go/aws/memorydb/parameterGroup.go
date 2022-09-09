@@ -71,7 +71,8 @@ type ParameterGroup struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,7 +120,8 @@ type parameterGroupState struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -136,7 +138,8 @@ type ParameterGroupState struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -294,6 +297,7 @@ func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

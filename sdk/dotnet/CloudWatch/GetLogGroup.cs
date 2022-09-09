@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Cloudwatch log group
+        /// Name of the Cloudwatch log group
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.CloudWatch
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Cloudwatch log group
+        /// Name of the Cloudwatch log group
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetLogGroupResult
     {
         /// <summary>
-        /// The ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+        /// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         /// </summary>
         public readonly int CreationTime;
         /// <summary>
@@ -136,16 +136,16 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN of the KMS Key to use when encrypting log data.
+        /// ARN of the KMS Key to use when encrypting log data.
         /// </summary>
         public readonly string KmsKeyId;
         public readonly string Name;
         /// <summary>
-        /// The number of days log events retained in the specified log group.
+        /// Number of days log events retained in the specified log group.
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

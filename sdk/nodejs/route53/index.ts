@@ -5,62 +5,150 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./delegationSet";
-export * from "./getDelegationSet";
-export * from "./getResolverEndpoint";
-export * from "./getResolverRule";
-export * from "./getResolverRules";
-export * from "./getTrafficPolicyDocument";
-export * from "./getZone";
-export * from "./healthCheck";
-export * from "./hostedZoneDnsSec";
-export * from "./keySigningKey";
-export * from "./queryLog";
-export * from "./record";
+export { DelegationSetArgs, DelegationSetState } from "./delegationSet";
+export type DelegationSet = import("./delegationSet").DelegationSet;
+export const DelegationSet: typeof import("./delegationSet").DelegationSet = null as any;
+
+export { GetDelegationSetArgs, GetDelegationSetResult, GetDelegationSetOutputArgs } from "./getDelegationSet";
+export const getDelegationSet: typeof import("./getDelegationSet").getDelegationSet = null as any;
+export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
+
+export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
+export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
+export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;
+
+export { GetResolverRuleArgs, GetResolverRuleResult, GetResolverRuleOutputArgs } from "./getResolverRule";
+export const getResolverRule: typeof import("./getResolverRule").getResolverRule = null as any;
+export const getResolverRuleOutput: typeof import("./getResolverRule").getResolverRuleOutput = null as any;
+
+export { GetResolverRulesArgs, GetResolverRulesResult, GetResolverRulesOutputArgs } from "./getResolverRules";
+export const getResolverRules: typeof import("./getResolverRules").getResolverRules = null as any;
+export const getResolverRulesOutput: typeof import("./getResolverRules").getResolverRulesOutput = null as any;
+
+export { GetTrafficPolicyDocumentArgs, GetTrafficPolicyDocumentResult, GetTrafficPolicyDocumentOutputArgs } from "./getTrafficPolicyDocument";
+export const getTrafficPolicyDocument: typeof import("./getTrafficPolicyDocument").getTrafficPolicyDocument = null as any;
+export const getTrafficPolicyDocumentOutput: typeof import("./getTrafficPolicyDocument").getTrafficPolicyDocumentOutput = null as any;
+
+export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
+export const getZone: typeof import("./getZone").getZone = null as any;
+export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+
+export { HealthCheckArgs, HealthCheckState } from "./healthCheck";
+export type HealthCheck = import("./healthCheck").HealthCheck;
+export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
+
+export { HostedZoneDnsSecArgs, HostedZoneDnsSecState } from "./hostedZoneDnsSec";
+export type HostedZoneDnsSec = import("./hostedZoneDnsSec").HostedZoneDnsSec;
+export const HostedZoneDnsSec: typeof import("./hostedZoneDnsSec").HostedZoneDnsSec = null as any;
+
+export { KeySigningKeyArgs, KeySigningKeyState } from "./keySigningKey";
+export type KeySigningKey = import("./keySigningKey").KeySigningKey;
+export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
+
+export { QueryLogArgs, QueryLogState } from "./queryLog";
+export type QueryLog = import("./queryLog").QueryLog;
+export const QueryLog: typeof import("./queryLog").QueryLog = null as any;
+
+export { RecordArgs, RecordState } from "./record";
+export type Record = import("./record").Record;
+export const Record: typeof import("./record").Record = null as any;
+
 export * from "./recordType";
-export * from "./resolverDnsSecConfig";
-export * from "./resolverEndpoint";
-export * from "./resolverFirewallConfig";
-export * from "./resolverFirewallDomainList";
-export * from "./resolverFirewallRule";
-export * from "./resolverFirewallRuleGroup";
-export * from "./resolverFirewallRuleGroupAssociation";
-export * from "./resolverQueryLogConfig";
-export * from "./resolverQueryLogConfigAssociation";
-export * from "./resolverRule";
-export * from "./resolverRuleAssociation";
-export * from "./trafficPolicy";
-export * from "./trafficPolicyInstance";
-export * from "./vpcAssociationAuthorization";
-export * from "./zone";
-export * from "./zoneAssociation";
+export { ResolverDnsSecConfigArgs, ResolverDnsSecConfigState } from "./resolverDnsSecConfig";
+export type ResolverDnsSecConfig = import("./resolverDnsSecConfig").ResolverDnsSecConfig;
+export const ResolverDnsSecConfig: typeof import("./resolverDnsSecConfig").ResolverDnsSecConfig = null as any;
+
+export { ResolverEndpointArgs, ResolverEndpointState } from "./resolverEndpoint";
+export type ResolverEndpoint = import("./resolverEndpoint").ResolverEndpoint;
+export const ResolverEndpoint: typeof import("./resolverEndpoint").ResolverEndpoint = null as any;
+
+export { ResolverFirewallConfigArgs, ResolverFirewallConfigState } from "./resolverFirewallConfig";
+export type ResolverFirewallConfig = import("./resolverFirewallConfig").ResolverFirewallConfig;
+export const ResolverFirewallConfig: typeof import("./resolverFirewallConfig").ResolverFirewallConfig = null as any;
+
+export { ResolverFirewallDomainListArgs, ResolverFirewallDomainListState } from "./resolverFirewallDomainList";
+export type ResolverFirewallDomainList = import("./resolverFirewallDomainList").ResolverFirewallDomainList;
+export const ResolverFirewallDomainList: typeof import("./resolverFirewallDomainList").ResolverFirewallDomainList = null as any;
+
+export { ResolverFirewallRuleArgs, ResolverFirewallRuleState } from "./resolverFirewallRule";
+export type ResolverFirewallRule = import("./resolverFirewallRule").ResolverFirewallRule;
+export const ResolverFirewallRule: typeof import("./resolverFirewallRule").ResolverFirewallRule = null as any;
+
+export { ResolverFirewallRuleGroupArgs, ResolverFirewallRuleGroupState } from "./resolverFirewallRuleGroup";
+export type ResolverFirewallRuleGroup = import("./resolverFirewallRuleGroup").ResolverFirewallRuleGroup;
+export const ResolverFirewallRuleGroup: typeof import("./resolverFirewallRuleGroup").ResolverFirewallRuleGroup = null as any;
+
+export { ResolverFirewallRuleGroupAssociationArgs, ResolverFirewallRuleGroupAssociationState } from "./resolverFirewallRuleGroupAssociation";
+export type ResolverFirewallRuleGroupAssociation = import("./resolverFirewallRuleGroupAssociation").ResolverFirewallRuleGroupAssociation;
+export const ResolverFirewallRuleGroupAssociation: typeof import("./resolverFirewallRuleGroupAssociation").ResolverFirewallRuleGroupAssociation = null as any;
+
+export { ResolverQueryLogConfigArgs, ResolverQueryLogConfigState } from "./resolverQueryLogConfig";
+export type ResolverQueryLogConfig = import("./resolverQueryLogConfig").ResolverQueryLogConfig;
+export const ResolverQueryLogConfig: typeof import("./resolverQueryLogConfig").ResolverQueryLogConfig = null as any;
+
+export { ResolverQueryLogConfigAssociationArgs, ResolverQueryLogConfigAssociationState } from "./resolverQueryLogConfigAssociation";
+export type ResolverQueryLogConfigAssociation = import("./resolverQueryLogConfigAssociation").ResolverQueryLogConfigAssociation;
+export const ResolverQueryLogConfigAssociation: typeof import("./resolverQueryLogConfigAssociation").ResolverQueryLogConfigAssociation = null as any;
+
+export { ResolverRuleArgs, ResolverRuleState } from "./resolverRule";
+export type ResolverRule = import("./resolverRule").ResolverRule;
+export const ResolverRule: typeof import("./resolverRule").ResolverRule = null as any;
+
+export { ResolverRuleAssociationArgs, ResolverRuleAssociationState } from "./resolverRuleAssociation";
+export type ResolverRuleAssociation = import("./resolverRuleAssociation").ResolverRuleAssociation;
+export const ResolverRuleAssociation: typeof import("./resolverRuleAssociation").ResolverRuleAssociation = null as any;
+
+export { TrafficPolicyArgs, TrafficPolicyState } from "./trafficPolicy";
+export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
+export const TrafficPolicy: typeof import("./trafficPolicy").TrafficPolicy = null as any;
+
+export { TrafficPolicyInstanceArgs, TrafficPolicyInstanceState } from "./trafficPolicyInstance";
+export type TrafficPolicyInstance = import("./trafficPolicyInstance").TrafficPolicyInstance;
+export const TrafficPolicyInstance: typeof import("./trafficPolicyInstance").TrafficPolicyInstance = null as any;
+
+export { VpcAssociationAuthorizationArgs, VpcAssociationAuthorizationState } from "./vpcAssociationAuthorization";
+export type VpcAssociationAuthorization = import("./vpcAssociationAuthorization").VpcAssociationAuthorization;
+export const VpcAssociationAuthorization: typeof import("./vpcAssociationAuthorization").VpcAssociationAuthorization = null as any;
+
+export { ZoneArgs, ZoneState } from "./zone";
+export type Zone = import("./zone").Zone;
+export const Zone: typeof import("./zone").Zone = null as any;
+
+export { ZoneAssociationArgs, ZoneAssociationState } from "./zoneAssociation";
+export type ZoneAssociation = import("./zoneAssociation").ZoneAssociation;
+export const ZoneAssociation: typeof import("./zoneAssociation").ZoneAssociation = null as any;
+
+utilities.lazyLoad(exports, ["DelegationSet"], () => require("./delegationSet"));
+utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
+utilities.lazyLoad(exports, ["getResolverEndpoint","getResolverEndpointOutput"], () => require("./getResolverEndpoint"));
+utilities.lazyLoad(exports, ["getResolverRule","getResolverRuleOutput"], () => require("./getResolverRule"));
+utilities.lazyLoad(exports, ["getResolverRules","getResolverRulesOutput"], () => require("./getResolverRules"));
+utilities.lazyLoad(exports, ["getTrafficPolicyDocument","getTrafficPolicyDocumentOutput"], () => require("./getTrafficPolicyDocument"));
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
+utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
+utilities.lazyLoad(exports, ["HostedZoneDnsSec"], () => require("./hostedZoneDnsSec"));
+utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
+utilities.lazyLoad(exports, ["QueryLog"], () => require("./queryLog"));
+utilities.lazyLoad(exports, ["Record"], () => require("./record"));
+utilities.lazyLoad(exports, ["ResolverDnsSecConfig"], () => require("./resolverDnsSecConfig"));
+utilities.lazyLoad(exports, ["ResolverEndpoint"], () => require("./resolverEndpoint"));
+utilities.lazyLoad(exports, ["ResolverFirewallConfig"], () => require("./resolverFirewallConfig"));
+utilities.lazyLoad(exports, ["ResolverFirewallDomainList"], () => require("./resolverFirewallDomainList"));
+utilities.lazyLoad(exports, ["ResolverFirewallRule"], () => require("./resolverFirewallRule"));
+utilities.lazyLoad(exports, ["ResolverFirewallRuleGroup"], () => require("./resolverFirewallRuleGroup"));
+utilities.lazyLoad(exports, ["ResolverFirewallRuleGroupAssociation"], () => require("./resolverFirewallRuleGroupAssociation"));
+utilities.lazyLoad(exports, ["ResolverQueryLogConfig"], () => require("./resolverQueryLogConfig"));
+utilities.lazyLoad(exports, ["ResolverQueryLogConfigAssociation"], () => require("./resolverQueryLogConfigAssociation"));
+utilities.lazyLoad(exports, ["ResolverRule"], () => require("./resolverRule"));
+utilities.lazyLoad(exports, ["ResolverRuleAssociation"], () => require("./resolverRuleAssociation"));
+utilities.lazyLoad(exports, ["TrafficPolicy"], () => require("./trafficPolicy"));
+utilities.lazyLoad(exports, ["TrafficPolicyInstance"], () => require("./trafficPolicyInstance"));
+utilities.lazyLoad(exports, ["VpcAssociationAuthorization"], () => require("./vpcAssociationAuthorization"));
+utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
+utilities.lazyLoad(exports, ["ZoneAssociation"], () => require("./zoneAssociation"));
 
 // Export enums:
 export * from "../types/enums/route53";
-
-// Import resources to register:
-import { DelegationSet } from "./delegationSet";
-import { HealthCheck } from "./healthCheck";
-import { HostedZoneDnsSec } from "./hostedZoneDnsSec";
-import { KeySigningKey } from "./keySigningKey";
-import { QueryLog } from "./queryLog";
-import { Record } from "./record";
-import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
-import { ResolverEndpoint } from "./resolverEndpoint";
-import { ResolverFirewallConfig } from "./resolverFirewallConfig";
-import { ResolverFirewallDomainList } from "./resolverFirewallDomainList";
-import { ResolverFirewallRule } from "./resolverFirewallRule";
-import { ResolverFirewallRuleGroup } from "./resolverFirewallRuleGroup";
-import { ResolverFirewallRuleGroupAssociation } from "./resolverFirewallRuleGroupAssociation";
-import { ResolverQueryLogConfig } from "./resolverQueryLogConfig";
-import { ResolverQueryLogConfigAssociation } from "./resolverQueryLogConfigAssociation";
-import { ResolverRule } from "./resolverRule";
-import { ResolverRuleAssociation } from "./resolverRuleAssociation";
-import { TrafficPolicy } from "./trafficPolicy";
-import { TrafficPolicyInstance } from "./trafficPolicyInstance";
-import { VpcAssociationAuthorization } from "./vpcAssociationAuthorization";
-import { Zone } from "./zone";
-import { ZoneAssociation } from "./zoneAssociation";
 
 const _module = {
     version: utilities.getVersion(),

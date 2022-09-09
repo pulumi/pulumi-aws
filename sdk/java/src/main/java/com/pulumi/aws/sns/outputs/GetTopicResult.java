@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTopicResult {
     /**
-     * @return Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+     * @return ARN of the found topic, suitable for referencing in other resources that support SNS topics.
      * 
      */
     private String arn;
@@ -23,7 +23,7 @@ public final class GetTopicResult {
 
     private GetTopicResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+     * @return ARN of the found topic, suitable for referencing in other resources that support SNS topics.
      * 
      */
     public String arn() {

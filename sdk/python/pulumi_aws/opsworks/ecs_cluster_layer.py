@@ -42,7 +42,7 @@ class EcsClusterLayerArgs:
         """
         The set of arguments for constructing a EcsClusterLayer resource.
         :param pulumi.Input[str] ecs_cluster_arn: The ECS Cluster ARN of the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
@@ -120,7 +120,7 @@ class EcsClusterLayerArgs:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -407,7 +407,7 @@ class _EcsClusterLayerState:
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -689,7 +689,7 @@ class _EcsClusterLayerState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -801,7 +801,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -958,7 +958,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -1140,7 +1140,7 @@ class EcsClusterLayer(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 

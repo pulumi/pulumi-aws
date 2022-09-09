@@ -461,7 +461,7 @@ type Trail struct {
 	IsOrganizationTrail pulumi.BoolPtrOutput `pulumi:"isOrganizationTrail"`
 	// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
@@ -533,7 +533,7 @@ type trailState struct {
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
 	S3BucketName *string `pulumi:"s3BucketName"`
@@ -574,7 +574,7 @@ type TrailState struct {
 	IsOrganizationTrail pulumi.BoolPtrInput
 	// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	S3BucketName pulumi.StringPtrInput
@@ -615,7 +615,7 @@ type trailArgs struct {
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
 	S3BucketName string `pulumi:"s3BucketName"`
@@ -651,7 +651,7 @@ type TrailArgs struct {
 	IsOrganizationTrail pulumi.BoolPtrInput
 	// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the name of the advanced event selector.
+	// Name of the advanced event selector.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	S3BucketName pulumi.StringInput
@@ -815,7 +815,7 @@ func (o TrailOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the advanced event selector.
+// Name of the advanced event selector.
 func (o TrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

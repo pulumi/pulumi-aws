@@ -255,6 +255,7 @@ class _NetworkProfileState:
         :param pulumi.Input[str] name: The name for the network profile.
         :param pulumi.Input[str] project_arn: The ARN of the project for the network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -403,6 +404,9 @@ class _NetworkProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -652,6 +656,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the network profile.
         :param pulumi.Input[str] project_arn: The ARN of the project for the network profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -754,6 +759,9 @@ class NetworkProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

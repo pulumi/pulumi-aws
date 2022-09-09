@@ -117,13 +117,13 @@ func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOu
 }
 
 type GetGroupUser struct {
-	// The Amazon Resource Name (ARN) specifying the iam user.
+	// User ARN.
 	Arn string `pulumi:"arn"`
-	// The path to the iam user.
+	// Path to the IAM user.
 	Path string `pulumi:"path"`
-	// The stable and unique string identifying the iam user.
+	// Stable and unique string identifying the IAM user.
 	UserId string `pulumi:"userId"`
-	// The name of the iam user.
+	// Name of the IAM user.
 	UserName string `pulumi:"userName"`
 }
 
@@ -139,13 +139,13 @@ type GetGroupUserInput interface {
 }
 
 type GetGroupUserArgs struct {
-	// The Amazon Resource Name (ARN) specifying the iam user.
+	// User ARN.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The path to the iam user.
+	// Path to the IAM user.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The stable and unique string identifying the iam user.
+	// Stable and unique string identifying the IAM user.
 	UserId pulumi.StringInput `pulumi:"userId"`
-	// The name of the iam user.
+	// Name of the IAM user.
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
@@ -200,22 +200,22 @@ func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the iam user.
+// User ARN.
 func (o GetGroupUserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The path to the iam user.
+// Path to the IAM user.
 func (o GetGroupUserOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The stable and unique string identifying the iam user.
+// Stable and unique string identifying the IAM user.
 func (o GetGroupUserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The name of the iam user.
+// Name of the IAM user.
 func (o GetGroupUserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
 }

@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/route:Route")
 public class Route extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -147,21 +147,21 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiKeyRequired);
     }
     /**
-     * The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
     @Export(name="authorizationScopes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> authorizationScopes;
 
     /**
-     * @return The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
+     * @return Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
     public Output<Optional<List<String>>> authorizationScopes() {
         return Codegen.optional(this.authorizationScopes);
     }
     /**
-     * The authorization type for the route.
+     * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
@@ -171,7 +171,7 @@ public class Route extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> authorizationType;
 
     /**
-     * @return The authorization type for the route.
+     * @return Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
@@ -181,14 +181,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizationType);
     }
     /**
-     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
     @Export(name="authorizerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizerId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
+     * @return Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
     public Output<Optional<String>> authorizerId() {
@@ -209,56 +209,56 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.modelSelectionExpression);
     }
     /**
-     * The operation name for the route. Must be between 1 and 64 characters in length.
+     * Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
     @Export(name="operationName", type=String.class, parameters={})
     private Output</* @Nullable */ String> operationName;
 
     /**
-     * @return The operation name for the route. Must be between 1 and 64 characters in length.
+     * @return Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
     public Output<Optional<String>> operationName() {
         return Codegen.optional(this.operationName);
     }
     /**
-     * The request models for the route. Supported only for WebSocket APIs.
+     * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
     @Export(name="requestModels", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> requestModels;
 
     /**
-     * @return The request models for the route. Supported only for WebSocket APIs.
+     * @return Request models for the route. Supported only for WebSocket APIs.
      * 
      */
     public Output<Optional<Map<String,String>>> requestModels() {
         return Codegen.optional(this.requestModels);
     }
     /**
-     * The request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
     @Export(name="requestParameters", type=List.class, parameters={RouteRequestParameter.class})
     private Output</* @Nullable */ List<RouteRequestParameter>> requestParameters;
 
     /**
-     * @return The request parameters for the route. Supported only for WebSocket APIs.
+     * @return Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
     public Output<Optional<List<RouteRequestParameter>>> requestParameters() {
         return Codegen.optional(this.requestParameters);
     }
     /**
-     * The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
     @Export(name="routeKey", type=String.class, parameters={})
     private Output<String> routeKey;
 
     /**
-     * @return The route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
+     * @return Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
     public Output<String> routeKey() {
@@ -279,14 +279,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.routeResponseSelectionExpression);
     }
     /**
-     * The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
     @Export(name="target", type=String.class, parameters={})
     private Output</* @Nullable */ String> target;
 
     /**
-     * @return The target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
+     * @return Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
     public Output<Optional<String>> target() {

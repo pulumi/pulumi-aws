@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch
     {
         /// <summary>
-        /// The values sent must match the specified values exactly.
+        /// Values sent must match the specified values exactly.
         /// </summary>
         public readonly ImmutableArray<string> Exacts;
 

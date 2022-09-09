@@ -16,14 +16,14 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetPlaceIndexPlainArgs Empty = new GetPlaceIndexPlainArgs();
 
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      * 
      */
     @Import(name="indexName", required=true)
     private String indexName;
 
     /**
-     * @return The name of the place index resource.
+     * @return Name of the place index resource.
      * 
      */
     public String indexName() {
@@ -71,7 +71,7 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * @return builder
          * 

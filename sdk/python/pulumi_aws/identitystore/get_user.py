@@ -67,7 +67,7 @@ class GetUserResult:
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
         """
-        The user's user name value.
+        User's user name value.
         """
         return pulumi.get(self, "user_name")
 
@@ -94,7 +94,7 @@ def get_user(filters: Optional[Sequence[pulumi.InputType['GetUserFilterArgs']]] 
 
 
     :param Sequence[pulumi.InputType['GetUserFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
-    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     :param str user_id: The identifier for a user in the Identity Store.
     """
     __args__ = dict()
@@ -122,7 +122,7 @@ def get_user_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['Ge
 
 
     :param Sequence[pulumi.InputType['GetUserFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
-    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     :param str user_id: The identifier for a user in the Identity Store.
     """
     ...

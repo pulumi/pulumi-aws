@@ -46,14 +46,14 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The id of the prometheus workspace the rule group namespace should be linked to
+     * ID of the prometheus workspace the rule group namespace should be linked to
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The id of the prometheus workspace the rule group namespace should be linked to
+     * @return ID of the prometheus workspace the rule group namespace should be linked to
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -129,7 +129,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param workspaceId The id of the prometheus workspace the rule group namespace should be linked to
+         * @param workspaceId ID of the prometheus workspace the rule group namespace should be linked to
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class RuleGroupNamespaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param workspaceId The id of the prometheus workspace the rule group namespace should be linked to
+         * @param workspaceId ID of the prometheus workspace the rule group namespace should be linked to
          * 
          * @return builder
          * 

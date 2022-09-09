@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Acmpca
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        /// Key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// ARN of the certificate authority.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        /// Key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -209,11 +209,11 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        /// Key-value map of user-defined tags that are attached to the certificate authority.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of the certificate authority.
+        /// Type of the certificate authority.
         /// </summary>
         public readonly string Type;
 

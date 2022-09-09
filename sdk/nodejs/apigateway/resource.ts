@@ -60,19 +60,19 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the parent API resource
+     * ID of the parent API resource
      */
     public readonly parentId!: pulumi.Output<string>;
     /**
-     * The complete path for this API resource, including all parent paths.
+     * Complete path for this API resource, including all parent paths.
      */
     public /*out*/ readonly path!: pulumi.Output<string>;
     /**
-     * The last path segment of this API resource.
+     * Last path segment of this API resource.
      */
     public readonly pathPart!: pulumi.Output<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
 
@@ -119,19 +119,19 @@ export class Resource extends pulumi.CustomResource {
  */
 export interface ResourceState {
     /**
-     * The ID of the parent API resource
+     * ID of the parent API resource
      */
     parentId?: pulumi.Input<string>;
     /**
-     * The complete path for this API resource, including all parent paths.
+     * Complete path for this API resource, including all parent paths.
      */
     path?: pulumi.Input<string>;
     /**
-     * The last path segment of this API resource.
+     * Last path segment of this API resource.
      */
     pathPart?: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
 }
@@ -141,15 +141,15 @@ export interface ResourceState {
  */
 export interface ResourceArgs {
     /**
-     * The ID of the parent API resource
+     * ID of the parent API resource
      */
     parentId: pulumi.Input<string>;
     /**
-     * The last path segment of this API resource.
+     * Last path segment of this API resource.
      */
     pathPart: pulumi.Input<string>;
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      */
     restApi: pulumi.Input<string | RestApi>;
 }

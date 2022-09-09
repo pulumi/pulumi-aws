@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./policy";
-export * from "./scheduledAction";
-export * from "./target";
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
 
-// Import resources to register:
-import { Policy } from "./policy";
-import { ScheduledAction } from "./scheduledAction";
-import { Target } from "./target";
+export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
+export type ScheduledAction = import("./scheduledAction").ScheduledAction;
+export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+
+export { TargetArgs, TargetState } from "./target";
+export type Target = import("./target").Target;
+export const Target: typeof import("./target").Target = null as any;
+
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
+utilities.lazyLoad(exports, ["Target"], () => require("./target"));
 
 const _module = {
     version: utilities.getVersion(),

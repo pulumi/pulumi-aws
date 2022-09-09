@@ -91,7 +91,7 @@ type LookupMulticastDomainArgs struct {
 
 // A collection of values returned by getMulticastDomain.
 type LookupMulticastDomainResult struct {
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Multicast Domain ARN.
 	Arn string `pulumi:"arn"`
 	// EC2 Transit Gateway Multicast Domain Associations
 	Associations []GetMulticastDomainAssociationType `pulumi:"associations"`
@@ -162,7 +162,7 @@ func (o LookupMulticastDomainResultOutput) ToLookupMulticastDomainResultOutputWi
 	return o
 }
 
-// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+// EC2 Transit Gateway Multicast Domain ARN.
 func (o LookupMulticastDomainResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMulticastDomainResult) string { return v.Arn }).(pulumi.StringOutput)
 }

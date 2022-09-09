@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> ApiCachingBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// The GraphQL API ID.
+        /// GraphQL API ID.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.AppSync
         public Output<int> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiCachingBehavior { get; set; } = null!;
 
         /// <summary>
-        /// The GraphQL API ID.
+        /// GraphQL API ID.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int> Ttl { get; set; } = null!;
 
         /// <summary>
-        /// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ApiCachingBehavior { get; set; }
 
         /// <summary>
-        /// The GraphQL API ID.
+        /// GraphQL API ID.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

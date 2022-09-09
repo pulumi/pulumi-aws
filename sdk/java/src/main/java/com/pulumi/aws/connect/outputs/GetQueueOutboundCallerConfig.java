@@ -20,7 +20,7 @@ public final class GetQueueOutboundCallerConfig {
      */
     private String outboundCallerIdNumberId;
     /**
-     * @return Specifies the outbound whisper flow to be used during an outbound call.
+     * @return Outbound whisper flow to be used during an outbound call.
      * 
      */
     private String outboundFlowId;
@@ -41,7 +41,7 @@ public final class GetQueueOutboundCallerConfig {
         return this.outboundCallerIdNumberId;
     }
     /**
-     * @return Specifies the outbound whisper flow to be used during an outbound call.
+     * @return Outbound whisper flow to be used during an outbound call.
      * 
      */
     public String outboundFlowId() {

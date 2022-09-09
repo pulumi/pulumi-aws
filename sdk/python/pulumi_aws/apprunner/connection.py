@@ -20,8 +20,8 @@ class ConnectionArgs:
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: The source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "provider_type", provider_type)
@@ -44,7 +44,7 @@ class ConnectionArgs:
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Input[str]:
         """
-        The source repository provider. Valid values: `GITHUB`.
+        Source repository provider. Valid values: `GITHUB`.
         """
         return pulumi.get(self, "provider_type")
 
@@ -56,7 +56,7 @@ class ConnectionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -78,10 +78,10 @@ class _ConnectionState:
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] arn: ARN of the connection.
         :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: The source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[str] status: The current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
+        :param pulumi.Input[str] status: Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -124,7 +124,7 @@ class _ConnectionState:
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The source repository provider. Valid values: `GITHUB`.
+        Source repository provider. Valid values: `GITHUB`.
         """
         return pulumi.get(self, "provider_type")
 
@@ -136,7 +136,7 @@ class _ConnectionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+        Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
         """
         return pulumi.get(self, "status")
 
@@ -148,7 +148,7 @@ class _ConnectionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -160,7 +160,7 @@ class _ConnectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -208,8 +208,8 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: The source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -306,10 +306,10 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the connection.
         :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: The source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[str] status: The current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
+        :param pulumi.Input[str] status: Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,7 +343,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
         """
-        The source repository provider. Valid values: `GITHUB`.
+        Source repository provider. Valid values: `GITHUB`.
         """
         return pulumi.get(self, "provider_type")
 
@@ -351,7 +351,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
+        Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
         """
         return pulumi.get(self, "status")
 
@@ -359,7 +359,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -367,7 +367,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

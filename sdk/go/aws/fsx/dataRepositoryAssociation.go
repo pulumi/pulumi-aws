@@ -46,7 +46,8 @@ type DataRepositoryAssociation struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3Output `pulumi:"s3"`
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -107,7 +108,8 @@ type dataRepositoryAssociationState struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -131,7 +133,8 @@ type DataRepositoryAssociationState struct {
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrInput
 	// A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -317,6 +320,7 @@ func (o DataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataRepositoryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

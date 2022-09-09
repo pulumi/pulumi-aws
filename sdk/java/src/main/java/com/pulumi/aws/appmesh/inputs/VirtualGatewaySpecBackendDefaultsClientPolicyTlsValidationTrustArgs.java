@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs();
 
     /**
-     * The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
     @Import(name="acm")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs> acm;
 
     /**
-     * @return The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs>> acm() {
@@ -33,14 +33,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     }
 
     /**
-     * The TLS validation context trust for a local file certificate.
+     * TLS validation context trust for a local file certificate.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs> file;
 
     /**
-     * @return The TLS validation context trust for a local file certificate.
+     * @return TLS validation context trust for a local file certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs>> file() {
@@ -48,14 +48,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     }
 
     /**
-     * The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs> sds;
 
     /**
-     * @return The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs>> sds() {
@@ -89,7 +89,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param acm The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * @param acm TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param acm The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * @param acm TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param file The TLS validation context trust for a local file certificate.
+         * @param file TLS validation context trust for a local file certificate.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param file The TLS validation context trust for a local file certificate.
+         * @param file TLS validation context trust for a local file certificate.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param sds The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param sds The TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 

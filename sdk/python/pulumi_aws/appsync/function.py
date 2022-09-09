@@ -27,14 +27,14 @@ class FunctionArgs:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
-        :param pulumi.Input[str] data_source: The Function data source name.
-        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
-        :param pulumi.Input[str] description: The Function description.
-        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -56,7 +56,7 @@ class FunctionArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the associated AppSync API.
+        ID of the associated AppSync API.
         """
         return pulumi.get(self, "api_id")
 
@@ -68,7 +68,7 @@ class FunctionArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The Function data source name.
+        Function data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -80,7 +80,7 @@ class FunctionArgs:
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> pulumi.Input[str]:
         """
-        The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
@@ -92,7 +92,7 @@ class FunctionArgs:
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> pulumi.Input[str]:
         """
-        The Function response mapping template.
+        Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
@@ -104,7 +104,7 @@ class FunctionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function description.
+        Function description.
         """
         return pulumi.get(self, "description")
 
@@ -116,7 +116,7 @@ class FunctionArgs:
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        Version of the request mapping template. Currently the supported value is `2018-05-29`.
         """
         return pulumi.get(self, "function_version")
 
@@ -128,7 +128,7 @@ class FunctionArgs:
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -140,7 +140,7 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function name. The function name does not have to be unique.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -177,16 +177,16 @@ class _FunctionState:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
-        :param pulumi.Input[str] arn: The ARN of the Function object.
-        :param pulumi.Input[str] data_source: The Function data source name.
-        :param pulumi.Input[str] description: The Function description.
-        :param pulumi.Input[str] function_id: A unique ID representing the Function object.
-        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
-        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] arn: ARN of the Function object.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_id: Unique ID representing the Function object.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         if api_id is not None:
@@ -216,7 +216,7 @@ class _FunctionState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated AppSync API.
+        ID of the associated AppSync API.
         """
         return pulumi.get(self, "api_id")
 
@@ -228,7 +228,7 @@ class _FunctionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Function object.
+        ARN of the Function object.
         """
         return pulumi.get(self, "arn")
 
@@ -240,7 +240,7 @@ class _FunctionState:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function data source name.
+        Function data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -252,7 +252,7 @@ class _FunctionState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function description.
+        Function description.
         """
         return pulumi.get(self, "description")
 
@@ -264,7 +264,7 @@ class _FunctionState:
     @pulumi.getter(name="functionId")
     def function_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique ID representing the Function object.
+        Unique ID representing the Function object.
         """
         return pulumi.get(self, "function_id")
 
@@ -276,7 +276,7 @@ class _FunctionState:
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        Version of the request mapping template. Currently the supported value is `2018-05-29`.
         """
         return pulumi.get(self, "function_version")
 
@@ -288,7 +288,7 @@ class _FunctionState:
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -300,7 +300,7 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function name. The function name does not have to be unique.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -312,7 +312,7 @@ class _FunctionState:
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
@@ -324,7 +324,7 @@ class _FunctionState:
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> Optional[pulumi.Input[str]]:
         """
-        The Function response mapping template.
+        Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
@@ -427,14 +427,14 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
-        :param pulumi.Input[str] data_source: The Function data source name.
-        :param pulumi.Input[str] description: The Function description.
-        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
-        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         ...
@@ -588,16 +588,16 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The ID of the associated AppSync API.
-        :param pulumi.Input[str] arn: The ARN of the Function object.
-        :param pulumi.Input[str] data_source: The Function data source name.
-        :param pulumi.Input[str] description: The Function description.
-        :param pulumi.Input[str] function_id: A unique ID representing the Function object.
-        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently the supported value is `2018-05-29`.
-        :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
-        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[str] api_id: ID of the associated AppSync API.
+        :param pulumi.Input[str] arn: ARN of the Function object.
+        :param pulumi.Input[str] data_source: Function data source name.
+        :param pulumi.Input[str] description: Function description.
+        :param pulumi.Input[str] function_id: Unique ID representing the Function object.
+        :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
+        :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[pulumi.InputType['FunctionSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -621,7 +621,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the associated AppSync API.
+        ID of the associated AppSync API.
         """
         return pulumi.get(self, "api_id")
 
@@ -629,7 +629,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Function object.
+        ARN of the Function object.
         """
         return pulumi.get(self, "arn")
 
@@ -637,7 +637,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
         """
-        The Function data source name.
+        Function data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -645,7 +645,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The Function description.
+        Function description.
         """
         return pulumi.get(self, "description")
 
@@ -653,7 +653,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="functionId")
     def function_id(self) -> pulumi.Output[str]:
         """
-        A unique ID representing the Function object.
+        Unique ID representing the Function object.
         """
         return pulumi.get(self, "function_id")
 
@@ -661,7 +661,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version of the request mapping template. Currently the supported value is `2018-05-29`.
+        Version of the request mapping template. Currently the supported value is `2018-05-29`.
         """
         return pulumi.get(self, "function_version")
 
@@ -669,7 +669,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
@@ -677,7 +677,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The Function name. The function name does not have to be unique.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -685,7 +685,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> pulumi.Output[str]:
         """
-        The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
@@ -693,7 +693,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> pulumi.Output[str]:
         """
-        The Function response mapping template.
+        Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 

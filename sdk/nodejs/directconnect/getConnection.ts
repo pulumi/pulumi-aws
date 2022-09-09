@@ -35,11 +35,11 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetConnectionArgs {
     /**
-     * The name of the connection to retrieve.
+     * Name of the connection to retrieve.
      */
     name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -49,15 +49,15 @@ export interface GetConnectionArgs {
  */
 export interface GetConnectionResult {
     /**
-     * The ARN of the connection.
+     * ARN of the connection.
      */
     readonly arn: string;
     /**
-     * The Direct Connect endpoint on which the physical connection terminates.
+     * Direct Connect endpoint on which the physical connection terminates.
      */
     readonly awsDevice: string;
     /**
-     * The bandwidth of the connection.
+     * Bandwidth of the connection.
      */
     readonly bandwidth: string;
     /**
@@ -65,20 +65,20 @@ export interface GetConnectionResult {
      */
     readonly id: string;
     /**
-     * The AWS Direct Connect location where the connection is located.
+     * AWS Direct Connect location where the connection is located.
      */
     readonly location: string;
     readonly name: string;
     /**
-     * The ID of the AWS account that owns the connection.
+     * ID of the AWS account that owns the connection.
      */
     readonly ownerAccountId: string;
     /**
-     * The name of the service provider associated with the connection.
+     * Name of the service provider associated with the connection.
      */
     readonly providerName: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -92,11 +92,11 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  */
 export interface GetConnectionOutputArgs {
     /**
-     * The name of the connection to retrieve.
+     * Name of the connection to retrieve.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,22 +14,22 @@ import java.util.Objects;
 @CustomType
 public final class GetRestApiResult {
     /**
-     * @return The source of the API key for requests.
+     * @return Source of the API key for requests.
      * 
      */
     private String apiKeySource;
     /**
-     * @return The ARN of the REST API.
+     * @return ARN of the REST API.
      * 
      */
     private String arn;
     /**
-     * @return The list of binary media types supported by the REST API.
+     * @return List of binary media types supported by the REST API.
      * 
      */
     private List<String> binaryMediaTypes;
     /**
-     * @return The description of the REST API.
+     * @return Description of the REST API.
      * 
      */
     private String description;
@@ -72,28 +72,28 @@ public final class GetRestApiResult {
 
     private GetRestApiResult() {}
     /**
-     * @return The source of the API key for requests.
+     * @return Source of the API key for requests.
      * 
      */
     public String apiKeySource() {
         return this.apiKeySource;
     }
     /**
-     * @return The ARN of the REST API.
+     * @return ARN of the REST API.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The list of binary media types supported by the REST API.
+     * @return List of binary media types supported by the REST API.
      * 
      */
     public List<String> binaryMediaTypes() {
         return this.binaryMediaTypes;
     }
     /**
-     * @return The description of the REST API.
+     * @return Description of the REST API.
      * 
      */
     public String description() {

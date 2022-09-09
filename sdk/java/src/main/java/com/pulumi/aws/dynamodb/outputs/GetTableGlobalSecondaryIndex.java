@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetTableGlobalSecondaryIndex {
     private String hashKey;
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     private String name;
@@ -28,7 +28,7 @@ public final class GetTableGlobalSecondaryIndex {
         return this.hashKey;
     }
     /**
-     * @return The name of the DynamoDB table.
+     * @return Name of the DynamoDB table.
      * 
      */
     public String name() {

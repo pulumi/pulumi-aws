@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -96,28 +96,28 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.autoDeployed;
     }
     /**
-     * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+     * @return Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
     @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**
-     * @return A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
     public Output<Optional<Map<String,String>>> triggers() {

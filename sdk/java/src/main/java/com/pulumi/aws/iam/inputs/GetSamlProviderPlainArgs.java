@@ -16,14 +16,14 @@ public final class GetSamlProviderPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetSamlProviderPlainArgs Empty = new GetSamlProviderPlainArgs();
 
     /**
-     * The ARN assigned by AWS for the provider.
+     * ARN assigned by AWS for the provider.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return The ARN assigned by AWS for the provider.
+     * @return ARN assigned by AWS for the provider.
      * 
      */
     public String arn() {
@@ -31,14 +31,14 @@ public final class GetSamlProviderPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The tags attached to the SAML provider.
+     * Tags attached to the SAML provider.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags attached to the SAML provider.
+     * @return Tags attached to the SAML provider.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetSamlProviderPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param arn The ARN assigned by AWS for the provider.
+         * @param arn ARN assigned by AWS for the provider.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetSamlProviderPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags The tags attached to the SAML provider.
+         * @param tags Tags attached to the SAML provider.
          * 
          * @return builder
          * 

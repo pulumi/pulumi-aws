@@ -39,7 +39,7 @@ class GetExportResult:
     @pulumi.getter(name="exportingStackId")
     def exporting_stack_id(self) -> str:
         """
-        The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        ARN of stack that contains the exported output name and value.
         """
         return pulumi.get(self, "exporting_stack_id")
 
@@ -60,7 +60,7 @@ class GetExportResult:
     @pulumi.getter
     def value(self) -> str:
         """
-        The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         """
         return pulumi.get(self, "value")
 
@@ -99,7 +99,7 @@ def get_export(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+    :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -136,6 +136,6 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+    :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
     ...

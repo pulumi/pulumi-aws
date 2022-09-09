@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The id for your Amazon Cognito user pool.
+        /// ID for your Amazon Cognito user pool.
         /// </summary>
         public readonly string UserPool;
 

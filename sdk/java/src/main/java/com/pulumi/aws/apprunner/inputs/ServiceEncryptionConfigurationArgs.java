@@ -14,14 +14,14 @@ public final class ServiceEncryptionConfigurationArgs extends com.pulumi.resourc
     public static final ServiceEncryptionConfigurationArgs Empty = new ServiceEncryptionConfigurationArgs();
 
     /**
-     * The ARN of the KMS key used for encryption.
+     * ARN of the KMS key used for encryption.
      * 
      */
     @Import(name="kmsKey", required=true)
     private Output<String> kmsKey;
 
     /**
-     * @return The ARN of the KMS key used for encryption.
+     * @return ARN of the KMS key used for encryption.
      * 
      */
     public Output<String> kmsKey() {
@@ -53,7 +53,7 @@ public final class ServiceEncryptionConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key used for encryption.
+         * @param kmsKey ARN of the KMS key used for encryption.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ServiceEncryptionConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key used for encryption.
+         * @param kmsKey ARN of the KMS key used for encryption.
          * 
          * @return builder
          * 

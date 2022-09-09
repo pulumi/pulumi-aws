@@ -92,53 +92,49 @@ namespace Pulumi.Aws.ApiGateway
     public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Output("contentHandling")]
         public Output<string?> ContentHandling { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
         [Output("httpMethod")]
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of response parameters that can be read from the backend response.
-        /// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         [Output("responseParameters")]
         public Output<ImmutableDictionary<string, string>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
-        /// A map specifying the templates used to transform the integration response body
+        /// Map of templates used to transform the integration response body.
         /// </summary>
         [Output("responseTemplates")]
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API.
         /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the regular expression pattern used to choose
-        /// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-        /// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-        /// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
         [Output("selectionPattern")]
         public Output<string?> SelectionPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code.
         /// </summary>
         [Output("statusCode")]
         public Output<string> StatusCode { get; private set; } = null!;
@@ -190,19 +186,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Input("contentHandling")]
         public Input<string>? ContentHandling { get; set; }
 
         /// <summary>
-        /// The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -211,8 +207,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// A map of response parameters that can be read from the backend response.
-        /// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -224,7 +219,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map specifying the templates used to transform the integration response body
+        /// Map of templates used to transform the integration response body.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {
@@ -233,22 +228,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API.
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the regular expression pattern used to choose
-        /// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-        /// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-        /// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code.
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -262,19 +254,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Input("contentHandling")]
         public Input<string>? ContentHandling { get; set; }
 
         /// <summary>
-        /// The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The API resource ID
+        /// API resource ID.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -283,8 +275,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// A map of response parameters that can be read from the backend response.
-        /// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -296,7 +287,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _responseTemplates;
 
         /// <summary>
-        /// A map specifying the templates used to transform the integration response body
+        /// Map of templates used to transform the integration response body.
         /// </summary>
         public InputMap<string> ResponseTemplates
         {
@@ -305,22 +296,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The ID of the associated REST API
+        /// ID of the associated REST API.
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// Specifies the regular expression pattern used to choose
-        /// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-        /// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-        /// For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }
 
         /// <summary>
-        /// The HTTP status code
+        /// HTTP status code.
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

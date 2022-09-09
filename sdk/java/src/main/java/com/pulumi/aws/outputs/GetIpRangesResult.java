@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetIpRangesResult {
     /**
-     * @return The lexically ordered list of CIDR blocks.
+     * @return Lexically ordered list of CIDR blocks.
      * 
      */
     private List<String> cidrBlocks;
     /**
-     * @return The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+     * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      * 
      */
     private String createDate;
@@ -29,14 +29,14 @@ public final class GetIpRangesResult {
      */
     private String id;
     /**
-     * @return The lexically ordered list of IPv6 CIDR blocks.
+     * @return Lexically ordered list of IPv6 CIDR blocks.
      * 
      */
     private List<String> ipv6CidrBlocks;
     private @Nullable List<String> regions;
     private List<String> services;
     /**
-     * @return The publication time of the IP ranges, in Unix epoch time format
+     * @return Publication time of the IP ranges, in Unix epoch time format
      * (e.g., `1470267965`).
      * 
      */
@@ -45,14 +45,14 @@ public final class GetIpRangesResult {
 
     private GetIpRangesResult() {}
     /**
-     * @return The lexically ordered list of CIDR blocks.
+     * @return Lexically ordered list of CIDR blocks.
      * 
      */
     public List<String> cidrBlocks() {
         return this.cidrBlocks;
     }
     /**
-     * @return The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
+     * @return Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      * 
      */
     public String createDate() {
@@ -66,7 +66,7 @@ public final class GetIpRangesResult {
         return this.id;
     }
     /**
-     * @return The lexically ordered list of IPv6 CIDR blocks.
+     * @return Lexically ordered list of IPv6 CIDR blocks.
      * 
      */
     public List<String> ipv6CidrBlocks() {
@@ -79,7 +79,7 @@ public final class GetIpRangesResult {
         return this.services;
     }
     /**
-     * @return The publication time of the IP ranges, in Unix epoch time format
+     * @return Publication time of the IP ranges, in Unix epoch time format
      * (e.g., `1470267965`).
      * 
      */

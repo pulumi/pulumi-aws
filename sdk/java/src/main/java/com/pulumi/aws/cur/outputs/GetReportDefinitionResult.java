@@ -63,7 +63,7 @@ public final class GetReportDefinitionResult {
      */
     private String s3Region;
     /**
-     * @return The frequency on which report data are measured and displayed.
+     * @return Frequency on which report data are measured and displayed.
      * 
      */
     private String timeUnit;
@@ -143,7 +143,7 @@ public final class GetReportDefinitionResult {
         return this.s3Region;
     }
     /**
-     * @return The frequency on which report data are measured and displayed.
+     * @return Frequency on which report data are measured and displayed.
      * 
      */
     public String timeUnit() {

@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A regex string to filter resolver rule names.
+        /// Regex string to filter resolver rule names.
         /// The filtering is done locally, so could have a performance impact if the result is large.
         /// This argument should be used along with other arguments to limit the number of results returned.
         /// </summary>
@@ -168,13 +168,13 @@ namespace Pulumi.Aws.Route53
         public string? OwnerId { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint for the desired resolver rules.
+        /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Input("ruleType")]
         public string? RuleType { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A regex string to filter resolver rule names.
+        /// Regex string to filter resolver rule names.
         /// The filtering is done locally, so could have a performance impact if the result is large.
         /// This argument should be used along with other arguments to limit the number of results returned.
         /// </summary>
@@ -208,13 +208,13 @@ namespace Pulumi.Aws.Route53
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint for the desired resolver rules.
+        /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Route53
         public readonly string? OwnerId;
         public readonly string? ResolverEndpointId;
         /// <summary>
-        /// The IDs of the matched resolver rules.
+        /// IDs of the matched resolver rules.
         /// </summary>
         public readonly ImmutableArray<string> ResolverRuleIds;
         public readonly string? RuleType;

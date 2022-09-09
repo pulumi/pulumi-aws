@@ -24,11 +24,11 @@ func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...p
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationArgs struct {
-	// The name of the lambda function.
+	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
-	// A string in JSON format that is passed as payload to the lambda function.
+	// String in JSON format that is passed as payload to the lambda function.
 	Input string `pulumi:"input"`
-	// The qualifier (a.k.a version) of the lambda function. Defaults
+	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 }
@@ -59,11 +59,11 @@ func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationOutputArgs struct {
-	// The name of the lambda function.
+	// Name of the lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// A string in JSON format that is passed as payload to the lambda function.
+	// String in JSON format that is passed as payload to the lambda function.
 	Input pulumi.StringInput `pulumi:"input"`
-	// The qualifier (a.k.a version) of the lambda function. Defaults
+	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 }

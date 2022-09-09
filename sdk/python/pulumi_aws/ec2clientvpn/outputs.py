@@ -377,7 +377,7 @@ class GetEndpointFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -387,7 +387,7 @@ class GetEndpointFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
         """
         return pulumi.get(self, "name")
 

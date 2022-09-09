@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -76,11 +78,11 @@ export class DomainAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the domain association.
+     * ARN for the domain association.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -88,11 +90,11 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      */
     public readonly subDomains!: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
     /**
@@ -147,11 +149,11 @@ export class DomainAssociation extends pulumi.CustomResource {
  */
 export interface DomainAssociationState {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the domain association.
+     * ARN for the domain association.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -159,11 +161,11 @@ export interface DomainAssociationState {
      */
     certificateVerificationDnsRecord?: pulumi.Input<string>;
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      */
     subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
     /**
@@ -177,15 +179,15 @@ export interface DomainAssociationState {
  */
 export interface DomainAssociationArgs {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      */
     appId: pulumi.Input<string>;
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      */
     subDomains: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
     /**

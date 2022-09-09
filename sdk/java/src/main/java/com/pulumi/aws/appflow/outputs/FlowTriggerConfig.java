@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowTriggerConfig {
     /**
-     * @return Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * @return Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
     private @Nullable FlowTriggerConfigTriggerProperties triggerProperties;
     /**
-     * @return Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+     * @return Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
     private String triggerType;
 
     private FlowTriggerConfig() {}
     /**
-     * @return Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * @return Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
     public Optional<FlowTriggerConfigTriggerProperties> triggerProperties() {
         return Optional.ofNullable(this.triggerProperties);
     }
     /**
-     * @return Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+     * @return Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
     public String triggerType() {

@@ -39,6 +39,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
+        /// The unique identifier of an origin access control for this origin.
+        /// </summary>
+        public readonly string? OriginAccessControlId;
+        /// <summary>
         /// The unique identifier of the member origin
         /// </summary>
         public readonly string OriginId;
@@ -72,6 +76,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string domainName,
 
+            string? originAccessControlId,
+
             string originId,
 
             string? originPath,
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             CustomHeaders = customHeaders;
             CustomOriginConfig = customOriginConfig;
             DomainName = domainName;
+            OriginAccessControlId = originAccessControlId;
             OriginId = originId;
             OriginPath = originPath;
             OriginShield = originShield;

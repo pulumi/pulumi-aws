@@ -84,7 +84,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      * 
      */
@@ -92,7 +92,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> instanceTags;
 
     /**
-     * @return A map of tags, each pair of which must
+     * @return Map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      * 
      */
@@ -101,14 +101,14 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the Instance.
+     * Map of tags assigned to the Instance.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the Instance.
+     * @return Map of tags assigned to the Instance.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -245,7 +245,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceTags A map of tags, each pair of which must
+         * @param instanceTags Map of tags, each pair of which must
          * exactly match a pair on the desired Instance.
          * 
          * @return builder
@@ -257,7 +257,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceTags A map of tags, each pair of which must
+         * @param instanceTags Map of tags, each pair of which must
          * exactly match a pair on the desired Instance.
          * 
          * @return builder
@@ -268,7 +268,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the Instance.
+         * @param tags Map of tags assigned to the Instance.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the Instance.
+         * @param tags Map of tags assigned to the Instance.
          * 
          * @return builder
          * 

@@ -14,14 +14,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs();
 
     /**
-     * The password that corresponds to the user name.
+     * Password that corresponds to the user name.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The password that corresponds to the user name.
+     * @return Password that corresponds to the user name.
      * 
      */
     public Output<String> password() {
@@ -29,14 +29,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The name of the user.
+     * Name of the user.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The name of the user.
+     * @return Name of the user.
      * 
      */
     public Output<String> username() {
@@ -69,7 +69,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param password The password that corresponds to the user name.
+         * @param password Password that corresponds to the user name.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param password The password that corresponds to the user name.
+         * @param password Password that corresponds to the user name.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param username The name of the user.
+         * @param username Name of the user.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param username The name of the user.
+         * @param username Name of the user.
          * 
          * @return builder
          * 

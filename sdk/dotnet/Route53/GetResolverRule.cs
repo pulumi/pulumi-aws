@@ -76,31 +76,31 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("domainName")]
         public string? DomainName { get; set; }
 
         /// <summary>
-        /// The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+        /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
         /// </summary>
         [Input("resolverRuleId")]
         public string? ResolverRuleId { get; set; }
 
         /// <summary>
-        /// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("ruleType")]
         public string? RuleType { get; set; }
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Route53
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resolver rule.
+        /// Map of tags assigned to the resolver rule.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -126,31 +126,31 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+        /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+        /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
         /// </summary>
         [Input("resolverRuleId")]
         public Input<string>? ResolverRuleId { get; set; }
 
         /// <summary>
-        /// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+        /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resolver rule.
+        /// Map of tags assigned to the resolver rule.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleResult
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
         public readonly string Arn;
         public readonly string DomainName;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string ShareStatus;
         /// <summary>
-        /// A map of tags assigned to the resolver rule.
+        /// Map of tags assigned to the resolver rule.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

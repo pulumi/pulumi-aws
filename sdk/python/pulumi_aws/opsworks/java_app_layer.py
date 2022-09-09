@@ -45,7 +45,7 @@ class JavaAppLayerArgs:
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a JavaAppLayer resource.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[str] app_server: Keyword for the application container to use. Defaults to "tomcat".
         :param pulumi.Input[str] app_server_version: Version of the selected application container to use. Defaults to "7".
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
@@ -125,7 +125,7 @@ class JavaAppLayerArgs:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -480,7 +480,7 @@ class _JavaAppLayerState:
         :param pulumi.Input[str] jvm_type: Keyword for the type of JVM to use. Defaults to `openjdk`.
         :param pulumi.Input[str] jvm_version: Version of JVM to use. Defaults to "7".
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -819,7 +819,7 @@ class _JavaAppLayerState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -940,7 +940,7 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] jvm_type: Keyword for the type of JVM to use. Defaults to `openjdk`.
         :param pulumi.Input[str] jvm_version: Version of JVM to use. Defaults to "7".
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -1109,7 +1109,7 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] jvm_type: Keyword for the type of JVM to use. Defaults to `openjdk`.
         :param pulumi.Input[str] jvm_version: Version of JVM to use. Defaults to "7".
         :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1328,7 +1328,7 @@ class JavaAppLayer(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 

@@ -33,6 +33,7 @@ class SpotFleetRequestArgs:
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -75,6 +76,7 @@ class SpotFleetRequestArgs:
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
                instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
@@ -119,6 +121,8 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "spot_price", spot_price)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_capacity_unit_type is not None:
+            pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
         if target_group_arns is not None:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
         if terminate_instances_on_delete is not None:
@@ -354,6 +358,18 @@ class SpotFleetRequestArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="targetCapacityUnitType")
+    def target_capacity_unit_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit for the target capacity. This can only be done with `instance_requirements` defined
+        """
+        return pulumi.get(self, "target_capacity_unit_type")
+
+    @target_capacity_unit_type.setter
+    def target_capacity_unit_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_capacity_unit_type", value)
+
+    @property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -454,6 +470,7 @@ class _SpotFleetRequestState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
+                 target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -498,6 +515,7 @@ class _SpotFleetRequestState:
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
                instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
@@ -550,6 +568,8 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_capacity is not None:
             pulumi.set(__self__, "target_capacity", target_capacity)
+        if target_capacity_unit_type is not None:
+            pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
         if target_group_arns is not None:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
         if terminate_instances_on_delete is not None:
@@ -818,6 +838,18 @@ class _SpotFleetRequestState:
         pulumi.set(self, "target_capacity", value)
 
     @property
+    @pulumi.getter(name="targetCapacityUnitType")
+    def target_capacity_unit_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit for the target capacity. This can only be done with `instance_requirements` defined
+        """
+        return pulumi.get(self, "target_capacity_unit_type")
+
+    @target_capacity_unit_type.setter
+    def target_capacity_unit_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_capacity_unit_type", value)
+
+    @property
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -917,6 +949,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
+                 target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -969,6 +1002,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
                instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
@@ -1028,6 +1062,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
+                 target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1064,6 +1099,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             if target_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity'")
             __props__.__dict__["target_capacity"] = target_capacity
+            __props__.__dict__["target_capacity_unit_type"] = target_capacity_unit_type
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["terminate_instances_on_delete"] = terminate_instances_on_delete
             __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
@@ -1103,6 +1139,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_capacity: Optional[pulumi.Input[int]] = None,
+            target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
             terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -1152,6 +1189,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
                instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
@@ -1188,6 +1226,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_capacity"] = target_capacity
+        __props__.__dict__["target_capacity_unit_type"] = target_capacity_unit_type
         __props__.__dict__["target_group_arns"] = target_group_arns
         __props__.__dict__["terminate_instances_on_delete"] = terminate_instances_on_delete
         __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
@@ -1369,6 +1408,14 @@ class SpotFleetRequest(pulumi.CustomResource):
         important to your application workload, such as vCPUs, memory, or I/O.
         """
         return pulumi.get(self, "target_capacity")
+
+    @property
+    @pulumi.getter(name="targetCapacityUnitType")
+    def target_capacity_unit_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unit for the target capacity. This can only be done with `instance_requirements` defined
+        """
+        return pulumi.get(self, "target_capacity_unit_type")
 
     @property
     @pulumi.getter(name="targetGroupArns")

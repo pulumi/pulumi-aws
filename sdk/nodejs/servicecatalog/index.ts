@@ -5,39 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./budgetResourceAssociation";
-export * from "./constraint";
-export * from "./getConstraint";
-export * from "./getLaunchPaths";
-export * from "./getPortfolio";
-export * from "./getPortfolioConstraints";
-export * from "./getProduct";
-export * from "./organizationsAccess";
-export * from "./portfolio";
-export * from "./portfolioShare";
-export * from "./principalPortfolioAssociation";
-export * from "./product";
-export * from "./productPortfolioAssociation";
-export * from "./provisionedProduct";
-export * from "./provisioningArtifact";
-export * from "./serviceAction";
-export * from "./tagOption";
-export * from "./tagOptionResourceAssociation";
+export { BudgetResourceAssociationArgs, BudgetResourceAssociationState } from "./budgetResourceAssociation";
+export type BudgetResourceAssociation = import("./budgetResourceAssociation").BudgetResourceAssociation;
+export const BudgetResourceAssociation: typeof import("./budgetResourceAssociation").BudgetResourceAssociation = null as any;
 
-// Import resources to register:
-import { BudgetResourceAssociation } from "./budgetResourceAssociation";
-import { Constraint } from "./constraint";
-import { OrganizationsAccess } from "./organizationsAccess";
-import { Portfolio } from "./portfolio";
-import { PortfolioShare } from "./portfolioShare";
-import { PrincipalPortfolioAssociation } from "./principalPortfolioAssociation";
-import { Product } from "./product";
-import { ProductPortfolioAssociation } from "./productPortfolioAssociation";
-import { ProvisionedProduct } from "./provisionedProduct";
-import { ProvisioningArtifact } from "./provisioningArtifact";
-import { ServiceAction } from "./serviceAction";
-import { TagOption } from "./tagOption";
-import { TagOptionResourceAssociation } from "./tagOptionResourceAssociation";
+export { ConstraintArgs, ConstraintState } from "./constraint";
+export type Constraint = import("./constraint").Constraint;
+export const Constraint: typeof import("./constraint").Constraint = null as any;
+
+export { GetConstraintArgs, GetConstraintResult, GetConstraintOutputArgs } from "./getConstraint";
+export const getConstraint: typeof import("./getConstraint").getConstraint = null as any;
+export const getConstraintOutput: typeof import("./getConstraint").getConstraintOutput = null as any;
+
+export { GetLaunchPathsArgs, GetLaunchPathsResult, GetLaunchPathsOutputArgs } from "./getLaunchPaths";
+export const getLaunchPaths: typeof import("./getLaunchPaths").getLaunchPaths = null as any;
+export const getLaunchPathsOutput: typeof import("./getLaunchPaths").getLaunchPathsOutput = null as any;
+
+export { GetPortfolioArgs, GetPortfolioResult, GetPortfolioOutputArgs } from "./getPortfolio";
+export const getPortfolio: typeof import("./getPortfolio").getPortfolio = null as any;
+export const getPortfolioOutput: typeof import("./getPortfolio").getPortfolioOutput = null as any;
+
+export { GetPortfolioConstraintsArgs, GetPortfolioConstraintsResult, GetPortfolioConstraintsOutputArgs } from "./getPortfolioConstraints";
+export const getPortfolioConstraints: typeof import("./getPortfolioConstraints").getPortfolioConstraints = null as any;
+export const getPortfolioConstraintsOutput: typeof import("./getPortfolioConstraints").getPortfolioConstraintsOutput = null as any;
+
+export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
+export const getProduct: typeof import("./getProduct").getProduct = null as any;
+export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
+
+export { OrganizationsAccessArgs, OrganizationsAccessState } from "./organizationsAccess";
+export type OrganizationsAccess = import("./organizationsAccess").OrganizationsAccess;
+export const OrganizationsAccess: typeof import("./organizationsAccess").OrganizationsAccess = null as any;
+
+export { PortfolioArgs, PortfolioState } from "./portfolio";
+export type Portfolio = import("./portfolio").Portfolio;
+export const Portfolio: typeof import("./portfolio").Portfolio = null as any;
+
+export { PortfolioShareArgs, PortfolioShareState } from "./portfolioShare";
+export type PortfolioShare = import("./portfolioShare").PortfolioShare;
+export const PortfolioShare: typeof import("./portfolioShare").PortfolioShare = null as any;
+
+export { PrincipalPortfolioAssociationArgs, PrincipalPortfolioAssociationState } from "./principalPortfolioAssociation";
+export type PrincipalPortfolioAssociation = import("./principalPortfolioAssociation").PrincipalPortfolioAssociation;
+export const PrincipalPortfolioAssociation: typeof import("./principalPortfolioAssociation").PrincipalPortfolioAssociation = null as any;
+
+export { ProductArgs, ProductState } from "./product";
+export type Product = import("./product").Product;
+export const Product: typeof import("./product").Product = null as any;
+
+export { ProductPortfolioAssociationArgs, ProductPortfolioAssociationState } from "./productPortfolioAssociation";
+export type ProductPortfolioAssociation = import("./productPortfolioAssociation").ProductPortfolioAssociation;
+export const ProductPortfolioAssociation: typeof import("./productPortfolioAssociation").ProductPortfolioAssociation = null as any;
+
+export { ProvisionedProductArgs, ProvisionedProductState } from "./provisionedProduct";
+export type ProvisionedProduct = import("./provisionedProduct").ProvisionedProduct;
+export const ProvisionedProduct: typeof import("./provisionedProduct").ProvisionedProduct = null as any;
+
+export { ProvisioningArtifactArgs, ProvisioningArtifactState } from "./provisioningArtifact";
+export type ProvisioningArtifact = import("./provisioningArtifact").ProvisioningArtifact;
+export const ProvisioningArtifact: typeof import("./provisioningArtifact").ProvisioningArtifact = null as any;
+
+export { ServiceActionArgs, ServiceActionState } from "./serviceAction";
+export type ServiceAction = import("./serviceAction").ServiceAction;
+export const ServiceAction: typeof import("./serviceAction").ServiceAction = null as any;
+
+export { TagOptionArgs, TagOptionState } from "./tagOption";
+export type TagOption = import("./tagOption").TagOption;
+export const TagOption: typeof import("./tagOption").TagOption = null as any;
+
+export { TagOptionResourceAssociationArgs, TagOptionResourceAssociationState } from "./tagOptionResourceAssociation";
+export type TagOptionResourceAssociation = import("./tagOptionResourceAssociation").TagOptionResourceAssociation;
+export const TagOptionResourceAssociation: typeof import("./tagOptionResourceAssociation").TagOptionResourceAssociation = null as any;
+
+utilities.lazyLoad(exports, ["BudgetResourceAssociation"], () => require("./budgetResourceAssociation"));
+utilities.lazyLoad(exports, ["Constraint"], () => require("./constraint"));
+utilities.lazyLoad(exports, ["getConstraint","getConstraintOutput"], () => require("./getConstraint"));
+utilities.lazyLoad(exports, ["getLaunchPaths","getLaunchPathsOutput"], () => require("./getLaunchPaths"));
+utilities.lazyLoad(exports, ["getPortfolio","getPortfolioOutput"], () => require("./getPortfolio"));
+utilities.lazyLoad(exports, ["getPortfolioConstraints","getPortfolioConstraintsOutput"], () => require("./getPortfolioConstraints"));
+utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+utilities.lazyLoad(exports, ["OrganizationsAccess"], () => require("./organizationsAccess"));
+utilities.lazyLoad(exports, ["Portfolio"], () => require("./portfolio"));
+utilities.lazyLoad(exports, ["PortfolioShare"], () => require("./portfolioShare"));
+utilities.lazyLoad(exports, ["PrincipalPortfolioAssociation"], () => require("./principalPortfolioAssociation"));
+utilities.lazyLoad(exports, ["Product"], () => require("./product"));
+utilities.lazyLoad(exports, ["ProductPortfolioAssociation"], () => require("./productPortfolioAssociation"));
+utilities.lazyLoad(exports, ["ProvisionedProduct"], () => require("./provisionedProduct"));
+utilities.lazyLoad(exports, ["ProvisioningArtifact"], () => require("./provisioningArtifact"));
+utilities.lazyLoad(exports, ["ServiceAction"], () => require("./serviceAction"));
+utilities.lazyLoad(exports, ["TagOption"], () => require("./tagOption"));
+utilities.lazyLoad(exports, ["TagOptionResourceAssociation"], () => require("./tagOptionResourceAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

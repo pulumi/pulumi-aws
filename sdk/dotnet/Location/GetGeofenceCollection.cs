@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Location
     public sealed class GetGeofenceCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the geofence collection.
+        /// Name of the geofence collection.
         /// </summary>
         [Input("collectionName", required: true)]
         public string CollectionName { get; set; } = null!;
 
         /// <summary>
-        /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         [Input("kmsKeyId")]
         public string? KmsKeyId { get; set; }
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Location
     public sealed class GetGeofenceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the geofence collection.
+        /// Name of the geofence collection.
         /// </summary>
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
 
         /// <summary>
-        /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -138,16 +138,16 @@ namespace Pulumi.Aws.Location
     public sealed class GetGeofenceCollectionResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         public readonly string CollectionArn;
         public readonly string CollectionName;
         /// <summary>
-        /// The timestamp for when the geofence collection resource was created in ISO 8601 format.
+        /// Timestamp for when the geofence collection resource was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The optional description of the geofence collection resource.
+        /// Optional description of the geofence collection resource.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+        /// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

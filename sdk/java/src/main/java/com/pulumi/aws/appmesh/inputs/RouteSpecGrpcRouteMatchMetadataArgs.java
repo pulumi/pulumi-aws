@@ -33,14 +33,14 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
     }
 
     /**
-     * The data to match from the request.
+     * Data to match from the request.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecGrpcRouteMatchMetadataMatchArgs> match;
 
     /**
-     * @return The data to match from the request.
+     * @return Data to match from the request.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteMatchMetadataMatchArgs>> match() {
@@ -48,14 +48,14 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
     }
 
     /**
-     * The name of the route. Must be between 1 and 50 characters in length.
+     * Name of the route. Must be between 1 and 50 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the route. Must be between 1 and 50 characters in length.
+     * @return Name of the route. Must be between 1 and 50 characters in length.
      * 
      */
     public Output<String> name() {
@@ -110,7 +110,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param match The data to match from the request.
+         * @param match Data to match from the request.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param match The data to match from the request.
+         * @param match Data to match from the request.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the route. Must be between 1 and 50 characters in length.
+         * @param name Name of the route. Must be between 1 and 50 characters in length.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the route. Must be between 1 and 50 characters in length.
+         * @param name Name of the route. Must be between 1 and 50 characters in length.
          * 
          * @return builder
          * 

@@ -42,7 +42,7 @@ class GetInstanceProfilesResult:
     @pulumi.getter
     def arns(self) -> Sequence[str]:
         """
-        Set of Amazon Resource Name (ARN) specifying the instance profile.
+        Set of ARNs of instance profiles.
         """
         return pulumi.get(self, "arns")
 
@@ -106,7 +106,7 @@ def get_instance_profiles(role_name: Optional[str] = None,
     ```
 
 
-    :param str role_name: The IAM role name.
+    :param str role_name: IAM role name.
     """
     __args__ = dict()
     __args__['roleName'] = role_name
@@ -139,6 +139,6 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str role_name: The IAM role name.
+    :param str role_name: IAM role name.
     """
     ...

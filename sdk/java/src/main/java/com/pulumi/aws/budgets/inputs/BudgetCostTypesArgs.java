@@ -31,14 +31,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether a budget includes discounts. Defaults to `true`
+     * Whether a budget includes discounts. Defaults to `true`
      * 
      */
     @Import(name="includeDiscount")
     private @Nullable Output<Boolean> includeDiscount;
 
     /**
-     * @return Specifies whether a budget includes discounts. Defaults to `true`
+     * @return Whether a budget includes discounts. Defaults to `true`
      * 
      */
     public Optional<Output<Boolean>> includeDiscount() {
@@ -151,14 +151,14 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether a budget uses the amortized rate. Defaults to `false`
+     * Whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
     @Import(name="useAmortized")
     private @Nullable Output<Boolean> useAmortized;
 
     /**
-     * @return Specifies whether a budget uses the amortized rate. Defaults to `false`
+     * @return Whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> useAmortized() {
@@ -236,7 +236,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeDiscount Specifies whether a budget includes discounts. Defaults to `true`
+         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param includeDiscount Specifies whether a budget includes discounts. Defaults to `true`
+         * @param includeDiscount Whether a budget includes discounts. Defaults to `true`
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useAmortized Specifies whether a budget uses the amortized rate. Defaults to `false`
+         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class BudgetCostTypesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useAmortized Specifies whether a budget uses the amortized rate. Defaults to `false`
+         * @param useAmortized Whether a budget uses the amortized rate. Defaults to `false`
          * 
          * @return builder
          * 

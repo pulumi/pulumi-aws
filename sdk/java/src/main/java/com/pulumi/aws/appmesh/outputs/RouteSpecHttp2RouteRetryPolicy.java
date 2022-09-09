@@ -21,12 +21,12 @@ public final class RouteSpecHttp2RouteRetryPolicy {
      */
     private @Nullable List<String> httpRetryEvents;
     /**
-     * @return The maximum number of retries.
+     * @return Maximum number of retries.
      * 
      */
     private Integer maxRetries;
     /**
-     * @return The per-retry timeout.
+     * @return Per-retry timeout.
      * 
      */
     private RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout;
@@ -47,14 +47,14 @@ public final class RouteSpecHttp2RouteRetryPolicy {
         return this.httpRetryEvents == null ? List.of() : this.httpRetryEvents;
     }
     /**
-     * @return The maximum number of retries.
+     * @return Maximum number of retries.
      * 
      */
     public Integer maxRetries() {
         return this.maxRetries;
     }
     /**
-     * @return The per-retry timeout.
+     * @return Per-retry timeout.
      * 
      */
     public RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout() {

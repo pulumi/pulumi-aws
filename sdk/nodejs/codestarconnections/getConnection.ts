@@ -48,11 +48,11 @@ export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetConnectionArgs {
     /**
-     * The CodeStar Connection ARN.
+     * CodeStar Connection ARN.
      */
     arn?: string;
     /**
-     * The CodeStar Connection name.
+     * CodeStar Connection name.
      */
     name?: string;
     /**
@@ -67,11 +67,11 @@ export interface GetConnectionArgs {
 export interface GetConnectionResult {
     readonly arn: string;
     /**
-     * The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
     readonly connectionStatus: string;
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection.
+     * ARN of the host associated with the connection.
      */
     readonly hostArn: string;
     /**
@@ -79,7 +79,7 @@ export interface GetConnectionResult {
      */
     readonly id: string;
     /**
-     * The name of the CodeStar Connection. The name is unique in the calling AWS account.
+     * Name of the CodeStar Connection. The name is unique in the calling AWS account.
      */
     readonly name: string;
     readonly providerType: string;
@@ -98,11 +98,11 @@ export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulum
  */
 export interface GetConnectionOutputArgs {
     /**
-     * The CodeStar Connection ARN.
+     * CodeStar Connection ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The CodeStar Connection name.
+     * CodeStar Connection name.
      */
     name?: pulumi.Input<string>;
     /**

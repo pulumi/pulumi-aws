@@ -17,14 +17,14 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
     public static final CustomDomainAssociationArgs Empty = new CustomDomainAssociationArgs();
 
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     public Output<String> domainName() {
@@ -47,14 +47,14 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      * 
      */
     @Import(name="serviceArn", required=true)
     private Output<String> serviceArn;
 
     /**
-     * @return The ARN of the App Runner service.
+     * @return ARN of the App Runner service.
      * 
      */
     public Output<String> serviceArn() {
@@ -88,7 +88,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceArn The ARN of the App Runner service.
+         * @param serviceArn ARN of the App Runner service.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceArn The ARN of the App Runner service.
+         * @param serviceArn ARN of the App Runner service.
          * 
          * @return builder
          * 

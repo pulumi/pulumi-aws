@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserPoolSigningCertificateResult {
     /**
-     * @return The certificate string
+     * @return Certificate string
      * 
      */
     private String certificate;
@@ -23,7 +23,7 @@ public final class GetUserPoolSigningCertificateResult {
 
     private GetUserPoolSigningCertificateResult() {}
     /**
-     * @return The certificate string
+     * @return Certificate string
      * 
      */
     public String certificate() {

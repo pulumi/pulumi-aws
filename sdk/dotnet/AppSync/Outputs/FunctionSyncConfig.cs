@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class FunctionSyncConfig
     {
         /// <summary>
-        /// The Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+        /// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
         /// </summary>
         public readonly string? ConflictDetection;
         /// <summary>
-        /// The Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+        /// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
         /// </summary>
         public readonly string? ConflictHandler;
         /// <summary>
-        /// The Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
         /// </summary>
         public readonly Outputs.FunctionSyncConfigLambdaConflictHandlerConfig? LambdaConflictHandlerConfig;
 

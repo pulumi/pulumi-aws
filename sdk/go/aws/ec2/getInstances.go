@@ -32,9 +32,9 @@ type GetInstancesArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
 	Filters []GetInstancesFilter `pulumi:"filters"`
-	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+	// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
 	InstanceStateNames []string `pulumi:"instanceStateNames"`
-	// A map of tags, each pair of which must
+	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
 }
@@ -73,9 +73,9 @@ type GetInstancesOutputArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
-	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+	// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
 	InstanceStateNames pulumi.StringArrayInput `pulumi:"instanceStateNames"`
-	// A map of tags, each pair of which must
+	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags pulumi.StringMapInput `pulumi:"instanceTags"`
 }

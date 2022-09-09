@@ -2,14 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a firewall.
  *
  * ## Example Usage
- * ### Find firewall policy by Amazon Resource Name (ARN)
+ * ### Find firewall policy by ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,7 +31,7 @@ import * as utilities from "../utilities";
  *     name: "Test",
  * }));
  * ```
- * ### Find firewall policy by Amazon Resource Name (ARN) and Name
+ * ### Find firewall policy by ARN and Name
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -60,11 +62,11 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetFirewallArgs {
     /**
-     * The Amazon Resource Name (ARN) of the firewall.
+     * ARN of the firewall.
      */
     arn?: string;
     /**
-     * The descriptive name of the firewall.
+     * Descriptive name of the firewall.
      */
     name?: string;
     /**
@@ -78,15 +80,15 @@ export interface GetFirewallArgs {
  */
 export interface GetFirewallResult {
     /**
-     * The Amazon Resource Name (ARN) of the firewall.
+     * ARN of the firewall.
      */
     readonly arn: string;
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall.
+     * Boolean flag indicating whether it is possible to delete the firewall.
      */
     readonly deleteProtection: boolean;
     /**
-     * A description of the firewall.
+     * Description of the firewall.
      */
     readonly description: string;
     /**
@@ -94,7 +96,7 @@ export interface GetFirewallResult {
      */
     readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     readonly firewallPolicyArn: string;
     /**
@@ -110,7 +112,7 @@ export interface GetFirewallResult {
      */
     readonly id: string;
     /**
-     * The descriptive name of the firewall.
+     * Descriptive name of the firewall.
      */
     readonly name: string;
     /**
@@ -126,11 +128,11 @@ export interface GetFirewallResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * A string token used when updating a firewall.
+     * String token used when updating a firewall.
      */
     readonly updateToken: string;
     /**
-     * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+     * Unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */
     readonly vpcId: string;
 }
@@ -144,11 +146,11 @@ export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.In
  */
 export interface GetFirewallOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the firewall.
+     * ARN of the firewall.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The descriptive name of the firewall.
+     * Descriptive name of the firewall.
      */
     name?: pulumi.Input<string>;
     /**

@@ -48,7 +48,7 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesArgs struct {
-	// The ARN of the cluster the nodes belong to.
+	// ARN of the cluster the nodes belong to.
 	ClusterArn string `pulumi:"clusterArn"`
 }
 
@@ -75,7 +75,7 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesOutputArgs struct {
-	// The ARN of the cluster the nodes belong to.
+	// ARN of the cluster the nodes belong to.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 }
 

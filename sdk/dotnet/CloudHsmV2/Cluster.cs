@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The id of Cloud HSM v2 cluster backup to be restored.
+        /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
         [Output("sourceBackupIdentifier")]
         public Output<string?> SourceBackupIdentifier { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string> HsmType { get; set; } = null!;
 
         /// <summary>
-        /// The id of Cloud HSM v2 cluster backup to be restored.
+        /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
         [Input("sourceBackupIdentifier")]
         public Input<string>? SourceBackupIdentifier { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? SecurityGroupId { get; set; }
 
         /// <summary>
-        /// The id of Cloud HSM v2 cluster backup to be restored.
+        /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
         [Input("sourceBackupIdentifier")]
         public Input<string>? SourceBackupIdentifier { get; set; }

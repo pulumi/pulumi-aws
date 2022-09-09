@@ -18,14 +18,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     public static final VpcLinkState Empty = new VpcLinkState();
 
     /**
-     * The VPC Link ARN.
+     * VPC Link ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The VPC Link ARN.
+     * @return VPC Link ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the VPC Link. Must be between 1 and 128 characters in length.
+     * @return Name of the VPC Link. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,14 +93,14 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -137,7 +137,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The VPC Link ARN.
+         * @param arn VPC Link ARN.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The VPC Link ARN.
+         * @param arn VPC Link ARN.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the VPC Link. Must be between 1 and 128 characters in length.
+         * @param name Name of the VPC Link. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the VPC Link. Must be between 1 and 128 characters in length.
+         * @param name Name of the VPC Link. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

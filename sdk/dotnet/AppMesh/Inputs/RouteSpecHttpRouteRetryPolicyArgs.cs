@@ -27,13 +27,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// The maximum number of retries.
+        /// Maximum number of retries.
         /// </summary>
         [Input("maxRetries", required: true)]
         public Input<int> MaxRetries { get; set; } = null!;
 
         /// <summary>
-        /// The per-retry timeout.
+        /// Per-retry timeout.
         /// </summary>
         [Input("perRetryTimeout", required: true)]
         public Input<Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs> PerRetryTimeout { get; set; } = null!;

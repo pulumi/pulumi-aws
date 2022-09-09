@@ -21,7 +21,7 @@ public final class GetResolverRulesResult {
     private @Nullable String ownerId;
     private @Nullable String resolverEndpointId;
     /**
-     * @return The IDs of the matched resolver rules.
+     * @return IDs of the matched resolver rules.
      * 
      */
     private List<String> resolverRuleIds;
@@ -46,7 +46,7 @@ public final class GetResolverRulesResult {
         return Optional.ofNullable(this.resolverEndpointId);
     }
     /**
-     * @return The IDs of the matched resolver rules.
+     * @return IDs of the matched resolver rules.
      * 
      */
     public List<String> resolverRuleIds() {

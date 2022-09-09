@@ -17,7 +17,7 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcLinkArgs Empty = new GetVpcLinkArgs();
 
     /**
-     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      * 
      */
@@ -25,7 +25,7 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
     private Output<String> name;
 
     /**
-     * @return The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * @return Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      * 
      */
@@ -74,7 +74,7 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
          * If multiple API Gateway VPC Links are found with this name, an error will be returned.
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class GetVpcLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
          * If multiple API Gateway VPC Links are found with this name, an error will be returned.
          * 
          * @return builder

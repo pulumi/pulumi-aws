@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParameterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

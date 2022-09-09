@@ -49,14 +49,14 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     * @return Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -94,14 +94,14 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -180,7 +180,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+         * @param forceDestroy Option to delete the workgroup and its contents even if the workgroup contains any named queries.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+         * @param forceDestroy Option to delete the workgroup and its contents even if the workgroup contains any named queries.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the workgroup. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

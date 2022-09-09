@@ -22,7 +22,7 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsArgs struct {
-	// The ID of the Data Catalog. This is typically the AWS account ID.
+	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId string `pulumi:"catalogId"`
 }
 
@@ -50,7 +50,7 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
-	// The ID of the Data Catalog. This is typically the AWS account ID.
+	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 }
 

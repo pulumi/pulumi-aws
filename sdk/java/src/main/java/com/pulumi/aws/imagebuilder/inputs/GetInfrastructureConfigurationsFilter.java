@@ -14,14 +14,14 @@ public final class GetInfrastructureConfigurationsFilter extends com.pulumi.reso
     public static final GetInfrastructureConfigurationsFilter Empty = new GetInfrastructureConfigurationsFilter();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+     * Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+     * @return Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetInfrastructureConfigurationsFilter extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+         * @param name Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
          * 
          * @return builder
          * 

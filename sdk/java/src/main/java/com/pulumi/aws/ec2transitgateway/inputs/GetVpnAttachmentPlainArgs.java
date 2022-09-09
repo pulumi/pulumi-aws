@@ -33,14 +33,14 @@ public final class GetVpnAttachmentPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -126,7 +126,7 @@ public final class GetVpnAttachmentPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
          * 
          * @return builder
          * 

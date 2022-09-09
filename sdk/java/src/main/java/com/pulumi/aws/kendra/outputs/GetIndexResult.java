@@ -18,22 +18,22 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Index.
+     * @return ARN of the Index.
      * 
      */
     private String arn;
     /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      * 
      */
     private List<GetIndexCapacityUnit> capacityUnits;
     /**
-     * @return The Unix datetime that the index was created.
+     * @return Unix datetime that the index was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description of the Index.
+     * @return Description of the Index.
      * 
      */
     private String description;
@@ -43,7 +43,7 @@ public final class GetIndexResult {
      */
     private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
     /**
-     * @return The Amazon Kendra edition for the index.
+     * @return Amazon Kendra edition for the index.
      * 
      */
     private String edition;
@@ -53,17 +53,17 @@ public final class GetIndexResult {
      */
     private String errorMessage;
     /**
-     * @return The identifier of the Index.
+     * @return Identifier of the Index.
      * 
      */
     private String id;
     /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      * 
      */
     private List<GetIndexIndexStatistic> indexStatistics;
     /**
-     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
+     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
     private String name;
@@ -78,7 +78,7 @@ public final class GetIndexResult {
      */
     private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
     /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
     private String status;
@@ -88,12 +88,12 @@ public final class GetIndexResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The Unix datetime that the index was last updated.
+     * @return Unix datetime that the index was last updated.
      * 
      */
     private String updatedAt;
     /**
-     * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
      * html#Kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
@@ -111,28 +111,28 @@ public final class GetIndexResult {
 
     private GetIndexResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Index.
+     * @return ARN of the Index.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      * 
      */
     public List<GetIndexCapacityUnit> capacityUnits() {
         return this.capacityUnits;
     }
     /**
-     * @return The Unix datetime that the index was created.
+     * @return Unix datetime that the index was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description of the Index.
+     * @return Description of the Index.
      * 
      */
     public String description() {
@@ -146,7 +146,7 @@ public final class GetIndexResult {
         return this.documentMetadataConfigurationUpdates;
     }
     /**
-     * @return The Amazon Kendra edition for the index.
+     * @return Amazon Kendra edition for the index.
      * 
      */
     public String edition() {
@@ -160,21 +160,21 @@ public final class GetIndexResult {
         return this.errorMessage;
     }
     /**
-     * @return The identifier of the Index.
+     * @return Identifier of the Index.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      * 
      */
     public List<GetIndexIndexStatistic> indexStatistics() {
         return this.indexStatistics;
     }
     /**
-     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
+     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
     public String name() {
@@ -195,7 +195,7 @@ public final class GetIndexResult {
         return this.serverSideEncryptionConfigurations;
     }
     /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
     public String status() {
@@ -209,14 +209,14 @@ public final class GetIndexResult {
         return this.tags;
     }
     /**
-     * @return The Unix datetime that the index was last updated.
+     * @return Unix datetime that the index was last updated.
      * 
      */
     public String updatedAt() {
         return this.updatedAt;
     }
     /**
-     * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
      * html#Kendra-CreateIndex-request-UserContextPolicy).
      * 
      */

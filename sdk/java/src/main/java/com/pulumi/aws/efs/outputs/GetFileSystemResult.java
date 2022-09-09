@@ -31,7 +31,7 @@ public final class GetFileSystemResult {
     private String availabilityZoneName;
     private String creationToken;
     /**
-     * @return The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
     private String dnsName;
@@ -47,17 +47,17 @@ public final class GetFileSystemResult {
      */
     private String id;
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     private String kmsKeyId;
     /**
-     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+     * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
     private GetFileSystemLifecyclePolicy lifecyclePolicy;
     /**
-     * @return The file system performance mode.
+     * @return File system performance mode.
      * 
      */
     private String performanceMode;
@@ -68,7 +68,7 @@ public final class GetFileSystemResult {
      */
     private Double provisionedThroughputInMibps;
     /**
-     * @return The current byte count used by the file system.
+     * @return Current byte count used by the file system.
      * 
      */
     private Integer sizeInBytes;
@@ -105,7 +105,7 @@ public final class GetFileSystemResult {
         return this.creationToken;
     }
     /**
-     * @return The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
     public String dnsName() {
@@ -129,21 +129,21 @@ public final class GetFileSystemResult {
         return this.id;
     }
     /**
-     * @return The ARN for the KMS encryption key.
+     * @return ARN for the KMS encryption key.
      * 
      */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+     * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
     public GetFileSystemLifecyclePolicy lifecyclePolicy() {
         return this.lifecyclePolicy;
     }
     /**
-     * @return The file system performance mode.
+     * @return File system performance mode.
      * 
      */
     public String performanceMode() {
@@ -158,7 +158,7 @@ public final class GetFileSystemResult {
         return this.provisionedThroughputInMibps;
     }
     /**
-     * @return The current byte count used by the file system.
+     * @return Current byte count used by the file system.
      * 
      */
     public Integer sizeInBytes() {

@@ -48,14 +48,14 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -137,7 +137,7 @@ public final class GetDirectConnectGatewayAttachmentPlainArgs extends com.pulumi
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
          * 
          * @return builder
          * 

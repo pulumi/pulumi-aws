@@ -16,14 +16,14 @@ public final class GetDistributionConfigurationPlainArgs extends com.pulumi.reso
     public static final GetDistributionConfigurationPlainArgs Empty = new GetDistributionConfigurationPlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the distribution configuration.
+     * ARN of the distribution configuration.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the distribution configuration.
+     * @return ARN of the distribution configuration.
      * 
      */
     public String arn() {
@@ -71,7 +71,7 @@ public final class GetDistributionConfigurationPlainArgs extends com.pulumi.reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the distribution configuration.
+         * @param arn ARN of the distribution configuration.
          * 
          * @return builder
          * 

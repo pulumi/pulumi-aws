@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm
     {
         /// <summary>
-        /// One or more ACM Amazon Resource Name (ARN)s.
+        /// One or more ACM ARNs.
         /// </summary>
         public readonly ImmutableArray<string> CertificateAuthorityArns;
 

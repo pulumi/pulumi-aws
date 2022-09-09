@@ -21,7 +21,7 @@ public final class GetNatGatewaysResult {
      */
     private String id;
     /**
-     * @return A list of all the NAT gateway ids found.
+     * @return List of all the NAT gateway ids found.
      * 
      */
     private List<String> ids;
@@ -40,7 +40,7 @@ public final class GetNatGatewaysResult {
         return this.id;
     }
     /**
-     * @return A list of all the NAT gateway ids found.
+     * @return List of all the NAT gateway ids found.
      * 
      */
     public List<String> ids() {

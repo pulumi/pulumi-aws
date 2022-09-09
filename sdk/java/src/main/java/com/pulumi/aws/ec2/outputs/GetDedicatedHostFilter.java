@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDedicatedHostFilter {
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetDedicatedHostFilter {
 
     private GetDedicatedHostFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
      * 
      */
     public String name() {

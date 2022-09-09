@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserHierarchyStructureHierarchyStructureLevelTwo {
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
+     * @return ARN of the hierarchy level.
      * 
      */
     private String arn;
@@ -20,14 +20,14 @@ public final class GetUserHierarchyStructureHierarchyStructureLevelTwo {
      */
     private String id;
     /**
-     * @return The name of the user hierarchy level. Must not be more than 50 characters.
+     * @return Name of the user hierarchy level. Must not be more than 50 characters.
      * 
      */
     private String name;
 
     private GetUserHierarchyStructureHierarchyStructureLevelTwo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
+     * @return ARN of the hierarchy level.
      * 
      */
     public String arn() {
@@ -41,7 +41,7 @@ public final class GetUserHierarchyStructureHierarchyStructureLevelTwo {
         return this.id;
     }
     /**
-     * @return The name of the user hierarchy level. Must not be more than 50 characters.
+     * @return Name of the user hierarchy level. Must not be more than 50 characters.
      * 
      */
     public String name() {

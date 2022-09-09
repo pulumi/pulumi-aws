@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./keyspace";
-export * from "./table";
+export { KeyspaceArgs, KeyspaceState } from "./keyspace";
+export type Keyspace = import("./keyspace").Keyspace;
+export const Keyspace: typeof import("./keyspace").Keyspace = null as any;
 
-// Import resources to register:
-import { Keyspace } from "./keyspace";
-import { Table } from "./table";
+export { TableArgs, TableState } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+utilities.lazyLoad(exports, ["Keyspace"], () => require("./keyspace"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -17,14 +17,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs();
 
     /**
-     * The SANs for a TLS validation context.
+     * SANs for a TLS validation context.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return The SANs for a TLS validation context.
+     * @return SANs for a TLS validation context.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     }
 
     /**
-     * The TLS validation context trust.
+     * TLS validation context trust.
      * 
      */
     @Import(name="trust", required=true)
     private Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs> trust;
 
     /**
-     * @return The TLS validation context trust.
+     * @return TLS validation context trust.
      * 
      */
     public Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs> trust() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param subjectAlternativeNames The SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param subjectAlternativeNames The SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param trust The TLS validation context trust.
+         * @param trust TLS validation context trust.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param trust The TLS validation context trust.
+         * @param trust TLS validation context trust.
          * 
          * @return builder
          * 

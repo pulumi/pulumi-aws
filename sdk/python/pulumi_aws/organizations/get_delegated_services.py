@@ -42,7 +42,7 @@ class GetDelegatedServicesResult:
     @pulumi.getter(name="delegatedServices")
     def delegated_services(self) -> Sequence['outputs.GetDelegatedServicesDelegatedServiceResult']:
         """
-        The services for which the account is a delegated administrator, which have the following attributes:
+        Services for which the account is a delegated administrator, which have the following attributes:
         """
         return pulumi.get(self, "delegated_services")
 
@@ -81,7 +81,7 @@ def get_delegated_services(account_id: Optional[str] = None,
     ```
 
 
-    :param str account_id: The account ID number of a delegated administrator account in the organization.
+    :param str account_id: Account ID number of a delegated administrator account in the organization.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -110,6 +110,6 @@ def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None
     ```
 
 
-    :param str account_id: The account ID number of a delegated administrator account in the organization.
+    :param str account_id: Account ID number of a delegated administrator account in the organization.
     """
     ...

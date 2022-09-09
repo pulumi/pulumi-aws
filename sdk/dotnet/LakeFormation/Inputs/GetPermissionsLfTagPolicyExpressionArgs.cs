@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     public sealed class GetPermissionsLfTagPolicyExpressionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key-name of an LF-Tag.
+        /// Key-name of an LF-Tag.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// A list of possible values of an LF-Tag.
+        /// List of possible values of an LF-Tag.
         /// </summary>
         public InputList<string> Values
         {

@@ -32,14 +32,14 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
     }
 
     /**
-     * A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
+     * CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
      * 
      */
     @Import(name="ocspCustomCname")
     private @Nullable Output<String> ocspCustomCname;
 
     /**
-     * @return A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
+     * @return CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
      * 
      */
     public Optional<Output<String>> ocspCustomCname() {
@@ -93,7 +93,7 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
         }
 
         /**
-         * @param ocspCustomCname A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
+         * @param ocspCustomCname CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
         }
 
         /**
-         * @param ocspCustomCname A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
+         * @param ocspCustomCname CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
          * 
          * @return builder
          * 

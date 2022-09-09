@@ -146,7 +146,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         public readonly bool Adjustable;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service quota.
+        /// ARN of the service quota.
         /// </summary>
         public readonly string Arn;
         /// <summary>

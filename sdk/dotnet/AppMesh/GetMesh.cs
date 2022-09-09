@@ -106,13 +106,13 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetMeshArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name of the service mesh.
+        /// Name of the service mesh.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.AppMesh
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetMeshInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AWS account ID of the service mesh's owner.
+        /// AWS account ID of the service mesh's owner.
         /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
         /// <summary>
-        /// The name of the service mesh.
+        /// Name of the service mesh.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -172,11 +172,11 @@ namespace Pulumi.Aws.AppMesh
     public sealed class GetMeshResult
     {
         /// <summary>
-        /// The ARN of the service mesh.
+        /// ARN of the service mesh.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The creation date of the service mesh.
+        /// Creation date of the service mesh.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
@@ -184,21 +184,21 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The last update date of the service mesh.
+        /// Last update date of the service mesh.
         /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshOwner;
         public readonly string Name;
         /// <summary>
-        /// The resource owner's AWS account ID.
+        /// Resource owner's AWS account ID.
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// The service mesh specification.
+        /// Service mesh specification.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMeshSpecResult> Specs;
         /// <summary>
-        /// A map of tags.
+        /// Map of tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

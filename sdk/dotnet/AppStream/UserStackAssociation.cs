@@ -57,7 +57,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Output("sendEmailNotification")]
         public Output<bool?> SendEmailNotification { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+        /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Input("sendEmailNotification")]
         public Input<bool>? SendEmailNotification { get; set; }

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetStackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the stack
+        /// Name of the stack
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.CloudFormation
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags associated with this stack.
+        /// Map of tags associated with this stack.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetStackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the stack
+        /// Name of the stack
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags associated with this stack.
+        /// Map of tags associated with this stack.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetStackResult
     {
         /// <summary>
-        /// A list of capabilities
+        /// List of capabilities
         /// </summary>
         public readonly ImmutableArray<string> Capabilities;
         /// <summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public readonly bool DisableRollback;
         /// <summary>
-        /// The ARN of the IAM role used to create the stack.
+        /// ARN of the IAM role used to create the stack.
         /// </summary>
         public readonly string IamRoleArn;
         /// <summary>
@@ -169,19 +169,19 @@ namespace Pulumi.Aws.CloudFormation
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A list of SNS topic ARNs to publish stack related events
+        /// List of SNS topic ARNs to publish stack related events
         /// </summary>
         public readonly ImmutableArray<string> NotificationArns;
         /// <summary>
-        /// A map of outputs from the stack.
+        /// Map of outputs from the stack.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Outputs;
         /// <summary>
-        /// A map of parameters that specify input parameters for the stack.
+        /// Map of parameters that specify input parameters for the stack.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
         /// <summary>
-        /// A map of tags associated with this stack.
+        /// Map of tags associated with this stack.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public readonly string TemplateBody;
         /// <summary>
-        /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
+        /// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
         /// </summary>
         public readonly int TimeoutInMinutes;
 

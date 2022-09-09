@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetQuickConnectResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Quick Connect.
+     * @return ARN of the Quick Connect.
      * 
      */
     private String arn;
     /**
-     * @return Specifies the description of the Quick Connect.
+     * @return Description of the Quick Connect.
      * 
      */
     private String description;
@@ -35,26 +35,26 @@ public final class GetQuickConnectResult {
      */
     private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
     /**
-     * @return The identifier for the Quick Connect.
+     * @return Identifier for the Quick Connect.
      * 
      */
     private String quickConnectId;
     /**
-     * @return A map of tags to assign to the Quick Connect.
+     * @return Map of tags to assign to the Quick Connect.
      * 
      */
     private Map<String,String> tags;
 
     private GetQuickConnectResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Quick Connect.
+     * @return ARN of the Quick Connect.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Specifies the description of the Quick Connect.
+     * @return Description of the Quick Connect.
      * 
      */
     public String description() {
@@ -81,14 +81,14 @@ public final class GetQuickConnectResult {
         return this.quickConnectConfigs;
     }
     /**
-     * @return The identifier for the Quick Connect.
+     * @return Identifier for the Quick Connect.
      * 
      */
     public String quickConnectId() {
         return this.quickConnectId;
     }
     /**
-     * @return A map of tags to assign to the Quick Connect.
+     * @return Map of tags to assign to the Quick Connect.
      * 
      */
     public Map<String,String> tags() {

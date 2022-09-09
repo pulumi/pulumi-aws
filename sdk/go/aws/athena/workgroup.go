@@ -62,21 +62,21 @@ import (
 type Workgroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the workgroup
+	// ARN of the workgroup
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block with various settings for the workgroup. Documented below.
 	Configuration WorkgroupConfigurationPtrOutput `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -109,40 +109,40 @@ func GetWorkgroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workgroup resources.
 type workgroupState struct {
-	// Amazon Resource Name (ARN) of the workgroup
+	// ARN of the workgroup
 	Arn *string `pulumi:"arn"`
 	// Configuration block with various settings for the workgroup. Documented below.
 	Configuration *WorkgroupConfiguration `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description *string `pulumi:"description"`
-	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkgroupState struct {
-	// Amazon Resource Name (ARN) of the workgroup
+	// ARN of the workgroup
 	Arn pulumi.StringPtrInput
 	// Configuration block with various settings for the workgroup. Documented below.
 	Configuration WorkgroupConfigurationPtrInput
 	// Description of the workgroup.
 	Description pulumi.StringPtrInput
-	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -155,13 +155,13 @@ type workgroupArgs struct {
 	Configuration *WorkgroupConfiguration `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description *string `pulumi:"description"`
-	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -171,13 +171,13 @@ type WorkgroupArgs struct {
 	Configuration WorkgroupConfigurationPtrInput
 	// Description of the workgroup.
 	Description pulumi.StringPtrInput
-	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -268,7 +268,7 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 	return o
 }
 
-// Amazon Resource Name (ARN) of the workgroup
+// ARN of the workgroup
 func (o WorkgroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -283,7 +283,7 @@ func (o WorkgroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
 func (o WorkgroupOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -298,12 +298,12 @@ func (o WorkgroupOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags for the workgroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

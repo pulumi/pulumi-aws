@@ -16,14 +16,14 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetLoadBalancerPlainArgs Empty = new GetLoadBalancerPlainArgs();
 
     /**
-     * The full ARN of the load balancer.
+     * Full ARN of the load balancer.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The full ARN of the load balancer.
+     * @return Full ARN of the load balancer.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The unique name of the load balancer.
+     * Unique name of the load balancer.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The unique name of the load balancer.
+     * @return Unique name of the load balancer.
      * 
      */
     public Optional<String> name() {
@@ -46,14 +46,14 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     * @return Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -87,7 +87,7 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param arn The full ARN of the load balancer.
+         * @param arn Full ARN of the load balancer.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The unique name of the load balancer.
+         * @param name Unique name of the load balancer.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
          * 
          * @return builder
          * 

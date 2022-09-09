@@ -51,15 +51,15 @@ func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getLinks.
 type GetLinksArgs struct {
-	// The ID of the Global Network of the links to retrieve.
+	// ID of the Global Network of the links to retrieve.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The link provider to retrieve.
+	// Link provider to retrieve.
 	ProviderName *string `pulumi:"providerName"`
-	// The ID of the site of the links to retrieve.
+	// ID of the site of the links to retrieve.
 	SiteId *string `pulumi:"siteId"`
 	// Restricts the list to the links with these tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The link type to retrieve.
+	// Link type to retrieve.
 	Type *string `pulumi:"type"`
 }
 
@@ -68,7 +68,7 @@ type GetLinksResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The IDs of the links.
+	// IDs of the links.
 	Ids          []string          `pulumi:"ids"`
 	ProviderName *string           `pulumi:"providerName"`
 	SiteId       *string           `pulumi:"siteId"`
@@ -91,15 +91,15 @@ func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getLinks.
 type GetLinksOutputArgs struct {
-	// The ID of the Global Network of the links to retrieve.
+	// ID of the Global Network of the links to retrieve.
 	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// The link provider to retrieve.
+	// Link provider to retrieve.
 	ProviderName pulumi.StringPtrInput `pulumi:"providerName"`
-	// The ID of the site of the links to retrieve.
+	// ID of the site of the links to retrieve.
 	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
 	// Restricts the list to the links with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The link type to retrieve.
+	// Link type to retrieve.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -131,7 +131,7 @@ func (o GetLinksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The IDs of the links.
+// IDs of the links.
 func (o GetLinksResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinksResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

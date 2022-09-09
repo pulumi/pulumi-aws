@@ -208,7 +208,7 @@ class TrailAdvancedEventSelector(dict):
                  name: Optional[str] = None):
         """
         :param Sequence['TrailAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
-        :param str name: Specifies the name of the advanced event selector.
+        :param str name: Name of the advanced event selector.
         """
         pulumi.set(__self__, "field_selectors", field_selectors)
         if name is not None:
@@ -226,7 +226,7 @@ class TrailAdvancedEventSelector(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Specifies the name of the advanced event selector.
+        Name of the advanced event selector.
         """
         return pulumi.get(self, "name")
 
@@ -267,7 +267,7 @@ class TrailAdvancedEventSelectorFieldSelector(dict):
                  not_starts_withs: Optional[Sequence[str]] = None,
                  starts_withs: Optional[Sequence[str]] = None):
         """
-        :param str field: Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        :param str field: Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
         :param Sequence[str] ends_withs: A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
         :param Sequence[str] equals: A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
         :param Sequence[str] not_ends_withs: A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
@@ -293,7 +293,7 @@ class TrailAdvancedEventSelectorFieldSelector(dict):
     @pulumi.getter
     def field(self) -> str:
         """
-        Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+        Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
         """
         return pulumi.get(self, "field")
 

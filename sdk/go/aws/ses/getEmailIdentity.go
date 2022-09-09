@@ -48,7 +48,7 @@ func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opt
 
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityArgs struct {
-	// The email identity.
+	// Email identity.
 	Email string `pulumi:"email"`
 }
 
@@ -56,7 +56,7 @@ type LookupEmailIdentityArgs struct {
 type LookupEmailIdentityResult struct {
 	// The ARN of the email identity.
 	Arn string `pulumi:"arn"`
-	// The email identity.
+	// Email identity.
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -77,7 +77,7 @@ func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutp
 
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityOutputArgs struct {
-	// The email identity.
+	// Email identity.
 	Email pulumi.StringInput `pulumi:"email"`
 }
 
@@ -105,7 +105,7 @@ func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email identity.
+// Email identity.
 func (o LookupEmailIdentityResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Email }).(pulumi.StringOutput)
 }

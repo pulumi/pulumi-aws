@@ -52,7 +52,7 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetZoneArgs {
     /**
-     * The Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone.
      */
     name?: string;
     /**
@@ -72,7 +72,7 @@ export interface GetZoneArgs {
      */
     vpcId?: string;
     /**
-     * The Hosted Zone id of the desired Hosted Zone.
+     * Hosted Zone id of the desired Hosted Zone.
      */
     zoneId?: string;
 }
@@ -82,7 +82,7 @@ export interface GetZoneArgs {
  */
 export interface GetZoneResult {
     /**
-     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     * ARN of the Hosted Zone.
      */
     readonly arn: string;
     /**
@@ -90,7 +90,7 @@ export interface GetZoneResult {
      */
     readonly callerReference: string;
     /**
-     * The comment field of the Hosted Zone.
+     * Comment field of the Hosted Zone.
      */
     readonly comment: string;
     /**
@@ -107,7 +107,7 @@ export interface GetZoneResult {
     readonly linkedServicePrincipal: string;
     readonly name: string;
     /**
-     * The list of DNS name servers for the Hosted Zone.
+     * List of DNS name servers for the Hosted Zone.
      */
     readonly nameServers: string[];
     readonly privateZone?: boolean;
@@ -129,7 +129,7 @@ export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetZoneOutputArgs {
     /**
-     * The Hosted Zone name of the desired Hosted Zone.
+     * Hosted Zone name of the desired Hosted Zone.
      */
     name?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface GetZoneOutputArgs {
      */
     vpcId?: pulumi.Input<string>;
     /**
-     * The Hosted Zone id of the desired Hosted Zone.
+     * Hosted Zone id of the desired Hosted Zone.
      */
     zoneId?: pulumi.Input<string>;
 }

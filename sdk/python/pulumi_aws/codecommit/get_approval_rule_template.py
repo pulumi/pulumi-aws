@@ -62,7 +62,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter
     def content(self) -> str:
         """
-        The content of the approval rule template.
+        Content of the approval rule template.
         """
         return pulumi.get(self, "content")
 
@@ -70,7 +70,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
-        The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "creation_date")
 
@@ -78,7 +78,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the approval rule template.
+        Description of the approval rule template.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +94,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> str:
         """
-        The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "last_modified_date")
 
@@ -102,7 +102,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        ARN of the user who made the most recent changes to the approval rule template.
         """
         return pulumi.get(self, "last_modified_user")
 
@@ -115,7 +115,7 @@ class GetApprovalRuleTemplateResult:
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> str:
         """
-        The SHA-256 hash signature for the content of the approval rule template.
+        SHA-256 hash signature for the content of the approval rule template.
         """
         return pulumi.get(self, "rule_content_sha256")
 
@@ -152,7 +152,7 @@ def get_approval_rule_template(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name for the approval rule template. This needs to be less than 100 characters.
+    :param str name: Name for the approval rule template. This needs to be less than 100 characters.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -187,6 +187,6 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name for the approval rule template. This needs to be less than 100 characters.
+    :param str name: Name for the approval rule template. This needs to be less than 100 characters.
     """
     ...

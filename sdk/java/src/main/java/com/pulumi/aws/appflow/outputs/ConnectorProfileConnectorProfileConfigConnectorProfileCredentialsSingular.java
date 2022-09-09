@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     private String apiKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular() {}
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     public String apiKey() {

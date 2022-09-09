@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -76,19 +78,19 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly architecture!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     public readonly bootMode!: pulumi.Output<string | undefined>;
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
     public readonly deprecationTime!: pulumi.Output<string | undefined>;
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -97,7 +99,7 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiEbsBlockDevice[]>;
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
     public readonly enaSupport!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,7 +108,7 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiEphemeralBlockDevice[]>;
     /**
-     * The hypervisor type of the image.
+     * Hypervisor type of the image.
      */
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
@@ -115,25 +117,25 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly imageLocation!: pulumi.Output<string>;
     /**
-     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      */
     public /*out*/ readonly imageOwnerAlias!: pulumi.Output<string>;
     /**
-     * The type of image.
+     * Type of image.
      */
     public /*out*/ readonly imageType!: pulumi.Output<string>;
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
     public readonly kernelId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS account ID of the image owner.
+     * AWS account ID of the image owner.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
@@ -141,24 +143,24 @@ export class Ami extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * The platform details associated with the billing code of the AMI.
+     * Platform details associated with the billing code of the AMI.
      */
     public /*out*/ readonly platformDetails!: pulumi.Output<string>;
     /**
-     * Indicates whether the image has public launch permissions.
+     * Whether the image has public launch permissions.
      */
     public /*out*/ readonly public!: pulumi.Output<boolean>;
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
     public readonly ramdiskId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     public readonly rootDeviceName!: pulumi.Output<string | undefined>;
     /**
-     * The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
     public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
     /**
@@ -167,11 +169,11 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -179,7 +181,7 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly tpmSupport!: pulumi.Output<string | undefined>;
     /**
-     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
@@ -275,19 +277,19 @@ export interface AmiState {
      */
     architecture?: pulumi.Input<string>;
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     bootMode?: pulumi.Input<string>;
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
     deprecationTime?: pulumi.Input<string>;
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      */
     description?: pulumi.Input<string>;
     /**
@@ -296,7 +298,7 @@ export interface AmiState {
      */
     ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[]>;
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
     enaSupport?: pulumi.Input<boolean>;
     /**
@@ -305,7 +307,7 @@ export interface AmiState {
      */
     ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
     /**
-     * The hypervisor type of the image.
+     * Hypervisor type of the image.
      */
     hypervisor?: pulumi.Input<string>;
     /**
@@ -314,25 +316,25 @@ export interface AmiState {
      */
     imageLocation?: pulumi.Input<string>;
     /**
-     * The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
+     * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      */
     imageOwnerAlias?: pulumi.Input<string>;
     /**
-     * The type of image.
+     * Type of image.
      */
     imageType?: pulumi.Input<string>;
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
     kernelId?: pulumi.Input<string>;
     manageEbsSnapshots?: pulumi.Input<boolean>;
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS account ID of the image owner.
+     * AWS account ID of the image owner.
      */
     ownerId?: pulumi.Input<string>;
     /**
@@ -340,24 +342,24 @@ export interface AmiState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * The platform details associated with the billing code of the AMI.
+     * Platform details associated with the billing code of the AMI.
      */
     platformDetails?: pulumi.Input<string>;
     /**
-     * Indicates whether the image has public launch permissions.
+     * Whether the image has public launch permissions.
      */
     public?: pulumi.Input<boolean>;
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
     ramdiskId?: pulumi.Input<string>;
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
     /**
-     * The Snapshot ID for the root volume (for EBS-backed AMIs)
+     * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
     rootSnapshotId?: pulumi.Input<string>;
     /**
@@ -366,11 +368,11 @@ export interface AmiState {
      */
     sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -378,7 +380,7 @@ export interface AmiState {
      */
     tpmSupport?: pulumi.Input<string>;
     /**
-     * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+     * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     usageOperation?: pulumi.Input<string>;
     /**
@@ -398,15 +400,15 @@ export interface AmiArgs {
      */
     architecture?: pulumi.Input<string>;
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     bootMode?: pulumi.Input<string>;
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
     deprecationTime?: pulumi.Input<string>;
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      */
     description?: pulumi.Input<string>;
     /**
@@ -415,7 +417,7 @@ export interface AmiArgs {
      */
     ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[]>;
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
     enaSupport?: pulumi.Input<boolean>;
     /**
@@ -429,21 +431,21 @@ export interface AmiArgs {
      */
     imageLocation?: pulumi.Input<string>;
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
     kernelId?: pulumi.Input<string>;
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
     ramdiskId?: pulumi.Input<string>;
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
     /**
@@ -452,7 +454,7 @@ export interface AmiArgs {
      */
     sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

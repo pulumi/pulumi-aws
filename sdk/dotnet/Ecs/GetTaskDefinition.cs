@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs
         ///     {
         ///         Cluster = foo.Id,
         ///         DesiredCount = 2,
-        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
+        ///         TaskDefinition = mongoTaskDefinition.Apply(getTaskDefinitionResult =&gt; getTaskDefinitionResult.Arn),
         ///     });
         /// 
         /// });
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ecs
         ///     {
         ///         Cluster = foo.Id,
         ///         DesiredCount = 2,
-        ///         TaskDefinition = mongoEcs / taskDefinitionTaskDefinition.Arn,
+        ///         TaskDefinition = mongoTaskDefinition.Apply(getTaskDefinitionResult =&gt; getTaskDefinitionResult.Arn),
         ///     });
         /// 
         /// });
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+        /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
         [Input("taskDefinition", required: true)]
         public string TaskDefinition { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+        /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
@@ -162,11 +162,11 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskDefinitionResult
     {
         /// <summary>
-        /// The ARN of the task definition
+        /// ARN of the task definition
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The family of this task definition
+        /// Family of this task definition
         /// </summary>
         public readonly string Family;
         /// <summary>
@@ -174,20 +174,20 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Docker networking mode to use for the containers in this task.
+        /// Docker networking mode to use for the containers in this task.
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// The revision of this task definition
+        /// Revision of this task definition
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// The status of this task definition
+        /// Status of this task definition
         /// </summary>
         public readonly string Status;
         public readonly string TaskDefinition;
         /// <summary>
-        /// The ARN of the IAM role that containers in this task can assume
+        /// ARN of the IAM role that containers in this task can assume
         /// </summary>
         public readonly string TaskRoleArn;
 

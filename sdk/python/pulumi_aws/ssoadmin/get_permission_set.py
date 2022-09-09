@@ -64,7 +64,7 @@ class GetPermissionSetResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the Permission Set.
+        Description of the Permission Set.
         """
         return pulumi.get(self, "description")
 
@@ -90,7 +90,7 @@ class GetPermissionSetResult:
     @pulumi.getter(name="relayState")
     def relay_state(self) -> str:
         """
-        The relay state URL used to redirect users within the application during the federation authentication process.
+        Relay state URL used to redirect users within the application during the federation authentication process.
         """
         return pulumi.get(self, "relay_state")
 
@@ -98,7 +98,7 @@ class GetPermissionSetResult:
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> str:
         """
-        The length of time that the application user sessions are valid in the ISO-8601 standard.
+        Length of time that the application user sessions are valid in the ISO-8601 standard.
         """
         return pulumi.get(self, "session_duration")
 
@@ -137,9 +137,9 @@ def get_permission_set(arn: Optional[str] = None,
     Use this data source to get a Single Sign-On (SSO) Permission Set.
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the permission set.
-    :param str instance_arn: The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
-    :param str name: The name of the SSO Permission Set.
+    :param str arn: ARN of the permission set.
+    :param str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param str name: Name of the SSO Permission Set.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
@@ -172,9 +172,9 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Use this data source to get a Single Sign-On (SSO) Permission Set.
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the permission set.
-    :param str instance_arn: The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
-    :param str name: The name of the SSO Permission Set.
+    :param str arn: ARN of the permission set.
+    :param str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param str name: Name of the SSO Permission Set.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

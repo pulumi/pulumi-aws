@@ -38,7 +38,7 @@ import (
 //	}
 //
 // ```
-// ### Find firewall policy by Amazon Resource Name (ARN)
+// ### Find firewall policy by ARN
 //
 // ```go
 // package main
@@ -104,9 +104,9 @@ func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, o
 
 // A collection of arguments for invoking getFirewallPolicy.
 type LookupFirewallPolicyArgs struct {
-	// The Amazon Resource Name (ARN) of the firewall policy.
+	// ARN of the firewall policy.
 	Arn *string `pulumi:"arn"`
-	// The descriptive name of the firewall policy.
+	// Descriptive name of the firewall policy.
 	Name *string `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -115,7 +115,7 @@ type LookupFirewallPolicyArgs struct {
 // A collection of values returned by getFirewallPolicy.
 type LookupFirewallPolicyResult struct {
 	Arn *string `pulumi:"arn"`
-	// A description of the firewall policy.
+	// Description of the firewall policy.
 	Description string `pulumi:"description"`
 	// The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
 	FirewallPolicies []GetFirewallPolicyFirewallPolicy `pulumi:"firewallPolicies"`
@@ -124,7 +124,7 @@ type LookupFirewallPolicyResult struct {
 	Name *string `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
-	// A token used for optimistic locking.
+	// Token used for optimistic locking.
 	UpdateToken string `pulumi:"updateToken"`
 }
 
@@ -143,9 +143,9 @@ func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOu
 
 // A collection of arguments for invoking getFirewallPolicy.
 type LookupFirewallPolicyOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the firewall policy.
+	// ARN of the firewall policy.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The descriptive name of the firewall policy.
+	// Descriptive name of the firewall policy.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -174,7 +174,7 @@ func (o LookupFirewallPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A description of the firewall policy.
+// Description of the firewall policy.
 func (o LookupFirewallPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -198,7 +198,7 @@ func (o LookupFirewallPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A token used for optimistic locking.
+// Token used for optimistic locking.
 func (o LookupFirewallPolicyResultOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.UpdateToken }).(pulumi.StringOutput)
 }

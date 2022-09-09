@@ -30,12 +30,12 @@ namespace Pulumi.Aws.Eks
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 1,
-    ///             MaxSize = 1,
+    ///             MaxSize = 2,
     ///             MinSize = 1,
     ///         },
     ///         UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
     ///         {
-    ///             MaxUnavailable = 2,
+    ///             MaxUnavailable = 1,
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

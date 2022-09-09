@@ -13,14 +13,14 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetSelectionPlainArgs Empty = new GetSelectionPlainArgs();
 
     /**
-     * The backup plan ID associated with the selection of resources.
+     * Backup plan ID associated with the selection of resources.
      * 
      */
     @Import(name="planId", required=true)
     private String planId;
 
     /**
-     * @return The backup plan ID associated with the selection of resources.
+     * @return Backup plan ID associated with the selection of resources.
      * 
      */
     public String planId() {
@@ -28,14 +28,14 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The backup selection ID.
+     * Backup selection ID.
      * 
      */
     @Import(name="selectionId", required=true)
     private String selectionId;
 
     /**
-     * @return The backup selection ID.
+     * @return Backup selection ID.
      * 
      */
     public String selectionId() {
@@ -68,7 +68,7 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param planId The backup plan ID associated with the selection of resources.
+         * @param planId Backup plan ID associated with the selection of resources.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param selectionId The backup selection ID.
+         * @param selectionId Backup selection ID.
          * 
          * @return builder
          * 

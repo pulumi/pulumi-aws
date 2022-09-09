@@ -22,7 +22,7 @@ class ArchiveRuleFilter(dict):
                  exists: Optional[str] = None,
                  neqs: Optional[Sequence[str]] = None):
         """
-        :param str criteria: The filter criteria.
+        :param str criteria: Filter criteria.
         :param Sequence[str] contains: Contains comparator.
         :param Sequence[str] eqs: Equals comparator.
         :param str exists: Boolean comparator.
@@ -42,7 +42,7 @@ class ArchiveRuleFilter(dict):
     @pulumi.getter
     def criteria(self) -> str:
         """
-        The filter criteria.
+        Filter criteria.
         """
         return pulumi.get(self, "criteria")
 

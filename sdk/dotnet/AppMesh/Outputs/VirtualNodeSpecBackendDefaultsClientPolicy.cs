@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicy
     {
         /// <summary>
-        /// The Transport Layer Security (TLS) client policy.
+        /// Transport Layer Security (TLS) client policy.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls? Tls;
 

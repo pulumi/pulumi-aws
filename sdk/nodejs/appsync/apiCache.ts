@@ -63,7 +63,7 @@ export class ApiCache extends pulumi.CustomResource {
      */
     public readonly apiCachingBehavior!: pulumi.Output<string>;
     /**
-     * The GraphQL API ID.
+     * GraphQL API ID.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class ApiCache extends pulumi.CustomResource {
      */
     public readonly ttl!: pulumi.Output<number>;
     /**
-     * The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -137,7 +137,7 @@ export interface ApiCacheState {
      */
     apiCachingBehavior?: pulumi.Input<string>;
     /**
-     * The GraphQL API ID.
+     * GraphQL API ID.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface ApiCacheState {
      */
     ttl?: pulumi.Input<number>;
     /**
-     * The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -167,7 +167,7 @@ export interface ApiCacheArgs {
      */
     apiCachingBehavior: pulumi.Input<string>;
     /**
-     * The GraphQL API ID.
+     * GraphQL API ID.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface ApiCacheArgs {
      */
     ttl: pulumi.Input<number>;
     /**
-     * The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      */
     type: pulumi.Input<string>;
 }

@@ -16,14 +16,14 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
     public static final DatabaseEncryptionConfigurationArgs Empty = new DatabaseEncryptionConfigurationArgs();
 
     /**
-     * The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+     * Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
      * 
      */
     @Import(name="encryptionOption", required=true)
     private Output<String> encryptionOption;
 
     /**
-     * @return The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+     * @return Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
      * 
      */
     public Output<String> encryptionOption() {
@@ -31,14 +31,14 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+     * KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+     * @return KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -71,7 +71,7 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param encryptionOption The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+         * @param encryptionOption Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param encryptionOption The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+         * @param encryptionOption Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param kmsKey The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+         * @param kmsKey KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param kmsKey The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+         * @param kmsKey KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
          * 
          * @return builder
          * 

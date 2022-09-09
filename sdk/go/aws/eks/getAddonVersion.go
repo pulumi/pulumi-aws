@@ -83,7 +83,7 @@ type GetAddonVersionResult struct {
 	Id                string `pulumi:"id"`
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	MostRecent        *bool  `pulumi:"mostRecent"`
-	// The version of the EKS add-on.
+	// Version of the EKS add-on.
 	Version string `pulumi:"version"`
 }
 
@@ -147,7 +147,7 @@ func (o GetAddonVersionResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// The version of the EKS add-on.
+// Version of the EKS add-on.
 func (o GetAddonVersionResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Version }).(pulumi.StringOutput)
 }

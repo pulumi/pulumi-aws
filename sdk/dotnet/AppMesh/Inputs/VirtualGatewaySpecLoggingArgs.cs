@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access log configuration for a virtual gateway.
+        /// Access log configuration for a virtual gateway.
         /// </summary>
         [Input("accessLog")]
         public Input<Inputs.VirtualGatewaySpecLoggingAccessLogArgs>? AccessLog { get; set; }

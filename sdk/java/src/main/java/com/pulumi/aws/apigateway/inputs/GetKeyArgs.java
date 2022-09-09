@@ -17,14 +17,14 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetKeyArgs Empty = new GetKeyArgs();
 
     /**
-     * The ID of the API Key to look up.
+     * ID of the API Key to look up.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the API Key to look up.
+     * @return ID of the API Key to look up.
      * 
      */
     public Output<String> id() {
@@ -32,14 +32,14 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the API Key to look up.
+         * @param id ID of the API Key to look up.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the API Key to look up.
+         * @param id ID of the API Key to look up.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

@@ -92,7 +92,7 @@ namespace Pulumi.Aws.EmrContainers
         }
 
         /// <summary>
-        /// The ID of the cluster.
+        /// ID of the cluster.
         /// </summary>
         [Input("virtualClusterId", required: true)]
         public string VirtualClusterId { get; set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.EmrContainers
         }
 
         /// <summary>
-        /// The ID of the cluster.
+        /// ID of the cluster.
         /// </summary>
         [Input("virtualClusterId", required: true)]
         public Input<string> VirtualClusterId { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.EmrContainers
     public sealed class GetVirtualClusterResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.EmrContainers
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualClusterContainerProviderResult> ContainerProviders;
         /// <summary>
-        /// The Unix epoch time stamp in seconds for when the cluster was created.
+        /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
@@ -150,11 +150,11 @@ namespace Pulumi.Aws.EmrContainers
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the cluster.
+        /// Name of the cluster.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+        /// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
         /// </summary>
         public readonly string State;
         /// <summary>

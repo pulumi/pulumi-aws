@@ -165,6 +165,7 @@ class _ProfileState:
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -295,6 +296,9 @@ class _ProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -483,6 +487,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -572,5 +577,8 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

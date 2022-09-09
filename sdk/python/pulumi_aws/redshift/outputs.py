@@ -709,8 +709,8 @@ class GetClusterClusterNodeResult(dict):
                  public_ip_address: str):
         """
         :param str node_role: Whether the node is a leader node or a compute node
-        :param str private_ip_address: The private IP address of a node within a cluster
-        :param str public_ip_address: The public IP address of a node within a cluster
+        :param str private_ip_address: Private IP address of a node within a cluster
+        :param str public_ip_address: Public IP address of a node within a cluster
         """
         pulumi.set(__self__, "node_role", node_role)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -728,7 +728,7 @@ class GetClusterClusterNodeResult(dict):
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> str:
         """
-        The private IP address of a node within a cluster
+        Private IP address of a node within a cluster
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -736,7 +736,7 @@ class GetClusterClusterNodeResult(dict):
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> str:
         """
-        The public IP address of a node within a cluster
+        Public IP address of a node within a cluster
         """
         return pulumi.get(self, "public_ip_address")
 

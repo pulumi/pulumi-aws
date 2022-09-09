@@ -16,14 +16,14 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
     public static final ApiMappingState Empty = new ApiMappingState();
 
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -46,14 +46,14 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+     * @return Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -61,14 +61,14 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
     @Import(name="stage")
     private @Nullable Output<String> stage;
 
     /**
-     * @return The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+     * @return API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
     public Optional<Output<String>> stage() {
@@ -103,7 +103,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API identifier.
+         * @param apiId API identifier.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+         * @param domainName Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+         * @param domainName Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stage The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+         * @param stage API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ApiMappingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stage The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+         * @param stage API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
          * 
          * @return builder
          * 

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the connection to retrieve.
+        /// Name of the connection to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DirectConnect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the connection to retrieve.
+        /// Name of the connection to retrieve.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,15 +124,15 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetConnectionResult
     {
         /// <summary>
-        /// The ARN of the connection.
+        /// ARN of the connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The Direct Connect endpoint on which the physical connection terminates.
+        /// Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
         public readonly string AwsDevice;
         /// <summary>
-        /// The bandwidth of the connection.
+        /// Bandwidth of the connection.
         /// </summary>
         public readonly string Bandwidth;
         /// <summary>
@@ -140,20 +140,20 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The AWS Direct Connect location where the connection is located.
+        /// AWS Direct Connect location where the connection is located.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// The ID of the AWS account that owns the connection.
+        /// ID of the AWS account that owns the connection.
         /// </summary>
         public readonly string OwnerAccountId;
         /// <summary>
-        /// The name of the service provider associated with the connection.
+        /// Name of the service provider associated with the connection.
         /// </summary>
         public readonly string ProviderName;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

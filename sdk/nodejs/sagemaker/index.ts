@@ -5,55 +5,126 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./appImageConfig";
-export * from "./codeRepository";
-export * from "./device";
-export * from "./deviceFleet";
-export * from "./domain";
-export * from "./endpoint";
-export * from "./endpointConfiguration";
-export * from "./featureGroup";
-export * from "./flowDefinition";
-export * from "./getPrebuiltEcrImage";
-export * from "./humanTaskUI";
-export * from "./image";
-export * from "./imageVersion";
-export * from "./model";
-export * from "./modelPackageGroup";
-export * from "./modelPackageGroupPolicy";
-export * from "./notebookInstance";
-export * from "./notebookInstanceLifecycleConfiguration";
-export * from "./project";
-export * from "./studioLifecycleConfig";
-export * from "./userProfile";
-export * from "./workforce";
-export * from "./workteam";
+export { AppArgs, AppState } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
 
-// Import resources to register:
-import { App } from "./app";
-import { AppImageConfig } from "./appImageConfig";
-import { CodeRepository } from "./codeRepository";
-import { Device } from "./device";
-import { DeviceFleet } from "./deviceFleet";
-import { Domain } from "./domain";
-import { Endpoint } from "./endpoint";
-import { EndpointConfiguration } from "./endpointConfiguration";
-import { FeatureGroup } from "./featureGroup";
-import { FlowDefinition } from "./flowDefinition";
-import { HumanTaskUI } from "./humanTaskUI";
-import { Image } from "./image";
-import { ImageVersion } from "./imageVersion";
-import { Model } from "./model";
-import { ModelPackageGroup } from "./modelPackageGroup";
-import { ModelPackageGroupPolicy } from "./modelPackageGroupPolicy";
-import { NotebookInstance } from "./notebookInstance";
-import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
-import { Project } from "./project";
-import { StudioLifecycleConfig } from "./studioLifecycleConfig";
-import { UserProfile } from "./userProfile";
-import { Workforce } from "./workforce";
-import { Workteam } from "./workteam";
+export { AppImageConfigArgs, AppImageConfigState } from "./appImageConfig";
+export type AppImageConfig = import("./appImageConfig").AppImageConfig;
+export const AppImageConfig: typeof import("./appImageConfig").AppImageConfig = null as any;
+
+export { CodeRepositoryArgs, CodeRepositoryState } from "./codeRepository";
+export type CodeRepository = import("./codeRepository").CodeRepository;
+export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
+
+export { DeviceArgs, DeviceState } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
+
+export { DeviceFleetArgs, DeviceFleetState } from "./deviceFleet";
+export type DeviceFleet = import("./deviceFleet").DeviceFleet;
+export const DeviceFleet: typeof import("./deviceFleet").DeviceFleet = null as any;
+
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { EndpointArgs, EndpointState } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { EndpointConfigurationArgs, EndpointConfigurationState } from "./endpointConfiguration";
+export type EndpointConfiguration = import("./endpointConfiguration").EndpointConfiguration;
+export const EndpointConfiguration: typeof import("./endpointConfiguration").EndpointConfiguration = null as any;
+
+export { FeatureGroupArgs, FeatureGroupState } from "./featureGroup";
+export type FeatureGroup = import("./featureGroup").FeatureGroup;
+export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
+
+export { FlowDefinitionArgs, FlowDefinitionState } from "./flowDefinition";
+export type FlowDefinition = import("./flowDefinition").FlowDefinition;
+export const FlowDefinition: typeof import("./flowDefinition").FlowDefinition = null as any;
+
+export { GetPrebuiltEcrImageArgs, GetPrebuiltEcrImageResult, GetPrebuiltEcrImageOutputArgs } from "./getPrebuiltEcrImage";
+export const getPrebuiltEcrImage: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImage = null as any;
+export const getPrebuiltEcrImageOutput: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImageOutput = null as any;
+
+export { HumanTaskUIArgs, HumanTaskUIState } from "./humanTaskUI";
+export type HumanTaskUI = import("./humanTaskUI").HumanTaskUI;
+export const HumanTaskUI: typeof import("./humanTaskUI").HumanTaskUI = null as any;
+
+export { ImageArgs, ImageState } from "./image";
+export type Image = import("./image").Image;
+export const Image: typeof import("./image").Image = null as any;
+
+export { ImageVersionArgs, ImageVersionState } from "./imageVersion";
+export type ImageVersion = import("./imageVersion").ImageVersion;
+export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
+
+export { ModelArgs, ModelState } from "./model";
+export type Model = import("./model").Model;
+export const Model: typeof import("./model").Model = null as any;
+
+export { ModelPackageGroupArgs, ModelPackageGroupState } from "./modelPackageGroup";
+export type ModelPackageGroup = import("./modelPackageGroup").ModelPackageGroup;
+export const ModelPackageGroup: typeof import("./modelPackageGroup").ModelPackageGroup = null as any;
+
+export { ModelPackageGroupPolicyArgs, ModelPackageGroupPolicyState } from "./modelPackageGroupPolicy";
+export type ModelPackageGroupPolicy = import("./modelPackageGroupPolicy").ModelPackageGroupPolicy;
+export const ModelPackageGroupPolicy: typeof import("./modelPackageGroupPolicy").ModelPackageGroupPolicy = null as any;
+
+export { NotebookInstanceArgs, NotebookInstanceState } from "./notebookInstance";
+export type NotebookInstance = import("./notebookInstance").NotebookInstance;
+export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
+
+export { NotebookInstanceLifecycleConfigurationArgs, NotebookInstanceLifecycleConfigurationState } from "./notebookInstanceLifecycleConfiguration";
+export type NotebookInstanceLifecycleConfiguration = import("./notebookInstanceLifecycleConfiguration").NotebookInstanceLifecycleConfiguration;
+export const NotebookInstanceLifecycleConfiguration: typeof import("./notebookInstanceLifecycleConfiguration").NotebookInstanceLifecycleConfiguration = null as any;
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { StudioLifecycleConfigArgs, StudioLifecycleConfigState } from "./studioLifecycleConfig";
+export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLifecycleConfig;
+export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
+
+export { UserProfileArgs, UserProfileState } from "./userProfile";
+export type UserProfile = import("./userProfile").UserProfile;
+export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+
+export { WorkforceArgs, WorkforceState } from "./workforce";
+export type Workforce = import("./workforce").Workforce;
+export const Workforce: typeof import("./workforce").Workforce = null as any;
+
+export { WorkteamArgs, WorkteamState } from "./workteam";
+export type Workteam = import("./workteam").Workteam;
+export const Workteam: typeof import("./workteam").Workteam = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["AppImageConfig"], () => require("./appImageConfig"));
+utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["DeviceFleet"], () => require("./deviceFleet"));
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["EndpointConfiguration"], () => require("./endpointConfiguration"));
+utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
+utilities.lazyLoad(exports, ["FlowDefinition"], () => require("./flowDefinition"));
+utilities.lazyLoad(exports, ["getPrebuiltEcrImage","getPrebuiltEcrImageOutput"], () => require("./getPrebuiltEcrImage"));
+utilities.lazyLoad(exports, ["HumanTaskUI"], () => require("./humanTaskUI"));
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
+utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
+utilities.lazyLoad(exports, ["ModelPackageGroup"], () => require("./modelPackageGroup"));
+utilities.lazyLoad(exports, ["ModelPackageGroupPolicy"], () => require("./modelPackageGroupPolicy"));
+utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
+utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfiguration"], () => require("./notebookInstanceLifecycleConfiguration"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
+utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
+utilities.lazyLoad(exports, ["Workteam"], () => require("./workteam"));
 
 const _module = {
     version: utilities.getVersion(),

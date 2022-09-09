@@ -17,7 +17,7 @@ public final class GetServiceQuotaResult {
      */
     private Boolean adjustable;
     /**
-     * @return Amazon Resource Name (ARN) of the service quota.
+     * @return ARN of the service quota.
      * 
      */
     private String arn;
@@ -59,7 +59,7 @@ public final class GetServiceQuotaResult {
         return this.adjustable;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the service quota.
+     * @return ARN of the service quota.
      * 
      */
     public String arn() {

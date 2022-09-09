@@ -51,14 +51,14 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The name of the snapshot.
+     * Name of the snapshot.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the snapshot.
+     * @return Name of the snapshot.
      * 
      */
     public Optional<String> name() {
@@ -81,14 +81,14 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * A list of Tag values, with a maximum of 50 elements.
+     * List of Tag values, with a maximum of 50 elements.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A list of Tag values, with a maximum of 50 elements.
+     * @return List of Tag values, with a maximum of 50 elements.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -158,7 +158,7 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name The name of the snapshot.
+         * @param name Name of the snapshot.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param tags A list of Tag values, with a maximum of 50 elements.
+         * @param tags List of Tag values, with a maximum of 50 elements.
          * 
          * @return builder
          * 

@@ -16,23 +16,23 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetManagedPrefixListResult {
     /**
-     * @return The address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+     * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      * 
      */
     private String addressFamily;
     /**
-     * @return The ARN of the selected prefix list.
+     * @return ARN of the selected prefix list.
      * 
      */
     private String arn;
     /**
-     * @return The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+     * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      * 
      */
     private List<GetManagedPrefixListEntry> entries;
     private @Nullable List<GetManagedPrefixListFilter> filters;
     /**
-     * @return The ID of the selected prefix list.
+     * @return ID of the selected prefix list.
      * 
      */
     private String id;
@@ -42,17 +42,17 @@ public final class GetManagedPrefixListResult {
      */
     private Integer maxEntries;
     /**
-     * @return The name of the selected prefix list.
+     * @return Name of the selected prefix list.
      * 
      */
     private String name;
     /**
-     * @return The Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+     * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      * 
      */
     private String ownerId;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -60,21 +60,21 @@ public final class GetManagedPrefixListResult {
 
     private GetManagedPrefixListResult() {}
     /**
-     * @return The address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+     * @return Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
      * 
      */
     public String addressFamily() {
         return this.addressFamily;
     }
     /**
-     * @return The ARN of the selected prefix list.
+     * @return ARN of the selected prefix list.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+     * @return Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      * 
      */
     public List<GetManagedPrefixListEntry> entries() {
@@ -84,7 +84,7 @@ public final class GetManagedPrefixListResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The ID of the selected prefix list.
+     * @return ID of the selected prefix list.
      * 
      */
     public String id() {
@@ -98,21 +98,21 @@ public final class GetManagedPrefixListResult {
         return this.maxEntries;
     }
     /**
-     * @return The name of the selected prefix list.
+     * @return Name of the selected prefix list.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+     * @return Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      * 
      */
     public String ownerId() {
         return this.ownerId;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

@@ -16,14 +16,14 @@ public final class VirtualNodeSpecListenerTimeoutTcpArgs extends com.pulumi.reso
     public static final VirtualNodeSpecListenerTimeoutTcpArgs Empty = new VirtualNodeSpecListenerTimeoutTcpArgs();
 
     /**
-     * The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     @Import(name="idle")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutTcpIdleArgs> idle;
 
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutTcpIdleArgs>> idle() {
@@ -55,7 +55,7 @@ public final class VirtualNodeSpecListenerTimeoutTcpArgs extends com.pulumi.reso
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualNodeSpecListenerTimeoutTcpArgs extends com.pulumi.reso
         }
 
         /**
-         * @param idle The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
          * 
          * @return builder
          * 

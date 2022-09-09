@@ -36,7 +36,7 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
  */
 export interface GetInstanceProfileArgs {
     /**
-     * The friendly IAM instance profile name to match.
+     * Friendly IAM instance profile name to match.
      */
     name: string;
 }
@@ -46,12 +46,11 @@ export interface GetInstanceProfileArgs {
  */
 export interface GetInstanceProfileResult {
     /**
-     * The Amazon Resource Name (ARN) specifying the instance profile.
+     * ARN.
      */
     readonly arn: string;
     /**
-     * The string representation of the date the instance profile
-     * was created.
+     * String representation of the date the instance profile was created.
      */
     readonly createDate: string;
     /**
@@ -60,19 +59,19 @@ export interface GetInstanceProfileResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The path to the instance profile.
+     * Path to the instance profile.
      */
     readonly path: string;
     /**
-     * The role arn associated with this instance profile.
+     * Role ARN associated with this instance profile.
      */
     readonly roleArn: string;
     /**
-     * The role id associated with this instance profile.
+     * Role ID associated with this instance profile.
      */
     readonly roleId: string;
     /**
-     * The role name associated with this instance profile.
+     * Role name associated with this instance profile.
      */
     readonly roleName: string;
 }
@@ -86,7 +85,7 @@ export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opt
  */
 export interface GetInstanceProfileOutputArgs {
     /**
-     * The friendly IAM instance profile name to match.
+     * Friendly IAM instance profile name to match.
      */
     name: pulumi.Input<string>;
 }

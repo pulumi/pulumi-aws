@@ -14,23 +14,23 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowTask
     {
         /// <summary>
-        /// The operation to be performed on the provided source fields. See Connector Operator for details.
+        /// Operation to be performed on the provided source fields. See Connector Operator for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowTaskConnectorOperator> ConnectorOperators;
         /// <summary>
-        /// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        /// Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         /// </summary>
         public readonly string? DestinationField;
         /// <summary>
-        /// The source fields to which a particular task is applied.
+        /// Source fields to which a particular task is applied.
         /// </summary>
         public readonly ImmutableArray<string> SourceFields;
         /// <summary>
-        /// A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+        /// Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TaskProperties;
         /// <summary>
-        /// Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+        /// Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
         /// </summary>
         public readonly string TaskType;
 

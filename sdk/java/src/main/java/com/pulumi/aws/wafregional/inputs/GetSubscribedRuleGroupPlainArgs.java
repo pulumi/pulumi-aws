@@ -15,14 +15,14 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
     public static final GetSubscribedRuleGroupPlainArgs Empty = new GetSubscribedRuleGroupPlainArgs();
 
     /**
-     * The name of the WAF rule group.
+     * Name of the WAF rule group.
      * 
      */
     @Import(name="metricName")
     private @Nullable String metricName;
 
     /**
-     * @return The name of the WAF rule group.
+     * @return Name of the WAF rule group.
      * 
      */
     public Optional<String> metricName() {
@@ -30,14 +30,14 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the WAF rule group.
+     * Name of the WAF rule group.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the WAF rule group.
+     * @return Name of the WAF rule group.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param metricName The name of the WAF rule group.
+         * @param metricName Name of the WAF rule group.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSubscribedRuleGroupPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the WAF rule group.
+         * @param name Name of the WAF rule group.
          * 
          * @return builder
          * 

@@ -12,13 +12,13 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceResult {
     /**
-     * @return The ARN of the ECS Service
+     * @return ARN of the ECS Service
      * 
      */
     private String arn;
     private String clusterArn;
     /**
-     * @return The number of tasks for the ECS Service
+     * @return Number of tasks for the ECS Service
      * 
      */
     private Integer desiredCount;
@@ -28,12 +28,12 @@ public final class GetServiceResult {
      */
     private String id;
     /**
-     * @return The launch type for the ECS Service
+     * @return Launch type for the ECS Service
      * 
      */
     private String launchType;
     /**
-     * @return The scheduling strategy for the ECS Service
+     * @return Scheduling strategy for the ECS Service
      * 
      */
     private String schedulingStrategy;
@@ -44,14 +44,14 @@ public final class GetServiceResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The family for the latest ACTIVE revision
+     * @return Family for the latest ACTIVE revision
      * 
      */
     private String taskDefinition;
 
     private GetServiceResult() {}
     /**
-     * @return The ARN of the ECS Service
+     * @return ARN of the ECS Service
      * 
      */
     public String arn() {
@@ -61,7 +61,7 @@ public final class GetServiceResult {
         return this.clusterArn;
     }
     /**
-     * @return The number of tasks for the ECS Service
+     * @return Number of tasks for the ECS Service
      * 
      */
     public Integer desiredCount() {
@@ -75,14 +75,14 @@ public final class GetServiceResult {
         return this.id;
     }
     /**
-     * @return The launch type for the ECS Service
+     * @return Launch type for the ECS Service
      * 
      */
     public String launchType() {
         return this.launchType;
     }
     /**
-     * @return The scheduling strategy for the ECS Service
+     * @return Scheduling strategy for the ECS Service
      * 
      */
     public String schedulingStrategy() {
@@ -99,7 +99,7 @@ public final class GetServiceResult {
         return this.tags;
     }
     /**
-     * @return The family for the latest ACTIVE revision
+     * @return Family for the latest ACTIVE revision
      * 
      */
     public String taskDefinition() {

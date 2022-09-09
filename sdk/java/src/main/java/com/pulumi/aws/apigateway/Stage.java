@@ -173,42 +173,42 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessLogSettings);
     }
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies whether a cache cluster is enabled for the stage
+     * Whether a cache cluster is enabled for the stage
      * 
      */
     @Export(name="cacheClusterEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> cacheClusterEnabled;
 
     /**
-     * @return Specifies whether a cache cluster is enabled for the stage
+     * @return Whether a cache cluster is enabled for the stage
      * 
      */
     public Output<Optional<Boolean>> cacheClusterEnabled() {
         return Codegen.optional(this.cacheClusterEnabled);
     }
     /**
-     * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
     @Export(name="cacheClusterSize", type=String.class, parameters={})
     private Output</* @Nullable */ String> cacheClusterSize;
 
     /**
-     * @return The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+     * @return Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
     public Output<Optional<String>> cacheClusterSize() {
@@ -229,63 +229,63 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.canarySettings);
     }
     /**
-     * The identifier of a client certificate for the stage.
+     * Identifier of a client certificate for the stage.
      * 
      */
     @Export(name="clientCertificateId", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateId;
 
     /**
-     * @return The identifier of a client certificate for the stage.
+     * @return Identifier of a client certificate for the stage.
      * 
      */
     public Output<Optional<String>> clientCertificateId() {
         return Codegen.optional(this.clientCertificateId);
     }
     /**
-     * The ID of the deployment that the stage points to
+     * ID of the deployment that the stage points to
      * 
      */
     @Export(name="deployment", type=String.class, parameters={})
     private Output<String> deployment;
 
     /**
-     * @return The ID of the deployment that the stage points to
+     * @return ID of the deployment that the stage points to
      * 
      */
     public Output<String> deployment() {
         return this.deployment;
     }
     /**
-     * The description of the stage.
+     * Description of the stage.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the stage.
+     * @return Description of the stage.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The version of the associated API documentation
+     * Version of the associated API documentation
      * 
      */
     @Export(name="documentationVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> documentationVersion;
 
     /**
-     * @return The version of the associated API documentation
+     * @return Version of the associated API documentation
      * 
      */
     public Output<Optional<String>> documentationVersion() {
         return Codegen.optional(this.documentationVersion);
     }
     /**
-     * The execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+     * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -294,7 +294,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private Output<String> executionArn;
 
     /**
-     * @return The execution ARN to be used in `lambda_permission`&#39;s `source_arn`
+     * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
@@ -303,7 +303,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.executionArn;
     }
     /**
-     * The URL to invoke the API pointing to the stage,
+     * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
@@ -311,7 +311,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
     private Output<String> invokeUrl;
 
     /**
-     * @return The URL to invoke the API pointing to the stage,
+     * @return URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
@@ -319,76 +319,84 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.invokeUrl;
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The name of the stage
+     * Name of the stage
      * 
      */
     @Export(name="stageName", type=String.class, parameters={})
     private Output<String> stageName;
 
     /**
-     * @return The name of the stage
+     * @return Name of the stage
      * 
      */
     public Output<String> stageName() {
         return this.stageName;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A map that defines the stage variables
+     * Map that defines the stage variables
      * 
      */
     @Export(name="variables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> variables;
 
     /**
-     * @return A map that defines the stage variables
+     * @return Map that defines the stage variables
      * 
      */
     public Output<Optional<Map<String,String>>> variables() {
         return Codegen.optional(this.variables);
     }
     /**
-     * The ARN of the WebAcl associated with the Stage.
+     * ARN of the WebAcl associated with the Stage.
      * 
      */
     @Export(name="webAclArn", type=String.class, parameters={})
     private Output<String> webAclArn;
 
     /**
-     * @return The ARN of the WebAcl associated with the Stage.
+     * @return ARN of the WebAcl associated with the Stage.
      * 
      */
     public Output<String> webAclArn() {

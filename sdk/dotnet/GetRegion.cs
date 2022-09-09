@@ -80,13 +80,13 @@ namespace Pulumi.Aws
     public sealed class GetRegionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The EC2 endpoint of the region to select.
+        /// EC2 endpoint of the region to select.
         /// </summary>
         [Input("endpoint")]
         public string? Endpoint { get; set; }
 
         /// <summary>
-        /// The full name of the region to select.
+        /// Full name of the region to select.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -100,13 +100,13 @@ namespace Pulumi.Aws
     public sealed class GetRegionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The EC2 endpoint of the region to select.
+        /// EC2 endpoint of the region to select.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The full name of the region to select.
+        /// Full name of the region to select.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -122,11 +122,11 @@ namespace Pulumi.Aws
     public sealed class GetRegionResult
     {
         /// <summary>
-        /// The region's description in this format: "Location (Region name)".
+        /// Region's description in this format: "Location (Region name)".
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The EC2 endpoint for the selected region.
+        /// EC2 endpoint for the selected region.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the selected region.
+        /// Name of the selected region.
         /// </summary>
         public readonly string Name;
 

@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
     /**
-     * @return A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+     * @return Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
     private @Nullable Boolean modeBlock;
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
@@ -35,14 +35,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
 
     private ResponseHeadersPolicySecurityHeadersConfigXssProtection() {}
     /**
-     * @return A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+     * @return Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
     public Optional<Boolean> modeBlock() {
         return Optional.ofNullable(this.modeBlock);
     }
     /**
-     * @return A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

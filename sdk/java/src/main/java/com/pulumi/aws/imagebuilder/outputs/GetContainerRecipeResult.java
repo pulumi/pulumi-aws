@@ -98,7 +98,7 @@ public final class GetContainerRecipeResult {
      */
     private String version;
     /**
-     * @return The working directory used during build and test workflows.
+     * @return Working directory used during build and test workflows.
      * 
      */
     private String workingDirectory;
@@ -220,7 +220,7 @@ public final class GetContainerRecipeResult {
         return this.version;
     }
     /**
-     * @return The working directory used during build and test workflows.
+     * @return Working directory used during build and test workflows.
      * 
      */
     public String workingDirectory() {

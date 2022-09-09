@@ -12,18 +12,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDocumentResult {
     /**
-     * @return The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+     * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
      */
     private String arn;
     /**
-     * @return The contents of the document.
+     * @return Contents of the document.
      * 
      */
     private String content;
     private @Nullable String documentFormat;
     /**
-     * @return The type of the document.
+     * @return Type of the document.
      * 
      */
     private String documentType;
@@ -37,14 +37,14 @@ public final class GetDocumentResult {
 
     private GetDocumentResult() {}
     /**
-     * @return The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+     * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The contents of the document.
+     * @return Contents of the document.
      * 
      */
     public String content() {
@@ -54,7 +54,7 @@ public final class GetDocumentResult {
         return Optional.ofNullable(this.documentFormat);
     }
     /**
-     * @return The type of the document.
+     * @return Type of the document.
      * 
      */
     public String documentType() {

@@ -13,31 +13,31 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        /// Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         /// <summary>
-        /// A short name for the metric used in predictive scaling policy.
+        /// Short name for the metric used in predictive scaling policy.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// A human-readable label for this metric or expression.
+        /// Human-readable label for this metric or expression.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// A structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        /// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         /// </summary>
         [Input("metricStat")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatGetArgs>? MetricStat { get; set; }
 
         /// <summary>
-        /// A boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        /// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
         /// </summary>
         [Input("returnData")]
         public Input<bool>? ReturnData { get; set; }

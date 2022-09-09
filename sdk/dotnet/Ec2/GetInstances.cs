@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ec2
         private List<string>? _instanceStateNames;
 
         /// <summary>
-        /// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
         /// </summary>
         public List<string> InstanceStateNames
         {
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _instanceTags;
 
         /// <summary>
-        /// A map of tags, each pair of which must
+        /// Map of tags, each pair of which must
         /// exactly match a pair on desired instances.
         /// </summary>
         public Dictionary<string, string> InstanceTags
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _instanceStateNames;
 
         /// <summary>
-        /// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+        /// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
         /// </summary>
         public InputList<string> InstanceStateNames
         {
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _instanceTags;
 
         /// <summary>
-        /// A map of tags, each pair of which must
+        /// Map of tags, each pair of which must
         /// exactly match a pair on desired instances.
         /// </summary>
         public InputMap<string> InstanceTags

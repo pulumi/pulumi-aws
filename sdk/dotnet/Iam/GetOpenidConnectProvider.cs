@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetOpenidConnectProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+        /// ARN of the OpenID Connect provider.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The URL of the OpenID Connect provider.
+        /// URL of the OpenID Connect provider.
         /// </summary>
         [Input("url")]
         public string? Url { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetOpenidConnectProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
+        /// ARN of the OpenID Connect provider.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The URL of the OpenID Connect provider.
+        /// URL of the OpenID Connect provider.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Iam
     {
         public readonly string Arn;
         /// <summary>
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
         /// </summary>
         public readonly ImmutableArray<string> ClientIdLists;
         /// <summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
+        /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public readonly ImmutableArray<string> ThumbprintLists;
         public readonly string Url;

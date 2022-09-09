@@ -48,7 +48,7 @@ class GetDnsNamespaceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the namespace.
+        ARN of the namespace.
         """
         return pulumi.get(self, "arn")
 
@@ -56,7 +56,7 @@ class GetDnsNamespaceResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the namespace.
+        Description of the namespace.
         """
         return pulumi.get(self, "description")
 
@@ -64,7 +64,7 @@ class GetDnsNamespaceResult:
     @pulumi.getter(name="hostedZone")
     def hosted_zone(self) -> str:
         """
-        The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+        ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         """
         return pulumi.get(self, "hosted_zone")
 
@@ -85,7 +85,7 @@ class GetDnsNamespaceResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -128,9 +128,9 @@ def get_dns_namespace(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the namespace.
-    :param Mapping[str, str] tags: A map of tags for the resource.
-    :param str type: The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+    :param str name: Name of the namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -168,8 +168,8 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the namespace.
-    :param Mapping[str, str] tags: A map of tags for the resource.
-    :param str type: The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+    :param str name: Name of the namespace.
+    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     ...

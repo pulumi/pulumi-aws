@@ -27,13 +27,13 @@ public final class GetOriginAccessIdentityResult {
      */
     private String comment;
     /**
-     * @return The current version of the origin access identity&#39;s information.
+     * @return Current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
     private String etag;
     /**
-     * @return A pre-generated ARN for use in S3 bucket policies (see below).
+     * @return Pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      * 
@@ -73,7 +73,7 @@ public final class GetOriginAccessIdentityResult {
         return this.comment;
     }
     /**
-     * @return The current version of the origin access identity&#39;s information.
+     * @return Current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
@@ -81,7 +81,7 @@ public final class GetOriginAccessIdentityResult {
         return this.etag;
     }
     /**
-     * @return A pre-generated ARN for use in S3 bucket policies (see below).
+     * @return Pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      * 

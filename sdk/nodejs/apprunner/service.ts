@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -179,7 +181,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceName!: pulumi.Output<string>;
     /**
-     * A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      */
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
     /**
@@ -187,7 +189,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
-     * The current state of the App Runner service.
+     * Current state of the App Runner service.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -195,7 +197,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -295,7 +297,7 @@ export interface ServiceState {
      */
     serviceName?: pulumi.Input<string>;
     /**
-     * A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      */
     serviceUrl?: pulumi.Input<string>;
     /**
@@ -303,7 +305,7 @@ export interface ServiceState {
      */
     sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
-     * The current state of the App Runner service.
+     * Current state of the App Runner service.
      */
     status?: pulumi.Input<string>;
     /**
@@ -311,7 +313,7 @@ export interface ServiceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

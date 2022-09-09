@@ -17,6 +17,21 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
     public static final DomainAdvancedSecurityOptionsArgs Empty = new DomainAdvancedSecurityOptionsArgs();
 
     /**
+     * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * 
+     */
+    @Import(name="anonymousAuthEnabled")
+    private @Nullable Output<Boolean> anonymousAuthEnabled;
+
+    /**
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * 
+     */
+    public Optional<Output<Boolean>> anonymousAuthEnabled() {
+        return Optional.ofNullable(this.anonymousAuthEnabled);
+    }
+
+    /**
      * Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
      * 
      */
@@ -64,6 +79,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
     private DomainAdvancedSecurityOptionsArgs() {}
 
     private DomainAdvancedSecurityOptionsArgs(DomainAdvancedSecurityOptionsArgs $) {
+        this.anonymousAuthEnabled = $.anonymousAuthEnabled;
         this.enabled = $.enabled;
         this.internalUserDatabaseEnabled = $.internalUserDatabaseEnabled;
         this.masterUserOptions = $.masterUserOptions;
@@ -85,6 +101,27 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
 
         public Builder(DomainAdvancedSecurityOptionsArgs defaults) {
             $ = new DomainAdvancedSecurityOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anonymousAuthEnabled(@Nullable Output<Boolean> anonymousAuthEnabled) {
+            $.anonymousAuthEnabled = anonymousAuthEnabled;
+            return this;
+        }
+
+        /**
+         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anonymousAuthEnabled(Boolean anonymousAuthEnabled) {
+            return anonymousAuthEnabled(Output.of(anonymousAuthEnabled));
         }
 
         /**

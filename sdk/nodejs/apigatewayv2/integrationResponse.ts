@@ -59,7 +59,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -67,15 +67,15 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the `aws.apigatewayv2.Integration`.
+     * Identifier of the `aws.apigatewayv2.Integration`.
      */
     public readonly integrationId!: pulumi.Output<string>;
     /**
-     * The integration response key.
+     * Integration response key.
      */
     public readonly integrationResponseKey!: pulumi.Output<string>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
     public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -130,7 +130,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
  */
 export interface IntegrationResponseState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -138,15 +138,15 @@ export interface IntegrationResponseState {
      */
     contentHandlingStrategy?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.apigatewayv2.Integration`.
+     * Identifier of the `aws.apigatewayv2.Integration`.
      */
     integrationId?: pulumi.Input<string>;
     /**
-     * The integration response key.
+     * Integration response key.
      */
     integrationResponseKey?: pulumi.Input<string>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -160,7 +160,7 @@ export interface IntegrationResponseState {
  */
 export interface IntegrationResponseArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -168,15 +168,15 @@ export interface IntegrationResponseArgs {
      */
     contentHandlingStrategy?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.apigatewayv2.Integration`.
+     * Identifier of the `aws.apigatewayv2.Integration`.
      */
     integrationId: pulumi.Input<string>;
     /**
-     * The integration response key.
+     * Integration response key.
      */
     integrationResponseKey: pulumi.Input<string>;
     /**
-     * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

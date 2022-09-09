@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -141,7 +143,7 @@ export interface GetSubnetResult {
     readonly customerOwnedIpv4Pool: string;
     readonly defaultForAz: boolean;
     /**
-     * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+     * Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
      */
     readonly enableDns64: boolean;
     /**
@@ -160,7 +162,7 @@ export interface GetSubnetResult {
      */
     readonly ipv6CidrBlockAssociationId: string;
     /**
-     * Indicates whether this is an IPv6-only subnet.
+     * Whether this is an IPv6-only subnet.
      */
     readonly ipv6Native: boolean;
     /**

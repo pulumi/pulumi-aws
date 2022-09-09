@@ -16,14 +16,14 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetNodeGroupPlainArgs Empty = new GetNodeGroupPlainArgs();
 
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      * 
      */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
     /**
-     * @return The name of the cluster.
+     * @return Name of the cluster.
      * 
      */
     public String clusterName() {
@@ -31,14 +31,14 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The name of the node group.
+     * Name of the node group.
      * 
      */
     @Import(name="nodeGroupName", required=true)
     private String nodeGroupName;
 
     /**
-     * @return The name of the node group.
+     * @return Name of the node group.
      * 
      */
     public String nodeGroupName() {
@@ -87,7 +87,7 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param clusterName The name of the cluster.
+         * @param clusterName Name of the cluster.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetNodeGroupPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param nodeGroupName The name of the node group.
+         * @param nodeGroupName Name of the node group.
          * 
          * @return builder
          * 

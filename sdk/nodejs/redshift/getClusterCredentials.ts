@@ -32,19 +32,19 @@ export interface GetClusterCredentialsArgs {
      */
     autoCreate?: boolean;
     /**
-     * The unique identifier of the cluster that contains the database for which your are requesting credentials.
+     * Unique identifier of the cluster that contains the database for which your are requesting credentials.
      */
     clusterIdentifier: string;
     /**
-     * A list of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+     * List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
      */
     dbGroups?: string[];
     /**
-     * The name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
+     * Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
      */
     dbName?: string;
     /**
-     * The name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
+     * Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
      */
     dbUser: string;
     /**
@@ -62,13 +62,13 @@ export interface GetClusterCredentialsResult {
     readonly dbGroups?: string[];
     readonly dbName?: string;
     /**
-     * A temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
+     * Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
      */
     readonly dbPassword: string;
     readonly dbUser: string;
     readonly durationSeconds?: number;
     /**
-     * The date and time the password in `dbPassword` expires.
+     * Date and time the password in `dbPassword` expires.
      */
     readonly expiration: string;
     /**
@@ -90,19 +90,19 @@ export interface GetClusterCredentialsOutputArgs {
      */
     autoCreate?: pulumi.Input<boolean>;
     /**
-     * The unique identifier of the cluster that contains the database for which your are requesting credentials.
+     * Unique identifier of the cluster that contains the database for which your are requesting credentials.
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
-     * A list of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+     * List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
      */
     dbGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
+     * Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
      */
     dbName?: pulumi.Input<string>;
     /**
-     * The name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
+     * Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
      */
     dbUser: pulumi.Input<string>;
     /**

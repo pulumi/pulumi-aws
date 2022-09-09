@@ -68,7 +68,7 @@ class StackArgs:
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
         pulumi.set(__self__, "region", region)
@@ -375,7 +375,7 @@ class StackArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -443,7 +443,7 @@ class _StackState:
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
         """
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -789,7 +789,7 @@ class _StackState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -888,7 +888,7 @@ class Stack(pulumi.CustomResource):
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
         """
         ...
     @overload
@@ -1076,7 +1076,7 @@ class Stack(pulumi.CustomResource):
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
-        :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1306,7 +1306,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        The id of the VPC that this stack belongs to.
+        ID of the VPC that this stack belongs to.
         """
         return pulumi.get(self, "vpc_id")
 

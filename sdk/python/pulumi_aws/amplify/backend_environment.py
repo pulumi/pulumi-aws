@@ -20,10 +20,10 @@ class BackendEnvironmentArgs:
                  stack_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BackendEnvironment resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] environment_name: The name for the backend environment.
-        :param pulumi.Input[str] deployment_artifacts: The name of deployment artifacts.
-        :param pulumi.Input[str] stack_name: The AWS CloudFormation stack name of a backend environment.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] environment_name: Name for the backend environment.
+        :param pulumi.Input[str] deployment_artifacts: Name of deployment artifacts.
+        :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "environment_name", environment_name)
@@ -36,7 +36,7 @@ class BackendEnvironmentArgs:
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -48,7 +48,7 @@ class BackendEnvironmentArgs:
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Input[str]:
         """
-        The name for the backend environment.
+        Name for the backend environment.
         """
         return pulumi.get(self, "environment_name")
 
@@ -60,7 +60,7 @@ class BackendEnvironmentArgs:
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of deployment artifacts.
+        Name of deployment artifacts.
         """
         return pulumi.get(self, "deployment_artifacts")
 
@@ -72,7 +72,7 @@ class BackendEnvironmentArgs:
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS CloudFormation stack name of a backend environment.
+        AWS CloudFormation stack name of a backend environment.
         """
         return pulumi.get(self, "stack_name")
 
@@ -91,11 +91,11 @@ class _BackendEnvironmentState:
                  stack_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BackendEnvironment resources.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] deployment_artifacts: The name of deployment artifacts.
-        :param pulumi.Input[str] environment_name: The name for the backend environment.
-        :param pulumi.Input[str] stack_name: The AWS CloudFormation stack name of a backend environment.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for a backend environment that is part of an Amplify app.
+        :param pulumi.Input[str] deployment_artifacts: Name of deployment artifacts.
+        :param pulumi.Input[str] environment_name: Name for the backend environment.
+        :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -112,7 +112,7 @@ class _BackendEnvironmentState:
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -124,7 +124,7 @@ class _BackendEnvironmentState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        ARN for a backend environment that is part of an Amplify app.
         """
         return pulumi.get(self, "arn")
 
@@ -136,7 +136,7 @@ class _BackendEnvironmentState:
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of deployment artifacts.
+        Name of deployment artifacts.
         """
         return pulumi.get(self, "deployment_artifacts")
 
@@ -148,7 +148,7 @@ class _BackendEnvironmentState:
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the backend environment.
+        Name for the backend environment.
         """
         return pulumi.get(self, "environment_name")
 
@@ -160,7 +160,7 @@ class _BackendEnvironmentState:
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS CloudFormation stack name of a backend environment.
+        AWS CloudFormation stack name of a backend environment.
         """
         return pulumi.get(self, "stack_name")
 
@@ -206,10 +206,10 @@ class BackendEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] deployment_artifacts: The name of deployment artifacts.
-        :param pulumi.Input[str] environment_name: The name for the backend environment.
-        :param pulumi.Input[str] stack_name: The AWS CloudFormation stack name of a backend environment.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] deployment_artifacts: Name of deployment artifacts.
+        :param pulumi.Input[str] environment_name: Name for the backend environment.
+        :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         ...
     @overload
@@ -301,11 +301,11 @@ class BackendEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] deployment_artifacts: The name of deployment artifacts.
-        :param pulumi.Input[str] environment_name: The name for the backend environment.
-        :param pulumi.Input[str] stack_name: The AWS CloudFormation stack name of a backend environment.
+        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[str] arn: ARN for a backend environment that is part of an Amplify app.
+        :param pulumi.Input[str] deployment_artifacts: Name of deployment artifacts.
+        :param pulumi.Input[str] environment_name: Name for the backend environment.
+        :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,7 +322,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
         """
-        The unique ID for an Amplify app.
+        Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
@@ -330,7 +330,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+        ARN for a backend environment that is part of an Amplify app.
         """
         return pulumi.get(self, "arn")
 
@@ -338,7 +338,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentArtifacts")
     def deployment_artifacts(self) -> pulumi.Output[str]:
         """
-        The name of deployment artifacts.
+        Name of deployment artifacts.
         """
         return pulumi.get(self, "deployment_artifacts")
 
@@ -346,7 +346,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[str]:
         """
-        The name for the backend environment.
+        Name for the backend environment.
         """
         return pulumi.get(self, "environment_name")
 
@@ -354,7 +354,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[str]:
         """
-        The AWS CloudFormation stack name of a backend environment.
+        AWS CloudFormation stack name of a backend environment.
         """
         return pulumi.get(self, "stack_name")
 

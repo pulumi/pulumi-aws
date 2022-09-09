@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric
     {
         /// <summary>
-        /// The dimensions of the metric.
+        /// Dimensions of the metric.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension> Dimensions;
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         public readonly string MetricName;
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         public readonly string Namespace;
 

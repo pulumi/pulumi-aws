@@ -1346,7 +1346,7 @@ class GetOpenZfsSnapshotFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the snapshot.
+        :param str name: Name of the snapshot.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -1355,7 +1355,7 @@ class GetOpenZfsSnapshotFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the snapshot.
+        Name of the snapshot.
         """
         return pulumi.get(self, "name")
 

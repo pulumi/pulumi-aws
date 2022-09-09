@@ -15,7 +15,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
      */
     private String catalogEncryptionMode;
     /**
-     * @return The ARN of the AWS KMS key to use for encryption at rest.
+     * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
     private String sseAwsKmsKeyId;
@@ -29,7 +29,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
         return this.catalogEncryptionMode;
     }
     /**
-     * @return The ARN of the AWS KMS key to use for encryption at rest.
+     * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
     public String sseAwsKmsKeyId() {

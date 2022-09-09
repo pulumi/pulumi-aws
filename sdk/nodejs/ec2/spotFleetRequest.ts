@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -137,6 +139,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly targetCapacity!: pulumi.Output<number>;
     /**
+     * The unit for the target capacity. This can only be done with `instanceRequirements` defined
+     */
+    public readonly targetCapacityUnitType!: pulumi.Output<string | undefined>;
+    /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
     public readonly targetGroupArns!: pulumi.Output<string[]>;
@@ -199,6 +205,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetCapacity"] = state ? state.targetCapacity : undefined;
+            resourceInputs["targetCapacityUnitType"] = state ? state.targetCapacityUnitType : undefined;
             resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
             resourceInputs["terminateInstancesOnDelete"] = state ? state.terminateInstancesOnDelete : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
@@ -230,6 +237,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetCapacity"] = args ? args.targetCapacity : undefined;
+            resourceInputs["targetCapacityUnitType"] = args ? args.targetCapacityUnitType : undefined;
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             resourceInputs["terminateInstancesOnDelete"] = args ? args.terminateInstancesOnDelete : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
@@ -343,6 +351,10 @@ export interface SpotFleetRequestState {
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
     targetCapacity?: pulumi.Input<number>;
+    /**
+     * The unit for the target capacity. This can only be done with `instanceRequirements` defined
+     */
+    targetCapacityUnitType?: pulumi.Input<string>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
@@ -463,6 +475,10 @@ export interface SpotFleetRequestArgs {
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
     targetCapacity: pulumi.Input<number>;
+    /**
+     * The unit for the target capacity. This can only be done with `instanceRequirements` defined
+     */
+    targetCapacityUnitType?: pulumi.Input<string>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */

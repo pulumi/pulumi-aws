@@ -16,14 +16,14 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBundleArgs Empty = new GetBundleArgs();
 
     /**
-     * The ID of the bundle.
+     * ID of the bundle.
      * 
      */
     @Import(name="bundleId")
     private @Nullable Output<String> bundleId;
 
     /**
-     * @return The ID of the bundle.
+     * @return ID of the bundle.
      * 
      */
     public Optional<Output<String>> bundleId() {
@@ -31,14 +31,14 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * Name of the bundle. You cannot combine this parameter with `bundle_id`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the bundle. You cannot combine this parameter with `bundle_id`.
+     * @return Name of the bundle. You cannot combine this parameter with `bundle_id`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
      * 
      */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
     /**
-     * @return The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+     * @return Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
      * 
      */
     public Optional<Output<String>> owner() {
@@ -87,7 +87,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bundleId The ID of the bundle.
+         * @param bundleId ID of the bundle.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param bundleId The ID of the bundle.
+         * @param bundleId ID of the bundle.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the bundle. You cannot combine this parameter with `bundle_id`.
+         * @param name Name of the bundle. You cannot combine this parameter with `bundle_id`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the bundle. You cannot combine this parameter with `bundle_id`.
+         * @param name Name of the bundle. You cannot combine this parameter with `bundle_id`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetBundleArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owner The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
          * 
          * @return builder
          * 

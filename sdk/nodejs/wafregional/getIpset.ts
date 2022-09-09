@@ -34,7 +34,7 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetIpsetArgs {
     /**
-     * The name of the WAF Regional IP set.
+     * Name of the WAF Regional IP set.
      */
     name: string;
 }
@@ -59,7 +59,7 @@ export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetIpsetOutputArgs {
     /**
-     * The name of the WAF Regional IP set.
+     * Name of the WAF Regional IP set.
      */
     name: pulumi.Input<string>;
 }

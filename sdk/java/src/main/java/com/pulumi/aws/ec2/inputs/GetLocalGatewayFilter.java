@@ -14,7 +14,7 @@ public final class GetLocalGatewayFilter extends com.pulumi.resources.InvokeArgs
     public static final GetLocalGatewayFilter Empty = new GetLocalGatewayFilter();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
      * 
      */
@@ -22,7 +22,7 @@ public final class GetLocalGatewayFilter extends com.pulumi.resources.InvokeArgs
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
      * 
      */
@@ -73,7 +73,7 @@ public final class GetLocalGatewayFilter extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
          * 
          * @return builder

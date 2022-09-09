@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +39,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetTableArgs {
     /**
-     * The name of the DynamoDB table.
+     * Name of the DynamoDB table.
      */
     name: string;
     serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
@@ -83,7 +85,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetTableOutputArgs {
     /**
-     * The name of the DynamoDB table.
+     * Name of the DynamoDB table.
      */
     name: pulumi.Input<string>;
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.GetTableServerSideEncryptionArgs>;

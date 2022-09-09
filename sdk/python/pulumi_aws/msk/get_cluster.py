@@ -72,7 +72,7 @@ class GetClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the MSK cluster.
+        ARN of the MSK cluster.
         """
         return pulumi.get(self, "arn")
 

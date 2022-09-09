@@ -77,7 +77,7 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Application.
+	// ARN of the Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigEnabled"`
@@ -88,13 +88,16 @@ type Application struct {
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrOutput `pulumi:"groupingType"`
 	// When set to `true`, creates opsItems for any problems detected on an application.
+	// <<<<<<< HEAD
 	OpsCenterEnabled pulumi.BoolPtrOutput `pulumi:"opsCenterEnabled"`
-	// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSnsTopicArn"`
-	// The name of the resource group.
+	// Name of the resource group.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// > > > > > > > v4.29.0
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -130,7 +133,7 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// Amazon Resource Name (ARN) of the Application.
+	// ARN of the Application.
 	Arn *string `pulumi:"arn"`
 	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
 	AutoConfigEnabled *bool `pulumi:"autoConfigEnabled"`
@@ -141,18 +144,21 @@ type applicationState struct {
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType *string `pulumi:"groupingType"`
 	// When set to `true`, creates opsItems for any problems detected on an application.
+	// <<<<<<< HEAD
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
-	// The name of the resource group.
+	// Name of the resource group.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// > > > > > > > v4.29.0
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// Amazon Resource Name (ARN) of the Application.
+	// ARN of the Application.
 	Arn pulumi.StringPtrInput
 	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrInput
@@ -163,13 +169,16 @@ type ApplicationState struct {
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrInput
 	// When set to `true`, creates opsItems for any problems detected on an application.
+	// <<<<<<< HEAD
 	OpsCenterEnabled pulumi.BoolPtrInput
-	// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrInput
-	// The name of the resource group.
+	// Name of the resource group.
 	ResourceGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// > > > > > > > v4.29.0
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -187,12 +196,14 @@ type applicationArgs struct {
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType *string `pulumi:"groupingType"`
 	// When set to `true`, creates opsItems for any problems detected on an application.
+	// <<<<<<< HEAD
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
-	// The name of the resource group.
+	// Name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// > > > > > > > v4.29.0
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -207,12 +218,14 @@ type ApplicationArgs struct {
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrInput
 	// When set to `true`, creates opsItems for any problems detected on an application.
+	// <<<<<<< HEAD
 	OpsCenterEnabled pulumi.BoolPtrInput
-	// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrInput
-	// The name of the resource group.
+	// Name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// > > > > > > > v4.29.0
 	Tags pulumi.StringMapInput
 }
 
@@ -303,7 +316,7 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Application.
+// ARN of the Application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -329,25 +342,28 @@ func (o ApplicationOutput) GroupingType() pulumi.StringPtrOutput {
 }
 
 // When set to `true`, creates opsItems for any problems detected on an application.
+// <<<<<<< HEAD
 func (o ApplicationOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.OpsCenterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 func (o ApplicationOutput) OpsItemSnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.OpsItemSnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group.
+// Name of the resource group.
 func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// > > > > > > > v4.29.0
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

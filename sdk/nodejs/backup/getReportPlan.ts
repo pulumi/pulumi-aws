@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetReportPlanArgs {
     /**
-     * The backup report plan name.
+     * Backup report plan name.
      */
     name: string;
     /**
@@ -50,19 +52,19 @@ export interface GetReportPlanArgs {
  */
 export interface GetReportPlanResult {
     /**
-     * The ARN of the backup report plan.
+     * ARN of the backup report plan.
      */
     readonly arn: string;
     /**
-     * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      */
     readonly creationTime: string;
     /**
-     * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      */
     readonly deploymentStatus: string;
     /**
-     * The description of the report plan.
+     * Description of the report plan.
      */
     readonly description: string;
     /**
@@ -93,7 +95,7 @@ export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi
  */
 export interface GetReportPlanOutputArgs {
     /**
-     * The backup report plan name.
+     * Backup report plan name.
      */
     name: pulumi.Input<string>;
     /**

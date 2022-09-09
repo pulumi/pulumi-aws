@@ -126,7 +126,7 @@ class GetObjectResult:
     @pulumi.getter(name="cacheControl")
     def cache_control(self) -> str:
         """
-        Specifies caching behavior along the request/reply chain.
+        Caching behavior along the request/reply chain.
         """
         return pulumi.get(self, "cache_control")
 
@@ -134,7 +134,7 @@ class GetObjectResult:
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> str:
         """
-        Specifies presentational information for the object.
+        Presentational information for the object.
         """
         return pulumi.get(self, "content_disposition")
 
@@ -142,7 +142,7 @@ class GetObjectResult:
     @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> str:
         """
-        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+        What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
         """
         return pulumi.get(self, "content_encoding")
 
@@ -150,7 +150,7 @@ class GetObjectResult:
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> str:
         """
-        The language the content is in.
+        Language the content is in.
         """
         return pulumi.get(self, "content_language")
 
@@ -166,7 +166,7 @@ class GetObjectResult:
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
         """
-        A standard MIME type describing the format of the object data.
+        Standard MIME type describing the format of the object data.
         """
         return pulumi.get(self, "content_type")
 
@@ -190,7 +190,7 @@ class GetObjectResult:
     @pulumi.getter
     def expires(self) -> str:
         """
-        The date and time at which the object is no longer cacheable.
+        Date and time at which the object is no longer cacheable.
         """
         return pulumi.get(self, "expires")
 
@@ -219,7 +219,7 @@ class GetObjectResult:
     @pulumi.getter
     def metadata(self) -> Mapping[str, str]:
         """
-        A map of metadata stored with the object in S3
+        Map of metadata stored with the object in S3
         """
         return pulumi.get(self, "metadata")
 
@@ -235,7 +235,7 @@ class GetObjectResult:
     @pulumi.getter(name="objectLockMode")
     def object_lock_mode(self) -> str:
         """
-        The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+        Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
         """
         return pulumi.get(self, "object_lock_mode")
 
@@ -280,7 +280,7 @@ class GetObjectResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the object.
+        Map of tags assigned to the object.
         """
         return pulumi.get(self, "tags")
 
@@ -288,7 +288,7 @@ class GetObjectResult:
     @pulumi.getter(name="versionId")
     def version_id(self) -> str:
         """
-        The latest version ID of the object returned.
+        Latest version ID of the object returned.
         """
         return pulumi.get(self, "version_id")
 
@@ -385,9 +385,9 @@ def get_object(bucket: Optional[str] = None,
     ```
 
 
-    :param str bucket: The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param str key: The full path to the object inside the bucket
-    :param Mapping[str, str] tags: A map of tags assigned to the object.
+    :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str key: Full path to the object inside the bucket
+    :param Mapping[str, str] tags: Map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     __args__ = dict()
@@ -479,9 +479,9 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str bucket: The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param str key: The full path to the object inside the bucket
-    :param Mapping[str, str] tags: A map of tags assigned to the object.
+    :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str key: Full path to the object inside the bucket
+    :param Mapping[str, str] tags: Map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     ...

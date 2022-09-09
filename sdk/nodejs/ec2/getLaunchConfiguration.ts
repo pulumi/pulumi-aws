@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +37,7 @@ export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: 
  */
 export interface GetLaunchConfigurationArgs {
     /**
-     * The name of the launch configuration.
+     * Name of the launch configuration.
      */
     name: string;
 }
@@ -45,7 +47,7 @@ export interface GetLaunchConfigurationArgs {
  */
 export interface GetLaunchConfigurationResult {
     /**
-     * The Amazon Resource Name of the launch configuration.
+     * Amazon Resource Name of the launch configuration.
      */
     readonly arn: string;
     /**
@@ -53,7 +55,7 @@ export interface GetLaunchConfigurationResult {
      */
     readonly associatePublicIpAddress: boolean;
     /**
-     * The EBS Block Devices attached to the instance.
+     * EBS Block Devices attached to the instance.
      */
     readonly ebsBlockDevices: outputs.ec2.GetLaunchConfigurationEbsBlockDevice[];
     /**
@@ -77,47 +79,47 @@ export interface GetLaunchConfigurationResult {
      */
     readonly id: string;
     /**
-     * The EC2 Image ID of the instance.
+     * EC2 Image ID of the instance.
      */
     readonly imageId: string;
     /**
-     * The Instance Type of the instance to launch.
+     * Instance Type of the instance to launch.
      */
     readonly instanceType: string;
     /**
-     * The Key Name that should be used for the instance.
+     * Key Name that should be used for the instance.
      */
     readonly keyName: string;
     /**
-     * The metadata options for the instance.
+     * Metadata options for the instance.
      */
     readonly metadataOptions: outputs.ec2.GetLaunchConfigurationMetadataOption[];
     /**
-     * The Name of the launch configuration.
+     * Name of the launch configuration.
      */
     readonly name: string;
     /**
-     * The Tenancy of the instance.
+     * Tenancy of the instance.
      */
     readonly placementTenancy: string;
     /**
-     * The Root Block Device of the instance.
+     * Root Block Device of the instance.
      */
     readonly rootBlockDevices: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
     /**
-     * A list of associated Security Group IDS.
+     * List of associated Security Group IDS.
      */
     readonly securityGroups: string[];
     /**
-     * The Price to use for reserving Spot instances.
+     * Price to use for reserving Spot instances.
      */
     readonly spotPrice: string;
     /**
-     * The User Data of the instance.
+     * User Data of the instance.
      */
     readonly userData: string;
     /**
-     * The ID of a ClassicLink-enabled VPC.
+     * ID of a ClassicLink-enabled VPC.
      */
     readonly vpcClassicLinkId: string;
     /**
@@ -135,7 +137,7 @@ export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputA
  */
 export interface GetLaunchConfigurationOutputArgs {
     /**
-     * The name of the launch configuration.
+     * Name of the launch configuration.
      */
     name: pulumi.Input<string>;
 }

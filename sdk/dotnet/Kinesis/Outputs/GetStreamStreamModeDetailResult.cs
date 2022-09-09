@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class GetStreamStreamModeDetailResult
     {
         /// <summary>
-        /// The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+        /// Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
         /// </summary>
         public readonly string StreamMode;
 

@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Log Publishing to CloudWatch Logs
+ * ### Log publishing to CloudWatch Logs
  * ```java
  * package generated_program;
  * 
@@ -293,6 +293,135 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleServiceLinkedRole)
  *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Enabling fine-grained access control on an existing domain
+ * 
+ * This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+ * ### First apply
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
+ *                 .anonymousAuthEnabled(true)
+ *                 .enabled(false)
+ *                 .internalUserDatabaseEnabled(true)
+ *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
+ *                     .masterUserName(&#34;example&#34;)
+ *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
+ *                     .build())
+ *                 .build())
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
+ *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
+ *                 .enforceHttps(true)
+ *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
+ *                 .build())
+ *             .ebsOptions(DomainEbsOptionsArgs.builder()
+ *                 .ebsEnabled(true)
+ *                 .volumeSize(10)
+ *                 .build())
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Second apply
+ * 
+ * Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
+ *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
+ *                 .anonymousAuthEnabled(true)
+ *                 .enabled(true)
+ *                 .internalUserDatabaseEnabled(true)
+ *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
+ *                     .masterUserName(&#34;example&#34;)
+ *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
+ *                     .build())
+ *                 .build())
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceType(&#34;r5.large.search&#34;)
+ *                 .build())
+ *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
+ *                 .enforceHttps(true)
+ *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
+ *                 .build())
+ *             .ebsOptions(DomainEbsOptionsArgs.builder()
+ *                 .ebsEnabled(true)
+ *                 .volumeSize(10)
+ *                 .build())
+ *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
+ *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -553,9 +682,17 @@ public class Domain extends com.pulumi.resources.CustomResource {
     public Output<Optional<DomainSnapshotOptions>> snapshotOptions() {
         return Codegen.optional(this.snapshotOptions);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcDhcpOptionsFilterResult
     {
         /// <summary>
-        /// The name of the field to filter.
+        /// Name of the field to filter.
         /// </summary>
         public readonly string Name;
         /// <summary>

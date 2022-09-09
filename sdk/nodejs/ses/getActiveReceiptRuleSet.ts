@@ -31,7 +31,7 @@ export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<Ge
  */
 export interface GetActiveReceiptRuleSetResult {
     /**
-     * The SES receipt rule set ARN.
+     * SES receipt rule set ARN.
      */
     readonly arn: string;
     /**
@@ -39,7 +39,7 @@ export interface GetActiveReceiptRuleSetResult {
      */
     readonly id: string;
     /**
-     * The name of the rule set
+     * Name of the rule set
      */
     readonly ruleSetName: string;
 }

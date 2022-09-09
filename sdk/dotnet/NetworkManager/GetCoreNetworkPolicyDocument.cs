@@ -317,7 +317,7 @@ namespace Pulumi.Aws.NetworkManager
         private List<Inputs.GetCoreNetworkPolicyDocumentSegmentArgs>? _segments;
 
         /// <summary>
-        /// A block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentSegmentArgs> Segments
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs>? _segments;
 
         /// <summary>
-        /// A block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
+        /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs> Segments
         {

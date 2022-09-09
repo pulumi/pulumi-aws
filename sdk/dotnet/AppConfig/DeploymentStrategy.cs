@@ -50,7 +50,7 @@ namespace Pulumi.Aws.AppConfig
     public partial class DeploymentStrategy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+        /// ARN of the AppConfig Deployment Strategy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -62,31 +62,31 @@ namespace Pulumi.Aws.AppConfig
         public Output<int> DeploymentDurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the deployment strategy. Can be at most 1024 characters.
+        /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+        /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
         [Output("finalBakeTimeInMinutes")]
         public Output<int?> FinalBakeTimeInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+        /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
         [Output("growthFactor")]
         public Output<double> GrowthFactor { get; private set; } = null!;
 
         /// <summary>
-        /// The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+        /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
         [Output("growthType")]
         public Output<string?> GrowthType { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the deployment strategy. Must be between 1 and 64 characters in length.
+        /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> ReplicateTo { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,31 +162,31 @@ namespace Pulumi.Aws.AppConfig
         public Input<int> DeploymentDurationInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// A description of the deployment strategy. Can be at most 1024 characters.
+        /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+        /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
         [Input("finalBakeTimeInMinutes")]
         public Input<int>? FinalBakeTimeInMinutes { get; set; }
 
         /// <summary>
-        /// The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+        /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
         [Input("growthFactor", required: true)]
         public Input<double> GrowthFactor { get; set; } = null!;
 
         /// <summary>
-        /// The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+        /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
         [Input("growthType")]
         public Input<string>? GrowthType { get; set; }
 
         /// <summary>
-        /// A name for the deployment strategy. Must be between 1 and 64 characters in length.
+        /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.AppConfig
     public sealed class DeploymentStrategyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
+        /// ARN of the AppConfig Deployment Strategy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -230,31 +230,31 @@ namespace Pulumi.Aws.AppConfig
         public Input<int>? DeploymentDurationInMinutes { get; set; }
 
         /// <summary>
-        /// A description of the deployment strategy. Can be at most 1024 characters.
+        /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+        /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
         [Input("finalBakeTimeInMinutes")]
         public Input<int>? FinalBakeTimeInMinutes { get; set; }
 
         /// <summary>
-        /// The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+        /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
         [Input("growthFactor")]
         public Input<double>? GrowthFactor { get; set; }
 
         /// <summary>
-        /// The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+        /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
         [Input("growthType")]
         public Input<string>? GrowthType { get; set; }
 
         /// <summary>
-        /// A name for the deployment strategy. Must be between 1 and 64 characters in length.
+        /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly bool Displayable;
         /// <summary>
-        /// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+        /// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
         /// </summary>
         public readonly bool Facetable;
         /// <summary>

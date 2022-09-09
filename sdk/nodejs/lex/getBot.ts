@@ -36,11 +36,11 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetBotArgs {
     /**
-     * The name of the bot. The name is case sensitive.
+     * Name of the bot. The name is case sensitive.
      */
     name: string;
     /**
-     * The version or alias of the bot.
+     * Version or alias of the bot.
      */
     version?: string;
 }
@@ -50,7 +50,7 @@ export interface GetBotArgs {
  */
 export interface GetBotResult {
     /**
-     * The ARN of the bot.
+     * ARN of the bot.
      */
     readonly arn: string;
     /**
@@ -58,15 +58,15 @@ export interface GetBotResult {
      */
     readonly checksum: string;
     /**
-     * Specifies if this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+     * If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
      */
     readonly childDirected: boolean;
     /**
-     * The date that the bot was created.
+     * Date that the bot was created.
      */
     readonly createdDate: string;
     /**
-     * A description of the bot.
+     * Description of the bot.
      */
     readonly description: string;
     /**
@@ -90,15 +90,15 @@ export interface GetBotResult {
      */
     readonly idleSessionTtlInSeconds: number;
     /**
-     * The date that the bot was updated.
+     * Date that the bot was updated.
      */
     readonly lastUpdatedDate: string;
     /**
-     * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
+     * Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
      */
     readonly locale: string;
     /**
-     * The name of the bot, case sensitive.
+     * Name of the bot, case sensitive.
      */
     readonly name: string;
     /**
@@ -106,15 +106,15 @@ export interface GetBotResult {
      */
     readonly nluIntentConfidenceThreshold: number;
     /**
-     * The status of the bot.
+     * Status of the bot.
      */
     readonly status: string;
     /**
-     * The version of the bot. For a new bot, the version is always `$LATEST`.
+     * Version of the bot. For a new bot, the version is always `$LATEST`.
      */
     readonly version?: string;
     /**
-     * The Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
+     * Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
      */
     readonly voiceId: string;
 }
@@ -128,11 +128,11 @@ export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetBotOutputArgs {
     /**
-     * The name of the bot. The name is case sensitive.
+     * Name of the bot. The name is case sensitive.
      */
     name: pulumi.Input<string>;
     /**
-     * The version or alias of the bot.
+     * Version or alias of the bot.
      */
     version?: pulumi.Input<string>;
 }

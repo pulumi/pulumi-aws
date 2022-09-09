@@ -29,14 +29,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
     }
 
     /**
-     * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
     @Import(name="resourceLabel", required=true)
     private Output<String> resourceLabel;
 
     /**
-     * @return A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
     public Output<String> resourceLabel() {
@@ -90,7 +90,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
         }
 
         /**
-         * @param resourceLabel A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
         }
 
         /**
-         * @param resourceLabel A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
          * 
          * @return builder
          * 

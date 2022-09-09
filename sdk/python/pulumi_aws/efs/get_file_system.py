@@ -102,7 +102,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
         return pulumi.get(self, "dns_name")
 
@@ -131,7 +131,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -139,7 +139,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> 'outputs.GetFileSystemLifecyclePolicyResult':
         """
-        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+        File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         """
         return pulumi.get(self, "lifecycle_policy")
 
@@ -147,7 +147,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> str:
         """
-        The file system performance mode.
+        File system performance mode.
         """
         return pulumi.get(self, "performance_mode")
 
@@ -164,7 +164,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> int:
         """
-        The current byte count used by the file system.
+        Current byte count used by the file system.
         """
         return pulumi.get(self, "size_in_bytes")
 
@@ -230,7 +230,7 @@ def get_file_system(creation_token: Optional[str] = None,
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
-    :param str file_system_id: The ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
     :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
@@ -284,7 +284,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
-    :param str file_system_id: The ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
     :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
     ...

@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./graph";
-export * from "./invitationAccepter";
-export * from "./member";
+export { GraphArgs, GraphState } from "./graph";
+export type Graph = import("./graph").Graph;
+export const Graph: typeof import("./graph").Graph = null as any;
 
-// Import resources to register:
-import { Graph } from "./graph";
-import { InvitationAccepter } from "./invitationAccepter";
-import { Member } from "./member";
+export { InvitationAccepterArgs, InvitationAccepterState } from "./invitationAccepter";
+export type InvitationAccepter = import("./invitationAccepter").InvitationAccepter;
+export const InvitationAccepter: typeof import("./invitationAccepter").InvitationAccepter = null as any;
+
+export { MemberArgs, MemberState } from "./member";
+export type Member = import("./member").Member;
+export const Member: typeof import("./member").Member = null as any;
+
+utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
+utilities.lazyLoad(exports, ["InvitationAccepter"], () => require("./invitationAccepter"));
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
 const _module = {
     version: utilities.getVersion(),

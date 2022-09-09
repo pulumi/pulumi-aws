@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +75,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     public readonly clusterId!: pulumi.Output<string>;
     /**
@@ -117,7 +119,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
  */
 export interface ManagedScalingPolicyState {
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     clusterId?: pulumi.Input<string>;
     /**
@@ -131,7 +133,7 @@ export interface ManagedScalingPolicyState {
  */
 export interface ManagedScalingPolicyArgs {
     /**
-     * The id of the EMR cluster
+     * ID of the EMR cluster
      */
     clusterId: pulumi.Input<string>;
     /**

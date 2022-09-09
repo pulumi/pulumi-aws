@@ -18,14 +18,14 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
     public static final MeshArgs Empty = new MeshArgs();
 
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * @return Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<MeshSpecArgs> spec;
 
     /**
-     * @return The service mesh specification to apply.
+     * @return Service mesh specification to apply.
      * 
      */
     public Optional<Output<MeshSpecArgs>> spec() {
@@ -48,14 +48,14 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -89,7 +89,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the service mesh. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the service mesh. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name to use for the service mesh. Must be between 1 and 255 characters in length.
+         * @param name Name to use for the service mesh. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The service mesh specification to apply.
+         * @param spec Service mesh specification to apply.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The service mesh specification to apply.
+         * @param spec Service mesh specification to apply.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

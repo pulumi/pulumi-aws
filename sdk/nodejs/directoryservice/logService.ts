@@ -75,7 +75,7 @@ export class LogService extends pulumi.CustomResource {
     }
 
     /**
-     * The id of directory.
+     * ID of directory.
      */
     public readonly directoryId!: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class LogService extends pulumi.CustomResource {
  */
 export interface LogServiceState {
     /**
-     * The id of directory.
+     * ID of directory.
      */
     directoryId?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface LogServiceState {
  */
 export interface LogServiceArgs {
     /**
-     * The id of directory.
+     * ID of directory.
      */
     directoryId: pulumi.Input<string>;
     /**

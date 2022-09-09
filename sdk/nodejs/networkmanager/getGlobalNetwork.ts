@@ -35,11 +35,11 @@ export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.Invok
  */
 export interface GetGlobalNetworkArgs {
     /**
-     * The id of the specific global network to retrieve.
+     * ID of the specific global network to retrieve.
      */
     globalNetworkId: string;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     tags?: {[key: string]: string};
 }
@@ -49,11 +49,11 @@ export interface GetGlobalNetworkArgs {
  */
 export interface GetGlobalNetworkResult {
     /**
-     * The ARN of the global network.
+     * ARN of the global network.
      */
     readonly arn: string;
     /**
-     * The description of the global network.
+     * Description of the global network.
      */
     readonly description: string;
     readonly globalNetworkId: string;
@@ -62,7 +62,7 @@ export interface GetGlobalNetworkResult {
      */
     readonly id: string;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     readonly tags: {[key: string]: string};
 }
@@ -76,11 +76,11 @@ export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: 
  */
 export interface GetGlobalNetworkOutputArgs {
     /**
-     * The id of the specific global network to retrieve.
+     * ID of the specific global network to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

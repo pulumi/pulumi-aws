@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
  *     cidr: aws_vpc.example.cidr_block,
  *     description: "Primary",
- *     prefixListId: aws_ec2_managed_prefix_list.entry.id,
+ *     prefixListId: example.id,
  * });
  * ```
  *

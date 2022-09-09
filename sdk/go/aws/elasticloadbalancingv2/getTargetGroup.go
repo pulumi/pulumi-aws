@@ -67,9 +67,9 @@ func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ..
 
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupArgs struct {
-	// The full ARN of the target group.
+	// Full ARN of the target group.
 	Arn *string `pulumi:"arn"`
-	// The unique name of the target group.
+	// Unique name of the target group.
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -113,9 +113,9 @@ func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputAr
 
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupOutputArgs struct {
-	// The full ARN of the target group.
+	// Full ARN of the target group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The unique name of the target group.
+	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

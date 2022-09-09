@@ -37,15 +37,15 @@ export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promis
  */
 export interface GetApisArgs {
     /**
-     * The API name.
+     * API name.
      */
     name?: string;
     /**
-     * The API protocol.
+     * API protocol.
      */
     protocolType?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
      */
     tags?: {[key: string]: string};
@@ -77,15 +77,15 @@ export function getApisOutput(args?: GetApisOutputArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetApisOutputArgs {
     /**
-     * The API name.
+     * API name.
      */
     name?: pulumi.Input<string>;
     /**
-     * The API protocol.
+     * API protocol.
      */
     protocolType?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

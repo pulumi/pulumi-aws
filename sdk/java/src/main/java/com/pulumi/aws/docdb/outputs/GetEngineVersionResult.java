@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public final class GetEngineVersionResult {
     private @Nullable String engine;
     /**
-     * @return The description of the database engine.
+     * @return Description of the database engine.
      * 
      */
     private String engineDescription;
@@ -43,7 +43,7 @@ public final class GetEngineVersionResult {
     private List<String> validUpgradeTargets;
     private String version;
     /**
-     * @return The description of the database engine version.
+     * @return Description of the database engine version.
      * 
      */
     private String versionDescription;
@@ -53,7 +53,7 @@ public final class GetEngineVersionResult {
         return Optional.ofNullable(this.engine);
     }
     /**
-     * @return The description of the database engine.
+     * @return Description of the database engine.
      * 
      */
     public String engineDescription() {
@@ -97,7 +97,7 @@ public final class GetEngineVersionResult {
         return this.version;
     }
     /**
-     * @return The description of the database engine version.
+     * @return Description of the database engine version.
      * 
      */
     public String versionDescription() {

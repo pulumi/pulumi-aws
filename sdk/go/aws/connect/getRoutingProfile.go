@@ -84,17 +84,17 @@ type LookupRoutingProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	RoutingProfileId *string `pulumi:"routingProfileId"`
-	// A map of tags to assign to the Routing Profile.
+	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRoutingProfile.
 type LookupRoutingProfileResult struct {
-	// The Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn string `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId string `pulumi:"defaultOutboundQueueId"`
-	// Specifies the description of the Routing Profile.
+	// Description of the Routing Profile.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -105,7 +105,7 @@ type LookupRoutingProfileResult struct {
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs     []GetRoutingProfileQueueConfig `pulumi:"queueConfigs"`
 	RoutingProfileId string                         `pulumi:"routingProfileId"`
-	// A map of tags to assign to the Routing Profile.
+	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -130,7 +130,7 @@ type LookupRoutingProfileOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`
-	// A map of tags to assign to the Routing Profile.
+	// Map of tags to assign to the Routing Profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -153,7 +153,7 @@ func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Routing Profile.
+// ARN of the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupRoutingProfileResultOutput) DefaultOutboundQueueId() pulumi.String
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.DefaultOutboundQueueId }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Routing Profile.
+// Description of the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -195,7 +195,7 @@ func (o LookupRoutingProfileResultOutput) RoutingProfileId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.RoutingProfileId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the Routing Profile.
+// Map of tags to assign to the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

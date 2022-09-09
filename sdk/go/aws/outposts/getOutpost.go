@@ -48,7 +48,7 @@ func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getOutpost.
 type GetOutpostArgs struct {
-	// Amazon Resource Name (ARN).
+	// ARN.
 	Arn *string `pulumi:"arn"`
 	// Identifier of the Outpost.
 	Id *string `pulumi:"id"`
@@ -89,7 +89,7 @@ func GetOutpostOutput(ctx *pulumi.Context, args GetOutpostOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getOutpost.
 type GetOutpostOutputArgs struct {
-	// Amazon Resource Name (ARN).
+	// ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Identifier of the Outpost.
 	Id pulumi.StringPtrInput `pulumi:"id"`

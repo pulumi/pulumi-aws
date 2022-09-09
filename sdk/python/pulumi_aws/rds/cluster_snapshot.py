@@ -87,18 +87,18 @@ class _ClusterSnapshotState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
-        :param pulumi.Input[int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[str] engine: Specifies the name of the database engine.
+        :param pulumi.Input[str] engine: Name of the database engine.
         :param pulumi.Input[str] engine_version: Version of the database engine for this DB cluster snapshot.
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
-        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
+        :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID associated with the DB cluster snapshot.
@@ -142,7 +142,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -202,7 +202,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -292,7 +292,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the DB cluster snapshot is encrypted.
+        Whether the DB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -484,18 +484,18 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[str] engine: Specifies the name of the database engine.
+        :param pulumi.Input[str] engine: Name of the database engine.
         :param pulumi.Input[str] engine_version: Version of the database engine for this DB cluster snapshot.
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
-        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
+        :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID associated with the DB cluster snapshot.
@@ -527,7 +527,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[int]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -567,7 +567,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -625,7 +625,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[bool]:
         """
-        Specifies whether the DB cluster snapshot is encrypted.
+        Whether the DB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 

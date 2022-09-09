@@ -14,22 +14,22 @@ import java.util.Objects;
 @CustomType
 public final class GetReportPlanResult {
     /**
-     * @return The ARN of the backup report plan.
+     * @return ARN of the backup report plan.
      * 
      */
     private String arn;
     /**
-     * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     private String creationTime;
     /**
-     * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     private String deploymentStatus;
     /**
-     * @return The description of the report plan.
+     * @return Description of the report plan.
      * 
      */
     private String description;
@@ -57,28 +57,28 @@ public final class GetReportPlanResult {
 
     private GetReportPlanResult() {}
     /**
-     * @return The ARN of the backup report plan.
+     * @return ARN of the backup report plan.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
     public String creationTime() {
         return this.creationTime;
     }
     /**
-     * @return The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
     public String deploymentStatus() {
         return this.deploymentStatus;
     }
     /**
-     * @return The description of the report plan.
+     * @return Description of the report plan.
      * 
      */
     public String description() {

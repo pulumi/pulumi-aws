@@ -71,7 +71,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the REST API.
+        /// ID of the REST API.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the REST API.
+        /// ID of the REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// The ID of the REST API.
+        /// ID of the REST API.
         /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }

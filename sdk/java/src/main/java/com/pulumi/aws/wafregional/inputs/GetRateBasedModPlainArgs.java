@@ -13,14 +13,14 @@ public final class GetRateBasedModPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetRateBasedModPlainArgs Empty = new GetRateBasedModPlainArgs();
 
     /**
-     * The name of the WAF Regional rate based rule.
+     * Name of the WAF Regional rate based rule.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the WAF Regional rate based rule.
+     * @return Name of the WAF Regional rate based rule.
      * 
      */
     public String name() {
@@ -52,7 +52,7 @@ public final class GetRateBasedModPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The name of the WAF Regional rate based rule.
+         * @param name Name of the WAF Regional rate based rule.
          * 
          * @return builder
          * 

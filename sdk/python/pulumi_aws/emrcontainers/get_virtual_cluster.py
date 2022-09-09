@@ -52,7 +52,7 @@ class GetVirtualClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetVirtualClusterResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The Unix epoch time stamp in seconds for when the cluster was created.
+        Unix epoch time stamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -84,7 +84,7 @@ class GetVirtualClusterResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the cluster.
+        Name of the cluster.
         """
         return pulumi.get(self, "name")
 
@@ -92,7 +92,7 @@ class GetVirtualClusterResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+        Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
         """
         return pulumi.get(self, "state")
 
@@ -145,7 +145,7 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
 
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
-    :param str virtual_cluster_id: The ID of the cluster.
+    :param str virtual_cluster_id: ID of the cluster.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -184,6 +184,6 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
-    :param str virtual_cluster_id: The ID of the cluster.
+    :param str virtual_cluster_id: ID of the cluster.
     """
     ...

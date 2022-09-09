@@ -5,20 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./certificateAuthority";
-export * from "./certificateAuthorityCertificate";
-export * from "./getCertificate";
-export * from "./getCertificateAuthority";
-export * from "./permission";
-export * from "./policy";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
 
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { CertificateAuthority } from "./certificateAuthority";
-import { CertificateAuthorityCertificate } from "./certificateAuthorityCertificate";
-import { Permission } from "./permission";
-import { Policy } from "./policy";
+export { CertificateAuthorityArgs, CertificateAuthorityState } from "./certificateAuthority";
+export type CertificateAuthority = import("./certificateAuthority").CertificateAuthority;
+export const CertificateAuthority: typeof import("./certificateAuthority").CertificateAuthority = null as any;
+
+export { CertificateAuthorityCertificateArgs, CertificateAuthorityCertificateState } from "./certificateAuthorityCertificate";
+export type CertificateAuthorityCertificate = import("./certificateAuthorityCertificate").CertificateAuthorityCertificate;
+export const CertificateAuthorityCertificate: typeof import("./certificateAuthorityCertificate").CertificateAuthorityCertificate = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+export { GetCertificateAuthorityArgs, GetCertificateAuthorityResult, GetCertificateAuthorityOutputArgs } from "./getCertificateAuthority";
+export const getCertificateAuthority: typeof import("./getCertificateAuthority").getCertificateAuthority = null as any;
+export const getCertificateAuthorityOutput: typeof import("./getCertificateAuthority").getCertificateAuthorityOutput = null as any;
+
+export { PermissionArgs, PermissionState } from "./permission";
+export type Permission = import("./permission").Permission;
+export const Permission: typeof import("./permission").Permission = null as any;
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["CertificateAuthority"], () => require("./certificateAuthority"));
+utilities.lazyLoad(exports, ["CertificateAuthorityCertificate"], () => require("./certificateAuthorityCertificate"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+utilities.lazyLoad(exports, ["getCertificateAuthority","getCertificateAuthorityOutput"], () => require("./getCertificateAuthority"));
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Athena.Inputs
     public sealed class WorkgroupConfigurationResultConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs>? AclConfiguration { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+        /// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         /// </summary>
         [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }

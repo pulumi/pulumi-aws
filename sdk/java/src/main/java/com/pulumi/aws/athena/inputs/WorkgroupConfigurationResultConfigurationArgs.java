@@ -18,14 +18,14 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
     public static final WorkgroupConfigurationResultConfigurationArgs Empty = new WorkgroupConfigurationResultConfigurationArgs();
 
     /**
-     * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     @Import(name="aclConfiguration")
     private @Nullable Output<WorkgroupConfigurationResultConfigurationAclConfigurationArgs> aclConfiguration;
 
     /**
-     * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     public Optional<Output<WorkgroupConfigurationResultConfigurationAclConfigurationArgs>> aclConfiguration() {
@@ -48,14 +48,14 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
     }
 
     /**
-     * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -63,14 +63,14 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
     }
 
     /**
-     * The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+     * Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
     @Import(name="outputLocation")
     private @Nullable Output<String> outputLocation;
 
     /**
-     * @return The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
     public Optional<Output<String>> outputLocation() {
@@ -105,7 +105,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param aclConfiguration Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param aclConfiguration Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param expectedBucketOwner The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param expectedBucketOwner The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputLocation The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+         * @param outputLocation Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
         }
 
         /**
-         * @param outputLocation The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+         * @param outputLocation Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
          * 
          * @return builder
          * 

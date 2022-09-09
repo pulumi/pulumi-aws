@@ -23,10 +23,10 @@ class EventIntegrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventIntegration resource.
-        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-        :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
-        :param pulumi.Input[str] description: Specifies the description of the Event Integration.
-        :param pulumi.Input[str] name: Specifies the name of the Event Integration.
+        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
+        :param pulumi.Input[str] description: Description of the Event Integration.
+        :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_filter", event_filter)
@@ -42,7 +42,7 @@ class EventIntegrationArgs:
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Input['EventIntegrationEventFilterArgs']:
         """
-        A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         """
         return pulumi.get(self, "event_filter")
 
@@ -54,7 +54,7 @@ class EventIntegrationArgs:
     @pulumi.getter(name="eventbridgeBus")
     def eventbridge_bus(self) -> pulumi.Input[str]:
         """
-        Specifies the EventBridge bus.
+        EventBridge bus.
         """
         return pulumi.get(self, "eventbridge_bus")
 
@@ -66,7 +66,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the description of the Event Integration.
+        Description of the Event Integration.
         """
         return pulumi.get(self, "description")
 
@@ -78,7 +78,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Event Integration.
+        Name of the Event Integration.
         """
         return pulumi.get(self, "name")
 
@@ -111,12 +111,13 @@ class _EventIntegrationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EventIntegration resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Event Integration.
-        :param pulumi.Input[str] description: Specifies the description of the Event Integration.
-        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-        :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
-        :param pulumi.Input[str] name: Specifies the name of the Event Integration.
+        :param pulumi.Input[str] arn: ARN of the Event Integration.
+        :param pulumi.Input[str] description: Description of the Event Integration.
+        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
+        :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -137,7 +138,7 @@ class _EventIntegrationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Event Integration.
+        ARN of the Event Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -149,7 +150,7 @@ class _EventIntegrationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the description of the Event Integration.
+        Description of the Event Integration.
         """
         return pulumi.get(self, "description")
 
@@ -161,7 +162,7 @@ class _EventIntegrationState:
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> Optional[pulumi.Input['EventIntegrationEventFilterArgs']]:
         """
-        A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         """
         return pulumi.get(self, "event_filter")
 
@@ -173,7 +174,7 @@ class _EventIntegrationState:
     @pulumi.getter(name="eventbridgeBus")
     def eventbridge_bus(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the EventBridge bus.
+        EventBridge bus.
         """
         return pulumi.get(self, "eventbridge_bus")
 
@@ -185,7 +186,7 @@ class _EventIntegrationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Event Integration.
+        Name of the Event Integration.
         """
         return pulumi.get(self, "name")
 
@@ -208,6 +209,9 @@ class _EventIntegrationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -256,10 +260,10 @@ class EventIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Specifies the description of the Event Integration.
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-        :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
-        :param pulumi.Input[str] name: Specifies the name of the Event Integration.
+        :param pulumi.Input[str] description: Description of the Event Integration.
+        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
+        :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -360,12 +364,13 @@ class EventIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Event Integration.
-        :param pulumi.Input[str] description: Specifies the description of the Event Integration.
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-        :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
-        :param pulumi.Input[str] name: Specifies the name of the Event Integration.
+        :param pulumi.Input[str] arn: ARN of the Event Integration.
+        :param pulumi.Input[str] description: Description of the Event Integration.
+        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
+        :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -384,7 +389,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the Event Integration.
+        ARN of the Event Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -392,7 +397,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the description of the Event Integration.
+        Description of the Event Integration.
         """
         return pulumi.get(self, "description")
 
@@ -400,7 +405,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Output['outputs.EventIntegrationEventFilter']:
         """
-        A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         """
         return pulumi.get(self, "event_filter")
 
@@ -408,7 +413,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter(name="eventbridgeBus")
     def eventbridge_bus(self) -> pulumi.Output[str]:
         """
-        Specifies the EventBridge bus.
+        EventBridge bus.
         """
         return pulumi.get(self, "eventbridge_bus")
 
@@ -416,7 +421,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Event Integration.
+        Name of the Event Integration.
         """
         return pulumi.get(self, "name")
 
@@ -431,5 +436,8 @@ class EventIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

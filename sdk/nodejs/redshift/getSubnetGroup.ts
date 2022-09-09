@@ -35,11 +35,11 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetSubnetGroupArgs {
     /**
-     * The name of the cluster subnet group for which information is requested.
+     * Name of the cluster subnet group for which information is requested.
      */
     name: string;
     /**
-     * The tags associated to the Subnet Group
+     * Tags associated to the Subnet Group
      */
     tags?: {[key: string]: string};
 }
@@ -49,11 +49,11 @@ export interface GetSubnetGroupArgs {
  */
 export interface GetSubnetGroupResult {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Subnet Group name.
+     * ARN of the Redshift Subnet Group name.
      */
     readonly arn: string;
     /**
-     * The description of the Redshift Subnet group.
+     * Description of the Redshift Subnet group.
      */
     readonly description: string;
     /**
@@ -66,7 +66,7 @@ export interface GetSubnetGroupResult {
      */
     readonly subnetIds: string[];
     /**
-     * The tags associated to the Subnet Group
+     * Tags associated to the Subnet Group
      */
     readonly tags: {[key: string]: string};
 }
@@ -80,11 +80,11 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
  */
 export interface GetSubnetGroupOutputArgs {
     /**
-     * The name of the cluster subnet group for which information is requested.
+     * Name of the cluster subnet group for which information is requested.
      */
     name: pulumi.Input<string>;
     /**
-     * The tags associated to the Subnet Group
+     * Tags associated to the Subnet Group
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

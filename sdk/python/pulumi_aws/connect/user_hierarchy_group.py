@@ -101,6 +101,7 @@ class _UserHierarchyGroupState:
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -217,6 +218,9 @@ class _UserHierarchyGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -410,6 +414,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -490,5 +495,8 @@ class UserHierarchyGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

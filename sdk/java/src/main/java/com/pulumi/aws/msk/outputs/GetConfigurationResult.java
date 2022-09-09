@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationResult {
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     private String arn;
@@ -45,7 +45,7 @@ public final class GetConfigurationResult {
 
     private GetConfigurationResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     public String arn() {

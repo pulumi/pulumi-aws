@@ -45,7 +45,7 @@ class GetPlanResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the backup plan.
+        ARN of the backup plan.
         """
         return pulumi.get(self, "arn")
 
@@ -61,7 +61,7 @@ class GetPlanResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The display name of a backup plan.
+        Display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
@@ -117,7 +117,7 @@ def get_plan(plan_id: Optional[str] = None,
     ```
 
 
-    :param str plan_id: The backup plan ID.
+    :param str plan_id: Backup plan ID.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the plans you create.
     """
     __args__ = dict()
@@ -152,7 +152,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str plan_id: The backup plan ID.
+    :param str plan_id: Backup plan ID.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the plans you create.
     """
     ...

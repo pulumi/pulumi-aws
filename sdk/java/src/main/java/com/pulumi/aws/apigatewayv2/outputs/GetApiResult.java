@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApiResult {
     /**
-     * @return The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
     private String apiEndpoint;
@@ -26,18 +26,18 @@ public final class GetApiResult {
      */
     private String apiKeySelectionExpression;
     /**
-     * @return The ARN of the API.
+     * @return ARN of the API.
      * 
      */
     private String arn;
     /**
-     * @return The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      * 
      */
     private List<GetApiCorsConfiguration> corsConfigurations;
     /**
-     * @return The description of the API.
+     * @return Description of the API.
      * 
      */
     private String description;
@@ -59,12 +59,12 @@ public final class GetApiResult {
      */
     private String id;
     /**
-     * @return The name of the API.
+     * @return Name of the API.
      * 
      */
     private String name;
     /**
-     * @return The API protocol.
+     * @return API protocol.
      * 
      */
     private String protocolType;
@@ -74,19 +74,19 @@ public final class GetApiResult {
      */
     private String routeSelectionExpression;
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return A version identifier for the API.
+     * @return Version identifier for the API.
      * 
      */
     private String version;
 
     private GetApiResult() {}
     /**
-     * @return The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * @return URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
     public String apiEndpoint() {
@@ -104,14 +104,14 @@ public final class GetApiResult {
         return this.apiKeySelectionExpression;
     }
     /**
-     * @return The ARN of the API.
+     * @return ARN of the API.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      * 
      */
@@ -119,7 +119,7 @@ public final class GetApiResult {
         return this.corsConfigurations;
     }
     /**
-     * @return The description of the API.
+     * @return Description of the API.
      * 
      */
     public String description() {
@@ -149,14 +149,14 @@ public final class GetApiResult {
         return this.id;
     }
     /**
-     * @return The name of the API.
+     * @return Name of the API.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The API protocol.
+     * @return API protocol.
      * 
      */
     public String protocolType() {
@@ -170,14 +170,14 @@ public final class GetApiResult {
         return this.routeSelectionExpression;
     }
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return A version identifier for the API.
+     * @return Version identifier for the API.
      * 
      */
     public String version() {

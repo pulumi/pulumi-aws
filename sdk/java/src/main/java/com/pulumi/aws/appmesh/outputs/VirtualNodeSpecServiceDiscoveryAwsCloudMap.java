@@ -12,32 +12,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecServiceDiscoveryAwsCloudMap {
     /**
-     * @return A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+     * @return String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
      * 
      */
     private @Nullable Map<String,String> attributes;
     /**
-     * @return The name of the AWS Cloud Map namespace to use.
+     * @return Name of the AWS Cloud Map namespace to use.
      * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
     private String namespaceName;
     /**
-     * @return The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
+     * @return Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
      * 
      */
     private String serviceName;
 
     private VirtualNodeSpecServiceDiscoveryAwsCloudMap() {}
     /**
-     * @return A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+     * @return String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
      * 
      */
     public Map<String,String> attributes() {
         return this.attributes == null ? Map.of() : this.attributes;
     }
     /**
-     * @return The name of the AWS Cloud Map namespace to use.
+     * @return Name of the AWS Cloud Map namespace to use.
      * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
@@ -45,7 +45,7 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMap {
         return this.namespaceName;
     }
     /**
-     * @return The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
+     * @return Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
      * 
      */
     public String serviceName() {

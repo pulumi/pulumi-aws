@@ -74,13 +74,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The arn of the ECS Cluster
+        /// ARN of the ECS Cluster
         /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ECS Service
+        /// Name of the ECS Service
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The arn of the ECS Cluster
+        /// ARN of the ECS Cluster
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ECS Service
+        /// Name of the ECS Service
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -140,12 +140,12 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// The ARN of the ECS Service
+        /// ARN of the ECS Service
         /// </summary>
         public readonly string Arn;
         public readonly string ClusterArn;
         /// <summary>
-        /// The number of tasks for the ECS Service
+        /// Number of tasks for the ECS Service
         /// </summary>
         public readonly int DesiredCount;
         /// <summary>
@@ -153,11 +153,11 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The launch type for the ECS Service
+        /// Launch type for the ECS Service
         /// </summary>
         public readonly string LaunchType;
         /// <summary>
-        /// The scheduling strategy for the ECS Service
+        /// Scheduling strategy for the ECS Service
         /// </summary>
         public readonly string SchedulingStrategy;
         public readonly string ServiceName;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The family for the latest ACTIVE revision
+        /// Family for the latest ACTIVE revision
         /// </summary>
         public readonly string TaskDefinition;
 

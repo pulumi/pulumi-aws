@@ -20,14 +20,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     public static final ResolverArgs Empty = new ResolverArgs();
 
     /**
-     * The API ID for the GraphQL API.
+     * API ID for the GraphQL API.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return The API ID for the GraphQL API.
+     * @return API ID for the GraphQL API.
      * 
      */
     public Output<String> apiId() {
@@ -35,14 +35,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CachingConfig.
+     * CachingConfig.
      * 
      */
     @Import(name="cachingConfig")
     private @Nullable Output<ResolverCachingConfigArgs> cachingConfig;
 
     /**
-     * @return The CachingConfig.
+     * @return CachingConfig.
      * 
      */
     public Optional<Output<ResolverCachingConfigArgs>> cachingConfig() {
@@ -50,14 +50,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data source name.
+     * Data source name.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return The data source name.
+     * @return Data source name.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -65,14 +65,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The field name from the schema defined in the GraphQL API.
+     * Field name from the schema defined in the GraphQL API.
      * 
      */
     @Import(name="field", required=true)
     private Output<String> field;
 
     /**
-     * @return The field name from the schema defined in the GraphQL API.
+     * @return Field name from the schema defined in the GraphQL API.
      * 
      */
     public Output<String> field() {
@@ -80,14 +80,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
-     * @return The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     * @return Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -95,14 +95,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     @Import(name="maxBatchSize")
     private @Nullable Output<Integer> maxBatchSize;
 
     /**
-     * @return The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * @return Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
     public Optional<Output<Integer>> maxBatchSize() {
@@ -110,14 +110,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The PipelineConfig.
+     * PipelineConfig.
      * 
      */
     @Import(name="pipelineConfig")
     private @Nullable Output<ResolverPipelineConfigArgs> pipelineConfig;
 
     /**
-     * @return The PipelineConfig.
+     * @return PipelineConfig.
      * 
      */
     public Optional<Output<ResolverPipelineConfigArgs>> pipelineConfig() {
@@ -125,14 +125,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     @Import(name="requestTemplate")
     private @Nullable Output<String> requestTemplate;
 
     /**
-     * @return The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * @return Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     public Optional<Output<String>> requestTemplate() {
@@ -140,14 +140,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     @Import(name="responseTemplate")
     private @Nullable Output<String> responseTemplate;
 
     /**
-     * @return The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+     * @return Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
     public Optional<Output<String>> responseTemplate() {
@@ -170,14 +170,14 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type name from the schema defined in the GraphQL API.
+     * Type name from the schema defined in the GraphQL API.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type name from the schema defined in the GraphQL API.
+     * @return Type name from the schema defined in the GraphQL API.
      * 
      */
     public Output<String> type() {
@@ -219,7 +219,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API ID for the GraphQL API.
+         * @param apiId API ID for the GraphQL API.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The API ID for the GraphQL API.
+         * @param apiId API ID for the GraphQL API.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cachingConfig The CachingConfig.
+         * @param cachingConfig CachingConfig.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cachingConfig The CachingConfig.
+         * @param cachingConfig CachingConfig.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The data source name.
+         * @param dataSource Data source name.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The data source name.
+         * @param dataSource Data source name.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param field The field name from the schema defined in the GraphQL API.
+         * @param field Field name from the schema defined in the GraphQL API.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param field The field name from the schema defined in the GraphQL API.
+         * @param field Field name from the schema defined in the GraphQL API.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The resolver type. Valid values are `UNIT` and `PIPELINE`.
+         * @param kind Resolver type. Valid values are `UNIT` and `PIPELINE`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The resolver type. Valid values are `UNIT` and `PIPELINE`.
+         * @param kind Resolver type. Valid values are `UNIT` and `PIPELINE`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxBatchSize The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+         * @param maxBatchSize Maximum batching size for a resolver. Valid values are between `0` and `2000`.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxBatchSize The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+         * @param maxBatchSize Maximum batching size for a resolver. Valid values are between `0` and `2000`.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineConfig The PipelineConfig.
+         * @param pipelineConfig PipelineConfig.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineConfig The PipelineConfig.
+         * @param pipelineConfig PipelineConfig.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTemplate The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+         * @param requestTemplate Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTemplate The request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+         * @param requestTemplate Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTemplate The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+         * @param responseTemplate Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTemplate The response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
+         * @param responseTemplate Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type name from the schema defined in the GraphQL API.
+         * @param type Type name from the schema defined in the GraphQL API.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type name from the schema defined in the GraphQL API.
+         * @param type Type name from the schema defined in the GraphQL API.
          * 
          * @return builder
          * 

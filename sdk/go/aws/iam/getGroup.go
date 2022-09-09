@@ -50,22 +50,22 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// The friendly IAM group name to match.
+	// Friendly IAM group name to match.
 	GroupName string `pulumi:"groupName"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
-	// The Amazon Resource Name (ARN) specifying the iam user.
+	// User ARN.
 	Arn string `pulumi:"arn"`
-	// The stable and unique string identifying the group.
+	// Stable and unique string identifying the group.
 	GroupId   string `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The path to the iam user.
+	// Path to the IAM user.
 	Path string `pulumi:"path"`
-	// List of objects containing group member information. See supported fields below.
+	// List of objects containing group member information. See below.
 	Users []GetGroupUser `pulumi:"users"`
 }
 
@@ -84,7 +84,7 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// The friendly IAM group name to match.
+	// Friendly IAM group name to match.
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
@@ -107,12 +107,12 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the iam user.
+// User ARN.
 func (o LookupGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The stable and unique string identifying the group.
+// Stable and unique string identifying the group.
 func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
@@ -126,12 +126,12 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The path to the iam user.
+// Path to the IAM user.
 func (o LookupGroupResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// List of objects containing group member information. See supported fields below.
+// List of objects containing group member information. See below.
 func (o LookupGroupResultOutput) Users() GetGroupUserArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupUser { return v.Users }).(GetGroupUserArrayOutput)
 }

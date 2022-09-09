@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -102,43 +104,43 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the associated AppSync API.
+     * ID of the associated AppSync API.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The ARN of the Function object.
+     * ARN of the Function object.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Function data source name.
+     * Function data source name.
      */
     public readonly dataSource!: pulumi.Output<string>;
     /**
-     * The Function description.
+     * Function description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A unique ID representing the Function object.
+     * Unique ID representing the Function object.
      */
     public /*out*/ readonly functionId!: pulumi.Output<string>;
     /**
-     * The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
      */
     public readonly functionVersion!: pulumi.Output<string | undefined>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     /**
-     * The Function name. The function name does not have to be unique.
+     * Function name. The function name does not have to be unique.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
     public readonly requestMappingTemplate!: pulumi.Output<string>;
     /**
-     * The Function response mapping template.
+     * Function response mapping template.
      */
     public readonly responseMappingTemplate!: pulumi.Output<string>;
     /**
@@ -206,43 +208,43 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * The ID of the associated AppSync API.
+     * ID of the associated AppSync API.
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The ARN of the Function object.
+     * ARN of the Function object.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Function data source name.
+     * Function data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**
-     * The Function description.
+     * Function description.
      */
     description?: pulumi.Input<string>;
     /**
-     * A unique ID representing the Function object.
+     * Unique ID representing the Function object.
      */
     functionId?: pulumi.Input<string>;
     /**
-     * The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
      */
     functionVersion?: pulumi.Input<string>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The Function name. The function name does not have to be unique.
+     * Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
     requestMappingTemplate?: pulumi.Input<string>;
     /**
-     * The Function response mapping template.
+     * Function response mapping template.
      */
     responseMappingTemplate?: pulumi.Input<string>;
     /**
@@ -256,35 +258,35 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * The ID of the associated AppSync API.
+     * ID of the associated AppSync API.
      */
     apiId: pulumi.Input<string>;
     /**
-     * The Function data source name.
+     * Function data source name.
      */
     dataSource: pulumi.Input<string>;
     /**
-     * The Function description.
+     * Function description.
      */
     description?: pulumi.Input<string>;
     /**
-     * The version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
      */
     functionVersion?: pulumi.Input<string>;
     /**
-     * The maximum batching size for a resolver. Valid values are between `0` and `2000`.
+     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The Function name. The function name does not have to be unique.
+     * Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+     * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
     requestMappingTemplate: pulumi.Input<string>;
     /**
-     * The Function response mapping template.
+     * Function response mapping template.
      */
     responseMappingTemplate: pulumi.Input<string>;
     /**

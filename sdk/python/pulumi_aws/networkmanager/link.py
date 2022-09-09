@@ -146,6 +146,7 @@ class _LinkState:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the link.
         """
         if arn is not None:
@@ -251,6 +252,9 @@ class _LinkState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -430,6 +434,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the link.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -503,6 +508,9 @@ class Link(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

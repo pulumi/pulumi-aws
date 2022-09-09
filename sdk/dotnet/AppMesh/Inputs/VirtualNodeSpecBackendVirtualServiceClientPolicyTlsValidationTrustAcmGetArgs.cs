@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<string>? _certificateAuthorityArns;
 
         /// <summary>
-        /// One or more ACM Amazon Resource Name (ARN)s.
+        /// One or more ACM ARNs.
         /// </summary>
         public InputList<string> CertificateAuthorityArns
         {

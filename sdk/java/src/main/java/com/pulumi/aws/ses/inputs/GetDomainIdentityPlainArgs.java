@@ -13,14 +13,14 @@ public final class GetDomainIdentityPlainArgs extends com.pulumi.resources.Invok
     public static final GetDomainIdentityPlainArgs Empty = new GetDomainIdentityPlainArgs();
 
     /**
-     * The name of the domain
+     * Name of the domain
      * 
      */
     @Import(name="domain", required=true)
     private String domain;
 
     /**
-     * @return The name of the domain
+     * @return Name of the domain
      * 
      */
     public String domain() {
@@ -52,7 +52,7 @@ public final class GetDomainIdentityPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param domain The name of the domain
+         * @param domain Name of the domain
          * 
          * @return builder
          * 

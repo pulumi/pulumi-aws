@@ -70,7 +70,7 @@ class GetSpotPriceResult:
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> str:
         """
-        The most recent Spot Price value for the given instance type and AZ.
+        Most recent Spot Price value for the given instance type and AZ.
         """
         return pulumi.get(self, "spot_price")
 
@@ -119,9 +119,9 @@ def get_spot_price(availability_zone: Optional[str] = None,
     ```
 
 
-    :param str availability_zone: The availability zone in which to query Spot price information.
+    :param str availability_zone: Availability zone in which to query Spot price information.
     :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-    :param str instance_type: The type of instance for which to query Spot Price information.
+    :param str instance_type: Type of instance for which to query Spot Price information.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -162,8 +162,8 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
     ```
 
 
-    :param str availability_zone: The availability zone in which to query Spot price information.
+    :param str availability_zone: Availability zone in which to query Spot price information.
     :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
-    :param str instance_type: The type of instance for which to query Spot Price information.
+    :param str instance_type: Type of instance for which to query Spot Price information.
     """
     ...

@@ -103,7 +103,7 @@ class GetClusterResult:
     @pulumi.getter(name="aclName")
     def acl_name(self) -> str:
         """
-        The name of the Access Control List associated with the cluster.
+        Name of the Access Control List associated with the cluster.
         """
         return pulumi.get(self, "acl_name")
 
@@ -111,7 +111,7 @@ class GetClusterResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -181,7 +181,7 @@ class GetClusterResult:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> str:
         """
-        The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -198,7 +198,7 @@ class GetClusterResult:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
         """
-        The compute and memory capacity of the nodes in the cluster.
+        Compute and memory capacity of the nodes in the cluster.
         """
         return pulumi.get(self, "node_type")
 
@@ -214,7 +214,7 @@ class GetClusterResult:
     @pulumi.getter(name="numShards")
     def num_shards(self) -> int:
         """
-        The number of shards in the cluster.
+        Number of shards in the cluster.
         """
         return pulumi.get(self, "num_shards")
 
@@ -262,7 +262,7 @@ class GetClusterResult:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> str:
         """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -284,7 +284,7 @@ class GetClusterResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the cluster.
+        Map of tags assigned to the cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -347,7 +347,7 @@ def get_cluster(name: Optional[str] = None,
 
 
     :param str name: Name of the cluster.
-    :param Mapping[str, str] tags: A map of tags assigned to the cluster.
+    :param Mapping[str, str] tags: Map of tags assigned to the cluster.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -401,6 +401,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the cluster.
-    :param Mapping[str, str] tags: A map of tags assigned to the cluster.
+    :param Mapping[str, str] tags: Map of tags assigned to the cluster.
     """
     ...

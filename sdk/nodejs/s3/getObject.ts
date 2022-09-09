@@ -73,16 +73,16 @@ export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetObjectArgs {
     /**
-     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     bucket: string;
     /**
-     * The full path to the object inside the bucket
+     * Full path to the object inside the bucket
      */
     key: string;
     range?: string;
     /**
-     * A map of tags assigned to the object.
+     * Map of tags assigned to the object.
      */
     tags?: {[key: string]: string};
     /**
@@ -105,19 +105,19 @@ export interface GetObjectResult {
      */
     readonly bucketKeyEnabled: boolean;
     /**
-     * Specifies caching behavior along the request/reply chain.
+     * Caching behavior along the request/reply chain.
      */
     readonly cacheControl: string;
     /**
-     * Specifies presentational information for the object.
+     * Presentational information for the object.
      */
     readonly contentDisposition: string;
     /**
-     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+     * What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
      */
     readonly contentEncoding: string;
     /**
-     * The language the content is in.
+     * Language the content is in.
      */
     readonly contentLanguage: string;
     /**
@@ -125,7 +125,7 @@ export interface GetObjectResult {
      */
     readonly contentLength: number;
     /**
-     * A standard MIME type describing the format of the object data.
+     * Standard MIME type describing the format of the object data.
      */
     readonly contentType: string;
     /**
@@ -137,7 +137,7 @@ export interface GetObjectResult {
      */
     readonly expiration: string;
     /**
-     * The date and time at which the object is no longer cacheable.
+     * Date and time at which the object is no longer cacheable.
      */
     readonly expires: string;
     /**
@@ -150,7 +150,7 @@ export interface GetObjectResult {
      */
     readonly lastModified: string;
     /**
-     * A map of metadata stored with the object in S3
+     * Map of metadata stored with the object in S3
      */
     readonly metadata: {[key: string]: string};
     /**
@@ -158,7 +158,7 @@ export interface GetObjectResult {
      */
     readonly objectLockLegalHoldStatus: string;
     /**
-     * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+     * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
      */
     readonly objectLockMode: string;
     /**
@@ -179,11 +179,11 @@ export interface GetObjectResult {
      */
     readonly storageClass: string;
     /**
-     * A map of tags assigned to the object.
+     * Map of tags assigned to the object.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The latest version ID of the object returned.
+     * Latest version ID of the object returned.
      */
     readonly versionId: string;
     /**
@@ -201,16 +201,16 @@ export function getObjectOutput(args: GetObjectOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetObjectOutputArgs {
     /**
-     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     bucket: pulumi.Input<string>;
     /**
-     * The full path to the object inside the bucket
+     * Full path to the object inside the bucket
      */
     key: pulumi.Input<string>;
     range?: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the object.
+     * Map of tags assigned to the object.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

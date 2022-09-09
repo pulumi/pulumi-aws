@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class GetInfrastructureConfigurationsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+        /// Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

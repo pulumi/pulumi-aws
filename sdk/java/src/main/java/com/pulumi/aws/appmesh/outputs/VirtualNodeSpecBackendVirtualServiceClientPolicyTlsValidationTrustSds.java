@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
     /**
-     * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * @return Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
     private String secretName;
 
     private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds() {}
     /**
-     * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * @return Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
     public String secretName() {

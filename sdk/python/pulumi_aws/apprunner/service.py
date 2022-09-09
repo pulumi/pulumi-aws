@@ -191,11 +191,11 @@ class _ServiceState:
         :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-        :param pulumi.Input[str] status: The current state of the App Runner service.
+        :param pulumi.Input[str] status: Current state of the App Runner service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -338,7 +338,7 @@ class _ServiceState:
     @pulumi.getter(name="serviceUrl")
     def service_url(self) -> Optional[pulumi.Input[str]]:
         """
-        A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         """
         return pulumi.get(self, "service_url")
 
@@ -362,7 +362,7 @@ class _ServiceState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the App Runner service.
+        Current state of the App Runner service.
         """
         return pulumi.get(self, "status")
 
@@ -386,7 +386,7 @@ class _ServiceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -729,11 +729,11 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-        :param pulumi.Input[str] status: The current state of the App Runner service.
+        :param pulumi.Input[str] status: Current state of the App Runner service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -831,7 +831,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="serviceUrl")
     def service_url(self) -> pulumi.Output[str]:
         """
-        A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+        Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         """
         return pulumi.get(self, "service_url")
 
@@ -847,7 +847,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current state of the App Runner service.
+        Current state of the App Runner service.
         """
         return pulumi.get(self, "status")
 
@@ -863,7 +863,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

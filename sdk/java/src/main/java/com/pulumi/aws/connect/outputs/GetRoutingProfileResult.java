@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRoutingProfileResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Routing Profile.
+     * @return ARN of the Routing Profile.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetRoutingProfileResult {
      */
     private String defaultOutboundQueueId;
     /**
-     * @return Specifies the description of the Routing Profile.
+     * @return Description of the Routing Profile.
      * 
      */
     private String description;
@@ -47,14 +47,14 @@ public final class GetRoutingProfileResult {
     private List<GetRoutingProfileQueueConfig> queueConfigs;
     private String routingProfileId;
     /**
-     * @return A map of tags to assign to the Routing Profile.
+     * @return Map of tags to assign to the Routing Profile.
      * 
      */
     private Map<String,String> tags;
 
     private GetRoutingProfileResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Routing Profile.
+     * @return ARN of the Routing Profile.
      * 
      */
     public String arn() {
@@ -68,7 +68,7 @@ public final class GetRoutingProfileResult {
         return this.defaultOutboundQueueId;
     }
     /**
-     * @return Specifies the description of the Routing Profile.
+     * @return Description of the Routing Profile.
      * 
      */
     public String description() {
@@ -105,7 +105,7 @@ public final class GetRoutingProfileResult {
         return this.routingProfileId;
     }
     /**
-     * @return A map of tags to assign to the Routing Profile.
+     * @return Map of tags to assign to the Routing Profile.
      * 
      */
     public Map<String,String> tags() {

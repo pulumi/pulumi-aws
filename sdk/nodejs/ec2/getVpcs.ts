@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -32,7 +34,7 @@ export interface GetVpcsArgs {
      */
     filters?: inputs.ec2.GetVpcsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
     tags?: {[key: string]: string};
@@ -48,7 +50,7 @@ export interface GetVpcsResult {
      */
     readonly id: string;
     /**
-     * A list of all the VPC Ids found.
+     * List of all the VPC Ids found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -67,7 +69,7 @@ export interface GetVpcsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

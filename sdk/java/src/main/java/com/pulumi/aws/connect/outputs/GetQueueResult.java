@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetQueueResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Queue.
+     * @return ARN of the Queue.
      * 
      */
     private String arn;
     /**
-     * @return Specifies the description of the Queue.
+     * @return Description of the Queue.
      * 
      */
     private String description;
@@ -35,7 +35,7 @@ public final class GetQueueResult {
     private String id;
     private String instanceId;
     /**
-     * @return Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+     * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
     private Integer maxContacts;
@@ -46,31 +46,31 @@ public final class GetQueueResult {
      */
     private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
     /**
-     * @return The identifier for the Queue.
+     * @return Identifier for the Queue.
      * 
      */
     private String queueId;
     /**
-     * @return Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+     * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
      */
     private String status;
     /**
-     * @return A map of tags assigned to the Queue.
+     * @return Map of tags assigned to the Queue.
      * 
      */
     private Map<String,String> tags;
 
     private GetQueueResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Queue.
+     * @return ARN of the Queue.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Specifies the description of the Queue.
+     * @return Description of the Queue.
      * 
      */
     public String description() {
@@ -94,7 +94,7 @@ public final class GetQueueResult {
         return this.instanceId;
     }
     /**
-     * @return Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+     * @return Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
     public Integer maxContacts() {
@@ -111,21 +111,21 @@ public final class GetQueueResult {
         return this.outboundCallerConfigs;
     }
     /**
-     * @return The identifier for the Queue.
+     * @return Identifier for the Queue.
      * 
      */
     public String queueId() {
         return this.queueId;
     }
     /**
-     * @return Specifies the description of the Queue. Values are `ENABLED` or `DISABLED`.
+     * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A map of tags assigned to the Queue.
+     * @return Map of tags assigned to the Queue.
      * 
      */
     public Map<String,String> tags() {

@@ -15,14 +15,14 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetIntentPlainArgs Empty = new GetIntentPlainArgs();
 
     /**
-     * The name of the intent. The name is case sensitive.
+     * Name of the intent. The name is case sensitive.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the intent. The name is case sensitive.
+     * @return Name of the intent. The name is case sensitive.
      * 
      */
     public String name() {
@@ -30,14 +30,14 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The version of the intent.
+     * Version of the intent.
      * 
      */
     @Import(name="version")
     private @Nullable String version;
 
     /**
-     * @return The version of the intent.
+     * @return Version of the intent.
      * 
      */
     public Optional<String> version() {
@@ -70,7 +70,7 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the intent. The name is case sensitive.
+         * @param name Name of the intent. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetIntentPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version of the intent.
+         * @param version Version of the intent.
          * 
          * @return builder
          * 

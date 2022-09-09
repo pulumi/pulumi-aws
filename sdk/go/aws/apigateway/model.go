@@ -62,15 +62,15 @@ import (
 type Model struct {
 	pulumi.CustomResourceState
 
-	// The content type of the model
+	// Content type of the model
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// The description of the model
+	// Description of the model
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the model
+	// Name of the model
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// The schema of the model in a JSON form
+	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrOutput `pulumi:"schema"`
 }
 
@@ -109,28 +109,28 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	// The content type of the model
+	// Content type of the model
 	ContentType *string `pulumi:"contentType"`
-	// The description of the model
+	// Description of the model
 	Description *string `pulumi:"description"`
-	// The name of the model
+	// Name of the model
 	Name *string `pulumi:"name"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The schema of the model in a JSON form
+	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
 
 type ModelState struct {
-	// The content type of the model
+	// Content type of the model
 	ContentType pulumi.StringPtrInput
-	// The description of the model
+	// Description of the model
 	Description pulumi.StringPtrInput
-	// The name of the model
+	// Name of the model
 	Name pulumi.StringPtrInput
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.Input
-	// The schema of the model in a JSON form
+	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
 
@@ -139,29 +139,29 @@ func (ModelState) ElementType() reflect.Type {
 }
 
 type modelArgs struct {
-	// The content type of the model
+	// Content type of the model
 	ContentType string `pulumi:"contentType"`
-	// The description of the model
+	// Description of the model
 	Description *string `pulumi:"description"`
-	// The name of the model
+	// Name of the model
 	Name *string `pulumi:"name"`
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
-	// The schema of the model in a JSON form
+	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
-	// The content type of the model
+	// Content type of the model
 	ContentType pulumi.StringInput
-	// The description of the model
+	// Description of the model
 	Description pulumi.StringPtrInput
-	// The name of the model
+	// Name of the model
 	Name pulumi.StringPtrInput
-	// The ID of the associated REST API
+	// ID of the associated REST API
 	RestApi pulumi.Input
-	// The schema of the model in a JSON form
+	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
 
@@ -252,27 +252,27 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-// The content type of the model
+// Content type of the model
 func (o ModelOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The description of the model
+// Description of the model
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the model
+// Name of the model
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the associated REST API
+// ID of the associated REST API
 func (o ModelOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// The schema of the model in a JSON form
+// Schema of the model in a JSON form
 func (o ModelOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Schema }).(pulumi.StringPtrOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceEphemeralBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the block device to mount on the instance.
+        /// Name of the block device to mount on the instance.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;

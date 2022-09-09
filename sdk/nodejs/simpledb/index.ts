@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domain";
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
 
-// Import resources to register:
-import { Domain } from "./domain";
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 const _module = {
     version: utilities.getVersion(),

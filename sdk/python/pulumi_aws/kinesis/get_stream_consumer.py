@@ -71,7 +71,7 @@ class GetStreamConsumerResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current status of the stream consumer.
+        Current status of the stream consumer.
         """
         return pulumi.get(self, "status")
 
@@ -115,9 +115,9 @@ def get_stream_consumer(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the stream consumer.
+    :param str arn: ARN of the stream consumer.
     :param str name: Name of the stream consumer.
-    :param str stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+    :param str stream_arn: ARN of the data stream the consumer is registered with.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -156,8 +156,8 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the stream consumer.
+    :param str arn: ARN of the stream consumer.
     :param str name: Name of the stream consumer.
-    :param str stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+    :param str stream_arn: ARN of the data stream the consumer is registered with.
     """
     ...

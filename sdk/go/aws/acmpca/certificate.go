@@ -21,19 +21,19 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The PEM-encoded certificate value.
+	// PEM-encoded certificate value.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
 	SigningAlgorithm pulumi.StringOutput `pulumi:"signingAlgorithm"`
-	// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityOutput `pulumi:"validity"`
@@ -80,38 +80,38 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	Arn *string `pulumi:"arn"`
-	// The PEM-encoded certificate value.
+	// PEM-encoded certificate value.
 	Certificate *string `pulumi:"certificate"`
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain *string `pulumi:"certificateChain"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
 	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
-	// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn *string `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity *CertificateValidity `pulumi:"validity"`
 }
 
 type CertificateState struct {
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	Arn pulumi.StringPtrInput
-	// The PEM-encoded certificate value.
+	// PEM-encoded certificate value.
 	Certificate pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringPtrInput
-	// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain pulumi.StringPtrInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringPtrInput
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
 	SigningAlgorithm pulumi.StringPtrInput
-	// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrInput
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityPtrInput
@@ -122,13 +122,13 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
-	// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn *string `pulumi:"templateArn"`
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidity `pulumi:"validity"`
@@ -136,13 +136,13 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Amazon Resource Name (ARN) of the certificate authority.
+	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringInput
 	// Certificate Signing Request in PEM format.
 	CertificateSigningRequest pulumi.StringInput
 	// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`
 	SigningAlgorithm pulumi.StringInput
-	// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+	// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 	TemplateArn pulumi.StringPtrInput
 	// Configures end of the validity period for the certificate. See validity block below.
 	Validity CertificateValidityInput
@@ -235,22 +235,22 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Amazon Resource Name (ARN) of the certificate.
+// ARN of the certificate.
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded certificate value.
+// PEM-encoded certificate value.
 func (o CertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the certificate authority.
+// ARN of the certificate authority.
 func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 func (o CertificateOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -265,7 +265,7 @@ func (o CertificateOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
 
-// The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+// Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
 func (o CertificateOutput) TemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.TemplateArn }).(pulumi.StringPtrOutput)
 }

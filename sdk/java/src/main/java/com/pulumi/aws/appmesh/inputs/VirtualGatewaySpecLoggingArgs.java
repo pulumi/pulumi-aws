@@ -16,14 +16,14 @@ public final class VirtualGatewaySpecLoggingArgs extends com.pulumi.resources.Re
     public static final VirtualGatewaySpecLoggingArgs Empty = new VirtualGatewaySpecLoggingArgs();
 
     /**
-     * The access log configuration for a virtual gateway.
+     * Access log configuration for a virtual gateway.
      * 
      */
     @Import(name="accessLog")
     private @Nullable Output<VirtualGatewaySpecLoggingAccessLogArgs> accessLog;
 
     /**
-     * @return The access log configuration for a virtual gateway.
+     * @return Access log configuration for a virtual gateway.
      * 
      */
     public Optional<Output<VirtualGatewaySpecLoggingAccessLogArgs>> accessLog() {
@@ -55,7 +55,7 @@ public final class VirtualGatewaySpecLoggingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accessLog The access log configuration for a virtual gateway.
+         * @param accessLog Access log configuration for a virtual gateway.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualGatewaySpecLoggingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accessLog The access log configuration for a virtual gateway.
+         * @param accessLog Access log configuration for a virtual gateway.
          * 
          * @return builder
          * 

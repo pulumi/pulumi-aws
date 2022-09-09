@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +45,7 @@ export function getSpotPrice(args?: GetSpotPriceArgs, opts?: pulumi.InvokeOption
  */
 export interface GetSpotPriceArgs {
     /**
-     * The availability zone in which to query Spot price information.
+     * Availability zone in which to query Spot price information.
      */
     availabilityZone?: string;
     /**
@@ -51,7 +53,7 @@ export interface GetSpotPriceArgs {
      */
     filters?: inputs.ec2.GetSpotPriceFilter[];
     /**
-     * The type of instance for which to query Spot Price information.
+     * Type of instance for which to query Spot Price information.
      */
     instanceType?: string;
 }
@@ -68,7 +70,7 @@ export interface GetSpotPriceResult {
     readonly id: string;
     readonly instanceType?: string;
     /**
-     * The most recent Spot Price value for the given instance type and AZ.
+     * Most recent Spot Price value for the given instance type and AZ.
      */
     readonly spotPrice: string;
     /**
@@ -86,7 +88,7 @@ export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.
  */
 export interface GetSpotPriceOutputArgs {
     /**
-     * The availability zone in which to query Spot price information.
+     * Availability zone in which to query Spot price information.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
@@ -94,7 +96,7 @@ export interface GetSpotPriceOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSpotPriceFilterArgs>[]>;
     /**
-     * The type of instance for which to query Spot Price information.
+     * Type of instance for which to query Spot Price information.
      */
     instanceType?: pulumi.Input<string>;
 }

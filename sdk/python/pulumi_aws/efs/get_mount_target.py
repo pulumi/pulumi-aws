@@ -90,7 +90,7 @@ class GetMountTargetResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        The DNS name for the EFS file system.
+        DNS name for the EFS file system.
         """
         return pulumi.get(self, "dns_name")
 

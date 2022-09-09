@@ -58,15 +58,15 @@ func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArg
 type GetIpamPreviewNextCidrArgs struct {
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
 }
 
 // A collection of values returned by getIpamPreviewNextCidr.
 type GetIpamPreviewNextCidrResult struct {
-	// The previewed CIDR from the pool.
+	// Previewed CIDR from the pool.
 	Cidr            string   `pulumi:"cidr"`
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
 	// The provider-assigned unique ID for this managed resource.
@@ -92,9 +92,9 @@ func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCi
 type GetIpamPreviewNextCidrOutputArgs struct {
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayInput `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput `pulumi:"netmaskLength"`
 }
 
@@ -117,7 +117,7 @@ func (o GetIpamPreviewNextCidrResultOutput) ToGetIpamPreviewNextCidrResultOutput
 	return o
 }
 
-// The previewed CIDR from the pool.
+// Previewed CIDR from the pool.
 func (o GetIpamPreviewNextCidrResultOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpamPreviewNextCidrResult) string { return v.Cidr }).(pulumi.StringOutput)
 }

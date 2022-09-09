@@ -96,7 +96,8 @@ type EventSubscription struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -149,7 +150,8 @@ type eventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -171,7 +173,8 @@ type EventSubscriptionState struct {
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -349,6 +352,7 @@ func (o EventSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

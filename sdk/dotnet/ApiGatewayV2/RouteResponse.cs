@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class RouteResponse : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
@@ -57,19 +57,19 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ModelSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The response models for the route response.
+        /// Response models for the route response.
         /// </summary>
         [Output("responseModels")]
         public Output<ImmutableDictionary<string, string>?> ResponseModels { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Route`.
+        /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
 
         /// <summary>
-        /// The route response key.
+        /// Route response key.
         /// </summary>
         [Output("routeResponseKey")]
         public Output<string> RouteResponseKey { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class RouteResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _responseModels;
 
         /// <summary>
-        /// The response models for the route response.
+        /// Response models for the route response.
         /// </summary>
         public InputMap<string> ResponseModels
         {
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Route`.
+        /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
 
         /// <summary>
-        /// The route response key.
+        /// Route response key.
         /// </summary>
         [Input("routeResponseKey", required: true)]
         public Input<string> RouteResponseKey { get; set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class RouteResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _responseModels;
 
         /// <summary>
-        /// The response models for the route response.
+        /// Response models for the route response.
         /// </summary>
         public InputMap<string> ResponseModels
         {
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The identifier of the `aws.apigatewayv2.Route`.
+        /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Input("routeId")]
         public Input<string>? RouteId { get; set; }
 
         /// <summary>
-        /// The route response key.
+        /// Route response key.
         /// </summary>
         [Input("routeResponseKey")]
         public Input<string>? RouteResponseKey { get; set; }

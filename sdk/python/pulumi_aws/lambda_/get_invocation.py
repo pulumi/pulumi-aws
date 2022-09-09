@@ -93,9 +93,9 @@ def get_invocation(function_name: Optional[str] = None,
     invocation type.
 
 
-    :param str function_name: The name of the lambda function.
-    :param str input: A string in JSON format that is passed as payload to the lambda function.
-    :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults
+    :param str function_name: Name of the lambda function.
+    :param str input: String in JSON format that is passed as payload to the lambda function.
+    :param str qualifier: Qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
     """
     __args__ = dict()
@@ -124,9 +124,9 @@ def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
     invocation type.
 
 
-    :param str function_name: The name of the lambda function.
-    :param str input: A string in JSON format that is passed as payload to the lambda function.
-    :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults
+    :param str function_name: Name of the lambda function.
+    :param str input: String in JSON format that is passed as payload to the lambda function.
+    :param str qualifier: Qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
     """
     ...

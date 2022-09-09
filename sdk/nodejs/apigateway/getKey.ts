@@ -36,11 +36,11 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
  */
 export interface GetKeyArgs {
     /**
-     * The ID of the API Key to look up.
+     * ID of the API Key to look up.
      */
     id: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -50,15 +50,15 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
-     * The date and time when the API Key was created.
+     * Date and time when the API Key was created.
      */
     readonly createdDate: string;
     /**
-     * The description of the API Key.
+     * Description of the API Key.
      */
     readonly description: string;
     /**
-     * Specifies whether the API Key is enabled.
+     * Whether the API Key is enabled.
      */
     readonly enabled: boolean;
     /**
@@ -66,7 +66,7 @@ export interface GetKeyResult {
      */
     readonly id: string;
     /**
-     * The date and time when the API Key was last updated.
+     * Date and time when the API Key was last updated.
      */
     readonly lastUpdatedDate: string;
     /**
@@ -74,7 +74,7 @@ export interface GetKeyResult {
      */
     readonly name: string;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -92,11 +92,11 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetKeyOutputArgs {
     /**
-     * The ID of the API Key to look up.
+     * ID of the API Key to look up.
      */
     id: pulumi.Input<string>;
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

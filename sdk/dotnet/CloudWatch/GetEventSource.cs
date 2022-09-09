@@ -104,11 +104,11 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventSourceResult
     {
         /// <summary>
-        /// The ARN of the partner event source
+        /// ARN of the partner event source
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The name of the SaaS partner that created the event source
+        /// Name of the SaaS partner that created the event source
         /// </summary>
         public readonly string CreatedBy;
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the event source
+        /// Name of the event source
         /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
         /// <summary>
-        /// The state of the event source (`ACTIVE` or `PENDING`)
+        /// State of the event source (`ACTIVE` or `PENDING`)
         /// </summary>
         public readonly string State;
 

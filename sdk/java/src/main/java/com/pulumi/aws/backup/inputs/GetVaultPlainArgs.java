@@ -16,14 +16,14 @@ public final class GetVaultPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVaultPlainArgs Empty = new GetVaultPlainArgs();
 
     /**
-     * The name of the backup vault.
+     * Name of the backup vault.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the backup vault.
+     * @return Name of the backup vault.
      * 
      */
     public String name() {
@@ -71,7 +71,7 @@ public final class GetVaultPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the backup vault.
+         * @param name Name of the backup vault.
          * 
          * @return builder
          * 

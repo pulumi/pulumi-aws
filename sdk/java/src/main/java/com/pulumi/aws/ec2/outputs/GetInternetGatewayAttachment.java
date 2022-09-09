@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class GetInternetGatewayAttachment {
     /**
-     * @return The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+     * @return Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
      */
     private String state;
     /**
-     * @return The ID of an attached VPC.
+     * @return ID of an attached VPC.
      * 
      */
     private String vpcId;
 
     private GetInternetGatewayAttachment() {}
     /**
-     * @return The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+     * @return Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return The ID of an attached VPC.
+     * @return ID of an attached VPC.
      * 
      */
     public String vpcId() {

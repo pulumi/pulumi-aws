@@ -33,14 +33,14 @@ public final class GetNetworkInterfacePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The identifier for the network interface.
+     * Identifier for the network interface.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The identifier for the network interface.
+     * @return Identifier for the network interface.
      * 
      */
     public Optional<String> id() {
@@ -110,7 +110,7 @@ public final class GetNetworkInterfacePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param id The identifier for the network interface.
+         * @param id Identifier for the network interface.
          * 
          * @return builder
          * 

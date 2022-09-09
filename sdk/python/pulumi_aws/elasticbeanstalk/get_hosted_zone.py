@@ -41,7 +41,7 @@ class GetHostedZoneResult:
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        The region of the hosted zone.
+        Region of the hosted zone.
         """
         return pulumi.get(self, "region")
 
@@ -71,7 +71,7 @@ def get_hosted_zone(region: Optional[str] = None,
     ```
 
 
-    :param str region: The region you'd like the zone for. By default, fetches the current region.
+    :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -99,6 +99,6 @@ def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str region: The region you'd like the zone for. By default, fetches the current region.
+    :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
     ...

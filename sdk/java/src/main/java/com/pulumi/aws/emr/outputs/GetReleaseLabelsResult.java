@@ -20,7 +20,7 @@ public final class GetReleaseLabelsResult {
      */
     private String id;
     /**
-     * @return The returned release labels.
+     * @return Returned release labels.
      * 
      */
     private List<String> releaseLabels;
@@ -37,7 +37,7 @@ public final class GetReleaseLabelsResult {
         return this.id;
     }
     /**
-     * @return The returned release labels.
+     * @return Returned release labels.
      * 
      */
     public List<String> releaseLabels() {

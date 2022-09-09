@@ -141,7 +141,7 @@ type LookupSubnetResult struct {
 	// Identifier of customer owned IPv4 address pool.
 	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
 	DefaultForAz          bool   `pulumi:"defaultForAz"`
-	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+	// Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
 	EnableDns64 bool `pulumi:"enableDns64"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecordOnLaunch bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
@@ -152,7 +152,7 @@ type LookupSubnetResult struct {
 	Ipv6CidrBlock                           string            `pulumi:"ipv6CidrBlock"`
 	// Association ID of the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId string `pulumi:"ipv6CidrBlockAssociationId"`
-	// Indicates whether this is an IPv6-only subnet.
+	// Whether this is an IPv6-only subnet.
 	Ipv6Native bool `pulumi:"ipv6Native"`
 	// Whether customer owned IP addresses are assigned on network interface creation.
 	MapCustomerOwnedIpOnLaunch bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
@@ -261,7 +261,7 @@ func (o LookupSubnetResultOutput) DefaultForAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultForAz }).(pulumi.BoolOutput)
 }
 
-// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
+// Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
 func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnableDns64 }).(pulumi.BoolOutput)
 }
@@ -293,7 +293,7 @@ func (o LookupSubnetResultOutput) Ipv6CidrBlockAssociationId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this is an IPv6-only subnet.
+// Whether this is an IPv6-only subnet.
 func (o LookupSubnetResultOutput) Ipv6Native() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.Ipv6Native }).(pulumi.BoolOutput)
 }

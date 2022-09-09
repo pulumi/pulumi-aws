@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CloudControl
         public string Identifier { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+        /// ARN of the IAM Role to assume for operations.
         /// </summary>
         [Input("roleArn")]
         public string? RoleArn { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.CloudControl
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+        /// ARN of the IAM Role to assume for operations.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -35,7 +35,7 @@ export interface GetAuthorizationTokenResult {
      */
     readonly authorizationToken: string;
     /**
-     * The time in UTC RFC3339 format when the authorization token expires.
+     * Time in UTC RFC3339 format when the authorization token expires.
      */
     readonly expiresAt: string;
     /**

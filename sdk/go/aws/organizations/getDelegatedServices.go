@@ -48,14 +48,14 @@ func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, o
 
 // A collection of arguments for invoking getDelegatedServices.
 type GetDelegatedServicesArgs struct {
-	// The account ID number of a delegated administrator account in the organization.
+	// Account ID number of a delegated administrator account in the organization.
 	AccountId string `pulumi:"accountId"`
 }
 
 // A collection of values returned by getDelegatedServices.
 type GetDelegatedServicesResult struct {
 	AccountId string `pulumi:"accountId"`
-	// The services for which the account is a delegated administrator, which have the following attributes:
+	// Services for which the account is a delegated administrator, which have the following attributes:
 	DelegatedServices []GetDelegatedServicesDelegatedService `pulumi:"delegatedServices"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -76,7 +76,7 @@ func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOu
 
 // A collection of arguments for invoking getDelegatedServices.
 type GetDelegatedServicesOutputArgs struct {
-	// The account ID number of a delegated administrator account in the organization.
+	// Account ID number of a delegated administrator account in the organization.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -103,7 +103,7 @@ func (o GetDelegatedServicesResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDelegatedServicesResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The services for which the account is a delegated administrator, which have the following attributes:
+// Services for which the account is a delegated administrator, which have the following attributes:
 func (o GetDelegatedServicesResultOutput) DelegatedServices() GetDelegatedServicesDelegatedServiceArrayOutput {
 	return o.ApplyT(func(v GetDelegatedServicesResult) []GetDelegatedServicesDelegatedService { return v.DelegatedServices }).(GetDelegatedServicesDelegatedServiceArrayOutput)
 }

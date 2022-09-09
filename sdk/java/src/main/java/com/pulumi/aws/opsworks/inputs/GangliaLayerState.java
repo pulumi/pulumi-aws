@@ -274,14 +274,14 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      * 
      */
     @Import(name="stackId")
     private @Nullable Output<String> stackId;
 
     /**
-     * @return The id of the stack the layer will belong to.
+     * @return ID of the stack the layer will belong to.
      * 
      */
     public Optional<Output<String>> stackId() {
@@ -817,7 +817,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stackId The id of the stack the layer will belong to.
+         * @param stackId ID of the stack the layer will belong to.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class GangliaLayerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stackId The id of the stack the layer will belong to.
+         * @param stackId ID of the stack the layer will belong to.
          * 
          * @return builder
          * 

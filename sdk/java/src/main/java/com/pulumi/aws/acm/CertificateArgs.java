@@ -35,14 +35,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The certificate&#39;s PEM-formatted public key
+     * Certificate&#39;s PEM-formatted public key
      * 
      */
     @Import(name="certificateBody")
     private @Nullable Output<String> certificateBody;
 
     /**
-     * @return The certificate&#39;s PEM-formatted public key
+     * @return Certificate&#39;s PEM-formatted public key
      * 
      */
     public Optional<Output<String>> certificateBody() {
@@ -50,7 +50,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The certificate&#39;s PEM-formatted chain
+     * Certificate&#39;s PEM-formatted chain
      * * Creating a private CA issued certificate
      * 
      */
@@ -58,7 +58,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> certificateChain;
 
     /**
-     * @return The certificate&#39;s PEM-formatted chain
+     * @return Certificate&#39;s PEM-formatted chain
      * * Creating a private CA issued certificate
      * 
      */
@@ -67,14 +67,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A fully qualified domain name (FQDN) in the certificate.
+     * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return A fully qualified domain name (FQDN) in the certificate.
+     * @return Fully qualified domain name (FQDN) in the certificate.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -97,14 +97,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The certificate&#39;s PEM-formatted private key
+     * Certificate&#39;s PEM-formatted private key
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return The certificate&#39;s PEM-formatted private key
+     * @return Certificate&#39;s PEM-formatted private key
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -127,31 +127,23 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     * 
-     */
     @Import(name="validationMethod")
     private @Nullable Output<String> validationMethod;
 
-    /**
-     * @return Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-     * 
-     */
     public Optional<Output<String>> validationMethod() {
         return Optional.ofNullable(this.validationMethod);
     }
@@ -228,7 +220,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBody The certificate&#39;s PEM-formatted public key
+         * @param certificateBody Certificate&#39;s PEM-formatted public key
          * 
          * @return builder
          * 
@@ -239,7 +231,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBody The certificate&#39;s PEM-formatted public key
+         * @param certificateBody Certificate&#39;s PEM-formatted public key
          * 
          * @return builder
          * 
@@ -249,7 +241,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The certificate&#39;s PEM-formatted chain
+         * @param certificateChain Certificate&#39;s PEM-formatted chain
          * * Creating a private CA issued certificate
          * 
          * @return builder
@@ -261,7 +253,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The certificate&#39;s PEM-formatted chain
+         * @param certificateChain Certificate&#39;s PEM-formatted chain
          * * Creating a private CA issued certificate
          * 
          * @return builder
@@ -272,7 +264,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName A fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Fully qualified domain name (FQDN) in the certificate.
          * 
          * @return builder
          * 
@@ -283,7 +275,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName A fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Fully qualified domain name (FQDN) in the certificate.
          * 
          * @return builder
          * 
@@ -314,7 +306,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The certificate&#39;s PEM-formatted private key
+         * @param privateKey Certificate&#39;s PEM-formatted private key
          * 
          * @return builder
          * 
@@ -325,7 +317,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The certificate&#39;s PEM-formatted private key
+         * @param privateKey Certificate&#39;s PEM-formatted private key
          * 
          * @return builder
          * 
@@ -366,7 +358,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -377,7 +369,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -386,23 +378,11 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationMethod(@Nullable Output<String> validationMethod) {
             $.validationMethod = validationMethod;
             return this;
         }
 
-        /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationMethod(String validationMethod) {
             return validationMethod(Output.of(validationMethod));
         }

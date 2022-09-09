@@ -17,7 +17,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN)
+        /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN) and Name
+        /// ### Find firewall policy by ARN and Name
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN)
+        /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
-        /// ### Find firewall policy by Amazon Resource Name (ARN) and Name
+        /// ### Find firewall policy by ARN and Name
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -146,13 +146,13 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall.
+        /// ARN of the firewall.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The descriptive name of the firewall.
+        /// Descriptive name of the firewall.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -178,13 +178,13 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall.
+        /// ARN of the firewall.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The descriptive name of the firewall.
+        /// Descriptive name of the firewall.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -212,15 +212,15 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class GetFirewallResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall.
+        /// ARN of the firewall.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall.
+        /// Boolean flag indicating whether it is possible to delete the firewall.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
-        /// A description of the firewall.
+        /// Description of the firewall.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> EncryptionConfigurations;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        /// ARN of the VPC Firewall policy.
         /// </summary>
         public readonly string FirewallPolicyArn;
         /// <summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The descriptive name of the firewall.
+        /// Descriptive name of the firewall.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -260,11 +260,11 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A string token used when updating a firewall.
+        /// String token used when updating a firewall.
         /// </summary>
         public readonly string UpdateToken;
         /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
         /// </summary>
         public readonly string VpcId;
 

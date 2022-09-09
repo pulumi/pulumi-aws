@@ -49,17 +49,17 @@ func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocalDisk.
 type GetLocalDiskArgs struct {
-	// The device node of the local disk to retrieve. For example, `/dev/sdb`.
+	// Device node of the local disk to retrieve. For example, `/dev/sdb`.
 	DiskNode *string `pulumi:"diskNode"`
-	// The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath *string `pulumi:"diskPath"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 }
 
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
-	// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+	// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 	DiskId     string `pulumi:"diskId"`
 	DiskNode   string `pulumi:"diskNode"`
 	DiskPath   string `pulumi:"diskPath"`
@@ -83,11 +83,11 @@ func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts .
 
 // A collection of arguments for invoking getLocalDisk.
 type GetLocalDiskOutputArgs struct {
-	// The device node of the local disk to retrieve. For example, `/dev/sdb`.
+	// Device node of the local disk to retrieve. For example, `/dev/sdb`.
 	DiskNode pulumi.StringPtrInput `pulumi:"diskNode"`
-	// The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath pulumi.StringPtrInput `pulumi:"diskPath"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }
 
@@ -110,7 +110,7 @@ func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutputWithContext(ctx cont
 	return o
 }
 
-// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+// Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 func (o GetLocalDiskResultOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskId }).(pulumi.StringOutput)
 }

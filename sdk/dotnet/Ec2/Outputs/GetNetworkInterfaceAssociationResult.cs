@@ -14,31 +14,31 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetNetworkInterfaceAssociationResult
     {
         /// <summary>
-        /// The allocation ID.
+        /// Allocation ID.
         /// </summary>
         public readonly string AllocationId;
         /// <summary>
-        /// The association ID.
+        /// Association ID.
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
-        /// The carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
+        /// Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
         /// </summary>
         public readonly string CarrierIp;
         /// <summary>
-        /// The customer-owned IP address.
+        /// Customer-owned IP address.
         /// </summary>
         public readonly string CustomerOwnedIp;
         /// <summary>
-        /// The ID of the Elastic IP address owner.
+        /// ID of the Elastic IP address owner.
         /// </summary>
         public readonly string IpOwnerId;
         /// <summary>
-        /// The public DNS name.
+        /// Public DNS name.
         /// </summary>
         public readonly string PublicDnsName;
         /// <summary>
-        /// The address of the Elastic IP address bound to the network interface.
+        /// Address of the Elastic IP address bound to the network interface.
         /// </summary>
         public readonly string PublicIp;
 

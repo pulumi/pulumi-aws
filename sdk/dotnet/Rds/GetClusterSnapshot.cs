@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Rds
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// The type of snapshots to be returned. If you don't specify a SnapshotType
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Rds
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// The type of snapshots to be returned. If you don't specify a SnapshotType
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
         /// </summary>
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetClusterSnapshotResult
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         public readonly int AllocatedStorage;
         /// <summary>
@@ -246,12 +246,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string? DbClusterIdentifier;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        /// The ARN for the DB Cluster Snapshot.
         /// </summary>
         public readonly string DbClusterSnapshotArn;
         public readonly string? DbClusterSnapshotIdentifier;
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         public readonly string Engine;
         /// <summary>
@@ -284,19 +284,19 @@ namespace Pulumi.Aws.Rds
         public readonly string? SnapshotType;
         public readonly string SourceDbClusterSnapshotArn;
         /// <summary>
-        /// The status of this DB Cluster Snapshot.
+        /// Status of this DB Cluster Snapshot.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
+        /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
+        /// VPC ID associated with the DB cluster snapshot.
         /// </summary>
         public readonly string VpcId;
 

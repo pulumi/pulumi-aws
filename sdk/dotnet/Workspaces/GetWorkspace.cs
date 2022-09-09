@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+        /// ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
         /// </summary>
         [Input("directoryId")]
         public string? DirectoryId { get; set; }
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Workspaces
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags for the WorkSpace.
+        /// Tags for the WorkSpace.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -128,13 +128,13 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
         /// </summary>
         [Input("userName")]
         public string? UserName { get; set; }
 
         /// <summary>
-        /// The ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+        /// ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
         /// </summary>
         [Input("workspaceId")]
         public string? WorkspaceId { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+        /// ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags for the WorkSpace.
+        /// Tags for the WorkSpace.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// The ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+        /// ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Workspaces
     {
         public readonly string BundleId;
         /// <summary>
-        /// The name of the WorkSpace, as seen by the operating system.
+        /// Name of the WorkSpace, as seen by the operating system.
         /// </summary>
         public readonly string ComputerName;
         public readonly string DirectoryId;
@@ -198,12 +198,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IP address of the WorkSpace.
+        /// IP address of the WorkSpace.
         /// </summary>
         public readonly string IpAddress;
         public readonly bool RootVolumeEncryptionEnabled;
         /// <summary>
-        /// The operational state of the WorkSpace.
+        /// Operational state of the WorkSpace.
         /// </summary>
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;

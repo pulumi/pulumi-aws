@@ -16,14 +16,14 @@ public final class FlowSourceFlowConfigIncrementalPullConfigArgs extends com.pul
     public static final FlowSourceFlowConfigIncrementalPullConfigArgs Empty = new FlowSourceFlowConfigIncrementalPullConfigArgs();
 
     /**
-     * A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+     * Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
     @Import(name="datetimeTypeFieldName")
     private @Nullable Output<String> datetimeTypeFieldName;
 
     /**
-     * @return A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+     * @return Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
     public Optional<Output<String>> datetimeTypeFieldName() {
@@ -55,7 +55,7 @@ public final class FlowSourceFlowConfigIncrementalPullConfigArgs extends com.pul
         }
 
         /**
-         * @param datetimeTypeFieldName A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+         * @param datetimeTypeFieldName Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FlowSourceFlowConfigIncrementalPullConfigArgs extends com.pul
         }
 
         /**
-         * @param datetimeTypeFieldName A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+         * @param datetimeTypeFieldName Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
          * 
          * @return builder
          * 

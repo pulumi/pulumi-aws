@@ -15,14 +15,14 @@ public final class GetSubnetFilterArgs extends com.pulumi.resources.ResourceArgs
     public static final GetSubnetFilterArgs Empty = new GetSubnetFilterArgs();
 
     /**
-     * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetSubnetFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSubnetFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * 
          * @return builder
          * 

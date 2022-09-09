@@ -38,6 +38,9 @@ namespace Pulumi.Aws.Inputs
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
+        [Input("sourceIdentity")]
+        public Input<string>? SourceIdentity { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags

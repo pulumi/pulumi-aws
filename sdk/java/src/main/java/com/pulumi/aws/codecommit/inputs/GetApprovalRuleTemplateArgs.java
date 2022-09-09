@@ -14,14 +14,14 @@ public final class GetApprovalRuleTemplateArgs extends com.pulumi.resources.Invo
     public static final GetApprovalRuleTemplateArgs Empty = new GetApprovalRuleTemplateArgs();
 
     /**
-     * The name for the approval rule template. This needs to be less than 100 characters.
+     * Name for the approval rule template. This needs to be less than 100 characters.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name for the approval rule template. This needs to be less than 100 characters.
+     * @return Name for the approval rule template. This needs to be less than 100 characters.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetApprovalRuleTemplateArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name The name for the approval rule template. This needs to be less than 100 characters.
+         * @param name Name for the approval rule template. This needs to be less than 100 characters.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetApprovalRuleTemplateArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name The name for the approval rule template. This needs to be less than 100 characters.
+         * @param name Name for the approval rule template. This needs to be less than 100 characters.
          * 
          * @return builder
          * 

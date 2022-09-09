@@ -95,37 +95,37 @@ import (
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+	// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerCredentialsArn pulumi.StringPtrOutput `pulumi:"authorizerCredentialsArn"`
-	// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+	// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 	// Valid values: `1.0`, `2.0`.
 	AuthorizerPayloadFormatVersion pulumi.StringPtrOutput `pulumi:"authorizerPayloadFormatVersion"`
-	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
 	AuthorizerResultTtlInSeconds pulumi.IntOutput `pulumi:"authorizerResultTtlInSeconds"`
-	// The authorizer type. Valid values: `JWT`, `REQUEST`.
+	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
-	// The authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrOutput `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
 	EnableSimpleResponses pulumi.BoolPtrOutput `pulumi:"enableSimpleResponses"`
-	// The identity sources for which authorization is requested.
+	// Identity sources for which authorization is requested.
 	// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 	// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 	IdentitySources pulumi.StringArrayOutput `pulumi:"identitySources"`
-	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+	// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrOutput `pulumi:"jwtConfiguration"`
-	// The name of the authorizer. Must be between 1 and 128 characters in length.
+	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -164,72 +164,72 @@ func GetAuthorizer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorizer resources.
 type authorizerState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+	// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerCredentialsArn *string `pulumi:"authorizerCredentialsArn"`
-	// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+	// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 	// Valid values: `1.0`, `2.0`.
 	AuthorizerPayloadFormatVersion *string `pulumi:"authorizerPayloadFormatVersion"`
-	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// The authorizer type. Valid values: `JWT`, `REQUEST`.
+	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType *string `pulumi:"authorizerType"`
-	// The authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
 	EnableSimpleResponses *bool `pulumi:"enableSimpleResponses"`
-	// The identity sources for which authorization is requested.
+	// Identity sources for which authorization is requested.
 	// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 	// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 	IdentitySources []string `pulumi:"identitySources"`
-	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+	// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
-	// The name of the authorizer. Must be between 1 and 128 characters in length.
+	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 }
 
 type AuthorizerState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringPtrInput
-	// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+	// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerCredentialsArn pulumi.StringPtrInput
-	// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+	// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 	// Valid values: `1.0`, `2.0`.
 	AuthorizerPayloadFormatVersion pulumi.StringPtrInput
-	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput
-	// The authorizer type. Valid values: `JWT`, `REQUEST`.
+	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringPtrInput
-	// The authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrInput
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
 	EnableSimpleResponses pulumi.BoolPtrInput
-	// The identity sources for which authorization is requested.
+	// Identity sources for which authorization is requested.
 	// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 	// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 	IdentitySources pulumi.StringArrayInput
-	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+	// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
-	// The name of the authorizer. Must be between 1 and 128 characters in length.
+	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 }
 
@@ -238,73 +238,73 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+	// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerCredentialsArn *string `pulumi:"authorizerCredentialsArn"`
-	// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+	// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 	// Valid values: `1.0`, `2.0`.
 	AuthorizerPayloadFormatVersion *string `pulumi:"authorizerPayloadFormatVersion"`
-	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
 	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// The authorizer type. Valid values: `JWT`, `REQUEST`.
+	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType string `pulumi:"authorizerType"`
-	// The authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
 	EnableSimpleResponses *bool `pulumi:"enableSimpleResponses"`
-	// The identity sources for which authorization is requested.
+	// Identity sources for which authorization is requested.
 	// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 	// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 	IdentitySources []string `pulumi:"identitySources"`
-	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+	// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
-	// The name of the authorizer. Must be between 1 and 128 characters in length.
+	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
 type AuthorizerArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringInput
-	// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+	// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerCredentialsArn pulumi.StringPtrInput
-	// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+	// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 	// Valid values: `1.0`, `2.0`.
 	AuthorizerPayloadFormatVersion pulumi.StringPtrInput
-	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+	// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 	// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 	// Supported only for HTTP API Lambda authorizers.
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput
-	// The authorizer type. Valid values: `JWT`, `REQUEST`.
+	// Authorizer type. Valid values: `JWT`, `REQUEST`.
 	// Specify `REQUEST` for a Lambda function using incoming request parameters.
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringInput
-	// The authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's Uniform Resource Identifier (URI).
 	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 	AuthorizerUri pulumi.StringPtrInput
 	// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Supported only for HTTP APIs.
 	EnableSimpleResponses pulumi.BoolPtrInput
-	// The identity sources for which authorization is requested.
+	// Identity sources for which authorization is requested.
 	// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 	// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 	IdentitySources pulumi.StringArrayInput
-	// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+	// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 	// Supported only for HTTP APIs.
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
-	// The name of the authorizer. Must be between 1 and 128 characters in length.
+	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 }
 
@@ -395,38 +395,38 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
-// The API identifier.
+// API identifier.
 func (o AuthorizerOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The required credentials as an IAM role for API Gateway to invoke the authorizer.
+// Required credentials as an IAM role for API Gateway to invoke the authorizer.
 // Supported only for `REQUEST` authorizers.
 func (o AuthorizerOutput) AuthorizerCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
-// The format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
 // Valid values: `1.0`, `2.0`.
 func (o AuthorizerOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerPayloadFormatVersion }).(pulumi.StringPtrOutput)
 }
 
-// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
 // If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
 // Supported only for HTTP API Lambda authorizers.
 func (o AuthorizerOutput) AuthorizerResultTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.IntOutput { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// The authorizer type. Valid values: `JWT`, `REQUEST`.
+// Authorizer type. Valid values: `JWT`, `REQUEST`.
 // Specify `REQUEST` for a Lambda function using incoming request parameters.
 // For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 func (o AuthorizerOutput) AuthorizerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerType }).(pulumi.StringOutput)
 }
 
-// The authorizer's Uniform Resource Identifier (URI).
+// Authorizer's Uniform Resource Identifier (URI).
 // For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 // Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
 func (o AuthorizerOutput) AuthorizerUri() pulumi.StringPtrOutput {
@@ -439,20 +439,20 @@ func (o AuthorizerOutput) EnableSimpleResponses() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.BoolPtrOutput { return v.EnableSimpleResponses }).(pulumi.BoolPtrOutput)
 }
 
-// The identity sources for which authorization is requested.
+// Identity sources for which authorization is requested.
 // For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
 // For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
 func (o AuthorizerOutput) IdentitySources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringArrayOutput { return v.IdentitySources }).(pulumi.StringArrayOutput)
 }
 
-// The configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
 // Supported only for HTTP APIs.
 func (o AuthorizerOutput) JwtConfiguration() AuthorizerJwtConfigurationPtrOutput {
 	return o.ApplyT(func(v *Authorizer) AuthorizerJwtConfigurationPtrOutput { return v.JwtConfiguration }).(AuthorizerJwtConfigurationPtrOutput)
 }
 
-// The name of the authorizer. Must be between 1 and 128 characters in length.
+// Name of the authorizer. Must be between 1 and 128 characters in length.
 func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

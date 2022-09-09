@@ -48,7 +48,7 @@ func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTem
 
 // A collection of arguments for invoking getApprovalRuleTemplate.
 type LookupApprovalRuleTemplateArgs struct {
-	// The name for the approval rule template. This needs to be less than 100 characters.
+	// Name for the approval rule template. This needs to be less than 100 characters.
 	Name string `pulumi:"name"`
 }
 
@@ -56,20 +56,20 @@ type LookupApprovalRuleTemplateArgs struct {
 type LookupApprovalRuleTemplateResult struct {
 	// The ID of the approval rule template.
 	ApprovalRuleTemplateId string `pulumi:"approvalRuleTemplateId"`
-	// The content of the approval rule template.
+	// Content of the approval rule template.
 	Content string `pulumi:"content"`
-	// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationDate string `pulumi:"creationDate"`
-	// The description of the approval rule template.
+	// Description of the approval rule template.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+	// ARN of the user who made the most recent changes to the approval rule template.
 	LastModifiedUser string `pulumi:"lastModifiedUser"`
 	Name             string `pulumi:"name"`
-	// The SHA-256 hash signature for the content of the approval rule template.
+	// SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 string `pulumi:"ruleContentSha256"`
 }
 
@@ -88,7 +88,7 @@ func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRu
 
 // A collection of arguments for invoking getApprovalRuleTemplate.
 type LookupApprovalRuleTemplateOutputArgs struct {
-	// The name for the approval rule template. This needs to be less than 100 characters.
+	// Name for the approval rule template. This needs to be less than 100 characters.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -116,17 +116,17 @@ func (o LookupApprovalRuleTemplateResultOutput) ApprovalRuleTemplateId() pulumi.
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.ApprovalRuleTemplateId }).(pulumi.StringOutput)
 }
 
-// The content of the approval rule template.
+// Content of the approval rule template.
 func (o LookupApprovalRuleTemplateResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupApprovalRuleTemplateResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// The description of the approval rule template.
+// Description of the approval rule template.
 func (o LookupApprovalRuleTemplateResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -136,12 +136,12 @@ func (o LookupApprovalRuleTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o LookupApprovalRuleTemplateResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+// ARN of the user who made the most recent changes to the approval rule template.
 func (o LookupApprovalRuleTemplateResultOutput) LastModifiedUser() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.LastModifiedUser }).(pulumi.StringOutput)
 }
@@ -150,7 +150,7 @@ func (o LookupApprovalRuleTemplateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SHA-256 hash signature for the content of the approval rule template.
+// SHA-256 hash signature for the content of the approval rule template.
 func (o LookupApprovalRuleTemplateResultOutput) RuleContentSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.RuleContentSha256 }).(pulumi.StringOutput)
 }

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +39,7 @@ export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?:
  */
 export interface GetOriginRequestPolicyArgs {
     /**
-     * The identifier for the origin request policy.
+     * Identifier for the origin request policy.
      */
     id?: string;
     /**
@@ -59,7 +61,7 @@ export interface GetOriginRequestPolicyResult {
      */
     readonly cookiesConfigs: outputs.cloudfront.GetOriginRequestPolicyCookiesConfig[];
     /**
-     * The current version of the origin request policy.
+     * Current version of the origin request policy.
      */
     readonly etag: string;
     /**
@@ -83,7 +85,7 @@ export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutput
  */
 export interface GetOriginRequestPolicyOutputArgs {
     /**
-     * The identifier for the origin request policy.
+     * Identifier for the origin request policy.
      */
     id?: pulumi.Input<string>;
     /**

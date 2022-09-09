@@ -126,8 +126,8 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
-    :param Sequence[str] instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
+    :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    :param Mapping[str, str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
     """
     __args__ = dict()
@@ -165,8 +165,8 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
-    :param Sequence[str] instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
+    :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    :param Mapping[str, str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
     """
     ...

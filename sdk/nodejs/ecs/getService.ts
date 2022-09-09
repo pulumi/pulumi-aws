@@ -38,11 +38,11 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetServiceArgs {
     /**
-     * The arn of the ECS Cluster
+     * ARN of the ECS Cluster
      */
     clusterArn: string;
     /**
-     * The name of the ECS Service
+     * Name of the ECS Service
      */
     serviceName: string;
     /**
@@ -56,12 +56,12 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * The ARN of the ECS Service
+     * ARN of the ECS Service
      */
     readonly arn: string;
     readonly clusterArn: string;
     /**
-     * The number of tasks for the ECS Service
+     * Number of tasks for the ECS Service
      */
     readonly desiredCount: number;
     /**
@@ -69,11 +69,11 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * The launch type for the ECS Service
+     * Launch type for the ECS Service
      */
     readonly launchType: string;
     /**
-     * The scheduling strategy for the ECS Service
+     * Scheduling strategy for the ECS Service
      */
     readonly schedulingStrategy: string;
     readonly serviceName: string;
@@ -82,7 +82,7 @@ export interface GetServiceResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The family for the latest ACTIVE revision
+     * Family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
 }
@@ -96,11 +96,11 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
  */
 export interface GetServiceOutputArgs {
     /**
-     * The arn of the ECS Cluster
+     * ARN of the ECS Cluster
      */
     clusterArn: pulumi.Input<string>;
     /**
-     * The name of the ECS Service
+     * Name of the ECS Service
      */
     serviceName: pulumi.Input<string>;
     /**

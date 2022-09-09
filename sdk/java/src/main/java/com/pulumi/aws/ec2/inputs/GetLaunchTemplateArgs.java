@@ -34,14 +34,14 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The ID of the specific launch template to retrieve.
+     * ID of the specific launch template to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the specific launch template to retrieve.
+     * @return ID of the specific launch template to retrieve.
      * 
      */
     public Optional<Output<String>> id() {
@@ -49,14 +49,14 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -137,7 +137,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The ID of the specific launch template to retrieve.
+         * @param id ID of the specific launch template to retrieve.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The ID of the specific launch template to retrieve.
+         * @param id ID of the specific launch template to retrieve.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetLaunchTemplateArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
          * 
          * @return builder
          * 

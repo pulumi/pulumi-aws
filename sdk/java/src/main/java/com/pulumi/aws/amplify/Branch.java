@@ -173,28 +173,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amplify/branch:Branch")
 public class Branch extends com.pulumi.resources.CustomResource {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Export(name="appId", type=String.class, parameters={})
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * The Amazon Resource Name (ARN) for the branch.
+     * ARN for the branch.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the branch.
+     * @return ARN for the branch.
      * 
      */
     public Output<String> arn() {
@@ -215,98 +215,98 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return this.associatedResources;
     }
     /**
-     * The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * ARN for a backend environment that is part of an Amplify app.
      * 
      */
     @Export(name="backendEnvironmentArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> backendEnvironmentArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+     * @return ARN for a backend environment that is part of an Amplify app.
      * 
      */
     public Output<Optional<String>> backendEnvironmentArn() {
         return Codegen.optional(this.backendEnvironmentArn);
     }
     /**
-     * The basic authorization credentials for the branch.
+     * Basic authorization credentials for the branch.
      * 
      */
     @Export(name="basicAuthCredentials", type=String.class, parameters={})
     private Output</* @Nullable */ String> basicAuthCredentials;
 
     /**
-     * @return The basic authorization credentials for the branch.
+     * @return Basic authorization credentials for the branch.
      * 
      */
     public Output<Optional<String>> basicAuthCredentials() {
         return Codegen.optional(this.basicAuthCredentials);
     }
     /**
-     * The name for the branch.
+     * Name for the branch.
      * 
      */
     @Export(name="branchName", type=String.class, parameters={})
     private Output<String> branchName;
 
     /**
-     * @return The name for the branch.
+     * @return Name for the branch.
      * 
      */
     public Output<String> branchName() {
         return this.branchName;
     }
     /**
-     * The custom domains for the branch.
+     * Custom domains for the branch.
      * 
      */
     @Export(name="customDomains", type=List.class, parameters={String.class})
     private Output<List<String>> customDomains;
 
     /**
-     * @return The custom domains for the branch.
+     * @return Custom domains for the branch.
      * 
      */
     public Output<List<String>> customDomains() {
         return this.customDomains;
     }
     /**
-     * The description for the branch.
+     * Description for the branch.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for the branch.
+     * @return Description for the branch.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The destination branch if the branch is a pull request branch.
+     * Destination branch if the branch is a pull request branch.
      * 
      */
     @Export(name="destinationBranch", type=String.class, parameters={})
     private Output<String> destinationBranch;
 
     /**
-     * @return The destination branch if the branch is a pull request branch.
+     * @return Destination branch if the branch is a pull request branch.
      * 
      */
     public Output<String> destinationBranch() {
         return this.destinationBranch;
     }
     /**
-     * The display name for a branch. This is used as the default domain prefix.
+     * Display name for a branch. This is used as the default domain prefix.
      * 
      */
     @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
-     * @return The display name for a branch. This is used as the default domain prefix.
+     * @return Display name for a branch. This is used as the default domain prefix.
      * 
      */
     public Output<String> displayName() {
@@ -383,56 +383,56 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enablePullRequestPreview);
     }
     /**
-     * The environment variables for the branch.
+     * Environment variables for the branch.
      * 
      */
     @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
-     * @return The environment variables for the branch.
+     * @return Environment variables for the branch.
      * 
      */
     public Output<Optional<Map<String,String>>> environmentVariables() {
         return Codegen.optional(this.environmentVariables);
     }
     /**
-     * The framework for the branch.
+     * Framework for the branch.
      * 
      */
     @Export(name="framework", type=String.class, parameters={})
     private Output</* @Nullable */ String> framework;
 
     /**
-     * @return The framework for the branch.
+     * @return Framework for the branch.
      * 
      */
     public Output<Optional<String>> framework() {
         return Codegen.optional(this.framework);
     }
     /**
-     * The Amplify environment name for the pull request.
+     * Amplify environment name for the pull request.
      * 
      */
     @Export(name="pullRequestEnvironmentName", type=String.class, parameters={})
     private Output</* @Nullable */ String> pullRequestEnvironmentName;
 
     /**
-     * @return The Amplify environment name for the pull request.
+     * @return Amplify environment name for the pull request.
      * 
      */
     public Output<Optional<String>> pullRequestEnvironmentName() {
         return Codegen.optional(this.pullRequestEnvironmentName);
     }
     /**
-     * The source branch if the branch is a pull request branch.
+     * Source branch if the branch is a pull request branch.
      * 
      */
     @Export(name="sourceBranch", type=String.class, parameters={})
     private Output<String> sourceBranch;
 
     /**
-     * @return The source branch if the branch is a pull request branch.
+     * @return Source branch if the branch is a pull request branch.
      * 
      */
     public Output<String> sourceBranch() {
@@ -467,28 +467,28 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The content Time To Live (TTL) for the website in seconds.
+     * Content Time To Live (TTL) for the website in seconds.
      * 
      */
     @Export(name="ttl", type=String.class, parameters={})
     private Output</* @Nullable */ String> ttl;
 
     /**
-     * @return The content Time To Live (TTL) for the website in seconds.
+     * @return Content Time To Live (TTL) for the website in seconds.
      * 
      */
     public Output<Optional<String>> ttl() {

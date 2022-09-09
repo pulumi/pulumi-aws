@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,15 +39,15 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetRepositoryArgs {
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      */
     name: string;
     /**
-     * The registry ID where the repository was created.
+     * Registry ID where the repository was created.
      */
     registryId?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -77,11 +79,11 @@ export interface GetRepositoryResult {
     readonly name: string;
     readonly registryId: string;
     /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+     * URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     readonly repositoryUrl: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -95,15 +97,15 @@ export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi
  */
 export interface GetRepositoryOutputArgs {
     /**
-     * The name of the ECR Repository.
+     * Name of the ECR Repository.
      */
     name: pulumi.Input<string>;
     /**
-     * The registry ID where the repository was created.
+     * Registry ID where the repository was created.
      */
     registryId?: pulumi.Input<string>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

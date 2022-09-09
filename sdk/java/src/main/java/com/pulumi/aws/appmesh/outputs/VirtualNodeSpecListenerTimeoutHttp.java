@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListenerTimeoutHttp {
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutHttpIdle idle;
     /**
-     * @return The per request timeout.
+     * @return Per request timeout.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutHttpPerRequest perRequest;
 
     private VirtualNodeSpecListenerTimeoutHttp() {}
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutHttpIdle> idle() {
         return Optional.ofNullable(this.idle);
     }
     /**
-     * @return The per request timeout.
+     * @return Per request timeout.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutHttpPerRequest> perRequest() {

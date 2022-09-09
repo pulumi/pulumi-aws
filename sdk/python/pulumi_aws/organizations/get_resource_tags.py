@@ -81,7 +81,7 @@ def get_resource_tags(resource_id: Optional[str] = None,
     ```
 
 
-    :param str resource_id: The ID of the resource with the tags to list. See details below.
+    :param str resource_id: ID of the resource with the tags to list. See details below.
     :param Mapping[str, str] tags: Map of key=value pairs for each tag set on the resource.
     """
     __args__ = dict()
@@ -113,7 +113,7 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str resource_id: The ID of the resource with the tags to list. See details below.
+    :param str resource_id: ID of the resource with the tags to list. See details below.
     :param Mapping[str, str] tags: Map of key=value pairs for each tag set on the resource.
     """
     ...

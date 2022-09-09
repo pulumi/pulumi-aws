@@ -18,14 +18,14 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     public static final GetCertificateAuthorityPlainArgs Empty = new GetCertificateAuthorityPlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate authority.
+     * @return ARN of the certificate authority.
      * 
      */
     public String arn() {
@@ -64,14 +64,14 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     * @return Key-value map of user-defined tags that are attached to the certificate authority.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -105,7 +105,7 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the certificate authority.
+         * @param arn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param tags Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+         * @param tags Key-value map of user-defined tags that are attached to the certificate authority.
          * 
          * @return builder
          * 

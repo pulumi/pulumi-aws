@@ -34,14 +34,14 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The ID of the Network Insights Path to select.
+     * ID of the Network Insights Path to select.
      * 
      */
     @Import(name="networkInsightsPathId")
     private @Nullable Output<String> networkInsightsPathId;
 
     /**
-     * @return The ID of the Network Insights Path to select.
+     * @return ID of the Network Insights Path to select.
      * 
      */
     public Optional<Output<String>> networkInsightsPathId() {
@@ -49,14 +49,14 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -121,7 +121,7 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param networkInsightsPathId The ID of the Network Insights Path to select.
+         * @param networkInsightsPathId ID of the Network Insights Path to select.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param networkInsightsPathId The ID of the Network Insights Path to select.
+         * @param networkInsightsPathId ID of the Network Insights Path to select.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

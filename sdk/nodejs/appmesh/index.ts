@@ -5,24 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./gatewayRoute";
-export * from "./getMesh";
-export * from "./getVirtualService";
-export * from "./mesh";
-export * from "./route";
-export * from "./virtualGateway";
-export * from "./virtualNode";
-export * from "./virtualRouter";
-export * from "./virtualService";
+export { GatewayRouteArgs, GatewayRouteState } from "./gatewayRoute";
+export type GatewayRoute = import("./gatewayRoute").GatewayRoute;
+export const GatewayRoute: typeof import("./gatewayRoute").GatewayRoute = null as any;
 
-// Import resources to register:
-import { GatewayRoute } from "./gatewayRoute";
-import { Mesh } from "./mesh";
-import { Route } from "./route";
-import { VirtualGateway } from "./virtualGateway";
-import { VirtualNode } from "./virtualNode";
-import { VirtualRouter } from "./virtualRouter";
-import { VirtualService } from "./virtualService";
+export { GetMeshArgs, GetMeshResult, GetMeshOutputArgs } from "./getMesh";
+export const getMesh: typeof import("./getMesh").getMesh = null as any;
+export const getMeshOutput: typeof import("./getMesh").getMeshOutput = null as any;
+
+export { GetVirtualServiceArgs, GetVirtualServiceResult, GetVirtualServiceOutputArgs } from "./getVirtualService";
+export const getVirtualService: typeof import("./getVirtualService").getVirtualService = null as any;
+export const getVirtualServiceOutput: typeof import("./getVirtualService").getVirtualServiceOutput = null as any;
+
+export { MeshArgs, MeshState } from "./mesh";
+export type Mesh = import("./mesh").Mesh;
+export const Mesh: typeof import("./mesh").Mesh = null as any;
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { VirtualGatewayArgs, VirtualGatewayState } from "./virtualGateway";
+export type VirtualGateway = import("./virtualGateway").VirtualGateway;
+export const VirtualGateway: typeof import("./virtualGateway").VirtualGateway = null as any;
+
+export { VirtualNodeArgs, VirtualNodeState } from "./virtualNode";
+export type VirtualNode = import("./virtualNode").VirtualNode;
+export const VirtualNode: typeof import("./virtualNode").VirtualNode = null as any;
+
+export { VirtualRouterArgs, VirtualRouterState } from "./virtualRouter";
+export type VirtualRouter = import("./virtualRouter").VirtualRouter;
+export const VirtualRouter: typeof import("./virtualRouter").VirtualRouter = null as any;
+
+export { VirtualServiceArgs, VirtualServiceState } from "./virtualService";
+export type VirtualService = import("./virtualService").VirtualService;
+export const VirtualService: typeof import("./virtualService").VirtualService = null as any;
+
+utilities.lazyLoad(exports, ["GatewayRoute"], () => require("./gatewayRoute"));
+utilities.lazyLoad(exports, ["getMesh","getMeshOutput"], () => require("./getMesh"));
+utilities.lazyLoad(exports, ["getVirtualService","getVirtualServiceOutput"], () => require("./getVirtualService"));
+utilities.lazyLoad(exports, ["Mesh"], () => require("./mesh"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["VirtualGateway"], () => require("./virtualGateway"));
+utilities.lazyLoad(exports, ["VirtualNode"], () => require("./virtualNode"));
+utilities.lazyLoad(exports, ["VirtualRouter"], () => require("./virtualRouter"));
+utilities.lazyLoad(exports, ["VirtualService"], () => require("./virtualService"));
 
 const _module = {
     version: utilities.getVersion(),

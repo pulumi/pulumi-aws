@@ -42,7 +42,7 @@ class GetLocalDiskResult:
     @pulumi.getter(name="diskId")
     def disk_id(self) -> str:
         """
-        The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
+        Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         """
         return pulumi.get(self, "disk_id")
 
@@ -101,9 +101,9 @@ def get_local_disk(disk_node: Optional[str] = None,
     ```
 
 
-    :param str disk_node: The device node of the local disk to retrieve. For example, `/dev/sdb`.
-    :param str disk_path: The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-    :param str gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+    :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
+    :param str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+    :param str gateway_arn: ARN of the gateway.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node
@@ -139,8 +139,8 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
     ```
 
 
-    :param str disk_node: The device node of the local disk to retrieve. For example, `/dev/sdb`.
-    :param str disk_path: The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-    :param str gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+    :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
+    :param str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+    :param str gateway_arn: ARN of the gateway.
     """
     ...

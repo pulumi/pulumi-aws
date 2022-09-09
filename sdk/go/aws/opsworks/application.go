@@ -122,7 +122,7 @@ type Application struct {
 	ShortName pulumi.StringOutput `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations ApplicationSslConfigurationArrayOutput `pulumi:"sslConfigurations"`
-	// The id of the stack the application will belong to.
+	// ID of the stack the application will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -193,7 +193,7 @@ type applicationState struct {
 	ShortName *string `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations []ApplicationSslConfiguration `pulumi:"sslConfigurations"`
-	// The id of the stack the application will belong to.
+	// ID of the stack the application will belong to.
 	StackId *string `pulumi:"stackId"`
 	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type *string `pulumi:"type"`
@@ -230,7 +230,7 @@ type ApplicationState struct {
 	ShortName pulumi.StringPtrInput
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations ApplicationSslConfigurationArrayInput
-	// The id of the stack the application will belong to.
+	// ID of the stack the application will belong to.
 	StackId pulumi.StringPtrInput
 	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringPtrInput
@@ -271,7 +271,7 @@ type applicationArgs struct {
 	ShortName *string `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations []ApplicationSslConfiguration `pulumi:"sslConfigurations"`
-	// The id of the stack the application will belong to.
+	// ID of the stack the application will belong to.
 	StackId string `pulumi:"stackId"`
 	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type string `pulumi:"type"`
@@ -309,7 +309,7 @@ type ApplicationArgs struct {
 	ShortName pulumi.StringPtrInput
 	// The SSL configuration of the app. Object is described below.
 	SslConfigurations ApplicationSslConfigurationArrayInput
-	// The id of the stack the application will belong to.
+	// ID of the stack the application will belong to.
 	StackId pulumi.StringInput
 	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringInput
@@ -477,7 +477,7 @@ func (o ApplicationOutput) SslConfigurations() ApplicationSslConfigurationArrayO
 	return o.ApplyT(func(v *Application) ApplicationSslConfigurationArrayOutput { return v.SslConfigurations }).(ApplicationSslConfigurationArrayOutput)
 }
 
-// The id of the stack the application will belong to.
+// ID of the stack the application will belong to.
 func (o ApplicationOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

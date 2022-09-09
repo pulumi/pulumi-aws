@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecretVersionResult {
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     private String arn;
@@ -23,18 +23,18 @@ public final class GetSecretVersionResult {
      */
     private String id;
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a binary.
+     * @return Decrypted part of the protected secret information that was originally provided as a binary.
      * 
      */
     private String secretBinary;
     private String secretId;
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a string.
+     * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
     private String secretString;
     /**
-     * @return The unique identifier of this version of the secret.
+     * @return Unique identifier of this version of the secret.
      * 
      */
     private String versionId;
@@ -43,7 +43,7 @@ public final class GetSecretVersionResult {
 
     private GetSecretVersionResult() {}
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     public String arn() {
@@ -57,7 +57,7 @@ public final class GetSecretVersionResult {
         return this.id;
     }
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a binary.
+     * @return Decrypted part of the protected secret information that was originally provided as a binary.
      * 
      */
     public String secretBinary() {
@@ -67,14 +67,14 @@ public final class GetSecretVersionResult {
         return this.secretId;
     }
     /**
-     * @return The decrypted part of the protected secret information that was originally provided as a string.
+     * @return Decrypted part of the protected secret information that was originally provided as a string.
      * 
      */
     public String secretString() {
         return this.secretString;
     }
     /**
-     * @return The unique identifier of this version of the secret.
+     * @return Unique identifier of this version of the secret.
      * 
      */
     public String versionId() {

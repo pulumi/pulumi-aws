@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
         /// </summary>
         public InputMap<string> Tags

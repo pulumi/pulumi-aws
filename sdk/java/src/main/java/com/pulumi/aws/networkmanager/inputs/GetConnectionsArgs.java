@@ -17,14 +17,14 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetConnectionsArgs Empty = new GetConnectionsArgs();
 
     /**
-     * The ID of the device of the connections to retrieve.
+     * ID of the device of the connections to retrieve.
      * 
      */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
     /**
-     * @return The ID of the device of the connections to retrieve.
+     * @return ID of the device of the connections to retrieve.
      * 
      */
     public Optional<Output<String>> deviceId() {
@@ -32,14 +32,14 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Global Network of the connections to retrieve.
+     * ID of the Global Network of the connections to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the connections to retrieve.
+     * @return ID of the Global Network of the connections to retrieve.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -88,7 +88,7 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param deviceId The ID of the device of the connections to retrieve.
+         * @param deviceId ID of the device of the connections to retrieve.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param deviceId The ID of the device of the connections to retrieve.
+         * @param deviceId ID of the device of the connections to retrieve.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the connections to retrieve.
+         * @param globalNetworkId ID of the Global Network of the connections to retrieve.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetConnectionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the connections to retrieve.
+         * @param globalNetworkId ID of the Global Network of the connections to retrieve.
          * 
          * @return builder
          * 

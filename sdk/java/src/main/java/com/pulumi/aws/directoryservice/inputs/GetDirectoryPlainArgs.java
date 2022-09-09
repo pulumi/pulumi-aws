@@ -16,14 +16,14 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetDirectoryPlainArgs Empty = new GetDirectoryPlainArgs();
 
     /**
-     * The ID of the directory.
+     * ID of the directory.
      * 
      */
     @Import(name="directoryId", required=true)
     private String directoryId;
 
     /**
-     * @return The ID of the directory.
+     * @return ID of the directory.
      * 
      */
     public String directoryId() {
@@ -71,7 +71,7 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param directoryId The ID of the directory.
+         * @param directoryId ID of the directory.
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// The cluster identifier of the RDS cluster.
+	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -102,7 +102,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// The cluster identifier of the RDS cluster.
+	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }

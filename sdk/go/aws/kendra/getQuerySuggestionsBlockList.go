@@ -49,9 +49,9 @@ func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySugge
 
 // A collection of arguments for invoking getQuerySuggestionsBlockList.
 type LookupQuerySuggestionsBlockListArgs struct {
-	// The identifier of the index that contains the block list.
+	// Identifier of the index that contains the block list.
 	IndexId string `pulumi:"indexId"`
-	// The identifier of the block list.
+	// Identifier of the block list.
 	QuerySuggestionsBlockListId string `pulumi:"querySuggestionsBlockListId"`
 	// Metadata that helps organize the block list you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -59,33 +59,33 @@ type LookupQuerySuggestionsBlockListArgs struct {
 
 // A collection of values returned by getQuerySuggestionsBlockList.
 type LookupQuerySuggestionsBlockListResult struct {
-	// The Amazon Resource Name (ARN) of the block list.
+	// ARN of the block list.
 	Arn string `pulumi:"arn"`
-	// The date-time a block list was created.
+	// Date-time a block list was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The description for the block list.
+	// Description for the block list.
 	Description string `pulumi:"description"`
-	// The error message containing details if there are issues processing the block list.
+	// Error message containing details if there are issues processing the block list.
 	ErrorMessage string `pulumi:"errorMessage"`
-	// The current size of the block list text file in S3.
+	// Current size of the block list text file in S3.
 	FileSizeBytes int `pulumi:"fileSizeBytes"`
 	// The provider-assigned unique ID for this managed resource.
 	Id      string `pulumi:"id"`
 	IndexId string `pulumi:"indexId"`
-	// The current number of valid, non-empty words or phrases in the block list text file.
+	// Current number of valid, non-empty words or phrases in the block list text file.
 	ItemCount int `pulumi:"itemCount"`
-	// The name of the block list.
+	// Name of the block list.
 	Name                        string `pulumi:"name"`
 	QuerySuggestionsBlockListId string `pulumi:"querySuggestionsBlockListId"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
-	// The S3 location of the block list input data. Detailed below.
+	// S3 location of the block list input data. Detailed below.
 	SourceS3Paths []GetQuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Paths"`
-	// The current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+	// Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
 	Status string `pulumi:"status"`
 	// Metadata that helps organize the block list you create.
 	Tags map[string]string `pulumi:"tags"`
-	// The date and time that the block list was last updated.
+	// Date and time that the block list was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -104,9 +104,9 @@ func LookupQuerySuggestionsBlockListOutput(ctx *pulumi.Context, args LookupQuery
 
 // A collection of arguments for invoking getQuerySuggestionsBlockList.
 type LookupQuerySuggestionsBlockListOutputArgs struct {
-	// The identifier of the index that contains the block list.
+	// Identifier of the index that contains the block list.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
-	// The identifier of the block list.
+	// Identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringInput `pulumi:"querySuggestionsBlockListId"`
 	// Metadata that helps organize the block list you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -131,27 +131,27 @@ func (o LookupQuerySuggestionsBlockListResultOutput) ToLookupQuerySuggestionsBlo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the block list.
+// ARN of the block list.
 func (o LookupQuerySuggestionsBlockListResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date-time a block list was created.
+// Date-time a block list was created.
 func (o LookupQuerySuggestionsBlockListResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description for the block list.
+// Description for the block list.
 func (o LookupQuerySuggestionsBlockListResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The error message containing details if there are issues processing the block list.
+// Error message containing details if there are issues processing the block list.
 func (o LookupQuerySuggestionsBlockListResultOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// The current size of the block list text file in S3.
+// Current size of the block list text file in S3.
 func (o LookupQuerySuggestionsBlockListResultOutput) FileSizeBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) int { return v.FileSizeBytes }).(pulumi.IntOutput)
 }
@@ -165,12 +165,12 @@ func (o LookupQuerySuggestionsBlockListResultOutput) IndexId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// The current number of valid, non-empty words or phrases in the block list text file.
+// Current number of valid, non-empty words or phrases in the block list text file.
 func (o LookupQuerySuggestionsBlockListResultOutput) ItemCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) int { return v.ItemCount }).(pulumi.IntOutput)
 }
 
-// The name of the block list.
+// Name of the block list.
 func (o LookupQuerySuggestionsBlockListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -179,19 +179,19 @@ func (o LookupQuerySuggestionsBlockListResultOutput) QuerySuggestionsBlockListId
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+// ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o LookupQuerySuggestionsBlockListResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 location of the block list input data. Detailed below.
+// S3 location of the block list input data. Detailed below.
 func (o LookupQuerySuggestionsBlockListResultOutput) SourceS3Paths() GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) []GetQuerySuggestionsBlockListSourceS3Path {
 		return v.SourceS3Paths
 	}).(GetQuerySuggestionsBlockListSourceS3PathArrayOutput)
 }
 
-// The current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
+// Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
 func (o LookupQuerySuggestionsBlockListResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -201,7 +201,7 @@ func (o LookupQuerySuggestionsBlockListResultOutput) Tags() pulumi.StringMapOutp
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The date and time that the block list was last updated.
+// Date and time that the block list was last updated.
 func (o LookupQuerySuggestionsBlockListResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

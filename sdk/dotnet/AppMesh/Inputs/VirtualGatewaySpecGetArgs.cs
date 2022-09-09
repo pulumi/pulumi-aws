@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The defaults for backends.
+        /// Defaults for backends.
         /// </summary>
         [Input("backendDefaults")]
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsGetArgs>? BackendDefaults { get; set; }
 
         /// <summary>
-        /// The listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        /// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         /// </summary>
         [Input("listener", required: true)]
         public Input<Inputs.VirtualGatewaySpecListenerGetArgs> Listener { get; set; } = null!;
 
         /// <summary>
-        /// The inbound and outbound access logging information for the virtual gateway.
+        /// Inbound and outbound access logging information for the virtual gateway.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.VirtualGatewaySpecLoggingGetArgs>? Logging { get; set; }

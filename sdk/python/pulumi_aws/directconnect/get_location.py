@@ -61,7 +61,7 @@ class GetLocationResult:
     @pulumi.getter(name="availableProviders")
     def available_providers(self) -> Sequence[str]:
         """
-        The names of the service providers for the location.
+        Names of the service providers for the location.
         """
         return pulumi.get(self, "available_providers")
 
@@ -82,7 +82,7 @@ class GetLocationResult:
     @pulumi.getter(name="locationName")
     def location_name(self) -> str:
         """
-        The name of the location. This includes the name of the colocation partner and the physical site of the building.
+        Name of the location. This includes the name of the colocation partner and the physical site of the building.
         """
         return pulumi.get(self, "location_name")
 
@@ -119,7 +119,7 @@ def get_location(location_code: Optional[str] = None,
     ```
 
 
-    :param str location_code: The code for the location to retrieve.
+    :param str location_code: Code for the location to retrieve.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
@@ -154,6 +154,6 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str location_code: The code for the location to retrieve.
+    :param str location_code: Code for the location to retrieve.
     """
     ...

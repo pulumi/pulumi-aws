@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetQuickConnectArgs {
      */
     quickConnectId?: string;
     /**
-     * A map of tags to assign to the Quick Connect.
+     * Map of tags to assign to the Quick Connect.
      */
     tags?: {[key: string]: string};
 }
@@ -75,11 +77,11 @@ export interface GetQuickConnectArgs {
  */
 export interface GetQuickConnectResult {
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      */
     readonly arn: string;
     /**
-     * Specifies the description of the Quick Connect.
+     * Description of the Quick Connect.
      */
     readonly description: string;
     /**
@@ -93,11 +95,11 @@ export interface GetQuickConnectResult {
      */
     readonly quickConnectConfigs: outputs.connect.GetQuickConnectQuickConnectConfig[];
     /**
-     * The identifier for the Quick Connect.
+     * Identifier for the Quick Connect.
      */
     readonly quickConnectId: string;
     /**
-     * A map of tags to assign to the Quick Connect.
+     * Map of tags to assign to the Quick Connect.
      */
     readonly tags: {[key: string]: string};
 }
@@ -123,7 +125,7 @@ export interface GetQuickConnectOutputArgs {
      */
     quickConnectId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the Quick Connect.
+     * Map of tags to assign to the Quick Connect.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

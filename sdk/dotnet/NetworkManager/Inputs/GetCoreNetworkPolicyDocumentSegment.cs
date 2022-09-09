@@ -61,7 +61,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public bool? IsolateAttachments { get; set; }
 
         /// <summary>
-        /// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+        /// Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

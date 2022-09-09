@@ -121,14 +121,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.securityGroupId;
     }
     /**
-     * The id of Cloud HSM v2 cluster backup to be restored.
+     * ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
     @Export(name="sourceBackupIdentifier", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceBackupIdentifier;
 
     /**
-     * @return The id of Cloud HSM v2 cluster backup to be restored.
+     * @return ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
     public Output<Optional<String>> sourceBackupIdentifier() {

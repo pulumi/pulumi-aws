@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlInputParameterResult> InputParameters;
         /// <summary>
-        /// The backup framework name.
+        /// Backup framework name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        /// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlScopeResult> Scopes;
 

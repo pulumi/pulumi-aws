@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>? _dimensions;
 
         /// <summary>
-        /// The dimensions of the metric.
+        /// Dimensions of the metric.
         /// </summary>
         public InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs> Dimensions
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         }
 
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;

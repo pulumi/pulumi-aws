@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Eks
     public sealed class GetNodeGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
+        /// Name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the node group.
+        /// Name of the node group.
         /// </summary>
         [Input("nodeGroupName", required: true)]
         public string NodeGroupName { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Eks
     public sealed class GetNodeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the cluster.
+        /// Name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the node group.
+        /// Name of the node group.
         /// </summary>
         [Input("nodeGroupName", required: true)]
         public Input<string> NodeGroupName { get; set; } = null!;
@@ -142,9 +142,13 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string AmiType;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Node Group.
+        /// ARN of the EKS Node Group.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+        /// </summary>
+        public readonly string CapacityType;
         public readonly string ClusterName;
         /// <summary>
         /// Disk size in GiB for worker nodes.
@@ -164,7 +168,7 @@ namespace Pulumi.Aws.Eks
         public readonly ImmutableDictionary<string, string> Labels;
         public readonly string NodeGroupName;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         public readonly string NodeRoleArn;
         /// <summary>
@@ -210,6 +214,8 @@ namespace Pulumi.Aws.Eks
 
             string arn,
 
+            string capacityType,
+
             string clusterName,
 
             int diskSize,
@@ -244,6 +250,7 @@ namespace Pulumi.Aws.Eks
         {
             AmiType = amiType;
             Arn = arn;
+            CapacityType = capacityType;
             ClusterName = clusterName;
             DiskSize = diskSize;
             Id = id;

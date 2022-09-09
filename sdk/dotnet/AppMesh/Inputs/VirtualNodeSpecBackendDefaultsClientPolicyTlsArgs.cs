@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The listener's TLS certificate.
+        /// Listener's TLS certificate.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs>? Certificate { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// The listener's Transport Layer Security (TLS) validation context.
+        /// Listener's Transport Layer Security (TLS) validation context.
         /// </summary>
         [Input("validation", required: true)]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> Validation { get; set; } = null!;

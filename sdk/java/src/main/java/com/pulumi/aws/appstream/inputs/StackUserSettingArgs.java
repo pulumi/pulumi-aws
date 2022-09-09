@@ -29,14 +29,14 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
     /**
-     * @return Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+     * @return Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> permission() {
@@ -90,7 +90,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         * @param permission Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         * @param permission Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

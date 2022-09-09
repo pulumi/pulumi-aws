@@ -71,7 +71,7 @@ class GetResolverRulesResult:
     @pulumi.getter(name="resolverRuleIds")
     def resolver_rule_ids(self) -> Sequence[str]:
         """
-        The IDs of the matched resolver rules.
+        IDs of the matched resolver rules.
         """
         return pulumi.get(self, "resolver_rule_ids")
 
@@ -142,12 +142,12 @@ def get_resolver_rules(name_regex: Optional[str] = None,
     ```
 
 
-    :param str name_regex: A regex string to filter resolver rule names.
+    :param str name_regex: Regex string to filter resolver rule names.
            The filtering is done locally, so could have a performance impact if the result is large.
            This argument should be used along with other arguments to limit the number of results returned.
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
-    :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
+    :param str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     __args__ = dict()
@@ -211,12 +211,12 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
     ```
 
 
-    :param str name_regex: A regex string to filter resolver rule names.
+    :param str name_regex: Regex string to filter resolver rule names.
            The filtering is done locally, so could have a performance impact if the result is large.
            This argument should be used along with other arguments to limit the number of results returned.
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
-    :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
+    :param str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     ...

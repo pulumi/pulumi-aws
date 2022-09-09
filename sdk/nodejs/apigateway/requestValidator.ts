@@ -59,11 +59,11 @@ export class RequestValidator extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the request validator
+     * Name of the request validator
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
@@ -112,11 +112,11 @@ export class RequestValidator extends pulumi.CustomResource {
  */
 export interface RequestValidatorState {
     /**
-     * The name of the request validator
+     * Name of the request validator
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
@@ -134,11 +134,11 @@ export interface RequestValidatorState {
  */
 export interface RequestValidatorArgs {
     /**
-     * The name of the request validator
+     * Name of the request validator
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the associated Rest API
+     * ID of the associated Rest API
      */
     restApi: pulumi.Input<string | RestApi>;
     /**

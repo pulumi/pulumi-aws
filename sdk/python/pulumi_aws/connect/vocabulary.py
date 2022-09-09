@@ -116,6 +116,7 @@ class _VocabularyState:
         :param pulumi.Input[str] last_modified_time: The timestamp when the custom vocabulary was last modified.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
         :param pulumi.Input[str] state: The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vocabulary_id: The identifier of the custom vocabulary.
         """
         if arn is not None:
@@ -249,6 +250,9 @@ class _VocabularyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -436,6 +440,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_time: The timestamp when the custom vocabulary was last modified.
         :param pulumi.Input[str] name: A unique name of the custom vocabulary. Must not be more than 140 characters.
         :param pulumi.Input[str] state: The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vocabulary_id: The identifier of the custom vocabulary.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -527,6 +532,9 @@ class Vocabulary(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

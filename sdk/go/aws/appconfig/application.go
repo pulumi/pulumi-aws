@@ -53,15 +53,15 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the AppConfig Application.
+	// ARN of the AppConfig Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the application. Can be at most 1024 characters.
+	// Description of the application. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name for the application. Must be between 1 and 64 characters in length.
+	// Name for the application. Must be between 1 and 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -94,28 +94,28 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The Amazon Resource Name (ARN) of the AppConfig Application.
+	// ARN of the AppConfig Application.
 	Arn *string `pulumi:"arn"`
-	// The description of the application. Can be at most 1024 characters.
+	// Description of the application. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The name for the application. Must be between 1 and 64 characters in length.
+	// Name for the application. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// The Amazon Resource Name (ARN) of the AppConfig Application.
+	// ARN of the AppConfig Application.
 	Arn pulumi.StringPtrInput
-	// The description of the application. Can be at most 1024 characters.
+	// Description of the application. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The name for the application. Must be between 1 and 64 characters in length.
+	// Name for the application. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -124,21 +124,21 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The description of the application. Can be at most 1024 characters.
+	// Description of the application. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The name for the application. Must be between 1 and 64 characters in length.
+	// Name for the application. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The description of the application. Can be at most 1024 characters.
+	// Description of the application. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The name for the application. Must be between 1 and 64 characters in length.
+	// Name for the application. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -229,27 +229,27 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AppConfig Application.
+// ARN of the AppConfig Application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the application. Can be at most 1024 characters.
+// Description of the application. Can be at most 1024 characters.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name for the application. Must be between 1 and 64 characters in length.
+// Name for the application. Must be between 1 and 64 characters in length.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

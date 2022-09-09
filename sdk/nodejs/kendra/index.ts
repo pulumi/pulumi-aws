@@ -5,25 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataSource";
-export * from "./experience";
-export * from "./faq";
-export * from "./getExperience";
-export * from "./getFaq";
-export * from "./getIndex";
-export * from "./getQuerySuggestionsBlockList";
-export * from "./getThesaurus";
-export * from "./index_";
-export * from "./querySuggestionsBlockList";
-export * from "./thesaurus";
+export { DataSourceArgs, DataSourceState } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
 
-// Import resources to register:
-import { DataSource } from "./dataSource";
-import { Experience } from "./experience";
-import { Faq } from "./faq";
-import { Index } from "./index_";
-import { QuerySuggestionsBlockList } from "./querySuggestionsBlockList";
-import { Thesaurus } from "./thesaurus";
+export { ExperienceArgs, ExperienceState } from "./experience";
+export type Experience = import("./experience").Experience;
+export const Experience: typeof import("./experience").Experience = null as any;
+
+export { FaqArgs, FaqState } from "./faq";
+export type Faq = import("./faq").Faq;
+export const Faq: typeof import("./faq").Faq = null as any;
+
+export { GetExperienceArgs, GetExperienceResult, GetExperienceOutputArgs } from "./getExperience";
+export const getExperience: typeof import("./getExperience").getExperience = null as any;
+export const getExperienceOutput: typeof import("./getExperience").getExperienceOutput = null as any;
+
+export { GetFaqArgs, GetFaqResult, GetFaqOutputArgs } from "./getFaq";
+export const getFaq: typeof import("./getFaq").getFaq = null as any;
+export const getFaqOutput: typeof import("./getFaq").getFaqOutput = null as any;
+
+export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
+export const getIndex: typeof import("./getIndex").getIndex = null as any;
+export const getIndexOutput: typeof import("./getIndex").getIndexOutput = null as any;
+
+export { GetQuerySuggestionsBlockListArgs, GetQuerySuggestionsBlockListResult, GetQuerySuggestionsBlockListOutputArgs } from "./getQuerySuggestionsBlockList";
+export const getQuerySuggestionsBlockList: typeof import("./getQuerySuggestionsBlockList").getQuerySuggestionsBlockList = null as any;
+export const getQuerySuggestionsBlockListOutput: typeof import("./getQuerySuggestionsBlockList").getQuerySuggestionsBlockListOutput = null as any;
+
+export { GetThesaurusArgs, GetThesaurusResult, GetThesaurusOutputArgs } from "./getThesaurus";
+export const getThesaurus: typeof import("./getThesaurus").getThesaurus = null as any;
+export const getThesaurusOutput: typeof import("./getThesaurus").getThesaurusOutput = null as any;
+
+export { IndexArgs, IndexState } from "./index_";
+export type Index = import("./index_").Index;
+export const Index: typeof import("./index_").Index = null as any;
+
+export { QuerySuggestionsBlockListArgs, QuerySuggestionsBlockListState } from "./querySuggestionsBlockList";
+export type QuerySuggestionsBlockList = import("./querySuggestionsBlockList").QuerySuggestionsBlockList;
+export const QuerySuggestionsBlockList: typeof import("./querySuggestionsBlockList").QuerySuggestionsBlockList = null as any;
+
+export { ThesaurusArgs, ThesaurusState } from "./thesaurus";
+export type Thesaurus = import("./thesaurus").Thesaurus;
+export const Thesaurus: typeof import("./thesaurus").Thesaurus = null as any;
+
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["Experience"], () => require("./experience"));
+utilities.lazyLoad(exports, ["Faq"], () => require("./faq"));
+utilities.lazyLoad(exports, ["getExperience","getExperienceOutput"], () => require("./getExperience"));
+utilities.lazyLoad(exports, ["getFaq","getFaqOutput"], () => require("./getFaq"));
+utilities.lazyLoad(exports, ["getIndex","getIndexOutput"], () => require("./getIndex"));
+utilities.lazyLoad(exports, ["getQuerySuggestionsBlockList","getQuerySuggestionsBlockListOutput"], () => require("./getQuerySuggestionsBlockList"));
+utilities.lazyLoad(exports, ["getThesaurus","getThesaurusOutput"], () => require("./getThesaurus"));
+utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
+utilities.lazyLoad(exports, ["QuerySuggestionsBlockList"], () => require("./querySuggestionsBlockList"));
+utilities.lazyLoad(exports, ["Thesaurus"], () => require("./thesaurus"));
 
 const _module = {
     version: utilities.getVersion(),

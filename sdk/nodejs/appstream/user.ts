@@ -70,7 +70,7 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Specifies whether the user in the user pool is enabled.
+     * Whether the user in the user pool is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface UserState {
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * Specifies whether the user in the user pool is enabled.
+     * Whether the user in the user pool is enabled.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -180,7 +180,7 @@ export interface UserArgs {
      */
     authenticationType: pulumi.Input<string>;
     /**
-     * Specifies whether the user in the user pool is enabled.
+     * Whether the user in the user pool is enabled.
      */
     enabled?: pulumi.Input<boolean>;
     /**

@@ -17,14 +17,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterArgs Empty = new GetClusterArgs();
 
     /**
-     * The cluster identifier
+     * Cluster identifier
      * 
      */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier
+     * @return Cluster identifier
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -32,14 +32,14 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags associated to the cluster
+     * Tags associated to the cluster
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags associated to the cluster
+     * @return Tags associated to the cluster
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier
+         * @param clusterIdentifier Cluster identifier
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier
+         * @param clusterIdentifier Cluster identifier
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags associated to the cluster
+         * @param tags Tags associated to the cluster
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags associated to the cluster
+         * @param tags Tags associated to the cluster
          * 
          * @return builder
          * 

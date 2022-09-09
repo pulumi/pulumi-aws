@@ -14,14 +14,14 @@ public final class GetRealtimeLogConfigArgs extends com.pulumi.resources.InvokeA
     public static final GetRealtimeLogConfigArgs Empty = new GetRealtimeLogConfigArgs();
 
     /**
-     * The unique name to identify this real-time log configuration.
+     * Unique name to identify this real-time log configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The unique name to identify this real-time log configuration.
+     * @return Unique name to identify this real-time log configuration.
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetRealtimeLogConfigArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The unique name to identify this real-time log configuration.
+         * @param name Unique name to identify this real-time log configuration.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetRealtimeLogConfigArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name The unique name to identify this real-time log configuration.
+         * @param name Unique name to identify this real-time log configuration.
          * 
          * @return builder
          * 

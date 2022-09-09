@@ -14,14 +14,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs();
 
     /**
-     * The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * @return Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
     public Output<String> secretName() {
@@ -53,7 +53,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param secretName The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * @param secretName Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param secretName The name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * @param secretName Name of the secret for a virtual node&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetAmiBlockDeviceMappingResult
     {
         /// <summary>
-        /// The physical name of the device.
+        /// Physical name of the device.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Outputs
         /// </summary>
         public readonly string NoDevice;
         /// <summary>
-        /// The virtual device name (for instance stores).
+        /// Virtual device name (for instance stores).
         /// </summary>
         public readonly string VirtualName;
 

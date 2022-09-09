@@ -94,126 +94,126 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appmesh/mesh:Mesh")
 public class Mesh extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the service mesh.
+     * ARN of the service mesh.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the service mesh.
+     * @return ARN of the service mesh.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The creation date of the service mesh.
+     * Creation date of the service mesh.
      * 
      */
     @Export(name="createdDate", type=String.class, parameters={})
     private Output<String> createdDate;
 
     /**
-     * @return The creation date of the service mesh.
+     * @return Creation date of the service mesh.
      * 
      */
     public Output<String> createdDate() {
         return this.createdDate;
     }
     /**
-     * The last update date of the service mesh.
+     * Last update date of the service mesh.
      * 
      */
     @Export(name="lastUpdatedDate", type=String.class, parameters={})
     private Output<String> lastUpdatedDate;
 
     /**
-     * @return The last update date of the service mesh.
+     * @return Last update date of the service mesh.
      * 
      */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     /**
-     * The AWS account ID of the service mesh&#39;s owner.
+     * AWS account ID of the service mesh&#39;s owner.
      * 
      */
     @Export(name="meshOwner", type=String.class, parameters={})
     private Output<String> meshOwner;
 
     /**
-     * @return The AWS account ID of the service mesh&#39;s owner.
+     * @return AWS account ID of the service mesh&#39;s owner.
      * 
      */
     public Output<String> meshOwner() {
         return this.meshOwner;
     }
     /**
-     * The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name to use for the service mesh. Must be between 1 and 255 characters in length.
+     * @return Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The resource owner&#39;s AWS account ID.
+     * Resource owner&#39;s AWS account ID.
      * 
      */
     @Export(name="resourceOwner", type=String.class, parameters={})
     private Output<String> resourceOwner;
 
     /**
-     * @return The resource owner&#39;s AWS account ID.
+     * @return Resource owner&#39;s AWS account ID.
      * 
      */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * The service mesh specification to apply.
+     * Service mesh specification to apply.
      * 
      */
     @Export(name="spec", type=MeshSpec.class, parameters={})
     private Output</* @Nullable */ MeshSpec> spec;
 
     /**
-     * @return The service mesh specification to apply.
+     * @return Service mesh specification to apply.
      * 
      */
     public Output<Optional<MeshSpec>> spec() {
         return Codegen.optional(this.spec);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

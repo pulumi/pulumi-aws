@@ -23,9 +23,9 @@ class MethodSettingsArgs:
         """
         The set of arguments for constructing a MethodSettings resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[str] rest_api: The ID of the REST API
-        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: The settings block, see below.
-        :param pulumi.Input[str] stage_name: The name of the stage
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         pulumi.set(__self__, "method_path", method_path)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -48,7 +48,7 @@ class MethodSettingsArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        The ID of the REST API
+        ID of the REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -60,7 +60,7 @@ class MethodSettingsArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['MethodSettingsSettingsArgs']:
         """
-        The settings block, see below.
+        Settings block, see below.
         """
         return pulumi.get(self, "settings")
 
@@ -72,7 +72,7 @@ class MethodSettingsArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Input[str]:
         """
-        The name of the stage
+        Name of the stage
         """
         return pulumi.get(self, "stage_name")
 
@@ -91,9 +91,9 @@ class _MethodSettingsState:
         """
         Input properties used for looking up and filtering MethodSettings resources.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[str] rest_api: The ID of the REST API
-        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: The settings block, see below.
-        :param pulumi.Input[str] stage_name: The name of the stage
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         if method_path is not None:
             pulumi.set(__self__, "method_path", method_path)
@@ -120,7 +120,7 @@ class _MethodSettingsState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the REST API
+        ID of the REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -132,7 +132,7 @@ class _MethodSettingsState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['MethodSettingsSettingsArgs']]:
         """
-        The settings block, see below.
+        Settings block, see below.
         """
         return pulumi.get(self, "settings")
 
@@ -144,7 +144,7 @@ class _MethodSettingsState:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stage
+        Name of the stage
         """
         return pulumi.get(self, "stage_name")
 
@@ -233,9 +233,9 @@ class MethodSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[str] rest_api: The ID of the REST API
-        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
-        :param pulumi.Input[str] stage_name: The name of the stage
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         ...
     @overload
@@ -372,9 +372,9 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-        :param pulumi.Input[str] rest_api: The ID of the REST API
-        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
-        :param pulumi.Input[str] stage_name: The name of the stage
+        :param pulumi.Input[str] rest_api: ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[str] stage_name: Name of the stage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,7 +398,7 @@ class MethodSettings(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The ID of the REST API
+        ID of the REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -406,7 +406,7 @@ class MethodSettings(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output['outputs.MethodSettingsSettings']:
         """
-        The settings block, see below.
+        Settings block, see below.
         """
         return pulumi.get(self, "settings")
 
@@ -414,7 +414,7 @@ class MethodSettings(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[str]:
         """
-        The name of the stage
+        Name of the stage
         """
         return pulumi.get(self, "stage_name")
 

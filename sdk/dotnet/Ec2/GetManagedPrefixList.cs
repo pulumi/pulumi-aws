@@ -146,13 +146,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the prefix list to select.
+        /// ID of the prefix list to select.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        /// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the prefix list to select.
+        /// ID of the prefix list to select.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        /// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -224,20 +224,20 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetManagedPrefixListResult
     {
         /// <summary>
-        /// The address family of the prefix list. Valid values are `IPv4` and `IPv6`.
+        /// Address family of the prefix list. Valid values are `IPv4` and `IPv6`.
         /// </summary>
         public readonly string AddressFamily;
         /// <summary>
-        /// The ARN of the selected prefix list.
+        /// ARN of the selected prefix list.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+        /// Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedPrefixListEntryResult> Entries;
         public readonly ImmutableArray<Outputs.GetManagedPrefixListFilterResult> Filters;
         /// <summary>
-        /// The ID of the selected prefix list.
+        /// ID of the selected prefix list.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -245,15 +245,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int MaxEntries;
         /// <summary>
-        /// The name of the selected prefix list.
+        /// Name of the selected prefix list.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
+        /// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly int Version;

@@ -51,7 +51,7 @@ class GetSubnetGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the DB subnet group.
+        ARN for the DB subnet group.
         """
         return pulumi.get(self, "arn")
 
@@ -140,7 +140,7 @@ def get_subnet_group(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the RDS database subnet group.
+    :param str name: Name of the RDS database subnet group.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -174,6 +174,6 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the RDS database subnet group.
+    :param str name: Name of the RDS database subnet group.
     """
     ...

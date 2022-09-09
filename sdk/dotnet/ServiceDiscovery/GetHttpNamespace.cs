@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetHttpNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the http namespace.
+        /// Name of the http namespace.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetHttpNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the http namespace.
+        /// Name of the http namespace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -120,15 +120,15 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetHttpNamespaceResult
     {
         /// <summary>
-        /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
+        /// ARN that Amazon Route 53 assigns to the namespace when you create it.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description that you specify for the namespace when you create it.
+        /// Description that you specify for the namespace when you create it.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The name of an HTTP namespace.
+        /// Name of an HTTP namespace.
         /// </summary>
         public readonly string HttpName;
         /// <summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A map of tags for the resource.
+        /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

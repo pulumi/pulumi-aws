@@ -60,28 +60,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/domainName:DomainName")
 public class DomainName extends com.pulumi.resources.CustomResource {
     /**
-     * The domain name that AppSync provides.
+     * Domain name that AppSync provides.
      * 
      */
     @Export(name="appsyncDomainName", type=String.class, parameters={})
     private Output<String> appsyncDomainName;
 
     /**
-     * @return The domain name that AppSync provides.
+     * @return Domain name that AppSync provides.
      * 
      */
     public Output<String> appsyncDomainName() {
         return this.appsyncDomainName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     @Export(name="certificateArn", type=String.class, parameters={})
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * @return ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     public Output<String> certificateArn() {
@@ -102,28 +102,28 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The domain name.
+     * Domain name.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The domain name.
+     * @return Domain name.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The ID of your Amazon Route 53 hosted zone.
+     * ID of your Amazon Route 53 hosted zone.
      * 
      */
     @Export(name="hostedZoneId", type=String.class, parameters={})
     private Output<String> hostedZoneId;
 
     /**
-     * @return The ID of your Amazon Route 53 hosted zone.
+     * @return ID of your Amazon Route 53 hosted zone.
      * 
      */
     public Output<String> hostedZoneId() {

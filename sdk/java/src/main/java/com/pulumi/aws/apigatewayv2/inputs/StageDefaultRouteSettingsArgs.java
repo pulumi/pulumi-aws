@@ -51,7 +51,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+     * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
@@ -59,7 +59,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> loggingLevel;
 
     /**
-     * @return The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
@@ -68,14 +68,14 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The throttling burst limit for the default route.
+     * Throttling burst limit for the default route.
      * 
      */
     @Import(name="throttlingBurstLimit")
     private @Nullable Output<Integer> throttlingBurstLimit;
 
     /**
-     * @return The throttling burst limit for the default route.
+     * @return Throttling burst limit for the default route.
      * 
      */
     public Optional<Output<Integer>> throttlingBurstLimit() {
@@ -83,14 +83,14 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The throttling rate limit for the default route.
+     * Throttling rate limit for the default route.
      * 
      */
     @Import(name="throttlingRateLimit")
     private @Nullable Output<Double> throttlingRateLimit;
 
     /**
-     * @return The throttling rate limit for the default route.
+     * @return Throttling rate limit for the default route.
      * 
      */
     public Optional<Output<Double>> throttlingRateLimit() {
@@ -170,7 +170,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param loggingLevel The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
          * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
@@ -182,7 +182,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param loggingLevel The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
          * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
@@ -193,7 +193,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param throttlingBurstLimit The throttling burst limit for the default route.
+         * @param throttlingBurstLimit Throttling burst limit for the default route.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param throttlingBurstLimit The throttling burst limit for the default route.
+         * @param throttlingBurstLimit Throttling burst limit for the default route.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param throttlingRateLimit The throttling rate limit for the default route.
+         * @param throttlingRateLimit Throttling rate limit for the default route.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param throttlingRateLimit The throttling rate limit for the default route.
+         * @param throttlingRateLimit Throttling rate limit for the default route.
          * 
          * @return builder
          * 

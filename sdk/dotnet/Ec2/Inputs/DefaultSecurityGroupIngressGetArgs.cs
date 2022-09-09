@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        /// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         /// </summary>
         public InputList<string> SecurityGroups
         {

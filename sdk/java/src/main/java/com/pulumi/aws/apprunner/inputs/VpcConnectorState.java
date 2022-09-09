@@ -26,14 +26,14 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+     * @return List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -41,14 +41,14 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+     * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+     * @return Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
     public Optional<Output<String>> status() {
@@ -56,14 +56,14 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
     /**
-     * @return A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+     * @return List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
     public Optional<Output<List<String>>> subnets() {
@@ -86,14 +86,14 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the VPC connector.
+     * Name for the VPC connector.
      * 
      */
     @Import(name="vpcConnectorName")
     private @Nullable Output<String> vpcConnectorName;
 
     /**
-     * @return A name for the VPC connector.
+     * @return Name for the VPC connector.
      * 
      */
     public Optional<Output<String>> vpcConnectorName() {
@@ -155,7 +155,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
+         * @param securityGroups List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+         * @param status Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
+         * @param status Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
+         * @param subnets List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorName A name for the VPC connector.
+         * @param vpcConnectorName Name for the VPC connector.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorName A name for the VPC connector.
+         * @param vpcConnectorName Name for the VPC connector.
          * 
          * @return builder
          * 

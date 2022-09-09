@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTransitGatewayFilter {
     /**
-     * @return The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+     * @return Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetTransitGatewayFilter {
 
     private GetTransitGatewayFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+     * @return Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
      * 
      */
     public String name() {

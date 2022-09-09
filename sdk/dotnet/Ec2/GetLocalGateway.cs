@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific Local Gateway to retrieve.
+        /// Id of the specific Local Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The current state of the desired Local Gateway.
+        /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// </summary>
         public Dictionary<string, string> Tags
@@ -136,13 +136,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The id of the specific Local Gateway to retrieve.
+        /// Id of the specific Local Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The current state of the desired Local Gateway.
+        /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// </summary>
         public InputMap<string> Tags
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLocalGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// Amazon Resource Name (ARN) of Outpost
+        /// ARN of Outpost
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>

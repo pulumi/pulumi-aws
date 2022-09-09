@@ -45,11 +45,11 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * Amazon Resource Name (ARN) of Transfer Server.
+     * ARN of Transfer Server.
      */
     readonly arn: string;
     /**
-     * The ARN of any certificate.
+     * ARN of any certificate.
      */
     readonly certificate: string;
     /**
@@ -57,11 +57,11 @@ export interface GetServerResult {
      */
     readonly domain: string;
     /**
-     * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
+     * Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      */
     readonly endpoint: string;
     /**
-     * The type of endpoint that the server is connected to.
+     * Type of endpoint that the server is connected to.
      */
     readonly endpointType: string;
     /**
@@ -73,15 +73,15 @@ export interface GetServerResult {
      */
     readonly identityProviderType: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly invocationRole: string;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole: string;
     /**
-     * The file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
+     * File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
      */
     readonly protocols: string[];
     /**

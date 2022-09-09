@@ -48,7 +48,7 @@ class GetAliasResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) identifying the Lambda function alias.
+        ARN identifying the Lambda function alias.
         """
         return pulumi.get(self, "arn")
 
@@ -85,7 +85,7 @@ class GetAliasResult:
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> str:
         """
-        The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+        ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
         """
         return pulumi.get(self, "invoke_arn")
 

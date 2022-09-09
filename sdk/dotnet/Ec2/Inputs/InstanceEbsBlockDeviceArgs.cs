@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the device.
+        /// Map of tags to assign to the device.
         /// </summary>
         public InputMap<string> Tags
         {

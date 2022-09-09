@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetSpotPriceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The availability zone in which to query Spot price information.
+        /// Availability zone in which to query Spot price information.
         /// </summary>
         [Input("availabilityZone")]
         public string? AvailabilityZone { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of instance for which to query Spot Price information.
+        /// Type of instance for which to query Spot Price information.
         /// </summary>
         [Input("instanceType")]
         public string? InstanceType { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetSpotPriceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The availability zone in which to query Spot price information.
+        /// Availability zone in which to query Spot price information.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of instance for which to query Spot Price information.
+        /// Type of instance for which to query Spot Price information.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly string? InstanceType;
         /// <summary>
-        /// The most recent Spot Price value for the given instance type and AZ.
+        /// Most recent Spot Price value for the given instance type and AZ.
         /// </summary>
         public readonly string SpotPrice;
         /// <summary>

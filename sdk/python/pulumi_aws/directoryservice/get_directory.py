@@ -79,7 +79,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> str:
         """
-        The access URL for the directory/connector, such as http://alias.awsapps.com.
+        Access URL for the directory/connector, such as http://alias.awsapps.com.
         """
         return pulumi.get(self, "access_url")
 
@@ -87,7 +87,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def alias(self) -> str:
         """
-        The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
+        Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
         """
         return pulumi.get(self, "alias")
 
@@ -100,7 +100,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A textual description for the directory/connector.
+        Textual description for the directory/connector.
         """
         return pulumi.get(self, "description")
 
@@ -113,7 +113,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Sequence[str]:
         """
-        A list of IP addresses of the DNS servers for the directory/connector.
+        List of IP addresses of the DNS servers for the directory/connector.
         """
         return pulumi.get(self, "dns_ip_addresses")
 
@@ -121,7 +121,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def edition(self) -> str:
         """
-        (for `MicrosoftAD`) The Microsoft AD edition (`Standard` or `Enterprise`).
+        (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
         """
         return pulumi.get(self, "edition")
 
@@ -129,7 +129,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> bool:
         """
-        The directory/connector single-sign on status.
+        Directory/connector single-sign on status.
         """
         return pulumi.get(self, "enable_sso")
 
@@ -145,7 +145,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The fully qualified name for the directory/connector.
+        Fully qualified name for the directory/connector.
         """
         return pulumi.get(self, "name")
 
@@ -158,7 +158,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
         """
-        The ID of the security group created by the directory/connector.
+        ID of the security group created by the directory/connector.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -166,7 +166,7 @@ class GetDirectoryResult:
     @pulumi.getter(name="shortName")
     def short_name(self) -> str:
         """
-        The short name of the directory/connector, such as `CORP`.
+        Short name of the directory/connector, such as `CORP`.
         """
         return pulumi.get(self, "short_name")
 
@@ -174,7 +174,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def size(self) -> str:
         """
-        (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
+        (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
         """
         return pulumi.get(self, "size")
 
@@ -190,7 +190,7 @@ class GetDirectoryResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
+        Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         """
         return pulumi.get(self, "type")
 
@@ -241,7 +241,7 @@ def get_directory(directory_id: Optional[str] = None,
     ```
 
 
-    :param str directory_id: The ID of the directory.
+    :param str directory_id: ID of the directory.
     :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
@@ -287,7 +287,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str directory_id: The ID of the directory.
+    :param str directory_id: ID of the directory.
     :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
     """
     ...

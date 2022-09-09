@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetPromptResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Prompt.
+        /// ARN of the Prompt.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Connect
         public readonly string InstanceId;
         public readonly string Name;
         /// <summary>
-        /// The identifier for the prompt.
+        /// Identifier for the prompt.
         /// </summary>
         public readonly string PromptId;
 

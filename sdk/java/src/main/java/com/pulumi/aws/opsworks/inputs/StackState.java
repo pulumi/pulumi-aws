@@ -378,14 +378,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The id of the VPC that this stack belongs to.
+     * @return ID of the VPC that this stack belongs to.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -946,7 +946,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The id of the VPC that this stack belongs to.
+         * @param vpcId ID of the VPC that this stack belongs to.
          * 
          * @return builder
          * 
@@ -957,7 +957,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The id of the VPC that this stack belongs to.
+         * @param vpcId ID of the VPC that this stack belongs to.
          * 
          * @return builder
          * 

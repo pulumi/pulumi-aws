@@ -11,9 +11,9 @@ import (
 )
 
 type ScalingPlanApplicationSource struct {
-	// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+	// ARN of a AWS CloudFormation stack.
 	CloudformationStackArn *string `pulumi:"cloudformationStackArn"`
-	// A set of tags.
+	// Set of tags.
 	TagFilters []ScalingPlanApplicationSourceTagFilter `pulumi:"tagFilters"`
 }
 
@@ -29,9 +29,9 @@ type ScalingPlanApplicationSourceInput interface {
 }
 
 type ScalingPlanApplicationSourceArgs struct {
-	// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+	// ARN of a AWS CloudFormation stack.
 	CloudformationStackArn pulumi.StringPtrInput `pulumi:"cloudformationStackArn"`
-	// A set of tags.
+	// Set of tags.
 	TagFilters ScalingPlanApplicationSourceTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
@@ -112,12 +112,12 @@ func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourcePtrOut
 	}).(ScalingPlanApplicationSourcePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+// ARN of a AWS CloudFormation stack.
 func (o ScalingPlanApplicationSourceOutput) CloudformationStackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSource) *string { return v.CloudformationStackArn }).(pulumi.StringPtrOutput)
 }
 
-// A set of tags.
+// Set of tags.
 func (o ScalingPlanApplicationSourceOutput) TagFilters() ScalingPlanApplicationSourceTagFilterArrayOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSource) []ScalingPlanApplicationSourceTagFilter { return v.TagFilters }).(ScalingPlanApplicationSourceTagFilterArrayOutput)
 }
@@ -146,7 +146,7 @@ func (o ScalingPlanApplicationSourcePtrOutput) Elem() ScalingPlanApplicationSour
 	}).(ScalingPlanApplicationSourceOutput)
 }
 
-// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+// ARN of a AWS CloudFormation stack.
 func (o ScalingPlanApplicationSourcePtrOutput) CloudformationStackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanApplicationSource) *string {
 		if v == nil {
@@ -156,7 +156,7 @@ func (o ScalingPlanApplicationSourcePtrOutput) CloudformationStackArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of tags.
+// Set of tags.
 func (o ScalingPlanApplicationSourcePtrOutput) TagFilters() ScalingPlanApplicationSourceTagFilterArrayOutput {
 	return o.ApplyT(func(v *ScalingPlanApplicationSource) []ScalingPlanApplicationSourceTagFilter {
 		if v == nil {
@@ -167,9 +167,9 @@ func (o ScalingPlanApplicationSourcePtrOutput) TagFilters() ScalingPlanApplicati
 }
 
 type ScalingPlanApplicationSourceTagFilter struct {
-	// The tag key.
+	// Tag key.
 	Key string `pulumi:"key"`
-	// The tag values.
+	// Tag values.
 	Values []string `pulumi:"values"`
 }
 
@@ -185,9 +185,9 @@ type ScalingPlanApplicationSourceTagFilterInput interface {
 }
 
 type ScalingPlanApplicationSourceTagFilterArgs struct {
-	// The tag key.
+	// Tag key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The tag values.
+	// Tag values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -242,12 +242,12 @@ func (o ScalingPlanApplicationSourceTagFilterOutput) ToScalingPlanApplicationSou
 	return o
 }
 
-// The tag key.
+// Tag key.
 func (o ScalingPlanApplicationSourceTagFilterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSourceTagFilter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The tag values.
+// Tag values.
 func (o ScalingPlanApplicationSourceTagFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSourceTagFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -273,36 +273,36 @@ func (o ScalingPlanApplicationSourceTagFilterArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ScalingPlanScalingInstruction struct {
-	// The customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
+	// Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
 	CustomizedLoadMetricSpecification *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification `pulumi:"customizedLoadMetricSpecification"`
 	// Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
 	DisableDynamicScaling *bool `pulumi:"disableDynamicScaling"`
-	// The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
+	// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
 	MaxCapacity int `pulumi:"maxCapacity"`
-	// The minimum capacity of the resource.
+	// Minimum capacity of the resource.
 	MinCapacity int `pulumi:"minCapacity"`
-	// The predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
+	// Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
 	PredefinedLoadMetricSpecification *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification `pulumi:"predefinedLoadMetricSpecification"`
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
 	// Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
 	PredictiveScalingMaxCapacityBehavior *string `pulumi:"predictiveScalingMaxCapacityBehavior"`
-	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+	// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
 	PredictiveScalingMaxCapacityBuffer *int `pulumi:"predictiveScalingMaxCapacityBuffer"`
-	// The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+	// Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
 	PredictiveScalingMode *string `pulumi:"predictiveScalingMode"`
-	// The ID of the resource. This string consists of the resource type and unique identifier.
+	// ID of the resource. This string consists of the resource type and unique identifier.
 	ResourceId string `pulumi:"resourceId"`
-	// The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+	// Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
 	ScalableDimension string `pulumi:"scalableDimension"`
 	// Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
 	ScalingPolicyUpdateBehavior *string `pulumi:"scalingPolicyUpdateBehavior"`
-	// The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+	// Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
 	ScheduledActionBufferTime *int `pulumi:"scheduledActionBufferTime"`
-	// The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+	// Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
 	ServiceNamespace string `pulumi:"serviceNamespace"`
-	// The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+	// Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
 	TargetTrackingConfigurations []ScalingPlanScalingInstructionTargetTrackingConfiguration `pulumi:"targetTrackingConfigurations"`
 }
@@ -319,36 +319,36 @@ type ScalingPlanScalingInstructionInput interface {
 }
 
 type ScalingPlanScalingInstructionArgs struct {
-	// The customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
+	// Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
 	CustomizedLoadMetricSpecification ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrInput `pulumi:"customizedLoadMetricSpecification"`
 	// Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
 	DisableDynamicScaling pulumi.BoolPtrInput `pulumi:"disableDynamicScaling"`
-	// The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
+	// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
 	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
-	// The minimum capacity of the resource.
+	// Minimum capacity of the resource.
 	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
-	// The predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
+	// Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
 	PredefinedLoadMetricSpecification ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrInput `pulumi:"predefinedLoadMetricSpecification"`
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
 	// Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
 	PredictiveScalingMaxCapacityBehavior pulumi.StringPtrInput `pulumi:"predictiveScalingMaxCapacityBehavior"`
-	// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+	// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
 	PredictiveScalingMaxCapacityBuffer pulumi.IntPtrInput `pulumi:"predictiveScalingMaxCapacityBuffer"`
-	// The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+	// Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
 	PredictiveScalingMode pulumi.StringPtrInput `pulumi:"predictiveScalingMode"`
-	// The ID of the resource. This string consists of the resource type and unique identifier.
+	// ID of the resource. This string consists of the resource type and unique identifier.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+	// Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
 	ScalableDimension pulumi.StringInput `pulumi:"scalableDimension"`
 	// Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
 	ScalingPolicyUpdateBehavior pulumi.StringPtrInput `pulumi:"scalingPolicyUpdateBehavior"`
-	// The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+	// Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
 	ScheduledActionBufferTime pulumi.IntPtrInput `pulumi:"scheduledActionBufferTime"`
-	// The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+	// Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
 	ServiceNamespace pulumi.StringInput `pulumi:"serviceNamespace"`
-	// The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+	// Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
 	TargetTrackingConfigurations ScalingPlanScalingInstructionTargetTrackingConfigurationArrayInput `pulumi:"targetTrackingConfigurations"`
 }
@@ -404,7 +404,7 @@ func (o ScalingPlanScalingInstructionOutput) ToScalingPlanScalingInstructionOutp
 	return o
 }
 
-// The customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
+// Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
 // More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
 func (o ScalingPlanScalingInstructionOutput) CustomizedLoadMetricSpecification() ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
@@ -417,17 +417,17 @@ func (o ScalingPlanScalingInstructionOutput) DisableDynamicScaling() pulumi.Bool
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *bool { return v.DisableDynamicScaling }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
+// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
 func (o ScalingPlanScalingInstructionOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }
 
-// The minimum capacity of the resource.
+// Minimum capacity of the resource.
 func (o ScalingPlanScalingInstructionOutput) MinCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) int { return v.MinCapacity }).(pulumi.IntOutput)
 }
 
-// The predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
+// Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
 // More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
 func (o ScalingPlanScalingInstructionOutput) PredefinedLoadMetricSpecification() ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
@@ -441,22 +441,22 @@ func (o ScalingPlanScalingInstructionOutput) PredictiveScalingMaxCapacityBehavio
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *string { return v.PredictiveScalingMaxCapacityBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
 func (o ScalingPlanScalingInstructionOutput) PredictiveScalingMaxCapacityBuffer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *int { return v.PredictiveScalingMaxCapacityBuffer }).(pulumi.IntPtrOutput)
 }
 
-// The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+// Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
 func (o ScalingPlanScalingInstructionOutput) PredictiveScalingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *string { return v.PredictiveScalingMode }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the resource. This string consists of the resource type and unique identifier.
+// ID of the resource. This string consists of the resource type and unique identifier.
 func (o ScalingPlanScalingInstructionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+// Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
 func (o ScalingPlanScalingInstructionOutput) ScalableDimension() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) string { return v.ScalableDimension }).(pulumi.StringOutput)
 }
@@ -466,17 +466,17 @@ func (o ScalingPlanScalingInstructionOutput) ScalingPolicyUpdateBehavior() pulum
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *string { return v.ScalingPolicyUpdateBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+// Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
 func (o ScalingPlanScalingInstructionOutput) ScheduledActionBufferTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) *int { return v.ScheduledActionBufferTime }).(pulumi.IntPtrOutput)
 }
 
-// The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+// Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
 func (o ScalingPlanScalingInstructionOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) string { return v.ServiceNamespace }).(pulumi.StringOutput)
 }
 
-// The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+// Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
 // More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
 func (o ScalingPlanScalingInstructionOutput) TargetTrackingConfigurations() ScalingPlanScalingInstructionTargetTrackingConfigurationArrayOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstruction) []ScalingPlanScalingInstructionTargetTrackingConfiguration {
@@ -505,15 +505,15 @@ func (o ScalingPlanScalingInstructionArrayOutput) Index(i pulumi.IntInput) Scali
 }
 
 type ScalingPlanScalingInstructionCustomizedLoadMetricSpecification struct {
-	// The dimensions of the metric.
+	// Dimensions of the metric.
 	Dimensions map[string]string `pulumi:"dimensions"`
-	// The name of the metric.
+	// Name of the metric.
 	MetricName string `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Namespace of the metric.
 	Namespace string `pulumi:"namespace"`
-	// The statistic of the metric. Currently, the value must always be `Sum`.
+	// Statistic of the metric. Currently, the value must always be `Sum`.
 	Statistic string `pulumi:"statistic"`
-	// The unit of the metric.
+	// Unit of the metric.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -529,15 +529,15 @@ type ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationInput interfa
 }
 
 type ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs struct {
-	// The dimensions of the metric.
+	// Dimensions of the metric.
 	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
-	// The name of the metric.
+	// Name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Namespace of the metric.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// The statistic of the metric. Currently, the value must always be `Sum`.
+	// Statistic of the metric. Currently, the value must always be `Sum`.
 	Statistic pulumi.StringInput `pulumi:"statistic"`
-	// The unit of the metric.
+	// Unit of the metric.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -618,29 +618,29 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) To
 	}).(ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 }
 
-// The dimensions of the metric.
+// Dimensions of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) map[string]string {
 		return v.Dimensions
 	}).(pulumi.StringMapOutput)
 }
 
-// The name of the metric.
+// Name of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The namespace of the metric.
+// Namespace of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// The statistic of the metric. Currently, the value must always be `Sum`.
+// Statistic of the metric. Currently, the value must always be `Sum`.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) string { return v.Statistic }).(pulumi.StringOutput)
 }
 
-// The unit of the metric.
+// Unit of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -669,7 +669,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 	}).(ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput)
 }
 
-// The dimensions of the metric.
+// Dimensions of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) map[string]string {
 		if v == nil {
@@ -679,7 +679,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 	}).(pulumi.StringMapOutput)
 }
 
-// The name of the metric.
+// Name of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *string {
 		if v == nil {
@@ -689,7 +689,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the metric.
+// Namespace of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *string {
 		if v == nil {
@@ -699,7 +699,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The statistic of the metric. Currently, the value must always be `Sum`.
+// Statistic of the metric. Currently, the value must always be `Sum`.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *string {
 		if v == nil {
@@ -709,7 +709,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unit of the metric.
+// Unit of the metric.
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *string {
 		if v == nil {
@@ -720,7 +720,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 }
 
 type ScalingPlanScalingInstructionPredefinedLoadMetricSpecification struct {
-	// The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+	// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
 	PredefinedLoadMetricType string `pulumi:"predefinedLoadMetricType"`
 	// Identifies the resource associated with the metric type.
 	ResourceLabel *string `pulumi:"resourceLabel"`
@@ -738,7 +738,7 @@ type ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationInput interfa
 }
 
 type ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs struct {
-	// The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+	// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
 	PredefinedLoadMetricType pulumi.StringInput `pulumi:"predefinedLoadMetricType"`
 	// Identifies the resource associated with the metric type.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
@@ -821,7 +821,7 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) To
 	}).(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput)
 }
 
-// The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
 func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) PredefinedLoadMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) string {
 		return v.PredefinedLoadMetricType
@@ -857,7 +857,7 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput)
 	}).(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput)
 }
 
-// The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
+// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
 func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput) PredefinedLoadMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -878,24 +878,24 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput)
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfiguration struct {
-	// A customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
+	// Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
 	CustomizedScalingMetricSpecification *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification `pulumi:"customizedScalingMetricSpecification"`
 	// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
 	DisableScaleIn *bool `pulumi:"disableScaleIn"`
-	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+	// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	// This value is used only if the resource is an Auto Scaling group.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
-	// A predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
+	// Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
 	PredefinedScalingMetricSpecification *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification `pulumi:"predefinedScalingMetricSpecification"`
-	// The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+	// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
 	// This value is not used if the scalable resource is an Auto Scaling group.
 	ScaleInCooldown *int `pulumi:"scaleInCooldown"`
-	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+	// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 	// This value is not used if the scalable resource is an Auto Scaling group.
 	ScaleOutCooldown *int `pulumi:"scaleOutCooldown"`
-	// The target value for the metric.
+	// Target value for the metric.
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
@@ -911,24 +911,24 @@ type ScalingPlanScalingInstructionTargetTrackingConfigurationInput interface {
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfigurationArgs struct {
-	// A customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
+	// Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
 	CustomizedScalingMetricSpecification ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrInput `pulumi:"customizedScalingMetricSpecification"`
 	// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
 	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+	// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 	// This value is used only if the resource is an Auto Scaling group.
 	EstimatedInstanceWarmup pulumi.IntPtrInput `pulumi:"estimatedInstanceWarmup"`
-	// A predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
+	// Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
 	// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
 	PredefinedScalingMetricSpecification ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput `pulumi:"predefinedScalingMetricSpecification"`
-	// The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+	// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
 	// This value is not used if the scalable resource is an Auto Scaling group.
 	ScaleInCooldown pulumi.IntPtrInput `pulumi:"scaleInCooldown"`
-	// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+	// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 	// This value is not used if the scalable resource is an Auto Scaling group.
 	ScaleOutCooldown pulumi.IntPtrInput `pulumi:"scaleOutCooldown"`
-	// The target value for the metric.
+	// Target value for the metric.
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
@@ -983,7 +983,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) ToScalin
 	return o
 }
 
-// A customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
+// Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
 // More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) CustomizedScalingMetricSpecification() ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
@@ -996,7 +996,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) DisableS
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
-// The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
+// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
 // This value is used only if the resource is an Auto Scaling group.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) EstimatedInstanceWarmup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *int {
@@ -1004,7 +1004,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) Estimate
 	}).(pulumi.IntPtrOutput)
 }
 
-// A predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
+// Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
 // More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) PredefinedScalingMetricSpecification() ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
@@ -1012,19 +1012,19 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) Predefin
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
 // This value is not used if the scalable resource is an Auto Scaling group.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
 // This value is not used if the scalable resource is an Auto Scaling group.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
 }
 
-// The target value for the metric.
+// Target value for the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -1050,15 +1050,15 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationArrayOutput) Ind
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification struct {
-	// The dimensions of the metric.
+	// Dimensions of the metric.
 	Dimensions map[string]string `pulumi:"dimensions"`
-	// The name of the metric.
+	// Name of the metric.
 	MetricName string `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Namespace of the metric.
 	Namespace string `pulumi:"namespace"`
-	// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+	// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
 	Statistic string `pulumi:"statistic"`
-	// The unit of the metric.
+	// Unit of the metric.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -1074,15 +1074,15 @@ type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMe
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs struct {
-	// The dimensions of the metric.
+	// Dimensions of the metric.
 	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
-	// The name of the metric.
+	// Name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Namespace of the metric.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+	// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
 	Statistic pulumi.StringInput `pulumi:"statistic"`
-	// The unit of the metric.
+	// Unit of the metric.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -1163,35 +1163,35 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
-// The dimensions of the metric.
+// Dimensions of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) map[string]string {
 		return v.Dimensions
 	}).(pulumi.StringMapOutput)
 }
 
-// The name of the metric.
+// Name of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) string {
 		return v.MetricName
 	}).(pulumi.StringOutput)
 }
 
-// The namespace of the metric.
+// Namespace of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) string {
 		return v.Namespace
 	}).(pulumi.StringOutput)
 }
 
-// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) string {
 		return v.Statistic
 	}).(pulumi.StringOutput)
 }
 
-// The unit of the metric.
+// Unit of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *string {
 		return v.Unit
@@ -1222,7 +1222,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput)
 }
 
-// The dimensions of the metric.
+// Dimensions of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) map[string]string {
 		if v == nil {
@@ -1232,7 +1232,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(pulumi.StringMapOutput)
 }
 
-// The name of the metric.
+// Name of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *string {
 		if v == nil {
@@ -1242,7 +1242,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the metric.
+// Namespace of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *string {
 		if v == nil {
@@ -1252,7 +1252,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
+// Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *string {
 		if v == nil {
@@ -1262,7 +1262,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unit of the metric.
+// Unit of the metric.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *string {
 		if v == nil {
@@ -1273,7 +1273,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification struct {
-	// The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+	// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
 	PredefinedScalingMetricType string `pulumi:"predefinedScalingMetricType"`
 	// Identifies the resource associated with the metric type.
 	ResourceLabel *string `pulumi:"resourceLabel"`
@@ -1291,7 +1291,7 @@ type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMe
 }
 
 type ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs struct {
-	// The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+	// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
 	PredefinedScalingMetricType pulumi.StringInput `pulumi:"predefinedScalingMetricType"`
 	// Identifies the resource associated with the metric type.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
@@ -1374,7 +1374,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput) PredefinedScalingMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) string {
 		return v.PredefinedScalingMetricType
@@ -1412,7 +1412,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput)
 }
 
-// The metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
+// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput) PredefinedScalingMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) *string {
 		if v == nil {

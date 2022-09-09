@@ -94,14 +94,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+     * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     public Output<String> protocol() {
@@ -109,14 +109,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+     * @return List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -321,7 +321,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+         * @param securityGroups List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
          * 
          * @return builder
          * 

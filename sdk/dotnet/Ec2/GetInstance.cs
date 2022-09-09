@@ -12,8 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetInstance
     {
         /// <summary>
-        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
-        /// resources.
+        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -59,8 +58,7 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
-        /// resources.
+        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -145,7 +143,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _instanceTags;
 
         /// <summary>
-        /// A map of tags, each pair of which must
+        /// Map of tags, each pair of which must
         /// exactly match a pair on the desired Instance.
         /// </summary>
         public Dictionary<string, string> InstanceTags
@@ -158,7 +156,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Instance.
+        /// Map of tags assigned to the Instance.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _instanceTags;
 
         /// <summary>
-        /// A map of tags, each pair of which must
+        /// Map of tags, each pair of which must
         /// exactly match a pair on the desired Instance.
         /// </summary>
         public InputMap<string> InstanceTags
@@ -223,7 +221,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the Instance.
+        /// Map of tags assigned to the Instance.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -242,11 +240,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// The ID of the AMI used to launch the instance.
+        /// ID of the AMI used to launch the instance.
         /// </summary>
         public readonly string Ami;
         /// <summary>
-        /// The ARN of the instance.
+        /// ARN of the instance.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -254,11 +252,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AssociatePublicIpAddress;
         /// <summary>
-        /// The availability zone of the Instance.
+        /// Availability zone of the Instance.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The credit specification of the Instance.
+        /// Credit specification of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> CreditSpecifications;
         /// <summary>
@@ -270,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool DisableApiTermination;
         /// <summary>
-        /// The EBS block device mappings of the Instance.
+        /// EBS block device mappings of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceEbsBlockDeviceResult> EbsBlockDevices;
         /// <summary>
@@ -278,22 +276,26 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool EbsOptimized;
         /// <summary>
-        /// The enclave options of the instance.
+        /// Enclave options of the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceEnclaveOptionResult> EnclaveOptions;
         /// <summary>
-        /// The ephemeral block device mappings of the Instance.
+        /// Ephemeral block device mappings of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceEphemeralBlockDeviceResult> EphemeralBlockDevices;
         public readonly ImmutableArray<Outputs.GetInstanceFilterResult> Filters;
         public readonly bool? GetPasswordData;
         public readonly bool? GetUserData;
         /// <summary>
-        /// The Id of the dedicated host the instance will be assigned to.
+        /// ID of the dedicated host the instance will be assigned to.
         /// </summary>
         public readonly string HostId;
         /// <summary>
-        /// The name of the instance profile associated with the Instance.
+        /// ARN of the host resource group the instance is associated with.
+        /// </summary>
+        public readonly string HostResourceGroupArn;
+        /// <summary>
+        /// Name of the instance profile associated with the Instance.
         /// </summary>
         public readonly string IamInstanceProfile;
         /// <summary>
@@ -302,28 +304,28 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly string? InstanceId;
         /// <summary>
-        /// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+        /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         public readonly string InstanceState;
         public readonly ImmutableDictionary<string, string> InstanceTags;
         /// <summary>
-        /// The type of the Instance.
+        /// Type of the Instance.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
+        /// IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
         /// <summary>
-        /// The key name of the Instance.
+        /// Key name of the Instance.
         /// </summary>
         public readonly string KeyName;
         /// <summary>
-        /// The maintenance and recovery options for the instance.
+        /// Maintenance and recovery options for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> MaintenanceOptions;
         /// <summary>
-        /// The metadata options of the Instance.
+        /// Metadata options of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceMetadataOptionResult> MetadataOptions;
         /// <summary>
@@ -331,61 +333,55 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool Monitoring;
         /// <summary>
-        /// The ID of the network interface that was created with the Instance.
+        /// ID of the network interface that was created with the Instance.
         /// </summary>
         public readonly string NetworkInterfaceId;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// Base-64 encoded encrypted password data for the instance.
-        /// Useful for getting the administrator password for instances running Microsoft Windows.
-        /// This attribute is only exported if `get_password_data` is true.
-        /// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         public readonly string PasswordData;
         /// <summary>
-        /// The placement group of the Instance.
+        /// Placement group of the Instance.
         /// </summary>
         public readonly string PlacementGroup;
         /// <summary>
-        /// The number of the partition the instance is in.
+        /// Number of the partition the instance is in.
         /// </summary>
         public readonly int PlacementPartitionNumber;
         /// <summary>
-        /// The private DNS name assigned to the Instance. Can only be
-        /// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-        /// for your VPC.
+        /// Private DNS name assigned to the Instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         public readonly string PrivateDns;
         /// <summary>
-        /// The options for the instance hostname.
+        /// Options for the instance hostname.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstancePrivateDnsNameOptionResult> PrivateDnsNameOptions;
         /// <summary>
-        /// The private IP address assigned to the Instance.
+        /// Private IP address assigned to the Instance.
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
-        /// The public DNS name assigned to the Instance. For EC2-VPC, this
-        /// is only available if you've enabled DNS hostnames for your VPC.
+        /// Public DNS name assigned to the Instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         public readonly string PublicDns;
         /// <summary>
-        /// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         public readonly string PublicIp;
         /// <summary>
-        /// The root block device mappings of the Instance
+        /// Root block device mappings of the Instance
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> RootBlockDevices;
         /// <summary>
-        /// The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+        /// Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
         /// </summary>
         public readonly ImmutableArray<string> SecondaryPrivateIps;
         /// <summary>
-        /// The associated security groups.
+        /// Associated security groups.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
@@ -393,15 +389,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool SourceDestCheck;
         /// <summary>
-        /// The VPC subnet ID.
+        /// VPC subnet ID.
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
-        /// A map of tags assigned to the Instance.
+        /// Map of tags assigned to the Instance.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The tenancy of the instance: `dedicated`, `default`, `host`.
+        /// Tenancy of the instance: `dedicated`, `default`, `host`.
         /// </summary>
         public readonly string Tenancy;
         /// <summary>
@@ -413,7 +409,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string UserDataBase64;
         /// <summary>
-        /// The associated security groups in a non-default VPC.
+        /// Associated security groups in a non-default VPC.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
@@ -448,6 +444,8 @@ namespace Pulumi.Aws.Ec2
             bool? getUserData,
 
             string hostId,
+
+            string hostResourceGroupArn,
 
             string iamInstanceProfile,
 
@@ -526,6 +524,7 @@ namespace Pulumi.Aws.Ec2
             GetPasswordData = getPasswordData;
             GetUserData = getUserData;
             HostId = hostId;
+            HostResourceGroupArn = hostResourceGroupArn;
             IamInstanceProfile = iamInstanceProfile;
             Id = id;
             InstanceId = instanceId;

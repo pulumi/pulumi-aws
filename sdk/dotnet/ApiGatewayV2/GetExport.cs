@@ -74,37 +74,37 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+        /// Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
         /// </summary>
         [Input("exportVersion")]
         public string? ExportVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+        /// Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
         /// </summary>
         [Input("includeExtensions")]
         public bool? IncludeExtensions { get; set; }
 
         /// <summary>
-        /// The output type of the exported definition file. Valid values are `JSON` and `YAML`.
+        /// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
         /// </summary>
         [Input("outputType", required: true)]
         public string OutputType { get; set; } = null!;
 
         /// <summary>
-        /// The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+        /// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
         /// </summary>
         [Input("specification", required: true)]
         public string Specification { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+        /// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
         /// </summary>
         [Input("stageName")]
         public string? StageName { get; set; }
@@ -118,37 +118,37 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// API identifier.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
+        /// Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
         /// </summary>
         [Input("exportVersion")]
         public Input<string>? ExportVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
+        /// Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
         /// </summary>
         [Input("includeExtensions")]
         public Input<bool>? IncludeExtensions { get; set; }
 
         /// <summary>
-        /// The output type of the exported definition file. Valid values are `JSON` and `YAML`.
+        /// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
         /// </summary>
         [Input("outputType", required: true)]
         public Input<string> OutputType { get; set; } = null!;
 
         /// <summary>
-        /// The version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
+        /// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
         /// </summary>
         [Input("specification", required: true)]
         public Input<string> Specification { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+        /// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     {
         public readonly string ApiId;
         /// <summary>
-        /// The id of the API.
+        /// ID of the API.
         /// </summary>
         public readonly string Body;
         public readonly string? ExportVersion;

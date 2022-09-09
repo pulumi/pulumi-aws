@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,12 +36,12 @@ export interface GetSubnetIdsArgs {
      */
     filters?: inputs.ec2.GetSubnetIdsFilter[];
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: {[key: string]: string};
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId: string;
 }
@@ -54,7 +56,7 @@ export interface GetSubnetIdsResult {
      */
     readonly id: string;
     /**
-     * A set of all the subnet ids found. This data source will fail if none are found.
+     * Set of all the subnet ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
@@ -74,12 +76,12 @@ export interface GetSubnetIdsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetIdsFilterArgs>[]>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID that you want to filter from.
+     * VPC ID that you want to filter from.
      */
     vpcId: pulumi.Input<string>;
 }

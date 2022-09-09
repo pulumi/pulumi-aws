@@ -48,13 +48,13 @@ func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigning
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateArgs struct {
-	// The Cognito user pool ID.
+	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // A collection of values returned by getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateResult struct {
-	// The certificate string
+	// Certificate string
 	Certificate string `pulumi:"certificate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -76,7 +76,7 @@ func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSi
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateOutputArgs struct {
-	// The Cognito user pool ID.
+	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -99,7 +99,7 @@ func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertifica
 	return o
 }
 
-// The certificate string
+// Certificate string
 func (o GetUserPoolSigningCertificateResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
 }

@@ -26,14 +26,14 @@ class ConfigurationProfileArgs:
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
-        :param pulumi.Input[str] description: The description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        :param pulumi.Input[str] description: Description of the configuration profile. Can be at most 1024 characters.
+        :param pulumi.Input[str] name: Name for the configuration profile. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "location_uri", location_uri)
@@ -54,7 +54,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -66,7 +66,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Input[str]:
         """
-        A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         """
         return pulumi.get(self, "location_uri")
 
@@ -78,7 +78,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the configuration profile. Can be at most 1024 characters.
+        Description of the configuration profile. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -90,7 +90,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the configuration profile. Must be between 1 and 64 characters in length.
+        Name for the configuration profile. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -102,7 +102,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         """
         return pulumi.get(self, "retrieval_role_arn")
 
@@ -114,7 +114,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -126,7 +126,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         """
         return pulumi.get(self, "type")
 
@@ -138,7 +138,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
-        A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         return pulumi.get(self, "validators")
 
@@ -163,17 +163,17 @@ class _ConfigurationProfileState:
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationProfile resources.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Configuration Profile.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Configuration Profile.
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID.
-        :param pulumi.Input[str] description: The description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
-        :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[str] description: Description of the configuration profile. Can be at most 1024 characters.
+        :param pulumi.Input[str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        :param pulumi.Input[str] name: Name for the configuration profile. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -202,7 +202,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -214,7 +214,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Configuration Profile.
+        ARN of the AppConfig Configuration Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -238,7 +238,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the configuration profile. Can be at most 1024 characters.
+        Description of the configuration profile. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -250,7 +250,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         """
         return pulumi.get(self, "location_uri")
 
@@ -262,7 +262,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the configuration profile. Must be between 1 and 64 characters in length.
+        Name for the configuration profile. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -274,7 +274,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         """
         return pulumi.get(self, "retrieval_role_arn")
 
@@ -286,7 +286,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -298,7 +298,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -310,7 +310,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         """
         return pulumi.get(self, "type")
 
@@ -322,7 +322,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
-        A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         return pulumi.get(self, "validators")
 
@@ -377,14 +377,14 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] description: The description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
-        :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] description: Description of the configuration profile. Can be at most 1024 characters.
+        :param pulumi.Input[str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        :param pulumi.Input[str] name: Name for the configuration profile. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         ...
     @overload
@@ -497,17 +497,17 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the AppConfig Configuration Profile.
+        :param pulumi.Input[str] application_id: Application ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] arn: ARN of the AppConfig Configuration Profile.
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID.
-        :param pulumi.Input[str] description: The description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
-        :param pulumi.Input[str] name: The name for the configuration profile. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] retrieval_role_arn: The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[str] description: Description of the configuration profile. Can be at most 1024 characters.
+        :param pulumi.Input[str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        :param pulumi.Input[str] name: Name for the configuration profile. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProfileValidatorArgs']]]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -530,7 +530,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         """
-        The application ID. Must be between 4 and 7 characters in length.
+        Application ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "application_id")
 
@@ -538,7 +538,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the AppConfig Configuration Profile.
+        ARN of the AppConfig Configuration Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -554,7 +554,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the configuration profile. Can be at most 1024 characters.
+        Description of the configuration profile. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
@@ -562,7 +562,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
         """
-        A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
+        URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         """
         return pulumi.get(self, "location_uri")
 
@@ -570,7 +570,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name for the configuration profile. Must be between 1 and 64 characters in length.
+        Name for the configuration profile. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -578,7 +578,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
+        ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         """
         return pulumi.get(self, "retrieval_role_arn")
 
@@ -586,7 +586,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -594,7 +594,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -602,7 +602,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
+        Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         """
         return pulumi.get(self, "type")
 
@@ -610,7 +610,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def validators(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationProfileValidator']]]:
         """
-        A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
         return pulumi.get(self, "validators")
 

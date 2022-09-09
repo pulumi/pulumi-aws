@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
     /**
-     * @return A KMS key ARN that is used to encrypt the connection password.
+     * @return KMS key ARN that is used to encrypt the connection password.
      * 
      */
     private String awsKmsKeyId;
@@ -23,7 +23,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
 
     private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption() {}
     /**
-     * @return A KMS key ARN that is used to encrypt the connection password.
+     * @return KMS key ARN that is used to encrypt the connection password.
      * 
      */
     public String awsKmsKeyId() {

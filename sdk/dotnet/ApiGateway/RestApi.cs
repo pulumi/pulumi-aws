@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> ApiKeySource { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> Body { get; private set; } = null!;
 
         /// <summary>
-        /// The creation date of the REST API
+        /// Creation date of the REST API
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("disableExecuteApiEndpoint")]
         public Output<bool> DisableExecuteApiEndpoint { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.RestApiEndpointConfiguration> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The execution ARN part to be used in `lambda_permission`'s `source_arn`
+        /// Execution ARN part to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
@@ -182,13 +182,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("putRestApiMode")]
         public Output<string?> PutRestApiMode { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the REST API's root
+        /// Resource ID of the REST API's root
         /// </summary>
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("putRestApiMode")]
         public Input<string>? PutRestApiMode { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ApiKeySource { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// The creation date of the REST API
+        /// Creation date of the REST API
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<Inputs.RestApiEndpointConfigurationGetArgs>? EndpointConfiguration { get; set; }
 
         /// <summary>
-        /// The execution ARN part to be used in `lambda_permission`'s `source_arn`
+        /// Execution ARN part to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
@@ -442,13 +442,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("putRestApiMode")]
         public Input<string>? PutRestApiMode { get; set; }
 
         /// <summary>
-        /// The resource ID of the REST API's root
+        /// Resource ID of the REST API's root
         /// </summary>
         [Input("rootResourceId")]
         public Input<string>? RootResourceId { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

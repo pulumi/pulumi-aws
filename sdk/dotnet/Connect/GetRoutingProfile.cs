@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Routing Profile.
+        /// Map of tags to assign to the Routing Profile.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Routing Profile.
+        /// Map of tags to assign to the Routing Profile.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetRoutingProfileResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Routing Profile.
+        /// ARN of the Routing Profile.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string DefaultOutboundQueueId;
         /// <summary>
-        /// Specifies the description of the Routing Profile.
+        /// Description of the Routing Profile.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Connect
         public readonly ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> QueueConfigs;
         public readonly string RoutingProfileId;
         /// <summary>
-        /// A map of tags to assign to the Routing Profile.
+        /// Map of tags to assign to the Routing Profile.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class GetImageRecipesFilterResult
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+        /// Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
         /// </summary>
         public readonly string Name;
         /// <summary>

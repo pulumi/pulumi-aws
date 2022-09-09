@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ServiceEncryptionConfiguration
     {
         /// <summary>
-        /// The ARN of the KMS key used for encryption.
+        /// ARN of the KMS key used for encryption.
         /// </summary>
         public readonly string KmsKey;
 

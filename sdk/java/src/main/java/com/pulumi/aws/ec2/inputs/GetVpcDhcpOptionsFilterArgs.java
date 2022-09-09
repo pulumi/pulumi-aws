@@ -15,14 +15,14 @@ public final class GetVpcDhcpOptionsFilterArgs extends com.pulumi.resources.Reso
     public static final GetVpcDhcpOptionsFilterArgs Empty = new GetVpcDhcpOptionsFilterArgs();
 
     /**
-     * The name of the field to filter.
+     * Name of the field to filter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the field to filter.
+     * @return Name of the field to filter.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetVpcDhcpOptionsFilterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the field to filter.
+         * @param name Name of the field to filter.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetVpcDhcpOptionsFilterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the field to filter.
+         * @param name Name of the field to filter.
          * 
          * @return builder
          * 

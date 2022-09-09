@@ -81,20 +81,20 @@ func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulum
 type LookupDocumentArgs struct {
 	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// The document version for which you want information.
+	// Document version for which you want information.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// The name of the Systems Manager document.
+	// Name of the Systems Manager document.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getDocument.
 type LookupDocumentResult struct {
-	// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+	// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 	Arn string `pulumi:"arn"`
-	// The contents of the document.
+	// Contents of the document.
 	Content        string  `pulumi:"content"`
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// The type of the document.
+	// Type of the document.
 	DocumentType    string  `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The provider-assigned unique ID for this managed resource.
@@ -119,9 +119,9 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 type LookupDocumentOutputArgs struct {
 	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
 	DocumentFormat pulumi.StringPtrInput `pulumi:"documentFormat"`
-	// The document version for which you want information.
+	// Document version for which you want information.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
-	// The name of the Systems Manager document.
+	// Name of the Systems Manager document.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -144,12 +144,12 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 func (o LookupDocumentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The contents of the document.
+// Contents of the document.
 func (o LookupDocumentResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -158,7 +158,7 @@ func (o LookupDocumentResultOutput) DocumentFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentResult) *string { return v.DocumentFormat }).(pulumi.StringPtrOutput)
 }
 
-// The type of the document.
+// Type of the document.
 func (o LookupDocumentResultOutput) DocumentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.DocumentType }).(pulumi.StringOutput)
 }

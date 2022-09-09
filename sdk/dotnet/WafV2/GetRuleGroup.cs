@@ -72,7 +72,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAFv2 Rule Group.
+        /// Name of the WAFv2 Rule Group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the WAFv2 Rule Group.
+        /// Name of the WAFv2 Rule Group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -114,11 +114,11 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetRuleGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the entity.
+        /// ARN of the entity.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the rule group that helps with identification.
+        /// Description of the rule group that helps with identification.
         /// </summary>
         public readonly string Description;
         /// <summary>

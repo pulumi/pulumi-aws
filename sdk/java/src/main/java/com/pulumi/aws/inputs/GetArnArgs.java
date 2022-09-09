@@ -14,14 +14,14 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetArnArgs Empty = new GetArnArgs();
 
     /**
-     * The ARN to parse.
+     * ARN to parse.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The ARN to parse.
+     * @return ARN to parse.
      * 
      */
     public Output<String> arn() {
@@ -53,7 +53,7 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The ARN to parse.
+         * @param arn ARN to parse.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The ARN to parse.
+         * @param arn ARN to parse.
          * 
          * @return builder
          * 

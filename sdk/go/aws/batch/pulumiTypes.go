@@ -1566,7 +1566,7 @@ func (o GetJobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSchedulingPolicyFairSharePolicy struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation int `pulumi:"computeReservation"`
 	ShareDecaySeconds  int `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -1585,7 +1585,7 @@ type GetSchedulingPolicyFairSharePolicyInput interface {
 }
 
 type GetSchedulingPolicyFairSharePolicyArgs struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation pulumi.IntInput `pulumi:"computeReservation"`
 	ShareDecaySeconds  pulumi.IntInput `pulumi:"shareDecaySeconds"`
 	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
@@ -1643,7 +1643,7 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ToGetSchedulingPolicyFairShare
 	return o
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o GetSchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ComputeReservation }).(pulumi.IntOutput)
 }
@@ -1680,9 +1680,9 @@ func (o GetSchedulingPolicyFairSharePolicyArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSchedulingPolicyFairSharePolicyShareDistribution struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	ShareIdentifier string `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	WeightFactor float64 `pulumi:"weightFactor"`
 }
 
@@ -1698,9 +1698,9 @@ type GetSchedulingPolicyFairSharePolicyShareDistributionInput interface {
 }
 
 type GetSchedulingPolicyFairSharePolicyShareDistributionArgs struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	ShareIdentifier pulumi.StringInput `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 	WeightFactor pulumi.Float64Input `pulumi:"weightFactor"`
 }
 
@@ -1755,12 +1755,12 @@ func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToGetScheduli
 	return o
 }
 
-// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) string { return v.ShareIdentifier }).(pulumi.StringOutput)
 }
 
-// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64Output {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) float64 { return v.WeightFactor }).(pulumi.Float64Output)
 }

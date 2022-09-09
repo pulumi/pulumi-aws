@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolClientsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Cognito user pool ID.
+        /// Cognito user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolClientsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Cognito user pool ID.
+        /// Cognito user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

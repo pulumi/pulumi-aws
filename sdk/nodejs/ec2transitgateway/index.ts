@@ -5,55 +5,151 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connect";
-export * from "./connectPeer";
-export * from "./getAttachment";
-export * from "./getConnect";
-export * from "./getConnectPeer";
-export * from "./getDirectConnectGatewayAttachment";
-export * from "./getMulticastDomain";
-export * from "./getPeeringAttachment";
-export * from "./getRouteTable";
-export * from "./getTransitGateway";
-export * from "./getVpcAttachment";
-export * from "./getVpcAttachments";
-export * from "./getVpnAttachment";
-export * from "./multicastDomain";
-export * from "./multicastDomainAssociation";
-export * from "./multicastGroupMember";
-export * from "./multicastGroupSource";
-export * from "./peeringAttachment";
-export * from "./peeringAttachmentAccepter";
-export * from "./policyTable";
-export * from "./policyTableAssociation";
-export * from "./prefixListReference";
-export * from "./route";
-export * from "./routeTable";
-export * from "./routeTableAssociation";
-export * from "./routeTablePropagation";
-export * from "./transitGateway";
-export * from "./vpcAttachment";
-export * from "./vpcAttachmentAccepter";
+export { ConnectArgs, ConnectState } from "./connect";
+export type Connect = import("./connect").Connect;
+export const Connect: typeof import("./connect").Connect = null as any;
 
-// Import resources to register:
-import { Connect } from "./connect";
-import { ConnectPeer } from "./connectPeer";
-import { MulticastDomain } from "./multicastDomain";
-import { MulticastDomainAssociation } from "./multicastDomainAssociation";
-import { MulticastGroupMember } from "./multicastGroupMember";
-import { MulticastGroupSource } from "./multicastGroupSource";
-import { PeeringAttachment } from "./peeringAttachment";
-import { PeeringAttachmentAccepter } from "./peeringAttachmentAccepter";
-import { PolicyTable } from "./policyTable";
-import { PolicyTableAssociation } from "./policyTableAssociation";
-import { PrefixListReference } from "./prefixListReference";
-import { Route } from "./route";
-import { RouteTable } from "./routeTable";
-import { RouteTableAssociation } from "./routeTableAssociation";
-import { RouteTablePropagation } from "./routeTablePropagation";
-import { TransitGateway } from "./transitGateway";
-import { VpcAttachment } from "./vpcAttachment";
-import { VpcAttachmentAccepter } from "./vpcAttachmentAccepter";
+export { ConnectPeerArgs, ConnectPeerState } from "./connectPeer";
+export type ConnectPeer = import("./connectPeer").ConnectPeer;
+export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
+
+export { GetAttachmentArgs, GetAttachmentResult, GetAttachmentOutputArgs } from "./getAttachment";
+export const getAttachment: typeof import("./getAttachment").getAttachment = null as any;
+export const getAttachmentOutput: typeof import("./getAttachment").getAttachmentOutput = null as any;
+
+export { GetConnectArgs, GetConnectResult, GetConnectOutputArgs } from "./getConnect";
+export const getConnect: typeof import("./getConnect").getConnect = null as any;
+export const getConnectOutput: typeof import("./getConnect").getConnectOutput = null as any;
+
+export { GetConnectPeerArgs, GetConnectPeerResult, GetConnectPeerOutputArgs } from "./getConnectPeer";
+export const getConnectPeer: typeof import("./getConnectPeer").getConnectPeer = null as any;
+export const getConnectPeerOutput: typeof import("./getConnectPeer").getConnectPeerOutput = null as any;
+
+export { GetDirectConnectGatewayAttachmentArgs, GetDirectConnectGatewayAttachmentResult, GetDirectConnectGatewayAttachmentOutputArgs } from "./getDirectConnectGatewayAttachment";
+export const getDirectConnectGatewayAttachment: typeof import("./getDirectConnectGatewayAttachment").getDirectConnectGatewayAttachment = null as any;
+export const getDirectConnectGatewayAttachmentOutput: typeof import("./getDirectConnectGatewayAttachment").getDirectConnectGatewayAttachmentOutput = null as any;
+
+export { GetMulticastDomainArgs, GetMulticastDomainResult, GetMulticastDomainOutputArgs } from "./getMulticastDomain";
+export const getMulticastDomain: typeof import("./getMulticastDomain").getMulticastDomain = null as any;
+export const getMulticastDomainOutput: typeof import("./getMulticastDomain").getMulticastDomainOutput = null as any;
+
+export { GetPeeringAttachmentArgs, GetPeeringAttachmentResult, GetPeeringAttachmentOutputArgs } from "./getPeeringAttachment";
+export const getPeeringAttachment: typeof import("./getPeeringAttachment").getPeeringAttachment = null as any;
+export const getPeeringAttachmentOutput: typeof import("./getPeeringAttachment").getPeeringAttachmentOutput = null as any;
+
+export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
+export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
+export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
+
+export { GetTransitGatewayArgs, GetTransitGatewayResult, GetTransitGatewayOutputArgs } from "./getTransitGateway";
+export const getTransitGateway: typeof import("./getTransitGateway").getTransitGateway = null as any;
+export const getTransitGatewayOutput: typeof import("./getTransitGateway").getTransitGatewayOutput = null as any;
+
+export { GetVpcAttachmentArgs, GetVpcAttachmentResult, GetVpcAttachmentOutputArgs } from "./getVpcAttachment";
+export const getVpcAttachment: typeof import("./getVpcAttachment").getVpcAttachment = null as any;
+export const getVpcAttachmentOutput: typeof import("./getVpcAttachment").getVpcAttachmentOutput = null as any;
+
+export { GetVpcAttachmentsArgs, GetVpcAttachmentsResult, GetVpcAttachmentsOutputArgs } from "./getVpcAttachments";
+export const getVpcAttachments: typeof import("./getVpcAttachments").getVpcAttachments = null as any;
+export const getVpcAttachmentsOutput: typeof import("./getVpcAttachments").getVpcAttachmentsOutput = null as any;
+
+export { GetVpnAttachmentArgs, GetVpnAttachmentResult, GetVpnAttachmentOutputArgs } from "./getVpnAttachment";
+export const getVpnAttachment: typeof import("./getVpnAttachment").getVpnAttachment = null as any;
+export const getVpnAttachmentOutput: typeof import("./getVpnAttachment").getVpnAttachmentOutput = null as any;
+
+export { MulticastDomainArgs, MulticastDomainState } from "./multicastDomain";
+export type MulticastDomain = import("./multicastDomain").MulticastDomain;
+export const MulticastDomain: typeof import("./multicastDomain").MulticastDomain = null as any;
+
+export { MulticastDomainAssociationArgs, MulticastDomainAssociationState } from "./multicastDomainAssociation";
+export type MulticastDomainAssociation = import("./multicastDomainAssociation").MulticastDomainAssociation;
+export const MulticastDomainAssociation: typeof import("./multicastDomainAssociation").MulticastDomainAssociation = null as any;
+
+export { MulticastGroupMemberArgs, MulticastGroupMemberState } from "./multicastGroupMember";
+export type MulticastGroupMember = import("./multicastGroupMember").MulticastGroupMember;
+export const MulticastGroupMember: typeof import("./multicastGroupMember").MulticastGroupMember = null as any;
+
+export { MulticastGroupSourceArgs, MulticastGroupSourceState } from "./multicastGroupSource";
+export type MulticastGroupSource = import("./multicastGroupSource").MulticastGroupSource;
+export const MulticastGroupSource: typeof import("./multicastGroupSource").MulticastGroupSource = null as any;
+
+export { PeeringAttachmentArgs, PeeringAttachmentState } from "./peeringAttachment";
+export type PeeringAttachment = import("./peeringAttachment").PeeringAttachment;
+export const PeeringAttachment: typeof import("./peeringAttachment").PeeringAttachment = null as any;
+
+export { PeeringAttachmentAccepterArgs, PeeringAttachmentAccepterState } from "./peeringAttachmentAccepter";
+export type PeeringAttachmentAccepter = import("./peeringAttachmentAccepter").PeeringAttachmentAccepter;
+export const PeeringAttachmentAccepter: typeof import("./peeringAttachmentAccepter").PeeringAttachmentAccepter = null as any;
+
+export { PolicyTableArgs, PolicyTableState } from "./policyTable";
+export type PolicyTable = import("./policyTable").PolicyTable;
+export const PolicyTable: typeof import("./policyTable").PolicyTable = null as any;
+
+export { PolicyTableAssociationArgs, PolicyTableAssociationState } from "./policyTableAssociation";
+export type PolicyTableAssociation = import("./policyTableAssociation").PolicyTableAssociation;
+export const PolicyTableAssociation: typeof import("./policyTableAssociation").PolicyTableAssociation = null as any;
+
+export { PrefixListReferenceArgs, PrefixListReferenceState } from "./prefixListReference";
+export type PrefixListReference = import("./prefixListReference").PrefixListReference;
+export const PrefixListReference: typeof import("./prefixListReference").PrefixListReference = null as any;
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+
+export { RouteTableArgs, RouteTableState } from "./routeTable";
+export type RouteTable = import("./routeTable").RouteTable;
+export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
+
+export { RouteTableAssociationArgs, RouteTableAssociationState } from "./routeTableAssociation";
+export type RouteTableAssociation = import("./routeTableAssociation").RouteTableAssociation;
+export const RouteTableAssociation: typeof import("./routeTableAssociation").RouteTableAssociation = null as any;
+
+export { RouteTablePropagationArgs, RouteTablePropagationState } from "./routeTablePropagation";
+export type RouteTablePropagation = import("./routeTablePropagation").RouteTablePropagation;
+export const RouteTablePropagation: typeof import("./routeTablePropagation").RouteTablePropagation = null as any;
+
+export { TransitGatewayArgs, TransitGatewayState } from "./transitGateway";
+export type TransitGateway = import("./transitGateway").TransitGateway;
+export const TransitGateway: typeof import("./transitGateway").TransitGateway = null as any;
+
+export { VpcAttachmentArgs, VpcAttachmentState } from "./vpcAttachment";
+export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
+export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
+
+export { VpcAttachmentAccepterArgs, VpcAttachmentAccepterState } from "./vpcAttachmentAccepter";
+export type VpcAttachmentAccepter = import("./vpcAttachmentAccepter").VpcAttachmentAccepter;
+export const VpcAttachmentAccepter: typeof import("./vpcAttachmentAccepter").VpcAttachmentAccepter = null as any;
+
+utilities.lazyLoad(exports, ["Connect"], () => require("./connect"));
+utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
+utilities.lazyLoad(exports, ["getAttachment","getAttachmentOutput"], () => require("./getAttachment"));
+utilities.lazyLoad(exports, ["getConnect","getConnectOutput"], () => require("./getConnect"));
+utilities.lazyLoad(exports, ["getConnectPeer","getConnectPeerOutput"], () => require("./getConnectPeer"));
+utilities.lazyLoad(exports, ["getDirectConnectGatewayAttachment","getDirectConnectGatewayAttachmentOutput"], () => require("./getDirectConnectGatewayAttachment"));
+utilities.lazyLoad(exports, ["getMulticastDomain","getMulticastDomainOutput"], () => require("./getMulticastDomain"));
+utilities.lazyLoad(exports, ["getPeeringAttachment","getPeeringAttachmentOutput"], () => require("./getPeeringAttachment"));
+utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+utilities.lazyLoad(exports, ["getTransitGateway","getTransitGatewayOutput"], () => require("./getTransitGateway"));
+utilities.lazyLoad(exports, ["getVpcAttachment","getVpcAttachmentOutput"], () => require("./getVpcAttachment"));
+utilities.lazyLoad(exports, ["getVpcAttachments","getVpcAttachmentsOutput"], () => require("./getVpcAttachments"));
+utilities.lazyLoad(exports, ["getVpnAttachment","getVpnAttachmentOutput"], () => require("./getVpnAttachment"));
+utilities.lazyLoad(exports, ["MulticastDomain"], () => require("./multicastDomain"));
+utilities.lazyLoad(exports, ["MulticastDomainAssociation"], () => require("./multicastDomainAssociation"));
+utilities.lazyLoad(exports, ["MulticastGroupMember"], () => require("./multicastGroupMember"));
+utilities.lazyLoad(exports, ["MulticastGroupSource"], () => require("./multicastGroupSource"));
+utilities.lazyLoad(exports, ["PeeringAttachment"], () => require("./peeringAttachment"));
+utilities.lazyLoad(exports, ["PeeringAttachmentAccepter"], () => require("./peeringAttachmentAccepter"));
+utilities.lazyLoad(exports, ["PolicyTable"], () => require("./policyTable"));
+utilities.lazyLoad(exports, ["PolicyTableAssociation"], () => require("./policyTableAssociation"));
+utilities.lazyLoad(exports, ["PrefixListReference"], () => require("./prefixListReference"));
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
+utilities.lazyLoad(exports, ["RouteTableAssociation"], () => require("./routeTableAssociation"));
+utilities.lazyLoad(exports, ["RouteTablePropagation"], () => require("./routeTablePropagation"));
+utilities.lazyLoad(exports, ["TransitGateway"], () => require("./transitGateway"));
+utilities.lazyLoad(exports, ["VpcAttachment"], () => require("./vpcAttachment"));
+utilities.lazyLoad(exports, ["VpcAttachmentAccepter"], () => require("./vpcAttachmentAccepter"));
 
 const _module = {
     version: utilities.getVersion(),

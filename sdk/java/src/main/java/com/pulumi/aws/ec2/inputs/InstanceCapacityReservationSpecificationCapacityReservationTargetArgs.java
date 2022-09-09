@@ -16,14 +16,14 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
     public static final InstanceCapacityReservationSpecificationCapacityReservationTargetArgs Empty = new InstanceCapacityReservationSpecificationCapacityReservationTargetArgs();
 
     /**
-     * The ID of the Capacity Reservation in which to run the instance.
+     * ID of the Capacity Reservation in which to run the instance.
      * 
      */
     @Import(name="capacityReservationId")
     private @Nullable Output<String> capacityReservationId;
 
     /**
-     * @return The ID of the Capacity Reservation in which to run the instance.
+     * @return ID of the Capacity Reservation in which to run the instance.
      * 
      */
     public Optional<Output<String>> capacityReservationId() {
@@ -31,14 +31,14 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
     }
 
     /**
-     * The ARN of the Capacity Reservation resource group in which to run the instance.
+     * ARN of the Capacity Reservation resource group in which to run the instance.
      * 
      */
     @Import(name="capacityReservationResourceGroupArn")
     private @Nullable Output<String> capacityReservationResourceGroupArn;
 
     /**
-     * @return The ARN of the Capacity Reservation resource group in which to run the instance.
+     * @return ARN of the Capacity Reservation resource group in which to run the instance.
      * 
      */
     public Optional<Output<String>> capacityReservationResourceGroupArn() {
@@ -71,7 +71,7 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
         }
 
         /**
-         * @param capacityReservationId The ID of the Capacity Reservation in which to run the instance.
+         * @param capacityReservationId ID of the Capacity Reservation in which to run the instance.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
         }
 
         /**
-         * @param capacityReservationId The ID of the Capacity Reservation in which to run the instance.
+         * @param capacityReservationId ID of the Capacity Reservation in which to run the instance.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
         }
 
         /**
-         * @param capacityReservationResourceGroupArn The ARN of the Capacity Reservation resource group in which to run the instance.
+         * @param capacityReservationResourceGroupArn ARN of the Capacity Reservation resource group in which to run the instance.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
         }
 
         /**
-         * @param capacityReservationResourceGroupArn The ARN of the Capacity Reservation resource group in which to run the instance.
+         * @param capacityReservationResourceGroupArn ARN of the Capacity Reservation resource group in which to run the instance.
          * 
          * @return builder
          * 

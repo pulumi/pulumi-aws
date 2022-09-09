@@ -67,7 +67,7 @@ func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRul
 
 // A collection of values returned by getRulesPackages.
 type GetRulesPackagesResult struct {
-	// A list of the AWS Inspector Rules Packages arns available in the AWS region.
+	// List of the AWS Inspector Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

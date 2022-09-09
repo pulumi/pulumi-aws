@@ -211,14 +211,14 @@ def get_route(carrier_gateway_id: Optional[str] = None,
     :param str core_network_arn: Core network ARN of the Route belonging to the Route Table.
     :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
-    :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.
+    :param str destination_prefix_list_id: ID of a managed prefix list destination of the Route belonging to the Route Table.
     :param str egress_only_gateway_id: Egress Only Gateway ID of the Route belonging to the Route Table.
     :param str gateway_id: Gateway ID of the Route belonging to the Route Table.
     :param str instance_id: Instance ID of the Route belonging to the Route Table.
     :param str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
-    :param str route_table_id: The ID of the specific Route Table containing the Route entry.
+    :param str route_table_id: ID of the specific Route Table containing the Route entry.
     :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """
@@ -300,14 +300,14 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     :param str core_network_arn: Core network ARN of the Route belonging to the Route Table.
     :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
-    :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.
+    :param str destination_prefix_list_id: ID of a managed prefix list destination of the Route belonging to the Route Table.
     :param str egress_only_gateway_id: Egress Only Gateway ID of the Route belonging to the Route Table.
     :param str gateway_id: Gateway ID of the Route belonging to the Route Table.
     :param str instance_id: Instance ID of the Route belonging to the Route Table.
     :param str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
-    :param str route_table_id: The ID of the specific Route Table containing the Route entry.
+    :param str route_table_id: ID of the specific Route Table containing the Route entry.
     :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """

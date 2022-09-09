@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetOpenidConnectProviderResult {
     private String arn;
     /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
     private List<String> clientIdLists;
@@ -28,7 +28,7 @@ public final class GetOpenidConnectProviderResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
+     * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
     private List<String> thumbprintLists;
@@ -39,7 +39,7 @@ public final class GetOpenidConnectProviderResult {
         return this.arn;
     }
     /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * @return List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
     public List<String> clientIdLists() {
@@ -60,7 +60,7 @@ public final class GetOpenidConnectProviderResult {
         return this.tags;
     }
     /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
+     * @return List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
     public List<String> thumbprintLists() {

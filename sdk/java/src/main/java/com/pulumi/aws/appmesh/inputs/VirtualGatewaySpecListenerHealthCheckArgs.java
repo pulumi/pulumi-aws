@@ -17,14 +17,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     public static final VirtualGatewaySpecListenerHealthCheckArgs Empty = new VirtualGatewaySpecListenerHealthCheckArgs();
 
     /**
-     * The number of consecutive successful health checks that must occur before declaring listener healthy.
+     * Number of consecutive successful health checks that must occur before declaring listener healthy.
      * 
      */
     @Import(name="healthyThreshold", required=true)
     private Output<Integer> healthyThreshold;
 
     /**
-     * @return The number of consecutive successful health checks that must occur before declaring listener healthy.
+     * @return Number of consecutive successful health checks that must occur before declaring listener healthy.
      * 
      */
     public Output<Integer> healthyThreshold() {
@@ -32,14 +32,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The time period in milliseconds between each health check execution.
+     * Time period in milliseconds between each health check execution.
      * 
      */
     @Import(name="intervalMillis", required=true)
     private Output<Integer> intervalMillis;
 
     /**
-     * @return The time period in milliseconds between each health check execution.
+     * @return Time period in milliseconds between each health check execution.
      * 
      */
     public Output<Integer> intervalMillis() {
@@ -47,14 +47,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -62,14 +62,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -77,14 +77,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+     * Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+     * @return Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
     public Output<String> protocol() {
@@ -92,14 +92,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The amount of time to wait when receiving a response from the health check, in milliseconds.
+     * Amount of time to wait when receiving a response from the health check, in milliseconds.
      * 
      */
     @Import(name="timeoutMillis", required=true)
     private Output<Integer> timeoutMillis;
 
     /**
-     * @return The amount of time to wait when receiving a response from the health check, in milliseconds.
+     * @return Amount of time to wait when receiving a response from the health check, in milliseconds.
      * 
      */
     public Output<Integer> timeoutMillis() {
@@ -107,14 +107,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+     * Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
      * 
      */
     @Import(name="unhealthyThreshold", required=true)
     private Output<Integer> unhealthyThreshold;
 
     /**
-     * @return The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+     * @return Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
      * 
      */
     public Output<Integer> unhealthyThreshold() {
@@ -152,7 +152,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param healthyThreshold The number of consecutive successful health checks that must occur before declaring listener healthy.
+         * @param healthyThreshold Number of consecutive successful health checks that must occur before declaring listener healthy.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param healthyThreshold The number of consecutive successful health checks that must occur before declaring listener healthy.
+         * @param healthyThreshold Number of consecutive successful health checks that must occur before declaring listener healthy.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param intervalMillis The time period in milliseconds between each health check execution.
+         * @param intervalMillis Time period in milliseconds between each health check execution.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param intervalMillis The time period in milliseconds between each health check execution.
+         * @param intervalMillis Time period in milliseconds between each health check execution.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param path The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         * @param path Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param path The destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         * @param path Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param port The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+         * @param port Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param port The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+         * @param port Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+         * @param protocol Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol The protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+         * @param protocol Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param timeoutMillis The amount of time to wait when receiving a response from the health check, in milliseconds.
+         * @param timeoutMillis Amount of time to wait when receiving a response from the health check, in milliseconds.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param timeoutMillis The amount of time to wait when receiving a response from the health check, in milliseconds.
+         * @param timeoutMillis Amount of time to wait when receiving a response from the health check, in milliseconds.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+         * @param unhealthyThreshold Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+         * @param unhealthyThreshold Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
          * 
          * @return builder
          * 

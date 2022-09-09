@@ -25,17 +25,17 @@ class ScheduleArgs:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
-        :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-        :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
-        :param pulumi.Input[int] desired_capacity: The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-        :param pulumi.Input[str] end_time: The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] autoscaling_group_name: Name or ARN of the Auto Scaling group.
+        :param pulumi.Input[str] scheduled_action_name: Name of this scaling action.
+        :param pulumi.Input[int] desired_capacity: Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        :param pulumi.Input[str] end_time: Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
-        :param pulumi.Input[int] max_size: The maximum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] max_size: Maximum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the maximum size at the scheduled time.
-        :param pulumi.Input[int] min_size: The minimum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] min_size: Minimum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the minimum size at the scheduled time.
-        :param pulumi.Input[str] recurrence: The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-        :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] recurrence: Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        :param pulumi.Input[str] start_time: Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
         :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
@@ -60,7 +60,7 @@ class ScheduleArgs:
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[str]:
         """
-        The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        Name or ARN of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 
@@ -72,7 +72,7 @@ class ScheduleArgs:
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> pulumi.Input[str]:
         """
-        The name of this scaling action.
+        Name of this scaling action.
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -84,7 +84,7 @@ class ScheduleArgs:
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         """
         return pulumi.get(self, "desired_capacity")
 
@@ -96,7 +96,7 @@ class ScheduleArgs:
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "end_time")
@@ -109,7 +109,7 @@ class ScheduleArgs:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum size for the Auto Scaling group. Default 0.
+        Maximum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the maximum size at the scheduled time.
         """
         return pulumi.get(self, "max_size")
@@ -122,7 +122,7 @@ class ScheduleArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum size for the Auto Scaling group. Default 0.
+        Minimum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the minimum size at the scheduled time.
         """
         return pulumi.get(self, "min_size")
@@ -135,7 +135,7 @@ class ScheduleArgs:
     @pulumi.getter
     def recurrence(self) -> Optional[pulumi.Input[str]]:
         """
-        The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         """
         return pulumi.get(self, "recurrence")
 
@@ -147,7 +147,7 @@ class ScheduleArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "start_time")
@@ -184,18 +184,18 @@ class _ScheduleState:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to the autoscaling schedule.
-        :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-        :param pulumi.Input[int] desired_capacity: The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-        :param pulumi.Input[str] end_time: The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] arn: ARN assigned by AWS to the autoscaling schedule.
+        :param pulumi.Input[str] autoscaling_group_name: Name or ARN of the Auto Scaling group.
+        :param pulumi.Input[int] desired_capacity: Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        :param pulumi.Input[str] end_time: Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
-        :param pulumi.Input[int] max_size: The maximum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] max_size: Maximum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the maximum size at the scheduled time.
-        :param pulumi.Input[int] min_size: The minimum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] min_size: Minimum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the minimum size at the scheduled time.
-        :param pulumi.Input[str] recurrence: The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-        :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
-        :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] recurrence: Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        :param pulumi.Input[str] scheduled_action_name: Name of this scaling action.
+        :param pulumi.Input[str] start_time: Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
         :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
@@ -224,7 +224,7 @@ class _ScheduleState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN assigned by AWS to the autoscaling schedule.
+        ARN assigned by AWS to the autoscaling schedule.
         """
         return pulumi.get(self, "arn")
 
@@ -236,7 +236,7 @@ class _ScheduleState:
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        Name or ARN of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 
@@ -248,7 +248,7 @@ class _ScheduleState:
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         """
         return pulumi.get(self, "desired_capacity")
 
@@ -260,7 +260,7 @@ class _ScheduleState:
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "end_time")
@@ -273,7 +273,7 @@ class _ScheduleState:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum size for the Auto Scaling group. Default 0.
+        Maximum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the maximum size at the scheduled time.
         """
         return pulumi.get(self, "max_size")
@@ -286,7 +286,7 @@ class _ScheduleState:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum size for the Auto Scaling group. Default 0.
+        Minimum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the minimum size at the scheduled time.
         """
         return pulumi.get(self, "min_size")
@@ -299,7 +299,7 @@ class _ScheduleState:
     @pulumi.getter
     def recurrence(self) -> Optional[pulumi.Input[str]]:
         """
-        The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         """
         return pulumi.get(self, "recurrence")
 
@@ -311,7 +311,7 @@ class _ScheduleState:
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of this scaling action.
+        Name of this scaling action.
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -323,7 +323,7 @@ class _ScheduleState:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "start_time")
@@ -397,17 +397,17 @@ class Schedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-        :param pulumi.Input[int] desired_capacity: The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-        :param pulumi.Input[str] end_time: The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] autoscaling_group_name: Name or ARN of the Auto Scaling group.
+        :param pulumi.Input[int] desired_capacity: Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        :param pulumi.Input[str] end_time: Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
-        :param pulumi.Input[int] max_size: The maximum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] max_size: Maximum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the maximum size at the scheduled time.
-        :param pulumi.Input[int] min_size: The minimum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] min_size: Minimum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the minimum size at the scheduled time.
-        :param pulumi.Input[str] recurrence: The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-        :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
-        :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] recurrence: Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        :param pulumi.Input[str] scheduled_action_name: Name of this scaling action.
+        :param pulumi.Input[str] start_time: Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
         :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
@@ -526,18 +526,18 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to the autoscaling schedule.
-        :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-        :param pulumi.Input[int] desired_capacity: The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-        :param pulumi.Input[str] end_time: The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] arn: ARN assigned by AWS to the autoscaling schedule.
+        :param pulumi.Input[str] autoscaling_group_name: Name or ARN of the Auto Scaling group.
+        :param pulumi.Input[int] desired_capacity: Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        :param pulumi.Input[str] end_time: Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
-        :param pulumi.Input[int] max_size: The maximum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] max_size: Maximum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the maximum size at the scheduled time.
-        :param pulumi.Input[int] min_size: The minimum size for the Auto Scaling group. Default 0.
+        :param pulumi.Input[int] min_size: Minimum size for the Auto Scaling group. Default 0.
                Set to -1 if you don't want to change the minimum size at the scheduled time.
-        :param pulumi.Input[str] recurrence: The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-        :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
-        :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        :param pulumi.Input[str] recurrence: Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        :param pulumi.Input[str] scheduled_action_name: Name of this scaling action.
+        :param pulumi.Input[str] start_time: Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
         :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
@@ -561,7 +561,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN assigned by AWS to the autoscaling schedule.
+        ARN assigned by AWS to the autoscaling schedule.
         """
         return pulumi.get(self, "arn")
 
@@ -569,7 +569,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[str]:
         """
-        The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+        Name or ARN of the Auto Scaling group.
         """
         return pulumi.get(self, "autoscaling_group_name")
 
@@ -577,7 +577,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> pulumi.Output[int]:
         """
-        The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+        Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         """
         return pulumi.get(self, "desired_capacity")
 
@@ -585,7 +585,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[str]:
         """
-        The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "end_time")
@@ -594,7 +594,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[int]:
         """
-        The maximum size for the Auto Scaling group. Default 0.
+        Maximum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the maximum size at the scheduled time.
         """
         return pulumi.get(self, "max_size")
@@ -603,7 +603,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[int]:
         """
-        The minimum size for the Auto Scaling group. Default 0.
+        Minimum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the minimum size at the scheduled time.
         """
         return pulumi.get(self, "min_size")
@@ -612,7 +612,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def recurrence(self) -> pulumi.Output[str]:
         """
-        The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+        Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         """
         return pulumi.get(self, "recurrence")
 
@@ -620,7 +620,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> pulumi.Output[str]:
         """
-        The name of this scaling action.
+        Name of this scaling action.
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -628,7 +628,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[str]:
         """
-        The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+        Time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "start_time")

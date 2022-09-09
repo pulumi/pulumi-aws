@@ -34,14 +34,14 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The identifier for the network interface.
+     * Identifier for the network interface.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The identifier for the network interface.
+     * @return Identifier for the network interface.
      * 
      */
     public Optional<Output<String>> id() {
@@ -121,7 +121,7 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id The identifier for the network interface.
+         * @param id Identifier for the network interface.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id The identifier for the network interface.
+         * @param id Identifier for the network interface.
          * 
          * @return builder
          * 

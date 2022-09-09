@@ -14,7 +14,7 @@ public final class GetVpcPeeringConnectionFilter extends com.pulumi.resources.In
     public static final GetVpcPeeringConnectionFilter Empty = new GetVpcPeeringConnectionFilter();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
      * 
      */
@@ -22,7 +22,7 @@ public final class GetVpcPeeringConnectionFilter extends com.pulumi.resources.In
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
      * 
      */
@@ -73,7 +73,7 @@ public final class GetVpcPeeringConnectionFilter extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          * 
          * @return builder

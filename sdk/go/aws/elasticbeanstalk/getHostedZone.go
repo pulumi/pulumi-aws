@@ -46,7 +46,7 @@ func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getHostedZone.
 type GetHostedZoneArgs struct {
-	// The region you'd like the zone for. By default, fetches the current region.
+	// Region you'd like the zone for. By default, fetches the current region.
 	Region *string `pulumi:"region"`
 }
 
@@ -54,7 +54,7 @@ type GetHostedZoneArgs struct {
 type GetHostedZoneResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The region of the hosted zone.
+	// Region of the hosted zone.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,7 +73,7 @@ func GetHostedZoneOutput(ctx *pulumi.Context, args GetHostedZoneOutputArgs, opts
 
 // A collection of arguments for invoking getHostedZone.
 type GetHostedZoneOutputArgs struct {
-	// The region you'd like the zone for. By default, fetches the current region.
+	// Region you'd like the zone for. By default, fetches the current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -101,7 +101,7 @@ func (o GetHostedZoneResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHostedZoneResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The region of the hosted zone.
+// Region of the hosted zone.
 func (o GetHostedZoneResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetHostedZoneResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

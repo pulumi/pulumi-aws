@@ -57,7 +57,7 @@ class GetResolverRuleResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN (Amazon Resource Name) for the resolver rule.
+        ARN (Amazon Resource Name) for the resolver rule.
         """
         return pulumi.get(self, "arn")
 
@@ -115,7 +115,7 @@ class GetResolverRuleResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the resolver rule.
+        Map of tags assigned to the resolver rule.
         """
         return pulumi.get(self, "tags")
 
@@ -161,12 +161,12 @@ def get_resolver_rule(domain_name: Optional[str] = None,
     ```
 
 
-    :param str domain_name: The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
-    :param str name: The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
-    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
-    :param str resolver_rule_id: The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
-    :param str rule_type: The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
-    :param Mapping[str, str] tags: A map of tags assigned to the resolver rule.
+    :param str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+    :param str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+    :param str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+    :param Mapping[str, str] tags: Map of tags assigned to the resolver rule.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -215,11 +215,11 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
     ```
 
 
-    :param str domain_name: The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
-    :param str name: The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
-    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
-    :param str resolver_rule_id: The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
-    :param str rule_type: The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
-    :param Mapping[str, str] tags: A map of tags assigned to the resolver rule.
+    :param str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+    :param str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+    :param str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+    :param Mapping[str, str] tags: Map of tags assigned to the resolver rule.
     """
     ...

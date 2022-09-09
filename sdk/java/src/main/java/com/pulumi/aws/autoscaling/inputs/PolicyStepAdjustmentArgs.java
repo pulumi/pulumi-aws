@@ -17,7 +17,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     public static final PolicyStepAdjustmentArgs Empty = new PolicyStepAdjustmentArgs();
 
     /**
-     * The lower bound for the
+     * Lower bound for the
      * difference between the alarm threshold and the CloudWatch metric.
      * Without a value, AWS will treat this bound as negative infinity.
      * 
@@ -26,7 +26,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> metricIntervalLowerBound;
 
     /**
-     * @return The lower bound for the
+     * @return Lower bound for the
      * difference between the alarm threshold and the CloudWatch metric.
      * Without a value, AWS will treat this bound as negative infinity.
      * 
@@ -36,7 +36,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The upper bound for the
+     * Upper bound for the
      * difference between the alarm threshold and the CloudWatch metric.
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
@@ -46,7 +46,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> metricIntervalUpperBound;
 
     /**
-     * @return The upper bound for the
+     * @return Upper bound for the
      * difference between the alarm threshold and the CloudWatch metric.
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
@@ -57,7 +57,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The number of members by which to
+     * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -66,7 +66,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
     private Output<Integer> scalingAdjustment;
 
     /**
-     * @return The number of members by which to
+     * @return Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      * 
@@ -102,7 +102,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param metricIntervalLowerBound The lower bound for the
+         * @param metricIntervalLowerBound Lower bound for the
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as negative infinity.
          * 
@@ -115,7 +115,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param metricIntervalLowerBound The lower bound for the
+         * @param metricIntervalLowerBound Lower bound for the
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as negative infinity.
          * 
@@ -127,7 +127,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param metricIntervalUpperBound The upper bound for the
+         * @param metricIntervalUpperBound Upper bound for the
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as positive infinity. The upper bound
          * must be greater than the lower bound.
@@ -141,7 +141,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param metricIntervalUpperBound The upper bound for the
+         * @param metricIntervalUpperBound Upper bound for the
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as positive infinity. The upper bound
          * must be greater than the lower bound.
@@ -154,7 +154,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to
+         * @param scalingAdjustment Number of members by which to
          * scale, when the adjustment bounds are breached. A positive value scales
          * up. A negative value scales down.
          * 
@@ -167,7 +167,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scalingAdjustment The number of members by which to
+         * @param scalingAdjustment Number of members by which to
          * scale, when the adjustment bounds are breached. A positive value scales
          * up. A negative value scales down.
          * 

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,11 +39,11 @@ export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, op
  */
 export interface GetResponseHeadersPolicyArgs {
     /**
-     * The identifier for the response headers policy.
+     * Identifier for the response headers policy.
      */
     id?: string;
     /**
-     * A unique name to identify the response headers policy.
+     * Unique name to identify the response headers policy.
      */
     name?: string;
 }
@@ -51,11 +53,11 @@ export interface GetResponseHeadersPolicyArgs {
  */
 export interface GetResponseHeadersPolicyResult {
     /**
-     * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+     * Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      */
     readonly comment: string;
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
     readonly corsConfigs: outputs.cloudfront.GetResponseHeadersPolicyCorsConfig[];
     /**
@@ -63,7 +65,7 @@ export interface GetResponseHeadersPolicyResult {
      */
     readonly customHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyCustomHeadersConfig[];
     /**
-     * The current version of the response headers policy.
+     * Current version of the response headers policy.
      */
     readonly etag: string;
     readonly id: string;
@@ -73,7 +75,7 @@ export interface GetResponseHeadersPolicyResult {
      */
     readonly securityHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfig[];
     /**
-     * (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     * (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
     readonly serverTimingHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyServerTimingHeadersConfig[];
 }
@@ -87,11 +89,11 @@ export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOu
  */
 export interface GetResponseHeadersPolicyOutputArgs {
     /**
-     * The identifier for the response headers policy.
+     * Identifier for the response headers policy.
      */
     id?: pulumi.Input<string>;
     /**
-     * A unique name to identify the response headers policy.
+     * Unique name to identify the response headers policy.
      */
     name?: pulumi.Input<string>;
 }

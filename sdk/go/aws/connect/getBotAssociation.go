@@ -52,7 +52,7 @@ func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, o
 
 // A collection of arguments for invoking getBotAssociation.
 type LookupBotAssociationArgs struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBot `pulumi:"lexBot"`
@@ -81,7 +81,7 @@ func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOu
 
 // A collection of arguments for invoking getBotAssociation.
 type LookupBotAssociationOutputArgs struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBotInput `pulumi:"lexBot"`

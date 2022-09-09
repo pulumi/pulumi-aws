@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetSiteResult {
     /**
-     * @return The ARN of the site.
+     * @return ARN of the site.
      * 
      */
     private String arn;
     /**
-     * @return The description of the site.
+     * @return Description of the site.
      * 
      */
     private String description;
@@ -29,7 +29,7 @@ public final class GetSiteResult {
      */
     private String id;
     /**
-     * @return The site location as documented below.
+     * @return Site location as documented below.
      * 
      */
     private List<GetSiteLocation> locations;
@@ -42,14 +42,14 @@ public final class GetSiteResult {
 
     private GetSiteResult() {}
     /**
-     * @return The ARN of the site.
+     * @return ARN of the site.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the site.
+     * @return Description of the site.
      * 
      */
     public String description() {
@@ -66,7 +66,7 @@ public final class GetSiteResult {
         return this.id;
     }
     /**
-     * @return The site location as documented below.
+     * @return Site location as documented below.
      * 
      */
     public List<GetSiteLocation> locations() {

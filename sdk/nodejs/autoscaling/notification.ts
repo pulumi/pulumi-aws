@@ -69,16 +69,16 @@ export class Notification extends pulumi.CustomResource {
     }
 
     /**
-     * A list of AutoScaling Group Names
+     * List of AutoScaling Group Names
      */
     public readonly groupNames!: pulumi.Output<string[]>;
     /**
-     * A list of Notification Types that trigger
+     * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     public readonly notifications!: pulumi.Output<NotificationType[]>;
     /**
-     * The Topic ARN for notifications to be sent through
+     * Topic ARN for notifications to be sent through
      */
     public readonly topicArn!: pulumi.Output<string>;
 
@@ -123,16 +123,16 @@ export class Notification extends pulumi.CustomResource {
  */
 export interface NotificationState {
     /**
-     * A list of AutoScaling Group Names
+     * List of AutoScaling Group Names
      */
     groupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Notification Types that trigger
+     * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
-     * The Topic ARN for notifications to be sent through
+     * Topic ARN for notifications to be sent through
      */
     topicArn?: pulumi.Input<string>;
 }
@@ -142,16 +142,16 @@ export interface NotificationState {
  */
 export interface NotificationArgs {
     /**
-     * A list of AutoScaling Group Names
+     * List of AutoScaling Group Names
      */
     groupNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Notification Types that trigger
+     * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
-     * The Topic ARN for notifications to be sent through
+     * Topic ARN for notifications to be sent through
      */
     topicArn: pulumi.Input<string>;
 }

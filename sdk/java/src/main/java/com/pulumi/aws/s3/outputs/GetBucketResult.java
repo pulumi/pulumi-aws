@@ -10,13 +10,13 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketResult {
     /**
-     * @return The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
     private String arn;
     private String bucket;
     /**
-     * @return The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
     private String bucketDomainName;
@@ -36,24 +36,24 @@ public final class GetBucketResult {
      */
     private String id;
     /**
-     * @return The AWS region this bucket resides in.
+     * @return AWS region this bucket resides in.
      * 
      */
     private String region;
     /**
-     * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
     private String websiteDomain;
     /**
-     * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
     private String websiteEndpoint;
 
     private GetBucketResult() {}
     /**
-     * @return The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+     * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
     public String arn() {
@@ -63,7 +63,7 @@ public final class GetBucketResult {
         return this.bucket;
     }
     /**
-     * @return The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+     * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
     public String bucketDomainName() {
@@ -91,21 +91,21 @@ public final class GetBucketResult {
         return this.id;
     }
     /**
-     * @return The AWS region this bucket resides in.
+     * @return AWS region this bucket resides in.
      * 
      */
     public String region() {
         return this.region;
     }
     /**
-     * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
     public String websiteDomain() {
         return this.websiteDomain;
     }
     /**
-     * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
     public String websiteEndpoint() {

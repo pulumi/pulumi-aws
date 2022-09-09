@@ -17,14 +17,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
     public static final FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs();
 
     /**
-     * The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     @Import(name="customProperties")
     private @Nullable Output<Map<String,String>> customProperties;
 
     /**
-     * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     public Optional<Output<Map<String,String>>> customProperties() {
@@ -32,14 +32,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
     }
 
     /**
-     * The entity specified in the custom connector as a source in the flow.
+     * Entity specified in the custom connector as a source in the flow.
      * 
      */
     @Import(name="entityName", required=true)
     private Output<String> entityName;
 
     /**
-     * @return The entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a source in the flow.
      * 
      */
     public Output<String> entityName() {
@@ -72,7 +72,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
         }
 
         /**
-         * @param customProperties The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
         }
 
         /**
-         * @param customProperties The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
         }
 
         /**
-         * @param entityName The entity specified in the custom connector as a source in the flow.
+         * @param entityName Entity specified in the custom connector as a source in the flow.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorA
         }
 
         /**
-         * @param entityName The entity specified in the custom connector as a source in the flow.
+         * @param entityName Entity specified in the custom connector as a source in the flow.
          * 
          * @return builder
          * 

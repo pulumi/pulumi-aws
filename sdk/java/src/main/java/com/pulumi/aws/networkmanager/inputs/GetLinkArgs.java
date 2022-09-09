@@ -17,14 +17,14 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLinkArgs Empty = new GetLinkArgs();
 
     /**
-     * The ID of the Global Network of the link to retrieve.
+     * ID of the Global Network of the link to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network of the link to retrieve.
+     * @return ID of the Global Network of the link to retrieve.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -32,14 +32,14 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The id of the specific link to retrieve.
+     * ID of the specific link to retrieve.
      * 
      */
     @Import(name="linkId", required=true)
     private Output<String> linkId;
 
     /**
-     * @return The id of the specific link to retrieve.
+     * @return ID of the specific link to retrieve.
      * 
      */
     public Output<String> linkId() {
@@ -88,7 +88,7 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the link to retrieve.
+         * @param globalNetworkId ID of the Global Network of the link to retrieve.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network of the link to retrieve.
+         * @param globalNetworkId ID of the Global Network of the link to retrieve.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param linkId The id of the specific link to retrieve.
+         * @param linkId ID of the specific link to retrieve.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param linkId The id of the specific link to retrieve.
+         * @param linkId ID of the specific link to retrieve.
          * 
          * @return builder
          * 

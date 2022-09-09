@@ -47,14 +47,14 @@ public final class TrailAdvancedEventSelectorFieldSelectorArgs extends com.pulum
     }
 
     /**
-     * Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+     * Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
     @Import(name="field", required=true)
     private Output<String> field;
 
     /**
-     * @return Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+     * @return Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
     public Output<String> field() {
@@ -214,7 +214,7 @@ public final class TrailAdvancedEventSelectorFieldSelectorArgs extends com.pulum
         }
 
         /**
-         * @param field Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+         * @param field Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class TrailAdvancedEventSelectorFieldSelectorArgs extends com.pulum
         }
 
         /**
-         * @param field Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+         * @param field Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
          * 
          * @return builder
          * 

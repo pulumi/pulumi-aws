@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +38,7 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
  */
 export interface GetSchedulingPolicyArgs {
     /**
-     * The Amazon Resource Name (ARN) of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn: string;
     /**
@@ -56,7 +58,7 @@ export interface GetSchedulingPolicyResult {
      */
     readonly id: string;
     /**
-     * Specifies the name of the scheduling policy.
+     * Name of the scheduling policy.
      */
     readonly name: string;
     /**
@@ -74,7 +76,7 @@ export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, o
  */
 export interface GetSchedulingPolicyOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn: pulumi.Input<string>;
     /**

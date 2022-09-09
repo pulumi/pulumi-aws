@@ -18,14 +18,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     public static final GetResourceSharePlainArgs Empty = new GetResourceSharePlainArgs();
 
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetResourceShareFilter> filters;
 
     /**
-     * @return A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * @return Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     public Optional<List<GetResourceShareFilter>> filters() {
@@ -33,14 +33,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     public String name() {
@@ -48,14 +48,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      * 
      */
     @Import(name="resourceOwner", required=true)
     private String resourceOwner;
 
     /**
-     * @return The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * @return Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      * 
      */
     public String resourceOwner() {
@@ -78,14 +78,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The Tags attached to the RAM share
+     * Tags attached to the RAM share
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The Tags attached to the RAM share
+     * @return Tags attached to the RAM share
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -121,7 +121,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param resourceOwner The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags The Tags attached to the RAM share
+         * @param tags Tags attached to the RAM share
          * 
          * @return builder
          * 

@@ -84,14 +84,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:applicationinsights/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Application.
+     * ARN of the Application.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Application.
+     * @return ARN of the Application.
      * 
      */
     public Output<String> arn() {
@@ -155,6 +155,7 @@ public class Application extends com.pulumi.resources.CustomResource {
     }
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
+     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     @Export(name="opsCenterEnabled", type=Boolean.class, parameters={})
@@ -162,56 +163,67 @@ public class Application extends com.pulumi.resources.CustomResource {
 
     /**
      * @return When set to `true`, creates opsItems for any problems detected on an application.
+     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     public Output<Optional<Boolean>> opsCenterEnabled() {
         return Codegen.optional(this.opsCenterEnabled);
     }
     /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
     @Export(name="opsItemSnsTopicArn", type=String.class, parameters={})
     private Output</* @Nullable */ String> opsItemSnsTopicArn;
 
     /**
-     * @return The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * @return SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
     public Output<Optional<String>> opsItemSnsTopicArn() {
         return Codegen.optional(this.opsItemSnsTopicArn);
     }
     /**
-     * The name of the resource group.
+     * Name of the resource group.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group.
+     * @return Name of the resource group.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

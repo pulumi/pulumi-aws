@@ -200,16 +200,16 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the deployment
+	// Creation date of the deployment
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the deployment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// REST API identifier.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -255,16 +255,16 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// The creation date of the deployment
+	// Creation date of the deployment
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the deployment
 	Description *string `pulumi:"description"`
-	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
-	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
@@ -279,16 +279,16 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
-	// The creation date of the deployment
+	// Creation date of the deployment
 	CreatedDate pulumi.StringPtrInput
 	// Description of the deployment
 	Description pulumi.StringPtrInput
-	// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput
-	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage,
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
@@ -424,7 +424,7 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// The creation date of the deployment
+// Creation date of the deployment
 func (o DeploymentOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -434,15 +434,15 @@ func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
+// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 func (o DeploymentOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
 }
 
-// The URL to invoke the API pointing to the stage,
-// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+// URL to invoke the API pointing to the stage,
+// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o DeploymentOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
 }

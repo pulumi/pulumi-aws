@@ -97,7 +97,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// ### Log Publishing to CloudWatch Logs
+    /// ### Log publishing to CloudWatch Logs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -258,6 +258,109 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// ### Enabling fine-grained access control on an existing domain
+    /// 
+    /// This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+    /// ### First apply
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.OpenSearch.Domain("example", new()
+    ///     {
+    ///         AdvancedSecurityOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsArgs
+    ///         {
+    ///             AnonymousAuthEnabled = true,
+    ///             Enabled = false,
+    ///             InternalUserDatabaseEnabled = true,
+    ///             MasterUserOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs
+    ///             {
+    ///                 MasterUserName = "example",
+    ///                 MasterUserPassword = "Barbarbarbar1!",
+    ///             },
+    ///         },
+    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
+    ///         {
+    ///             InstanceType = "r5.large.search",
+    ///         },
+    ///         DomainEndpointOptions = new Aws.OpenSearch.Inputs.DomainDomainEndpointOptionsArgs
+    ///         {
+    ///             EnforceHttps = true,
+    ///             TlsSecurityPolicy = "Policy-Min-TLS-1-2-2019-07",
+    ///         },
+    ///         EbsOptions = new Aws.OpenSearch.Inputs.DomainEbsOptionsArgs
+    ///         {
+    ///             EbsEnabled = true,
+    ///             VolumeSize = 10,
+    ///         },
+    ///         EncryptAtRest = new Aws.OpenSearch.Inputs.DomainEncryptAtRestArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         EngineVersion = "Elasticsearch_7.1",
+    ///         NodeToNodeEncryption = new Aws.OpenSearch.Inputs.DomainNodeToNodeEncryptionArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Second apply
+    /// 
+    /// Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.OpenSearch.Domain("example", new()
+    ///     {
+    ///         AdvancedSecurityOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsArgs
+    ///         {
+    ///             AnonymousAuthEnabled = true,
+    ///             Enabled = true,
+    ///             InternalUserDatabaseEnabled = true,
+    ///             MasterUserOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs
+    ///             {
+    ///                 MasterUserName = "example",
+    ///                 MasterUserPassword = "Barbarbarbar1!",
+    ///             },
+    ///         },
+    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
+    ///         {
+    ///             InstanceType = "r5.large.search",
+    ///         },
+    ///         DomainEndpointOptions = new Aws.OpenSearch.Inputs.DomainDomainEndpointOptionsArgs
+    ///         {
+    ///             EnforceHttps = true,
+    ///             TlsSecurityPolicy = "Policy-Min-TLS-1-2-2019-07",
+    ///         },
+    ///         EbsOptions = new Aws.OpenSearch.Inputs.DomainEbsOptionsArgs
+    ///         {
+    ///             EbsEnabled = true,
+    ///             VolumeSize = 10,
+    ///         },
+    ///         EncryptAtRest = new Aws.OpenSearch.Inputs.DomainEncryptAtRestArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         EngineVersion = "Elasticsearch_7.1",
+    ///         NodeToNodeEncryption = new Aws.OpenSearch.Inputs.DomainNodeToNodeEncryptionArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -375,6 +478,9 @@ namespace Pulumi.Aws.OpenSearch
         [Output("snapshotOptions")]
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -527,6 +633,10 @@ namespace Pulumi.Aws.OpenSearch
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -665,6 +775,10 @@ namespace Pulumi.Aws.OpenSearch
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

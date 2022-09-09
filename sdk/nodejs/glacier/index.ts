@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./vault";
-export * from "./vaultLock";
+export { VaultArgs, VaultState } from "./vault";
+export type Vault = import("./vault").Vault;
+export const Vault: typeof import("./vault").Vault = null as any;
 
-// Import resources to register:
-import { Vault } from "./vault";
-import { VaultLock } from "./vaultLock";
+export { VaultLockArgs, VaultLockState } from "./vaultLock";
+export type VaultLock = import("./vaultLock").VaultLock;
+export const VaultLock: typeof import("./vaultLock").VaultLock = null as any;
+
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+utilities.lazyLoad(exports, ["VaultLock"], () => require("./vaultLock"));
 
 const _module = {
     version: utilities.getVersion(),

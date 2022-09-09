@@ -34,14 +34,14 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The id of the specific Internet Gateway to retrieve.
+     * ID of the specific Internet Gateway to retrieve.
      * 
      */
     @Import(name="internetGatewayId")
     private @Nullable Output<String> internetGatewayId;
 
     /**
-     * @return The id of the specific Internet Gateway to retrieve.
+     * @return ID of the specific Internet Gateway to retrieve.
      * 
      */
     public Optional<Output<String>> internetGatewayId() {
@@ -49,7 +49,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      * 
      */
@@ -57,7 +57,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags, each pair of which must exactly match
+     * @return Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      * 
      */
@@ -123,7 +123,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param internetGatewayId The id of the specific Internet Gateway to retrieve.
+         * @param internetGatewayId ID of the specific Internet Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param internetGatewayId The id of the specific Internet Gateway to retrieve.
+         * @param internetGatewayId ID of the specific Internet Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired Internet Gateway.
          * 
          * @return builder
@@ -156,7 +156,7 @@ public final class GetInternetGatewayArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags, each pair of which must exactly match
+         * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired Internet Gateway.
          * 
          * @return builder

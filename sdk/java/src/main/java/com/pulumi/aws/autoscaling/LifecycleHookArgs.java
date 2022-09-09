@@ -17,14 +17,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     public static final LifecycleHookArgs Empty = new LifecycleHookArgs();
 
     /**
-     * The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the Auto Scaling group to which you want to assign the lifecycle hook
+     * @return Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -62,14 +62,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
     @Import(name="lifecycleTransition", required=true)
     private Output<String> lifecycleTransition;
 
     /**
-     * @return The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+     * @return Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
     public Output<String> lifecycleTransition() {
@@ -77,14 +77,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the lifecycle hook.
+     * Name of the lifecycle hook.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the lifecycle hook.
+     * @return Name of the lifecycle hook.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,14 +107,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
     @Import(name="notificationTargetArn")
     private @Nullable Output<String> notificationTargetArn;
 
     /**
-     * @return The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+     * @return ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
     public Optional<Output<String>> notificationTargetArn() {
@@ -122,14 +122,14 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+     * @return ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -168,7 +168,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the Auto Scaling group to which you want to assign the lifecycle hook
+         * @param autoscalingGroupName Name of the Auto Scaling group to which you want to assign the lifecycle hook
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the Auto Scaling group to which you want to assign the lifecycle hook
+         * @param autoscalingGroupName Name of the Auto Scaling group to which you want to assign the lifecycle hook
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycleTransition The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+         * @param lifecycleTransition Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycleTransition The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+         * @param lifecycleTransition Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the lifecycle hook.
+         * @param name Name of the lifecycle hook.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the lifecycle hook.
+         * @param name Name of the lifecycle hook.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTargetArn The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTargetArn The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+         * @param notificationTargetArn ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+         * @param roleArn ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+         * @param roleArn ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
          * 
          * @return builder
          * 

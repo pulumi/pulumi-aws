@@ -31,14 +31,14 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the cluster.
+     * Map of tags assigned to the cluster.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the cluster.
+     * @return Map of tags assigned to the cluster.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the cluster.
+         * @param tags Map of tags assigned to the cluster.
          * 
          * @return builder
          * 

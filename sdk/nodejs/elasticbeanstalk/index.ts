@@ -5,19 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationVersion";
-export * from "./configurationTemplate";
-export * from "./environment";
-export * from "./getApplication";
-export * from "./getHostedZone";
-export * from "./getSolutionStack";
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
 
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationVersion } from "./applicationVersion";
-import { ConfigurationTemplate } from "./configurationTemplate";
-import { Environment } from "./environment";
+export { ApplicationVersionArgs, ApplicationVersionState } from "./applicationVersion";
+export type ApplicationVersion = import("./applicationVersion").ApplicationVersion;
+export const ApplicationVersion: typeof import("./applicationVersion").ApplicationVersion = null as any;
+
+export { ConfigurationTemplateArgs, ConfigurationTemplateState } from "./configurationTemplate";
+export type ConfigurationTemplate = import("./configurationTemplate").ConfigurationTemplate;
+export const ConfigurationTemplate: typeof import("./configurationTemplate").ConfigurationTemplate = null as any;
+
+export { EnvironmentArgs, EnvironmentState } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetHostedZoneArgs, GetHostedZoneResult, GetHostedZoneOutputArgs } from "./getHostedZone";
+export const getHostedZone: typeof import("./getHostedZone").getHostedZone = null as any;
+export const getHostedZoneOutput: typeof import("./getHostedZone").getHostedZoneOutput = null as any;
+
+export { GetSolutionStackArgs, GetSolutionStackResult, GetSolutionStackOutputArgs } from "./getSolutionStack";
+export const getSolutionStack: typeof import("./getSolutionStack").getSolutionStack = null as any;
+export const getSolutionStackOutput: typeof import("./getSolutionStack").getSolutionStackOutput = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ApplicationVersion"], () => require("./applicationVersion"));
+utilities.lazyLoad(exports, ["ConfigurationTemplate"], () => require("./configurationTemplate"));
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getHostedZone","getHostedZoneOutput"], () => require("./getHostedZone"));
+utilities.lazyLoad(exports, ["getSolutionStack","getSolutionStackOutput"], () => require("./getSolutionStack"));
 
 const _module = {
     version: utilities.getVersion(),

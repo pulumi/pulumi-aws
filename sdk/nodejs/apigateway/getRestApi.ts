@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +41,7 @@ export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetRestApiArgs {
     /**
-     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+     * Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
      */
     name: string;
     /**
@@ -53,19 +55,19 @@ export interface GetRestApiArgs {
  */
 export interface GetRestApiResult {
     /**
-     * The source of the API key for requests.
+     * Source of the API key for requests.
      */
     readonly apiKeySource: string;
     /**
-     * The ARN of the REST API.
+     * ARN of the REST API.
      */
     readonly arn: string;
     /**
-     * The list of binary media types supported by the REST API.
+     * List of binary media types supported by the REST API.
      */
     readonly binaryMediaTypes: string[];
     /**
-     * The description of the REST API.
+     * Description of the REST API.
      */
     readonly description: string;
     /**
@@ -108,7 +110,7 @@ export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.Invok
  */
 export interface GetRestApiOutputArgs {
     /**
-     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+     * Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
      */
     name: pulumi.Input<string>;
     /**

@@ -15,7 +15,7 @@ public final class WorkforceCognitoConfig {
      */
     private String clientId;
     /**
-     * @return The id for your Amazon Cognito user pool.
+     * @return ID for your Amazon Cognito user pool.
      * 
      */
     private String userPool;
@@ -29,7 +29,7 @@ public final class WorkforceCognitoConfig {
         return this.clientId;
     }
     /**
-     * @return The id for your Amazon Cognito user pool.
+     * @return ID for your Amazon Cognito user pool.
      * 
      */
     public String userPool() {

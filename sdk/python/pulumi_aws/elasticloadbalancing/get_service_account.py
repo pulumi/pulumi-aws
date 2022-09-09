@@ -38,7 +38,7 @@ class GetServiceAccountResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the AWS ELB service account in the selected region.
+        ARN of the AWS ELB service account in the selected region.
         """
         return pulumi.get(self, "arn")
 

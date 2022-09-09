@@ -14,14 +14,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetExportArgs Empty = new GetExportArgs();
 
     /**
-     * The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+     * @return Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+         * @param name Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+         * @param name Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
          * 
          * @return builder
          * 

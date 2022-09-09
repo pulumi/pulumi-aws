@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppStream.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        /// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;

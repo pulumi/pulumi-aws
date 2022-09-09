@@ -50,7 +50,7 @@ func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts 
 
 // A collection of arguments for invoking getStateMachine.
 type LookupStateMachineArgs struct {
-	// The friendly name of the state machine to match.
+	// Friendly name of the state machine to match.
 	Name string `pulumi:"name"`
 }
 
@@ -58,7 +58,7 @@ type LookupStateMachineArgs struct {
 type LookupStateMachineResult struct {
 	// Set to the arn of the state function.
 	Arn string `pulumi:"arn"`
-	// The date the state machine was created.
+	// Date the state machine was created.
 	CreationDate string `pulumi:"creationDate"`
 	// Set to the state machine definition.
 	Definition string `pulumi:"definition"`
@@ -86,7 +86,7 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 
 // A collection of arguments for invoking getStateMachine.
 type LookupStateMachineOutputArgs struct {
-	// The friendly name of the state machine to match.
+	// Friendly name of the state machine to match.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -114,7 +114,7 @@ func (o LookupStateMachineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date the state machine was created.
+// Date the state machine was created.
 func (o LookupStateMachineResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }

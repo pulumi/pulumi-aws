@@ -70,7 +70,7 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The id of the prometheus workspace the rule group namespace should be linked to
+     * ID of the prometheus workspace the rule group namespace should be linked to
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -120,7 +120,7 @@ export interface RuleGroupNamespaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the prometheus workspace the rule group namespace should be linked to
+     * ID of the prometheus workspace the rule group namespace should be linked to
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -138,7 +138,7 @@ export interface RuleGroupNamespaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the prometheus workspace the rule group namespace should be linked to
+     * ID of the prometheus workspace the rule group namespace should be linked to
      */
     workspaceId: pulumi.Input<string>;
 }

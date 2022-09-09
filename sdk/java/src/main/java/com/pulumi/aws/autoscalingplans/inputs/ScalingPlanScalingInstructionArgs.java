@@ -22,7 +22,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     public static final ScalingPlanScalingInstructionArgs Empty = new ScalingPlanScalingInstructionArgs();
 
     /**
-     * The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+     * Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
@@ -30,7 +30,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     private @Nullable Output<ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs> customizedLoadMetricSpecification;
 
     /**
-     * @return The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+     * @return Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
@@ -54,14 +54,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+     * Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
      * 
      */
     @Import(name="maxCapacity", required=true)
     private Output<Integer> maxCapacity;
 
     /**
-     * @return The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+     * @return Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
      * 
      */
     public Output<Integer> maxCapacity() {
@@ -69,14 +69,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The minimum capacity of the resource.
+     * Minimum capacity of the resource.
      * 
      */
     @Import(name="minCapacity", required=true)
     private Output<Integer> minCapacity;
 
     /**
-     * @return The minimum capacity of the resource.
+     * @return Minimum capacity of the resource.
      * 
      */
     public Output<Integer> minCapacity() {
@@ -84,7 +84,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+     * Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */
@@ -92,7 +92,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     private @Nullable Output<ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs> predefinedLoadMetricSpecification;
 
     /**
-     * @return The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+     * @return Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */
@@ -118,14 +118,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+     * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
      * 
      */
     @Import(name="predictiveScalingMaxCapacityBuffer")
     private @Nullable Output<Integer> predictiveScalingMaxCapacityBuffer;
 
     /**
-     * @return The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
      * 
      */
     public Optional<Output<Integer>> predictiveScalingMaxCapacityBuffer() {
@@ -133,14 +133,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+     * Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
      * 
      */
     @Import(name="predictiveScalingMode")
     private @Nullable Output<String> predictiveScalingMode;
 
     /**
-     * @return The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+     * @return Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
      * 
      */
     public Optional<Output<String>> predictiveScalingMode() {
@@ -148,14 +148,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the resource. This string consists of the resource type and unique identifier.
+     * ID of the resource. This string consists of the resource type and unique identifier.
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the resource. This string consists of the resource type and unique identifier.
+     * @return ID of the resource. This string consists of the resource type and unique identifier.
      * 
      */
     public Output<String> resourceId() {
@@ -163,14 +163,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+     * Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
      * 
      */
     @Import(name="scalableDimension", required=true)
     private Output<String> scalableDimension;
 
     /**
-     * @return The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+     * @return Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
      * 
      */
     public Output<String> scalableDimension() {
@@ -193,14 +193,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+     * Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
      * 
      */
     @Import(name="scheduledActionBufferTime")
     private @Nullable Output<Integer> scheduledActionBufferTime;
 
     /**
-     * @return The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+     * @return Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
      * 
      */
     public Optional<Output<Integer>> scheduledActionBufferTime() {
@@ -208,14 +208,14 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+     * Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
      * 
      */
     @Import(name="serviceNamespace", required=true)
     private Output<String> serviceNamespace;
 
     /**
-     * @return The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+     * @return Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
      * 
      */
     public Output<String> serviceNamespace() {
@@ -223,7 +223,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     }
 
     /**
-     * The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+     * Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
      * 
      */
@@ -231,7 +231,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
     private Output<List<ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>> targetTrackingConfigurations;
 
     /**
-     * @return The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+     * @return Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
      * 
      */
@@ -277,7 +277,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param customizedLoadMetricSpecification The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+         * @param customizedLoadMetricSpecification Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
          * 
          * @return builder
@@ -289,7 +289,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param customizedLoadMetricSpecification The customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+         * @param customizedLoadMetricSpecification Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
          * 
          * @return builder
@@ -321,7 +321,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param maxCapacity The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+         * @param maxCapacity Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param maxCapacity The maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+         * @param maxCapacity Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param minCapacity The minimum capacity of the resource.
+         * @param minCapacity Minimum capacity of the resource.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param minCapacity The minimum capacity of the resource.
+         * @param minCapacity Minimum capacity of the resource.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predefinedLoadMetricSpecification The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+         * @param predefinedLoadMetricSpecification Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
          * 
          * @return builder
@@ -375,7 +375,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predefinedLoadMetricSpecification The predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+         * @param predefinedLoadMetricSpecification Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
          * 
          * @return builder
@@ -409,7 +409,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predictiveScalingMaxCapacityBuffer The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+         * @param predictiveScalingMaxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predictiveScalingMaxCapacityBuffer The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
+         * @param predictiveScalingMaxCapacityBuffer Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predictiveScalingMode The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+         * @param predictiveScalingMode Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param predictiveScalingMode The predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
+         * @param predictiveScalingMode Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param resourceId The ID of the resource. This string consists of the resource type and unique identifier.
+         * @param resourceId ID of the resource. This string consists of the resource type and unique identifier.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param resourceId The ID of the resource. This string consists of the resource type and unique identifier.
+         * @param resourceId ID of the resource. This string consists of the resource type and unique identifier.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scalableDimension The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+         * @param scalableDimension Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scalableDimension The scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
+         * @param scalableDimension Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scheduledActionBufferTime The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+         * @param scheduledActionBufferTime Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scheduledActionBufferTime The amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
+         * @param scheduledActionBufferTime Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceNamespace The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+         * @param serviceNamespace Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceNamespace The namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+         * @param serviceNamespace Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetTrackingConfigurations The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+         * @param targetTrackingConfigurations Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
          * 
          * @return builder
@@ -568,7 +568,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetTrackingConfigurations The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+         * @param targetTrackingConfigurations Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
          * 
          * @return builder
@@ -579,7 +579,7 @@ public final class ScalingPlanScalingInstructionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param targetTrackingConfigurations The structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+         * @param targetTrackingConfigurations Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
          * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
          * 
          * @return builder

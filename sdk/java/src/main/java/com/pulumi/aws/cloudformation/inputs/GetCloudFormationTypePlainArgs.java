@@ -15,14 +15,14 @@ public final class GetCloudFormationTypePlainArgs extends com.pulumi.resources.I
     public static final GetCloudFormationTypePlainArgs Empty = new GetCloudFormationTypePlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+     * @return ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      * 
      */
     public Optional<String> arn() {
@@ -102,7 +102,7 @@ public final class GetCloudFormationTypePlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+         * @param arn ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
          * 
          * @return builder
          * 

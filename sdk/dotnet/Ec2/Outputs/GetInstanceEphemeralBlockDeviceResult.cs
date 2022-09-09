@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetInstanceEphemeralBlockDeviceResult
     {
         /// <summary>
-        /// The physical name of the device.
+        /// Physical name of the device.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? NoDevice;
         /// <summary>
-        /// The virtual device name.
+        /// Virtual device name.
         /// </summary>
         public readonly string? VirtualName;
 

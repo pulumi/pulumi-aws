@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? MaxCapacityBreachBehavior { get; set; }
 
         /// <summary>
-        /// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
+        /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
         /// </summary>
         [Input("maxCapacityBuffer")]
         public Input<string>? MaxCapacityBuffer { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs> MetricSpecification { get; set; } = null!;
 
         /// <summary>
-        /// The predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
+        /// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
+        /// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
         /// </summary>
         [Input("schedulingBufferTime")]
         public Input<string>? SchedulingBufferTime { get; set; }

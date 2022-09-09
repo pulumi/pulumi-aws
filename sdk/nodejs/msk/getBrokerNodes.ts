@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +37,7 @@ export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetBrokerNodesArgs {
     /**
-     * The ARN of the cluster the nodes belong to.
+     * ARN of the cluster the nodes belong to.
      */
     clusterArn: string;
 }
@@ -61,7 +63,7 @@ export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulu
  */
 export interface GetBrokerNodesOutputArgs {
     /**
-     * The ARN of the cluster the nodes belong to.
+     * ARN of the cluster the nodes belong to.
      */
     clusterArn: pulumi.Input<string>;
 }

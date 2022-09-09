@@ -12,17 +12,17 @@ import java.util.Objects;
 @CustomType
 public final class GetBrokerNodesNodeInfoList {
     /**
-     * @return The attached elastic network interface of the broker
+     * @return Attached elastic network interface of the broker
      * 
      */
     private String attachedEniId;
     /**
-     * @return The ID of the broker
+     * @return ID of the broker
      * 
      */
     private Double brokerId;
     /**
-     * @return The client subnet to which this broker node belongs
+     * @return Client subnet to which this broker node belongs
      * 
      */
     private String clientSubnet;
@@ -37,28 +37,28 @@ public final class GetBrokerNodesNodeInfoList {
      */
     private List<String> endpoints;
     /**
-     * @return The Amazon Resource Name (ARN) of the node
+     * @return ARN of the node
      * 
      */
     private String nodeArn;
 
     private GetBrokerNodesNodeInfoList() {}
     /**
-     * @return The attached elastic network interface of the broker
+     * @return Attached elastic network interface of the broker
      * 
      */
     public String attachedEniId() {
         return this.attachedEniId;
     }
     /**
-     * @return The ID of the broker
+     * @return ID of the broker
      * 
      */
     public Double brokerId() {
         return this.brokerId;
     }
     /**
-     * @return The client subnet to which this broker node belongs
+     * @return Client subnet to which this broker node belongs
      * 
      */
     public String clientSubnet() {
@@ -79,7 +79,7 @@ public final class GetBrokerNodesNodeInfoList {
         return this.endpoints;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the node
+     * @return ARN of the node
      * 
      */
     public String nodeArn() {

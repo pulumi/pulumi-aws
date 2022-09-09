@@ -61,14 +61,14 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * A map of tags to assign to the Contact Flow Module.
+     * Map of tags to assign to the Contact Flow Module.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags to assign to the Contact Flow Module.
+     * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -136,7 +136,7 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param tags A map of tags to assign to the Contact Flow Module.
+         * @param tags Map of tags to assign to the Contact Flow Module.
          * 
          * @return builder
          * 

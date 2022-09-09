@@ -30,7 +30,7 @@ public final class GetEndpointResult {
      */
     private List<GetEndpointAuthenticationOption> authenticationOptions;
     /**
-     * @return The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+     * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      * 
      */
     private String clientCidrBlock;
@@ -51,12 +51,12 @@ public final class GetEndpointResult {
      */
     private List<GetEndpointConnectionLogOption> connectionLogOptions;
     /**
-     * @return A brief description of the endpoint.
+     * @return Brief description of the endpoint.
      * 
      */
     private String description;
     /**
-     * @return The DNS name to be used by clients when connecting to the Client VPN endpoint.
+     * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
      * 
      */
     private String dnsName;
@@ -72,12 +72,12 @@ public final class GetEndpointResult {
      */
     private String id;
     /**
-     * @return The IDs of the security groups for the target network associated with the Client VPN endpoint.
+     * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
      */
     private List<String> securityGroupIds;
     /**
-     * @return Indicates whether the self-service portal for the Client VPN endpoint is enabled.
+     * @return Whether the self-service portal for the Client VPN endpoint is enabled.
      * 
      */
     private String selfServicePortal;
@@ -92,23 +92,23 @@ public final class GetEndpointResult {
      */
     private Integer sessionTimeoutHours;
     /**
-     * @return Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+     * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      * 
      */
     private Boolean splitTunnel;
     private Map<String,String> tags;
     /**
-     * @return The transport protocol used by the Client VPN endpoint.
+     * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
     private String transportProtocol;
     /**
-     * @return The ID of the VPC associated with the Client VPN endpoint.
+     * @return ID of the VPC associated with the Client VPN endpoint.
      * 
      */
     private String vpcId;
     /**
-     * @return The port number for the Client VPN endpoint.
+     * @return Port number for the Client VPN endpoint.
      * 
      */
     private Integer vpnPort;
@@ -129,7 +129,7 @@ public final class GetEndpointResult {
         return this.authenticationOptions;
     }
     /**
-     * @return The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+     * @return IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      * 
      */
     public String clientCidrBlock() {
@@ -160,14 +160,14 @@ public final class GetEndpointResult {
         return this.connectionLogOptions;
     }
     /**
-     * @return A brief description of the endpoint.
+     * @return Brief description of the endpoint.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The DNS name to be used by clients when connecting to the Client VPN endpoint.
+     * @return DNS name to be used by clients when connecting to the Client VPN endpoint.
      * 
      */
     public String dnsName() {
@@ -191,14 +191,14 @@ public final class GetEndpointResult {
         return this.id;
     }
     /**
-     * @return The IDs of the security groups for the target network associated with the Client VPN endpoint.
+     * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
      */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * @return Indicates whether the self-service portal for the Client VPN endpoint is enabled.
+     * @return Whether the self-service portal for the Client VPN endpoint is enabled.
      * 
      */
     public String selfServicePortal() {
@@ -219,7 +219,7 @@ public final class GetEndpointResult {
         return this.sessionTimeoutHours;
     }
     /**
-     * @return Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+     * @return Whether split-tunnel is enabled in the AWS Client VPN endpoint.
      * 
      */
     public Boolean splitTunnel() {
@@ -229,21 +229,21 @@ public final class GetEndpointResult {
         return this.tags;
     }
     /**
-     * @return The transport protocol used by the Client VPN endpoint.
+     * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
     public String transportProtocol() {
         return this.transportProtocol;
     }
     /**
-     * @return The ID of the VPC associated with the Client VPN endpoint.
+     * @return ID of the VPC associated with the Client VPN endpoint.
      * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
-     * @return The port number for the Client VPN endpoint.
+     * @return Port number for the Client VPN endpoint.
      * 
      */
     public Integer vpnPort() {

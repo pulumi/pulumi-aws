@@ -17,14 +17,14 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
     public static final CertificateValidationArgs Empty = new CertificateValidationArgs();
 
     /**
-     * The ARN of the certificate that is being validated.
+     * ARN of the certificate that is being validated.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return The ARN of the certificate that is being validated.
+     * @return ARN of the certificate that is being validated.
      * 
      */
     public Output<String> certificateArn() {
@@ -72,7 +72,7 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param certificateArn The ARN of the certificate that is being validated.
+         * @param certificateArn ARN of the certificate that is being validated.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param certificateArn The ARN of the certificate that is being validated.
+         * @param certificateArn ARN of the certificate that is being validated.
          * 
          * @return builder
          * 

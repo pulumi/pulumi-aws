@@ -53,7 +53,7 @@ class GetConnectionResult:
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> str:
         """
-        The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         """
         return pulumi.get(self, "connection_status")
 
@@ -61,7 +61,7 @@ class GetConnectionResult:
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the host associated with the connection.
+        ARN of the host associated with the connection.
         """
         return pulumi.get(self, "host_arn")
 
@@ -77,7 +77,7 @@ class GetConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the CodeStar Connection. The name is unique in the calling AWS account.
+        Name of the CodeStar Connection. The name is unique in the calling AWS account.
         """
         return pulumi.get(self, "name")
 
@@ -136,8 +136,8 @@ def get_connection(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The CodeStar Connection ARN.
-    :param str name: The CodeStar Connection name.
+    :param str arn: CodeStar Connection ARN.
+    :param str name: CodeStar Connection name.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
@@ -184,8 +184,8 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The CodeStar Connection ARN.
-    :param str name: The CodeStar Connection name.
+    :param str arn: CodeStar Connection ARN.
+    :param str name: CodeStar Connection name.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     ...

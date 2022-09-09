@@ -300,27 +300,27 @@ type GraphQLApi struct {
 
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
-	// The ARN
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrOutput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
-	// A user-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphqlApi.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrOutput `pulumi:"openidConnectConfig"`
-	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrOutput `pulumi:"schema"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrOutput `pulumi:"xrayEnabled"`
@@ -360,27 +360,27 @@ func GetGraphQLApi(ctx *pulumi.Context,
 type graphQLApiState struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
-	// The ARN
+	// ARN
 	Arn *string `pulumi:"arn"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// A user-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphqlApi.
 	Name *string `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema *string `pulumi:"schema"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris map[string]string `pulumi:"uris"`
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
@@ -389,27 +389,27 @@ type graphQLApiState struct {
 type GraphQLApiState struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
-	// The ARN
+	// ARN
 	Arn pulumi.StringPtrInput
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringPtrInput
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// A user-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphqlApi.
 	Name pulumi.StringPtrInput
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
-	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapInput
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
@@ -422,21 +422,21 @@ func (GraphQLApiState) ElementType() reflect.Type {
 type graphQLApiArgs struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// A user-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphqlApi.
 	Name *string `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema *string `pulumi:"schema"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
@@ -446,21 +446,21 @@ type graphQLApiArgs struct {
 type GraphQLApiArgs struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput
 	// Nested argument containing Lambda authorizer configuration. Defined below.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// A user-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphqlApi.
 	Name pulumi.StringPtrInput
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
-	// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 	Schema pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
@@ -560,12 +560,12 @@ func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAddition
 	}).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
 }
 
-// The ARN
+// ARN
 func (o GraphQLApiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 func (o GraphQLApiOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -580,7 +580,7 @@ func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
-// A user-supplied name for the GraphqlApi.
+// User-supplied name for the GraphqlApi.
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -590,17 +590,17 @@ func (o GraphQLApiOutput) OpenidConnectConfig() GraphQLApiOpenidConnectConfigPtr
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenidConnectConfigPtrOutput { return v.OpenidConnectConfig }).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
 
-// The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
 func (o GraphQLApiOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GraphQLApiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GraphQLApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -610,7 +610,7 @@ func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Uris }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Cognito User Pool configuration. Defined below.
+// Amazon Cognito User Pool configuration. Defined below.
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
 }

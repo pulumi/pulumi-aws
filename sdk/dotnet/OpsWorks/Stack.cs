@@ -198,7 +198,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<bool?> UseOpsworksSecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the VPC that this stack belongs to.
+        /// ID of the VPC that this stack belongs to.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? UseOpsworksSecurityGroups { get; set; }
 
         /// <summary>
-        /// The id of the VPC that this stack belongs to.
+        /// ID of the VPC that this stack belongs to.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -572,7 +572,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? UseOpsworksSecurityGroups { get; set; }
 
         /// <summary>
-        /// The id of the VPC that this stack belongs to.
+        /// ID of the VPC that this stack belongs to.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

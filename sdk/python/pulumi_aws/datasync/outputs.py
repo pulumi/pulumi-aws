@@ -321,7 +321,7 @@ class S3LocationS3Config(dict):
     def __init__(__self__, *,
                  bucket_access_role_arn: str):
         """
-        :param str bucket_access_role_arn: Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+        :param str bucket_access_role_arn: ARN of the IAM Role used to connect to the S3 Bucket.
         """
         pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
 
@@ -329,7 +329,7 @@ class S3LocationS3Config(dict):
     @pulumi.getter(name="bucketAccessRoleArn")
     def bucket_access_role_arn(self) -> str:
         """
-        Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+        ARN of the IAM Role used to connect to the S3 Bucket.
         """
         return pulumi.get(self, "bucket_access_role_arn")
 

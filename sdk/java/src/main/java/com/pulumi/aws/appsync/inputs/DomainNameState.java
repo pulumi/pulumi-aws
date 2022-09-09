@@ -16,14 +16,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     public static final DomainNameState Empty = new DomainNameState();
 
     /**
-     * The domain name that AppSync provides.
+     * Domain name that AppSync provides.
      * 
      */
     @Import(name="appsyncDomainName")
     private @Nullable Output<String> appsyncDomainName;
 
     /**
-     * @return The domain name that AppSync provides.
+     * @return Domain name that AppSync provides.
      * 
      */
     public Optional<Output<String>> appsyncDomainName() {
@@ -31,14 +31,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+     * @return ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
     public Optional<Output<String>> certificateArn() {
@@ -61,14 +61,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain name.
+     * Domain name.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name.
+     * @return Domain name.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -76,14 +76,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of your Amazon Route 53 hosted zone.
+     * ID of your Amazon Route 53 hosted zone.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The ID of your Amazon Route 53 hosted zone.
+     * @return ID of your Amazon Route 53 hosted zone.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -119,7 +119,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appsyncDomainName The domain name that AppSync provides.
+         * @param appsyncDomainName Domain name that AppSync provides.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appsyncDomainName The domain name that AppSync provides.
+         * @param appsyncDomainName Domain name that AppSync provides.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+         * @param certificateArn ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name.
+         * @param domainName Domain name.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name.
+         * @param domainName Domain name.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The ID of your Amazon Route 53 hosted zone.
+         * @param hostedZoneId ID of your Amazon Route 53 hosted zone.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The ID of your Amazon Route 53 hosted zone.
+         * @param hostedZoneId ID of your Amazon Route 53 hosted zone.
          * 
          * @return builder
          * 

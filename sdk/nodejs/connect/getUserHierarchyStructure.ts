@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export interface GetUserHierarchyStructureArgs {
  */
 export interface GetUserHierarchyStructureResult {
     /**
-     * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
+     * Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
     readonly hierarchyStructures: outputs.connect.GetUserHierarchyStructureHierarchyStructure[];
     /**

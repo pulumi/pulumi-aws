@@ -15,14 +15,14 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetProductPlainArgs Empty = new GetProductPlainArgs();
 
     /**
-     * A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+     * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      * 
      */
     @Import(name="filters", required=true)
     private List<GetProductFilter> filters;
 
     /**
-     * @return A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+     * @return List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      * 
      */
     public List<GetProductFilter> filters() {
@@ -30,14 +30,14 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+     * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      * 
      */
     @Import(name="serviceCode", required=true)
     private String serviceCode;
 
     /**
-     * @return The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+     * @return Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      * 
      */
     public String serviceCode() {
@@ -70,7 +70,7 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+         * @param filters List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+         * @param filters List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceCode The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+         * @param serviceCode Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
          * 
          * @return builder
          * 

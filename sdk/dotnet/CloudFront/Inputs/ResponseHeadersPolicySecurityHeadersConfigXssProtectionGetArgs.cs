@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+        /// Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         /// </summary>
         [Input("modeBlock")]
         public Input<bool>? ModeBlock { get; set; }
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;

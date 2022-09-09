@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualClusterResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     private String arn;
@@ -23,7 +23,7 @@ public final class GetVirtualClusterResult {
      */
     private List<GetVirtualClusterContainerProvider> containerProviders;
     /**
-     * @return The Unix epoch time stamp in seconds for when the cluster was created.
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
     private String createdAt;
@@ -33,12 +33,12 @@ public final class GetVirtualClusterResult {
      */
     private String id;
     /**
-     * @return The name of the cluster.
+     * @return Name of the cluster.
      * 
      */
     private String name;
     /**
-     * @return The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+     * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
      */
     private String state;
@@ -51,7 +51,7 @@ public final class GetVirtualClusterResult {
 
     private GetVirtualClusterResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public String arn() {
@@ -65,7 +65,7 @@ public final class GetVirtualClusterResult {
         return this.containerProviders;
     }
     /**
-     * @return The Unix epoch time stamp in seconds for when the cluster was created.
+     * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
     public String createdAt() {
@@ -79,14 +79,14 @@ public final class GetVirtualClusterResult {
         return this.id;
     }
     /**
-     * @return The name of the cluster.
+     * @return Name of the cluster.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
+     * @return Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
      * 
      */
     public String state() {

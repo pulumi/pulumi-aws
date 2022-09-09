@@ -82,14 +82,14 @@ public class AlertManagerDefinition extends com.pulumi.resources.CustomResource 
         return this.definition;
     }
     /**
-     * The id of the prometheus workspace the alert manager definition should be linked to
+     * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
     @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
-     * @return The id of the prometheus workspace the alert manager definition should be linked to
+     * @return ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
     public Output<String> workspaceId() {

@@ -109,14 +109,14 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of tags to assign to the device.
+     * Map of tags to assign to the device.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the device.
+     * @return Map of tags to assign to the device.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -344,7 +344,7 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags A map of tags to assign to the device.
+         * @param tags Map of tags to assign to the device.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class InstanceEbsBlockDeviceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags A map of tags to assign to the device.
+         * @param tags Map of tags to assign to the device.
          * 
          * @return builder
          * 

@@ -21,7 +21,7 @@ public final class GetAuthorizationTokenResult {
     private String domainOwner;
     private @Nullable Integer durationSeconds;
     /**
-     * @return The time in UTC RFC3339 format when the authorization token expires.
+     * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
     private String expiration;
@@ -49,7 +49,7 @@ public final class GetAuthorizationTokenResult {
         return Optional.ofNullable(this.durationSeconds);
     }
     /**
-     * @return The time in UTC RFC3339 format when the authorization token expires.
+     * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
     public String expiration() {

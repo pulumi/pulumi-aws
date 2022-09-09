@@ -35,10 +35,10 @@ type LookupOriginAccessIdentityResult struct {
 	CloudfrontAccessIdentityPath string `pulumi:"cloudfrontAccessIdentityPath"`
 	// An optional comment for the origin access identity.
 	Comment string `pulumi:"comment"`
-	// The current version of the origin access identity's information.
+	// Current version of the origin access identity's information.
 	// For example: `E2QWRUHAPOMQZL`.
 	Etag string `pulumi:"etag"`
-	// A pre-generated ARN for use in S3 bucket policies (see below).
+	// Pre-generated ARN for use in S3 bucket policies (see below).
 	// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 	// E2QWRUHAPOMQZL`.
 	IamArn string `pulumi:"iamArn"`
@@ -104,13 +104,13 @@ func (o LookupOriginAccessIdentityResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// The current version of the origin access identity's information.
+// Current version of the origin access identity's information.
 // For example: `E2QWRUHAPOMQZL`.
 func (o LookupOriginAccessIdentityResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// A pre-generated ARN for use in S3 bucket policies (see below).
+// Pre-generated ARN for use in S3 bucket policies (see below).
 // Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 // E2QWRUHAPOMQZL`.
 func (o LookupOriginAccessIdentityResultOutput) IamArn() pulumi.StringOutput {

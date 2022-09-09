@@ -30,14 +30,14 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the REST API
+     * ID of the REST API
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the REST API
+     * @return ID of the REST API
      * 
      */
     public Output<String> restApi() {
@@ -45,14 +45,14 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The settings block, see below.
+     * Settings block, see below.
      * 
      */
     @Import(name="settings", required=true)
     private Output<MethodSettingsSettingsArgs> settings;
 
     /**
-     * @return The settings block, see below.
+     * @return Settings block, see below.
      * 
      */
     public Output<MethodSettingsSettingsArgs> settings() {
@@ -60,14 +60,14 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the stage
+     * Name of the stage
      * 
      */
     @Import(name="stageName", required=true)
     private Output<String> stageName;
 
     /**
-     * @return The name of the stage
+     * @return Name of the stage
      * 
      */
     public Output<String> stageName() {
@@ -123,7 +123,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restApi The ID of the REST API
+         * @param restApi ID of the REST API
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restApi The ID of the REST API
+         * @param restApi ID of the REST API
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param settings The settings block, see below.
+         * @param settings Settings block, see below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param settings The settings block, see below.
+         * @param settings Settings block, see below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param stageName The name of the stage
+         * @param stageName Name of the stage
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param stageName The name of the stage
+         * @param stageName Name of the stage
          * 
          * @return builder
          * 

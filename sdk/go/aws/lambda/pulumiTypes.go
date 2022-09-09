@@ -421,6 +421,143 @@ func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
+	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{...}
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs struct {
+	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+}
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput).ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs, EventSourceMappingAmazonManagedKafkaEventSourceConfigPtr and EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput` via:
+//
+//	        EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput
+}
+
+type eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs
+
+func EventSourceMappingAmazonManagedKafkaEventSourceConfigPtr(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput {
+	return (*eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType)(v)
+}
+
+func (*eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingAmazonManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *EventSourceMappingAmazonManagedKafkaEventSourceConfig {
+		return &v
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
+}
+
+// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingAmazonManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Elem() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) EventSourceMappingAmazonManagedKafkaEventSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingAmazonManagedKafkaEventSourceConfig
+		return ret
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
+}
+
+// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumerGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventSourceMappingDestinationConfig struct {
 	// The destination configuration for failed invocations. Detailed below.
 	OnFailure *EventSourceMappingDestinationConfigOnFailure `pulumi:"onFailure"`
@@ -1066,6 +1203,143 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() pulumi.St
 		}
 		return v.Endpoints
 	}).(pulumi.StringMapOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
+	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{...}
+type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
+	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+}
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput).ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigArgs, EventSourceMappingSelfManagedKafkaEventSourceConfigPtr and EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput` via:
+//
+//	        EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput
+}
+
+type eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType EventSourceMappingSelfManagedKafkaEventSourceConfigArgs
+
+func EventSourceMappingSelfManagedKafkaEventSourceConfigPtr(v *EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput {
+	return (*eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType)(v)
+}
+
+func (*eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o.ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSelfManagedKafkaEventSourceConfig {
+		return &v
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
+}
+
+// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedKafkaEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) Elem() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) EventSourceMappingSelfManagedKafkaEventSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSelfManagedKafkaEventSourceConfig
+		return ret
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
+}
+
+// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumerGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSourceMappingSourceAccessConfiguration struct {
@@ -2891,7 +3165,7 @@ func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetCodeSigningConfigAllowedPublisher struct {
-	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
 }
 
@@ -2907,7 +3181,7 @@ type GetCodeSigningConfigAllowedPublisherInput interface {
 }
 
 type GetCodeSigningConfigAllowedPublisherArgs struct {
-	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
 }
 
@@ -2962,7 +3236,7 @@ func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowe
 	return o
 }
 
-// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 func (o GetCodeSigningConfigAllowedPublisherOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCodeSigningConfigAllowedPublisher) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
 }
@@ -3277,7 +3551,7 @@ func (o GetFunctionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetFunc
 }
 
 type GetFunctionFileSystemConfig struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
 	Arn            string `pulumi:"arn"`
 	LocalMountPath string `pulumi:"localMountPath"`
 }
@@ -3294,7 +3568,7 @@ type GetFunctionFileSystemConfigInput interface {
 }
 
 type GetFunctionFileSystemConfigArgs struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
 	Arn            pulumi.StringInput `pulumi:"arn"`
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
@@ -3350,7 +3624,7 @@ func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWi
 	return o
 }
 
-// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
 func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -3620,6 +3894,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersPtrInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigPtrInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigOnFailureInput)(nil)).Elem(), EventSourceMappingDestinationConfigOnFailureArgs{})
@@ -3630,6 +3906,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaFilterArrayInput)(nil)).Elem(), EventSourceMappingFilterCriteriaFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
@@ -3674,6 +3952,8 @@ func init() {
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailureOutput{})
@@ -3684,6 +3964,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaFilterArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})

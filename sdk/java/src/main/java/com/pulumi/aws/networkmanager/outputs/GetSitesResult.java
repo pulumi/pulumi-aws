@@ -19,7 +19,7 @@ public final class GetSitesResult {
      */
     private String id;
     /**
-     * @return The IDs of the sites.
+     * @return IDs of the sites.
      * 
      */
     private List<String> ids;
@@ -37,7 +37,7 @@ public final class GetSitesResult {
         return this.id;
     }
     /**
-     * @return The IDs of the sites.
+     * @return IDs of the sites.
      * 
      */
     public List<String> ids() {

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     private String apiKey;
@@ -24,7 +24,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey() {}
     /**
-     * @return A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
      * 
      */
     public String apiKey() {

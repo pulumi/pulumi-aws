@@ -62,7 +62,7 @@ class GetKeyPairResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Key Pair.
+        ARN of the Key Pair.
         """
         return pulumi.get(self, "arn")
 
@@ -70,7 +70,7 @@ class GetKeyPairResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the key pair was created in ISO 8601 format.
+        Timestamp for when the key pair was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -83,7 +83,7 @@ class GetKeyPairResult:
     @pulumi.getter
     def fingerprint(self) -> str:
         """
-        The SHA-1 digest of the DER encoded private key.
+        SHA-1 digest of the DER encoded private key.
         """
         return pulumi.get(self, "fingerprint")
 
@@ -114,7 +114,7 @@ class GetKeyPairResult:
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
-        The type of key pair.
+        Type of key pair.
         """
         return pulumi.get(self, "key_type")
 
@@ -122,7 +122,7 @@ class GetKeyPairResult:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The public key material.
+        Public key material.
         """
         return pulumi.get(self, "public_key")
 
@@ -185,8 +185,8 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
-    :param str key_name: The Key Pair name.
-    :param str key_pair_id: The Key Pair ID.
+    :param str key_name: Key Pair name.
+    :param str key_pair_id: Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
@@ -244,8 +244,8 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
-    :param str key_name: The Key Pair name.
-    :param str key_pair_id: The Key Pair ID.
+    :param str key_name: Key Pair name.
+    :param str key_pair_id: Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
     ...

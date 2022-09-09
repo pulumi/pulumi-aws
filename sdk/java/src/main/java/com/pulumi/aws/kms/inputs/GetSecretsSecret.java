@@ -47,14 +47,14 @@ public final class GetSecretsSecret extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name to export this secret under in the attributes.
+     * Name to export this secret under in the attributes.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name to export this secret under in the attributes.
+     * @return Name to export this secret under in the attributes.
      * 
      */
     public String name() {
@@ -136,7 +136,7 @@ public final class GetSecretsSecret extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name to export this secret under in the attributes.
+         * @param name Name to export this secret under in the attributes.
          * 
          * @return builder
          * 

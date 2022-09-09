@@ -72,7 +72,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretRotationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretRotationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -106,15 +106,15 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly bool RotationEnabled;
         /// <summary>
-        /// The decrypted part of the protected secret information that was originally provided as a string.
+        /// Decrypted part of the protected secret information that was originally provided as a string.
         /// </summary>
         public readonly string RotationLambdaArn;
         /// <summary>
-        /// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        /// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretRotationRotationRuleResult> RotationRules;
         public readonly string SecretId;

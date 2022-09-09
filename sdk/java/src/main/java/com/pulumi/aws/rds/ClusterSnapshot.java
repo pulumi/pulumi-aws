@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterSnapshot:ClusterSnapshot")
 public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Export(name="allocatedStorage", type=Integer.class, parameters={})
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -134,14 +134,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.dbClusterSnapshotIdentifier;
     }
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Export(name="engine", type=String.class, parameters={})
     private Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Output<String> engine() {
@@ -230,14 +230,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      * 
      */
     @Export(name="storageEncrypted", type=Boolean.class, parameters={})
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     public Output<Boolean> storageEncrypted() {

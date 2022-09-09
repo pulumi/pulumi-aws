@@ -16,14 +16,14 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
     public static final MeshSpecArgs Empty = new MeshSpecArgs();
 
     /**
-     * The egress filter rules for the service mesh.
+     * Egress filter rules for the service mesh.
      * 
      */
     @Import(name="egressFilter")
     private @Nullable Output<MeshSpecEgressFilterArgs> egressFilter;
 
     /**
-     * @return The egress filter rules for the service mesh.
+     * @return Egress filter rules for the service mesh.
      * 
      */
     public Optional<Output<MeshSpecEgressFilterArgs>> egressFilter() {
@@ -55,7 +55,7 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressFilter The egress filter rules for the service mesh.
+         * @param egressFilter Egress filter rules for the service mesh.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param egressFilter The egress filter rules for the service mesh.
+         * @param egressFilter Egress filter rules for the service mesh.
          * 
          * @return builder
          * 

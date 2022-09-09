@@ -39,7 +39,7 @@ class GetDomainIdentityResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the domain identity.
+        ARN of the domain identity.
         """
         return pulumi.get(self, "arn")
 
@@ -47,7 +47,7 @@ class GetDomainIdentityResult:
     @pulumi.getter
     def domain(self) -> str:
         """
-        The name of the domain
+        Name of the domain
         """
         return pulumi.get(self, "domain")
 
@@ -63,7 +63,7 @@ class GetDomainIdentityResult:
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> str:
         """
-        A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+        Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
         """
         return pulumi.get(self, "verification_token")
 
@@ -95,7 +95,7 @@ def get_domain_identity(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: The name of the domain
+    :param str domain: Name of the domain
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -125,6 +125,6 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain: The name of the domain
+    :param str domain: Name of the domain
     """
     ...

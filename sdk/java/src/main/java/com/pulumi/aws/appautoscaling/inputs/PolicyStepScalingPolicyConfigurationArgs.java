@@ -19,14 +19,14 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     public static final PolicyStepScalingPolicyConfigurationArgs Empty = new PolicyStepScalingPolicyConfigurationArgs();
 
     /**
-     * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     @Import(name="adjustmentType")
     private @Nullable Output<String> adjustmentType;
 
     /**
-     * @return Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+     * @return Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
     public Optional<Output<String>> adjustmentType() {
@@ -34,14 +34,14 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     @Import(name="cooldown")
     private @Nullable Output<Integer> cooldown;
 
     /**
-     * @return The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+     * @return Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
     public Optional<Output<Integer>> cooldown() {
@@ -49,14 +49,14 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     @Import(name="metricAggregationType")
     private @Nullable Output<String> metricAggregationType;
 
     /**
-     * @return The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
     public Optional<Output<String>> metricAggregationType() {
@@ -64,14 +64,14 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+     * Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
     @Import(name="minAdjustmentMagnitude")
     private @Nullable Output<Integer> minAdjustmentMagnitude;
 
     /**
-     * @return The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+     * @return Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
     public Optional<Output<Integer>> minAdjustmentMagnitude() {
@@ -79,14 +79,14 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * A set of adjustments that manage scaling. These have the following structure:
+     * Set of adjustments that manage scaling. These have the following structure:
      * 
      */
     @Import(name="stepAdjustments")
     private @Nullable Output<List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>> stepAdjustments;
 
     /**
-     * @return A set of adjustments that manage scaling. These have the following structure:
+     * @return Set of adjustments that manage scaling. These have the following structure:
      * 
      */
     public Optional<Output<List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>>> stepAdjustments() {
@@ -122,7 +122,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param adjustmentType Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         * @param adjustmentType Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param adjustmentType Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         * @param adjustmentType Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cooldown The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         * @param cooldown Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param cooldown The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         * @param cooldown Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param metricAggregationType The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+         * @param metricAggregationType Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param metricAggregationType The aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+         * @param metricAggregationType Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param minAdjustmentMagnitude The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+         * @param minAdjustmentMagnitude Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param minAdjustmentMagnitude The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+         * @param minAdjustmentMagnitude Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage scaling. These have the following structure:
+         * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage scaling. These have the following structure:
+         * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param stepAdjustments A set of adjustments that manage scaling. These have the following structure:
+         * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * @return builder
          * 

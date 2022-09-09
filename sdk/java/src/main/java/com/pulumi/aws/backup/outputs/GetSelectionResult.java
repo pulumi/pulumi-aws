@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSelectionResult {
     /**
-     * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     private String iamRoleArn;
@@ -21,7 +21,7 @@ public final class GetSelectionResult {
      */
     private String id;
     /**
-     * @return The display name of a resource selection document.
+     * @return Display name of a resource selection document.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class GetSelectionResult {
 
     private GetSelectionResult() {}
     /**
-     * @return The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
     public String iamRoleArn() {
@@ -49,7 +49,7 @@ public final class GetSelectionResult {
         return this.id;
     }
     /**
-     * @return The display name of a resource selection document.
+     * @return Display name of a resource selection document.
      * 
      */
     public String name() {

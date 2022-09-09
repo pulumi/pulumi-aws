@@ -94,70 +94,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:athena/namedQuery:NamedQuery")
 public class NamedQuery extends com.pulumi.resources.CustomResource {
     /**
-     * The database to which the query belongs.
+     * Database to which the query belongs.
      * 
      */
     @Export(name="database", type=String.class, parameters={})
     private Output<String> database;
 
     /**
-     * @return The database to which the query belongs.
+     * @return Database to which the query belongs.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * A brief explanation of the query. Maximum length of 1024.
+     * Brief explanation of the query. Maximum length of 1024.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A brief explanation of the query. Maximum length of 1024.
+     * @return Brief explanation of the query. Maximum length of 1024.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The plain language name for the query. Maximum length of 128.
+     * Plain language name for the query. Maximum length of 128.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The plain language name for the query. Maximum length of 128.
+     * @return Plain language name for the query. Maximum length of 128.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
     @Export(name="query", type=String.class, parameters={})
     private Output<String> query;
 
     /**
-     * @return The text of the query itself. In other words, all query statements. Maximum length of 262144.
+     * @return Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
     public Output<String> query() {
         return this.query;
     }
     /**
-     * The workgroup to which the query belongs. Defaults to `primary`
+     * Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
     @Export(name="workgroup", type=String.class, parameters={})
     private Output</* @Nullable */ String> workgroup;
 
     /**
-     * @return The workgroup to which the query belongs. Defaults to `primary`
+     * @return Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
     public Output<Optional<String>> workgroup() {

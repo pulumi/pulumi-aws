@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -48,15 +50,15 @@ export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetMeshArgs {
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     meshOwner?: string;
     /**
-     * The name of the service mesh.
+     * Name of the service mesh.
      */
     name: string;
     /**
-     * A map of tags.
+     * Map of tags.
      */
     tags?: {[key: string]: string};
 }
@@ -66,11 +68,11 @@ export interface GetMeshArgs {
  */
 export interface GetMeshResult {
     /**
-     * The ARN of the service mesh.
+     * ARN of the service mesh.
      */
     readonly arn: string;
     /**
-     * The creation date of the service mesh.
+     * Creation date of the service mesh.
      */
     readonly createdDate: string;
     /**
@@ -78,21 +80,21 @@ export interface GetMeshResult {
      */
     readonly id: string;
     /**
-     * The last update date of the service mesh.
+     * Last update date of the service mesh.
      */
     readonly lastUpdatedDate: string;
     readonly meshOwner: string;
     readonly name: string;
     /**
-     * The resource owner's AWS account ID.
+     * Resource owner's AWS account ID.
      */
     readonly resourceOwner: string;
     /**
-     * The service mesh specification.
+     * Service mesh specification.
      */
     readonly specs: outputs.appmesh.GetMeshSpec[];
     /**
-     * A map of tags.
+     * Map of tags.
      */
     readonly tags: {[key: string]: string};
 }
@@ -106,15 +108,15 @@ export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetMeshOutputArgs {
     /**
-     * The AWS account ID of the service mesh's owner.
+     * AWS account ID of the service mesh's owner.
      */
     meshOwner?: pulumi.Input<string>;
     /**
-     * The name of the service mesh.
+     * Name of the service mesh.
      */
     name: pulumi.Input<string>;
     /**
-     * A map of tags.
+     * Map of tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

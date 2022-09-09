@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;

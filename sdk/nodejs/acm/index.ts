@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./certificateValidation";
-export * from "./getCertificate";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
 
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { CertificateValidation } from "./certificateValidation";
+export { CertificateValidationArgs, CertificateValidationState } from "./certificateValidation";
+export type CertificateValidation = import("./certificateValidation").CertificateValidation;
+export const CertificateValidation: typeof import("./certificateValidation").CertificateValidation = null as any;
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["CertificateValidation"], () => require("./certificateValidation"));
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 const _module = {
     version: utilities.getVersion(),

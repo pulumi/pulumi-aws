@@ -19,9 +19,9 @@ class DeploymentArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[str] api_id: API identifier.
+        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is not None:
@@ -33,7 +33,7 @@ class DeploymentArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -45,7 +45,7 @@ class DeploymentArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -57,7 +57,7 @@ class DeploymentArgs:
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         return pulumi.get(self, "triggers")
 
@@ -75,10 +75,10 @@ class _DeploymentState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
-        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -93,7 +93,7 @@ class _DeploymentState:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -117,7 +117,7 @@ class _DeploymentState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -129,7 +129,7 @@ class _DeploymentState:
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         return pulumi.get(self, "triggers")
 
@@ -177,9 +177,9 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
-        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[str] api_id: API identifier.
+        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         ...
     @overload
@@ -269,10 +269,10 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: The API identifier.
+        :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
-        :param pulumi.Input[str] description: The description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -288,7 +288,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         """
-        The API identifier.
+        API identifier.
         """
         return pulumi.get(self, "api_id")
 
@@ -304,7 +304,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
@@ -312,7 +312,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         return pulumi.get(self, "triggers")
 

@@ -51,7 +51,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -59,11 +59,11 @@ type LookupClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthorities []GetClusterCertificateAuthority `pulumi:"certificateAuthorities"`
-	// The Unix epoch time stamp in seconds for when the cluster was created.
+	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
@@ -76,15 +76,15 @@ type LookupClusterResult struct {
 	// Nested list containing Kubernetes Network Configuration.
 	KubernetesNetworkConfigs []GetClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfigs"`
 	Name                     string                              `pulumi:"name"`
-	// The platform version for the cluster.
+	// Platform version for the cluster.
 	PlatformVersion string `pulumi:"platformVersion"`
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+	// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status string `pulumi:"status"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The Kubernetes server version for the cluster.
+	// Kubernetes server version for the cluster.
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.
 	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
@@ -105,7 +105,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -130,7 +130,7 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the cluster.
+// ARN of the cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -140,7 +140,7 @@ func (o LookupClusterResultOutput) CertificateAuthorities() GetClusterCertificat
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCertificateAuthority { return v.CertificateAuthorities }).(GetClusterCertificateAuthorityArrayOutput)
 }
 
-// The Unix epoch time stamp in seconds for when the cluster was created.
+// Unix epoch time stamp in seconds for when the cluster was created.
 func (o LookupClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -174,17 +174,17 @@ func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The platform version for the cluster.
+// Platform version for the cluster.
 func (o LookupClusterResultOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (o LookupClusterResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -194,7 +194,7 @@ func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Kubernetes server version for the cluster.
+// Kubernetes server version for the cluster.
 func (o LookupClusterResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Version }).(pulumi.StringOutput)
 }

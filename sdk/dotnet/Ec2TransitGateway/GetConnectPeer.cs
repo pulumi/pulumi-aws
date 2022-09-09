@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The BGP ASN number assigned customer device
+        /// BGP ASN number assigned customer device
         /// </summary>
         public readonly string BgpAsn;
         public readonly ImmutableArray<Outputs.GetConnectPeerFilterResult> Filters;
@@ -219,11 +219,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The CIDR blocks that will be used for addressing within the tunnel.
+        /// CIDR blocks that will be used for addressing within the tunnel.
         /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
         /// <summary>
-        /// The IP addressed assigned to customer device, which is used as tunnel endpoint
+        /// IP addressed assigned to customer device, which is used as tunnel endpoint
         /// </summary>
         public readonly string PeerAddress;
         /// <summary>

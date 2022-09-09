@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkInsightsPathFilter {
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetNetworkInsightsPathFilter {
 
     private GetNetworkInsightsPathFilter() {}
     /**
-     * @return The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
      * 
      */
     public String name() {

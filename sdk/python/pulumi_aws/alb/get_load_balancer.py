@@ -274,9 +274,9 @@ def get_load_balancer(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The full ARN of the load balancer.
-    :param str name: The unique name of the load balancer.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+    :param str arn: Full ARN of the load balancer.
+    :param str name: Unique name of the load balancer.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -343,8 +343,8 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The full ARN of the load balancer.
-    :param str name: The unique name of the load balancer.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+    :param str arn: Full ARN of the load balancer.
+    :param str name: Unique name of the load balancer.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
     """
     ...

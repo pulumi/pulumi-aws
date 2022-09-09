@@ -71,27 +71,27 @@ import (
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the gateway route.
+	// ARN of the gateway route.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The creation date of the gateway route.
+	// Creation date of the gateway route.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The last update date of the gateway route.
+	// Last update date of the gateway route.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+	// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// The gateway route specification to apply.
+	// Gateway route specification to apply.
 	Spec GatewayRouteSpecOutput `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringOutput `pulumi:"virtualGatewayName"`
 }
 
@@ -133,52 +133,52 @@ func GetGatewayRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GatewayRoute resources.
 type gatewayRouteState struct {
-	// The ARN of the gateway route.
+	// ARN of the gateway route.
 	Arn *string `pulumi:"arn"`
-	// The creation date of the gateway route.
+	// Creation date of the gateway route.
 	CreatedDate *string `pulumi:"createdDate"`
-	// The last update date of the gateway route.
+	// Last update date of the gateway route.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName *string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+	// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// The gateway route specification to apply.
+	// Gateway route specification to apply.
 	Spec *GatewayRouteSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName *string `pulumi:"virtualGatewayName"`
 }
 
 type GatewayRouteState struct {
-	// The ARN of the gateway route.
+	// ARN of the gateway route.
 	Arn pulumi.StringPtrInput
-	// The creation date of the gateway route.
+	// Creation date of the gateway route.
 	CreatedDate pulumi.StringPtrInput
-	// The last update date of the gateway route.
+	// Last update date of the gateway route.
 	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringPtrInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+	// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The resource owner's AWS account ID.
+	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// The gateway route specification to apply.
+	// Gateway route specification to apply.
 	Spec GatewayRouteSpecPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringPtrInput
 }
 
@@ -187,33 +187,33 @@ func (GatewayRouteState) ElementType() reflect.Type {
 }
 
 type gatewayRouteArgs struct {
-	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName string `pulumi:"meshName"`
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner *string `pulumi:"meshOwner"`
-	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+	// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The gateway route specification to apply.
+	// Gateway route specification to apply.
 	Spec GatewayRouteSpec `pulumi:"spec"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName string `pulumi:"virtualGatewayName"`
 }
 
 // The set of arguments for constructing a GatewayRoute resource.
 type GatewayRouteArgs struct {
-	// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+	// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 	MeshName pulumi.StringInput
-	// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 	MeshOwner pulumi.StringPtrInput
-	// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+	// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The gateway route specification to apply.
+	// Gateway route specification to apply.
 	Spec GatewayRouteSpecInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringInput
 }
 
@@ -304,57 +304,57 @@ func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the gateway route.
+// ARN of the gateway route.
 func (o GatewayRouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The creation date of the gateway route.
+// Creation date of the gateway route.
 func (o GatewayRouteOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The last update date of the gateway route.
+// Last update date of the gateway route.
 func (o GatewayRouteOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
+// Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
 func (o GatewayRouteOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o GatewayRouteOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// The name to use for the gateway route. Must be between 1 and 255 characters in length.
+// Name to use for the gateway route. Must be between 1 and 255 characters in length.
 func (o GatewayRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource owner's AWS account ID.
+// Resource owner's AWS account ID.
 func (o GatewayRouteOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// The gateway route specification to apply.
+// Gateway route specification to apply.
 func (o GatewayRouteOutput) Spec() GatewayRouteSpecOutput {
 	return o.ApplyT(func(v *GatewayRoute) GatewayRouteSpecOutput { return v.Spec }).(GatewayRouteSpecOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GatewayRouteOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GatewayRouteOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
+// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 func (o GatewayRouteOutput) VirtualGatewayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.VirtualGatewayName }).(pulumi.StringOutput)
 }

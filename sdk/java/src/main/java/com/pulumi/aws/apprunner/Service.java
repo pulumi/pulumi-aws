@@ -330,14 +330,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.serviceName;
     }
     /**
-     * A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
     @Export(name="serviceUrl", type=String.class, parameters={})
     private Output<String> serviceUrl;
 
     /**
-     * @return A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
+     * @return Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
     public Output<String> serviceUrl() {
@@ -358,14 +358,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.sourceConfiguration;
     }
     /**
-     * The current state of the App Runner service.
+     * Current state of the App Runner service.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The current state of the App Runner service.
+     * @return Current state of the App Runner service.
      * 
      */
     public Output<String> status() {
@@ -386,14 +386,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

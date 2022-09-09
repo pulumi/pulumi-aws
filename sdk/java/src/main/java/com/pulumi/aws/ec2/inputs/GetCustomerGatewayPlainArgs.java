@@ -33,14 +33,14 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The ID of the gateway.
+     * ID of the gateway.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the gateway.
+     * @return ID of the gateway.
      * 
      */
     public Optional<String> id() {
@@ -110,7 +110,7 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param id The ID of the gateway.
+         * @param id ID of the gateway.
          * 
          * @return builder
          * 

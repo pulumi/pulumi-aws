@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     public sealed class GetPermissionsDataLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        /// ARN that uniquely identifies the data location resource.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;

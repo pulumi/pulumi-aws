@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

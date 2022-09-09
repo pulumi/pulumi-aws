@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -44,11 +46,11 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetBrokerArgs {
     /**
-     * The unique id of the mq broker.
+     * Unique id of the mq broker.
      */
     brokerId?: string;
     /**
-     * The unique name of the mq broker.
+     * Unique name of the mq broker.
      */
     brokerName?: string;
     tags?: {[key: string]: string};
@@ -94,11 +96,11 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetBrokerOutputArgs {
     /**
-     * The unique id of the mq broker.
+     * Unique id of the mq broker.
      */
     brokerId?: pulumi.Input<string>;
     /**
-     * The unique name of the mq broker.
+     * Unique name of the mq broker.
      */
     brokerName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

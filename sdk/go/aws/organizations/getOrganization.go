@@ -67,15 +67,15 @@ type LookupOrganizationResult struct {
 	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
 	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
-	// The FeatureSet of the organization.
+	// FeatureSet of the organization.
 	FeatureSet string `pulumi:"featureSet"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+	// ARN of the account that is designated as the master account for the organization.
 	MasterAccountArn string `pulumi:"masterAccountArn"`
 	// The email address that is associated with the AWS account that is designated as the master account for the organization.
 	MasterAccountEmail string `pulumi:"masterAccountEmail"`
-	// The unique identifier (ID) of the master account of an organization.
+	// Unique identifier (ID) of the master account of an organization.
 	MasterAccountId string `pulumi:"masterAccountId"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`

@@ -58,15 +58,15 @@ type CustomDomainAssociation struct {
 
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayOutput `pulumi:"certificateValidationRecords"`
-	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringOutput `pulumi:"dnsTarget"`
-	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrOutput `pulumi:"enableWwwSubdomain"`
-	// The ARN of the App Runner service.
+	// ARN of the App Runner service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
-	// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -107,30 +107,30 @@ func GetCustomDomainAssociation(ctx *pulumi.Context,
 type customDomainAssociationState struct {
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords []CustomDomainAssociationCertificateValidationRecord `pulumi:"certificateValidationRecords"`
-	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget *string `pulumi:"dnsTarget"`
-	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
-	// The ARN of the App Runner service.
+	// ARN of the App Runner service.
 	ServiceArn *string `pulumi:"serviceArn"`
-	// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 	Status *string `pulumi:"status"`
 }
 
 type CustomDomainAssociationState struct {
 	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayInput
-	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringPtrInput
-	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringPtrInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput
-	// The ARN of the App Runner service.
+	// ARN of the App Runner service.
 	ServiceArn pulumi.StringPtrInput
-	// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 	Status pulumi.StringPtrInput
 }
 
@@ -139,21 +139,21 @@ func (CustomDomainAssociationState) ElementType() reflect.Type {
 }
 
 type customDomainAssociationArgs struct {
-	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
-	// The ARN of the App Runner service.
+	// ARN of the App Runner service.
 	ServiceArn string `pulumi:"serviceArn"`
 }
 
 // The set of arguments for constructing a CustomDomainAssociation resource.
 type CustomDomainAssociationArgs struct {
-	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+	// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput
-	// The ARN of the App Runner service.
+	// ARN of the App Runner service.
 	ServiceArn pulumi.StringInput
 }
 
@@ -251,12 +251,12 @@ func (o CustomDomainAssociationOutput) CertificateValidationRecords() CustomDoma
 	}).(CustomDomainAssociationCertificateValidationRecordArrayOutput)
 }
 
-// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 func (o CustomDomainAssociationOutput) DnsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.DnsTarget }).(pulumi.StringOutput)
 }
 
-// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 func (o CustomDomainAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -266,12 +266,12 @@ func (o CustomDomainAssociationOutput) EnableWwwSubdomain() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.BoolPtrOutput { return v.EnableWwwSubdomain }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the App Runner service.
+// ARN of the App Runner service.
 func (o CustomDomainAssociationOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }
 
-// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 func (o CustomDomainAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

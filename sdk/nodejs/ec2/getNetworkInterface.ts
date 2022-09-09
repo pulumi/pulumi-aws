@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +44,7 @@ export interface GetNetworkInterfaceArgs {
      */
     filters?: inputs.ec2.GetNetworkInterfaceFilter[];
     /**
-     * The identifier for the network interface.
+     * Identifier for the network interface.
      */
     id?: string;
     /**
@@ -56,16 +58,16 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
-     * The ARN of the network interface.
+     * ARN of the network interface.
      */
     readonly arn: string;
     /**
-     * The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+     * Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      */
     readonly associations: outputs.ec2.GetNetworkInterfaceAssociation[];
     readonly attachments: outputs.ec2.GetNetworkInterfaceAttachment[];
     /**
-     * The Availability Zone.
+     * Availability Zone.
      */
     readonly availabilityZone: string;
     /**
@@ -75,7 +77,7 @@ export interface GetNetworkInterfaceResult {
     readonly filters?: outputs.ec2.GetNetworkInterfaceFilter[];
     readonly id: string;
     /**
-     * The type of interface.
+     * Type of interface.
      */
     readonly interfaceType: string;
     /**
@@ -83,39 +85,39 @@ export interface GetNetworkInterfaceResult {
      */
     readonly ipv6Addresses: string[];
     /**
-     * The MAC address.
+     * MAC address.
      */
     readonly macAddress: string;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     readonly outpostArn: string;
     /**
-     * The AWS account ID of the owner of the network interface.
+     * AWS account ID of the owner of the network interface.
      */
     readonly ownerId: string;
     /**
-     * The private DNS name.
+     * Private DNS name.
      */
     readonly privateDnsName: string;
     /**
-     * The private IPv4 address of the network interface within the subnet.
+     * Private IPv4 address of the network interface within the subnet.
      */
     readonly privateIp: string;
     /**
-     * The private IPv4 addresses associated with the network interface.
+     * Private IPv4 addresses associated with the network interface.
      */
     readonly privateIps: string[];
     /**
-     * The ID of the entity that launched the instance on your behalf.
+     * ID of the entity that launched the instance on your behalf.
      */
     readonly requesterId: string;
     /**
-     * The list of security groups for the network interface.
+     * List of security groups for the network interface.
      */
     readonly securityGroups: string[];
     /**
-     * The ID of the subnet.
+     * ID of the subnet.
      */
     readonly subnetId: string;
     /**
@@ -123,7 +125,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     readonly vpcId: string;
 }
@@ -141,7 +143,7 @@ export interface GetNetworkInterfaceOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfaceFilterArgs>[]>;
     /**
-     * The identifier for the network interface.
+     * Identifier for the network interface.
      */
     id?: pulumi.Input<string>;
     /**

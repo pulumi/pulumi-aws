@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApiGateway
         private Dictionary<string, string>? _parameters;
 
         /// <summary>
-        /// A key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+        /// Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
         /// </summary>
         public Dictionary<string, string> Parameters
         {
@@ -96,19 +96,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The identifier of the associated REST API.
+        /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+        /// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
         /// </summary>
         [Input("sdkType", required: true)]
         public string SdkType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Stage that will be exported.
+        /// Name of the Stage that will be exported.
         /// </summary>
         [Input("stageName", required: true)]
         public string StageName { get; set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+        /// Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -134,19 +134,19 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The identifier of the associated REST API.
+        /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
+        /// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
         /// </summary>
         [Input("sdkType", required: true)]
         public Input<string> SdkType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Stage that will be exported.
+        /// Name of the Stage that will be exported.
         /// </summary>
         [Input("stageName", required: true)]
         public Input<string> StageName { get; set; } = null!;
@@ -162,15 +162,15 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetSdkResult
     {
         /// <summary>
-        /// The SDK as a string.
+        /// SDK as a string.
         /// </summary>
         public readonly string Body;
         /// <summary>
-        /// The content-disposition header value in the HTTP response.
+        /// Content-disposition header value in the HTTP response.
         /// </summary>
         public readonly string ContentDisposition;
         /// <summary>
-        /// The content-type header value in the HTTP response.
+        /// Content-type header value in the HTTP response.
         /// </summary>
         public readonly string ContentType;
         /// <summary>

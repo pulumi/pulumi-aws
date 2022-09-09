@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamConsumerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// ARN of the stream consumer.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Kinesis
         public string? Name { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn", required: true)]
         public string StreamArn { get; set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamConsumerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// ARN of the stream consumer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Kinesis
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The current status of the stream consumer.
+        /// Current status of the stream consumer.
         /// </summary>
         public readonly string Status;
         public readonly string StreamArn;

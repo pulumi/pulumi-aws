@@ -48,7 +48,7 @@ class GetUserResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) assigned by AWS for this user.
+        ARN assigned by AWS for this user.
         """
         return pulumi.get(self, "arn")
 
@@ -88,7 +88,7 @@ class GetUserResult:
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
-        The unique ID assigned by AWS for this user.
+        Unique ID assigned by AWS for this user.
         """
         return pulumi.get(self, "user_id")
 
@@ -96,7 +96,7 @@ class GetUserResult:
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
         """
-        The name associated to this User
+        Name associated to this User
         """
         return pulumi.get(self, "user_name")
 
@@ -135,7 +135,7 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
 
 
     :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
-    :param str user_name: The friendly IAM user name to match.
+    :param str user_name: Friendly IAM user name to match.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -173,6 +173,6 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
 
 
     :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
-    :param str user_name: The friendly IAM user name to match.
+    :param str user_name: Friendly IAM user name to match.
     """
     ...

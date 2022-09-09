@@ -16,14 +16,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
     /**
-     * The name of the connection to retrieve.
+     * Name of the connection to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the connection to retrieve.
+     * @return Name of the connection to retrieve.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the connection to retrieve.
+         * @param name Name of the connection to retrieve.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

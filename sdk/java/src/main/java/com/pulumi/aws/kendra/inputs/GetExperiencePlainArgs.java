@@ -13,14 +13,14 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetExperiencePlainArgs Empty = new GetExperiencePlainArgs();
 
     /**
-     * The identifier of the Experience.
+     * Identifier of the Experience.
      * 
      */
     @Import(name="experienceId", required=true)
     private String experienceId;
 
     /**
-     * @return The identifier of the Experience.
+     * @return Identifier of the Experience.
      * 
      */
     public String experienceId() {
@@ -28,14 +28,14 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The identifier of the index that contains the Experience.
+     * Identifier of the index that contains the Experience.
      * 
      */
     @Import(name="indexId", required=true)
     private String indexId;
 
     /**
-     * @return The identifier of the index that contains the Experience.
+     * @return Identifier of the index that contains the Experience.
      * 
      */
     public String indexId() {
@@ -68,7 +68,7 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param experienceId The identifier of the Experience.
+         * @param experienceId Identifier of the Experience.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param indexId The identifier of the index that contains the Experience.
+         * @param indexId Identifier of the index that contains the Experience.
          * 
          * @return builder
          * 

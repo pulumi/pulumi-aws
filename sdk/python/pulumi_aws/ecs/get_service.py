@@ -54,7 +54,7 @@ class GetServiceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the ECS Service
+        ARN of the ECS Service
         """
         return pulumi.get(self, "arn")
 
@@ -67,7 +67,7 @@ class GetServiceResult:
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> int:
         """
-        The number of tasks for the ECS Service
+        Number of tasks for the ECS Service
         """
         return pulumi.get(self, "desired_count")
 
@@ -83,7 +83,7 @@ class GetServiceResult:
     @pulumi.getter(name="launchType")
     def launch_type(self) -> str:
         """
-        The launch type for the ECS Service
+        Launch type for the ECS Service
         """
         return pulumi.get(self, "launch_type")
 
@@ -91,7 +91,7 @@ class GetServiceResult:
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> str:
         """
-        The scheduling strategy for the ECS Service
+        Scheduling strategy for the ECS Service
         """
         return pulumi.get(self, "scheduling_strategy")
 
@@ -112,7 +112,7 @@ class GetServiceResult:
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> str:
         """
-        The family for the latest ACTIVE revision
+        Family for the latest ACTIVE revision
         """
         return pulumi.get(self, "task_definition")
 
@@ -153,8 +153,8 @@ def get_service(cluster_arn: Optional[str] = None,
     ```
 
 
-    :param str cluster_arn: The arn of the ECS Cluster
-    :param str service_name: The name of the ECS Service
+    :param str cluster_arn: ARN of the ECS Cluster
+    :param str service_name: Name of the ECS Service
     :param Mapping[str, str] tags: Resource tags.
     """
     __args__ = dict()
@@ -196,8 +196,8 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_arn: The arn of the ECS Cluster
-    :param str service_name: The name of the ECS Service
+    :param str cluster_arn: ARN of the ECS Cluster
+    :param str service_name: Name of the ECS Service
     :param Mapping[str, str] tags: Resource tags.
     """
     ...

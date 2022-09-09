@@ -50,7 +50,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 type LookupDomainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// The tags assigned to the domain.
+	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -62,7 +62,7 @@ type LookupDomainResult struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
 	AdvancedSecurityOptions []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
-	// The Amazon Resource Name (ARN) of the domain.
+	// The ARN of the domain.
 	Arn string `pulumi:"arn"`
 	// Configuration of the Auto-Tune options of the domain.
 	AutoTuneOptions []GetDomainAutoTuneOption `pulumi:"autoTuneOptions"`
@@ -97,7 +97,7 @@ type LookupDomainResult struct {
 	// * `snapshotOptions` – Domain snapshot related options.
 	Processing      bool                      `pulumi:"processing"`
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
-	// The tags assigned to the domain.
+	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC Options for private Elasticsearch domains.
 	VpcOptions []GetDomainVpcOption `pulumi:"vpcOptions"`
@@ -120,7 +120,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 type LookupDomainOutputArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The tags assigned to the domain.
+	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -158,7 +158,7 @@ func (o LookupDomainResultOutput) AdvancedSecurityOptions() GetDomainAdvancedSec
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainAdvancedSecurityOption { return v.AdvancedSecurityOptions }).(GetDomainAdvancedSecurityOptionArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the domain.
+// The ARN of the domain.
 func (o LookupDomainResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -247,7 +247,7 @@ func (o LookupDomainResultOutput) SnapshotOptions() GetDomainSnapshotOptionArray
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainSnapshotOption { return v.SnapshotOptions }).(GetDomainSnapshotOptionArrayOutput)
 }
 
-// The tags assigned to the domain.
+// Tags assigned to the domain.
 func (o LookupDomainResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDomainResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -37,7 +37,7 @@ class GetUserHierarchyStructureResult:
     @pulumi.getter(name="hierarchyStructures")
     def hierarchy_structures(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureResult']:
         """
-        A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        Block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         """
         return pulumi.get(self, "hierarchy_structures")
 

@@ -216,84 +216,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appautoscaling/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN assigned by AWS to the scaling policy.
+     * ARN assigned by AWS to the scaling policy.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to the scaling policy.
+     * @return ARN assigned by AWS to the scaling policy.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the policy. Must be between 1 and 255 characters in length.
+     * Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the policy. Must be between 1 and 255 characters in length.
+     * @return Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      * 
      */
     @Export(name="policyType", type=String.class, parameters={})
     private Output</* @Nullable */ String> policyType;
 
     /**
-     * @return The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+     * @return Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      * 
      */
     public Output<Optional<String>> policyType() {
         return Codegen.optional(this.policyType);
     }
     /**
-     * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**
-     * @return The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * @return Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     @Export(name="scalableDimension", type=String.class, parameters={})
     private Output<String> scalableDimension;
 
     /**
-     * @return The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * @return Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     public Output<String> scalableDimension() {
         return this.scalableDimension;
     }
     /**
-     * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     @Export(name="serviceNamespace", type=String.class, parameters={})
     private Output<String> serviceNamespace;
 
     /**
-     * @return The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     * @return AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
     public Output<String> serviceNamespace() {
@@ -314,14 +314,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stepScalingPolicyConfiguration);
     }
     /**
-     * A target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     @Export(name="targetTrackingScalingPolicyConfiguration", type=PolicyTargetTrackingScalingPolicyConfiguration.class, parameters={})
     private Output</* @Nullable */ PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
 
     /**
-     * @return A target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * @return Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     public Output<Optional<PolicyTargetTrackingScalingPolicyConfiguration>> targetTrackingScalingPolicyConfiguration() {

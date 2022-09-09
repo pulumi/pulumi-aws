@@ -50,7 +50,7 @@ class GetInternetGatewayResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the Internet Gateway.
+        ARN of the Internet Gateway.
         """
         return pulumi.get(self, "arn")
 
@@ -81,7 +81,7 @@ class GetInternetGatewayResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The ID of the AWS account that owns the internet gateway.
+        ID of the AWS account that owns the internet gateway.
         """
         return pulumi.get(self, "owner_id")
 
@@ -129,8 +129,8 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
     __args__ = dict()
@@ -174,8 +174,8 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
-    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+    :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
     ...

@@ -14,14 +14,14 @@ public final class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs exte
     public static final GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs Empty = new GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs();
 
     /**
-     * The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+     * Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="virtualServiceName", required=true)
     private Output<String> virtualServiceName;
 
     /**
-     * @return The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> virtualServiceName() {
@@ -53,7 +53,7 @@ public final class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs exte
         }
 
         /**
-         * @param virtualServiceName The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+         * @param virtualServiceName Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs exte
         }
 
         /**
-         * @param virtualServiceName The name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+         * @param virtualServiceName Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

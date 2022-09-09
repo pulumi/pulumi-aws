@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class GetReportPlanReportSettingResult
     {
         /// <summary>
-        /// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        /// ARNs of the frameworks a report covers.
         /// </summary>
         public readonly ImmutableArray<string> FrameworkArns;
         /// <summary>

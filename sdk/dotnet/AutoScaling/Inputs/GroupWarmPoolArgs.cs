@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupWarmPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        /// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         /// </summary>
         [Input("instanceReusePolicy")]
         public Input<Inputs.GroupWarmPoolInstanceReusePolicyArgs>? InstanceReusePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+        /// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         /// </summary>
         [Input("maxGroupPreparedCapacity")]
         public Input<int>? MaxGroupPreparedCapacity { get; set; }
 
         /// <summary>
-        /// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }

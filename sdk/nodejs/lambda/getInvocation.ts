@@ -27,15 +27,15 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetInvocationArgs {
     /**
-     * The name of the lambda function.
+     * Name of the lambda function.
      */
     functionName: string;
     /**
-     * A string in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the lambda function.
      */
     input: string;
     /**
-     * The qualifier (a.k.a version) of the lambda function. Defaults
+     * Qualifier (a.k.a version) of the lambda function. Defaults
      * to `$LATEST`.
      */
     qualifier?: string;
@@ -67,15 +67,15 @@ export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi
  */
 export interface GetInvocationOutputArgs {
     /**
-     * The name of the lambda function.
+     * Name of the lambda function.
      */
     functionName: pulumi.Input<string>;
     /**
-     * A string in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the lambda function.
      */
     input: pulumi.Input<string>;
     /**
-     * The qualifier (a.k.a version) of the lambda function. Defaults
+     * Qualifier (a.k.a version) of the lambda function. Defaults
      * to `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;

@@ -15,14 +15,14 @@ public final class GetOriginRequestPolicyPlainArgs extends com.pulumi.resources.
     public static final GetOriginRequestPolicyPlainArgs Empty = new GetOriginRequestPolicyPlainArgs();
 
     /**
-     * The identifier for the origin request policy.
+     * Identifier for the origin request policy.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The identifier for the origin request policy.
+     * @return Identifier for the origin request policy.
      * 
      */
     public Optional<String> id() {
@@ -70,7 +70,7 @@ public final class GetOriginRequestPolicyPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The identifier for the origin request policy.
+         * @param id Identifier for the origin request policy.
          * 
          * @return builder
          * 

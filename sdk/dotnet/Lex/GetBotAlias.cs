@@ -72,13 +72,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bot.
+        /// Name of the bot.
         /// </summary>
         [Input("botName", required: true)]
         public string BotName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the bot alias. The name is case sensitive.
+        /// Name of the bot alias. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bot.
+        /// Name of the bot.
         /// </summary>
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the bot alias. The name is case sensitive.
+        /// Name of the bot alias. The name is case sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -114,15 +114,15 @@ namespace Pulumi.Aws.Lex
     public sealed class GetBotAliasResult
     {
         /// <summary>
-        /// The ARN of the bot alias.
+        /// ARN of the bot alias.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The name of the bot.
+        /// Name of the bot.
         /// </summary>
         public readonly string BotName;
         /// <summary>
-        /// The version of the bot that the alias points to.
+        /// Version of the bot that the alias points to.
         /// </summary>
         public readonly string BotVersion;
         /// <summary>
@@ -130,11 +130,11 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Checksum;
         /// <summary>
-        /// The date that the bot alias was created.
+        /// Date that the bot alias was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// A description of the alias.
+        /// Description of the alias.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -142,11 +142,11 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+        /// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
-        /// The name of the alias. The name is not case sensitive.
+        /// Name of the alias. The name is not case sensitive.
         /// </summary>
         public readonly string Name;
 

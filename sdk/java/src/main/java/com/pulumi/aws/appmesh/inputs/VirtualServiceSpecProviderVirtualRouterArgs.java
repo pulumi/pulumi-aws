@@ -14,14 +14,14 @@ public final class VirtualServiceSpecProviderVirtualRouterArgs extends com.pulum
     public static final VirtualServiceSpecProviderVirtualRouterArgs Empty = new VirtualServiceSpecProviderVirtualRouterArgs();
 
     /**
-     * The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
+     * Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="virtualRouterName", required=true)
     private Output<String> virtualRouterName;
 
     /**
-     * @return The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> virtualRouterName() {
@@ -53,7 +53,7 @@ public final class VirtualServiceSpecProviderVirtualRouterArgs extends com.pulum
         }
 
         /**
-         * @param virtualRouterName The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
+         * @param virtualRouterName Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class VirtualServiceSpecProviderVirtualRouterArgs extends com.pulum
         }
 
         /**
-         * @param virtualRouterName The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
+         * @param virtualRouterName Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

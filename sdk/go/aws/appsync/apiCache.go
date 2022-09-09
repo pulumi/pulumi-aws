@@ -62,7 +62,7 @@ type ApiCache struct {
 
 	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 	ApiCachingBehavior pulumi.StringOutput `pulumi:"apiCachingBehavior"`
-	// The GraphQL API ID.
+	// GraphQL API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
@@ -70,7 +70,7 @@ type ApiCache struct {
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -117,7 +117,7 @@ func GetApiCache(ctx *pulumi.Context,
 type apiCacheState struct {
 	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 	ApiCachingBehavior *string `pulumi:"apiCachingBehavior"`
-	// The GraphQL API ID.
+	// GraphQL API ID.
 	ApiId *string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
@@ -125,14 +125,14 @@ type apiCacheState struct {
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
 	Ttl *int `pulumi:"ttl"`
-	// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 	Type *string `pulumi:"type"`
 }
 
 type ApiCacheState struct {
 	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 	ApiCachingBehavior pulumi.StringPtrInput
-	// The GraphQL API ID.
+	// GraphQL API ID.
 	ApiId pulumi.StringPtrInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
@@ -140,7 +140,7 @@ type ApiCacheState struct {
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
 	Ttl pulumi.IntPtrInput
-	// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -151,7 +151,7 @@ func (ApiCacheState) ElementType() reflect.Type {
 type apiCacheArgs struct {
 	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 	ApiCachingBehavior string `pulumi:"apiCachingBehavior"`
-	// The GraphQL API ID.
+	// GraphQL API ID.
 	ApiId string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
@@ -159,7 +159,7 @@ type apiCacheArgs struct {
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
 	Ttl int `pulumi:"ttl"`
-	// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 	Type string `pulumi:"type"`
 }
 
@@ -167,7 +167,7 @@ type apiCacheArgs struct {
 type ApiCacheArgs struct {
 	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 	ApiCachingBehavior pulumi.StringInput
-	// The GraphQL API ID.
+	// GraphQL API ID.
 	ApiId pulumi.StringInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
@@ -175,7 +175,7 @@ type ApiCacheArgs struct {
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
 	Ttl pulumi.IntInput
-	// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 	Type pulumi.StringInput
 }
 
@@ -271,7 +271,7 @@ func (o ApiCacheOutput) ApiCachingBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiCachingBehavior }).(pulumi.StringOutput)
 }
 
-// The GraphQL API ID.
+// GraphQL API ID.
 func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -291,7 +291,7 @@ func (o ApiCacheOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }
 
-// The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 func (o ApiCacheOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

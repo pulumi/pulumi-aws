@@ -68,12 +68,12 @@ import (
 type Notification struct {
 	pulumi.CustomResourceState
 
-	// A list of AutoScaling Group Names
+	// List of AutoScaling Group Names
 	GroupNames pulumi.StringArrayOutput `pulumi:"groupNames"`
-	// A list of Notification Types that trigger
+	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
-	// The Topic ARN for notifications to be sent through
+	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 }
 
@@ -115,22 +115,22 @@ func GetNotification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Notification resources.
 type notificationState struct {
-	// A list of AutoScaling Group Names
+	// List of AutoScaling Group Names
 	GroupNames []string `pulumi:"groupNames"`
-	// A list of Notification Types that trigger
+	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []string `pulumi:"notifications"`
-	// The Topic ARN for notifications to be sent through
+	// Topic ARN for notifications to be sent through
 	TopicArn *string `pulumi:"topicArn"`
 }
 
 type NotificationState struct {
-	// A list of AutoScaling Group Names
+	// List of AutoScaling Group Names
 	GroupNames pulumi.StringArrayInput
-	// A list of Notification Types that trigger
+	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayInput
-	// The Topic ARN for notifications to be sent through
+	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringPtrInput
 }
 
@@ -139,23 +139,23 @@ func (NotificationState) ElementType() reflect.Type {
 }
 
 type notificationArgs struct {
-	// A list of AutoScaling Group Names
+	// List of AutoScaling Group Names
 	GroupNames []string `pulumi:"groupNames"`
-	// A list of Notification Types that trigger
+	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []string `pulumi:"notifications"`
-	// The Topic ARN for notifications to be sent through
+	// Topic ARN for notifications to be sent through
 	TopicArn string `pulumi:"topicArn"`
 }
 
 // The set of arguments for constructing a Notification resource.
 type NotificationArgs struct {
-	// A list of AutoScaling Group Names
+	// List of AutoScaling Group Names
 	GroupNames pulumi.StringArrayInput
-	// A list of Notification Types that trigger
+	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayInput
-	// The Topic ARN for notifications to be sent through
+	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringInput
 }
 
@@ -246,18 +246,18 @@ func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// A list of AutoScaling Group Names
+// List of AutoScaling Group Names
 func (o NotificationOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Notification) pulumi.StringArrayOutput { return v.GroupNames }).(pulumi.StringArrayOutput)
 }
 
-// A list of Notification Types that trigger
+// List of Notification Types that trigger
 // notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 func (o NotificationOutput) Notifications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Notification) pulumi.StringArrayOutput { return v.Notifications }).(pulumi.StringArrayOutput)
 }
 
-// The Topic ARN for notifications to be sent through
+// Topic ARN for notifications to be sent through
 func (o NotificationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Notification) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
 }

@@ -17,14 +17,14 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFaqArgs Empty = new GetFaqArgs();
 
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      * 
      */
     @Import(name="faqId", required=true)
     private Output<String> faqId;
 
     /**
-     * @return The identifier of the FAQ.
+     * @return Identifier of the FAQ.
      * 
      */
     public Output<String> faqId() {
@@ -32,14 +32,14 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The identifier of the index that contains the FAQ.
+     * Identifier of the index that contains the FAQ.
      * 
      */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index that contains the FAQ.
+     * @return Identifier of the index that contains the FAQ.
      * 
      */
     public Output<String> indexId() {
@@ -88,7 +88,7 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param faqId The identifier of the FAQ.
+         * @param faqId Identifier of the FAQ.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param faqId The identifier of the FAQ.
+         * @param faqId Identifier of the FAQ.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexId The identifier of the index that contains the FAQ.
+         * @param indexId Identifier of the index that contains the FAQ.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetFaqArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param indexId The identifier of the index that contains the FAQ.
+         * @param indexId Identifier of the index that contains the FAQ.
          * 
          * @return builder
          * 

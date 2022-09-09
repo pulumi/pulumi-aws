@@ -74,7 +74,7 @@ class GetAclResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the ACL.
+        Map of tags assigned to the ACL.
         """
         return pulumi.get(self, "tags")
 
@@ -118,7 +118,7 @@ def get_acl(name: Optional[str] = None,
 
 
     :param str name: Name of the ACL.
-    :param Mapping[str, str] tags: A map of tags assigned to the ACL.
+    :param Mapping[str, str] tags: Map of tags assigned to the ACL.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -153,6 +153,6 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the ACL.
-    :param Mapping[str, str] tags: A map of tags assigned to the ACL.
+    :param Mapping[str, str] tags: Map of tags assigned to the ACL.
     """
     ...

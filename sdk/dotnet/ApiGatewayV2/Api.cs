@@ -61,7 +61,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class Api : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+        /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         [Output("apiEndpoint")]
         public Output<string> ApiEndpoint { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ApiKeySelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the API.
+        /// ARN of the API.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Body { get; private set; } = null!;
 
         /// <summary>
-        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
         [Output("corsConfiguration")]
         public Output<Outputs.ApiCorsConfiguration?> CorsConfiguration { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the API. Must be less than or equal to 1024 characters in length.
+        /// Description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the API. Must be less than or equal to 128 characters in length.
+        /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         /// </summary>
         [Output("protocolType")]
         public Output<string> ProtocolType { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> RouteSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Target { get; private set; } = null!;
 
         /// <summary>
-        /// A version identifier for the API. Must be between 1 and 64 characters in length.
+        /// Version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ApiCorsConfigurationArgs>? CorsConfiguration { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// The description of the API. Must be less than or equal to 1024 characters in length.
+        /// Description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -270,13 +270,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The name of the API. Must be less than or equal to 128 characters in length.
+        /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         /// </summary>
         [Input("protocolType", required: true)]
         public Input<string> ProtocolType { get; set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// A version identifier for the API. Must be between 1 and 64 characters in length.
+        /// Version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class ApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+        /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
         [Input("apiEndpoint")]
         public Input<string>? ApiEndpoint { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiKeySelectionExpression { get; set; }
 
         /// <summary>
-        /// The ARN of the API.
+        /// ARN of the API.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ApiCorsConfigurationGetArgs>? CorsConfiguration { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// The description of the API. Must be less than or equal to 1024 characters in length.
+        /// Description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// The ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
@@ -395,13 +395,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The name of the API. Must be less than or equal to 128 characters in length.
+        /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// A version identifier for the API. Must be between 1 and 64 characters in length.
+        /// Version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

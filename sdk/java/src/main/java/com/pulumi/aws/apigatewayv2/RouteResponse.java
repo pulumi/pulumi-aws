@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigatewayv2/routeResponse:RouteResponse")
 public class RouteResponse extends com.pulumi.resources.CustomResource {
     /**
-     * The API identifier.
+     * API identifier.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API identifier.
+     * @return API identifier.
      * 
      */
     public Output<String> apiId() {
@@ -92,42 +92,42 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.modelSelectionExpression);
     }
     /**
-     * The response models for the route response.
+     * Response models for the route response.
      * 
      */
     @Export(name="responseModels", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
     /**
-     * @return The response models for the route response.
+     * @return Response models for the route response.
      * 
      */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
     /**
-     * The identifier of the `aws.apigatewayv2.Route`.
+     * Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
     @Export(name="routeId", type=String.class, parameters={})
     private Output<String> routeId;
 
     /**
-     * @return The identifier of the `aws.apigatewayv2.Route`.
+     * @return Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
     public Output<String> routeId() {
         return this.routeId;
     }
     /**
-     * The route response key.
+     * Route response key.
      * 
      */
     @Export(name="routeResponseKey", type=String.class, parameters={})
     private Output<String> routeResponseKey;
 
     /**
-     * @return The route response key.
+     * @return Route response key.
      * 
      */
     public Output<String> routeResponseKey() {

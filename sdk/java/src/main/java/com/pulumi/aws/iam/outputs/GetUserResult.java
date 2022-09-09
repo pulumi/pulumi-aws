@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserResult {
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS for this user.
+     * @return ARN assigned by AWS for this user.
      * 
      */
     private String arn;
@@ -36,19 +36,19 @@ public final class GetUserResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The unique ID assigned by AWS for this user.
+     * @return Unique ID assigned by AWS for this user.
      * 
      */
     private String userId;
     /**
-     * @return The name associated to this User
+     * @return Name associated to this User
      * 
      */
     private String userName;
 
     private GetUserResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS for this user.
+     * @return ARN assigned by AWS for this user.
      * 
      */
     public String arn() {
@@ -83,14 +83,14 @@ public final class GetUserResult {
         return this.tags;
     }
     /**
-     * @return The unique ID assigned by AWS for this user.
+     * @return Unique ID assigned by AWS for this user.
      * 
      */
     public String userId() {
         return this.userId;
     }
     /**
-     * @return The name associated to this User
+     * @return Name associated to this User
      * 
      */
     public String userName() {

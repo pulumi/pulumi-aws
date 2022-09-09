@@ -65,7 +65,7 @@ class GetParameterGroupResult:
     @pulumi.getter
     def family(self) -> str:
         """
-        The engine version that the parameter group can be used with.
+        Engine version that the parameter group can be used with.
         """
         return pulumi.get(self, "family")
 
@@ -97,7 +97,7 @@ class GetParameterGroupResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the parameter group.
+        Map of tags assigned to the parameter group.
         """
         return pulumi.get(self, "tags")
 
@@ -134,7 +134,7 @@ def get_parameter_group(name: Optional[str] = None,
 
 
     :param str name: Name of the parameter group.
-    :param Mapping[str, str] tags: A map of tags assigned to the parameter group.
+    :param Mapping[str, str] tags: Map of tags assigned to the parameter group.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -170,6 +170,6 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the parameter group.
-    :param Mapping[str, str] tags: A map of tags assigned to the parameter group.
+    :param Mapping[str, str] tags: Map of tags assigned to the parameter group.
     """
     ...

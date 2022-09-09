@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile file;
@@ -25,7 +25,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
 
     private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate() {}
     /**
-     * @return A local file certificate.
+     * @return Local file certificate.
      * 
      */
     public Optional<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile> file() {

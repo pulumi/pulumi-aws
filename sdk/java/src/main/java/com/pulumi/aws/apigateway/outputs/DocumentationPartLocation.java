@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DocumentationPartLocation {
     /**
-     * @return The HTTP verb of a method. The default value is `*` for any method.
+     * @return HTTP verb of a method. The default value is `*` for any method.
      * 
      */
     private @Nullable String method;
     /**
-     * @return The name of the targeted API entity.
+     * @return Name of the targeted API entity.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The URL path of the target. The default value is `/` for the root resource.
+     * @return URL path of the target. The default value is `/` for the root resource.
      * 
      */
     private @Nullable String path;
     /**
-     * @return The HTTP status code of a response. The default value is `*` for any status code.
+     * @return HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
     private @Nullable String statusCode;
     /**
-     * @return The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
     private String type;
 
     private DocumentationPartLocation() {}
     /**
-     * @return The HTTP verb of a method. The default value is `*` for any method.
+     * @return HTTP verb of a method. The default value is `*` for any method.
      * 
      */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return The name of the targeted API entity.
+     * @return Name of the targeted API entity.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The URL path of the target. The default value is `/` for the root resource.
+     * @return URL path of the target. The default value is `/` for the root resource.
      * 
      */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The HTTP status code of a response. The default value is `*` for any status code.
+     * @return HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
     /**
-     * @return The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
     public String type() {

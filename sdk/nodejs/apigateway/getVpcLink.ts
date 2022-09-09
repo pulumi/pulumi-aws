@@ -38,7 +38,7 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetVpcLinkArgs {
     /**
-     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: string;
@@ -53,7 +53,7 @@ export interface GetVpcLinkArgs {
  */
 export interface GetVpcLinkResult {
     /**
-     * The description of the VPC link.
+     * Description of the VPC link.
      */
     readonly description: string;
     /**
@@ -62,11 +62,11 @@ export interface GetVpcLinkResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The status of the VPC link.
+     * Status of the VPC link.
      */
     readonly status: string;
     /**
-     * The status message of the VPC link.
+     * Status message of the VPC link.
      */
     readonly statusMessage: string;
     /**
@@ -74,7 +74,7 @@ export interface GetVpcLinkResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
     readonly targetArns: string[];
 }
@@ -88,7 +88,7 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  */
 export interface GetVpcLinkOutputArgs {
     /**
-     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: pulumi.Input<string>;

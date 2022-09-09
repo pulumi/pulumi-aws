@@ -147,98 +147,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")
 public class HostedConfigurationVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Export(name="applicationId", type=String.class, parameters={})
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * ARN of the AppConfig  hosted configuration version.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * @return ARN of the AppConfig  hosted configuration version.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      * 
      */
     @Export(name="configurationProfileId", type=String.class, parameters={})
     private Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID.
+     * @return Configuration profile ID.
      * 
      */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      * 
      */
     @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
-     * @return The content of the configuration or the configuration data.
+     * @return Content of the configuration or the configuration data.
      * 
      */
     public Output<String> content() {
         return this.content;
     }
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     @Export(name="contentType", type=String.class, parameters={})
     private Output<String> contentType;
 
     /**
-     * @return A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * @return Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     public Output<String> contentType() {
         return this.contentType;
     }
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the configuration.
+     * @return Description of the configuration.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The version number of the hosted configuration.
+     * Version number of the hosted configuration.
      * 
      */
     @Export(name="versionNumber", type=Integer.class, parameters={})
     private Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the hosted configuration.
+     * @return Version number of the hosted configuration.
      * 
      */
     public Output<Integer> versionNumber() {

@@ -31,14 +31,14 @@ public final class RestApiPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the REST API.
+     * ID of the REST API.
      * 
      */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
     /**
-     * @return The ID of the REST API.
+     * @return ID of the REST API.
      * 
      */
     public Optional<Output<String>> restApiId() {
@@ -92,7 +92,7 @@ public final class RestApiPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restApiId The ID of the REST API.
+         * @param restApiId ID of the REST API.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RestApiPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restApiId The ID of the REST API.
+         * @param restApiId ID of the REST API.
          * 
          * @return builder
          * 

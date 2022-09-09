@@ -14,14 +14,14 @@ public final class GetTransitGatewayFilter extends com.pulumi.resources.InvokeAr
     public static final GetTransitGatewayFilter Empty = new GetTransitGatewayFilter();
 
     /**
-     * The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+     * Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+     * @return Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetTransitGatewayFilter extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+         * @param name Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
          * 
          * @return builder
          * 

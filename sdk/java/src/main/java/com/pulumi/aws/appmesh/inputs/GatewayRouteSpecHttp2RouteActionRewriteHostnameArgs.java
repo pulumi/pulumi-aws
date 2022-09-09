@@ -14,14 +14,14 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs extends c
     public static final GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs Empty = new GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs();
 
     /**
-     * The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+     * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="defaultTargetHostname", required=true)
     private Output<String> defaultTargetHostname;
 
     /**
-     * @return The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+     * @return Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> defaultTargetHostname() {
@@ -53,7 +53,7 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs extends c
         }
 
         /**
-         * @param defaultTargetHostname The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+         * @param defaultTargetHostname Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs extends c
         }
 
         /**
-         * @param defaultTargetHostname The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+         * @param defaultTargetHostname Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

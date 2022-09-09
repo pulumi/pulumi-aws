@@ -79,14 +79,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
     @Import(name="maxConcurrency")
     private @Nullable Output<Integer> maxConcurrency;
 
     /**
-     * @return The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+     * @return Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
     public Optional<Output<Integer>> maxConcurrency() {
@@ -94,14 +94,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * The maximal number of instances that App Runner provisions for your service.
+     * Maximal number of instances that App Runner provisions for your service.
      * 
      */
     @Import(name="maxSize")
     private @Nullable Output<Integer> maxSize;
 
     /**
-     * @return The maximal number of instances that App Runner provisions for your service.
+     * @return Maximal number of instances that App Runner provisions for your service.
      * 
      */
     public Optional<Output<Integer>> maxSize() {
@@ -109,14 +109,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * The minimal number of instances that App Runner provisions for your service.
+     * Minimal number of instances that App Runner provisions for your service.
      * 
      */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return The minimal number of instances that App Runner provisions for your service.
+     * @return Minimal number of instances that App Runner provisions for your service.
      * 
      */
     public Optional<Output<Integer>> minSize() {
@@ -124,14 +124,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+     * @return Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
     public Optional<Output<String>> status() {
@@ -139,14 +139,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,14 +154,14 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -286,7 +286,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param maxConcurrency The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+         * @param maxConcurrency Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param maxConcurrency The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+         * @param maxConcurrency Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param maxSize The maximal number of instances that App Runner provisions for your service.
+         * @param maxSize Maximal number of instances that App Runner provisions for your service.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param maxSize The maximal number of instances that App Runner provisions for your service.
+         * @param maxSize Maximal number of instances that App Runner provisions for your service.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param minSize The minimal number of instances that App Runner provisions for your service.
+         * @param minSize Minimal number of instances that App Runner provisions for your service.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param minSize The minimal number of instances that App Runner provisions for your service.
+         * @param minSize Minimal number of instances that App Runner provisions for your service.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param status The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+         * @param status Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param status The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
+         * @param status Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

@@ -149,7 +149,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-    :param str resolver_endpoint_id: The ID of the Route53 Resolver Endpoint.
+    :param str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -201,6 +201,6 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-    :param str resolver_endpoint_id: The ID of the Route53 Resolver Endpoint.
+    :param str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     ...

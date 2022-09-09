@@ -13,22 +13,22 @@ import java.util.Objects;
 @CustomType
 public final class GetHoursOfOperationResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return ARN of the Hours of Operation.
      * 
      */
     private String arn;
     /**
-     * @return Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+     * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      * 
      */
     private List<GetHoursOfOperationConfig> configs;
     /**
-     * @return Specifies the description of the Hours of Operation.
+     * @return Description of the Hours of Operation.
      * 
      */
     private String description;
     /**
-     * @return (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return (**Deprecated**) ARN of the Hours of Operation.
      * 
      * @deprecated
      * use &#39;arn&#39; attribute instead
@@ -47,50 +47,50 @@ public final class GetHoursOfOperationResult {
      */
     private String id;
     /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * @return Identifier of the hosting Amazon Connect Instance.
      * 
      */
     private String instanceId;
     /**
-     * @return Specifies the name of the Hours of Operation.
+     * @return Name of the Hours of Operation.
      * 
      */
     private String name;
     /**
-     * @return A map of tags to assign to the Hours of Operation.
+     * @return Map of tags to assign to the Hours of Operation.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return Specifies the time zone of the Hours of Operation.
+     * @return Time zone of the Hours of Operation.
      * 
      */
     private String timeZone;
 
     private GetHoursOfOperationResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return ARN of the Hours of Operation.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Specifies configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
+     * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      * 
      */
     public List<GetHoursOfOperationConfig> configs() {
         return this.configs;
     }
     /**
-     * @return Specifies the description of the Hours of Operation.
+     * @return Description of the Hours of Operation.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return (**Deprecated**) ARN of the Hours of Operation.
      * 
      * @deprecated
      * use &#39;arn&#39; attribute instead
@@ -115,28 +115,28 @@ public final class GetHoursOfOperationResult {
         return this.id;
     }
     /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
+     * @return Identifier of the hosting Amazon Connect Instance.
      * 
      */
     public String instanceId() {
         return this.instanceId;
     }
     /**
-     * @return Specifies the name of the Hours of Operation.
+     * @return Name of the Hours of Operation.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A map of tags to assign to the Hours of Operation.
+     * @return Map of tags to assign to the Hours of Operation.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return Specifies the time zone of the Hours of Operation.
+     * @return Time zone of the Hours of Operation.
      * 
      */
     public String timeZone() {

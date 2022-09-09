@@ -148,7 +148,7 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
     :param bool include_compliance_details: Specifies whether to include details regarding the compliance with the effective tag policy.
     :param Sequence[str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
-    :param Sequence[str] resource_type_filters: The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+    :param Sequence[str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
     :param Sequence[pulumi.InputType['GetResourcesTagFilterArgs']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
     """
     __args__ = dict()
@@ -216,7 +216,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
     :param bool include_compliance_details: Specifies whether to include details regarding the compliance with the effective tag policy.
     :param Sequence[str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
-    :param Sequence[str] resource_type_filters: The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+    :param Sequence[str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
     :param Sequence[pulumi.InputType['GetResourcesTagFilterArgs']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
     """
     ...

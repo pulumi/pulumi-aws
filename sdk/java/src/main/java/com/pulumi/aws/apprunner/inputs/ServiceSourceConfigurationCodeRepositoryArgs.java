@@ -33,14 +33,14 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
     }
 
     /**
-     * The location of the repository that contains the source code.
+     * Location of the repository that contains the source code.
      * 
      */
     @Import(name="repositoryUrl", required=true)
     private Output<String> repositoryUrl;
 
     /**
-     * @return The location of the repository that contains the source code.
+     * @return Location of the repository that contains the source code.
      * 
      */
     public Output<String> repositoryUrl() {
@@ -48,14 +48,14 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
     }
 
     /**
-     * The version that should be used within the source code repository. See Source Code Version below for more details.
+     * Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
     @Import(name="sourceCodeVersion", required=true)
     private Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion;
 
     /**
-     * @return The version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
     public Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion() {
@@ -110,7 +110,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param repositoryUrl The location of the repository that contains the source code.
+         * @param repositoryUrl Location of the repository that contains the source code.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param repositoryUrl The location of the repository that contains the source code.
+         * @param repositoryUrl Location of the repository that contains the source code.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceCodeVersion The version that should be used within the source code repository. See Source Code Version below for more details.
+         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceCodeVersion The version that should be used within the source code repository. See Source Code Version below for more details.
+         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
          * 
          * @return builder
          * 

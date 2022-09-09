@@ -81,7 +81,7 @@ class GetImageResult:
     @pulumi.getter(name="buildVersionArn")
     def build_version_arn(self) -> str:
         """
-        Build version Amazon Resource Name (ARN) of the image. This will always have the `#.#.#/#` suffix.
+        Build version ARN of the image. This will always have the `#.#.#/#` suffix.
         """
         return pulumi.get(self, "build_version_arn")
 
@@ -89,7 +89,7 @@ class GetImageResult:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the container recipe.
+        ARN of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -105,7 +105,7 @@ class GetImageResult:
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        ARN of the Image Builder Distribution Configuration.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -129,7 +129,7 @@ class GetImageResult:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -145,7 +145,7 @@ class GetImageResult:
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        ARN of the Image Builder Infrastructure Configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -239,7 +239,7 @@ def get_image(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     __args__ = dict()
@@ -285,7 +285,7 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     ...

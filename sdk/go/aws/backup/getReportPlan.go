@@ -48,7 +48,7 @@ func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...p
 
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanArgs struct {
-	// The backup report plan name.
+	// Backup report plan name.
 	Name string `pulumi:"name"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -56,13 +56,13 @@ type LookupReportPlanArgs struct {
 
 // A collection of values returned by getReportPlan.
 type LookupReportPlanResult struct {
-	// The ARN of the backup report plan.
+	// ARN of the backup report plan.
 	Arn string `pulumi:"arn"`
-	// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
-	// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 	DeploymentStatus string `pulumi:"deploymentStatus"`
-	// The description of the report plan.
+	// Description of the report plan.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -90,7 +90,7 @@ func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs
 
 // A collection of arguments for invoking getReportPlan.
 type LookupReportPlanOutputArgs struct {
-	// The backup report plan name.
+	// Backup report plan name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -115,22 +115,22 @@ func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutputWithContext(
 	return o
 }
 
-// The ARN of the backup report plan.
+// ARN of the backup report plan.
 func (o LookupReportPlanResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 func (o LookupReportPlanResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 func (o LookupReportPlanResultOutput) DeploymentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.DeploymentStatus }).(pulumi.StringOutput)
 }
 
-// The description of the report plan.
+// Description of the report plan.
 func (o LookupReportPlanResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportPlanResult) string { return v.Description }).(pulumi.StringOutput)
 }

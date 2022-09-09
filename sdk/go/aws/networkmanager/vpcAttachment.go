@@ -79,7 +79,8 @@ type VpcAttachment struct {
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the VPC.
 	VpcArn pulumi.StringOutput `pulumi:"vpcArn"`
 }
@@ -147,7 +148,8 @@ type vpcAttachmentState struct {
 	// The subnet ARN of the VPC attachment.
 	SubnetArns []string          `pulumi:"subnetArns"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the VPC.
 	VpcArn *string `pulumi:"vpcArn"`
 }
@@ -178,7 +180,8 @@ type VpcAttachmentState struct {
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ARN of the VPC.
 	VpcArn pulumi.StringPtrInput
 }
@@ -195,7 +198,6 @@ type vpcAttachmentArgs struct {
 	// The subnet ARN of the VPC attachment.
 	SubnetArns []string          `pulumi:"subnetArns"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// The ARN of the VPC.
 	VpcArn string `pulumi:"vpcArn"`
 }
@@ -209,7 +211,6 @@ type VpcAttachmentArgs struct {
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 	// The ARN of the VPC.
 	VpcArn pulumi.StringInput
 }
@@ -365,6 +366,7 @@ func (o VpcAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

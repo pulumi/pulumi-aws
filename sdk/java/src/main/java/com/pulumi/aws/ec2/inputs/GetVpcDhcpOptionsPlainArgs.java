@@ -18,14 +18,14 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
     public static final GetVpcDhcpOptionsPlainArgs Empty = new GetVpcDhcpOptionsPlainArgs();
 
     /**
-     * The EC2 DHCP Options ID.
+     * EC2 DHCP Options ID.
      * 
      */
     @Import(name="dhcpOptionsId")
     private @Nullable String dhcpOptionsId;
 
     /**
-     * @return The EC2 DHCP Options ID.
+     * @return EC2 DHCP Options ID.
      * 
      */
     public Optional<String> dhcpOptionsId() {
@@ -48,14 +48,14 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -89,7 +89,7 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param dhcpOptionsId The EC2 DHCP Options ID.
+         * @param dhcpOptionsId EC2 DHCP Options ID.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags A map of tags assigned to the resource.
+         * @param tags Map of tags assigned to the resource.
          * 
          * @return builder
          * 

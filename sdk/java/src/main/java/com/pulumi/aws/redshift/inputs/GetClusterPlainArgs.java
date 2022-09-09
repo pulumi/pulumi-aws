@@ -16,14 +16,14 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
     /**
-     * The cluster identifier
+     * Cluster identifier
      * 
      */
     @Import(name="clusterIdentifier", required=true)
     private String clusterIdentifier;
 
     /**
-     * @return The cluster identifier
+     * @return Cluster identifier
      * 
      */
     public String clusterIdentifier() {
@@ -31,14 +31,14 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The tags associated to the cluster
+     * Tags associated to the cluster
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags associated to the cluster
+     * @return Tags associated to the cluster
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier
+         * @param clusterIdentifier Cluster identifier
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags The tags associated to the cluster
+         * @param tags Tags associated to the cluster
          * 
          * @return builder
          * 

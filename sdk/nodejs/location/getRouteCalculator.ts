@@ -35,7 +35,7 @@ export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.I
  */
 export interface GetRouteCalculatorArgs {
     /**
-     * The name of the route calculator resource.
+     * Name of the route calculator resource.
      */
     calculatorName: string;
     /**
@@ -49,20 +49,20 @@ export interface GetRouteCalculatorArgs {
  */
 export interface GetRouteCalculatorResult {
     /**
-     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
     readonly calculatorArn: string;
     readonly calculatorName: string;
     /**
-     * The timestamp for when the route calculator resource was created in ISO 8601 format.
+     * Timestamp for when the route calculator resource was created in ISO 8601 format.
      */
     readonly createTime: string;
     /**
-     * The data provider of traffic and road network data.
+     * Data provider of traffic and road network data.
      */
     readonly dataSource: string;
     /**
-     * The optional description of the route calculator resource.
+     * Optional description of the route calculator resource.
      */
     readonly description: string;
     /**
@@ -74,7 +74,7 @@ export interface GetRouteCalculatorResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The timestamp for when the route calculator resource was last updated in ISO 8601 format.
+     * Timestamp for when the route calculator resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }
@@ -88,7 +88,7 @@ export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opt
  */
 export interface GetRouteCalculatorOutputArgs {
     /**
-     * The name of the route calculator resource.
+     * Name of the route calculator resource.
      */
     calculatorName: pulumi.Input<string>;
     /**

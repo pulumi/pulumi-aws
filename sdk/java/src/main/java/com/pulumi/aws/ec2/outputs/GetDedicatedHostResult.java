@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDedicatedHostResult {
     /**
-     * @return The ARN of the Dedicated Host.
+     * @return ARN of the Dedicated Host.
      * 
      */
     private String arn;
@@ -25,19 +25,19 @@ public final class GetDedicatedHostResult {
      */
     private String autoPlacement;
     /**
-     * @return The Availability Zone of the Dedicated Host.
+     * @return Availability Zone of the Dedicated Host.
      * 
      */
     private String availabilityZone;
     /**
-     * @return The number of cores on the Dedicated Host.
+     * @return Number of cores on the Dedicated Host.
      * 
      */
     private Integer cores;
     private @Nullable List<GetDedicatedHostFilter> filters;
     private String hostId;
     /**
-     * @return Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+     * @return Whether host recovery is enabled or disabled for the Dedicated Host.
      * 
      */
     private String hostRecovery;
@@ -47,40 +47,40 @@ public final class GetDedicatedHostResult {
      */
     private String id;
     /**
-     * @return The instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
+     * @return Instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
      * 
      */
     private String instanceFamily;
     /**
-     * @return The instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
+     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
      * 
      */
     private String instanceType;
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
      * 
      */
     private String outpostArn;
     /**
-     * @return The ID of the AWS account that owns the Dedicated Host.
+     * @return ID of the AWS account that owns the Dedicated Host.
      * 
      */
     private String ownerId;
     /**
-     * @return The number of sockets on the Dedicated Host.
+     * @return Number of sockets on the Dedicated Host.
      * 
      */
     private Integer sockets;
     private Map<String,String> tags;
     /**
-     * @return The total number of vCPUs on the Dedicated Host.
+     * @return Total number of vCPUs on the Dedicated Host.
      * 
      */
     private Integer totalVcpus;
 
     private GetDedicatedHostResult() {}
     /**
-     * @return The ARN of the Dedicated Host.
+     * @return ARN of the Dedicated Host.
      * 
      */
     public String arn() {
@@ -94,14 +94,14 @@ public final class GetDedicatedHostResult {
         return this.autoPlacement;
     }
     /**
-     * @return The Availability Zone of the Dedicated Host.
+     * @return Availability Zone of the Dedicated Host.
      * 
      */
     public String availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * @return The number of cores on the Dedicated Host.
+     * @return Number of cores on the Dedicated Host.
      * 
      */
     public Integer cores() {
@@ -114,7 +114,7 @@ public final class GetDedicatedHostResult {
         return this.hostId;
     }
     /**
-     * @return Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+     * @return Whether host recovery is enabled or disabled for the Dedicated Host.
      * 
      */
     public String hostRecovery() {
@@ -128,35 +128,35 @@ public final class GetDedicatedHostResult {
         return this.id;
     }
     /**
-     * @return The instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
+     * @return Instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
      * 
      */
     public String instanceFamily() {
         return this.instanceFamily;
     }
     /**
-     * @return The instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
+     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
      * 
      */
     public String instanceType() {
         return this.instanceType;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
      * 
      */
     public String outpostArn() {
         return this.outpostArn;
     }
     /**
-     * @return The ID of the AWS account that owns the Dedicated Host.
+     * @return ID of the AWS account that owns the Dedicated Host.
      * 
      */
     public String ownerId() {
         return this.ownerId;
     }
     /**
-     * @return The number of sockets on the Dedicated Host.
+     * @return Number of sockets on the Dedicated Host.
      * 
      */
     public Integer sockets() {
@@ -166,7 +166,7 @@ public final class GetDedicatedHostResult {
         return this.tags;
     }
     /**
-     * @return The total number of vCPUs on the Dedicated Host.
+     * @return Total number of vCPUs on the Dedicated Host.
      * 
      */
     public Integer totalVcpus() {

@@ -22,10 +22,10 @@ class AutoScalingConfigurationVersionArgs:
         """
         The set of arguments for constructing a AutoScalingConfigurationVersion resource.
         :param pulumi.Input[str] auto_scaling_configuration_name: Name of the auto scaling configuration.
-        :param pulumi.Input[int] max_concurrency: The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        :param pulumi.Input[int] max_size: Maximal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[int] min_size: Minimal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auto_scaling_configuration_name", auto_scaling_configuration_name)
         if max_concurrency is not None:
@@ -53,7 +53,7 @@ class AutoScalingConfigurationVersionArgs:
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         """
         return pulumi.get(self, "max_concurrency")
 
@@ -65,7 +65,7 @@ class AutoScalingConfigurationVersionArgs:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximal number of instances that App Runner provisions for your service.
+        Maximal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "max_size")
 
@@ -77,7 +77,7 @@ class AutoScalingConfigurationVersionArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimal number of instances that App Runner provisions for your service.
+        Minimal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "min_size")
 
@@ -89,7 +89,7 @@ class AutoScalingConfigurationVersionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -117,12 +117,12 @@ class _AutoScalingConfigurationVersionState:
         :param pulumi.Input[str] auto_scaling_configuration_name: Name of the auto scaling configuration.
         :param pulumi.Input[int] auto_scaling_configuration_revision: The revision of this auto scaling configuration.
         :param pulumi.Input[bool] latest: Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
-        :param pulumi.Input[int] max_concurrency: The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[str] status: The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        :param pulumi.Input[int] max_size: Maximal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[int] min_size: Minimal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[str] status: Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -197,7 +197,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         """
         return pulumi.get(self, "max_concurrency")
 
@@ -209,7 +209,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximal number of instances that App Runner provisions for your service.
+        Maximal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "max_size")
 
@@ -221,7 +221,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimal number of instances that App Runner provisions for your service.
+        Minimal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "min_size")
 
@@ -233,7 +233,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         """
         return pulumi.get(self, "status")
 
@@ -245,7 +245,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -257,7 +257,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -307,10 +307,10 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_scaling_configuration_name: Name of the auto scaling configuration.
-        :param pulumi.Input[int] max_concurrency: The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        :param pulumi.Input[int] max_size: Maximal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[int] min_size: Minimal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -417,12 +417,12 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] auto_scaling_configuration_name: Name of the auto scaling configuration.
         :param pulumi.Input[int] auto_scaling_configuration_revision: The revision of this auto scaling configuration.
         :param pulumi.Input[bool] latest: Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
-        :param pulumi.Input[int] max_concurrency: The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
-        :param pulumi.Input[str] status: The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        :param pulumi.Input[int] max_size: Maximal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[int] min_size: Minimal number of instances that App Runner provisions for your service.
+        :param pulumi.Input[str] status: Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -476,7 +476,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         """
         return pulumi.get(self, "max_concurrency")
 
@@ -484,7 +484,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximal number of instances that App Runner provisions for your service.
+        Maximal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "max_size")
 
@@ -492,7 +492,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The minimal number of instances that App Runner provisions for your service.
+        Minimal number of instances that App Runner provisions for your service.
         """
         return pulumi.get(self, "min_size")
 
@@ -500,7 +500,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         """
         return pulumi.get(self, "status")
 
@@ -508,7 +508,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -516,7 +516,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -169,25 +169,25 @@ import (
 type Branch struct {
 	pulumi.CustomResourceState
 
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the branch.
+	// ARN for the branch.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of custom resources that are linked to this branch.
 	AssociatedResources pulumi.StringArrayOutput `pulumi:"associatedResources"`
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	BackendEnvironmentArn pulumi.StringPtrOutput `pulumi:"backendEnvironmentArn"`
-	// The basic authorization credentials for the branch.
+	// Basic authorization credentials for the branch.
 	BasicAuthCredentials pulumi.StringPtrOutput `pulumi:"basicAuthCredentials"`
-	// The name for the branch.
+	// Name for the branch.
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
-	// The custom domains for the branch.
+	// Custom domains for the branch.
 	CustomDomains pulumi.StringArrayOutput `pulumi:"customDomains"`
-	// The description for the branch.
+	// Description for the branch.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The destination branch if the branch is a pull request branch.
+	// Destination branch if the branch is a pull request branch.
 	DestinationBranch pulumi.StringOutput `pulumi:"destinationBranch"`
-	// The display name for a branch. This is used as the default domain prefix.
+	// Display name for a branch. This is used as the default domain prefix.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrOutput `pulumi:"enableAutoBuild"`
@@ -199,21 +199,21 @@ type Branch struct {
 	EnablePerformanceMode pulumi.BoolPtrOutput `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
-	// The environment variables for the branch.
+	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// The framework for the branch.
+	// Framework for the branch.
 	Framework pulumi.StringPtrOutput `pulumi:"framework"`
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
-	// The source branch if the branch is a pull request branch.
+	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringOutput `pulumi:"sourceBranch"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrOutput `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The content Time To Live (TTL) for the website in seconds.
+	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
 }
 
@@ -252,25 +252,25 @@ func GetBranch(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Branch resources.
 type branchState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId *string `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for the branch.
+	// ARN for the branch.
 	Arn *string `pulumi:"arn"`
 	// A list of custom resources that are linked to this branch.
 	AssociatedResources []string `pulumi:"associatedResources"`
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	BackendEnvironmentArn *string `pulumi:"backendEnvironmentArn"`
-	// The basic authorization credentials for the branch.
+	// Basic authorization credentials for the branch.
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
-	// The name for the branch.
+	// Name for the branch.
 	BranchName *string `pulumi:"branchName"`
-	// The custom domains for the branch.
+	// Custom domains for the branch.
 	CustomDomains []string `pulumi:"customDomains"`
-	// The description for the branch.
+	// Description for the branch.
 	Description *string `pulumi:"description"`
-	// The destination branch if the branch is a pull request branch.
+	// Destination branch if the branch is a pull request branch.
 	DestinationBranch *string `pulumi:"destinationBranch"`
-	// The display name for a branch. This is used as the default domain prefix.
+	// Display name for a branch. This is used as the default domain prefix.
 	DisplayName *string `pulumi:"displayName"`
 	// Enables auto building for the branch.
 	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
@@ -282,44 +282,44 @@ type branchState struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// The environment variables for the branch.
+	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The framework for the branch.
+	// Framework for the branch.
 	Framework *string `pulumi:"framework"`
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
-	// The source branch if the branch is a pull request branch.
+	// Source branch if the branch is a pull request branch.
 	SourceBranch *string `pulumi:"sourceBranch"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage *string `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The content Time To Live (TTL) for the website in seconds.
+	// Content Time To Live (TTL) for the website in seconds.
 	Ttl *string `pulumi:"ttl"`
 }
 
 type BranchState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the branch.
+	// ARN for the branch.
 	Arn pulumi.StringPtrInput
 	// A list of custom resources that are linked to this branch.
 	AssociatedResources pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	BackendEnvironmentArn pulumi.StringPtrInput
-	// The basic authorization credentials for the branch.
+	// Basic authorization credentials for the branch.
 	BasicAuthCredentials pulumi.StringPtrInput
-	// The name for the branch.
+	// Name for the branch.
 	BranchName pulumi.StringPtrInput
-	// The custom domains for the branch.
+	// Custom domains for the branch.
 	CustomDomains pulumi.StringArrayInput
-	// The description for the branch.
+	// Description for the branch.
 	Description pulumi.StringPtrInput
-	// The destination branch if the branch is a pull request branch.
+	// Destination branch if the branch is a pull request branch.
 	DestinationBranch pulumi.StringPtrInput
-	// The display name for a branch. This is used as the default domain prefix.
+	// Display name for a branch. This is used as the default domain prefix.
 	DisplayName pulumi.StringPtrInput
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrInput
@@ -331,21 +331,21 @@ type BranchState struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
-	// The environment variables for the branch.
+	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
-	// The framework for the branch.
+	// Framework for the branch.
 	Framework pulumi.StringPtrInput
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
-	// The source branch if the branch is a pull request branch.
+	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringPtrInput
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The content Time To Live (TTL) for the website in seconds.
+	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrInput
 }
 
@@ -354,17 +354,17 @@ func (BranchState) ElementType() reflect.Type {
 }
 
 type branchArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	BackendEnvironmentArn *string `pulumi:"backendEnvironmentArn"`
-	// The basic authorization credentials for the branch.
+	// Basic authorization credentials for the branch.
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
-	// The name for the branch.
+	// Name for the branch.
 	BranchName string `pulumi:"branchName"`
-	// The description for the branch.
+	// Description for the branch.
 	Description *string `pulumi:"description"`
-	// The display name for a branch. This is used as the default domain prefix.
+	// Display name for a branch. This is used as the default domain prefix.
 	DisplayName *string `pulumi:"displayName"`
 	// Enables auto building for the branch.
 	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
@@ -376,33 +376,33 @@ type branchArgs struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// The environment variables for the branch.
+	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The framework for the branch.
+	// Framework for the branch.
 	Framework *string `pulumi:"framework"`
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage *string `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The content Time To Live (TTL) for the website in seconds.
+	// Content Time To Live (TTL) for the website in seconds.
 	Ttl *string `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a Branch resource.
 type BranchArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	BackendEnvironmentArn pulumi.StringPtrInput
-	// The basic authorization credentials for the branch.
+	// Basic authorization credentials for the branch.
 	BasicAuthCredentials pulumi.StringPtrInput
-	// The name for the branch.
+	// Name for the branch.
 	BranchName pulumi.StringInput
-	// The description for the branch.
+	// Description for the branch.
 	Description pulumi.StringPtrInput
-	// The display name for a branch. This is used as the default domain prefix.
+	// Display name for a branch. This is used as the default domain prefix.
 	DisplayName pulumi.StringPtrInput
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrInput
@@ -414,17 +414,17 @@ type BranchArgs struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
-	// The environment variables for the branch.
+	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
-	// The framework for the branch.
+	// Framework for the branch.
 	Framework pulumi.StringPtrInput
-	// The Amplify environment name for the pull request.
+	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The content Time To Live (TTL) for the website in seconds.
+	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrInput
 }
 
@@ -515,12 +515,12 @@ func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutpu
 	return o
 }
 
-// The unique ID for an Amplify app.
+// Unique ID for an Amplify app.
 func (o BranchOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the branch.
+// ARN for the branch.
 func (o BranchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -530,37 +530,37 @@ func (o BranchOutput) AssociatedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringArrayOutput { return v.AssociatedResources }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+// ARN for a backend environment that is part of an Amplify app.
 func (o BranchOutput) BackendEnvironmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.BackendEnvironmentArn }).(pulumi.StringPtrOutput)
 }
 
-// The basic authorization credentials for the branch.
+// Basic authorization credentials for the branch.
 func (o BranchOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.BasicAuthCredentials }).(pulumi.StringPtrOutput)
 }
 
-// The name for the branch.
+// Name for the branch.
 func (o BranchOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// The custom domains for the branch.
+// Custom domains for the branch.
 func (o BranchOutput) CustomDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringArrayOutput { return v.CustomDomains }).(pulumi.StringArrayOutput)
 }
 
-// The description for the branch.
+// Description for the branch.
 func (o BranchOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The destination branch if the branch is a pull request branch.
+// Destination branch if the branch is a pull request branch.
 func (o BranchOutput) DestinationBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.DestinationBranch }).(pulumi.StringOutput)
 }
 
-// The display name for a branch. This is used as the default domain prefix.
+// Display name for a branch. This is used as the default domain prefix.
 func (o BranchOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -590,22 +590,22 @@ func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The environment variables for the branch.
+// Environment variables for the branch.
 func (o BranchOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// The framework for the branch.
+// Framework for the branch.
 func (o BranchOutput) Framework() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Framework }).(pulumi.StringPtrOutput)
 }
 
-// The Amplify environment name for the pull request.
+// Amplify environment name for the pull request.
 func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-// The source branch if the branch is a pull request branch.
+// Source branch if the branch is a pull request branch.
 func (o BranchOutput) SourceBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.SourceBranch }).(pulumi.StringOutput)
 }
@@ -620,12 +620,12 @@ func (o BranchOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BranchOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The content Time To Live (TTL) for the website in seconds.
+// Content Time To Live (TTL) for the website in seconds.
 func (o BranchOutput) Ttl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Ttl }).(pulumi.StringPtrOutput)
 }

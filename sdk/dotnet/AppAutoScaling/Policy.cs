@@ -196,37 +196,37 @@ namespace Pulumi.Aws.AppAutoScaling
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS to the scaling policy.
+        /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy. Must be between 1 and 255 characters in length.
+        /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+        /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
         [Output("policyType")]
         public Output<string?> PolicyType { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Output("scalableDimension")]
         public Output<string> ScalableDimension { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Output("serviceNamespace")]
         public Output<string> ServiceNamespace { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<Outputs.PolicyStepScalingPolicyConfiguration?> StepScalingPolicyConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Output("targetTrackingScalingPolicyConfiguration")]
         public Output<Outputs.PolicyTargetTrackingScalingPolicyConfiguration?> TargetTrackingScalingPolicyConfiguration { get; private set; } = null!;
@@ -290,31 +290,31 @@ namespace Pulumi.Aws.AppAutoScaling
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the policy. Must be between 1 and 255 characters in length.
+        /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+        /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
         /// <summary>
-        /// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("scalableDimension", required: true)]
         public Input<string> ScalableDimension { get; set; } = null!;
 
         /// <summary>
-        /// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<Inputs.PolicyStepScalingPolicyConfigurationArgs>? StepScalingPolicyConfiguration { get; set; }
 
         /// <summary>
-        /// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }
@@ -340,37 +340,37 @@ namespace Pulumi.Aws.AppAutoScaling
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS to the scaling policy.
+        /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the policy. Must be between 1 and 255 characters in length.
+        /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+        /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
         /// <summary>
-        /// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("scalableDimension")]
         public Input<string>? ScalableDimension { get; set; }
 
         /// <summary>
-        /// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         /// </summary>
         [Input("serviceNamespace")]
         public Input<string>? ServiceNamespace { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<Inputs.PolicyStepScalingPolicyConfigurationGetArgs>? StepScalingPolicyConfiguration { get; set; }
 
         /// <summary>
-        /// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationGetArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }

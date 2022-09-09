@@ -26,7 +26,7 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 type GetVpcsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -36,7 +36,7 @@ type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the VPC Ids found.
+	// List of all the VPC Ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -58,7 +58,7 @@ func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.I
 type GetVpcsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match
+	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -91,7 +91,7 @@ func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the VPC Ids found.
+// List of all the VPC Ids found.
 func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

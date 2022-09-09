@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Rds
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// The type of snapshots to be returned. If you don't specify a SnapshotType
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
         /// </summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// The type of snapshots to be returned. If you don't specify a SnapshotType
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
         /// </summary>
@@ -222,29 +222,29 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSnapshotResult
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         public readonly int AllocatedStorage;
         /// <summary>
-        /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        /// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
         public readonly string AvailabilityZone;
         public readonly string? DbInstanceIdentifier;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB snapshot.
+        /// ARN for the DB snapshot.
         /// </summary>
         public readonly string DbSnapshotArn;
         public readonly string? DbSnapshotIdentifier;
         /// <summary>
-        /// Specifies whether the DB snapshot is encrypted.
+        /// Whether the DB snapshot is encrypted.
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         public readonly string Engine;
         /// <summary>
-        /// Specifies the version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         public readonly string EngineVersion;
         /// <summary>
@@ -254,11 +254,11 @@ namespace Pulumi.Aws.Rds
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
-        /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        /// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// The ARN for the KMS encryption key.
+        /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
@@ -277,23 +277,23 @@ namespace Pulumi.Aws.Rds
         public readonly string SnapshotCreateTime;
         public readonly string? SnapshotType;
         /// <summary>
-        /// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        /// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         /// </summary>
         public readonly string SourceDbSnapshotIdentifier;
         /// <summary>
-        /// The region that the DB snapshot was created in or copied from.
+        /// Region that the DB snapshot was created in or copied from.
         /// </summary>
         public readonly string SourceRegion;
         /// <summary>
-        /// Specifies the status of this DB snapshot.
+        /// Status of this DB snapshot.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Specifies the storage type associated with DB snapshot.
+        /// Storage type associated with DB snapshot.
         /// </summary>
         public readonly string StorageType;
         /// <summary>
-        /// Specifies the ID of the VPC associated with the DB snapshot.
+        /// ID of the VPC associated with the DB snapshot.
         /// </summary>
         public readonly string VpcId;
 

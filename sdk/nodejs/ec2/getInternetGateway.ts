@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,11 +49,11 @@ export interface GetInternetGatewayArgs {
      */
     filters?: inputs.ec2.GetInternetGatewayFilter[];
     /**
-     * The id of the specific Internet Gateway to retrieve.
+     * ID of the specific Internet Gateway to retrieve.
      */
     internetGatewayId?: string;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      */
     tags?: {[key: string]: string};
@@ -62,7 +64,7 @@ export interface GetInternetGatewayArgs {
  */
 export interface GetInternetGatewayResult {
     /**
-     * The ARN of the Internet Gateway.
+     * ARN of the Internet Gateway.
      */
     readonly arn: string;
     readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
@@ -73,7 +75,7 @@ export interface GetInternetGatewayResult {
     readonly id: string;
     readonly internetGatewayId: string;
     /**
-     * The ID of the AWS account that owns the internet gateway.
+     * ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
     readonly tags: {[key: string]: string};
@@ -92,11 +94,11 @@ export interface GetInternetGatewayOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInternetGatewayFilterArgs>[]>;
     /**
-     * The id of the specific Internet Gateway to retrieve.
+     * ID of the specific Internet Gateway to retrieve.
      */
     internetGatewayId?: pulumi.Input<string>;
     /**
-     * A map of tags, each pair of which must exactly match
+     * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

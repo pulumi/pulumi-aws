@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingConfiguration {
     /**
-     * @return A customized metric. Conflicts with `predefined_metric_specification`.
+     * @return Customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
     private @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification;
     /**
-     * @return Indicates whether scale in by the target tracking policy is disabled.
+     * @return Whether scale in by the target tracking policy is disabled.
      * 
      */
     private @Nullable Boolean disableScaleIn;
     /**
-     * @return A predefined metric. Conflicts with `customized_metric_specification`.
+     * @return Predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
     private @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     private Double targetValue;
 
     private PolicyTargetTrackingConfiguration() {}
     /**
-     * @return A customized metric. Conflicts with `predefined_metric_specification`.
+     * @return Customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
     public Optional<PolicyTargetTrackingConfigurationCustomizedMetricSpecification> customizedMetricSpecification() {
         return Optional.ofNullable(this.customizedMetricSpecification);
     }
     /**
-     * @return Indicates whether scale in by the target tracking policy is disabled.
+     * @return Whether scale in by the target tracking policy is disabled.
      * 
      */
     public Optional<Boolean> disableScaleIn() {
         return Optional.ofNullable(this.disableScaleIn);
     }
     /**
-     * @return A predefined metric. Conflicts with `customized_metric_specification`.
+     * @return Predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
     public Optional<PolicyTargetTrackingConfigurationPredefinedMetricSpecification> predefinedMetricSpecification() {
         return Optional.ofNullable(this.predefinedMetricSpecification);
     }
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Double targetValue() {

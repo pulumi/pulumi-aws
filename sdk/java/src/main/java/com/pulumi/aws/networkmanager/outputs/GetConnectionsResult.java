@@ -21,7 +21,7 @@ public final class GetConnectionsResult {
      */
     private String id;
     /**
-     * @return The IDs of the connections.
+     * @return IDs of the connections.
      * 
      */
     private List<String> ids;
@@ -42,7 +42,7 @@ public final class GetConnectionsResult {
         return this.id;
     }
     /**
-     * @return The IDs of the connections.
+     * @return IDs of the connections.
      * 
      */
     public List<String> ids() {

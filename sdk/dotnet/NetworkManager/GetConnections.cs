@@ -78,13 +78,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetConnectionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the device of the connections to retrieve.
+        /// ID of the device of the connections to retrieve.
         /// </summary>
         [Input("deviceId")]
         public string? DeviceId { get; set; }
 
         /// <summary>
-        /// The ID of the Global Network of the connections to retrieve.
+        /// ID of the Global Network of the connections to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
@@ -110,13 +110,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the device of the connections to retrieve.
+        /// ID of the device of the connections to retrieve.
         /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
         /// <summary>
-        /// The ID of the Global Network of the connections to retrieve.
+        /// ID of the Global Network of the connections to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the connections.
+        /// IDs of the connections.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;

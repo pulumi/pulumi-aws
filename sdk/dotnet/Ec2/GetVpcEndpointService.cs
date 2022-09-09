@@ -206,19 +206,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The common name of an AWS service (e.g., `s3`).
+        /// Common name of an AWS service (e.g., `s3`).
         /// </summary>
         [Input("service")]
         public string? Service { get; set; }
 
         /// <summary>
-        /// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
         /// <summary>
-        /// The service type, `Gateway` or `Interface`.
+        /// Service type, `Gateway` or `Interface`.
         /// </summary>
         [Input("serviceType")]
         public string? ServiceType { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -256,19 +256,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The common name of an AWS service (e.g., `s3`).
+        /// Common name of an AWS service (e.g., `s3`).
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
 
         /// <summary>
-        /// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The service type, `Gateway` or `Interface`.
+        /// Service type, `Gateway` or `Interface`.
         /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -300,11 +300,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AcceptanceRequired;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// ARN of the VPC endpoint service.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The Availability Zones in which the service is available.
+        /// Availability Zones in which the service is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
@@ -321,16 +321,16 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool ManagesVpcEndpoints;
         /// <summary>
-        /// The AWS account ID of the service owner or `amazon`.
+        /// AWS account ID of the service owner or `amazon`.
         /// </summary>
         public readonly string Owner;
         /// <summary>
-        /// The private DNS name for the service.
+        /// Private DNS name for the service.
         /// </summary>
         public readonly string PrivateDnsName;
         public readonly string? Service;
         /// <summary>
-        /// The ID of the endpoint service.
+        /// ID of the endpoint service.
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceName;
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> SupportedIpAddressTypes;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

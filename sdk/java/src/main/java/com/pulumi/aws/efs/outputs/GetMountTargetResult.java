@@ -24,7 +24,7 @@ public final class GetMountTargetResult {
      */
     private String availabilityZoneName;
     /**
-     * @return The DNS name for the EFS file system.
+     * @return DNS name for the EFS file system.
      * 
      */
     private String dnsName;
@@ -90,7 +90,7 @@ public final class GetMountTargetResult {
         return this.availabilityZoneName;
     }
     /**
-     * @return The DNS name for the EFS file system.
+     * @return DNS name for the EFS file system.
      * 
      */
     public String dnsName() {

@@ -59,7 +59,7 @@ export class RouteResponse extends pulumi.CustomResource {
     }
 
     /**
-     * The API identifier.
+     * API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -67,15 +67,15 @@ export class RouteResponse extends pulumi.CustomResource {
      */
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The response models for the route response.
+     * Response models for the route response.
      */
     public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The identifier of the `aws.apigatewayv2.Route`.
+     * Identifier of the `aws.apigatewayv2.Route`.
      */
     public readonly routeId!: pulumi.Output<string>;
     /**
-     * The route response key.
+     * Route response key.
      */
     public readonly routeResponseKey!: pulumi.Output<string>;
 
@@ -124,7 +124,7 @@ export class RouteResponse extends pulumi.CustomResource {
  */
 export interface RouteResponseState {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -132,15 +132,15 @@ export interface RouteResponseState {
      */
     modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The response models for the route response.
+     * Response models for the route response.
      */
     responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the `aws.apigatewayv2.Route`.
+     * Identifier of the `aws.apigatewayv2.Route`.
      */
     routeId?: pulumi.Input<string>;
     /**
-     * The route response key.
+     * Route response key.
      */
     routeResponseKey?: pulumi.Input<string>;
 }
@@ -150,7 +150,7 @@ export interface RouteResponseState {
  */
 export interface RouteResponseArgs {
     /**
-     * The API identifier.
+     * API identifier.
      */
     apiId: pulumi.Input<string>;
     /**
@@ -158,15 +158,15 @@ export interface RouteResponseArgs {
      */
     modelSelectionExpression?: pulumi.Input<string>;
     /**
-     * The response models for the route response.
+     * Response models for the route response.
      */
     responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the `aws.apigatewayv2.Route`.
+     * Identifier of the `aws.apigatewayv2.Route`.
      */
     routeId: pulumi.Input<string>;
     /**
-     * The route response key.
+     * Route response key.
      */
     routeResponseKey: pulumi.Input<string>;
 }

@@ -75,7 +75,8 @@ type OpenZfsVolume struct {
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
@@ -137,7 +138,8 @@ type openZfsVolumeState struct {
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
@@ -168,7 +170,8 @@ type OpenZfsVolumeState struct {
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
@@ -383,6 +386,7 @@ func (o OpenZfsVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

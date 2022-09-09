@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sns
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the topic to match.
+        /// Friendly name of the topic to match.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Sns
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The friendly name of the topic to match.
+        /// Friendly name of the topic to match.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Sns
     public sealed class GetTopicResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+        /// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         /// </summary>
         public readonly string Arn;
         /// <summary>

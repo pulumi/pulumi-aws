@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The ID of the Route53 Resolver Endpoint.
+        /// ID of the Route53 Resolver Endpoint.
         /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The ID of the Route53 Resolver Endpoint.
+        /// ID of the Route53 Resolver Endpoint.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }

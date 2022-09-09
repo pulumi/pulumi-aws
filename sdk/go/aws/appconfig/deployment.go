@@ -59,27 +59,27 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// The application ID. Must be between 4 and 7 characters in length.
+	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+	// ARN of the AppConfig Deployment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration profile ID. Must be between 4 and 7 characters in length.
+	// Configuration profile ID. Must be between 4 and 7 characters in length.
 	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
-	// The configuration version to deploy. Can be at most 1024 characters.
+	// Configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion pulumi.StringOutput `pulumi:"configurationVersion"`
-	// The deployment number.
+	// Deployment number.
 	DeploymentNumber pulumi.IntOutput `pulumi:"deploymentNumber"`
-	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+	// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringOutput `pulumi:"deploymentStrategyId"`
-	// The description of the deployment. Can be at most 1024 characters.
+	// Description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The environment ID. Must be between 4 and 7 characters in length.
+	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// The state of the deployment.
+	// State of the deployment.
 	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -127,52 +127,52 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// The application ID. Must be between 4 and 7 characters in length.
+	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId *string `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+	// ARN of the AppConfig Deployment.
 	Arn *string `pulumi:"arn"`
-	// The configuration profile ID. Must be between 4 and 7 characters in length.
+	// Configuration profile ID. Must be between 4 and 7 characters in length.
 	ConfigurationProfileId *string `pulumi:"configurationProfileId"`
-	// The configuration version to deploy. Can be at most 1024 characters.
+	// Configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion *string `pulumi:"configurationVersion"`
-	// The deployment number.
+	// Deployment number.
 	DeploymentNumber *int `pulumi:"deploymentNumber"`
-	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+	// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId *string `pulumi:"deploymentStrategyId"`
-	// The description of the deployment. Can be at most 1024 characters.
+	// Description of the deployment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The environment ID. Must be between 4 and 7 characters in length.
+	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId *string `pulumi:"environmentId"`
-	// The state of the deployment.
+	// State of the deployment.
 	State *string `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DeploymentState struct {
-	// The application ID. Must be between 4 and 7 characters in length.
+	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+	// ARN of the AppConfig Deployment.
 	Arn pulumi.StringPtrInput
-	// The configuration profile ID. Must be between 4 and 7 characters in length.
+	// Configuration profile ID. Must be between 4 and 7 characters in length.
 	ConfigurationProfileId pulumi.StringPtrInput
-	// The configuration version to deploy. Can be at most 1024 characters.
+	// Configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion pulumi.StringPtrInput
-	// The deployment number.
+	// Deployment number.
 	DeploymentNumber pulumi.IntPtrInput
-	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+	// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringPtrInput
-	// The description of the deployment. Can be at most 1024 characters.
+	// Description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The environment ID. Must be between 4 and 7 characters in length.
+	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringPtrInput
-	// The state of the deployment.
+	// State of the deployment.
 	State pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -181,37 +181,37 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The application ID. Must be between 4 and 7 characters in length.
+	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId string `pulumi:"applicationId"`
-	// The configuration profile ID. Must be between 4 and 7 characters in length.
+	// Configuration profile ID. Must be between 4 and 7 characters in length.
 	ConfigurationProfileId string `pulumi:"configurationProfileId"`
-	// The configuration version to deploy. Can be at most 1024 characters.
+	// Configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion string `pulumi:"configurationVersion"`
-	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+	// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId string `pulumi:"deploymentStrategyId"`
-	// The description of the deployment. Can be at most 1024 characters.
+	// Description of the deployment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The environment ID. Must be between 4 and 7 characters in length.
+	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId string `pulumi:"environmentId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The application ID. Must be between 4 and 7 characters in length.
+	// Application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringInput
-	// The configuration profile ID. Must be between 4 and 7 characters in length.
+	// Configuration profile ID. Must be between 4 and 7 characters in length.
 	ConfigurationProfileId pulumi.StringInput
-	// The configuration version to deploy. Can be at most 1024 characters.
+	// Configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion pulumi.StringInput
-	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+	// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringInput
-	// The description of the deployment. Can be at most 1024 characters.
+	// Description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The environment ID. Must be between 4 and 7 characters in length.
+	// Environment ID. Must be between 4 and 7 characters in length.
 	EnvironmentId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -302,57 +302,57 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// The application ID. Must be between 4 and 7 characters in length.
+// Application ID. Must be between 4 and 7 characters in length.
 func (o DeploymentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AppConfig Deployment.
+// ARN of the AppConfig Deployment.
 func (o DeploymentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration profile ID. Must be between 4 and 7 characters in length.
+// Configuration profile ID. Must be between 4 and 7 characters in length.
 func (o DeploymentOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
 
-// The configuration version to deploy. Can be at most 1024 characters.
+// Configuration version to deploy. Can be at most 1024 characters.
 func (o DeploymentOutput) ConfigurationVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ConfigurationVersion }).(pulumi.StringOutput)
 }
 
-// The deployment number.
+// Deployment number.
 func (o DeploymentOutput) DeploymentNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntOutput { return v.DeploymentNumber }).(pulumi.IntOutput)
 }
 
-// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
+// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 func (o DeploymentOutput) DeploymentStrategyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentStrategyId }).(pulumi.StringOutput)
 }
 
-// The description of the deployment. Can be at most 1024 characters.
+// Description of the deployment. Can be at most 1024 characters.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The environment ID. Must be between 4 and 7 characters in length.
+// Environment ID. Must be between 4 and 7 characters in length.
 func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// The state of the deployment.
+// State of the deployment.
 func (o DeploymentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DeploymentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DeploymentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

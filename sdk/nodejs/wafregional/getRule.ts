@@ -34,7 +34,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetRuleArgs {
     /**
-     * The name of the WAF Regional rule.
+     * Name of the WAF Regional rule.
      */
     name: string;
 }
@@ -59,7 +59,7 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetRuleOutputArgs {
     /**
-     * The name of the WAF Regional rule.
+     * Name of the WAF Regional rule.
      */
     name: pulumi.Input<string>;
 }

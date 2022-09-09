@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The identifier for the network interface.
+        /// Identifier for the network interface.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The identifier for the network interface.
+        /// Identifier for the network interface.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -148,16 +148,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
-        /// The ARN of the network interface.
+        /// ARN of the network interface.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
+        /// Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> Associations;
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAttachmentResult> Attachments;
         /// <summary>
-        /// The Availability Zone.
+        /// Availability Zone.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The type of interface.
+        /// Type of interface.
         /// </summary>
         public readonly string InterfaceType;
         /// <summary>
@@ -175,39 +175,39 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
         /// <summary>
-        /// The MAC address.
+        /// MAC address.
         /// </summary>
         public readonly string MacAddress;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// The AWS account ID of the owner of the network interface.
+        /// AWS account ID of the owner of the network interface.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The private DNS name.
+        /// Private DNS name.
         /// </summary>
         public readonly string PrivateDnsName;
         /// <summary>
-        /// The private IPv4 address of the network interface within the subnet.
+        /// Private IPv4 address of the network interface within the subnet.
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
-        /// The private IPv4 addresses associated with the network interface.
+        /// Private IPv4 addresses associated with the network interface.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIps;
         /// <summary>
-        /// The ID of the entity that launched the instance on your behalf.
+        /// ID of the entity that launched the instance on your behalf.
         /// </summary>
         public readonly string RequesterId;
         /// <summary>
-        /// The list of security groups for the network interface.
+        /// List of security groups for the network interface.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The ID of the subnet.
+        /// ID of the subnet.
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The ID of the VPC.
+        /// ID of the VPC.
         /// </summary>
         public readonly string VpcId;
 

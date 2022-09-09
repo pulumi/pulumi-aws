@@ -56,7 +56,7 @@ type GetCertificateArgs struct {
 
 // A collection of values returned by getCertificate.
 type GetCertificateResult struct {
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	Arn string `pulumi:"arn"`
 	// Type of certificate. For example, `CA`.
 	CertificateType string `pulumi:"certificateType"`
@@ -114,7 +114,7 @@ func (o GetCertificateResultOutput) ToGetCertificateResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the certificate.
+// ARN of the certificate.
 func (o GetCertificateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
 }

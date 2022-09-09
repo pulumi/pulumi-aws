@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class GetCodeSigningConfigAllowedPublisherResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+        /// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         /// </summary>
         public readonly ImmutableArray<string> SigningProfileVersionArns;
 

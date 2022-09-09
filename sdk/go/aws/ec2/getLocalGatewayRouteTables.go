@@ -24,7 +24,7 @@ func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteT
 type GetLocalGatewayRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetLocalGatewayRouteTablesFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -56,7 +56,7 @@ func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayR
 type GetLocalGatewayRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetLocalGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo() {}
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return The object specified in the Veeva flow source.
+     * @return Object specified in the Veeva flow source.
      * 
      */
     public String object() {

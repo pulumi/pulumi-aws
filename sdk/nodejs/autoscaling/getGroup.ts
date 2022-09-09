@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
-     * The Amazon Resource Name (ARN) of the Auto Scaling group.
+     * ARN of the Auto Scaling group.
      */
     readonly arn: string;
     /**
@@ -54,11 +56,11 @@ export interface GetGroupResult {
     readonly availabilityZones: string[];
     readonly defaultCooldown: number;
     /**
-     * The desired size of the group.
+     * Desired size of the group.
      */
     readonly desiredCapacity: number;
     /**
-     * The list of metrics enabled for collection.
+     * List of metrics enabled for collection.
      */
     readonly enabledMetrics: string[];
     /**
@@ -66,7 +68,7 @@ export interface GetGroupResult {
      */
     readonly healthCheckGracePeriod: number;
     /**
-     * The service to use for the health checks. The valid values are EC2 and ELB.
+     * Service to use for the health checks. The valid values are EC2 and ELB.
      */
     readonly healthCheckType: string;
     /**
@@ -83,11 +85,11 @@ export interface GetGroupResult {
      */
     readonly loadBalancers: string[];
     /**
-     * The maximum size of the group.
+     * Maximum size of the group.
      */
     readonly maxSize: number;
     /**
-     * The minimum size of the group.
+     * Minimum size of the group.
      */
     readonly minSize: number;
     /**
@@ -96,19 +98,19 @@ export interface GetGroupResult {
     readonly name: string;
     readonly newInstancesProtectedFromScaleIn: boolean;
     /**
-     * The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     readonly placementGroup: string;
     /**
-     * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+     * ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      */
     readonly serviceLinkedRoleArn: string;
     /**
-     * The current state of the group when DeleteAutoScalingGroup is in progress.
+     * Current state of the group when DeleteAutoScalingGroup is in progress.
      */
     readonly status: string;
     /**
-     * The Amazon Resource Names (ARN) of the target groups for your load balancer.
+     * ARNs of the target groups for your load balancer.
      */
     readonly targetGroupArns: string[];
     /**

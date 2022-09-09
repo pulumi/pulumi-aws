@@ -3278,7 +3278,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
                  encryption_at_rests: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']):
         """
         :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs'] connection_password_encryptions: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs'] encryption_at_rests: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs'] encryption_at_rests: Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         pulumi.set(__self__, "connection_password_encryptions", connection_password_encryptions)
         pulumi.set(__self__, "encryption_at_rests", encryption_at_rests)
@@ -3295,7 +3295,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
     @pulumi.getter(name="encryptionAtRests")
     def encryption_at_rests(self) -> Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']:
         """
-        Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         return pulumi.get(self, "encryption_at_rests")
 
@@ -3306,7 +3306,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
                  aws_kms_key_id: str,
                  return_connection_password_encrypted: bool):
         """
-        :param str aws_kms_key_id: A KMS key ARN that is used to encrypt the connection password.
+        :param str aws_kms_key_id: KMS key ARN that is used to encrypt the connection password.
         :param bool return_connection_password_encrypted: When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         """
         pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
@@ -3316,7 +3316,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
     @pulumi.getter(name="awsKmsKeyId")
     def aws_kms_key_id(self) -> str:
         """
-        A KMS key ARN that is used to encrypt the connection password.
+        KMS key ARN that is used to encrypt the connection password.
         """
         return pulumi.get(self, "aws_kms_key_id")
 
@@ -3336,7 +3336,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
                  sse_aws_kms_key_id: str):
         """
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data.
-        :param str sse_aws_kms_key_id: The ARN of the AWS KMS key to use for encryption at rest.
+        :param str sse_aws_kms_key_id: ARN of the AWS KMS key to use for encryption at rest.
         """
         pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
         pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
@@ -3353,7 +3353,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
     @pulumi.getter(name="sseAwsKmsKeyId")
     def sse_aws_kms_key_id(self) -> str:
         """
-        The ARN of the AWS KMS key to use for encryption at rest.
+        ARN of the AWS KMS key to use for encryption at rest.
         """
         return pulumi.get(self, "sse_aws_kms_key_id")
 
@@ -3365,9 +3365,9 @@ class GetScriptDagEdgeResult(dict):
                  target: str,
                  target_parameter: Optional[str] = None):
         """
-        :param str source: The ID of the node at which the edge starts.
-        :param str target: The ID of the node at which the edge ends.
-        :param str target_parameter: The target of the edge.
+        :param str source: ID of the node at which the edge starts.
+        :param str target: ID of the node at which the edge ends.
+        :param str target_parameter: Target of the edge.
         """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
@@ -3378,7 +3378,7 @@ class GetScriptDagEdgeResult(dict):
     @pulumi.getter
     def source(self) -> str:
         """
-        The ID of the node at which the edge starts.
+        ID of the node at which the edge starts.
         """
         return pulumi.get(self, "source")
 
@@ -3386,7 +3386,7 @@ class GetScriptDagEdgeResult(dict):
     @pulumi.getter
     def target(self) -> str:
         """
-        The ID of the node at which the edge ends.
+        ID of the node at which the edge ends.
         """
         return pulumi.get(self, "target")
 
@@ -3394,7 +3394,7 @@ class GetScriptDagEdgeResult(dict):
     @pulumi.getter(name="targetParameter")
     def target_parameter(self) -> Optional[str]:
         """
-        The target of the edge.
+        Target of the edge.
         """
         return pulumi.get(self, "target_parameter")
 
@@ -3408,9 +3408,9 @@ class GetScriptDagNodeResult(dict):
                  line_number: Optional[int] = None):
         """
         :param Sequence['GetScriptDagNodeArgArgs'] args: Nested configuration an argument or property of a node. Defined below.
-        :param str id: A node identifier that is unique within the node's graph.
-        :param str node_type: The type of node this is.
-        :param int line_number: The line number of the node.
+        :param str id: Node identifier that is unique within the node's graph.
+        :param str node_type: Type of node this is.
+        :param int line_number: Line number of the node.
         """
         pulumi.set(__self__, "args", args)
         pulumi.set(__self__, "id", id)
@@ -3430,7 +3430,7 @@ class GetScriptDagNodeResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        A node identifier that is unique within the node's graph.
+        Node identifier that is unique within the node's graph.
         """
         return pulumi.get(self, "id")
 
@@ -3438,7 +3438,7 @@ class GetScriptDagNodeResult(dict):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
         """
-        The type of node this is.
+        Type of node this is.
         """
         return pulumi.get(self, "node_type")
 
@@ -3446,7 +3446,7 @@ class GetScriptDagNodeResult(dict):
     @pulumi.getter(name="lineNumber")
     def line_number(self) -> Optional[int]:
         """
-        The line number of the node.
+        Line number of the node.
         """
         return pulumi.get(self, "line_number")
 
@@ -3458,8 +3458,8 @@ class GetScriptDagNodeArgResult(dict):
                  value: str,
                  param: Optional[bool] = None):
         """
-        :param str name: The name of the argument or property.
-        :param str value: The value of the argument or property.
+        :param str name: Name of the argument or property.
+        :param str value: Value of the argument or property.
         :param bool param: Boolean if the value is used as a parameter. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
@@ -3471,7 +3471,7 @@ class GetScriptDagNodeArgResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the argument or property.
+        Name of the argument or property.
         """
         return pulumi.get(self, "name")
 
@@ -3479,7 +3479,7 @@ class GetScriptDagNodeArgResult(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the argument or property.
+        Value of the argument or property.
         """
         return pulumi.get(self, "value")
 

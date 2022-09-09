@@ -14,14 +14,14 @@ public final class GetDomainIdentityArgs extends com.pulumi.resources.InvokeArgs
     public static final GetDomainIdentityArgs Empty = new GetDomainIdentityArgs();
 
     /**
-     * The name of the domain
+     * Name of the domain
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return The name of the domain
+     * @return Name of the domain
      * 
      */
     public Output<String> domain() {
@@ -53,7 +53,7 @@ public final class GetDomainIdentityArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param domain The name of the domain
+         * @param domain Name of the domain
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class GetDomainIdentityArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param domain The name of the domain
+         * @param domain Name of the domain
          * 
          * @return builder
          * 

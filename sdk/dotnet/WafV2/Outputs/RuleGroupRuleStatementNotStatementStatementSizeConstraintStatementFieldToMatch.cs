@@ -22,6 +22,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody? Body;
         /// <summary>
+        /// Inspect the request cookies.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies? Cookies;
+        /// <summary>
+        /// Inspect the request body as JSON. See JSON Body for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody? JsonBody;
+        /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod? Method;
@@ -48,6 +56,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody? body,
 
+            Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchCookies? cookies,
+
+            Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchJsonBody? jsonBody,
+
             Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod? method,
 
             Outputs.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString? queryString,
@@ -60,6 +72,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         {
             AllQueryArguments = allQueryArguments;
             Body = body;
+            Cookies = cookies;
+            JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;
             SingleHeader = singleHeader;

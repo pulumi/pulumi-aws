@@ -101,42 +101,42 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.basePath);
     }
     /**
-     * The already-registered domain name to connect the API to.
+     * Already-registered domain name to connect the API to.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The already-registered domain name to connect the API to.
+     * @return Already-registered domain name to connect the API to.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The id of the API to connect.
+     * ID of the API to connect.
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The id of the API to connect.
+     * @return ID of the API to connect.
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
     @Export(name="stageName", type=String.class, parameters={})
     private Output</* @Nullable */ String> stageName;
 
     /**
-     * @return The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     * @return Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
     public Output<Optional<String>> stageName() {

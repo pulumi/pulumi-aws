@@ -16,14 +16,14 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetMapPlainArgs Empty = new GetMapPlainArgs();
 
     /**
-     * The name of the map resource.
+     * Name of the map resource.
      * 
      */
     @Import(name="mapName", required=true)
     private String mapName;
 
     /**
-     * @return The name of the map resource.
+     * @return Name of the map resource.
      * 
      */
     public String mapName() {
@@ -71,7 +71,7 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mapName The name of the map resource.
+         * @param mapName Name of the map resource.
          * 
          * @return builder
          * 

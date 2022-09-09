@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetZoneResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Hosted Zone.
+     * @return ARN of the Hosted Zone.
      * 
      */
     private String arn;
@@ -26,7 +26,7 @@ public final class GetZoneResult {
      */
     private String callerReference;
     /**
-     * @return The comment field of the Hosted Zone.
+     * @return Comment field of the Hosted Zone.
      * 
      */
     private String comment;
@@ -47,7 +47,7 @@ public final class GetZoneResult {
     private String linkedServicePrincipal;
     private String name;
     /**
-     * @return The list of DNS name servers for the Hosted Zone.
+     * @return List of DNS name servers for the Hosted Zone.
      * 
      */
     private List<String> nameServers;
@@ -63,7 +63,7 @@ public final class GetZoneResult {
 
     private GetZoneResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Hosted Zone.
+     * @return ARN of the Hosted Zone.
      * 
      */
     public String arn() {
@@ -77,7 +77,7 @@ public final class GetZoneResult {
         return this.callerReference;
     }
     /**
-     * @return The comment field of the Hosted Zone.
+     * @return Comment field of the Hosted Zone.
      * 
      */
     public String comment() {
@@ -108,7 +108,7 @@ public final class GetZoneResult {
         return this.name;
     }
     /**
-     * @return The list of DNS name servers for the Hosted Zone.
+     * @return List of DNS name servers for the Hosted Zone.
      * 
      */
     public List<String> nameServers() {

@@ -42,7 +42,7 @@ class GetConnectorResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the connector.
+        ARN of the connector.
         """
         return pulumi.get(self, "arn")
 
@@ -50,7 +50,7 @@ class GetConnectorResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A summary description of the connector.
+        Summary description of the connector.
         """
         return pulumi.get(self, "description")
 
@@ -71,7 +71,7 @@ class GetConnectorResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        The current version of the connector.
+        Current version of the connector.
         """
         return pulumi.get(self, "version")
 

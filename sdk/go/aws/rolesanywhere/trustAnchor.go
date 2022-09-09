@@ -106,9 +106,10 @@ type TrustAnchor struct {
 	// The name of the Trust Anchor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The source of trust, documented below
-	Source  TrustAnchorSourceOutput `pulumi:"source"`
-	Tags    pulumi.StringMapOutput  `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput  `pulumi:"tagsAll"`
+	Source TrustAnchorSourceOutput `pulumi:"source"`
+	Tags   pulumi.StringMapOutput  `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
@@ -150,9 +151,10 @@ type trustAnchorState struct {
 	// The name of the Trust Anchor.
 	Name *string `pulumi:"name"`
 	// The source of trust, documented below
-	Source  *TrustAnchorSource `pulumi:"source"`
-	Tags    map[string]string  `pulumi:"tags"`
-	TagsAll map[string]string  `pulumi:"tagsAll"`
+	Source *TrustAnchorSource `pulumi:"source"`
+	Tags   map[string]string  `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TrustAnchorState struct {
@@ -163,8 +165,9 @@ type TrustAnchorState struct {
 	// The name of the Trust Anchor.
 	Name pulumi.StringPtrInput
 	// The source of trust, documented below
-	Source  TrustAnchorSourcePtrInput
-	Tags    pulumi.StringMapInput
+	Source TrustAnchorSourcePtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -304,6 +307,7 @@ func (o TrustAnchorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrustAnchorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

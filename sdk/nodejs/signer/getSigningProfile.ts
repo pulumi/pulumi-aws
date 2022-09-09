@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,11 +38,11 @@ export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.Inv
  */
 export interface GetSigningProfileArgs {
     /**
-     * The name of the target signing profile.
+     * Name of the target signing profile.
      */
     name: string;
     /**
-     * A list of tags associated with the signing profile.
+     * List of tags associated with the signing profile.
      */
     tags?: {[key: string]: string};
 }
@@ -50,7 +52,7 @@ export interface GetSigningProfileArgs {
  */
 export interface GetSigningProfileResult {
     /**
-     * The Amazon Resource Name (ARN) for the signing profile.
+     * ARN for the signing profile.
      */
     readonly arn: string;
     /**
@@ -63,7 +65,7 @@ export interface GetSigningProfileResult {
      */
     readonly platformDisplayName: string;
     /**
-     * The ID of the platform that is used by the target signing profile.
+     * ID of the platform that is used by the target signing profile.
      */
     readonly platformId: string;
     /**
@@ -75,19 +77,19 @@ export interface GetSigningProfileResult {
      */
     readonly signatureValidityPeriods: outputs.signer.GetSigningProfileSignatureValidityPeriod[];
     /**
-     * The status of the target signing profile.
+     * Status of the target signing profile.
      */
     readonly status: string;
     /**
-     * A list of tags associated with the signing profile.
+     * List of tags associated with the signing profile.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The current version of the signing profile.
+     * Current version of the signing profile.
      */
     readonly version: string;
     /**
-     * The signing profile ARN, including the profile version.
+     * Signing profile ARN, including the profile version.
      */
     readonly versionArn: string;
 }
@@ -101,11 +103,11 @@ export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?
  */
 export interface GetSigningProfileOutputArgs {
     /**
-     * The name of the target signing profile.
+     * Name of the target signing profile.
      */
     name: pulumi.Input<string>;
     /**
-     * A list of tags associated with the signing profile.
+     * List of tags associated with the signing profile.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

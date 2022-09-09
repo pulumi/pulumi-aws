@@ -16,14 +16,14 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetSubnetGroupPlainArgs Empty = new GetSubnetGroupPlainArgs();
 
     /**
-     * The name of the cluster subnet group for which information is requested.
+     * Name of the cluster subnet group for which information is requested.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the cluster subnet group for which information is requested.
+     * @return Name of the cluster subnet group for which information is requested.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The tags associated to the Subnet Group
+     * Tags associated to the Subnet Group
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags associated to the Subnet Group
+     * @return Tags associated to the Subnet Group
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The name of the cluster subnet group for which information is requested.
+         * @param name Name of the cluster subnet group for which information is requested.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetSubnetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags The tags associated to the Subnet Group
+         * @param tags Tags associated to the Subnet Group
          * 
          * @return builder
          * 

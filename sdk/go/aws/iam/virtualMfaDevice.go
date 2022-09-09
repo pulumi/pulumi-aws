@@ -60,7 +60,8 @@ type VirtualMfaDevice struct {
 	// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
 	QrCodePng pulumi.StringOutput `pulumi:"qrCodePng"`
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName pulumi.StringOutput `pulumi:"virtualMfaDeviceName"`
@@ -107,7 +108,8 @@ type virtualMfaDeviceState struct {
 	// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
 	QrCodePng *string `pulumi:"qrCodePng"`
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName *string `pulumi:"virtualMfaDeviceName"`
@@ -123,7 +125,8 @@ type VirtualMfaDeviceState struct {
 	// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
 	QrCodePng pulumi.StringPtrInput
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName pulumi.StringPtrInput
@@ -264,6 +267,7 @@ func (o VirtualMfaDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualMfaDeviceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

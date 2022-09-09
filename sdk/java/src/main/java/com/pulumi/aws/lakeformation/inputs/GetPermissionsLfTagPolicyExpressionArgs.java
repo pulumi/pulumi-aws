@@ -15,14 +15,14 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
     public static final GetPermissionsLfTagPolicyExpressionArgs Empty = new GetPermissionsLfTagPolicyExpressionArgs();
 
     /**
-     * The key-name of an LF-Tag.
+     * Key-name of an LF-Tag.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The key-name of an LF-Tag.
+     * @return Key-name of an LF-Tag.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
     }
 
     /**
-     * A list of possible values of an LF-Tag.
+     * List of possible values of an LF-Tag.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return A list of possible values of an LF-Tag.
+     * @return List of possible values of an LF-Tag.
      * 
      */
     public Output<List<String>> values() {
@@ -70,7 +70,7 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
         }
 
         /**
-         * @param key The key-name of an LF-Tag.
+         * @param key Key-name of an LF-Tag.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
         }
 
         /**
-         * @param key The key-name of an LF-Tag.
+         * @param key Key-name of an LF-Tag.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A list of possible values of an LF-Tag.
+         * @param values List of possible values of an LF-Tag.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A list of possible values of an LF-Tag.
+         * @param values List of possible values of an LF-Tag.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A list of possible values of an LF-Tag.
+         * @param values List of possible values of an LF-Tag.
          * 
          * @return builder
          * 

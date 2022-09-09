@@ -22,13 +22,16 @@ class GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
-    def __init__(__self__, ami_type=None, arn=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
+    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
         if ami_type and not isinstance(ami_type, str):
             raise TypeError("Expected argument 'ami_type' to be a str")
         pulumi.set(__self__, "ami_type", ami_type)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if capacity_type and not isinstance(capacity_type, str):
+            raise TypeError("Expected argument 'capacity_type' to be a str")
+        pulumi.set(__self__, "capacity_type", capacity_type)
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -90,9 +93,17 @@ class GetNodeGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the EKS Node Group.
+        ARN of the EKS Node Group.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="capacityType")
+    def capacity_type(self) -> str:
+        """
+        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+        """
+        return pulumi.get(self, "capacity_type")
 
     @property
     @pulumi.getter(name="clusterName")
@@ -140,7 +151,7 @@ class GetNodeGroupResult:
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        ARN of the IAM Role that provides permissions for the EKS Node Group.
         """
         return pulumi.get(self, "node_role_arn")
 
@@ -225,6 +236,7 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
         return GetNodeGroupResult(
             ami_type=self.ami_type,
             arn=self.arn,
+            capacity_type=self.capacity_type,
             cluster_name=self.cluster_name,
             disk_size=self.disk_size,
             id=self.id,
@@ -261,8 +273,8 @@ def get_node_group(cluster_name: Optional[str] = None,
     ```
 
 
-    :param str cluster_name: The name of the cluster.
-    :param str node_group_name: The name of the node group.
+    :param str cluster_name: Name of the cluster.
+    :param str node_group_name: Name of the node group.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
@@ -275,6 +287,7 @@ def get_node_group(cluster_name: Optional[str] = None,
     return AwaitableGetNodeGroupResult(
         ami_type=__ret__.ami_type,
         arn=__ret__.arn,
+        capacity_type=__ret__.capacity_type,
         cluster_name=__ret__.cluster_name,
         disk_size=__ret__.disk_size,
         id=__ret__.id,
@@ -312,8 +325,8 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str cluster_name: The name of the cluster.
-    :param str node_group_name: The name of the node group.
+    :param str cluster_name: Name of the cluster.
+    :param str node_group_name: Name of the node group.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

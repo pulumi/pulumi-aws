@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly ImmutableArray<string> EnabledPolicyTypes;
         /// <summary>
-        /// The FeatureSet of the organization.
+        /// FeatureSet of the organization.
         /// </summary>
         public readonly string FeatureSet;
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+        /// ARN of the account that is designated as the master account for the organization.
         /// </summary>
         public readonly string MasterAccountArn;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string MasterAccountEmail;
         /// <summary>
-        /// The unique identifier (ID) of the master account of an organization.
+        /// Unique identifier (ID) of the master account of an organization.
         /// </summary>
         public readonly string MasterAccountId;
         /// <summary>

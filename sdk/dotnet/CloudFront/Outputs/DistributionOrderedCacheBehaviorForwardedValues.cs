@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies Cookies;
         /// <summary>
-        /// Specifies the Headers, if any, that you want
+        /// Headers, if any, that you want
         /// CloudFront to vary upon for this cache behavior. Specify `*` to include all
         /// headers.
         /// </summary>

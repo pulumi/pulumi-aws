@@ -48,7 +48,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the configuration.
+        ARN of the configuration.
         """
         return pulumi.get(self, "arn")
 

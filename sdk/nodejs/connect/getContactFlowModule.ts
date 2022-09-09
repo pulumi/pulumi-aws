@@ -64,7 +64,7 @@ export interface GetContactFlowModuleArgs {
      */
     name?: string;
     /**
-     * A map of tags to assign to the Contact Flow Module.
+     * Map of tags to assign to the Contact Flow Module.
      */
     tags?: {[key: string]: string};
 }
@@ -74,16 +74,16 @@ export interface GetContactFlowModuleArgs {
  */
 export interface GetContactFlowModuleResult {
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow Module.
+     * ARN of the Contact Flow Module.
      */
     readonly arn: string;
     readonly contactFlowModuleId: string;
     /**
-     * Specifies the logic of the Contact Flow Module.
+     * Logic of the Contact Flow Module.
      */
     readonly content: string;
     /**
-     * Specifies the description of the Contact Flow Module.
+     * Description of the Contact Flow Module.
      */
     readonly description: string;
     /**
@@ -93,15 +93,15 @@ export interface GetContactFlowModuleResult {
     readonly instanceId: string;
     readonly name: string;
     /**
-     * Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+     * Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      */
     readonly state: string;
     /**
-     * The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+     * Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
      */
     readonly status: string;
     /**
-     * A map of tags to assign to the Contact Flow Module.
+     * Map of tags to assign to the Contact Flow Module.
      */
     readonly tags: {[key: string]: string};
 }
@@ -127,7 +127,7 @@ export interface GetContactFlowModuleOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the Contact Flow Module.
+     * Map of tags to assign to the Contact Flow Module.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

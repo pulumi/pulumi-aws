@@ -70,8 +70,9 @@ type Thesaurus struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status      pulumi.StringOutput    `pulumi:"status"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
 }
@@ -127,8 +128,9 @@ type thesaurusState struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status      *string           `pulumi:"status"`
-	Tags        map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
 }
@@ -147,8 +149,9 @@ type ThesaurusState struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
-	Status      pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
 }
@@ -312,6 +315,7 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

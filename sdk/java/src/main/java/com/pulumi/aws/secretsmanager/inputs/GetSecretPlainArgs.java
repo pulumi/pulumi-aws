@@ -15,14 +15,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSecretPlainArgs Empty = new GetSecretPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the secret to retrieve.
+     * ARN of the secret to retrieve.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret to retrieve.
+     * @return ARN of the secret to retrieve.
      * 
      */
     public Optional<String> arn() {
@@ -30,14 +30,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the secret to retrieve.
+     * Name of the secret to retrieve.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the secret to retrieve.
+     * @return Name of the secret to retrieve.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the secret to retrieve.
+         * @param arn ARN of the secret to retrieve.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the secret to retrieve.
+         * @param name Name of the secret to retrieve.
          * 
          * @return builder
          * 

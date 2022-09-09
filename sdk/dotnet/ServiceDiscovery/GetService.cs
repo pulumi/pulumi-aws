@@ -72,13 +72,13 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service.
+        /// Name of the service.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the namespace that the service belongs to.
+        /// ID of the namespace that the service belongs to.
         /// </summary>
         [Input("namespaceId", required: true)]
         public string NamespaceId { get; set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the service.
+        /// Name of the service.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the namespace that the service belongs to.
+        /// ID of the namespace that the service belongs to.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -138,19 +138,19 @@ namespace Pulumi.Aws.ServiceDiscovery
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// The ARN of the service.
+        /// ARN of the service.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the service.
+        /// Description of the service.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsConfigResult> DnsConfigs;
         /// <summary>
-        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckConfigResult> HealthCheckConfigs;
         /// <summary>
@@ -163,15 +163,15 @@ namespace Pulumi.Aws.ServiceDiscovery
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
+        /// ID of the namespace to use for DNS configuration.
         /// </summary>
         public readonly string NamespaceId;
         /// <summary>
-        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> TagsAll;
 

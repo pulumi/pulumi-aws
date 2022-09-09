@@ -17,12 +17,12 @@ public final class GetServiceDnsConfig {
      */
     private List<GetServiceDnsConfigDnsRecord> dnsRecords;
     /**
-     * @return The ID of the namespace that the service belongs to.
+     * @return ID of the namespace that the service belongs to.
      * 
      */
     private String namespaceId;
     /**
-     * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+     * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
     private String routingPolicy;
@@ -36,14 +36,14 @@ public final class GetServiceDnsConfig {
         return this.dnsRecords;
     }
     /**
-     * @return The ID of the namespace that the service belongs to.
+     * @return ID of the namespace that the service belongs to.
      * 
      */
     public String namespaceId() {
         return this.namespaceId;
     }
     /**
-     * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+     * @return Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
     public String routingPolicy() {

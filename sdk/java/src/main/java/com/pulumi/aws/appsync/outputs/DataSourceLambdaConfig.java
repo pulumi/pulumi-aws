@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceLambdaConfig {
     /**
-     * @return The ARN for the Lambda function.
+     * @return ARN for the Lambda function.
      * 
      */
     private String functionArn;
 
     private DataSourceLambdaConfig() {}
     /**
-     * @return The ARN for the Lambda function.
+     * @return ARN for the Lambda function.
      * 
      */
     public String functionArn() {

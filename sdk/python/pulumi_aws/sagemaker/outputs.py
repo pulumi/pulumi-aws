@@ -3965,7 +3965,7 @@ class WorkforceCognitoConfig(dict):
                  user_pool: str):
         """
         :param str client_id: The OIDC IdP client ID used to configure your private workforce.
-        :param str user_pool: The id for your Amazon Cognito user pool.
+        :param str user_pool: ID for your Amazon Cognito user pool.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool", user_pool)
@@ -3982,7 +3982,7 @@ class WorkforceCognitoConfig(dict):
     @pulumi.getter(name="userPool")
     def user_pool(self) -> str:
         """
-        The id for your Amazon Cognito user pool.
+        ID for your Amazon Cognito user pool.
         """
         return pulumi.get(self, "user_pool")
 

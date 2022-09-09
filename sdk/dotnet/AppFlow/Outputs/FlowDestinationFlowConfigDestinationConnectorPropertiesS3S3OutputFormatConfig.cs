@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig
     {
         /// <summary>
-        /// The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+        /// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig? AggregationConfig;
         /// <summary>
-        /// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        /// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         /// </summary>
         public readonly string? FileType;
         /// <summary>

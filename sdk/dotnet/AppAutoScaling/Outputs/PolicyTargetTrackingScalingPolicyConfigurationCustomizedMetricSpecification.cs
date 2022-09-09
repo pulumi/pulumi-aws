@@ -18,19 +18,19 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> Dimensions;
         /// <summary>
-        /// The name of the metric.
+        /// Name of the metric.
         /// </summary>
         public readonly string MetricName;
         /// <summary>
-        /// The namespace of the metric.
+        /// Namespace of the metric.
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         /// </summary>
         public readonly string Statistic;
         /// <summary>
-        /// The unit of the metric.
+        /// Unit of the metric.
         /// </summary>
         public readonly string? Unit;
 

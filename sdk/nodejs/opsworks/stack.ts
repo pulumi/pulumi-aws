@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -164,7 +166,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -350,7 +352,7 @@ export interface StackState {
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -451,7 +453,7 @@ export interface StackArgs {
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
-     * The id of the VPC that this stack belongs to.
+     * ID of the VPC that this stack belongs to.
      */
     vpcId?: pulumi.Input<string>;
 }

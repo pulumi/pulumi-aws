@@ -34,14 +34,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
     @Import(name="dnsTarget")
     private @Nullable Output<String> dnsTarget;
 
     /**
-     * @return The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
     public Optional<Output<String>> dnsTarget() {
@@ -49,14 +49,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -79,14 +79,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      * 
      */
     @Import(name="serviceArn")
     private @Nullable Output<String> serviceArn;
 
     /**
-     * @return The ARN of the App Runner service.
+     * @return ARN of the App Runner service.
      * 
      */
     public Optional<Output<String>> serviceArn() {
@@ -94,14 +94,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     public Optional<Output<String>> status() {
@@ -169,7 +169,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dnsTarget The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dnsTarget The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceArn The ARN of the App Runner service.
+         * @param serviceArn ARN of the App Runner service.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceArn The ARN of the App Runner service.
+         * @param serviceArn ARN of the App Runner service.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 

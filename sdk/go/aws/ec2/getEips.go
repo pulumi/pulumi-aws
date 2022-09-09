@@ -56,18 +56,18 @@ func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption
 type GetEipsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetEipsFilter `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEips.
 type GetEipsResult struct {
-	// A list of all the allocation IDs for address for use with EC2-VPC.
+	// List of all the allocation IDs for address for use with EC2-VPC.
 	AllocationIds []string        `pulumi:"allocationIds"`
 	Filters       []GetEipsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the Elastic IP addresses.
+	// List of all the Elastic IP addresses.
 	PublicIps []string          `pulumi:"publicIps"`
 	Tags      map[string]string `pulumi:"tags"`
 }
@@ -89,7 +89,7 @@ func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.I
 type GetEipsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetEipsFilterArrayInput `pulumi:"filters"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
+	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -112,7 +112,7 @@ func (o GetEipsResultOutput) ToGetEipsResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A list of all the allocation IDs for address for use with EC2-VPC.
+// List of all the allocation IDs for address for use with EC2-VPC.
 func (o GetEipsResultOutput) AllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.AllocationIds }).(pulumi.StringArrayOutput)
 }
@@ -126,7 +126,7 @@ func (o GetEipsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEipsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the Elastic IP addresses.
+// List of all the Elastic IP addresses.
 func (o GetEipsResultOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }

@@ -15,14 +15,14 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
     public static final ResponseHeadersPolicyServerTimingHeadersConfigArgs Empty = new ResponseHeadersPolicyServerTimingHeadersConfigArgs();
 
     /**
-     * A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+     * A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
     public Output<Boolean> enabled() {
@@ -70,7 +70,7 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
         }
 
         /**
-         * @param enabled A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+         * @param enabled A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
         }
 
         /**
-         * @param enabled A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
+         * @param enabled A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
          * 
          * @return builder
          * 

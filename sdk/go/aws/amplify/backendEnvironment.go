@@ -58,15 +58,15 @@ import (
 type BackendEnvironment struct {
 	pulumi.CustomResourceState
 
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of deployment artifacts.
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringOutput `pulumi:"deploymentArtifacts"`
-	// The name for the backend environment.
+	// Name for the backend environment.
 	EnvironmentName pulumi.StringOutput `pulumi:"environmentName"`
-	// The AWS CloudFormation stack name of a backend environment.
+	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
@@ -105,28 +105,28 @@ func GetBackendEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendEnvironment resources.
 type backendEnvironmentState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId *string `pulumi:"appId"`
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	Arn *string `pulumi:"arn"`
-	// The name of deployment artifacts.
+	// Name of deployment artifacts.
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
-	// The name for the backend environment.
+	// Name for the backend environment.
 	EnvironmentName *string `pulumi:"environmentName"`
-	// The AWS CloudFormation stack name of a backend environment.
+	// AWS CloudFormation stack name of a backend environment.
 	StackName *string `pulumi:"stackName"`
 }
 
 type BackendEnvironmentState struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+	// ARN for a backend environment that is part of an Amplify app.
 	Arn pulumi.StringPtrInput
-	// The name of deployment artifacts.
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringPtrInput
-	// The name for the backend environment.
+	// Name for the backend environment.
 	EnvironmentName pulumi.StringPtrInput
-	// The AWS CloudFormation stack name of a backend environment.
+	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringPtrInput
 }
 
@@ -135,25 +135,25 @@ func (BackendEnvironmentState) ElementType() reflect.Type {
 }
 
 type backendEnvironmentArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// The name of deployment artifacts.
+	// Name of deployment artifacts.
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
-	// The name for the backend environment.
+	// Name for the backend environment.
 	EnvironmentName string `pulumi:"environmentName"`
-	// The AWS CloudFormation stack name of a backend environment.
+	// AWS CloudFormation stack name of a backend environment.
 	StackName *string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a BackendEnvironment resource.
 type BackendEnvironmentArgs struct {
-	// The unique ID for an Amplify app.
+	// Unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// The name of deployment artifacts.
+	// Name of deployment artifacts.
 	DeploymentArtifacts pulumi.StringPtrInput
-	// The name for the backend environment.
+	// Name for the backend environment.
 	EnvironmentName pulumi.StringInput
-	// The AWS CloudFormation stack name of a backend environment.
+	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringPtrInput
 }
 
@@ -244,27 +244,27 @@ func (o BackendEnvironmentOutput) ToBackendEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
-// The unique ID for an Amplify app.
+// Unique ID for an Amplify app.
 func (o BackendEnvironmentOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app.
+// ARN for a backend environment that is part of an Amplify app.
 func (o BackendEnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of deployment artifacts.
+// Name of deployment artifacts.
 func (o BackendEnvironmentOutput) DeploymentArtifacts() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.DeploymentArtifacts }).(pulumi.StringOutput)
 }
 
-// The name for the backend environment.
+// Name for the backend environment.
 func (o BackendEnvironmentOutput) EnvironmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
 }
 
-// The AWS CloudFormation stack name of a backend environment.
+// AWS CloudFormation stack name of a backend environment.
 func (o BackendEnvironmentOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

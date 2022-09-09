@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +37,7 @@ export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi
  */
 export interface GetReplicationGroupArgs {
     /**
-     * The identifier for the replication group.
+     * Identifier for the replication group.
      */
     replicationGroupId: string;
 }
@@ -45,11 +47,11 @@ export interface GetReplicationGroupArgs {
  */
 export interface GetReplicationGroupResult {
     /**
-     * The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+     * ARN of the created ElastiCache Replication Group.
      */
     readonly arn: string;
     /**
-     * Specifies whether an AuthToken (password) is enabled.
+     * Whether an AuthToken (password) is enabled.
      */
     readonly authTokenEnabled: boolean;
     /**
@@ -61,7 +63,7 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndpointAddress: string;
     /**
-     * The description of the replication group.
+     * Description of the replication group.
      */
     readonly description: string;
     /**
@@ -73,11 +75,11 @@ export interface GetReplicationGroupResult {
      */
     readonly logDeliveryConfigurations: outputs.elasticache.GetReplicationGroupLogDeliveryConfiguration[];
     /**
-     * The identifiers of all the nodes that are part of this replication group.
+     * Identifiers of all the nodes that are part of this replication group.
      */
     readonly memberClusters: string[];
     /**
-     * Specifies whether Multi-AZ Support is enabled for the replication group.
+     * Whether Multi-AZ Support is enabled for the replication group.
      */
     readonly multiAzEnabled: boolean;
     /**
@@ -93,7 +95,7 @@ export interface GetReplicationGroupResult {
      */
     readonly numNodeGroups: number;
     /**
-     * (**Deprecated** use `numCacheClusters` instead) The number of cache clusters that the replication group has.
+     * (**Deprecated** use `numCacheClusters` instead) Number of cache clusters that the replication group has.
      *
      * @deprecated Use num_cache_clusters instead
      */
@@ -115,7 +117,7 @@ export interface GetReplicationGroupResult {
      */
     readonly replicasPerNodeGroup: number;
     /**
-     * (**Deprecated** use `description` instead) The description of the replication group.
+     * (**Deprecated** use `description` instead) Description of the replication group.
      *
      * @deprecated Use description instead
      */
@@ -126,7 +128,7 @@ export interface GetReplicationGroupResult {
      */
     readonly snapshotRetentionLimit: number;
     /**
-     * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+     * Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
     readonly snapshotWindow: string;
 }
@@ -140,7 +142,7 @@ export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, o
  */
 export interface GetReplicationGroupOutputArgs {
     /**
-     * The identifier for the replication group.
+     * Identifier for the replication group.
      */
     replicationGroupId: pulumi.Input<string>;
 }

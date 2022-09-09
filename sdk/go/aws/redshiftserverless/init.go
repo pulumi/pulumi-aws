@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:redshiftserverless/endpointAccess:EndpointAccess":
+		r = &EndpointAccess{}
 	case "aws:redshiftserverless/namespace:Namespace":
 		r = &Namespace{}
 	case "aws:redshiftserverless/workgroup:Workgroup":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshiftserverless/endpointAccess",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshiftserverless/namespace",

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class GraphQLApiAdditionalAuthenticationProvider
     {
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? OpenidConnectConfig;
         /// <summary>
-        /// The Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. Defined below.
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? UserPoolConfig;
 

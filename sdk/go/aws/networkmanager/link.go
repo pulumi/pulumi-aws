@@ -68,8 +68,9 @@ type Link struct {
 	// The provider of the link.
 	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId  pulumi.StringOutput    `pulumi:"siteId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	SiteId pulumi.StringOutput    `pulumi:"siteId"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the link.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -124,8 +125,9 @@ type linkState struct {
 	// The provider of the link.
 	ProviderName *string `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId  *string           `pulumi:"siteId"`
-	Tags    map[string]string `pulumi:"tags"`
+	SiteId *string           `pulumi:"siteId"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the link.
 	Type *string `pulumi:"type"`
@@ -143,8 +145,9 @@ type LinkState struct {
 	// The provider of the link.
 	ProviderName pulumi.StringPtrInput
 	// The ID of the site.
-	SiteId  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	SiteId pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of the link.
 	Type pulumi.StringPtrInput
@@ -308,6 +311,7 @@ func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,17 +13,17 @@ import java.util.Objects;
 @CustomType
 public final class GetFaqResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the FAQ.
+     * @return ARN of the FAQ.
      * 
      */
     private String arn;
     /**
-     * @return The Unix datetime that the faq was created.
+     * @return Unix datetime that the faq was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The description of the FAQ.
+     * @return Description of the FAQ.
      * 
      */
     private String description;
@@ -34,7 +34,7 @@ public final class GetFaqResult {
     private String errorMessage;
     private String faqId;
     /**
-     * @return The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      * 
      */
     private String fileFormat;
@@ -45,27 +45,27 @@ public final class GetFaqResult {
     private String id;
     private String indexId;
     /**
-     * @return The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * @return Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
     private String languageCode;
     /**
-     * @return Specifies the name of the FAQ.
+     * @return Name of the FAQ.
      * 
      */
     private String name;
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     private String roleArn;
     /**
-     * @return The S3 location of the FAQ input data. Detailed below.
+     * @return S3 location of the FAQ input data. Detailed below.
      * 
      */
     private List<GetFaqS3Path> s3Paths;
     /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     private String status;
@@ -75,28 +75,28 @@ public final class GetFaqResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The date and time that the FAQ was last updated.
+     * @return Date and time that the FAQ was last updated.
      * 
      */
     private String updatedAt;
 
     private GetFaqResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the FAQ.
+     * @return ARN of the FAQ.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The Unix datetime that the faq was created.
+     * @return Unix datetime that the faq was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The description of the FAQ.
+     * @return Description of the FAQ.
      * 
      */
     public String description() {
@@ -113,7 +113,7 @@ public final class GetFaqResult {
         return this.faqId;
     }
     /**
-     * @return The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      * 
      */
     public String fileFormat() {
@@ -130,35 +130,35 @@ public final class GetFaqResult {
         return this.indexId;
     }
     /**
-     * @return The code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * @return Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
     public String languageCode() {
         return this.languageCode;
     }
     /**
-     * @return Specifies the name of the FAQ.
+     * @return Name of the FAQ.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The S3 location of the FAQ input data. Detailed below.
+     * @return S3 location of the FAQ input data. Detailed below.
      * 
      */
     public List<GetFaqS3Path> s3Paths() {
         return this.s3Paths;
     }
     /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     public String status() {
@@ -172,7 +172,7 @@ public final class GetFaqResult {
         return this.tags;
     }
     /**
-     * @return The date and time that the FAQ was last updated.
+     * @return Date and time that the FAQ was last updated.
      * 
      */
     public String updatedAt() {

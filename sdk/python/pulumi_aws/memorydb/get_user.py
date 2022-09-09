@@ -49,7 +49,7 @@ class GetUserResult:
     @pulumi.getter(name="accessString")
     def access_string(self) -> str:
         """
-        The access permissions string used for this user.
+        Access permissions string used for this user.
         """
         return pulumi.get(self, "access_string")
 
@@ -89,7 +89,7 @@ class GetUserResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags assigned to the subnet group.
+        Map of tags assigned to the subnet group.
         """
         return pulumi.get(self, "tags")
 
@@ -130,7 +130,7 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     ```
 
 
-    :param Mapping[str, str] tags: A map of tags assigned to the subnet group.
+    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
     :param str user_name: Name of the user.
     """
     __args__ = dict()
@@ -166,7 +166,7 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     ```
 
 
-    :param Mapping[str, str] tags: A map of tags assigned to the subnet group.
+    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
     :param str user_name: Name of the user.
     """
     ...

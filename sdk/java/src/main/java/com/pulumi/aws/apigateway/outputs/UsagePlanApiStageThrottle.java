@@ -19,7 +19,7 @@ public final class UsagePlanApiStageThrottle {
      */
     private @Nullable Integer burstLimit;
     /**
-     * @return The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
     private String path;
@@ -38,7 +38,7 @@ public final class UsagePlanApiStageThrottle {
         return Optional.ofNullable(this.burstLimit);
     }
     /**
-     * @return The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
     public String path() {

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecTcpRouteTimeout {
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     private @Nullable RouteSpecTcpRouteTimeoutIdle idle;
 
     private RouteSpecTcpRouteTimeout() {}
     /**
-     * @return The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
     public Optional<RouteSpecTcpRouteTimeoutIdle> idle() {

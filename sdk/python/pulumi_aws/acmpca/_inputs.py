@@ -96,13 +96,13 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
         :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
         :param pulumi.Input[str] given_name: First name. Must be less than or equal to 16 characters in length.
         :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
-        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        :param pulumi.Input[str] locality: Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] organizational_unit: Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[str] state: State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[str] surname: Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
-        :param pulumi.Input[str] title: A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[str] title: Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -207,7 +207,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
         """
-        The locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "locality")
 
@@ -231,7 +231,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "organizational_unit")
 
@@ -279,7 +279,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+        Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "title")
 
@@ -422,7 +422,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
                  ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
-        :param pulumi.Input[str] ocsp_custom_cname: A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        :param pulumi.Input[str] ocsp_custom_cname: CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         """
         pulumi.set(__self__, "enabled", enabled)
         if ocsp_custom_cname is not None:
@@ -444,7 +444,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
     @pulumi.getter(name="ocspCustomCname")
     def ocsp_custom_cname(self) -> Optional[pulumi.Input[str]]:
         """
-        A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         """
         return pulumi.get(self, "ocsp_custom_cname")
 

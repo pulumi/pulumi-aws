@@ -98,7 +98,7 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.
     """
     __args__ = dict()
@@ -137,7 +137,7 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.
     """
     ...

@@ -460,7 +460,8 @@ type TaskDefinition struct {
 	Revision pulumi.IntOutput `pulumi:"revision"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
-	SkipDestroy     pulumi.BoolPtrOutput                   `pulumi:"skipDestroy"`
+	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -538,7 +539,8 @@ type taskDefinitionState struct {
 	Revision *int `pulumi:"revision"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
-	SkipDestroy     *bool                          `pulumi:"skipDestroy"`
+	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -582,7 +584,8 @@ type TaskDefinitionState struct {
 	Revision pulumi.IntPtrInput
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
-	SkipDestroy     pulumi.BoolPtrInput
+	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+	SkipDestroy pulumi.BoolPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -626,7 +629,8 @@ type taskDefinitionArgs struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
-	SkipDestroy     *bool                          `pulumi:"skipDestroy"`
+	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -665,7 +669,8 @@ type TaskDefinitionArgs struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Configuration block for runtimePlatform that containers in your task may use.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
-	SkipDestroy     pulumi.BoolPtrInput
+	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+	SkipDestroy pulumi.BoolPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -841,6 +846,7 @@ func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtr
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }
 
+// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
 func (o TaskDefinitionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }

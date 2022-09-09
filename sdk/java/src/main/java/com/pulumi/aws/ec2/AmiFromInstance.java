@@ -86,56 +86,56 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.architecture;
     }
     /**
-     * The ARN of the AMI.
+     * ARN of the AMI.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the AMI.
+     * @return ARN of the AMI.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     @Export(name="bootMode", type=String.class, parameters={})
     private Output<String> bootMode;
 
     /**
-     * @return The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public Output<String> bootMode() {
         return this.bootMode;
     }
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Export(name="deprecationTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Output<Optional<String>> deprecationTime() {
         return Codegen.optional(this.deprecationTime);
     }
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Output<Optional<String>> description() {
@@ -158,14 +158,14 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.ebsBlockDevices;
     }
     /**
-     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     @Export(name="enaSupport", type=Boolean.class, parameters={})
     private Output<Boolean> enaSupport;
 
     /**
-     * @return Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     * @return Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
     public Output<Boolean> enaSupport() {
@@ -222,7 +222,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.imageType;
     }
     /**
-     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -230,7 +230,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     private Output<String> kernelId;
 
     /**
-     * @return The id of the kernel image (AKI) that will be used as the paravirtual
+     * @return ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
@@ -244,14 +244,14 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.manageEbsSnapshots;
     }
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Output<String> name() {
@@ -282,7 +282,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.public_;
     }
     /**
-     * The id of an initrd image (ARI) that will be used when booting the
+     * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -290,7 +290,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     private Output<String> ramdiskId;
 
     /**
-     * @return The id of an initrd image (ARI) that will be used when booting the
+     * @return ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
@@ -298,14 +298,14 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.ramdiskId;
     }
     /**
-     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     @Export(name="rootDeviceName", type=String.class, parameters={})
     private Output<String> rootDeviceName;
 
     /**
-     * @return The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     * @return Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
     public Output<String> rootDeviceName() {
@@ -338,14 +338,14 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotWithoutReboot);
     }
     /**
-     * The id of the instance to use as the basis of the AMI.
+     * ID of the instance to use as the basis of the AMI.
      * 
      */
     @Export(name="sourceInstanceId", type=String.class, parameters={})
     private Output<String> sourceInstanceId;
 
     /**
-     * @return The id of the instance to use as the basis of the AMI.
+     * @return ID of the instance to use as the basis of the AMI.
      * 
      */
     public Output<String> sourceInstanceId() {
@@ -368,14 +368,14 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
         return this.sriovNetSupport;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

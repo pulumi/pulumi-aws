@@ -11,9 +11,9 @@ import (
 )
 
 type ConfigurationProfileValidator struct {
-	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content *string `pulumi:"content"`
-	// The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+	// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
 	Type string `pulumi:"type"`
 }
 
@@ -29,9 +29,9 @@ type ConfigurationProfileValidatorInput interface {
 }
 
 type ConfigurationProfileValidatorArgs struct {
-	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content pulumi.StringPtrInput `pulumi:"content"`
-	// The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+	// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -86,12 +86,12 @@ func (o ConfigurationProfileValidatorOutput) ToConfigurationProfileValidatorOutp
 	return o
 }
 
-// Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+// Either the JSON Schema content or the ARN of an AWS Lambda function.
 func (o ConfigurationProfileValidatorOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidator) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
 func (o ConfigurationProfileValidatorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidator) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -223,7 +223,7 @@ func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonit
 }
 
 type EventIntegrationEventFilter struct {
-	// The source of the events.
+	// Source of the events.
 	Source string `pulumi:"source"`
 }
 
@@ -239,7 +239,7 @@ type EventIntegrationEventFilterInput interface {
 }
 
 type EventIntegrationEventFilterArgs struct {
-	// The source of the events.
+	// Source of the events.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -320,7 +320,7 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutpu
 	}).(EventIntegrationEventFilterPtrOutput)
 }
 
-// The source of the events.
+// Source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -349,7 +349,7 @@ func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilter
 	}).(EventIntegrationEventFilterOutput)
 }
 
-// The source of the events.
+// Source of the events.
 func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventIntegrationEventFilter) *string {
 		if v == nil {

@@ -70,22 +70,22 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The AppConfig application ID. Must be between 4 and 7 characters in length.
+	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig Environment.
+	// ARN of the AppConfig Environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the environment. Can be at most 1024 characters.
+	// Description of the environment. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AppConfig environment ID.
+	// AppConfig environment ID.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayOutput `pulumi:"monitors"`
-	// The name for the environment. Must be between 1 and 64 characters in length.
+	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name  pulumi.StringOutput `pulumi:"name"`
 	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -121,42 +121,42 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	// The AppConfig application ID. Must be between 4 and 7 characters in length.
+	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId *string `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the AppConfig Environment.
+	// ARN of the AppConfig Environment.
 	Arn *string `pulumi:"arn"`
-	// The description of the environment. Can be at most 1024 characters.
+	// Description of the environment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The AppConfig environment ID.
+	// AppConfig environment ID.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors []EnvironmentMonitor `pulumi:"monitors"`
-	// The name for the environment. Must be between 1 and 64 characters in length.
+	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name  *string `pulumi:"name"`
 	State *string `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type EnvironmentState struct {
-	// The AppConfig application ID. Must be between 4 and 7 characters in length.
+	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AppConfig Environment.
+	// ARN of the AppConfig Environment.
 	Arn pulumi.StringPtrInput
-	// The description of the environment. Can be at most 1024 characters.
+	// Description of the environment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The AppConfig environment ID.
+	// AppConfig environment ID.
 	EnvironmentId pulumi.StringPtrInput
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayInput
-	// The name for the environment. Must be between 1 and 64 characters in length.
+	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name  pulumi.StringPtrInput
 	State pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -165,29 +165,29 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// The AppConfig application ID. Must be between 4 and 7 characters in length.
+	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId string `pulumi:"applicationId"`
-	// The description of the environment. Can be at most 1024 characters.
+	// Description of the environment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors []EnvironmentMonitor `pulumi:"monitors"`
-	// The name for the environment. Must be between 1 and 64 characters in length.
+	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// The AppConfig application ID. Must be between 4 and 7 characters in length.
+	// AppConfig application ID. Must be between 4 and 7 characters in length.
 	ApplicationId pulumi.StringInput
-	// The description of the environment. Can be at most 1024 characters.
+	// Description of the environment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
 	Monitors EnvironmentMonitorArrayInput
-	// The name for the environment. Must be between 1 and 64 characters in length.
+	// Name for the environment. Must be between 1 and 64 characters in length.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -278,22 +278,22 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// The AppConfig application ID. Must be between 4 and 7 characters in length.
+// AppConfig application ID. Must be between 4 and 7 characters in length.
 func (o EnvironmentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AppConfig Environment.
+// ARN of the AppConfig Environment.
 func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the environment. Can be at most 1024 characters.
+// Description of the environment. Can be at most 1024 characters.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AppConfig environment ID.
+// AppConfig environment ID.
 func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
@@ -303,7 +303,7 @@ func (o EnvironmentOutput) Monitors() EnvironmentMonitorArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentMonitorArrayOutput { return v.Monitors }).(EnvironmentMonitorArrayOutput)
 }
 
-// The name for the environment. Must be between 1 and 64 characters in length.
+// Name for the environment. Must be between 1 and 64 characters in length.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -312,12 +312,12 @@ func (o EnvironmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

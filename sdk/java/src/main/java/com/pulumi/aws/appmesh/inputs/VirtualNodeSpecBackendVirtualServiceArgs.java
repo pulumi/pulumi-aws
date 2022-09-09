@@ -17,14 +17,14 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
     public static final VirtualNodeSpecBackendVirtualServiceArgs Empty = new VirtualNodeSpecBackendVirtualServiceArgs();
 
     /**
-     * The client policy for the backend.
+     * Client policy for the backend.
      * 
      */
     @Import(name="clientPolicy")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyArgs> clientPolicy;
 
     /**
-     * @return The client policy for the backend.
+     * @return Client policy for the backend.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyArgs>> clientPolicy() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+     * Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="virtualServiceName", required=true)
     private Output<String> virtualServiceName;
 
     /**
-     * @return The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+     * @return Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> virtualServiceName() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
         }
 
         /**
-         * @param clientPolicy The client policy for the backend.
+         * @param clientPolicy Client policy for the backend.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
         }
 
         /**
-         * @param clientPolicy The client policy for the backend.
+         * @param clientPolicy Client policy for the backend.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
         }
 
         /**
-         * @param virtualServiceName The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+         * @param virtualServiceName Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs extends com.pulumi.r
         }
 
         /**
-         * @param virtualServiceName The name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+         * @param virtualServiceName Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

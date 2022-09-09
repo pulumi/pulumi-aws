@@ -72,13 +72,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the site to retrieve.
+        /// ID of the Global Network of the site to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The id of the specific site to retrieve.
+        /// ID of the specific site to retrieve.
         /// </summary>
         [Input("siteId", required: true)]
         public string SiteId { get; set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Global Network of the site to retrieve.
+        /// ID of the Global Network of the site to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The id of the specific site to retrieve.
+        /// ID of the specific site to retrieve.
         /// </summary>
         [Input("siteId", required: true)]
         public Input<string> SiteId { get; set; } = null!;
@@ -138,11 +138,11 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetSiteResult
     {
         /// <summary>
-        /// The ARN of the site.
+        /// ARN of the site.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the site.
+        /// Description of the site.
         /// </summary>
         public readonly string Description;
         public readonly string GlobalNetworkId;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The site location as documented below.
+        /// Site location as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSiteLocationResult> Locations;
         public readonly string SiteId;

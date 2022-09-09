@@ -21,14 +21,14 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     public static final AmiCopyArgs Empty = new AmiCopyArgs();
 
     /**
-     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     @Import(name="deprecationTime")
     private @Nullable Output<String> deprecationTime;
 
     /**
-     * @return The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     * @return Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
     public Optional<Output<String>> deprecationTime() {
@@ -36,14 +36,14 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A longer, human-readable description for the AMI.
+     * Longer, human-readable description for the AMI.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A longer, human-readable description for the AMI.
+     * @return Longer, human-readable description for the AMI.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,7 +51,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Outpost to which to copy the AMI.
+     * ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
@@ -59,7 +59,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> destinationOutpostArn;
 
     /**
-     * @return The ARN of the Outpost to which to copy the AMI.
+     * @return ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
@@ -117,7 +117,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      * 
@@ -126,7 +126,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * @return Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      * 
@@ -136,14 +136,14 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A region-unique name for the AMI.
+     * Region-unique name for the AMI.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A region-unique name for the AMI.
+     * @return Region-unique name for the AMI.
      * 
      */
     public Optional<Output<String>> name() {
@@ -151,7 +151,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the AMI to copy. This id must be valid in the region
+     * Id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      * 
      */
@@ -159,7 +159,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> sourceAmiId;
 
     /**
-     * @return The id of the AMI to copy. This id must be valid in the region
+     * @return Id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      * 
      */
@@ -168,7 +168,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region from which the AMI will be copied. This may be the
+     * Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
@@ -176,7 +176,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> sourceAmiRegion;
 
     /**
-     * @return The region from which the AMI will be copied. This may be the
+     * @return Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
@@ -185,14 +185,14 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -234,7 +234,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deprecationTime The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+         * @param deprecationTime Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A longer, human-readable description for the AMI.
+         * @param description Longer, human-readable description for the AMI.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationOutpostArn The ARN of the Outpost to which to copy the AMI.
+         * @param destinationOutpostArn ARN of the Outpost to which to copy the AMI.
          * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
          * 
          * @return builder
@@ -288,7 +288,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationOutpostArn The ARN of the Outpost to which to copy the AMI.
+         * @param destinationOutpostArn ARN of the Outpost to which to copy the AMI.
          * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
          * 
          * @return builder
@@ -388,7 +388,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+         * @param kmsKeyId Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
          * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
          * if this parameter is not specified, the default CMK for EBS is used
          * 
@@ -401,7 +401,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+         * @param kmsKeyId Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
          * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
          * if this parameter is not specified, the default CMK for EBS is used
          * 
@@ -413,7 +413,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A region-unique name for the AMI.
+         * @param name Region-unique name for the AMI.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId The id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
          * given by `source_ami_region`.
          * 
          * @return builder
@@ -446,7 +446,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiId The id of the AMI to copy. This id must be valid in the region
+         * @param sourceAmiId Id of the AMI to copy. This id must be valid in the region
          * given by `source_ami_region`.
          * 
          * @return builder
@@ -457,7 +457,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiRegion The region from which the AMI will be copied. This may be the
+         * @param sourceAmiRegion Region from which the AMI will be copied. This may be the
          * same as the AWS provider region in order to create a copy within the same region.
          * 
          * @return builder
@@ -469,7 +469,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAmiRegion The region from which the AMI will be copied. This may be the
+         * @param sourceAmiRegion Region from which the AMI will be copied. This may be the
          * same as the AWS provider region in order to create a copy within the same region.
          * 
          * @return builder
@@ -480,7 +480,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

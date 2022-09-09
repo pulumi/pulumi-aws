@@ -69,7 +69,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Application.
+     * ARN of the Application.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -90,20 +90,25 @@ export class Application extends pulumi.CustomResource {
     public readonly groupingType!: pulumi.Output<string | undefined>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
+     * <<<<<<< HEAD
      */
     public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group.
+     * Name of the resource group.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * >>>>>>> v4.29.0
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -155,7 +160,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * Amazon Resource Name (ARN) of the Application.
+     * ARN of the Application.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -176,20 +181,25 @@ export interface ApplicationState {
     groupingType?: pulumi.Input<string>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
+     * <<<<<<< HEAD
      */
     opsCenterEnabled?: pulumi.Input<boolean>;
     /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Name of the resource group.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * >>>>>>> v4.29.0
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -215,18 +225,20 @@ export interface ApplicationArgs {
     groupingType?: pulumi.Input<string>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
+     * <<<<<<< HEAD
      */
     opsCenterEnabled?: pulumi.Input<boolean>;
     /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * >>>>>>> v4.29.0
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

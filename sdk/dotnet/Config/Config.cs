@@ -349,6 +349,7 @@ namespace Pulumi.Aws
                 public ImmutableArray<string> PolicyArns { get; set; }
                 public string? RoleArn { get; set; } = null!;
                 public string? SessionName { get; set; } = null!;
+                public string? SourceIdentity { get; set; } = null!;
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
             }

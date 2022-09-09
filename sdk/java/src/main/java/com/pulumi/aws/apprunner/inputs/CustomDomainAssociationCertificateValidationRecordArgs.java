@@ -16,14 +16,14 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
     public static final CustomDomainAssociationCertificateValidationRecordArgs Empty = new CustomDomainAssociationCertificateValidationRecordArgs();
 
     /**
-     * The certificate CNAME record name.
+     * Certificate CNAME record name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The certificate CNAME record name.
+     * @return Certificate CNAME record name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
     }
 
     /**
-     * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     public Optional<Output<String>> status() {
@@ -46,14 +46,14 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
     }
 
     /**
-     * The record type, always `CNAME`.
+     * Record type, always `CNAME`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The record type, always `CNAME`.
+     * @return Record type, always `CNAME`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -61,14 +61,14 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
     }
 
     /**
-     * The certificate CNAME record value.
+     * Certificate CNAME record value.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The certificate CNAME record value.
+     * @return Certificate CNAME record value.
      * 
      */
     public Optional<Output<String>> value() {
@@ -103,7 +103,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param name The certificate CNAME record name.
+         * @param name Certificate CNAME record name.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param name The certificate CNAME record name.
+         * @param name Certificate CNAME record name.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param status The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param status The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param type The record type, always `CNAME`.
+         * @param type Record type, always `CNAME`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param type The record type, always `CNAME`.
+         * @param type Record type, always `CNAME`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param value The certificate CNAME record value.
+         * @param value Certificate CNAME record value.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class CustomDomainAssociationCertificateValidationRecordArgs extend
         }
 
         /**
-         * @param value The certificate CNAME record value.
+         * @param value Certificate CNAME record value.
          * 
          * @return builder
          * 

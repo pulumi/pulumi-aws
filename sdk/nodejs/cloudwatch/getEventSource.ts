@@ -47,11 +47,11 @@ export interface GetEventSourceArgs {
  */
 export interface GetEventSourceResult {
     /**
-     * The ARN of the partner event source
+     * ARN of the partner event source
      */
     readonly arn: string;
     /**
-     * The name of the SaaS partner that created the event source
+     * Name of the SaaS partner that created the event source
      */
     readonly createdBy: string;
     /**
@@ -59,12 +59,12 @@ export interface GetEventSourceResult {
      */
     readonly id: string;
     /**
-     * The name of the event source
+     * Name of the event source
      */
     readonly name: string;
     readonly namePrefix?: string;
     /**
-     * The state of the event source (`ACTIVE` or `PENDING`)
+     * State of the event source (`ACTIVE` or `PENDING`)
      */
     readonly state: string;
 }

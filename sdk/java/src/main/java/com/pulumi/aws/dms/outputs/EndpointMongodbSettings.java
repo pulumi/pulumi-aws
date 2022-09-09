@@ -22,7 +22,7 @@ public final class EndpointMongodbSettings {
      */
     private @Nullable String authSource;
     /**
-     * @return Authentication type to access the MongoDB source endpoint. Default is `password`.
+     * @return The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
      * 
      */
     private @Nullable String authType;
@@ -58,7 +58,7 @@ public final class EndpointMongodbSettings {
         return Optional.ofNullable(this.authSource);
     }
     /**
-     * @return Authentication type to access the MongoDB source endpoint. Default is `password`.
+     * @return The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
      * 
      */
     public Optional<String> authType() {

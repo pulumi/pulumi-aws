@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class GetMaintenanceWindowsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
+        /// Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

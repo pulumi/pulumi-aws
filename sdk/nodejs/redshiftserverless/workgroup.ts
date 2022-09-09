@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -69,6 +71,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
     /**
+     * The endpoint that is created from the workgroup. See `Endpoint` below.
+     */
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
+    /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
@@ -86,7 +92,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Redshift Workgroup ID.
      */
@@ -112,6 +121,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["baseCapacity"] = state ? state.baseCapacity : undefined;
             resourceInputs["configParameters"] = state ? state.configParameters : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
@@ -137,9 +147,10 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["workgroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -164,6 +175,10 @@ export interface WorkgroupState {
      */
     configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameter>[]>;
     /**
+     * The endpoint that is created from the workgroup. See `Endpoint` below.
+     */
+    endpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupEndpoint>[]>;
+    /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
@@ -181,6 +196,9 @@ export interface WorkgroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Redshift Workgroup ID.
@@ -222,7 +240,6 @@ export interface WorkgroupArgs {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workgroup.
      */

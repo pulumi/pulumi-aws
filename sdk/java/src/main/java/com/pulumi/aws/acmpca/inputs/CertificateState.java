@@ -17,14 +17,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     public static final CertificateState Empty = new CertificateState();
 
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The PEM-encoded certificate value.
+     * PEM-encoded certificate value.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return The PEM-encoded certificate value.
+     * @return PEM-encoded certificate value.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -47,14 +47,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the certificate authority.
+     * ARN of the certificate authority.
      * 
      */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate authority.
+     * @return ARN of the certificate authority.
      * 
      */
     public Optional<Output<String>> certificateAuthorityArn() {
@@ -62,14 +62,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
     public Optional<Output<String>> certificateChain() {
@@ -107,14 +107,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     @Import(name="templateArn")
     private @Nullable Output<String> templateArn;
 
     /**
-     * @return The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+     * @return Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
     public Optional<Output<String>> templateArn() {
@@ -168,7 +168,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the certificate.
+         * @param arn ARN of the certificate.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the certificate.
+         * @param arn ARN of the certificate.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The PEM-encoded certificate value.
+         * @param certificate PEM-encoded certificate value.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The PEM-encoded certificate value.
+         * @param certificate PEM-encoded certificate value.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the certificate authority.
+         * @param certificateAuthorityArn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorityArn Amazon Resource Name (ARN) of the certificate authority.
+         * @param certificateAuthorityArn ARN of the certificate authority.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+         * @param certificateChain PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateArn The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+         * @param templateArn Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateArn The template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
+         * @param templateArn Template to use when issuing a certificate. See [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) for more information.
          * 
          * @return builder
          * 

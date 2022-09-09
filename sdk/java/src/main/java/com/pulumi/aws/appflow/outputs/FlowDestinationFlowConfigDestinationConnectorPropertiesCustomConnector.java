@@ -15,22 +15,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
     /**
-     * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     private @Nullable Map<String,String> customProperties;
     /**
-     * @return The entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a source in the flow.
      * 
      */
     private String entityName;
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     private @Nullable List<String> idFieldNames;
@@ -42,28 +42,28 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector() {}
     /**
-     * @return The custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
      * 
      */
     public Map<String,String> customProperties() {
         return this.customProperties == null ? Map.of() : this.customProperties;
     }
     /**
-     * @return The entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a source in the flow.
      * 
      */
     public String entityName() {
         return this.entityName;
     }
     /**
-     * @return The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
      * 
      */
     public List<String> idFieldNames() {

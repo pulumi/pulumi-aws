@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetContainerRecipeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetContainerRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// The working directory used during build and test workflows.
+        /// Working directory used during build and test workflows.
         /// </summary>
         public readonly string WorkingDirectory;
 

@@ -54,7 +54,7 @@ type LookupCustomPluginArgs struct {
 
 // A collection of values returned by getCustomPlugin.
 type LookupCustomPluginResult struct {
-	// the Amazon Resource Name (ARN) of the custom plugin.
+	// the ARN of the custom plugin.
 	Arn string `pulumi:"arn"`
 	// a summary description of the custom plugin.
 	Description string `pulumi:"description"`
@@ -105,7 +105,7 @@ func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutputWithCont
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the custom plugin.
+// the ARN of the custom plugin.
 func (o LookupCustomPluginResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Arn }).(pulumi.StringOutput)
 }

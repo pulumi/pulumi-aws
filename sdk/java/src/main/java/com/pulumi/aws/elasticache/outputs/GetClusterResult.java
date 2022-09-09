@@ -16,7 +16,7 @@ import java.util.Objects;
 public final class GetClusterResult {
     private String arn;
     /**
-     * @return The Availability Zone for the cache cluster.
+     * @return Availability Zone for the cache cluster.
      * 
      */
     private String availabilityZone;
@@ -27,13 +27,13 @@ public final class GetClusterResult {
      */
     private List<GetClusterCacheNode> cacheNodes;
     /**
-     * @return (Memcached only) The DNS name of the cache cluster without the port appended.
+     * @return (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
     private String clusterAddress;
     private String clusterId;
     /**
-     * @return (Memcached only) The configuration endpoint to allow host discovery.
+     * @return (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
     private String configurationEndpoint;
@@ -69,7 +69,7 @@ public final class GetClusterResult {
      */
     private String nodeType;
     /**
-     * @return An Amazon Resource Name (ARN) of an
+     * @return An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      * 
      */
@@ -112,7 +112,7 @@ public final class GetClusterResult {
      */
     private Integer snapshotRetentionLimit;
     /**
-     * @return The daily time range (in UTC) during which ElastiCache will
+     * @return Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      * 
      */
@@ -123,7 +123,7 @@ public final class GetClusterResult {
      */
     private String subnetGroupName;
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     private Map<String,String> tags;
@@ -133,7 +133,7 @@ public final class GetClusterResult {
         return this.arn;
     }
     /**
-     * @return The Availability Zone for the cache cluster.
+     * @return Availability Zone for the cache cluster.
      * 
      */
     public String availabilityZone() {
@@ -148,7 +148,7 @@ public final class GetClusterResult {
         return this.cacheNodes;
     }
     /**
-     * @return (Memcached only) The DNS name of the cache cluster without the port appended.
+     * @return (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
     public String clusterAddress() {
@@ -158,7 +158,7 @@ public final class GetClusterResult {
         return this.clusterId;
     }
     /**
-     * @return (Memcached only) The configuration endpoint to allow host discovery.
+     * @return (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
     public String configurationEndpoint() {
@@ -208,7 +208,7 @@ public final class GetClusterResult {
         return this.nodeType;
     }
     /**
-     * @return An Amazon Resource Name (ARN) of an
+     * @return An ARN of an
      * SNS topic that ElastiCache notifications get sent to.
      * 
      */
@@ -267,7 +267,7 @@ public final class GetClusterResult {
         return this.snapshotRetentionLimit;
     }
     /**
-     * @return The daily time range (in UTC) during which ElastiCache will
+     * @return Daily time range (in UTC) during which ElastiCache will
      * begin taking a daily snapshot of the cache cluster.
      * 
      */
@@ -282,7 +282,7 @@ public final class GetClusterResult {
         return this.subnetGroupName;
     }
     /**
-     * @return The tags assigned to the resource
+     * @return Tags assigned to the resource
      * 
      */
     public Map<String,String> tags() {

@@ -181,23 +181,23 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
-	// The Amazon Resource Name (ARN) of the Amplify app.
+	// ARN of the Amplify app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigOutput `pulumi:"autoBranchCreationConfig"`
-	// The automated branch creation glob patterns for an Amplify app.
+	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayOutput `pulumi:"autoBranchCreationPatterns"`
-	// The credentials for basic authorization for an Amplify app.
+	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials pulumi.StringPtrOutput `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringOutput `pulumi:"buildSpec"`
-	// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayOutput `pulumi:"customRules"`
-	// The default domain for the Amplify app.
+	// Default domain for the Amplify app.
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
-	// The description for an Amplify app.
+	// Description for an Amplify app.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enables automated branch creation for an Amplify app.
 	EnableAutoBranchCreation pulumi.BoolPtrOutput `pulumi:"enableAutoBranchCreation"`
@@ -207,23 +207,24 @@ type App struct {
 	EnableBranchAutoBuild pulumi.BoolPtrOutput `pulumi:"enableBranchAutoBuild"`
 	// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion pulumi.BoolPtrOutput `pulumi:"enableBranchAutoDeletion"`
-	// The environment variables map for an Amplify app.
+	// Environment variables map for an Amplify app.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrOutput `pulumi:"iamServiceRoleArn"`
-	// The name for an Amplify app.
+	// Name for an Amplify app.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrOutput `pulumi:"oauthToken"`
-	// The platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`.
 	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayOutput `pulumi:"productionBranches"`
-	// The repository for an Amplify app.
+	// Repository for an Amplify app.
 	Repository pulumi.StringPtrOutput `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// > > > > > > > v4.29.0
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -256,23 +257,23 @@ func GetApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering App resources.
 type appState struct {
-	// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken *string `pulumi:"accessToken"`
-	// The Amazon Resource Name (ARN) of the Amplify app.
+	// ARN of the Amplify app.
 	Arn *string `pulumi:"arn"`
-	// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
-	// The automated branch creation glob patterns for an Amplify app.
+	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
-	// The credentials for basic authorization for an Amplify app.
+	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
-	// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
-	// The default domain for the Amplify app.
+	// Default domain for the Amplify app.
 	DefaultDomain *string `pulumi:"defaultDomain"`
-	// The description for an Amplify app.
+	// Description for an Amplify app.
 	Description *string `pulumi:"description"`
 	// Enables automated branch creation for an Amplify app.
 	EnableAutoBranchCreation *bool `pulumi:"enableAutoBranchCreation"`
@@ -282,44 +283,45 @@ type appState struct {
 	EnableBranchAutoBuild *bool `pulumi:"enableBranchAutoBuild"`
 	// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion *bool `pulumi:"enableBranchAutoDeletion"`
-	// The environment variables map for an Amplify app.
+	// Environment variables map for an Amplify app.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
-	// The name for an Amplify app.
+	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
-	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken *string `pulumi:"oauthToken"`
-	// The platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`.
 	Platform *string `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches []AppProductionBranch `pulumi:"productionBranches"`
-	// The repository for an Amplify app.
+	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// > > > > > > > v4.29.0
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AppState struct {
-	// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amplify app.
+	// ARN of the Amplify app.
 	Arn pulumi.StringPtrInput
-	// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
-	// The automated branch creation glob patterns for an Amplify app.
+	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayInput
-	// The credentials for basic authorization for an Amplify app.
+	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
-	// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayInput
-	// The default domain for the Amplify app.
+	// Default domain for the Amplify app.
 	DefaultDomain pulumi.StringPtrInput
-	// The description for an Amplify app.
+	// Description for an Amplify app.
 	Description pulumi.StringPtrInput
 	// Enables automated branch creation for an Amplify app.
 	EnableAutoBranchCreation pulumi.BoolPtrInput
@@ -329,23 +331,24 @@ type AppState struct {
 	EnableBranchAutoBuild pulumi.BoolPtrInput
 	// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion pulumi.BoolPtrInput
-	// The environment variables map for an Amplify app.
+	// Environment variables map for an Amplify app.
 	EnvironmentVariables pulumi.StringMapInput
-	// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
-	// The name for an Amplify app.
+	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
-	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrInput
-	// The platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`.
 	Platform pulumi.StringPtrInput
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayInput
-	// The repository for an Amplify app.
+	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// > > > > > > > v4.29.0
 	TagsAll pulumi.StringMapInput
 }
 
@@ -354,19 +357,19 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken *string `pulumi:"accessToken"`
-	// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
-	// The automated branch creation glob patterns for an Amplify app.
+	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
-	// The credentials for basic authorization for an Amplify app.
+	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
-	// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
-	// The description for an Amplify app.
+	// Description for an Amplify app.
 	Description *string `pulumi:"description"`
 	// Enables automated branch creation for an Amplify app.
 	EnableAutoBranchCreation *bool `pulumi:"enableAutoBranchCreation"`
@@ -376,17 +379,17 @@ type appArgs struct {
 	EnableBranchAutoBuild *bool `pulumi:"enableBranchAutoBuild"`
 	// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion *bool `pulumi:"enableBranchAutoDeletion"`
-	// The environment variables map for an Amplify app.
+	// Environment variables map for an Amplify app.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
-	// The name for an Amplify app.
+	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
-	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken *string `pulumi:"oauthToken"`
-	// The platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`.
 	Platform *string `pulumi:"platform"`
-	// The repository for an Amplify app.
+	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -394,19 +397,19 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 	AccessToken pulumi.StringPtrInput
-	// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
-	// The automated branch creation glob patterns for an Amplify app.
+	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayInput
-	// The credentials for basic authorization for an Amplify app.
+	// Credentials for basic authorization for an Amplify app.
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
-	// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayInput
-	// The description for an Amplify app.
+	// Description for an Amplify app.
 	Description pulumi.StringPtrInput
 	// Enables automated branch creation for an Amplify app.
 	EnableAutoBranchCreation pulumi.BoolPtrInput
@@ -416,17 +419,17 @@ type AppArgs struct {
 	EnableBranchAutoBuild pulumi.BoolPtrInput
 	// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion pulumi.BoolPtrInput
-	// The environment variables map for an Amplify app.
+	// Environment variables map for an Amplify app.
 	EnvironmentVariables pulumi.StringMapInput
-	// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
-	// The name for an Amplify app.
+	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
-	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrInput
-	// The platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`.
 	Platform pulumi.StringPtrInput
-	// The repository for an Amplify app.
+	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -519,27 +522,27 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
-// The personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
 func (o AppOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amplify app.
+// ARN of the Amplify app.
 func (o AppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 func (o AppOutput) AutoBranchCreationConfig() AppAutoBranchCreationConfigOutput {
 	return o.ApplyT(func(v *App) AppAutoBranchCreationConfigOutput { return v.AutoBranchCreationConfig }).(AppAutoBranchCreationConfigOutput)
 }
 
-// The automated branch creation glob patterns for an Amplify app.
+// Automated branch creation glob patterns for an Amplify app.
 func (o AppOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *App) pulumi.StringArrayOutput { return v.AutoBranchCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
-// The credentials for basic authorization for an Amplify app.
+// Credentials for basic authorization for an Amplify app.
 func (o AppOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.BasicAuthCredentials }).(pulumi.StringPtrOutput)
 }
@@ -549,17 +552,17 @@ func (o AppOutput) BuildSpec() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.BuildSpec }).(pulumi.StringOutput)
 }
 
-// The custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 func (o AppOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v *App) AppCustomRuleArrayOutput { return v.CustomRules }).(AppCustomRuleArrayOutput)
 }
 
-// The default domain for the Amplify app.
+// Default domain for the Amplify app.
 func (o AppOutput) DefaultDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DefaultDomain }).(pulumi.StringOutput)
 }
 
-// The description for an Amplify app.
+// Description for an Amplify app.
 func (o AppOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -584,27 +587,27 @@ func (o AppOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.BoolPtrOutput { return v.EnableBranchAutoDeletion }).(pulumi.BoolPtrOutput)
 }
 
-// The environment variables map for an Amplify app.
+// Environment variables map for an Amplify app.
 func (o AppOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// The AWS Identity and Access Management (IAM) service role for an Amplify app.
+// AWS Identity and Access Management (IAM) service role for an Amplify app.
 func (o AppOutput) IamServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The name for an Amplify app.
+// Name for an Amplify app.
 func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 func (o AppOutput) OauthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.OauthToken }).(pulumi.StringPtrOutput)
 }
 
-// The platform or framework for an Amplify app. Valid values: `WEB`.
+// Platform or framework for an Amplify app. Valid values: `WEB`.
 func (o AppOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }
@@ -614,7 +617,7 @@ func (o AppOutput) ProductionBranches() AppProductionBranchArrayOutput {
 	return o.ApplyT(func(v *App) AppProductionBranchArrayOutput { return v.ProductionBranches }).(AppProductionBranchArrayOutput)
 }
 
-// The repository for an Amplify app.
+// Repository for an Amplify app.
 func (o AppOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Repository }).(pulumi.StringPtrOutput)
 }
@@ -624,7 +627,8 @@ func (o AppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// > > > > > > > v4.29.0
 func (o AppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

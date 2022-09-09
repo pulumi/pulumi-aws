@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionResult {
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * @return ARN identifying your CloudFront Function.
      * 
      */
     private String arn;
@@ -54,7 +54,7 @@ public final class GetFunctionResult {
 
     private GetFunctionResult() {}
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * @return ARN identifying your CloudFront Function.
      * 
      */
     public String arn() {

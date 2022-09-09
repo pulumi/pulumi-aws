@@ -16,14 +16,14 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetIntentArgs Empty = new GetIntentArgs();
 
     /**
-     * The name of the intent. The name is case sensitive.
+     * Name of the intent. The name is case sensitive.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the intent. The name is case sensitive.
+     * @return Name of the intent. The name is case sensitive.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The version of the intent.
+     * Version of the intent.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the intent.
+     * @return Version of the intent.
      * 
      */
     public Optional<Output<String>> version() {
@@ -71,7 +71,7 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the intent. The name is case sensitive.
+         * @param name Name of the intent. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the intent. The name is case sensitive.
+         * @param name Name of the intent. The name is case sensitive.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version of the intent.
+         * @param version Version of the intent.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetIntentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version The version of the intent.
+         * @param version Version of the intent.
          * 
          * @return builder
          * 

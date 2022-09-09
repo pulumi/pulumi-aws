@@ -15,14 +15,14 @@ public final class GetSecretsFilterArgs extends com.pulumi.resources.ResourceArg
     public static final GetSecretsFilterArgs Empty = new GetSecretsFilterArgs();
 
     /**
-     * The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+     * Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+     * @return Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class GetSecretsFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+         * @param name Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSecretsFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+         * @param name Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
          * 
          * @return builder
          * 

@@ -5,19 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./access";
-export * from "./getServer";
-export * from "./server";
-export * from "./sshKey";
-export * from "./user";
-export * from "./workflow";
+export { AccessArgs, AccessState } from "./access";
+export type Access = import("./access").Access;
+export const Access: typeof import("./access").Access = null as any;
 
-// Import resources to register:
-import { Access } from "./access";
-import { Server } from "./server";
-import { SshKey } from "./sshKey";
-import { User } from "./user";
-import { Workflow } from "./workflow";
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+
+export { ServerArgs, ServerState } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+
+export { SshKeyArgs, SshKeyState } from "./sshKey";
+export type SshKey = import("./sshKey").SshKey;
+export const SshKey: typeof import("./sshKey").SshKey = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { WorkflowArgs, WorkflowState } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+
+utilities.lazyLoad(exports, ["Access"], () => require("./access"));
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
 const _module = {
     version: utilities.getVersion(),

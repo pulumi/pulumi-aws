@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,16 +49,16 @@ export interface GetLocalGatewayArgs {
      */
     filters?: inputs.ec2.GetLocalGatewayFilter[];
     /**
-     * The id of the specific Local Gateway to retrieve.
+     * Id of the specific Local Gateway to retrieve.
      */
     id?: string;
     /**
-     * The current state of the desired Local Gateway.
+     * Current state of the desired Local Gateway.
      * Can be either `"pending"` or `"available"`.
      */
     state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      */
     tags?: {[key: string]: string};
@@ -69,7 +71,7 @@ export interface GetLocalGatewayResult {
     readonly filters?: outputs.ec2.GetLocalGatewayFilter[];
     readonly id: string;
     /**
-     * Amazon Resource Name (ARN) of Outpost
+     * ARN of Outpost
      */
     readonly outpostArn: string;
     /**
@@ -96,16 +98,16 @@ export interface GetLocalGatewayOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayFilterArgs>[]>;
     /**
-     * The id of the specific Local Gateway to retrieve.
+     * Id of the specific Local Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
     /**
-     * The current state of the desired Local Gateway.
+     * Current state of the desired Local Gateway.
      * Can be either `"pending"` or `"available"`.
      */
     state?: pulumi.Input<string>;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

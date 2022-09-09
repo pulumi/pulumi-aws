@@ -90,7 +90,7 @@ namespace Pulumi.Aws
     public sealed class GetBillingServiceAccountResult
     {
         /// <summary>
-        /// The ARN of the AWS billing service account.
+        /// ARN of the AWS billing service account.
         /// </summary>
         public readonly string Arn;
         /// <summary>

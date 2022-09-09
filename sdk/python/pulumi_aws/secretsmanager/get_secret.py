@@ -70,7 +70,7 @@ class GetSecretResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "arn")
 
@@ -78,7 +78,7 @@ class GetSecretResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description of the secret.
+        Description of the secret.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +94,7 @@ class GetSecretResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+        Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -107,7 +107,7 @@ class GetSecretResult:
     @pulumi.getter
     def policy(self) -> str:
         """
-        The resource-based policy document that's attached to the secret.
+        Resource-based policy document that's attached to the secret.
         """
         return pulumi.get(self, "policy")
 
@@ -123,7 +123,7 @@ class GetSecretResult:
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> str:
         """
-        Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+        Rotation Lambda function ARN if rotation is enabled.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
@@ -187,8 +187,8 @@ def get_secret(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
-    :param str name: The name of the secret to retrieve.
+    :param str arn: ARN of the secret to retrieve.
+    :param str name: Name of the secret to retrieve.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -235,7 +235,7 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
-    :param str name: The name of the secret to retrieve.
+    :param str arn: ARN of the secret to retrieve.
+    :param str name: Name of the secret to retrieve.
     """
     ...

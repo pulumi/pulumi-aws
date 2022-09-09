@@ -50,17 +50,17 @@ export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetPolicyArgs {
     /**
-     * The ARN of the IAM policy.
+     * ARN of the IAM policy.
      * Conflicts with `name` and `pathPrefix`.
      */
     arn?: string;
     /**
-     * The name of the IAM policy.
+     * Name of the IAM policy.
      * Conflicts with `arn`.
      */
     name?: string;
     /**
-     * The prefix of the path to the IAM policy.
+     * Prefix of the path to the IAM policy.
      * Defaults to a slash (`/`).
      * Conflicts with `arn`.
      */
@@ -76,11 +76,11 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
-     * The ARN of the policy.
+     * ARN of the policy.
      */
     readonly arn: string;
     /**
-     * The description of the policy.
+     * Description of the policy.
      */
     readonly description: string;
     /**
@@ -89,16 +89,16 @@ export interface GetPolicyResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The path to the policy.
+     * Path to the policy.
      */
     readonly path: string;
     readonly pathPrefix?: string;
     /**
-     * The policy document of the policy.
+     * Policy document of the policy.
      */
     readonly policy: string;
     /**
-     * The policy's ID.
+     * Policy's ID.
      */
     readonly policyId: string;
     /**
@@ -116,17 +116,17 @@ export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetPolicyOutputArgs {
     /**
-     * The ARN of the IAM policy.
+     * ARN of the IAM policy.
      * Conflicts with `name` and `pathPrefix`.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the IAM policy.
+     * Name of the IAM policy.
      * Conflicts with `arn`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The prefix of the path to the IAM policy.
+     * Prefix of the path to the IAM policy.
      * Defaults to a slash (`/`).
      * Conflicts with `arn`.
      */

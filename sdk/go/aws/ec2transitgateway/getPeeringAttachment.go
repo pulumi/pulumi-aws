@@ -85,7 +85,7 @@ type LookupPeeringAttachmentArgs struct {
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
 	Id *string `pulumi:"id"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,7 +124,7 @@ type LookupPeeringAttachmentOutputArgs struct {
 	Filters GetPeeringAttachmentFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A mapping of tags, each pair of which must exactly match
+	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

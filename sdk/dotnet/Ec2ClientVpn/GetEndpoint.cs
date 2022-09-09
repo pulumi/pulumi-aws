@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Client VPN endpoint.
+        /// ID of the Client VPN endpoint.
         /// </summary>
         [Input("clientVpnEndpointId")]
         public string? ClientVpnEndpointId { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Client VPN endpoint.
+        /// ID of the Client VPN endpoint.
         /// </summary>
         [Input("clientVpnEndpointId")]
         public Input<string>? ClientVpnEndpointId { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointAuthenticationOptionResult> AuthenticationOptions;
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+        /// IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
         /// </summary>
         public readonly string ClientCidrBlock;
         /// <summary>
@@ -231,11 +231,11 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointConnectionLogOptionResult> ConnectionLogOptions;
         /// <summary>
-        /// A brief description of the endpoint.
+        /// Brief description of the endpoint.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The DNS name to be used by clients when connecting to the Client VPN endpoint.
+        /// DNS name to be used by clients when connecting to the Client VPN endpoint.
         /// </summary>
         public readonly string DnsName;
         /// <summary>
@@ -248,11 +248,11 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IDs of the security groups for the target network associated with the Client VPN endpoint.
+        /// IDs of the security groups for the target network associated with the Client VPN endpoint.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// Indicates whether the self-service portal for the Client VPN endpoint is enabled.
+        /// Whether the self-service portal for the Client VPN endpoint is enabled.
         /// </summary>
         public readonly string SelfServicePortal;
         /// <summary>
@@ -264,20 +264,20 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly int SessionTimeoutHours;
         /// <summary>
-        /// Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+        /// Whether split-tunnel is enabled in the AWS Client VPN endpoint.
         /// </summary>
         public readonly bool SplitTunnel;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The transport protocol used by the Client VPN endpoint.
+        /// Transport protocol used by the Client VPN endpoint.
         /// </summary>
         public readonly string TransportProtocol;
         /// <summary>
-        /// The ID of the VPC associated with the Client VPN endpoint.
+        /// ID of the VPC associated with the Client VPN endpoint.
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// The port number for the Client VPN endpoint.
+        /// Port number for the Client VPN endpoint.
         /// </summary>
         public readonly int VpnPort;
 

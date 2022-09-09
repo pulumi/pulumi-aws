@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecLoggingAccessLog {
     /**
-     * @return The file object to send virtual node access logs to.
+     * @return File object to send virtual node access logs to.
      * 
      */
     private @Nullable VirtualNodeSpecLoggingAccessLogFile file;
 
     private VirtualNodeSpecLoggingAccessLog() {}
     /**
-     * @return The file object to send virtual node access logs to.
+     * @return File object to send virtual node access logs to.
      * 
      */
     public Optional<VirtualNodeSpecLoggingAccessLogFile> file() {

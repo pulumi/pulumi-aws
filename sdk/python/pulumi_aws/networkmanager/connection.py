@@ -145,6 +145,7 @@ class _ConnectionState:
         :param pulumi.Input[str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -261,6 +262,9 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -423,6 +427,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -503,5 +508,8 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

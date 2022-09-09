@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsCertificateAcm
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate.
+        /// ARN for the certificate.
         /// </summary>
         public readonly string CertificateArn;
 

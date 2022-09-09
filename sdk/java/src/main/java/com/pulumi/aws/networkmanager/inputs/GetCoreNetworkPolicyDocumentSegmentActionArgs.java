@@ -17,14 +17,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     public static final GetCoreNetworkPolicyDocumentSegmentActionArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionArgs();
 
     /**
-     * The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
      * 
      */
     public Output<String> action() {
@@ -77,14 +77,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     }
 
     /**
-     * A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -92,14 +92,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     }
 
     /**
-     * The name of the segment.
+     * Name of the segment.
      * 
      */
     @Import(name="segment", required=true)
     private Output<String> segment;
 
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     public Output<String> segment() {
@@ -168,7 +168,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action The action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param mode A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param mode A string. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param segment The name of the segment.
+         * @param segment Name of the segment.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param segment The name of the segment.
+         * @param segment Name of the segment.
          * 
          * @return builder
          * 

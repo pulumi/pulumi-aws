@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+        /// Whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string Permission;
 

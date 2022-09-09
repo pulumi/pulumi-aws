@@ -39,7 +39,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
      */
     private @Nullable Boolean isolateAttachments;
     /**
-     * @return A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+     * @return Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
      * 
      */
     private String name;
@@ -86,7 +86,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         return Optional.ofNullable(this.isolateAttachments);
     }
     /**
-     * @return A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+     * @return Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
      * 
      */
     public String name() {

@@ -33,14 +33,14 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The GraphQL API ID.
+     * GraphQL API ID.
      * 
      */
     @Import(name="apiId")
     private @Nullable Output<String> apiId;
 
     /**
-     * @return The GraphQL API ID.
+     * @return GraphQL API ID.
      * 
      */
     public Optional<Output<String>> apiId() {
@@ -93,14 +93,14 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+     * @return Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -158,7 +158,7 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The GraphQL API ID.
+         * @param apiId GraphQL API ID.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiId The GraphQL API ID.
+         * @param apiId GraphQL API ID.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+         * @param type Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+         * @param type Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
          * 
          * @return builder
          * 

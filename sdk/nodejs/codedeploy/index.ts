@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./deploymentConfig";
-export * from "./deploymentGroup";
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
 
-// Import resources to register:
-import { Application } from "./application";
-import { DeploymentConfig } from "./deploymentConfig";
-import { DeploymentGroup } from "./deploymentGroup";
+export { DeploymentConfigArgs, DeploymentConfigState } from "./deploymentConfig";
+export type DeploymentConfig = import("./deploymentConfig").DeploymentConfig;
+export const DeploymentConfig: typeof import("./deploymentConfig").DeploymentConfig = null as any;
+
+export { DeploymentGroupArgs, DeploymentGroupState } from "./deploymentGroup";
+export type DeploymentGroup = import("./deploymentGroup").DeploymentGroup;
+export const DeploymentGroup: typeof import("./deploymentGroup").DeploymentGroup = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["DeploymentConfig"], () => require("./deploymentConfig"));
+utilities.lazyLoad(exports, ["DeploymentGroup"], () => require("./deploymentGroup"));
 
 const _module = {
     version: utilities.getVersion(),

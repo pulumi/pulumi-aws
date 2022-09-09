@@ -157,42 +157,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")
 public class CertificateAuthorityCertificate extends com.pulumi.resources.CustomResource {
     /**
-     * The PEM-encoded certificate for the Certificate Authority.
+     * PEM-encoded certificate for the Certificate Authority.
      * 
      */
     @Export(name="certificate", type=String.class, parameters={})
     private Output<String> certificate;
 
     /**
-     * @return The PEM-encoded certificate for the Certificate Authority.
+     * @return PEM-encoded certificate for the Certificate Authority.
      * 
      */
     public Output<String> certificate() {
         return this.certificate;
     }
     /**
-     * Amazon Resource Name (ARN) of the Certificate Authority.
+     * ARN of the Certificate Authority.
      * 
      */
     @Export(name="certificateAuthorityArn", type=String.class, parameters={})
     private Output<String> certificateAuthorityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Certificate Authority.
+     * @return ARN of the Certificate Authority.
      * 
      */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
     /**
-     * The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
     @Export(name="certificateChain", type=String.class, parameters={})
     private Output</* @Nullable */ String> certificateChain;
 
     /**
-     * @return The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+     * @return PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
     public Output<Optional<String>> certificateChain() {

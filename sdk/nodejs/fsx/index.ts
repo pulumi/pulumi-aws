@@ -5,29 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./backup";
-export * from "./dataRepositoryAssociation";
-export * from "./getOpenZfsSnapshot";
-export * from "./lustreFileSystem";
-export * from "./ontapFileSystem";
-export * from "./ontapStorageVirtualMachine";
-export * from "./ontapVolume";
-export * from "./openZfsFileSystem";
-export * from "./openZfsSnapshot";
-export * from "./openZfsVolume";
-export * from "./windowsFileSystem";
+export { BackupArgs, BackupState } from "./backup";
+export type Backup = import("./backup").Backup;
+export const Backup: typeof import("./backup").Backup = null as any;
 
-// Import resources to register:
-import { Backup } from "./backup";
-import { DataRepositoryAssociation } from "./dataRepositoryAssociation";
-import { LustreFileSystem } from "./lustreFileSystem";
-import { OntapFileSystem } from "./ontapFileSystem";
-import { OntapStorageVirtualMachine } from "./ontapStorageVirtualMachine";
-import { OntapVolume } from "./ontapVolume";
-import { OpenZfsFileSystem } from "./openZfsFileSystem";
-import { OpenZfsSnapshot } from "./openZfsSnapshot";
-import { OpenZfsVolume } from "./openZfsVolume";
-import { WindowsFileSystem } from "./windowsFileSystem";
+export { DataRepositoryAssociationArgs, DataRepositoryAssociationState } from "./dataRepositoryAssociation";
+export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
+export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
+
+export { GetOpenZfsSnapshotArgs, GetOpenZfsSnapshotResult, GetOpenZfsSnapshotOutputArgs } from "./getOpenZfsSnapshot";
+export const getOpenZfsSnapshot: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshot = null as any;
+export const getOpenZfsSnapshotOutput: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshotOutput = null as any;
+
+export { LustreFileSystemArgs, LustreFileSystemState } from "./lustreFileSystem";
+export type LustreFileSystem = import("./lustreFileSystem").LustreFileSystem;
+export const LustreFileSystem: typeof import("./lustreFileSystem").LustreFileSystem = null as any;
+
+export { OntapFileSystemArgs, OntapFileSystemState } from "./ontapFileSystem";
+export type OntapFileSystem = import("./ontapFileSystem").OntapFileSystem;
+export const OntapFileSystem: typeof import("./ontapFileSystem").OntapFileSystem = null as any;
+
+export { OntapStorageVirtualMachineArgs, OntapStorageVirtualMachineState } from "./ontapStorageVirtualMachine";
+export type OntapStorageVirtualMachine = import("./ontapStorageVirtualMachine").OntapStorageVirtualMachine;
+export const OntapStorageVirtualMachine: typeof import("./ontapStorageVirtualMachine").OntapStorageVirtualMachine = null as any;
+
+export { OntapVolumeArgs, OntapVolumeState } from "./ontapVolume";
+export type OntapVolume = import("./ontapVolume").OntapVolume;
+export const OntapVolume: typeof import("./ontapVolume").OntapVolume = null as any;
+
+export { OpenZfsFileSystemArgs, OpenZfsFileSystemState } from "./openZfsFileSystem";
+export type OpenZfsFileSystem = import("./openZfsFileSystem").OpenZfsFileSystem;
+export const OpenZfsFileSystem: typeof import("./openZfsFileSystem").OpenZfsFileSystem = null as any;
+
+export { OpenZfsSnapshotArgs, OpenZfsSnapshotState } from "./openZfsSnapshot";
+export type OpenZfsSnapshot = import("./openZfsSnapshot").OpenZfsSnapshot;
+export const OpenZfsSnapshot: typeof import("./openZfsSnapshot").OpenZfsSnapshot = null as any;
+
+export { OpenZfsVolumeArgs, OpenZfsVolumeState } from "./openZfsVolume";
+export type OpenZfsVolume = import("./openZfsVolume").OpenZfsVolume;
+export const OpenZfsVolume: typeof import("./openZfsVolume").OpenZfsVolume = null as any;
+
+export { WindowsFileSystemArgs, WindowsFileSystemState } from "./windowsFileSystem";
+export type WindowsFileSystem = import("./windowsFileSystem").WindowsFileSystem;
+export const WindowsFileSystem: typeof import("./windowsFileSystem").WindowsFileSystem = null as any;
+
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
+utilities.lazyLoad(exports, ["getOpenZfsSnapshot","getOpenZfsSnapshotOutput"], () => require("./getOpenZfsSnapshot"));
+utilities.lazyLoad(exports, ["LustreFileSystem"], () => require("./lustreFileSystem"));
+utilities.lazyLoad(exports, ["OntapFileSystem"], () => require("./ontapFileSystem"));
+utilities.lazyLoad(exports, ["OntapStorageVirtualMachine"], () => require("./ontapStorageVirtualMachine"));
+utilities.lazyLoad(exports, ["OntapVolume"], () => require("./ontapVolume"));
+utilities.lazyLoad(exports, ["OpenZfsFileSystem"], () => require("./openZfsFileSystem"));
+utilities.lazyLoad(exports, ["OpenZfsSnapshot"], () => require("./openZfsSnapshot"));
+utilities.lazyLoad(exports, ["OpenZfsVolume"], () => require("./openZfsVolume"));
+utilities.lazyLoad(exports, ["WindowsFileSystem"], () => require("./windowsFileSystem"));
 
 const _module = {
     version: utilities.getVersion(),

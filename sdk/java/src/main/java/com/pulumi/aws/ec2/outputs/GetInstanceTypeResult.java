@@ -43,7 +43,7 @@ public final class GetInstanceTypeResult {
      */
     private Boolean dedicatedHostsSupported;
     /**
-     * @return The default number of cores for the instance type.
+     * @return Default number of cores for the instance type.
      * 
      */
     private Integer defaultCores;
@@ -53,7 +53,7 @@ public final class GetInstanceTypeResult {
      */
     private Integer defaultThreadsPerCore;
     /**
-     * @return The default number of vCPUs for the instance type.
+     * @return Default number of vCPUs for the instance type.
      * 
      */
     private Integer defaultVcpus;
@@ -63,7 +63,7 @@ public final class GetInstanceTypeResult {
      */
     private String ebsEncryptionSupport;
     /**
-     * @return Indicates whether non-volatile memory express (NVMe) is supported.
+     * @return Whether non-volatile memory express (NVMe) is supported.
      * 
      */
     private String ebsNvmeSupport;
@@ -103,12 +103,12 @@ public final class GetInstanceTypeResult {
      */
     private Double ebsPerformanceMaximumThroughput;
     /**
-     * @return Indicates whether Elastic Fabric Adapter (EFA) is supported.
+     * @return Whether Elastic Fabric Adapter (EFA) is supported.
      * 
      */
     private Boolean efaSupported;
     /**
-     * @return Indicates whether Elastic Network Adapter (ENA) is supported.
+     * @return Whether Elastic Network Adapter (ENA) is supported.
      * 
      */
     private String enaSupport;
@@ -146,7 +146,7 @@ public final class GetInstanceTypeResult {
      */
     private Boolean hibernationSupported;
     /**
-     * @return Indicates the hypervisor used for the instance type.
+     * @return Hypervisor used for the instance type.
      * * `inference_accelerators` Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -235,12 +235,12 @@ public final class GetInstanceTypeResult {
      */
     private Double sustainedClockSpeed;
     /**
-     * @return The total memory of all FPGA accelerators for the instance type (in MiB).
+     * @return Total memory of all FPGA accelerators for the instance type (in MiB).
      * 
      */
     private Integer totalFpgaMemory;
     /**
-     * @return The total size of the memory for the GPU accelerators for the instance type (in MiB).
+     * @return Total size of the memory for the GPU accelerators for the instance type (in MiB).
      * 
      */
     private Integer totalGpuMemory;
@@ -297,7 +297,7 @@ public final class GetInstanceTypeResult {
         return this.dedicatedHostsSupported;
     }
     /**
-     * @return The default number of cores for the instance type.
+     * @return Default number of cores for the instance type.
      * 
      */
     public Integer defaultCores() {
@@ -311,7 +311,7 @@ public final class GetInstanceTypeResult {
         return this.defaultThreadsPerCore;
     }
     /**
-     * @return The default number of vCPUs for the instance type.
+     * @return Default number of vCPUs for the instance type.
      * 
      */
     public Integer defaultVcpus() {
@@ -325,7 +325,7 @@ public final class GetInstanceTypeResult {
         return this.ebsEncryptionSupport;
     }
     /**
-     * @return Indicates whether non-volatile memory express (NVMe) is supported.
+     * @return Whether non-volatile memory express (NVMe) is supported.
      * 
      */
     public String ebsNvmeSupport() {
@@ -381,14 +381,14 @@ public final class GetInstanceTypeResult {
         return this.ebsPerformanceMaximumThroughput;
     }
     /**
-     * @return Indicates whether Elastic Fabric Adapter (EFA) is supported.
+     * @return Whether Elastic Fabric Adapter (EFA) is supported.
      * 
      */
     public Boolean efaSupported() {
         return this.efaSupported;
     }
     /**
-     * @return Indicates whether Elastic Network Adapter (ENA) is supported.
+     * @return Whether Elastic Network Adapter (ENA) is supported.
      * 
      */
     public String enaSupport() {
@@ -438,7 +438,7 @@ public final class GetInstanceTypeResult {
         return this.hibernationSupported;
     }
     /**
-     * @return Indicates the hypervisor used for the instance type.
+     * @return Hypervisor used for the instance type.
      * * `inference_accelerators` Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
@@ -563,14 +563,14 @@ public final class GetInstanceTypeResult {
         return this.sustainedClockSpeed;
     }
     /**
-     * @return The total memory of all FPGA accelerators for the instance type (in MiB).
+     * @return Total memory of all FPGA accelerators for the instance type (in MiB).
      * 
      */
     public Integer totalFpgaMemory() {
         return this.totalFpgaMemory;
     }
     /**
-     * @return The total size of the memory for the GPU accelerators for the instance type (in MiB).
+     * @return Total size of the memory for the GPU accelerators for the instance type (in MiB).
      * 
      */
     public Integer totalGpuMemory() {

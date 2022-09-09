@@ -16,12 +16,12 @@ public final class GetDetectorResult {
     private String findingPublishingFrequency;
     private String id;
     /**
-     * @return The service-linked role that grants GuardDuty access to the resources in the AWS account.
+     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
      */
     private String serviceRoleArn;
     /**
-     * @return The current status of the detector.
+     * @return Current status of the detector.
      * 
      */
     private String status;
@@ -38,14 +38,14 @@ public final class GetDetectorResult {
         return this.id;
     }
     /**
-     * @return The service-linked role that grants GuardDuty access to the resources in the AWS account.
+     * @return Service-linked role that grants GuardDuty access to the resources in the AWS account.
      * 
      */
     public String serviceRoleArn() {
         return this.serviceRoleArn;
     }
     /**
-     * @return The current status of the detector.
+     * @return Current status of the detector.
      * 
      */
     public String status() {

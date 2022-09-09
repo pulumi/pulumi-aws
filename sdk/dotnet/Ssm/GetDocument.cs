@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Ssm
         public string? DocumentFormat { get; set; }
 
         /// <summary>
-        /// The document version for which you want information.
+        /// Document version for which you want information.
         /// </summary>
         [Input("documentVersion")]
         public string? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The name of the Systems Manager document.
+        /// Name of the Systems Manager document.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? DocumentFormat { get; set; }
 
         /// <summary>
-        /// The document version for which you want information.
+        /// Document version for which you want information.
         /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// The name of the Systems Manager document.
+        /// Name of the Systems Manager document.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -174,16 +174,16 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentResult
     {
         /// <summary>
-        /// The ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
+        /// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The contents of the document.
+        /// Contents of the document.
         /// </summary>
         public readonly string Content;
         public readonly string? DocumentFormat;
         /// <summary>
-        /// The type of the document.
+        /// Type of the document.
         /// </summary>
         public readonly string DocumentType;
         public readonly string? DocumentVersion;

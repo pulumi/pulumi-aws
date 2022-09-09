@@ -58,13 +58,13 @@ import (
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	// The ID of the associated AppSync API
+	// ID of the associated AppSync API
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The API key description. Defaults to "Managed by Pulumi".
+	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires pulumi.StringPtrOutput `pulumi:"expires"`
-	// The API key
+	// API key
 	Key pulumi.StringOutput `pulumi:"key"`
 }
 
@@ -103,24 +103,24 @@ func GetApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
-	// The ID of the associated AppSync API
+	// ID of the associated AppSync API
 	ApiId *string `pulumi:"apiId"`
-	// The API key description. Defaults to "Managed by Pulumi".
+	// API key description. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires *string `pulumi:"expires"`
-	// The API key
+	// API key
 	Key *string `pulumi:"key"`
 }
 
 type ApiKeyState struct {
-	// The ID of the associated AppSync API
+	// ID of the associated AppSync API
 	ApiId pulumi.StringPtrInput
-	// The API key description. Defaults to "Managed by Pulumi".
+	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires pulumi.StringPtrInput
-	// The API key
+	// API key
 	Key pulumi.StringPtrInput
 }
 
@@ -129,9 +129,9 @@ func (ApiKeyState) ElementType() reflect.Type {
 }
 
 type apiKeyArgs struct {
-	// The ID of the associated AppSync API
+	// ID of the associated AppSync API
 	ApiId string `pulumi:"apiId"`
-	// The API key description. Defaults to "Managed by Pulumi".
+	// API key description. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires *string `pulumi:"expires"`
@@ -139,9 +139,9 @@ type apiKeyArgs struct {
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
-	// The ID of the associated AppSync API
+	// ID of the associated AppSync API
 	ApiId pulumi.StringInput
-	// The API key description. Defaults to "Managed by Pulumi".
+	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires pulumi.StringPtrInput
@@ -234,12 +234,12 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
-// The ID of the associated AppSync API
+// ID of the associated AppSync API
 func (o ApiKeyOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The API key description. Defaults to "Managed by Pulumi".
+// API key description. Defaults to "Managed by Pulumi".
 func (o ApiKeyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
@@ -249,7 +249,7 @@ func (o ApiKeyOutput) Expires() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Expires }).(pulumi.StringPtrOutput)
 }
 
-// The API key
+// API key
 func (o ApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

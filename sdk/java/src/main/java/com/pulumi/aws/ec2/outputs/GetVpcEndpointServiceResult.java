@@ -21,12 +21,12 @@ public final class GetVpcEndpointServiceResult {
      */
     private Boolean acceptanceRequired;
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * @return ARN of the VPC endpoint service.
      * 
      */
     private String arn;
     /**
-     * @return The Availability Zones in which the service is available.
+     * @return Availability Zones in which the service is available.
      * 
      */
     private List<String> availabilityZones;
@@ -47,18 +47,18 @@ public final class GetVpcEndpointServiceResult {
      */
     private Boolean managesVpcEndpoints;
     /**
-     * @return The AWS account ID of the service owner or `amazon`.
+     * @return AWS account ID of the service owner or `amazon`.
      * 
      */
     private String owner;
     /**
-     * @return The private DNS name for the service.
+     * @return Private DNS name for the service.
      * 
      */
     private String privateDnsName;
     private @Nullable String service;
     /**
-     * @return The ID of the endpoint service.
+     * @return ID of the endpoint service.
      * 
      */
     private String serviceId;
@@ -70,7 +70,7 @@ public final class GetVpcEndpointServiceResult {
      */
     private List<String> supportedIpAddressTypes;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -89,14 +89,14 @@ public final class GetVpcEndpointServiceResult {
         return this.acceptanceRequired;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * @return ARN of the VPC endpoint service.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The Availability Zones in which the service is available.
+     * @return Availability Zones in which the service is available.
      * 
      */
     public List<String> availabilityZones() {
@@ -127,14 +127,14 @@ public final class GetVpcEndpointServiceResult {
         return this.managesVpcEndpoints;
     }
     /**
-     * @return The AWS account ID of the service owner or `amazon`.
+     * @return AWS account ID of the service owner or `amazon`.
      * 
      */
     public String owner() {
         return this.owner;
     }
     /**
-     * @return The private DNS name for the service.
+     * @return Private DNS name for the service.
      * 
      */
     public String privateDnsName() {
@@ -144,7 +144,7 @@ public final class GetVpcEndpointServiceResult {
         return Optional.ofNullable(this.service);
     }
     /**
-     * @return The ID of the endpoint service.
+     * @return ID of the endpoint service.
      * 
      */
     public String serviceId() {
@@ -164,7 +164,7 @@ public final class GetVpcEndpointServiceResult {
         return this.supportedIpAddressTypes;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

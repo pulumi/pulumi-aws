@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
     /**
-     * @return One or more ACM Amazon Resource Name (ARN)s.
+     * @return One or more ACM ARNs.
      * 
      */
     private List<String> certificateAuthorityArns;
 
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm() {}
     /**
-     * @return One or more ACM Amazon Resource Name (ARN)s.
+     * @return One or more ACM ARNs.
      * 
      */
     public List<String> certificateAuthorityArns() {

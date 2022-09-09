@@ -17,14 +17,14 @@ public final class GetRestApiArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRestApiArgs Empty = new GetRestApiArgs();
 
     /**
-     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+     * Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+     * @return Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
      * 
      */
     public Output<String> name() {
@@ -72,7 +72,7 @@ public final class GetRestApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+         * @param name Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetRestApiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+         * @param name Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
          * 
          * @return builder
          * 

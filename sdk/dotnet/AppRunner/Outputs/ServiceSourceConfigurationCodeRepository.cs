@@ -18,11 +18,11 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration? CodeConfiguration;
         /// <summary>
-        /// The location of the repository that contains the source code.
+        /// Location of the repository that contains the source code.
         /// </summary>
         public readonly string RepositoryUrl;
         /// <summary>
-        /// The version that should be used within the source code repository. See Source Code Version below for more details.
+        /// Version that should be used within the source code repository. See Source Code Version below for more details.
         /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion SourceCodeVersion;
 

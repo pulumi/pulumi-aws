@@ -17,14 +17,14 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetGlobalNetworkArgs Empty = new GetGlobalNetworkArgs();
 
     /**
-     * The id of the specific global network to retrieve.
+     * ID of the specific global network to retrieve.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The id of the specific global network to retrieve.
+     * @return ID of the specific global network to retrieve.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -32,14 +32,14 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * A map of resource tags.
+     * Map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of resource tags.
+     * @return Map of resource tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param globalNetworkId The id of the specific global network to retrieve.
+         * @param globalNetworkId ID of the specific global network to retrieve.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param globalNetworkId The id of the specific global network to retrieve.
+         * @param globalNetworkId ID of the specific global network to retrieve.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags A map of resource tags.
+         * @param tags Map of resource tags.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetGlobalNetworkArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags A map of resource tags.
+         * @param tags Map of resource tags.
          * 
          * @return builder
          * 

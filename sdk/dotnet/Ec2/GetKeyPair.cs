@@ -128,13 +128,13 @@ namespace Pulumi.Aws.Ec2
         public bool? IncludePublicKey { get; set; }
 
         /// <summary>
-        /// The Key Pair name.
+        /// Key Pair name.
         /// </summary>
         [Input("keyName")]
         public string? KeyName { get; set; }
 
         /// <summary>
-        /// The Key Pair ID.
+        /// Key Pair ID.
         /// </summary>
         [Input("keyPairId")]
         public string? KeyPairId { get; set; }
@@ -178,13 +178,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? IncludePublicKey { get; set; }
 
         /// <summary>
-        /// The Key Pair name.
+        /// Key Pair name.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// The Key Pair ID.
+        /// Key Pair ID.
         /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
@@ -212,16 +212,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetKeyPairResult
     {
         /// <summary>
-        /// The ARN of the Key Pair.
+        /// ARN of the Key Pair.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The timestamp for when the key pair was created in ISO 8601 format.
+        /// Timestamp for when the key pair was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         public readonly ImmutableArray<Outputs.GetKeyPairFilterResult> Filters;
         /// <summary>
-        /// The SHA-1 digest of the DER encoded private key.
+        /// SHA-1 digest of the DER encoded private key.
         /// </summary>
         public readonly string Fingerprint;
         /// <summary>
@@ -232,11 +232,11 @@ namespace Pulumi.Aws.Ec2
         public readonly string? KeyName;
         public readonly string? KeyPairId;
         /// <summary>
-        /// The type of key pair.
+        /// Type of key pair.
         /// </summary>
         public readonly string KeyType;
         /// <summary>
-        /// The public key material.
+        /// Public key material.
         /// </summary>
         public readonly string PublicKey;
         /// <summary>

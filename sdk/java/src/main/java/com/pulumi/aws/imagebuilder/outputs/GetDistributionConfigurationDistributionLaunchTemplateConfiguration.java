@@ -16,7 +16,7 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
      */
     private String accountId;
     /**
-     * @return Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+     * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
      * 
      */
     private Boolean default_;
@@ -35,7 +35,7 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
         return this.accountId;
     }
     /**
-     * @return Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
+     * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
      * 
      */
     public Boolean default_() {

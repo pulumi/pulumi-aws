@@ -89,7 +89,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -105,7 +105,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A description for the snapshot
+        Description for the snapshot
         """
         return pulumi.get(self, "description")
 
@@ -134,7 +134,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -147,7 +147,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> str:
         """
-        The ARN of the Outpost on which the snapshot is stored.
+        ARN of the Outpost on which the snapshot is stored.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -163,7 +163,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
-        The AWS account ID of the EBS snapshot owner.
+        AWS account ID of the EBS snapshot owner.
         """
         return pulumi.get(self, "owner_id")
 
@@ -181,7 +181,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
         """
-        The snapshot ID (e.g., snap-59fcb34e).
+        Snapshot ID (e.g., snap-59fcb34e).
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -194,7 +194,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def state(self) -> str:
         """
-        The snapshot state.
+        Snapshot state.
         """
         return pulumi.get(self, "state")
 
@@ -202,7 +202,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> str:
         """
-        The storage tier in which the snapshot is stored.
+        Storage tier in which the snapshot is stored.
         """
         return pulumi.get(self, "storage_tier")
 
@@ -210,7 +210,7 @@ class GetSnapshotResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -218,7 +218,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
-        The volume ID (e.g., vol-59fcb34e).
+        Volume ID (e.g., vol-59fcb34e).
         """
         return pulumi.get(self, "volume_id")
 
@@ -226,7 +226,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> int:
         """
-        The size of the drive in GiBs.
+        Size of the drive in GiBs.
         """
         return pulumi.get(self, "volume_size")
 
@@ -297,7 +297,7 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -371,6 +371,6 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

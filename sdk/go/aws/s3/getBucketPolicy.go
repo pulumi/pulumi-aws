@@ -51,7 +51,7 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyArgs struct {
-	// The bucket name.
+	// Bucket name.
 	Bucket string `pulumi:"bucket"`
 }
 
@@ -79,7 +79,7 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 
 // A collection of arguments for invoking getBucketPolicy.
 type LookupBucketPolicyOutputArgs struct {
-	// The bucket name.
+	// Bucket name.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 

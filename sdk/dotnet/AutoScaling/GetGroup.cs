@@ -100,7 +100,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// ARN of the Auto Scaling group.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -109,11 +109,11 @@ namespace Pulumi.Aws.AutoScaling
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly int DefaultCooldown;
         /// <summary>
-        /// The desired size of the group.
+        /// Desired size of the group.
         /// </summary>
         public readonly int DesiredCapacity;
         /// <summary>
-        /// The list of metrics enabled for collection.
+        /// List of metrics enabled for collection.
         /// </summary>
         public readonly ImmutableArray<string> EnabledMetrics;
         /// <summary>
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int HealthCheckGracePeriod;
         /// <summary>
-        /// The service to use for the health checks. The valid values are EC2 and ELB.
+        /// Service to use for the health checks. The valid values are EC2 and ELB.
         /// </summary>
         public readonly string HealthCheckType;
         /// <summary>
@@ -138,11 +138,11 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancers;
         /// <summary>
-        /// The maximum size of the group.
+        /// Maximum size of the group.
         /// </summary>
         public readonly int MaxSize;
         /// <summary>
-        /// The minimum size of the group.
+        /// Minimum size of the group.
         /// </summary>
         public readonly int MinSize;
         /// <summary>
@@ -151,19 +151,19 @@ namespace Pulumi.Aws.AutoScaling
         public readonly string Name;
         public readonly bool NewInstancesProtectedFromScaleIn;
         /// <summary>
-        /// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         public readonly string PlacementGroup;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+        /// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         /// </summary>
         public readonly string ServiceLinkedRoleArn;
         /// <summary>
-        /// The current state of the group when DeleteAutoScalingGroup is in progress.
+        /// Current state of the group when DeleteAutoScalingGroup is in progress.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The Amazon Resource Names (ARN) of the target groups for your load balancer.
+        /// ARNs of the target groups for your load balancer.
         /// </summary>
         public readonly ImmutableArray<string> TargetGroupArns;
         /// <summary>

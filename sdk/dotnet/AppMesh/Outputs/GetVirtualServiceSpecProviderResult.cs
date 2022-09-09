@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualServiceSpecProviderResult
     {
         /// <summary>
-        /// The virtual node associated with the virtual service.
+        /// Virtual node associated with the virtual service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualServiceSpecProviderVirtualNodeResult> VirtualNodes;
         /// <summary>
-        /// The virtual router associated with the virtual service.
+        /// Virtual router associated with the virtual service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualServiceSpecProviderVirtualRouterResult> VirtualRouters;
 

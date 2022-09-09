@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the replication group.
+        /// Identifier for the replication group.
         /// </summary>
         [Input("replicationGroupId", required: true)]
         public string ReplicationGroupId { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the replication group.
+        /// Identifier for the replication group.
         /// </summary>
         [Input("replicationGroupId", required: true)]
         public Input<string> ReplicationGroupId { get; set; } = null!;
@@ -100,11 +100,11 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetReplicationGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
+        /// ARN of the created ElastiCache Replication Group.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Specifies whether an AuthToken (password) is enabled.
+        /// Whether an AuthToken (password) is enabled.
         /// </summary>
         public readonly bool AuthTokenEnabled;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string ConfigurationEndpointAddress;
         /// <summary>
-        /// The description of the replication group.
+        /// Description of the replication group.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -128,11 +128,11 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationGroupLogDeliveryConfigurationResult> LogDeliveryConfigurations;
         /// <summary>
-        /// The identifiers of all the nodes that are part of this replication group.
+        /// Identifiers of all the nodes that are part of this replication group.
         /// </summary>
         public readonly ImmutableArray<string> MemberClusters;
         /// <summary>
-        /// Specifies whether Multi-AZ Support is enabled for the replication group.
+        /// Whether Multi-AZ Support is enabled for the replication group.
         /// </summary>
         public readonly bool MultiAzEnabled;
         /// <summary>
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int NumNodeGroups;
         /// <summary>
-        /// (**Deprecated** use `num_cache_clusters` instead) The number of cache clusters that the replication group has.
+        /// (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
         /// </summary>
         public readonly int NumberCacheClusters;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int ReplicasPerNodeGroup;
         /// <summary>
-        /// (**Deprecated** use `description` instead) The description of the replication group.
+        /// (**Deprecated** use `description` instead) Description of the replication group.
         /// </summary>
         public readonly string ReplicationGroupDescription;
         public readonly string ReplicationGroupId;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int SnapshotRetentionLimit;
         /// <summary>
-        /// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+        /// Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         /// </summary>
         public readonly string SnapshotWindow;
 

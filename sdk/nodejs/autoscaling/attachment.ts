@@ -81,7 +81,7 @@ export class Attachment extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of an ALB Target Group.
+     * ARN of an ALB Target Group.
      *
      * @deprecated Use lb_target_group_arn instead
      */
@@ -91,11 +91,11 @@ export class Attachment extends pulumi.CustomResource {
      */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
-     * The name of the ELB.
+     * Name of the ELB.
      */
     public readonly elb!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of a load balancer target group.
+     * ARN of a load balancer target group.
      */
     public readonly lbTargetGroupArn!: pulumi.Output<string | undefined>;
 
@@ -136,7 +136,7 @@ export class Attachment extends pulumi.CustomResource {
  */
 export interface AttachmentState {
     /**
-     * The ARN of an ALB Target Group.
+     * ARN of an ALB Target Group.
      *
      * @deprecated Use lb_target_group_arn instead
      */
@@ -146,11 +146,11 @@ export interface AttachmentState {
      */
     autoscalingGroupName?: pulumi.Input<string>;
     /**
-     * The name of the ELB.
+     * Name of the ELB.
      */
     elb?: pulumi.Input<string>;
     /**
-     * The ARN of a load balancer target group.
+     * ARN of a load balancer target group.
      */
     lbTargetGroupArn?: pulumi.Input<string>;
 }
@@ -160,7 +160,7 @@ export interface AttachmentState {
  */
 export interface AttachmentArgs {
     /**
-     * The ARN of an ALB Target Group.
+     * ARN of an ALB Target Group.
      *
      * @deprecated Use lb_target_group_arn instead
      */
@@ -170,11 +170,11 @@ export interface AttachmentArgs {
      */
     autoscalingGroupName: pulumi.Input<string>;
     /**
-     * The name of the ELB.
+     * Name of the ELB.
      */
     elb?: pulumi.Input<string>;
     /**
-     * The ARN of a load balancer target group.
+     * ARN of a load balancer target group.
      */
     lbTargetGroupArn?: pulumi.Input<string>;
 }

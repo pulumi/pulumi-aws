@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<string>? _headers;
 
         /// <summary>
-        /// Specifies the Headers, if any, that you want
+        /// Headers, if any, that you want
         /// CloudFront to vary upon for this cache behavior. Specify `*` to include all
         /// headers.
         /// </summary>

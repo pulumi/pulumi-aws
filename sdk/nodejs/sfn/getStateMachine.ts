@@ -36,7 +36,7 @@ export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeO
  */
 export interface GetStateMachineArgs {
     /**
-     * The friendly name of the state machine to match.
+     * Friendly name of the state machine to match.
      */
     name: string;
 }
@@ -50,7 +50,7 @@ export interface GetStateMachineResult {
      */
     readonly arn: string;
     /**
-     * The date the state machine was created.
+     * Date the state machine was created.
      */
     readonly creationDate: string;
     /**
@@ -81,7 +81,7 @@ export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pu
  */
 export interface GetStateMachineOutputArgs {
     /**
-     * The friendly name of the state machine to match.
+     * Friendly name of the state machine to match.
      */
     name: pulumi.Input<string>;
 }

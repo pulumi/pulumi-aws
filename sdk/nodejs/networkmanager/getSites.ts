@@ -38,7 +38,7 @@ export function getSites(args: GetSitesArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetSitesArgs {
     /**
-     * The ID of the Global Network of the sites to retrieve.
+     * ID of the Global Network of the sites to retrieve.
      */
     globalNetworkId: string;
     /**
@@ -57,7 +57,7 @@ export interface GetSitesResult {
      */
     readonly id: string;
     /**
-     * The IDs of the sites.
+     * IDs of the sites.
      */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
@@ -72,7 +72,7 @@ export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetSitesOutputArgs {
     /**
-     * The ID of the Global Network of the sites to retrieve.
+     * ID of the Global Network of the sites to retrieve.
      */
     globalNetworkId: pulumi.Input<string>;
     /**

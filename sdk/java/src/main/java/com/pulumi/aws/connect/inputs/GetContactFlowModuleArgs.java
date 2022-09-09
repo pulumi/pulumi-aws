@@ -62,14 +62,14 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * A map of tags to assign to the Contact Flow Module.
+     * Map of tags to assign to the Contact Flow Module.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Contact Flow Module.
+     * @return Map of tags to assign to the Contact Flow Module.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,7 +167,7 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A map of tags to assign to the Contact Flow Module.
+         * @param tags Map of tags to assign to the Contact Flow Module.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetContactFlowModuleArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags A map of tags to assign to the Contact Flow Module.
+         * @param tags Map of tags to assign to the Contact Flow Module.
          * 
          * @return builder
          * 

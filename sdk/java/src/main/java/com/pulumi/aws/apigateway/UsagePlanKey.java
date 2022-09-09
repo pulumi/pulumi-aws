@@ -76,70 +76,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/usagePlanKey:UsagePlanKey")
 public class UsagePlanKey extends com.pulumi.resources.CustomResource {
     /**
-     * The identifier of the API key resource.
+     * Identifier of the API key resource.
      * 
      */
     @Export(name="keyId", type=String.class, parameters={})
     private Output<String> keyId;
 
     /**
-     * @return The identifier of the API key resource.
+     * @return Identifier of the API key resource.
      * 
      */
     public Output<String> keyId() {
         return this.keyId;
     }
     /**
-     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
     @Export(name="keyType", type=String.class, parameters={})
     private Output<String> keyType;
 
     /**
-     * @return The type of the API key resource. Currently, the valid key type is API_KEY.
+     * @return Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
     public Output<String> keyType() {
         return this.keyType;
     }
     /**
-     * The name of a usage plan key.
+     * Name of a usage plan key.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of a usage plan key.
+     * @return Name of a usage plan key.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The Id of the usage plan resource representing to associate the key to.
+     * Id of the usage plan resource representing to associate the key to.
      * 
      */
     @Export(name="usagePlanId", type=String.class, parameters={})
     private Output<String> usagePlanId;
 
     /**
-     * @return The Id of the usage plan resource representing to associate the key to.
+     * @return Id of the usage plan resource representing to associate the key to.
      * 
      */
     public Output<String> usagePlanId() {
         return this.usagePlanId;
     }
     /**
-     * The value of a usage plan key.
+     * Value of a usage plan key.
      * 
      */
     @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**
-     * @return The value of a usage plan key.
+     * @return Value of a usage plan key.
      * 
      */
     public Output<String> value() {

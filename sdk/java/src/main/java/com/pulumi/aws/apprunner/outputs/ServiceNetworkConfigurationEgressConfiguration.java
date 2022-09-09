@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceNetworkConfigurationEgressConfiguration {
     /**
-     * @return The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+     * @return Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
      * 
      */
     private @Nullable String egressType;
     /**
-     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
      * 
      */
     private @Nullable String vpcConnectorArn;
 
     private ServiceNetworkConfigurationEgressConfiguration() {}
     /**
-     * @return The type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
+     * @return Type of egress configuration.Set to DEFAULT for access to resources hosted on public networks.Set to VPC to associate your service to a custom VPC specified by VpcConnectorArn.
      * 
      */
     public Optional<String> egressType() {
         return Optional.ofNullable(this.egressType);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
+     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
      * 
      */
     public Optional<String> vpcConnectorArn() {

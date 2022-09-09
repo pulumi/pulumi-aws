@@ -285,19 +285,19 @@ class AmiCopyEbsBlockDeviceArgs:
         """
         :param pulumi.Input[bool] delete_on_termination: Boolean controlling whether the EBS volumes created to
                support each created instance will be deleted once that instance is terminated.
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
-        :param pulumi.Input[str] outpost_arn: The ARN of the Outpost on which the snapshot is stored.
-        :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
+        :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+        :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
-        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
-        :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
+        :param pulumi.Input[int] throughput: Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        :param pulumi.Input[int] volume_size: Size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        :param pulumi.Input[str] volume_type: Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -335,7 +335,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -372,7 +372,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Outpost on which the snapshot is stored.
+        ARN of the Outpost on which the snapshot is stored.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -384,7 +384,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of an EBS snapshot that will be used to initialize the created
+        ID of an EBS snapshot that will be used to initialize the created
         EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         snapshot.
         """
@@ -398,7 +398,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -410,7 +410,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of created volumes in GiB.
+        Size of created volumes in GiB.
         If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         as the selected snapshot.
         """
@@ -424,7 +424,7 @@ class AmiCopyEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -439,8 +439,8 @@ class AmiCopyEphemeralBlockDeviceArgs:
                  device_name: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
-        :param pulumi.Input[str] virtual_name: A name for the ephemeral device, of the form "ephemeralN" where
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
+        :param pulumi.Input[str] virtual_name: Name for the ephemeral device, of the form "ephemeralN" where
                *N* is a volume number starting from zero.
         """
         if device_name is not None:
@@ -452,7 +452,7 @@ class AmiCopyEphemeralBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -464,7 +464,7 @@ class AmiCopyEphemeralBlockDeviceArgs:
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the ephemeral device, of the form "ephemeralN" where
+        Name for the ephemeral device, of the form "ephemeralN" where
         *N* is a volume number starting from zero.
         """
         return pulumi.get(self, "virtual_name")
@@ -487,21 +487,21 @@ class AmiEbsBlockDeviceArgs:
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
         :param pulumi.Input[bool] delete_on_termination: Boolean controlling whether the EBS volumes created to
                support each created instance will be deleted once that instance is terminated.
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
-        :param pulumi.Input[str] outpost_arn: The ARN of the Outpost on which the snapshot is stored.
-        :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
+        :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+        :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
-        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
-        :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
+        :param pulumi.Input[int] throughput: Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        :param pulumi.Input[int] volume_size: Size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        :param pulumi.Input[str] volume_type: Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -525,7 +525,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -575,7 +575,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Outpost on which the snapshot is stored.
+        ARN of the Outpost on which the snapshot is stored.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -587,7 +587,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of an EBS snapshot that will be used to initialize the created
+        ID of an EBS snapshot that will be used to initialize the created
         EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         snapshot.
         """
@@ -601,7 +601,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -613,7 +613,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of created volumes in GiB.
+        Size of created volumes in GiB.
         If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         as the selected snapshot.
         """
@@ -627,7 +627,7 @@ class AmiEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -642,8 +642,8 @@ class AmiEphemeralBlockDeviceArgs:
                  device_name: pulumi.Input[str],
                  virtual_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
-        :param pulumi.Input[str] virtual_name: A name for the ephemeral device, of the form "ephemeralN" where
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
+        :param pulumi.Input[str] virtual_name: Name for the ephemeral device, of the form "ephemeralN" where
                *N* is a volume number starting from zero.
         """
         pulumi.set(__self__, "device_name", device_name)
@@ -653,7 +653,7 @@ class AmiEphemeralBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -665,7 +665,7 @@ class AmiEphemeralBlockDeviceArgs:
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> pulumi.Input[str]:
         """
-        A name for the ephemeral device, of the form "ephemeralN" where
+        Name for the ephemeral device, of the form "ephemeralN" where
         *N* is a volume number starting from zero.
         """
         return pulumi.get(self, "virtual_name")
@@ -690,19 +690,19 @@ class AmiFromInstanceEbsBlockDeviceArgs:
         """
         :param pulumi.Input[bool] delete_on_termination: Boolean controlling whether the EBS volumes created to
                support each created instance will be deleted once that instance is terminated.
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[int] iops: Number of I/O operations per second the
                created volumes will support.
-        :param pulumi.Input[str] outpost_arn: The ARN of the Outpost on which the snapshot is stored.
-        :param pulumi.Input[str] snapshot_id: The id of an EBS snapshot that will be used to initialize the created
+        :param pulumi.Input[str] outpost_arn: ARN of the Outpost on which the snapshot is stored.
+        :param pulumi.Input[str] snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
-        :param pulumi.Input[int] throughput: The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
-        :param pulumi.Input[int] volume_size: The size of created volumes in GiB.
+        :param pulumi.Input[int] throughput: Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        :param pulumi.Input[int] volume_size: Size of created volumes in GiB.
                If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
                as the selected snapshot.
-        :param pulumi.Input[str] volume_type: The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        :param pulumi.Input[str] volume_type: Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -740,7 +740,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -777,7 +777,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Outpost on which the snapshot is stored.
+        ARN of the Outpost on which the snapshot is stored.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -789,7 +789,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of an EBS snapshot that will be used to initialize the created
+        ID of an EBS snapshot that will be used to initialize the created
         EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
         snapshot.
         """
@@ -803,7 +803,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -815,7 +815,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of created volumes in GiB.
+        Size of created volumes in GiB.
         If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
         as the selected snapshot.
         """
@@ -829,7 +829,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -844,8 +844,8 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
                  device_name: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] device_name: The path at which the device is exposed to created instances.
-        :param pulumi.Input[str] virtual_name: A name for the ephemeral device, of the form "ephemeralN" where
+        :param pulumi.Input[str] device_name: Path at which the device is exposed to created instances.
+        :param pulumi.Input[str] virtual_name: Name for the ephemeral device, of the form "ephemeralN" where
                *N* is a volume number starting from zero.
         """
         if device_name is not None:
@@ -857,7 +857,7 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The path at which the device is exposed to created instances.
+        Path at which the device is exposed to created instances.
         """
         return pulumi.get(self, "device_name")
 
@@ -869,7 +869,7 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the ephemeral device, of the form "ephemeralN" where
+        Name for the ephemeral device, of the form "ephemeralN" where
         *N* is a volume number starting from zero.
         """
         return pulumi.get(self, "virtual_name")
@@ -1390,7 +1390,7 @@ class DefaultSecurityGroupEgressArgs:
         :param pulumi.Input[str] description: Description of this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -1497,7 +1497,7 @@ class DefaultSecurityGroupEgressArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1538,7 +1538,7 @@ class DefaultSecurityGroupIngressArgs:
         :param pulumi.Input[str] description: Description of this rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -1645,7 +1645,7 @@ class DefaultSecurityGroupIngressArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         """
         return pulumi.get(self, "security_groups")
 
@@ -2674,12 +2674,14 @@ class FleetTargetCapacitySpecificationArgs:
                  default_target_capacity_type: pulumi.Input[str],
                  total_target_capacity: pulumi.Input[int],
                  on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
-                 spot_target_capacity: Optional[pulumi.Input[int]] = None):
+                 spot_target_capacity: Optional[pulumi.Input[int]] = None,
+                 target_capacity_unit_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] default_target_capacity_type: Default target capacity type. Valid values: `on-demand`, `spot`.
         :param pulumi.Input[int] total_target_capacity: The number of units to request, filled using `default_target_capacity_type`.
         :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request.
         :param pulumi.Input[int] spot_target_capacity: The number of Spot units to request.
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         """
         pulumi.set(__self__, "default_target_capacity_type", default_target_capacity_type)
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
@@ -2687,6 +2689,8 @@ class FleetTargetCapacitySpecificationArgs:
             pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
         if spot_target_capacity is not None:
             pulumi.set(__self__, "spot_target_capacity", spot_target_capacity)
+        if target_capacity_unit_type is not None:
+            pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
 
     @property
     @pulumi.getter(name="defaultTargetCapacityType")
@@ -2735,6 +2739,18 @@ class FleetTargetCapacitySpecificationArgs:
     @spot_target_capacity.setter
     def spot_target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "spot_target_capacity", value)
+
+    @property
+    @pulumi.getter(name="targetCapacityUnitType")
+    def target_capacity_unit_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit for the target capacity. This can only be done with `instance_requirements` defined
+        """
+        return pulumi.get(self, "target_capacity_unit_type")
+
+    @target_capacity_unit_type.setter
+    def target_capacity_unit_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_capacity_unit_type", value)
 
 
 @pulumi.input_type
@@ -2837,8 +2853,8 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
                  capacity_reservation_id: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
-        :param pulumi.Input[str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_id: ID of the Capacity Reservation in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_resource_group_arn: ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
@@ -2849,7 +2865,7 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     @pulumi.getter(name="capacityReservationId")
     def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Capacity Reservation in which to run the instance.
+        ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
 
@@ -2861,7 +2877,7 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     @pulumi.getter(name="capacityReservationResourceGroupArn")
     def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Capacity Reservation resource group in which to run the instance.
+        ARN of the Capacity Reservation resource group in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
@@ -2914,7 +2930,7 @@ class InstanceEbsBlockDeviceArgs:
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: Snapshot ID to mount.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
@@ -3018,7 +3034,7 @@ class InstanceEbsBlockDeviceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the device.
+        Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
 
@@ -3105,7 +3121,7 @@ class InstanceEphemeralBlockDeviceArgs:
                  no_device: Optional[pulumi.Input[bool]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] device_name: The name of the block device to mount on the instance.
+        :param pulumi.Input[str] device_name: Name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
@@ -3119,7 +3135,7 @@ class InstanceEphemeralBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
         """
-        The name of the block device to mount on the instance.
+        Name of the block device to mount on the instance.
         """
         return pulumi.get(self, "device_name")
 
@@ -3159,8 +3175,8 @@ class InstanceLaunchTemplateArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
-        :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
+        :param pulumi.Input[str] id: ID of the launch template. Conflicts with `name`.
+        :param pulumi.Input[str] name: Name of the launch template. Conflicts with `id`.
         :param pulumi.Input[str] version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
         """
         if id is not None:
@@ -3174,7 +3190,7 @@ class InstanceLaunchTemplateArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the launch template. Conflicts with `name`.
+        ID of the launch template. Conflicts with `name`.
         """
         return pulumi.get(self, "id")
 
@@ -3186,7 +3202,7 @@ class InstanceLaunchTemplateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the launch template. Conflicts with `id`.
+        Name of the launch template. Conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
@@ -3212,7 +3228,7 @@ class InstanceMaintenanceOptionsArgs:
     def __init__(__self__, *,
                  auto_recovery: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        :param pulumi.Input[str] auto_recovery: Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
         """
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
@@ -3221,7 +3237,7 @@ class InstanceMaintenanceOptionsArgs:
     @pulumi.getter(name="autoRecovery")
     def auto_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
         """
         return pulumi.get(self, "auto_recovery")
 
@@ -3379,7 +3395,7 @@ class InstancePrivateDnsNameOptionsArgs:
         """
         :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        :param pulumi.Input[str] hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        :param pulumi.Input[str] hostname_type: Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
         """
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
@@ -3416,7 +3432,7 @@ class InstancePrivateDnsNameOptionsArgs:
     @pulumi.getter(name="hostnameType")
     def hostname_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
         """
         return pulumi.get(self, "hostname_type")
 
@@ -3444,7 +3460,7 @@ class InstanceRootBlockDeviceArgs:
         :param pulumi.Input[bool] encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[str] volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
@@ -3535,7 +3551,7 @@ class InstanceRootBlockDeviceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the device.
+        Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
 
@@ -11609,13 +11625,13 @@ class SecurityGroupEgressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -11650,7 +11666,7 @@ class SecurityGroupEgressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         """
         return pulumi.get(self, "protocol")
 
@@ -11722,7 +11738,7 @@ class SecurityGroupEgressArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         """
         return pulumi.get(self, "security_groups")
 
@@ -11757,13 +11773,13 @@ class SecurityGroupIngressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -11798,7 +11814,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         """
         return pulumi.get(self, "protocol")
 
@@ -11870,7 +11886,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         """
         return pulumi.get(self, "security_groups")
 
@@ -13346,8 +13362,8 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
                  capacity_reservation_id: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
-        :param pulumi.Input[str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_id: ID of the Capacity Reservation in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_resource_group_arn: ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
@@ -13358,7 +13374,7 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
     @pulumi.getter(name="capacityReservationId")
     def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Capacity Reservation in which to run the instance.
+        ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
 
@@ -13370,7 +13386,7 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
     @pulumi.getter(name="capacityReservationResourceGroupArn")
     def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Capacity Reservation resource group in which to run the instance.
+        ARN of the Capacity Reservation resource group in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
@@ -13423,7 +13439,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param pulumi.Input[str] snapshot_id: Snapshot ID to mount.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
@@ -13526,7 +13542,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the device.
+        Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
 
@@ -13610,7 +13626,7 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
                  no_device: Optional[pulumi.Input[bool]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] device_name: The name of the block device to mount on the instance.
+        :param pulumi.Input[str] device_name: Name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
@@ -13624,7 +13640,7 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
         """
-        The name of the block device to mount on the instance.
+        Name of the block device to mount on the instance.
         """
         return pulumi.get(self, "device_name")
 
@@ -13664,8 +13680,8 @@ class SpotInstanceRequestLaunchTemplateArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
-        :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
+        :param pulumi.Input[str] id: ID of the launch template. Conflicts with `name`.
+        :param pulumi.Input[str] name: Name of the launch template. Conflicts with `id`.
         :param pulumi.Input[str] version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
         """
         if id is not None:
@@ -13679,7 +13695,7 @@ class SpotInstanceRequestLaunchTemplateArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the launch template. Conflicts with `name`.
+        ID of the launch template. Conflicts with `name`.
         """
         return pulumi.get(self, "id")
 
@@ -13691,7 +13707,7 @@ class SpotInstanceRequestLaunchTemplateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the launch template. Conflicts with `id`.
+        Name of the launch template. Conflicts with `id`.
         """
         return pulumi.get(self, "name")
 
@@ -13717,7 +13733,7 @@ class SpotInstanceRequestMaintenanceOptionsArgs:
     def __init__(__self__, *,
                  auto_recovery: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        :param pulumi.Input[str] auto_recovery: Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
         """
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
@@ -13726,7 +13742,7 @@ class SpotInstanceRequestMaintenanceOptionsArgs:
     @pulumi.getter(name="autoRecovery")
     def auto_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
         """
         return pulumi.get(self, "auto_recovery")
 
@@ -13884,7 +13900,7 @@ class SpotInstanceRequestPrivateDnsNameOptionsArgs:
         """
         :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        :param pulumi.Input[str] hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        :param pulumi.Input[str] hostname_type: Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
         """
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
@@ -13921,7 +13937,7 @@ class SpotInstanceRequestPrivateDnsNameOptionsArgs:
     @pulumi.getter(name="hostnameType")
     def hostname_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
         """
         return pulumi.get(self, "hostname_type")
 
@@ -13949,7 +13965,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         :param pulumi.Input[bool] encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param pulumi.Input[int] iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the device.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param pulumi.Input[int] volume_size: Size of the volume in gibibytes (GiB).
         :param pulumi.Input[str] volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
@@ -14039,7 +14055,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the device.
+        Map of tags to assign to the device.
         """
         return pulumi.get(self, "tags")
 
@@ -14805,7 +14821,7 @@ class GetAmiFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the AMI that was provided during image creation.
+        :param str name: Name of the AMI that was provided during image creation.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -14814,7 +14830,7 @@ class GetAmiFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the AMI that was provided during image creation.
+        Name of the AMI that was provided during image creation.
         """
         return pulumi.get(self, "name")
 
@@ -14865,7 +14881,7 @@ class GetCoipPoolFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A COIP Pool will be selected if any one of the given values matches.
@@ -14877,7 +14893,7 @@ class GetCoipPoolFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         """
         return pulumi.get(self, "name")
@@ -14906,7 +14922,7 @@ class GetCoipPoolsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A COIP Pool will be selected if any one of the given values matches.
@@ -14918,7 +14934,7 @@ class GetCoipPoolsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
         """
         return pulumi.get(self, "name")
@@ -14974,7 +14990,7 @@ class GetDedicatedHostFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -14984,7 +15000,7 @@ class GetDedicatedHostFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
         """
         return pulumi.get(self, "name")
 
@@ -15011,7 +15027,7 @@ class GetEipsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
         """
@@ -15022,7 +15038,7 @@ class GetEipsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
         """
         return pulumi.get(self, "name")
@@ -15242,7 +15258,7 @@ class GetInternetGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                An Internet Gateway will be selected if any one of the given values matches.
@@ -15254,7 +15270,7 @@ class GetInternetGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
         """
         return pulumi.get(self, "name")
@@ -15283,7 +15299,7 @@ class GetKeyPairFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15293,7 +15309,7 @@ class GetKeyPairFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
         """
         return pulumi.get(self, "name")
 
@@ -15320,7 +15336,7 @@ class GetLaunchTemplateFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15330,7 +15346,7 @@ class GetLaunchTemplateFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         """
         return pulumi.get(self, "name")
 
@@ -15357,7 +15373,7 @@ class GetLocalGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Local Gateway will be selected if any one of the given values matches.
@@ -15369,7 +15385,7 @@ class GetLocalGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
         """
         return pulumi.get(self, "name")
@@ -15398,7 +15414,7 @@ class GetLocalGatewayRouteTableFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A local gateway route table will be selected if any one of the given values matches.
@@ -15410,7 +15426,7 @@ class GetLocalGatewayRouteTableFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
         """
         return pulumi.get(self, "name")
@@ -15439,7 +15455,7 @@ class GetLocalGatewayRouteTablesFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Local Gateway Route Table will be selected if any one of the given values matches.
@@ -15451,7 +15467,7 @@ class GetLocalGatewayRouteTablesFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
         """
         return pulumi.get(self, "name")
@@ -15591,7 +15607,7 @@ class GetLocalGatewaysFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Local Gateway will be selected if any one of the given values matches.
@@ -15603,7 +15619,7 @@ class GetLocalGatewaysFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
         """
         return pulumi.get(self, "name")
@@ -15632,7 +15648,7 @@ class GetManagedPrefixListFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        :param str name: Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15642,7 +15658,7 @@ class GetManagedPrefixListFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
         """
         return pulumi.get(self, "name")
 
@@ -15669,7 +15685,7 @@ class GetNatGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                An Nat Gateway will be selected if any one of the given values matches.
@@ -15681,7 +15697,7 @@ class GetNatGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
         """
         return pulumi.get(self, "name")
@@ -15710,7 +15726,7 @@ class GetNatGatewaysFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Nat Gateway will be selected if any one of the given values matches.
@@ -15722,7 +15738,7 @@ class GetNatGatewaysFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
         """
         return pulumi.get(self, "name")
@@ -15751,7 +15767,7 @@ class GetNetworkAclsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC will be selected if any one of the given values matches.
@@ -15763,7 +15779,7 @@ class GetNetworkAclsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
         """
         return pulumi.get(self, "name")
@@ -15792,7 +15808,7 @@ class GetNetworkInsightsAnalysisFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15802,7 +15818,7 @@ class GetNetworkInsightsAnalysisFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
         """
         return pulumi.get(self, "name")
 
@@ -15829,7 +15845,7 @@ class GetNetworkInsightsPathFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+        :param str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15839,7 +15855,7 @@ class GetNetworkInsightsPathFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
         """
         return pulumi.get(self, "name")
 
@@ -15893,7 +15909,7 @@ class GetNetworkInterfacesFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
@@ -15904,7 +15920,7 @@ class GetNetworkInterfacesFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
         """
         return pulumi.get(self, "name")
@@ -15932,7 +15948,7 @@ class GetPrefixListFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -15942,7 +15958,7 @@ class GetPrefixListFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
         """
         return pulumi.get(self, "name")
 
@@ -16006,7 +16022,7 @@ class GetRouteTablesFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Route Table will be selected if any one of the given values matches.
@@ -16018,7 +16034,7 @@ class GetRouteTablesFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
         """
         return pulumi.get(self, "name")
@@ -16047,7 +16063,7 @@ class GetSecurityGroupFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Security Group will be selected if any one of the given values matches.
@@ -16059,7 +16075,7 @@ class GetSecurityGroupFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
         """
         return pulumi.get(self, "name")
@@ -16152,7 +16168,7 @@ class GetSubnetFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
@@ -16162,7 +16178,7 @@ class GetSubnetFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         """
         return pulumi.get(self, "name")
 
@@ -16189,7 +16205,7 @@ class GetSubnetIdsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
         :param Sequence[str] values: Set of values that are accepted for the given field.
@@ -16202,7 +16218,7 @@ class GetSubnetIdsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
         """
@@ -16232,7 +16248,7 @@ class GetSubnetsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
         :param Sequence[str] values: Set of values that are accepted for the given field.
@@ -16245,7 +16261,7 @@ class GetSubnetsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
         """
@@ -16275,7 +16291,7 @@ class GetTransitGatewayRouteTablesFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Transit Gateway Route Table will be selected if any one of the given values matches.
@@ -16287,7 +16303,7 @@ class GetTransitGatewayRouteTablesFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
         """
         return pulumi.get(self, "name")
@@ -16316,7 +16332,7 @@ class GetVpcDhcpOptionsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter.
+        :param str name: Name of the field to filter.
         :param Sequence[str] values: Set of values for filtering.
         """
         pulumi.set(__self__, "name", name)
@@ -16326,7 +16342,7 @@ class GetVpcDhcpOptionsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter.
+        Name of the field to filter.
         """
         return pulumi.get(self, "name")
 
@@ -16353,7 +16369,7 @@ class GetVpcEndpointFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC Endpoint will be selected if any one of the given values matches.
@@ -16365,7 +16381,7 @@ class GetVpcEndpointFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
         """
         return pulumi.get(self, "name")
@@ -16394,7 +16410,7 @@ class GetVpcEndpointServiceFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -16404,7 +16420,7 @@ class GetVpcEndpointServiceFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+        Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
         """
         return pulumi.get(self, "name")
 
@@ -16431,7 +16447,7 @@ class GetVpcFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC will be selected if any one of the given values matches.
@@ -16443,7 +16459,7 @@ class GetVpcFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         """
         return pulumi.get(self, "name")
@@ -16499,7 +16515,7 @@ class GetVpcPeeringConnectionFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC Peering Connection will be selected if any one of the given values matches.
@@ -16511,7 +16527,7 @@ class GetVpcPeeringConnectionFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         """
         return pulumi.get(self, "name")
@@ -16540,7 +16556,7 @@ class GetVpcPeeringConnectionsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC Peering Connection will be selected if any one of the given values matches.
@@ -16552,7 +16568,7 @@ class GetVpcPeeringConnectionsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         """
         return pulumi.get(self, "name")
@@ -16581,7 +16597,7 @@ class GetVpcsFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPC will be selected if any one of the given values matches.
@@ -16593,7 +16609,7 @@ class GetVpcsFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         """
         return pulumi.get(self, "name")
@@ -16622,7 +16638,7 @@ class GetVpnGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the field to filter by, as defined by
+        :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A VPN Gateway will be selected if any one of the given values matches.
@@ -16634,7 +16650,7 @@ class GetVpnGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the field to filter by, as defined by
+        Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
         """
         return pulumi.get(self, "name")

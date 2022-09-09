@@ -45,7 +45,7 @@ func GetAuthorizationToken(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*G
 type GetAuthorizationTokenResult struct {
 	// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 	AuthorizationToken string `pulumi:"authorizationToken"`
-	// The time in UTC RFC3339 format when the authorization token expires.
+	// Time in UTC RFC3339 format when the authorization token expires.
 	ExpiresAt string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

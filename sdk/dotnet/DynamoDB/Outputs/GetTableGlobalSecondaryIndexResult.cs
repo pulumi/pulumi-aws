@@ -15,7 +15,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     {
         public readonly string HashKey;
         /// <summary>
-        /// The name of the DynamoDB table.
+        /// Name of the DynamoDB table.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> NonKeyAttributes;

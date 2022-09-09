@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class GetScriptDagNodeArgInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the argument or property.
+        /// Name of the argument or property.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<bool>? Param { get; set; }
 
         /// <summary>
-        /// The value of the argument or property.
+        /// Value of the argument or property.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

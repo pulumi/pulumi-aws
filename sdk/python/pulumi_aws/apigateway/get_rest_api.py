@@ -64,7 +64,7 @@ class GetRestApiResult:
     @pulumi.getter(name="apiKeySource")
     def api_key_source(self) -> str:
         """
-        The source of the API key for requests.
+        Source of the API key for requests.
         """
         return pulumi.get(self, "api_key_source")
 
@@ -72,7 +72,7 @@ class GetRestApiResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the REST API.
+        ARN of the REST API.
         """
         return pulumi.get(self, "arn")
 
@@ -80,7 +80,7 @@ class GetRestApiResult:
     @pulumi.getter(name="binaryMediaTypes")
     def binary_media_types(self) -> Sequence[str]:
         """
-        The list of binary media types supported by the REST API.
+        List of binary media types supported by the REST API.
         """
         return pulumi.get(self, "binary_media_types")
 
@@ -88,7 +88,7 @@ class GetRestApiResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the REST API.
+        Description of the REST API.
         """
         return pulumi.get(self, "description")
 
@@ -193,7 +193,7 @@ def get_rest_api(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
@@ -237,7 +237,7 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
     ...

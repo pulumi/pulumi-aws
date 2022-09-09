@@ -44,11 +44,11 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      */
     readonly arn: string;
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      */
     readonly description: string;
     /**
@@ -57,7 +57,7 @@ export interface GetConnectorResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The current version of the connector.
+     * Current version of the connector.
      */
     readonly version: string;
 }

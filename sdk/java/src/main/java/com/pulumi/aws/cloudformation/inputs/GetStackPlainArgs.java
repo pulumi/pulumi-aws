@@ -16,14 +16,14 @@ public final class GetStackPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetStackPlainArgs Empty = new GetStackPlainArgs();
 
     /**
-     * The name of the stack
+     * Name of the stack
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the stack
+     * @return Name of the stack
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetStackPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags associated with this stack.
+     * Map of tags associated with this stack.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags associated with this stack.
+     * @return Map of tags associated with this stack.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetStackPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the stack
+         * @param name Name of the stack
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetStackPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags associated with this stack.
+         * @param tags Map of tags associated with this stack.
          * 
          * @return builder
          * 

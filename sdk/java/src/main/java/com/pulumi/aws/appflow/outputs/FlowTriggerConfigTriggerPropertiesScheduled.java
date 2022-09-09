@@ -13,86 +13,86 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
-     * @return Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+     * @return Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
     private @Nullable String dataPullMode;
     /**
-     * @return Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+     * @return Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
     private @Nullable String firstExecutionFrom;
     /**
-     * @return Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     private @Nullable String scheduleEndTime;
     /**
-     * @return The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
     private String scheduleExpression;
     /**
-     * @return Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     private @Nullable Integer scheduleOffset;
     /**
-     * @return Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     private @Nullable String scheduleStartTime;
     /**
-     * @return Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+     * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      */
     private @Nullable String timezone;
 
     private FlowTriggerConfigTriggerPropertiesScheduled() {}
     /**
-     * @return Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+     * @return Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
     public Optional<String> dataPullMode() {
         return Optional.ofNullable(this.dataPullMode);
     }
     /**
-     * @return Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+     * @return Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<String> firstExecutionFrom() {
         return Optional.ofNullable(this.firstExecutionFrom);
     }
     /**
-     * @return Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<String> scheduleEndTime() {
         return Optional.ofNullable(this.scheduleEndTime);
     }
     /**
-     * @return The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
     public String scheduleExpression() {
         return this.scheduleExpression;
     }
     /**
-     * @return Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     public Optional<Integer> scheduleOffset() {
         return Optional.ofNullable(this.scheduleOffset);
     }
     /**
-     * @return Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+     * @return Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
     public Optional<String> scheduleStartTime() {
         return Optional.ofNullable(this.scheduleStartTime);
     }
     /**
-     * @return Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+     * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
      */
     public Optional<String> timezone() {

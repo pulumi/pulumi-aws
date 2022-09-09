@@ -79,8 +79,8 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
     ```
 
 
-    :param str function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-    :param str instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
+    :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
@@ -112,7 +112,7 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[s
     ```
 
 
-    :param str function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-    :param str instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
+    :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     """
     ...

@@ -17,14 +17,14 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     public static final AppCookieStickinessPolicyState Empty = new AppCookieStickinessPolicyState();
 
     /**
-     * The application cookie whose lifetime the ELB&#39;s cookie should follow.
+     * Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
     @Import(name="cookieName")
     private @Nullable Output<String> cookieName;
 
     /**
-     * @return The application cookie whose lifetime the ELB&#39;s cookie should follow.
+     * @return Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
     public Optional<Output<String>> cookieName() {
@@ -32,7 +32,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * The load balancer port to which the policy
+     * Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      * 
@@ -41,7 +41,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     private @Nullable Output<Integer> lbPort;
 
     /**
-     * @return The load balancer port to which the policy
+     * @return Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      * 
@@ -51,7 +51,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * The name of load balancer to which the policy
+     * Name of load balancer to which the policy
      * should be attached.
      * 
      */
@@ -59,7 +59,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     private @Nullable Output<String> loadBalancer;
 
     /**
-     * @return The name of load balancer to which the policy
+     * @return Name of load balancer to which the policy
      * should be attached.
      * 
      */
@@ -68,14 +68,14 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the stickiness policy.
+     * Name of the stickiness policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the stickiness policy.
+     * @return Name of the stickiness policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -110,7 +110,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cookieName The application cookie whose lifetime the ELB&#39;s cookie should follow.
+         * @param cookieName Application cookie whose lifetime the ELB&#39;s cookie should follow.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cookieName The application cookie whose lifetime the ELB&#39;s cookie should follow.
+         * @param cookieName Application cookie whose lifetime the ELB&#39;s cookie should follow.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param lbPort The load balancer port to which the policy
+         * @param lbPort Load balancer port to which the policy
          * should be applied. This must be an active listener on the load
          * balancer.
          * 
@@ -144,7 +144,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param lbPort The load balancer port to which the policy
+         * @param lbPort Load balancer port to which the policy
          * should be applied. This must be an active listener on the load
          * balancer.
          * 
@@ -156,7 +156,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param loadBalancer The name of load balancer to which the policy
+         * @param loadBalancer Name of load balancer to which the policy
          * should be attached.
          * 
          * @return builder
@@ -168,7 +168,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param loadBalancer The name of load balancer to which the policy
+         * @param loadBalancer Name of load balancer to which the policy
          * should be attached.
          * 
          * @return builder
@@ -179,7 +179,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the stickiness policy.
+         * @param name Name of the stickiness policy.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the stickiness policy.
+         * @param name Name of the stickiness policy.
          * 
          * @return builder
          * 

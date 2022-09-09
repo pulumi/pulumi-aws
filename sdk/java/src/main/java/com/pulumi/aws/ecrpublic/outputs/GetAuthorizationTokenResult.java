@@ -15,7 +15,7 @@ public final class GetAuthorizationTokenResult {
      */
     private String authorizationToken;
     /**
-     * @return The time in UTC RFC3339 format when the authorization token expires.
+     * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
     private String expiresAt;
@@ -44,7 +44,7 @@ public final class GetAuthorizationTokenResult {
         return this.authorizationToken;
     }
     /**
-     * @return The time in UTC RFC3339 format when the authorization token expires.
+     * @return Time in UTC RFC3339 format when the authorization token expires.
      * 
      */
     public String expiresAt() {

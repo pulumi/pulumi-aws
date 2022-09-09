@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLogging
     {
         /// <summary>
-        /// The access log configuration for a virtual gateway.
+        /// Access log configuration for a virtual gateway.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecLoggingAccessLog? AccessLog;
 

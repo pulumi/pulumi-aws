@@ -70,7 +70,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetGlobalNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the specific global network to retrieve.
+        /// ID of the specific global network to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.NetworkManager
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetGlobalNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the specific global network to retrieve.
+        /// ID of the specific global network to retrieve.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GetGlobalNetworkResult
     {
         /// <summary>
-        /// The ARN of the global network.
+        /// ARN of the global network.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the global network.
+        /// Description of the global network.
         /// </summary>
         public readonly string Description;
         public readonly string GlobalNetworkId;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A map of resource tags.
+        /// Map of resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

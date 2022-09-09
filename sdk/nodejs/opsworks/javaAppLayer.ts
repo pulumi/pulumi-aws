@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -124,7 +126,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -309,7 +311,7 @@ export interface JavaAppLayerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -409,7 +411,7 @@ export interface JavaAppLayerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The id of the stack the layer will belong to.
+     * ID of the stack the layer will belong to.
      */
     stackId: pulumi.Input<string>;
     /**

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult> ConnectionPasswordEncryptions;
         /// <summary>
-        /// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        /// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult> EncryptionAtRests;
 

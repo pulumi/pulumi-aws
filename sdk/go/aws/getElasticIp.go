@@ -137,44 +137,44 @@ func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.In
 type GetElasticIpArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 	Filters []GetElasticIpFilter `pulumi:"filters"`
-	// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
+	// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
 	Id *string `pulumi:"id"`
-	// The public IP of the specific EIP to retrieve.
+	// Public IP of the specific EIP to retrieve.
 	PublicIp *string `pulumi:"publicIp"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getElasticIp.
 type GetElasticIpResult struct {
-	// The ID representing the association of the address with an instance in a VPC.
+	// ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
-	// The carrier IP address.
+	// Carrier IP address.
 	CarrierIp string `pulumi:"carrierIp"`
 	// Customer Owned IP.
 	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
 	// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
 	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
-	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+	// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
 	Domain  string               `pulumi:"domain"`
 	Filters []GetElasticIpFilter `pulumi:"filters"`
 	// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
 	Id string `pulumi:"id"`
-	// The ID of the instance that the address is associated with (if any).
+	// ID of the instance that the address is associated with (if any).
 	InstanceId string `pulumi:"instanceId"`
 	// The ID of the network interface.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The ID of the AWS account that owns the network interface.
 	NetworkInterfaceOwnerId string `pulumi:"networkInterfaceOwnerId"`
-	// The Private DNS associated with the Elastic IP address.
+	// Private DNS associated with the Elastic IP address.
 	PrivateDns string `pulumi:"privateDns"`
-	// The private IP address associated with the Elastic IP address.
+	// Private IP address associated with the Elastic IP address.
 	PrivateIp string `pulumi:"privateIp"`
 	// Public DNS associated with the Elastic IP address.
 	PublicDns string `pulumi:"publicDns"`
 	// Public IP address of Elastic IP.
 	PublicIp string `pulumi:"publicIp"`
-	// The ID of an address pool.
+	// ID of an address pool.
 	PublicIpv4Pool string `pulumi:"publicIpv4Pool"`
 	// Key-value map of tags associated with Elastic IP.
 	Tags map[string]string `pulumi:"tags"`
@@ -197,11 +197,11 @@ func GetElasticIpOutput(ctx *pulumi.Context, args GetElasticIpOutputArgs, opts .
 type GetElasticIpOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 	Filters GetElasticIpFilterArrayInput `pulumi:"filters"`
-	// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
+	// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The public IP of the specific EIP to retrieve.
+	// Public IP of the specific EIP to retrieve.
 	PublicIp pulumi.StringPtrInput `pulumi:"publicIp"`
-	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -224,12 +224,12 @@ func (o GetElasticIpResultOutput) ToGetElasticIpResultOutputWithContext(ctx cont
 	return o
 }
 
-// The ID representing the association of the address with an instance in a VPC.
+// ID representing the association of the address with an instance in a VPC.
 func (o GetElasticIpResultOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The carrier IP address.
+// Carrier IP address.
 func (o GetElasticIpResultOutput) CarrierIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.CarrierIp }).(pulumi.StringOutput)
 }
@@ -244,7 +244,7 @@ func (o GetElasticIpResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
 }
 
-// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
 func (o GetElasticIpResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -258,7 +258,7 @@ func (o GetElasticIpResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID of the instance that the address is associated with (if any).
+// ID of the instance that the address is associated with (if any).
 func (o GetElasticIpResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
@@ -273,12 +273,12 @@ func (o GetElasticIpResultOutput) NetworkInterfaceOwnerId() pulumi.StringOutput 
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.NetworkInterfaceOwnerId }).(pulumi.StringOutput)
 }
 
-// The Private DNS associated with the Elastic IP address.
+// Private DNS associated with the Elastic IP address.
 func (o GetElasticIpResultOutput) PrivateDns() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PrivateDns }).(pulumi.StringOutput)
 }
 
-// The private IP address associated with the Elastic IP address.
+// Private IP address associated with the Elastic IP address.
 func (o GetElasticIpResultOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PrivateIp }).(pulumi.StringOutput)
 }
@@ -293,7 +293,7 @@ func (o GetElasticIpResultOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PublicIp }).(pulumi.StringOutput)
 }
 
-// The ID of an address pool.
+// ID of an address pool.
 func (o GetElasticIpResultOutput) PublicIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PublicIpv4Pool }).(pulumi.StringOutput)
 }

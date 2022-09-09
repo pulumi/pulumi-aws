@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesDatadogGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;

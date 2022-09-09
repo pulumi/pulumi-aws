@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The document type specified in the Veeva document extract flow.
+        /// Document type specified in the Veeva document extract flow.
         /// </summary>
         [Input("documentType")]
         public Input<string>? DocumentType { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<bool>? IncludeSourceFiles { get; set; }
 
         /// <summary>
-        /// The object specified in the Veeva flow source.
+        /// Object specified in the Veeva flow source.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;

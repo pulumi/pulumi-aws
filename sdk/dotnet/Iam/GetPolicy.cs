@@ -110,21 +110,21 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the IAM policy.
+        /// ARN of the IAM policy.
         /// Conflicts with `name` and `path_prefix`.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The name of the IAM policy.
+        /// Name of the IAM policy.
         /// Conflicts with `arn`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The prefix of the path to the IAM policy.
+        /// Prefix of the path to the IAM policy.
         /// Defaults to a slash (`/`).
         /// Conflicts with `arn`.
         /// </summary>
@@ -152,21 +152,21 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the IAM policy.
+        /// ARN of the IAM policy.
         /// Conflicts with `name` and `path_prefix`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the IAM policy.
+        /// Name of the IAM policy.
         /// Conflicts with `arn`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The prefix of the path to the IAM policy.
+        /// Prefix of the path to the IAM policy.
         /// Defaults to a slash (`/`).
         /// Conflicts with `arn`.
         /// </summary>
@@ -196,11 +196,11 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyResult
     {
         /// <summary>
-        /// The ARN of the policy.
+        /// ARN of the policy.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the policy.
+        /// Description of the policy.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -209,16 +209,16 @@ namespace Pulumi.Aws.Iam
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The path to the policy.
+        /// Path to the policy.
         /// </summary>
         public readonly string Path;
         public readonly string? PathPrefix;
         /// <summary>
-        /// The policy document of the policy.
+        /// Policy document of the policy.
         /// </summary>
         public readonly string Policy;
         /// <summary>
-        /// The policy's ID.
+        /// Policy's ID.
         /// </summary>
         public readonly string PolicyId;
         /// <summary>

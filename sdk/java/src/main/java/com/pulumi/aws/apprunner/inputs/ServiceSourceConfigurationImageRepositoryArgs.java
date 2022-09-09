@@ -32,7 +32,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     }
 
     /**
-     * The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+     * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
@@ -40,7 +40,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     private Output<String> imageIdentifier;
 
     /**
-     * @return The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
@@ -49,14 +49,14 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     }
 
     /**
-     * The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
     @Import(name="imageRepositoryType", required=true)
     private Output<String> imageRepositoryType;
 
     /**
-     * @return The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
     public Output<String> imageRepositoryType() {
@@ -111,7 +111,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageIdentifier The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
          * image name format, see Pulling an image in the Amazon ECR User Guide.
          * 
          * @return builder
@@ -123,7 +123,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageIdentifier The identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
+         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
          * image name format, see Pulling an image in the Amazon ECR User Guide.
          * 
          * @return builder
@@ -134,7 +134,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageRepositoryType The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageRepositoryType The type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
          * 
          * @return builder
          * 

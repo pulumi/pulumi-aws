@@ -27,20 +27,20 @@ class MethodArgs:
                  request_validator_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Method resource.
-        :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] resource_id: The API resource ID
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
-        :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
+        :param pulumi.Input[str] request_validator_id: ID of a `apigateway.RequestValidator`
         """
         pulumi.set(__self__, "authorization", authorization)
         pulumi.set(__self__, "http_method", http_method)
@@ -65,7 +65,7 @@ class MethodArgs:
     @pulumi.getter
     def authorization(self) -> pulumi.Input[str]:
         """
-        The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         """
         return pulumi.get(self, "authorization")
 
@@ -77,7 +77,7 @@ class MethodArgs:
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
         """
-        The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
         return pulumi.get(self, "http_method")
 
@@ -89,7 +89,7 @@ class MethodArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
         """
-        The API resource ID
+        API resource ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -101,7 +101,7 @@ class MethodArgs:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -125,7 +125,7 @@ class MethodArgs:
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -137,7 +137,7 @@ class MethodArgs:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -149,7 +149,7 @@ class MethodArgs:
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         """
         return pulumi.get(self, "operation_name")
 
@@ -161,7 +161,7 @@ class MethodArgs:
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of the API models used for the request's content type
+        Map of the API models used for the request's content type
         where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
@@ -175,7 +175,7 @@ class MethodArgs:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
         """
-        A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
@@ -188,7 +188,7 @@ class MethodArgs:
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a `apigateway.RequestValidator`
+        ID of a `apigateway.RequestValidator`
         """
         return pulumi.get(self, "request_validator_id")
 
@@ -214,19 +214,19 @@ class _MethodState:
         """
         Input properties used for looking up and filtering Method resources.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
-        :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
+        :param pulumi.Input[str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
-        :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
-        :param pulumi.Input[str] resource_id: The API resource ID
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] request_validator_id: ID of a `apigateway.RequestValidator`
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         if api_key_required is not None:
             pulumi.set(__self__, "api_key_required", api_key_required)
@@ -267,7 +267,7 @@ class _MethodState:
     @pulumi.getter
     def authorization(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         """
         return pulumi.get(self, "authorization")
 
@@ -279,7 +279,7 @@ class _MethodState:
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -291,7 +291,7 @@ class _MethodState:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -303,7 +303,7 @@ class _MethodState:
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
         return pulumi.get(self, "http_method")
 
@@ -315,7 +315,7 @@ class _MethodState:
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         """
         return pulumi.get(self, "operation_name")
 
@@ -327,7 +327,7 @@ class _MethodState:
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of the API models used for the request's content type
+        Map of the API models used for the request's content type
         where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
@@ -341,7 +341,7 @@ class _MethodState:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
         """
-        A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
@@ -354,7 +354,7 @@ class _MethodState:
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a `apigateway.RequestValidator`
+        ID of a `apigateway.RequestValidator`
         """
         return pulumi.get(self, "request_validator_id")
 
@@ -366,7 +366,7 @@ class _MethodState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API resource ID
+        API resource ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -378,7 +378,7 @@ class _MethodState:
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
@@ -464,19 +464,19 @@ class Method(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
-        :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
+        :param pulumi.Input[str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
-        :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
-        :param pulumi.Input[str] resource_id: The API resource ID
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] request_validator_id: ID of a `apigateway.RequestValidator`
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         ...
     @overload
@@ -624,19 +624,19 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_required: Specify if the method requires an API key
-        :param pulumi.Input[str] authorization: The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
-        :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-        :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
+        :param pulumi.Input[str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
-        :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
-        :param pulumi.Input[str] resource_id: The API resource ID
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] request_validator_id: ID of a `apigateway.RequestValidator`
+        :param pulumi.Input[str] resource_id: API resource ID
+        :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -667,7 +667,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter
     def authorization(self) -> pulumi.Output[str]:
         """
-        The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+        Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         """
         return pulumi.get(self, "authorization")
 
@@ -675,7 +675,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+        Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -683,7 +683,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -691,7 +691,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
         """
-        The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
         return pulumi.get(self, "http_method")
 
@@ -699,7 +699,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="operationName")
     def operation_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         """
         return pulumi.get(self, "operation_name")
 
@@ -707,7 +707,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestModels")
     def request_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of the API models used for the request's content type
+        Map of the API models used for the request's content type
         where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
@@ -717,7 +717,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
         """
-        A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
@@ -726,7 +726,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a `apigateway.RequestValidator`
+        ID of a `apigateway.RequestValidator`
         """
         return pulumi.get(self, "request_validator_id")
 
@@ -734,7 +734,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
         """
-        The API resource ID
+        API resource ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -742,7 +742,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
         """
-        The ID of the associated REST API
+        ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 

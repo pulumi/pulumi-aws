@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLaunchConfigurationMetadataOption {
     /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
+     * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
     private String httpEndpoint;
@@ -28,7 +28,7 @@ public final class GetLaunchConfigurationMetadataOption {
 
     private GetLaunchConfigurationMetadataOption() {}
     /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
+     * @return State of the metadata service: `enabled`, `disabled`.
      * 
      */
     public String httpEndpoint() {

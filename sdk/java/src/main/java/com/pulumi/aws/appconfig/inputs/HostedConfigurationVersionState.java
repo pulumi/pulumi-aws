@@ -17,14 +17,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     public static final HostedConfigurationVersionState Empty = new HostedConfigurationVersionState();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -32,14 +32,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * ARN of the AppConfig  hosted configuration version.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+     * @return ARN of the AppConfig  hosted configuration version.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      * 
      */
     @Import(name="configurationProfileId")
     private @Nullable Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID.
+     * @return Configuration profile ID.
      * 
      */
     public Optional<Output<String>> configurationProfileId() {
@@ -62,14 +62,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * The content of the configuration or the configuration data.
+     * Content of the configuration or the configuration data.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return The content of the configuration or the configuration data.
+     * @return Content of the configuration or the configuration data.
      * 
      */
     public Optional<Output<String>> content() {
@@ -77,14 +77,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
     /**
-     * @return A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+     * @return Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
     public Optional<Output<String>> contentType() {
@@ -92,14 +92,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * A description of the configuration.
+     * Description of the configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the configuration.
+     * @return Description of the configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -107,14 +107,14 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
-     * The version number of the hosted configuration.
+     * Version number of the hosted configuration.
      * 
      */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the hosted configuration.
+     * @return Version number of the hosted configuration.
      * 
      */
     public Optional<Output<Integer>> versionNumber() {
@@ -152,7 +152,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+         * @param arn ARN of the AppConfig  hosted configuration version.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+         * @param arn ARN of the AppConfig  hosted configuration version.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param content The content of the configuration or the configuration data.
+         * @param content Content of the configuration or the configuration data.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param content The content of the configuration or the configuration data.
+         * @param content Content of the configuration or the configuration data.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param contentType A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param contentType A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param description A description of the configuration.
+         * @param description Description of the configuration.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param description A description of the configuration.
+         * @param description Description of the configuration.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param versionNumber The version number of the hosted configuration.
+         * @param versionNumber Version number of the hosted configuration.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         }
 
         /**
-         * @param versionNumber The version number of the hosted configuration.
+         * @param versionNumber Version number of the hosted configuration.
          * 
          * @return builder
          * 

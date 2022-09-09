@@ -51,7 +51,7 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 type LookupResourceArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
 	Identifier string `pulumi:"identifier"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName string `pulumi:"typeName"`
@@ -88,7 +88,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 type LookupResourceOutputArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName pulumi.StringInput `pulumi:"typeName"`

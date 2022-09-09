@@ -48,7 +48,7 @@ func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opt
 
 // A collection of arguments for invoking getImagePipeline.
 type LookupImagePipelineArgs struct {
-	// Amazon Resource Name (ARN) of the image pipeline.
+	// ARN of the image pipeline.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags map[string]string `pulumi:"tags"`
@@ -57,7 +57,7 @@ type LookupImagePipelineArgs struct {
 // A collection of values returned by getImagePipeline.
 type LookupImagePipelineResult struct {
 	Arn string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn string `pulumi:"containerRecipeArn"`
 	// Date the image pipeline was created.
 	DateCreated string `pulumi:"dateCreated"`
@@ -69,17 +69,17 @@ type LookupImagePipelineResult struct {
 	DateUpdated string `pulumi:"dateUpdated"`
 	// Description of the image pipeline.
 	Description string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected.
 	EnhancedImageMetadataEnabled bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn string `pulumi:"imageRecipeArn"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
 	Name string `pulumi:"name"`
@@ -108,7 +108,7 @@ func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutp
 
 // A collection of arguments for invoking getImagePipeline.
 type LookupImagePipelineOutputArgs struct {
-	// Amazon Resource Name (ARN) of the image pipeline.
+	// ARN of the image pipeline.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -137,7 +137,7 @@ func (o LookupImagePipelineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the container recipe.
+// ARN of the container recipe.
 func (o LookupImagePipelineResultOutput) ContainerRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ContainerRecipeArn }).(pulumi.StringOutput)
 }
@@ -167,7 +167,7 @@ func (o LookupImagePipelineResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+// ARN of the Image Builder Distribution Configuration.
 func (o LookupImagePipelineResultOutput) DistributionConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.DistributionConfigurationArn }).(pulumi.StringOutput)
 }
@@ -182,7 +182,7 @@ func (o LookupImagePipelineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the image recipe.
+// ARN of the image recipe.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
 }
@@ -194,7 +194,7 @@ func (o LookupImagePipelineResultOutput) ImageTestsConfigurations() GetImagePipe
 	}).(GetImagePipelineImageTestsConfigurationArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+// ARN of the Image Builder Infrastructure Configuration.
 func (o LookupImagePipelineResultOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }

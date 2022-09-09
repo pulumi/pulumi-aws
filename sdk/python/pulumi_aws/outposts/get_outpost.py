@@ -134,7 +134,7 @@ def get_outpost(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN).
+    :param str arn: ARN.
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
     :param str owner_id: AWS Account identifier of the Outpost owner.
@@ -177,7 +177,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN).
+    :param str arn: ARN.
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
     :param str owner_id: AWS Account identifier of the Outpost owner.

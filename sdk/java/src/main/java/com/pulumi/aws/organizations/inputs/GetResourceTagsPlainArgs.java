@@ -16,14 +16,14 @@ public final class GetResourceTagsPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetResourceTagsPlainArgs Empty = new GetResourceTagsPlainArgs();
 
     /**
-     * The ID of the resource with the tags to list. See details below.
+     * ID of the resource with the tags to list. See details below.
      * 
      */
     @Import(name="resourceId", required=true)
     private String resourceId;
 
     /**
-     * @return The ID of the resource with the tags to list. See details below.
+     * @return ID of the resource with the tags to list. See details below.
      * 
      */
     public String resourceId() {
@@ -71,7 +71,7 @@ public final class GetResourceTagsPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param resourceId The ID of the resource with the tags to list. See details below.
+         * @param resourceId ID of the resource with the tags to list. See details below.
          * 
          * @return builder
          * 

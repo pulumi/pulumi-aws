@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./notificationRule";
+export { NotificationRuleArgs, NotificationRuleState } from "./notificationRule";
+export type NotificationRule = import("./notificationRule").NotificationRule;
+export const NotificationRule: typeof import("./notificationRule").NotificationRule = null as any;
 
-// Import resources to register:
-import { NotificationRule } from "./notificationRule";
+utilities.lazyLoad(exports, ["NotificationRule"], () => require("./notificationRule"));
 
 const _module = {
     version: utilities.getVersion(),

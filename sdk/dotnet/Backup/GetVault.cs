@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup vault.
+        /// Name of the backup vault.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup vault.
+        /// Name of the backup vault.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Backup
     public sealed class GetVaultResult
     {
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The server-side encryption key that is used to protect your backups.
+        /// Server-side encryption key that is used to protect your backups.
         /// </summary>
         public readonly string KmsKeyArn;
         public readonly string Name;
         /// <summary>
-        /// The number of recovery points that are stored in a backup vault.
+        /// Number of recovery points that are stored in a backup vault.
         /// </summary>
         public readonly int RecoveryPoints;
         /// <summary>

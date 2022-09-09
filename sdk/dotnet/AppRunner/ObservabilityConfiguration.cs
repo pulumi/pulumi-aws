@@ -73,7 +73,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<int> ObservabilityConfigurationRevision { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -84,11 +84,14 @@ namespace Pulumi.Aws.AppRunner
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
         [Output("traceConfiguration")]
         public Output<Outputs.ObservabilityConfigurationTraceConfiguration?> TraceConfiguration { get; private set; } = null!;
@@ -158,7 +161,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationArgs>? TraceConfiguration { get; set; }
@@ -196,7 +199,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<int>? ObservabilityConfigurationRevision { get; set; }
 
         /// <summary>
-        /// The current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
+        /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -215,6 +218,10 @@ namespace Pulumi.Aws.AppRunner
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -222,7 +229,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationGetArgs>? TraceConfiguration { get; set; }

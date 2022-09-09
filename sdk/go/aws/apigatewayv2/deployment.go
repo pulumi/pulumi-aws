@@ -58,13 +58,13 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Whether the deployment was automatically released.
 	AutoDeployed pulumi.BoolOutput `pulumi:"autoDeployed"`
-	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
@@ -100,24 +100,24 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId *string `pulumi:"apiId"`
 	// Whether the deployment was automatically released.
 	AutoDeployed *bool `pulumi:"autoDeployed"`
-	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
-	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 }
 
 type DeploymentState struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringPtrInput
 	// Whether the deployment was automatically released.
 	AutoDeployed pulumi.BoolPtrInput
-	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
-	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 }
 
@@ -126,21 +126,21 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
-	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The API identifier.
+	// API identifier.
 	ApiId pulumi.StringInput
-	// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
-	// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 }
 
@@ -231,7 +231,7 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// The API identifier.
+// API identifier.
 func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -241,12 +241,12 @@ func (o DeploymentOutput) AutoDeployed() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolOutput { return v.AutoDeployed }).(pulumi.BoolOutput)
 }
 
-// The description for the deployment resource. Must be less than or equal to 1024 characters in length.
+// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 func (o DeploymentOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

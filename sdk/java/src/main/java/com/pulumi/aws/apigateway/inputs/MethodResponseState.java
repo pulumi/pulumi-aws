@@ -18,14 +18,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     public static final MethodResponseState Empty = new MethodResponseState();
 
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
     /**
-     * @return The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     public Optional<Output<String>> httpMethod() {
@@ -33,14 +33,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The API resource ID
+     * API resource ID
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -48,14 +48,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of the API models used for the response&#39;s content type
+     * Map of the API models used for the response&#39;s content type
      * 
      */
     @Import(name="responseModels")
     private @Nullable Output<Map<String,String>> responseModels;
 
     /**
-     * @return A map of the API models used for the response&#39;s content type
+     * @return Map of the API models used for the response&#39;s content type
      * 
      */
     public Optional<Output<Map<String,String>>> responseModels() {
@@ -63,7 +63,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of response parameters that can be sent to the caller.
+     * Map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      * 
@@ -72,7 +72,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<Map<String,Boolean>> responseParameters;
 
     /**
-     * @return A map of response parameters that can be sent to the caller.
+     * @return Map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      * 
@@ -82,14 +82,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Optional<Output<String>> restApi() {
@@ -97,14 +97,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The HTTP status code
+     * HTTP status code
      * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
-     * @return The HTTP status code
+     * @return HTTP status code
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -141,7 +141,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpMethod The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpMethod The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+         * @param httpMethod HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId The API resource ID
+         * @param resourceId API resource ID
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseModels A map of the API models used for the response&#39;s content type
+         * @param responseModels Map of the API models used for the response&#39;s content type
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseModels A map of the API models used for the response&#39;s content type
+         * @param responseModels Map of the API models used for the response&#39;s content type
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseParameters A map of response parameters that can be sent to the caller.
+         * @param responseParameters Map of response parameters that can be sent to the caller.
          * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
          * would define that the header `X-Some-Header` can be provided on the response.
          * 
@@ -217,7 +217,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseParameters A map of response parameters that can be sent to the caller.
+         * @param responseParameters Map of response parameters that can be sent to the caller.
          * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
          * would define that the header `X-Some-Header` can be provided on the response.
          * 
@@ -229,7 +229,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param statusCode The HTTP status code
+         * @param statusCode HTTP status code
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param statusCode The HTTP status code
+         * @param statusCode HTTP status code
          * 
          * @return builder
          * 

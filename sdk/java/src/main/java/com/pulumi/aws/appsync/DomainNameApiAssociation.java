@@ -59,28 +59,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")
 public class DomainNameApiAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The API ID.
+     * API ID.
      * 
      */
     @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
-     * @return The API ID.
+     * @return API ID.
      * 
      */
     public Output<String> apiId() {
         return this.apiId;
     }
     /**
-     * The Appsync domain name.
+     * Appsync domain name.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The Appsync domain name.
+     * @return Appsync domain name.
      * 
      */
     public Output<String> domainName() {

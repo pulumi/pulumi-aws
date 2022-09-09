@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataSet";
-export * from "./revision";
+export { DataSetArgs, DataSetState } from "./dataSet";
+export type DataSet = import("./dataSet").DataSet;
+export const DataSet: typeof import("./dataSet").DataSet = null as any;
 
-// Import resources to register:
-import { DataSet } from "./dataSet";
-import { Revision } from "./revision";
+export { RevisionArgs, RevisionState } from "./revision";
+export type Revision = import("./revision").Revision;
+export const Revision: typeof import("./revision").Revision = null as any;
+
+utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
+utilities.lazyLoad(exports, ["Revision"], () => require("./revision"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetOrganizationalUnitsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The parent ID of the organizational unit.
+        /// Parent ID of the organizational unit.
         /// </summary>
         [Input("parentId", required: true)]
         public string ParentId { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetOrganizationalUnitsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The parent ID of the organizational unit.
+        /// Parent ID of the organizational unit.
         /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;

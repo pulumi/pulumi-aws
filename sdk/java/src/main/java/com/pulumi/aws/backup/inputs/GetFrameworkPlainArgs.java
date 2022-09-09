@@ -16,14 +16,14 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetFrameworkPlainArgs Empty = new GetFrameworkPlainArgs();
 
     /**
-     * The backup framework name.
+     * Backup framework name.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The backup framework name.
+     * @return Backup framework name.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param name The backup framework name.
+         * @param name Backup framework name.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          * 
          * @return builder
          * 

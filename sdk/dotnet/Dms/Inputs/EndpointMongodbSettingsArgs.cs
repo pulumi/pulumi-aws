@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? AuthSource { get; set; }
 
         /// <summary>
-        /// Authentication type to access the MongoDB source endpoint. Default is `password`.
+        /// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
         /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }

@@ -48,7 +48,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the user.
 	UserName string `pulumi:"userName"`
@@ -56,7 +56,7 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// The access permissions string used for this user.
+	// Access permissions string used for this user.
 	AccessString string `pulumi:"accessString"`
 	// ARN of the user.
 	Arn string `pulumi:"arn"`
@@ -66,7 +66,7 @@ type LookupUserResult struct {
 	Id string `pulumi:"id"`
 	// The minimum engine version supported for the user.
 	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags     map[string]string `pulumi:"tags"`
 	UserName string            `pulumi:"userName"`
 }
@@ -86,7 +86,7 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// A map of tags assigned to the subnet group.
+	// Map of tags assigned to the subnet group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the user.
 	UserName pulumi.StringInput `pulumi:"userName"`
@@ -111,7 +111,7 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// The access permissions string used for this user.
+// Access permissions string used for this user.
 func (o LookupUserResultOutput) AccessString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.AccessString }).(pulumi.StringOutput)
 }
@@ -136,7 +136,7 @@ func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the subnet group.
+// Map of tags assigned to the subnet group.
 func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

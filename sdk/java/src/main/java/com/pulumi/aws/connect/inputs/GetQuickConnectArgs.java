@@ -62,14 +62,14 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags to assign to the Quick Connect.
+     * Map of tags to assign to the Quick Connect.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Quick Connect.
+     * @return Map of tags to assign to the Quick Connect.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,7 +167,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Quick Connect.
+         * @param tags Map of tags to assign to the Quick Connect.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Quick Connect.
+         * @param tags Map of tags to assign to the Quick Connect.
          * 
          * @return builder
          * 

@@ -111,14 +111,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
-     * Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * ARN of the private CA to associate with the policy.
      * 
      */
     @Export(name="resourceArn", type=String.class, parameters={})
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the private CA to associate with the policy.
+     * @return ARN of the private CA to associate with the policy.
      * 
      */
     public Output<String> resourceArn() {

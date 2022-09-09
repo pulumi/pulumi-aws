@@ -51,7 +51,7 @@ class GetGeofenceCollectionResult:
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "collection_arn")
 
@@ -64,7 +64,7 @@ class GetGeofenceCollectionResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
         """
-        The timestamp for when the geofence collection resource was created in ISO 8601 format.
+        Timestamp for when the geofence collection resource was created in ISO 8601 format.
         """
         return pulumi.get(self, "create_time")
 
@@ -72,7 +72,7 @@ class GetGeofenceCollectionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The optional description of the geofence collection resource.
+        Optional description of the geofence collection resource.
         """
         return pulumi.get(self, "description")
 
@@ -88,7 +88,7 @@ class GetGeofenceCollectionResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -104,7 +104,7 @@ class GetGeofenceCollectionResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
+        Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -143,8 +143,8 @@ def get_geofence_collection(collection_name: Optional[str] = None,
     ```
 
 
-    :param str collection_name: The name of the geofence collection.
-    :param str kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param str collection_name: Name of the geofence collection.
+    :param str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the geofence collection.
     """
     __args__ = dict()
@@ -184,8 +184,8 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
     ```
 
 
-    :param str collection_name: The name of the geofence collection.
-    :param str kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param str collection_name: Name of the geofence collection.
+    :param str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the geofence collection.
     """
     ...

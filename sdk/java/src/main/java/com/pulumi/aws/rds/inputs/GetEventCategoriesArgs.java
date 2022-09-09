@@ -16,14 +16,14 @@ public final class GetEventCategoriesArgs extends com.pulumi.resources.InvokeArg
     public static final GetEventCategoriesArgs Empty = new GetEventCategoriesArgs();
 
     /**
-     * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      * 
      */
     @Import(name="sourceType")
     private @Nullable Output<String> sourceType;
 
     /**
-     * @return The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     * @return Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      * 
      */
     public Optional<Output<String>> sourceType() {
@@ -55,7 +55,7 @@ public final class GetEventCategoriesArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param sourceType The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+         * @param sourceType Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetEventCategoriesArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param sourceType The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+         * @param sourceType Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
          * 
          * @return builder
          * 

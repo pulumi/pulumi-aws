@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateAcm? Acm;
         /// <summary>
-        /// A local file certificate.
+        /// Local file certificate.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateFile? File;
         /// <summary>

@@ -17,14 +17,14 @@ public final class GetImagePipelineArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetImagePipelineArgs Empty = new GetImagePipelineArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image pipeline.
+     * @return ARN of the image pipeline.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetImagePipelineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image pipeline.
+         * @param arn ARN of the image pipeline.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetImagePipelineArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image pipeline.
+         * @param arn ARN of the image pipeline.
          * 
          * @return builder
          * 

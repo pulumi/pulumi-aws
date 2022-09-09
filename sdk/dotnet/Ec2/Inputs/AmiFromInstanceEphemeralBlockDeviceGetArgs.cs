@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class AmiFromInstanceEphemeralBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path at which the device is exposed to created instances.
+        /// Path at which the device is exposed to created instances.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// Name for the ephemeral device, of the form "ephemeralN" where
         /// *N* is a volume number starting from zero.
         /// </summary>
         [Input("virtualName")]

@@ -14,14 +14,14 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ResourceArgs Empty = new ResourceArgs();
 
     /**
-     * The ID of the parent API resource
+     * ID of the parent API resource
      * 
      */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
     /**
-     * @return The ID of the parent API resource
+     * @return ID of the parent API resource
      * 
      */
     public Output<String> parentId() {
@@ -29,14 +29,14 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last path segment of this API resource.
+     * Last path segment of this API resource.
      * 
      */
     @Import(name="pathPart", required=true)
     private Output<String> pathPart;
 
     /**
-     * @return The last path segment of this API resource.
+     * @return Last path segment of this API resource.
      * 
      */
     public Output<String> pathPart() {
@@ -44,14 +44,14 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
@@ -85,7 +85,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentId The ID of the parent API resource
+         * @param parentId ID of the parent API resource
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentId The ID of the parent API resource
+         * @param parentId ID of the parent API resource
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pathPart The last path segment of this API resource.
+         * @param pathPart Last path segment of this API resource.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pathPart The last path segment of this API resource.
+         * @param pathPart Last path segment of this API resource.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restApi The ID of the associated REST API
+         * @param restApi ID of the associated REST API
          * 
          * @return builder
          * 

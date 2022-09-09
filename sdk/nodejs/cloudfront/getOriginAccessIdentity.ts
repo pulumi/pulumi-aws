@@ -44,12 +44,12 @@ export interface GetOriginAccessIdentityResult {
      */
     readonly comment: string;
     /**
-     * The current version of the origin access identity's information.
+     * Current version of the origin access identity's information.
      * For example: `E2QWRUHAPOMQZL`.
      */
     readonly etag: string;
     /**
-     * A pre-generated ARN for use in S3 bucket policies (see below).
+     * Pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      */

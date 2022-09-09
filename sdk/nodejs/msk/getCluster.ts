@@ -51,7 +51,7 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     readonly arn: string;
     /**

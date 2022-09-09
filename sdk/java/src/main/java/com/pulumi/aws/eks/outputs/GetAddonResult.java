@@ -12,12 +12,12 @@ import java.util.Objects;
 public final class GetAddonResult {
     private String addonName;
     /**
-     * @return The version of EKS add-on.
+     * @return Version of EKS add-on.
      * 
      */
     private String addonVersion;
     /**
-     * @return Amazon Resource Name (ARN) of the EKS add-on.
+     * @return ARN of the EKS add-on.
      * 
      */
     private String arn;
@@ -50,14 +50,14 @@ public final class GetAddonResult {
         return this.addonName;
     }
     /**
-     * @return The version of EKS add-on.
+     * @return Version of EKS add-on.
      * 
      */
     public String addonVersion() {
         return this.addonVersion;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the EKS add-on.
+     * @return ARN of the EKS add-on.
      * 
      */
     public String arn() {

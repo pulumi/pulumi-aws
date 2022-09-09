@@ -26,15 +26,15 @@ export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.Invok
  */
 export interface GetPermissionSetArgs {
     /**
-     * The Amazon Resource Name (ARN) of the permission set.
+     * ARN of the permission set.
      */
     arn?: string;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+     * ARN of the SSO Instance associated with the permission set.
      */
     instanceArn: string;
     /**
-     * The name of the SSO Permission Set.
+     * Name of the SSO Permission Set.
      */
     name?: string;
     /**
@@ -50,7 +50,7 @@ export interface GetPermissionSetResult {
     readonly arn: string;
     readonly createdDate: string;
     /**
-     * The description of the Permission Set.
+     * Description of the Permission Set.
      */
     readonly description: string;
     /**
@@ -60,11 +60,11 @@ export interface GetPermissionSetResult {
     readonly instanceArn: string;
     readonly name: string;
     /**
-     * The relay state URL used to redirect users within the application during the federation authentication process.
+     * Relay state URL used to redirect users within the application during the federation authentication process.
      */
     readonly relayState: string;
     /**
-     * The length of time that the application user sessions are valid in the ISO-8601 standard.
+     * Length of time that the application user sessions are valid in the ISO-8601 standard.
      */
     readonly sessionDuration: string;
     /**
@@ -82,15 +82,15 @@ export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: 
  */
 export interface GetPermissionSetOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the permission set.
+     * ARN of the permission set.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+     * ARN of the SSO Instance associated with the permission set.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The name of the SSO Permission Set.
+     * Name of the SSO Permission Set.
      */
     name?: pulumi.Input<string>;
     /**

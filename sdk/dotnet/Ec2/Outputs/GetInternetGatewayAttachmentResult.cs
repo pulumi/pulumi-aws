@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetInternetGatewayAttachmentResult
     {
         /// <summary>
-        /// The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+        /// Current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The ID of an attached VPC.
+        /// ID of an attached VPC.
         /// </summary>
         public readonly string VpcId;
 

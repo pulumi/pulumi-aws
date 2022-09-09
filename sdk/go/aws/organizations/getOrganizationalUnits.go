@@ -52,7 +52,7 @@ func GetOrganizationalUnits(ctx *pulumi.Context, args *GetOrganizationalUnitsArg
 
 // A collection of arguments for invoking getOrganizationalUnits.
 type GetOrganizationalUnitsArgs struct {
-	// The parent ID of the organizational unit.
+	// Parent ID of the organizational unit.
 	ParentId string `pulumi:"parentId"`
 }
 
@@ -80,7 +80,7 @@ func GetOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUni
 
 // A collection of arguments for invoking getOrganizationalUnits.
 type GetOrganizationalUnitsOutputArgs struct {
-	// The parent ID of the organizational unit.
+	// Parent ID of the organizational unit.
 	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
 

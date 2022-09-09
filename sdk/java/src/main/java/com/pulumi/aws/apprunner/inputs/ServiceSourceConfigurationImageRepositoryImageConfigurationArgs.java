@@ -17,14 +17,14 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
     public static final ServiceSourceConfigurationImageRepositoryImageConfigurationArgs Empty = new ServiceSourceConfigurationImageRepositoryImageConfigurationArgs();
 
     /**
-     * The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+     * @return Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
     public Optional<Output<String>> port() {
@@ -47,14 +47,14 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
     }
 
     /**
-     * A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
     @Import(name="startCommand")
     private @Nullable Output<String> startCommand;
 
     /**
-     * @return A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+     * @return Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
     public Optional<Output<String>> startCommand() {
@@ -88,7 +88,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
         }
 
         /**
-         * @param port The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+         * @param port Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
         }
 
         /**
-         * @param port The port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
+         * @param port Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
         }
 
         /**
-         * @param startCommand A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+         * @param startCommand Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
         }
 
         /**
-         * @param startCommand A command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
+         * @param startCommand Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
          * 
          * @return builder
          * 

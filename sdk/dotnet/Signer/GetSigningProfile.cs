@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Signer
     public sealed class GetSigningProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the target signing profile.
+        /// Name of the target signing profile.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Signer
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A list of tags associated with the signing profile.
+        /// List of tags associated with the signing profile.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Signer
     public sealed class GetSigningProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the target signing profile.
+        /// Name of the target signing profile.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Signer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of tags associated with the signing profile.
+        /// List of tags associated with the signing profile.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Signer
     public sealed class GetSigningProfileResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the signing profile.
+        /// ARN for the signing profile.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         public readonly string PlatformDisplayName;
         /// <summary>
-        /// The ID of the platform that is used by the target signing profile.
+        /// ID of the platform that is used by the target signing profile.
         /// </summary>
         public readonly string PlatformId;
         /// <summary>
@@ -149,19 +149,19 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSigningProfileSignatureValidityPeriodResult> SignatureValidityPeriods;
         /// <summary>
-        /// The status of the target signing profile.
+        /// Status of the target signing profile.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A list of tags associated with the signing profile.
+        /// List of tags associated with the signing profile.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The current version of the signing profile.
+        /// Current version of the signing profile.
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// The signing profile ARN, including the profile version.
+        /// Signing profile ARN, including the profile version.
         /// </summary>
         public readonly string VersionArn;
 

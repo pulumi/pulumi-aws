@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +72,7 @@ export class Api extends pulumi.CustomResource {
     }
 
     /**
-     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
     public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
     /**
@@ -80,7 +82,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly apiKeySelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the API.
+     * ARN of the API.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -88,7 +90,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly body!: pulumi.Output<string | undefined>;
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
     /**
@@ -96,7 +98,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly credentialsArn!: pulumi.Output<string | undefined>;
     /**
-     * The description of the API. Must be less than or equal to 1024 characters in length.
+     * Description of the API. Must be less than or equal to 1024 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +108,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
@@ -116,11 +118,11 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the API. Must be less than or equal to 128 characters in length.
+     * Name of the API. Must be less than or equal to 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      */
     public readonly protocolType!: pulumi.Output<string>;
     /**
@@ -133,11 +135,11 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly routeSelectionExpression!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -147,7 +149,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly target!: pulumi.Output<string | undefined>;
     /**
-     * A version identifier for the API. Must be between 1 and 64 characters in length.
+     * Version identifier for the API. Must be between 1 and 64 characters in length.
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -216,7 +218,7 @@ export class Api extends pulumi.CustomResource {
  */
 export interface ApiState {
     /**
-     * The URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
+     * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      */
     apiEndpoint?: pulumi.Input<string>;
     /**
@@ -226,7 +228,7 @@ export interface ApiState {
      */
     apiKeySelectionExpression?: pulumi.Input<string>;
     /**
-     * The ARN of the API.
+     * ARN of the API.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -234,7 +236,7 @@ export interface ApiState {
      */
     body?: pulumi.Input<string>;
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
     corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration>;
     /**
@@ -242,7 +244,7 @@ export interface ApiState {
      */
     credentialsArn?: pulumi.Input<string>;
     /**
-     * The description of the API. Must be less than or equal to 1024 characters in length.
+     * Description of the API. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
@@ -252,7 +254,7 @@ export interface ApiState {
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
     /**
-     * The ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
@@ -262,11 +264,11 @@ export interface ApiState {
      */
     failOnWarnings?: pulumi.Input<boolean>;
     /**
-     * The name of the API. Must be less than or equal to 128 characters in length.
+     * Name of the API. Must be less than or equal to 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      */
     protocolType?: pulumi.Input<string>;
     /**
@@ -279,11 +281,11 @@ export interface ApiState {
      */
     routeSelectionExpression?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -293,7 +295,7 @@ export interface ApiState {
      */
     target?: pulumi.Input<string>;
     /**
-     * A version identifier for the API. Must be between 1 and 64 characters in length.
+     * Version identifier for the API. Must be between 1 and 64 characters in length.
      */
     version?: pulumi.Input<string>;
 }
@@ -313,7 +315,7 @@ export interface ApiArgs {
      */
     body?: pulumi.Input<string>;
     /**
-     * The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
     corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration>;
     /**
@@ -321,7 +323,7 @@ export interface ApiArgs {
      */
     credentialsArn?: pulumi.Input<string>;
     /**
-     * The description of the API. Must be less than or equal to 1024 characters in length.
+     * Description of the API. Must be less than or equal to 1024 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
@@ -335,11 +337,11 @@ export interface ApiArgs {
      */
     failOnWarnings?: pulumi.Input<boolean>;
     /**
-     * The name of the API. Must be less than or equal to 128 characters in length.
+     * Name of the API. Must be less than or equal to 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
-     * The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      */
     protocolType: pulumi.Input<string>;
     /**
@@ -352,7 +354,7 @@ export interface ApiArgs {
      */
     routeSelectionExpression?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -362,7 +364,7 @@ export interface ApiArgs {
      */
     target?: pulumi.Input<string>;
     /**
-     * A version identifier for the API. Must be between 1 and 64 characters in length.
+     * Version identifier for the API. Must be between 1 and 64 characters in length.
      */
     version?: pulumi.Input<string>;
 }

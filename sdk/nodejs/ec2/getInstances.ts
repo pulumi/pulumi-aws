@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,11 +41,11 @@ export interface GetInstancesArgs {
      */
     filters?: inputs.ec2.GetInstancesFilter[];
     /**
-     * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
     instanceStateNames?: string[];
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
     instanceTags?: {[key: string]: string};
@@ -89,11 +91,11 @@ export interface GetInstancesOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[]>;
     /**
-     * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
     instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

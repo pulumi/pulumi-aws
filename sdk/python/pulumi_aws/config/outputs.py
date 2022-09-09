@@ -27,6 +27,7 @@ class AssumeRole(dict):
                  policy_arns: Optional[Sequence[str]] = None,
                  role_arn: Optional[str] = None,
                  session_name: Optional[str] = None,
+                 source_identity: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  transitive_tag_keys: Optional[Sequence[str]] = None):
         if duration is not None:
@@ -43,6 +44,8 @@ class AssumeRole(dict):
             pulumi.set(__self__, "role_arn", role_arn)
         if session_name is not None:
             pulumi.set(__self__, "session_name", session_name)
+        if source_identity is not None:
+            pulumi.set(__self__, "source_identity", source_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transitive_tag_keys is not None:
@@ -82,6 +85,11 @@ class AssumeRole(dict):
     @pulumi.getter(name="sessionName")
     def session_name(self) -> Optional[str]:
         return pulumi.get(self, "session_name")
+
+    @property
+    @pulumi.getter(name="sourceIdentity")
+    def source_identity(self) -> Optional[str]:
+        return pulumi.get(self, "source_identity")
 
     @property
     @pulumi.getter

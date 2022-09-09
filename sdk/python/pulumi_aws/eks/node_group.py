@@ -729,11 +729,11 @@ class NodeGroup(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             scaling_config=aws.eks.NodeGroupScalingConfigArgs(
                 desired_size=1,
-                max_size=1,
+                max_size=2,
                 min_size=1,
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
-                max_unavailable=2,
+                max_unavailable=1,
             ),
             opts=pulumi.ResourceOptions(depends_on=[
                     aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
@@ -832,11 +832,11 @@ class NodeGroup(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             scaling_config=aws.eks.NodeGroupScalingConfigArgs(
                 desired_size=1,
-                max_size=1,
+                max_size=2,
                 min_size=1,
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
-                max_unavailable=2,
+                max_unavailable=1,
             ),
             opts=pulumi.ResourceOptions(depends_on=[
                     aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],

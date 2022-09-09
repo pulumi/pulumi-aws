@@ -17,14 +17,14 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetConnectionArgs Empty = new GetConnectionArgs();
 
     /**
-     * The name of the connection to retrieve.
+     * Name of the connection to retrieve.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the connection to retrieve.
+     * @return Name of the connection to retrieve.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -72,7 +72,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the connection to retrieve.
+         * @param name Name of the connection to retrieve.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the connection to retrieve.
+         * @param name Name of the connection to retrieve.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

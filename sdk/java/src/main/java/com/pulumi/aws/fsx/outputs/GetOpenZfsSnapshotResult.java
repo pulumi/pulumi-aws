@@ -21,7 +21,7 @@ public final class GetOpenZfsSnapshotResult {
      */
     private String arn;
     /**
-     * @return The time that the resource was created.
+     * @return Time that the resource was created.
      * 
      */
     private String creationTime;
@@ -33,23 +33,23 @@ public final class GetOpenZfsSnapshotResult {
     private String id;
     private @Nullable Boolean mostRecent;
     /**
-     * @return The name of the snapshot.
+     * @return Name of the snapshot.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The ID of the snapshot.
+     * @return ID of the snapshot.
      * 
      */
     private String snapshotId;
     private @Nullable List<String> snapshotIds;
     /**
-     * @return A list of Tag values, with a maximum of 50 elements.
+     * @return List of Tag values, with a maximum of 50 elements.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The ID of the volume that the snapshot is of.
+     * @return ID of the volume that the snapshot is of.
      * 
      */
     private String volumeId;
@@ -63,7 +63,7 @@ public final class GetOpenZfsSnapshotResult {
         return this.arn;
     }
     /**
-     * @return The time that the resource was created.
+     * @return Time that the resource was created.
      * 
      */
     public String creationTime() {
@@ -83,14 +83,14 @@ public final class GetOpenZfsSnapshotResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return The name of the snapshot.
+     * @return Name of the snapshot.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The ID of the snapshot.
+     * @return ID of the snapshot.
      * 
      */
     public String snapshotId() {
@@ -100,14 +100,14 @@ public final class GetOpenZfsSnapshotResult {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
     }
     /**
-     * @return A list of Tag values, with a maximum of 50 elements.
+     * @return List of Tag values, with a maximum of 50 elements.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The ID of the volume that the snapshot is of.
+     * @return ID of the volume that the snapshot is of.
      * 
      */
     public String volumeId() {

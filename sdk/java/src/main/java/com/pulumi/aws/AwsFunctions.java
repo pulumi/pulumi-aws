@@ -584,7 +584,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Parses an Amazon Resource Name (ARN) into its constituent parts.
+     * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
      * ```java
@@ -621,7 +621,7 @@ public final class AwsFunctions {
         return getArn(args, InvokeOptions.Empty);
     }
     /**
-     * Parses an Amazon Resource Name (ARN) into its constituent parts.
+     * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
      * ```java
@@ -658,7 +658,7 @@ public final class AwsFunctions {
         return getArnPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Parses an Amazon Resource Name (ARN) into its constituent parts.
+     * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
      * ```java
@@ -695,7 +695,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getArn:getArn", TypeShape.of(GetArnResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Parses an Amazon Resource Name (ARN) into its constituent parts.
+     * Parses an ARN into its constituent parts.
      * 
      * ## Example Usage
      * ```java

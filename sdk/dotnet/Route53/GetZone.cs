@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Hosted Zone name of the desired Hosted Zone.
+        /// Hosted Zone name of the desired Hosted Zone.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Route53
         public string? VpcId { get; set; }
 
         /// <summary>
-        /// The Hosted Zone id of the desired Hosted Zone.
+        /// Hosted Zone id of the desired Hosted Zone.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Hosted Zone name of the desired Hosted Zone.
+        /// Hosted Zone name of the desired Hosted Zone.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The Hosted Zone id of the desired Hosted Zone.
+        /// Hosted Zone id of the desired Hosted Zone.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// ARN of the Hosted Zone.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string CallerReference;
         /// <summary>
-        /// The comment field of the Hosted Zone.
+        /// Comment field of the Hosted Zone.
         /// </summary>
         public readonly string Comment;
         /// <summary>
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Route53
         public readonly string LinkedServicePrincipal;
         public readonly string Name;
         /// <summary>
-        /// The list of DNS name servers for the Hosted Zone.
+        /// List of DNS name servers for the Hosted Zone.
         /// </summary>
         public readonly ImmutableArray<string> NameServers;
         public readonly bool? PrivateZone;

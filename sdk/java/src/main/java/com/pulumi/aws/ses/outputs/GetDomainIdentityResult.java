@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainIdentityResult {
     /**
-     * @return The ARN of the domain identity.
+     * @return ARN of the domain identity.
      * 
      */
     private String arn;
     /**
-     * @return The name of the domain
+     * @return Name of the domain
      * 
      */
     private String domain;
@@ -25,21 +25,21 @@ public final class GetDomainIdentityResult {
      */
     private String id;
     /**
-     * @return A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+     * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
      */
     private String verificationToken;
 
     private GetDomainIdentityResult() {}
     /**
-     * @return The ARN of the domain identity.
+     * @return ARN of the domain identity.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The name of the domain
+     * @return Name of the domain
      * 
      */
     public String domain() {
@@ -53,7 +53,7 @@ public final class GetDomainIdentityResult {
         return this.id;
     }
     /**
-     * @return A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+     * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
      */
     public String verificationToken() {

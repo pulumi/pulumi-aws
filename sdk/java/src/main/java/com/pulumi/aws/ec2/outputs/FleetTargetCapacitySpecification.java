@@ -28,6 +28,11 @@ public final class FleetTargetCapacitySpecification {
      */
     private @Nullable Integer spotTargetCapacity;
     /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    private @Nullable String targetCapacityUnitType;
+    /**
      * @return The number of units to request, filled using `default_target_capacity_type`.
      * 
      */
@@ -56,6 +61,13 @@ public final class FleetTargetCapacitySpecification {
         return Optional.ofNullable(this.spotTargetCapacity);
     }
     /**
+     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * 
+     */
+    public Optional<String> targetCapacityUnitType() {
+        return Optional.ofNullable(this.targetCapacityUnitType);
+    }
+    /**
      * @return The number of units to request, filled using `default_target_capacity_type`.
      * 
      */
@@ -75,6 +87,7 @@ public final class FleetTargetCapacitySpecification {
         private String defaultTargetCapacityType;
         private @Nullable Integer onDemandTargetCapacity;
         private @Nullable Integer spotTargetCapacity;
+        private @Nullable String targetCapacityUnitType;
         private Integer totalTargetCapacity;
         public Builder() {}
         public Builder(FleetTargetCapacitySpecification defaults) {
@@ -82,6 +95,7 @@ public final class FleetTargetCapacitySpecification {
     	      this.defaultTargetCapacityType = defaults.defaultTargetCapacityType;
     	      this.onDemandTargetCapacity = defaults.onDemandTargetCapacity;
     	      this.spotTargetCapacity = defaults.spotTargetCapacity;
+    	      this.targetCapacityUnitType = defaults.targetCapacityUnitType;
     	      this.totalTargetCapacity = defaults.totalTargetCapacity;
         }
 
@@ -101,6 +115,11 @@ public final class FleetTargetCapacitySpecification {
             return this;
         }
         @CustomType.Setter
+        public Builder targetCapacityUnitType(@Nullable String targetCapacityUnitType) {
+            this.targetCapacityUnitType = targetCapacityUnitType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder totalTargetCapacity(Integer totalTargetCapacity) {
             this.totalTargetCapacity = Objects.requireNonNull(totalTargetCapacity);
             return this;
@@ -110,6 +129,7 @@ public final class FleetTargetCapacitySpecification {
             o.defaultTargetCapacityType = defaultTargetCapacityType;
             o.onDemandTargetCapacity = onDemandTargetCapacity;
             o.spotTargetCapacity = spotTargetCapacity;
+            o.targetCapacityUnitType = targetCapacityUnitType;
             o.totalTargetCapacity = totalTargetCapacity;
             return o;
         }

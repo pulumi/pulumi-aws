@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,11 +40,11 @@ export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetNodeGroupArgs {
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      */
     clusterName: string;
     /**
-     * The name of the node group.
+     * Name of the node group.
      */
     nodeGroupName: string;
     /**
@@ -60,9 +62,13 @@ export interface GetNodeGroupResult {
      */
     readonly amiType: string;
     /**
-     * Amazon Resource Name (ARN) of the EKS Node Group.
+     * ARN of the EKS Node Group.
      */
     readonly arn: string;
+    /**
+     * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
+     */
+    readonly capacityType: string;
     readonly clusterName: string;
     /**
      * Disk size in GiB for worker nodes.
@@ -82,7 +88,7 @@ export interface GetNodeGroupResult {
     readonly labels: {[key: string]: string};
     readonly nodeGroupName: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
     readonly nodeRoleArn: string;
     /**
@@ -132,11 +138,11 @@ export function getNodeGroupOutput(args: GetNodeGroupOutputArgs, opts?: pulumi.I
  */
 export interface GetNodeGroupOutputArgs {
     /**
-     * The name of the cluster.
+     * Name of the cluster.
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The name of the node group.
+     * Name of the node group.
      */
     nodeGroupName: pulumi.Input<string>;
     /**

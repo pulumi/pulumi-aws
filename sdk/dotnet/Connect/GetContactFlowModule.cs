@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Connect
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Contact Flow Module.
+        /// Map of tags to assign to the Contact Flow Module.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Contact Flow Module.
+        /// Map of tags to assign to the Contact Flow Module.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,16 +190,16 @@ namespace Pulumi.Aws.Connect
     public sealed class GetContactFlowModuleResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Contact Flow Module.
+        /// ARN of the Contact Flow Module.
         /// </summary>
         public readonly string Arn;
         public readonly string ContactFlowModuleId;
         /// <summary>
-        /// Specifies the logic of the Contact Flow Module.
+        /// Logic of the Contact Flow Module.
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// Specifies the description of the Contact Flow Module.
+        /// Description of the Contact Flow Module.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -209,15 +209,15 @@ namespace Pulumi.Aws.Connect
         public readonly string InstanceId;
         public readonly string Name;
         /// <summary>
-        /// Specifies the type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
+        /// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// The status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
+        /// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A map of tags to assign to the Contact Flow Module.
+        /// Map of tags to assign to the Contact Flow Module.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

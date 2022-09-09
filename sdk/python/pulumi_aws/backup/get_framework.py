@@ -55,7 +55,7 @@ class GetFrameworkResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the backup framework.
+        ARN of the backup framework.
         """
         return pulumi.get(self, "arn")
 
@@ -71,7 +71,7 @@ class GetFrameworkResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
-        The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
+        Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "creation_time")
 
@@ -79,7 +79,7 @@ class GetFrameworkResult:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
         """
-        The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
+        Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
         """
         return pulumi.get(self, "deployment_status")
 
@@ -87,7 +87,7 @@ class GetFrameworkResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the framework.
+        Description of the framework.
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +103,7 @@ class GetFrameworkResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of a parameter, for example, BackupPlanFrequency.
+        Name of a parameter, for example, BackupPlanFrequency.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class GetFrameworkResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
+        Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
         """
         return pulumi.get(self, "status")
 
@@ -119,7 +119,7 @@ class GetFrameworkResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         return pulumi.get(self, "tags")
 
@@ -157,8 +157,8 @@ def get_framework(name: Optional[str] = None,
     ```
 
 
-    :param str name: The backup framework name.
-    :param Mapping[str, str] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+    :param str name: Backup framework name.
+    :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -195,7 +195,7 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The backup framework name.
-    :param Mapping[str, str] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+    :param str name: Backup framework name.
+    :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
     """
     ...

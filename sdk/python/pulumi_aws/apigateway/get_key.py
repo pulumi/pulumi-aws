@@ -51,7 +51,7 @@ class GetKeyResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The date and time when the API Key was created.
+        Date and time when the API Key was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -59,7 +59,7 @@ class GetKeyResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the API Key.
+        Description of the API Key.
         """
         return pulumi.get(self, "description")
 
@@ -67,7 +67,7 @@ class GetKeyResult:
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Specifies whether the API Key is enabled.
+        Whether the API Key is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -83,7 +83,7 @@ class GetKeyResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The date and time when the API Key was last updated.
+        Date and time when the API Key was last updated.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -99,7 +99,7 @@ class GetKeyResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags for the resource.
+        Map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -145,8 +145,8 @@ def get_key(id: Optional[str] = None,
     ```
 
 
-    :param str id: The ID of the API Key to look up.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str id: ID of the API Key to look up.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -183,7 +183,7 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: The ID of the API Key to look up.
-    :param Mapping[str, str] tags: A map of tags for the resource.
+    :param str id: ID of the API Key to look up.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

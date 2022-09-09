@@ -58,7 +58,7 @@ class GetLinkResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the link.
+        ARN of the link.
         """
         return pulumi.get(self, "arn")
 
@@ -66,7 +66,7 @@ class GetLinkResult:
     @pulumi.getter
     def bandwidths(self) -> Sequence['outputs.GetLinkBandwidthResult']:
         """
-        The upload speed and download speed of the link as documented below
+        Upload speed and download speed of the link as documented below
         """
         return pulumi.get(self, "bandwidths")
 
@@ -74,7 +74,7 @@ class GetLinkResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        The description of the link.
+        Description of the link.
         """
         return pulumi.get(self, "description")
 
@@ -100,7 +100,7 @@ class GetLinkResult:
     @pulumi.getter(name="providerName")
     def provider_name(self) -> str:
         """
-        The provider of the link.
+        Provider of the link.
         """
         return pulumi.get(self, "provider_name")
 
@@ -108,7 +108,7 @@ class GetLinkResult:
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
         """
-        The ID of the site.
+        ID of the site.
         """
         return pulumi.get(self, "site_id")
 
@@ -124,7 +124,7 @@ class GetLinkResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the link.
+        Type of the link.
         """
         return pulumi.get(self, "type")
 
@@ -165,8 +165,8 @@ def get_link(global_network_id: Optional[str] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the link to retrieve.
-    :param str link_id: The id of the specific link to retrieve.
+    :param str global_network_id: ID of the Global Network of the link to retrieve.
+    :param str link_id: ID of the specific link to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the link.
     """
     __args__ = dict()
@@ -208,8 +208,8 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str global_network_id: The ID of the Global Network of the link to retrieve.
-    :param str link_id: The id of the specific link to retrieve.
+    :param str global_network_id: ID of the Global Network of the link to retrieve.
+    :param str link_id: ID of the specific link to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the link.
     """
     ...

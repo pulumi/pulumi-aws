@@ -38,14 +38,14 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      * 
      */
     @Import(name="instanceStateNames")
     private @Nullable Output<List<String>> instanceStateNames;
 
     /**
-     * @return A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     * @return List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      * 
      */
     public Optional<Output<List<String>>> instanceStateNames() {
@@ -53,7 +53,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags, each pair of which must
+     * Map of tags, each pair of which must
      * exactly match a pair on desired instances.
      * 
      */
@@ -61,7 +61,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<Map<String,String>> instanceTags;
 
     /**
-     * @return A map of tags, each pair of which must
+     * @return Map of tags, each pair of which must
      * exactly match a pair on desired instances.
      * 
      */
@@ -133,7 +133,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceStateNames A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+         * @param instanceStateNames List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceStateNames A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+         * @param instanceStateNames List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceStateNames A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+         * @param instanceStateNames List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceTags A map of tags, each pair of which must
+         * @param instanceTags Map of tags, each pair of which must
          * exactly match a pair on desired instances.
          * 
          * @return builder
@@ -176,7 +176,7 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceTags A map of tags, each pair of which must
+         * @param instanceTags Map of tags, each pair of which must
          * exactly match a pair on desired instances.
          * 
          * @return builder

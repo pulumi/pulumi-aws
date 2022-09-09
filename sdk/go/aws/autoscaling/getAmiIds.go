@@ -75,20 +75,20 @@ func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAmiIds.
 type GetAmiIdsArgs struct {
-	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
-	// A list of autoscaling group names
+	// List of autoscaling group names
 	Names []string `pulumi:"names"`
 }
 
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
-	// A list of the Autoscaling Groups Arns in the current region.
+	// List of the Autoscaling Groups Arns in the current region.
 	Arns    []string          `pulumi:"arns"`
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of the Autoscaling Groups in the current region.
+	// List of the Autoscaling Groups in the current region.
 	Names []string `pulumi:"names"`
 }
 
@@ -107,9 +107,9 @@ func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAmiIds.
 type GetAmiIdsOutputArgs struct {
-	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
-	// A list of autoscaling group names
+	// List of autoscaling group names
 	Names pulumi.StringArrayInput `pulumi:"names"`
 }
 
@@ -132,7 +132,7 @@ func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// A list of the Autoscaling Groups Arns in the current region.
+// List of the Autoscaling Groups Arns in the current region.
 func (o GetAmiIdsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -146,7 +146,7 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of the Autoscaling Groups in the current region.
+// List of the Autoscaling Groups in the current region.
 func (o GetAmiIdsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

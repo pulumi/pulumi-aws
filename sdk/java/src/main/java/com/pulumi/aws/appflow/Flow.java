@@ -180,28 +180,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appflow/flow:Flow")
 public class Flow extends com.pulumi.resources.CustomResource {
     /**
-     * The flow&#39;s Amazon Resource Name (ARN).
+     * Flow&#39;s ARN.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The flow&#39;s Amazon Resource Name (ARN).
+     * @return Flow&#39;s ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A description of the flow you want to create.
+     * Description of the flow you want to create.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the flow you want to create.
+     * @return Description of the flow you want to create.
      * 
      */
     public Output<Optional<String>> description() {
@@ -222,28 +222,28 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.destinationFlowConfigs;
     }
     /**
-     * The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     @Export(name="kmsArn", type=String.class, parameters={})
     private Output<String> kmsArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     public Output<String> kmsArn() {
         return this.kmsArn;
     }
     /**
-     * The name of the flow.
+     * Name of the flow.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the flow.
+     * @return Name of the flow.
      * 
      */
     public Output<String> name() {

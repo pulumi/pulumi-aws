@@ -13,13 +13,13 @@ namespace Pulumi.Aws.IdentityStore.Inputs
     public sealed class GetGroupFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        /// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         /// </summary>
         [Input("attributePath", required: true)]
         public Input<string> AttributePath { get; set; } = null!;
 
         /// <summary>
-        /// The value for an attribute.
+        /// Value for an attribute.
         /// </summary>
         [Input("attributeValue", required: true)]
         public Input<string> AttributeValue { get; set; } = null!;

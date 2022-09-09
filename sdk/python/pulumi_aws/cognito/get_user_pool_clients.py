@@ -92,7 +92,7 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
     ```
 
 
-    :param str user_pool_id: The Cognito user pool ID.
+    :param str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
@@ -122,6 +122,6 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
     ```
 
 
-    :param str user_pool_id: The Cognito user pool ID.
+    :param str user_pool_id: Cognito user pool ID.
     """
     ...

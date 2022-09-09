@@ -33,14 +33,14 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A node identifier that is unique within the node&#39;s graph.
+     * Node identifier that is unique within the node&#39;s graph.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return A node identifier that is unique within the node&#39;s graph.
+     * @return Node identifier that is unique within the node&#39;s graph.
      * 
      */
     public String id() {
@@ -48,14 +48,14 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The line number of the node.
+     * Line number of the node.
      * 
      */
     @Import(name="lineNumber")
     private @Nullable Integer lineNumber;
 
     /**
-     * @return The line number of the node.
+     * @return Line number of the node.
      * 
      */
     public Optional<Integer> lineNumber() {
@@ -63,14 +63,14 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of node this is.
+     * Type of node this is.
      * 
      */
     @Import(name="nodeType", required=true)
     private String nodeType;
 
     /**
-     * @return The type of node this is.
+     * @return Type of node this is.
      * 
      */
     public String nodeType() {
@@ -126,7 +126,7 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id A node identifier that is unique within the node&#39;s graph.
+         * @param id Node identifier that is unique within the node&#39;s graph.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param lineNumber The line number of the node.
+         * @param lineNumber Line number of the node.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nodeType The type of node this is.
+         * @param nodeType Type of node this is.
          * 
          * @return builder
          * 

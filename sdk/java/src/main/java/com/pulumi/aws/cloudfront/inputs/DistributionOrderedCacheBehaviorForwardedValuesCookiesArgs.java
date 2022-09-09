@@ -17,7 +17,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs ex
     public static final DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs Empty = new DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs();
 
     /**
-     * Specifies whether you want CloudFront to forward
+     * Whether you want CloudFront to forward
      * cookies to the origin that is associated with this cache behavior. You can
      * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
      * subsequent `whitelisted_names`
@@ -27,7 +27,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs ex
     private Output<String> forward;
 
     /**
-     * @return Specifies whether you want CloudFront to forward
+     * @return Whether you want CloudFront to forward
      * cookies to the origin that is associated with this cache behavior. You can
      * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
      * subsequent `whitelisted_names`
@@ -82,7 +82,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param forward Specifies whether you want CloudFront to forward
+         * @param forward Whether you want CloudFront to forward
          * cookies to the origin that is associated with this cache behavior. You can
          * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
          * subsequent `whitelisted_names`
@@ -96,7 +96,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param forward Specifies whether you want CloudFront to forward
+         * @param forward Whether you want CloudFront to forward
          * cookies to the origin that is associated with this cache behavior. You can
          * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
          * subsequent `whitelisted_names`

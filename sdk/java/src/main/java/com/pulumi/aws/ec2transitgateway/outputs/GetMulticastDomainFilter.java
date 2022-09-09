@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetMulticastDomainFilter {
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetMulticastDomainFilter {
 
     private GetMulticastDomainFilter() {}
     /**
-     * @return The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
      * 
      */
     public String name() {

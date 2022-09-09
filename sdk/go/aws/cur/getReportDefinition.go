@@ -52,7 +52,7 @@ func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArg
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionArgs struct {
-	// The name of the report definition to match.
+	// Name of the report definition to match.
 	ReportName string `pulumi:"reportName"`
 }
 
@@ -79,7 +79,7 @@ type LookupReportDefinitionResult struct {
 	S3Prefix string `pulumi:"s3Prefix"`
 	// Region of customer S3 bucket.
 	S3Region string `pulumi:"s3Region"`
-	// The frequency on which report data are measured and displayed.
+	// Frequency on which report data are measured and displayed.
 	TimeUnit string `pulumi:"timeUnit"`
 }
 
@@ -98,7 +98,7 @@ func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefiniti
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionOutputArgs struct {
-	// The name of the report definition to match.
+	// Name of the report definition to match.
 	ReportName pulumi.StringInput `pulumi:"reportName"`
 }
 
@@ -175,7 +175,7 @@ func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Region }).(pulumi.StringOutput)
 }
 
-// The frequency on which report data are measured and displayed.
+// Frequency on which report data are measured and displayed.
 func (o LookupReportDefinitionResultOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.TimeUnit }).(pulumi.StringOutput)
 }

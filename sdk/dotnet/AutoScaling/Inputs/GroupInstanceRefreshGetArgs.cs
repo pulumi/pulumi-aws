@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.GroupInstanceRefreshPreferencesGetArgs>? Preferences { get; set; }
 
         /// <summary>
-        /// The strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
+        /// Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
         /// </summary>
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;

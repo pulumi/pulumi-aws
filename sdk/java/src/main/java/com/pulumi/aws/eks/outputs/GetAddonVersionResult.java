@@ -21,7 +21,7 @@ public final class GetAddonVersionResult {
     private String kubernetesVersion;
     private @Nullable Boolean mostRecent;
     /**
-     * @return The version of the EKS add-on.
+     * @return Version of the EKS add-on.
      * 
      */
     private String version;
@@ -44,7 +44,7 @@ public final class GetAddonVersionResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return The version of the EKS add-on.
+     * @return Version of the EKS add-on.
      * 
      */
     public String version() {

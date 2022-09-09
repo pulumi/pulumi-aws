@@ -14,14 +14,14 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     public static final StageAccessLogSettingsArgs Empty = new StageAccessLogSettingsArgs();
 
     /**
-     * The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+     * ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
      * 
      */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
     /**
-     * @return The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+     * @return ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
      * 
      */
     public Output<String> destinationArn() {
@@ -29,14 +29,14 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+     * Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+     * @return Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
      * 
      */
     public Output<String> format() {
@@ -69,7 +69,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+         * @param destinationArn ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+         * @param destinationArn ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+         * @param format Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+         * @param format Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
          * 
          * @return builder
          * 

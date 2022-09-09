@@ -5,38 +5,91 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getUserPoolClient";
-export * from "./getUserPoolClients";
-export * from "./getUserPoolSigningCertificate";
-export * from "./getUserPools";
-export * from "./identityPool";
-export * from "./identityPoolProviderPrincipalTag";
-export * from "./identityPoolRoleAttachment";
-export * from "./identityProvider";
-export * from "./resourceServer";
-export * from "./riskConfiguration";
-export * from "./user";
-export * from "./userGroup";
-export * from "./userInGroup";
-export * from "./userPool";
-export * from "./userPoolClient";
-export * from "./userPoolDomain";
-export * from "./userPoolUICustomization";
+export { GetUserPoolClientArgs, GetUserPoolClientResult, GetUserPoolClientOutputArgs } from "./getUserPoolClient";
+export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPoolClient = null as any;
+export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;
 
-// Import resources to register:
-import { IdentityPool } from "./identityPool";
-import { IdentityPoolProviderPrincipalTag } from "./identityPoolProviderPrincipalTag";
-import { IdentityPoolRoleAttachment } from "./identityPoolRoleAttachment";
-import { IdentityProvider } from "./identityProvider";
-import { ResourceServer } from "./resourceServer";
-import { RiskConfiguration } from "./riskConfiguration";
-import { User } from "./user";
-import { UserGroup } from "./userGroup";
-import { UserInGroup } from "./userInGroup";
-import { UserPool } from "./userPool";
-import { UserPoolClient } from "./userPoolClient";
-import { UserPoolDomain } from "./userPoolDomain";
-import { UserPoolUICustomization } from "./userPoolUICustomization";
+export { GetUserPoolClientsArgs, GetUserPoolClientsResult, GetUserPoolClientsOutputArgs } from "./getUserPoolClients";
+export const getUserPoolClients: typeof import("./getUserPoolClients").getUserPoolClients = null as any;
+export const getUserPoolClientsOutput: typeof import("./getUserPoolClients").getUserPoolClientsOutput = null as any;
+
+export { GetUserPoolSigningCertificateArgs, GetUserPoolSigningCertificateResult, GetUserPoolSigningCertificateOutputArgs } from "./getUserPoolSigningCertificate";
+export const getUserPoolSigningCertificate: typeof import("./getUserPoolSigningCertificate").getUserPoolSigningCertificate = null as any;
+export const getUserPoolSigningCertificateOutput: typeof import("./getUserPoolSigningCertificate").getUserPoolSigningCertificateOutput = null as any;
+
+export { GetUserPoolsArgs, GetUserPoolsResult, GetUserPoolsOutputArgs } from "./getUserPools";
+export const getUserPools: typeof import("./getUserPools").getUserPools = null as any;
+export const getUserPoolsOutput: typeof import("./getUserPools").getUserPoolsOutput = null as any;
+
+export { IdentityPoolArgs, IdentityPoolState } from "./identityPool";
+export type IdentityPool = import("./identityPool").IdentityPool;
+export const IdentityPool: typeof import("./identityPool").IdentityPool = null as any;
+
+export { IdentityPoolProviderPrincipalTagArgs, IdentityPoolProviderPrincipalTagState } from "./identityPoolProviderPrincipalTag";
+export type IdentityPoolProviderPrincipalTag = import("./identityPoolProviderPrincipalTag").IdentityPoolProviderPrincipalTag;
+export const IdentityPoolProviderPrincipalTag: typeof import("./identityPoolProviderPrincipalTag").IdentityPoolProviderPrincipalTag = null as any;
+
+export { IdentityPoolRoleAttachmentArgs, IdentityPoolRoleAttachmentState } from "./identityPoolRoleAttachment";
+export type IdentityPoolRoleAttachment = import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment;
+export const IdentityPoolRoleAttachment: typeof import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment = null as any;
+
+export { IdentityProviderArgs, IdentityProviderState } from "./identityProvider";
+export type IdentityProvider = import("./identityProvider").IdentityProvider;
+export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
+
+export { ResourceServerArgs, ResourceServerState } from "./resourceServer";
+export type ResourceServer = import("./resourceServer").ResourceServer;
+export const ResourceServer: typeof import("./resourceServer").ResourceServer = null as any;
+
+export { RiskConfigurationArgs, RiskConfigurationState } from "./riskConfiguration";
+export type RiskConfiguration = import("./riskConfiguration").RiskConfiguration;
+export const RiskConfiguration: typeof import("./riskConfiguration").RiskConfiguration = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserGroupArgs, UserGroupState } from "./userGroup";
+export type UserGroup = import("./userGroup").UserGroup;
+export const UserGroup: typeof import("./userGroup").UserGroup = null as any;
+
+export { UserInGroupArgs, UserInGroupState } from "./userInGroup";
+export type UserInGroup = import("./userInGroup").UserInGroup;
+export const UserInGroup: typeof import("./userInGroup").UserInGroup = null as any;
+
+export { UserPoolArgs, UserPoolState } from "./userPool";
+export type UserPool = import("./userPool").UserPool;
+export const UserPool: typeof import("./userPool").UserPool = null as any;
+
+export { UserPoolClientArgs, UserPoolClientState } from "./userPoolClient";
+export type UserPoolClient = import("./userPoolClient").UserPoolClient;
+export const UserPoolClient: typeof import("./userPoolClient").UserPoolClient = null as any;
+
+export { UserPoolDomainArgs, UserPoolDomainState } from "./userPoolDomain";
+export type UserPoolDomain = import("./userPoolDomain").UserPoolDomain;
+export const UserPoolDomain: typeof import("./userPoolDomain").UserPoolDomain = null as any;
+
+export { UserPoolUICustomizationArgs, UserPoolUICustomizationState } from "./userPoolUICustomization";
+export type UserPoolUICustomization = import("./userPoolUICustomization").UserPoolUICustomization;
+export const UserPoolUICustomization: typeof import("./userPoolUICustomization").UserPoolUICustomization = null as any;
+
+utilities.lazyLoad(exports, ["getUserPoolClient","getUserPoolClientOutput"], () => require("./getUserPoolClient"));
+utilities.lazyLoad(exports, ["getUserPoolClients","getUserPoolClientsOutput"], () => require("./getUserPoolClients"));
+utilities.lazyLoad(exports, ["getUserPoolSigningCertificate","getUserPoolSigningCertificateOutput"], () => require("./getUserPoolSigningCertificate"));
+utilities.lazyLoad(exports, ["getUserPools","getUserPoolsOutput"], () => require("./getUserPools"));
+utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
+utilities.lazyLoad(exports, ["IdentityPoolProviderPrincipalTag"], () => require("./identityPoolProviderPrincipalTag"));
+utilities.lazyLoad(exports, ["IdentityPoolRoleAttachment"], () => require("./identityPoolRoleAttachment"));
+utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
+utilities.lazyLoad(exports, ["ResourceServer"], () => require("./resourceServer"));
+utilities.lazyLoad(exports, ["RiskConfiguration"], () => require("./riskConfiguration"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserGroup"], () => require("./userGroup"));
+utilities.lazyLoad(exports, ["UserInGroup"], () => require("./userInGroup"));
+utilities.lazyLoad(exports, ["UserPool"], () => require("./userPool"));
+utilities.lazyLoad(exports, ["UserPoolClient"], () => require("./userPoolClient"));
+utilities.lazyLoad(exports, ["UserPoolDomain"], () => require("./userPoolDomain"));
+utilities.lazyLoad(exports, ["UserPoolUICustomization"], () => require("./userPoolUICustomization"));
 
 const _module = {
     version: utilities.getVersion(),

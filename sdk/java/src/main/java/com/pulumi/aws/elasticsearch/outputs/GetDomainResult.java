@@ -38,7 +38,7 @@ public final class GetDomainResult {
      */
     private List<GetDomainAdvancedSecurityOption> advancedSecurityOptions;
     /**
-     * @return The Amazon Resource Name (ARN) of the domain.
+     * @return The ARN of the domain.
      * 
      */
     private String arn;
@@ -121,7 +121,7 @@ public final class GetDomainResult {
     private Boolean processing;
     private List<GetDomainSnapshotOption> snapshotOptions;
     /**
-     * @return The tags assigned to the domain.
+     * @return Tags assigned to the domain.
      * 
      */
     private Map<String,String> tags;
@@ -154,7 +154,7 @@ public final class GetDomainResult {
         return this.advancedSecurityOptions;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the domain.
+     * @return The ARN of the domain.
      * 
      */
     public String arn() {
@@ -273,7 +273,7 @@ public final class GetDomainResult {
         return this.snapshotOptions;
     }
     /**
-     * @return The tags assigned to the domain.
+     * @return Tags assigned to the domain.
      * 
      */
     public Map<String,String> tags() {

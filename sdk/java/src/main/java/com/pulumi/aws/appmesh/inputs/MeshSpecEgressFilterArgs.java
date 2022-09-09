@@ -16,7 +16,7 @@ public final class MeshSpecEgressFilterArgs extends com.pulumi.resources.Resourc
     public static final MeshSpecEgressFilterArgs Empty = new MeshSpecEgressFilterArgs();
 
     /**
-     * The egress filter type. By default, the type is `DROP_ALL`.
+     * Egress filter type. By default, the type is `DROP_ALL`.
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */
@@ -24,7 +24,7 @@ public final class MeshSpecEgressFilterArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> type;
 
     /**
-     * @return The egress filter type. By default, the type is `DROP_ALL`.
+     * @return Egress filter type. By default, the type is `DROP_ALL`.
      * Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */
@@ -57,7 +57,7 @@ public final class MeshSpecEgressFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The egress filter type. By default, the type is `DROP_ALL`.
+         * @param type Egress filter type. By default, the type is `DROP_ALL`.
          * Valid values are `ALLOW_ALL` and `DROP_ALL`.
          * 
          * @return builder
@@ -69,7 +69,7 @@ public final class MeshSpecEgressFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The egress filter type. By default, the type is `DROP_ALL`.
+         * @param type Egress filter type. By default, the type is `DROP_ALL`.
          * Valid values are `ALLOW_ALL` and `DROP_ALL`.
          * 
          * @return builder

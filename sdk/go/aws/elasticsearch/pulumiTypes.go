@@ -3292,7 +3292,7 @@ func (o GetDomainAutoTuneOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAu
 }
 
 type GetDomainAutoTuneOptionMaintenanceSchedule struct {
-	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	// Cron expression for an Auto-Tune maintenance schedule.
 	CronExpressionForRecurrence string `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations []GetDomainAutoTuneOptionMaintenanceScheduleDuration `pulumi:"durations"`
@@ -3312,7 +3312,7 @@ type GetDomainAutoTuneOptionMaintenanceScheduleInput interface {
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleArgs struct {
-	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	// Cron expression for an Auto-Tune maintenance schedule.
 	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
 	// Configuration block for the duration of the Auto-Tune maintenance window.
 	Durations GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput `pulumi:"durations"`
@@ -3371,7 +3371,7 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOpt
 	return o
 }
 
-// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+// Cron expression for an Auto-Tune maintenance schedule.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.CronExpressionForRecurrence }).(pulumi.StringOutput)
 }
@@ -3409,9 +3409,9 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) Index(i pulumi.In
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDuration struct {
-	// The unit of time specifying the duration of an Auto-Tune maintenance window.
+	// Unit of time.
 	Unit string `pulumi:"unit"`
-	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	// Duration of an Auto-Tune maintenance window.
 	Value int `pulumi:"value"`
 }
 
@@ -3427,9 +3427,9 @@ type GetDomainAutoTuneOptionMaintenanceScheduleDurationInput interface {
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs struct {
-	// The unit of time specifying the duration of an Auto-Tune maintenance window.
+	// Unit of time.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	// Duration of an Auto-Tune maintenance window.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -3484,12 +3484,12 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAut
 	return o
 }
 
-// The unit of time specifying the duration of an Auto-Tune maintenance window.
+// Unit of time.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+// Duration of an Auto-Tune maintenance window.
 func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -3529,7 +3529,7 @@ type GetDomainClusterConfig struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
-	// Indicates warm storage is enabled.
+	// Warm storage is enabled.
 	WarmEnabled bool `pulumi:"warmEnabled"`
 	// The instance type for the Elasticsearch cluster's warm nodes.
 	WarmType string `pulumi:"warmType"`
@@ -3565,7 +3565,7 @@ type GetDomainClusterConfigArgs struct {
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
-	// Indicates warm storage is enabled.
+	// Warm storage is enabled.
 	WarmEnabled pulumi.BoolInput `pulumi:"warmEnabled"`
 	// The instance type for the Elasticsearch cluster's warm nodes.
 	WarmType pulumi.StringInput `pulumi:"warmType"`
@@ -3661,7 +3661,7 @@ func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.WarmCount }).(pulumi.IntOutput)
 }
 
-// Indicates warm storage is enabled.
+// Warm storage is enabled.
 func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.WarmEnabled }).(pulumi.BoolOutput)
 }

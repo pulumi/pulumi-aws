@@ -21,7 +21,7 @@ public final class GetLocationResult {
      */
     private List<String> availablePortSpeeds;
     /**
-     * @return The names of the service providers for the location.
+     * @return Names of the service providers for the location.
      * 
      */
     private List<String> availableProviders;
@@ -32,7 +32,7 @@ public final class GetLocationResult {
     private String id;
     private String locationCode;
     /**
-     * @return The name of the location. This includes the name of the colocation partner and the physical site of the building.
+     * @return Name of the location. This includes the name of the colocation partner and the physical site of the building.
      * 
      */
     private String locationName;
@@ -53,7 +53,7 @@ public final class GetLocationResult {
         return this.availablePortSpeeds;
     }
     /**
-     * @return The names of the service providers for the location.
+     * @return Names of the service providers for the location.
      * 
      */
     public List<String> availableProviders() {
@@ -70,7 +70,7 @@ public final class GetLocationResult {
         return this.locationCode;
     }
     /**
-     * @return The name of the location. This includes the name of the colocation partner and the physical site of the building.
+     * @return Name of the location. This includes the name of the colocation partner and the physical site of the building.
      * 
      */
     public String locationName() {

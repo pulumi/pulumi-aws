@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -82,7 +84,7 @@ export interface GetOrganizationResult {
      */
     readonly enabledPolicyTypes: string[];
     /**
-     * The FeatureSet of the organization.
+     * FeatureSet of the organization.
      */
     readonly featureSet: string;
     /**
@@ -90,7 +92,7 @@ export interface GetOrganizationResult {
      */
     readonly id: string;
     /**
-     * The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+     * ARN of the account that is designated as the master account for the organization.
      */
     readonly masterAccountArn: string;
     /**
@@ -98,7 +100,7 @@ export interface GetOrganizationResult {
      */
     readonly masterAccountEmail: string;
     /**
-     * The unique identifier (ID) of the master account of an organization.
+     * Unique identifier (ID) of the master account of an organization.
      */
     readonly masterAccountId: string;
     /**

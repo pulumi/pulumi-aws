@@ -97,7 +97,7 @@ type LookupRouteTableArgs struct {
 
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Route Table ARN.
 	Arn string `pulumi:"arn"`
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway
 	DefaultAssociationRouteTable bool `pulumi:"defaultAssociationRouteTable"`
@@ -154,7 +154,7 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(
 	return o
 }
 
-// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+// EC2 Transit Gateway Route Table ARN.
 func (o LookupRouteTableResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Arn }).(pulumi.StringOutput)
 }

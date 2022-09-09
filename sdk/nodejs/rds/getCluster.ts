@@ -35,7 +35,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetClusterArgs {
     /**
-     * The cluster identifier of the RDS cluster.
+     * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: string;
     tags?: {[key: string]: string};
@@ -88,7 +88,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  */
 export interface GetClusterOutputArgs {
     /**
-     * The cluster identifier of the RDS cluster.
+     * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

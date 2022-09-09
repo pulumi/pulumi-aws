@@ -32,12 +32,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable String privateLinkServiceName;
     /**
-     * @return The AWS Region of the Snowflake account.
+     * @return AWS Region of the Snowflake account.
      * 
      */
     private @Nullable String region;
     /**
-     * @return The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
      * 
      */
     private String stage;
@@ -77,14 +77,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.privateLinkServiceName);
     }
     /**
-     * @return The AWS Region of the Snowflake account.
+     * @return AWS Region of the Snowflake account.
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
+     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
      * 
      */
     public String stage() {

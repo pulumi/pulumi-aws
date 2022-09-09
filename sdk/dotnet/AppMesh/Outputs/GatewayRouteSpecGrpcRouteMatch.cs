@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecGrpcRouteMatch
     {
         /// <summary>
-        /// The fully qualified domain name for the service to match from the request.
+        /// Fully qualified domain name for the service to match from the request.
         /// </summary>
         public readonly string ServiceName;
 

@@ -33,7 +33,7 @@ export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetDetectorArgs {
     /**
-     * The ID of the detector.
+     * ID of the detector.
      */
     id?: string;
 }
@@ -48,11 +48,11 @@ export interface GetDetectorResult {
     readonly findingPublishingFrequency: string;
     readonly id: string;
     /**
-     * The service-linked role that grants GuardDuty access to the resources in the AWS account.
+     * Service-linked role that grants GuardDuty access to the resources in the AWS account.
      */
     readonly serviceRoleArn: string;
     /**
-     * The current status of the detector.
+     * Current status of the detector.
      */
     readonly status: string;
 }
@@ -66,7 +66,7 @@ export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.In
  */
 export interface GetDetectorOutputArgs {
     /**
-     * The ID of the detector.
+     * ID of the detector.
      */
     id?: pulumi.Input<string>;
 }

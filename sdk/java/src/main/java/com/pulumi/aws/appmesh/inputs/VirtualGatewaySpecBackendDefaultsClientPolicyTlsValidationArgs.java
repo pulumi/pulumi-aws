@@ -17,14 +17,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs();
 
     /**
-     * The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+     * SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -32,14 +32,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
     }
 
     /**
-     * The TLS validation context trust.
+     * TLS validation context trust.
      * 
      */
     @Import(name="trust", required=true)
     private Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust;
 
     /**
-     * @return The TLS validation context trust.
+     * @return TLS validation context trust.
      * 
      */
     public Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust() {
@@ -72,7 +72,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
         }
 
         /**
-         * @param subjectAlternativeNames The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
         }
 
         /**
-         * @param subjectAlternativeNames The SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
         }
 
         /**
-         * @param trust The TLS validation context trust.
+         * @param trust TLS validation context trust.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
         }
 
         /**
-         * @param trust The TLS validation context trust.
+         * @param trust TLS validation context trust.
          * 
          * @return builder
          * 

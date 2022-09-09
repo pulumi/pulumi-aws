@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,11 +67,11 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
     /**
-     * The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
     public /*out*/ readonly dnsTarget!: pulumi.Output<string>;
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -77,11 +79,11 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     public readonly enableWwwSubdomain!: pulumi.Output<boolean | undefined>;
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      */
     public readonly serviceArn!: pulumi.Output<string>;
     /**
-     * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -133,11 +135,11 @@ export interface CustomDomainAssociationState {
      */
     certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[]>;
     /**
-     * The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
     dnsTarget?: pulumi.Input<string>;
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -145,11 +147,11 @@ export interface CustomDomainAssociationState {
      */
     enableWwwSubdomain?: pulumi.Input<boolean>;
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      */
     serviceArn?: pulumi.Input<string>;
     /**
-     * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
     status?: pulumi.Input<string>;
 }
@@ -159,7 +161,7 @@ export interface CustomDomainAssociationState {
  */
 export interface CustomDomainAssociationArgs {
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     domainName: pulumi.Input<string>;
     /**
@@ -167,7 +169,7 @@ export interface CustomDomainAssociationArgs {
      */
     enableWwwSubdomain?: pulumi.Input<boolean>;
     /**
-     * The ARN of the App Runner service.
+     * ARN of the App Runner service.
      */
     serviceArn: pulumi.Input<string>;
 }

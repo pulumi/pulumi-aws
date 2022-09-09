@@ -58,7 +58,7 @@ class GetRoutingProfileResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Routing Profile.
+        ARN of the Routing Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -74,7 +74,7 @@ class GetRoutingProfileResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Specifies the description of the Routing Profile.
+        Description of the Routing Profile.
         """
         return pulumi.get(self, "description")
 
@@ -121,7 +121,7 @@ class GetRoutingProfileResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A map of tags to assign to the Routing Profile.
+        Map of tags to assign to the Routing Profile.
         """
         return pulumi.get(self, "tags")
 
@@ -178,7 +178,7 @@ def get_routing_profile(instance_id: Optional[str] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Routing Profile by name
     :param str routing_profile_id: Returns information on a specific Routing Profile by Routing Profile id
-    :param Mapping[str, str] tags: A map of tags to assign to the Routing Profile.
+    :param Mapping[str, str] tags: Map of tags to assign to the Routing Profile.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -236,6 +236,6 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Routing Profile by name
     :param str routing_profile_id: Returns information on a specific Routing Profile by Routing Profile id
-    :param Mapping[str, str] tags: A map of tags to assign to the Routing Profile.
+    :param Mapping[str, str] tags: Map of tags to assign to the Routing Profile.
     """
     ...

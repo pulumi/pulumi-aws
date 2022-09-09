@@ -19,13 +19,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<bool>? Invert { get; set; }
 
         /// <summary>
-        /// The data to match from the request.
+        /// Data to match from the request.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchGetArgs>? Match { get; set; }
 
         /// <summary>
-        /// The name of the route. Must be between 1 and 50 characters in length.
+        /// Name of the route. Must be between 1 and 50 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

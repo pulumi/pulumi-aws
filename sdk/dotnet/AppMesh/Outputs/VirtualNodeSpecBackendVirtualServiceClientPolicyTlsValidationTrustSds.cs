@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds
     {
         /// <summary>
-        /// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        /// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         /// </summary>
         public readonly string SecretName;
 

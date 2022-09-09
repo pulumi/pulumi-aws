@@ -28,7 +28,7 @@ public final class GetAvailabilityZoneResult {
     private String id;
     private String name;
     /**
-     * @return The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
      * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      * 
@@ -45,24 +45,24 @@ public final class GetAvailabilityZoneResult {
      */
     private String optInStatus;
     /**
-     * @return The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * @return ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
     private String parentZoneId;
     /**
-     * @return The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * @return Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
     private String parentZoneName;
     /**
-     * @return The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+     * @return Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      * 
      */
     private String region;
     private String state;
     private String zoneId;
     /**
-     * @return The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+     * @return Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
      * 
      */
     private String zoneType;
@@ -92,7 +92,7 @@ public final class GetAvailabilityZoneResult {
         return this.name;
     }
     /**
-     * @return The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
      * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      * 
@@ -115,21 +115,21 @@ public final class GetAvailabilityZoneResult {
         return this.optInStatus;
     }
     /**
-     * @return The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * @return ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
     public String parentZoneId() {
         return this.parentZoneId;
     }
     /**
-     * @return The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * @return Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      * 
      */
     public String parentZoneName() {
         return this.parentZoneName;
     }
     /**
-     * @return The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+     * @return Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      * 
      */
     public String region() {
@@ -142,7 +142,7 @@ public final class GetAvailabilityZoneResult {
         return this.zoneId;
     }
     /**
-     * @return The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+     * @return Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
      * 
      */
     public String zoneType() {

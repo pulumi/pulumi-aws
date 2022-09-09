@@ -83,7 +83,7 @@ def get_bucket_policy(bucket: Optional[str] = None,
     ```
 
 
-    :param str bucket: The bucket name.
+    :param str bucket: Bucket name.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -115,6 +115,6 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str bucket: The bucket name.
+    :param str bucket: Bucket name.
     """
     ...

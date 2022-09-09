@@ -16,14 +16,14 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetTargetGroupPlainArgs Empty = new GetTargetGroupPlainArgs();
 
     /**
-     * The full ARN of the target group.
+     * Full ARN of the target group.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return The full ARN of the target group.
+     * @return Full ARN of the target group.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The unique name of the target group.
+     * Unique name of the target group.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The unique name of the target group.
+     * @return Unique name of the target group.
      * 
      */
     public Optional<String> name() {
@@ -79,7 +79,7 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn The full ARN of the target group.
+         * @param arn Full ARN of the target group.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The unique name of the target group.
+         * @param name Unique name of the target group.
          * 
          * @return builder
          * 

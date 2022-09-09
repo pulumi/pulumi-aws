@@ -53,29 +53,29 @@ func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ..
 type LookupFunctionUrlArgs struct {
 	// he name (or ARN) of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
-	// The alias name or `"$LATEST"`.
+	// Alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
 }
 
 // A collection of values returned by getFunctionUrl.
 type LookupFunctionUrlResult struct {
-	// The type of authentication that the function URL uses.
+	// Type of authentication that the function URL uses.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the [`lambda.FunctionUrl` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function_url.html) documentation for more details.
 	Cors []GetFunctionUrlCor `pulumi:"cors"`
 	// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 	CreationTime string `pulumi:"creationTime"`
-	// The Amazon Resource Name (ARN) of the function.
+	// ARN of the function.
 	FunctionArn  string `pulumi:"functionArn"`
 	FunctionName string `pulumi:"functionName"`
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
 	FunctionUrl string `pulumi:"functionUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 	LastModifiedTime string  `pulumi:"lastModifiedTime"`
 	Qualifier        *string `pulumi:"qualifier"`
-	// A generated ID for the endpoint.
+	// Generated ID for the endpoint.
 	UrlId string `pulumi:"urlId"`
 }
 
@@ -96,7 +96,7 @@ func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputAr
 type LookupFunctionUrlOutputArgs struct {
 	// he name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The alias name or `"$LATEST"`.
+	// Alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 }
 
@@ -119,7 +119,7 @@ func (o LookupFunctionUrlResultOutput) ToLookupFunctionUrlResultOutputWithContex
 	return o
 }
 
-// The type of authentication that the function URL uses.
+// Type of authentication that the function URL uses.
 func (o LookupFunctionUrlResultOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -134,7 +134,7 @@ func (o LookupFunctionUrlResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the function.
+// ARN of the function.
 func (o LookupFunctionUrlResultOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -143,7 +143,7 @@ func (o LookupFunctionUrlResultOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+// HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
 func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.FunctionUrl }).(pulumi.StringOutput)
 }
@@ -162,7 +162,7 @@ func (o LookupFunctionUrlResultOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// A generated ID for the endpoint.
+// Generated ID for the endpoint.
 func (o LookupFunctionUrlResultOutput) UrlId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.UrlId }).(pulumi.StringOutput)
 }

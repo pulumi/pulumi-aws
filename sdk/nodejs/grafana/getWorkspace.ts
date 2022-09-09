@@ -36,11 +36,11 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetWorkspaceArgs {
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: {[key: string]: string};
     /**
-     * The Grafana workspace ID.
+     * Grafana workspace ID.
      */
     workspaceId: string;
 }
@@ -50,35 +50,35 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * (Required) The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      */
     readonly accountAccessType: string;
     /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
+     * ARN of the Grafana workspace.
      */
     readonly arn: string;
     /**
-     * (Required) The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
     readonly authenticationProviders: string[];
     /**
-     * The creation date of the Grafana workspace.
+     * Creation date of the Grafana workspace.
      */
     readonly createdDate: string;
     /**
-     * The data sources for the workspace.
+     * Data sources for the workspace.
      */
     readonly dataSources: string[];
     /**
-     * The workspace description.
+     * Workspace description.
      */
     readonly description: string;
     /**
-     * The endpoint of the Grafana workspace.
+     * Endpoint of the Grafana workspace.
      */
     readonly endpoint: string;
     /**
-     * The version of Grafana running on the workspace.
+     * Version of Grafana running on the workspace.
      */
     readonly grafanaVersion: string;
     /**
@@ -86,11 +86,11 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
-     * The last updated date of the Grafana workspace.
+     * Last updated date of the Grafana workspace.
      */
     readonly lastUpdatedDate: string;
     /**
-     * The Grafana workspace name.
+     * Grafana workspace name.
      */
     readonly name: string;
     /**
@@ -106,24 +106,24 @@ export interface GetWorkspaceResult {
      */
     readonly organizationalUnits: string[];
     /**
-     * The permission type of the workspace.
+     * Permission type of the workspace.
      */
     readonly permissionType: string;
     /**
-     * The IAM role ARN that the workspace assumes.
+     * IAM role ARN that the workspace assumes.
      */
     readonly roleArn: string;
     readonly samlConfigurationStatus: string;
     /**
-     * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
     readonly stackSetName: string;
     /**
-     * The status of the Grafana workspace.
+     * Status of the Grafana workspace.
      */
     readonly status: string;
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     readonly tags: {[key: string]: string};
     readonly workspaceId: string;
@@ -138,11 +138,11 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  */
 export interface GetWorkspaceOutputArgs {
     /**
-     * The tags assigned to the resource
+     * Tags assigned to the resource
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Grafana workspace ID.
+     * Grafana workspace ID.
      */
     workspaceId: pulumi.Input<string>;
 }

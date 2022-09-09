@@ -16,14 +16,14 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
     public static final GetHttpNamespacePlainArgs Empty = new GetHttpNamespacePlainArgs();
 
     /**
-     * The name of the http namespace.
+     * Name of the http namespace.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the http namespace.
+     * @return Name of the http namespace.
      * 
      */
     public String name() {
@@ -31,14 +31,14 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A map of tags for the resource.
+     * Map of tags for the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -71,7 +71,7 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the http namespace.
+         * @param name Name of the http namespace.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param tags A map of tags for the resource.
+         * @param tags Map of tags for the resource.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class GetDevicesResult {
      */
     private String id;
     /**
-     * @return The IDs of the devices.
+     * @return IDs of the devices.
      * 
      */
     private List<String> ids;
@@ -39,7 +39,7 @@ public final class GetDevicesResult {
         return this.id;
     }
     /**
-     * @return The IDs of the devices.
+     * @return IDs of the devices.
      * 
      */
     public List<String> ids() {

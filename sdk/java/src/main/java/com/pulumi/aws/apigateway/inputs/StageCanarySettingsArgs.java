@@ -20,14 +20,14 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
     public static final StageCanarySettingsArgs Empty = new StageCanarySettingsArgs();
 
     /**
-     * The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+     * Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
      */
     @Import(name="percentTraffic")
     private @Nullable Output<Double> percentTraffic;
 
     /**
-     * @return The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
      */
     public Optional<Output<Double>> percentTraffic() {
@@ -35,14 +35,14 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of overridden stage `variables` (including new variables) for the canary deployment.
+     * Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
     @Import(name="stageVariableOverrides")
     private @Nullable Output<Map<String,Object>> stageVariableOverrides;
 
     /**
-     * @return A map of overridden stage `variables` (including new variables) for the canary deployment.
+     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
     public Optional<Output<Map<String,Object>>> stageVariableOverrides() {
@@ -91,7 +91,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param percentTraffic The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+         * @param percentTraffic Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param percentTraffic The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+         * @param percentTraffic Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stageVariableOverrides A map of overridden stage `variables` (including new variables) for the canary deployment.
+         * @param stageVariableOverrides Map of overridden stage `variables` (including new variables) for the canary deployment.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stageVariableOverrides A map of overridden stage `variables` (including new variables) for the canary deployment.
+         * @param stageVariableOverrides Map of overridden stage `variables` (including new variables) for the canary deployment.
          * 
          * @return builder
          * 

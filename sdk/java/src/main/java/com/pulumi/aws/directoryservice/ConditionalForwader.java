@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:directoryservice/conditionalForwader:ConditionalForwader")
 public class ConditionalForwader extends com.pulumi.resources.CustomResource {
     /**
-     * The id of directory.
+     * ID of directory.
      * 
      */
     @Export(name="directoryId", type=String.class, parameters={})
     private Output<String> directoryId;
 
     /**
-     * @return The id of directory.
+     * @return ID of directory.
      * 
      */
     public Output<String> directoryId() {

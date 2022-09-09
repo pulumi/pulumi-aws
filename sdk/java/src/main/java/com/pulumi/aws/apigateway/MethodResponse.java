@@ -96,49 +96,49 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/methodResponse:MethodResponse")
 public class MethodResponse extends com.pulumi.resources.CustomResource {
     /**
-     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     @Export(name="httpMethod", type=String.class, parameters={})
     private Output<String> httpMethod;
 
     /**
-     * @return The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
     /**
-     * The API resource ID
+     * API resource ID
      * 
      */
     @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * A map of the API models used for the response&#39;s content type
+     * Map of the API models used for the response&#39;s content type
      * 
      */
     @Export(name="responseModels", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
     /**
-     * @return A map of the API models used for the response&#39;s content type
+     * @return Map of the API models used for the response&#39;s content type
      * 
      */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
     /**
-     * A map of response parameters that can be sent to the caller.
+     * Map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      * 
@@ -147,7 +147,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,Boolean>> responseParameters;
 
     /**
-     * @return A map of response parameters that can be sent to the caller.
+     * @return Map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      * 
@@ -156,28 +156,28 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseParameters);
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The HTTP status code
+     * HTTP status code
      * 
      */
     @Export(name="statusCode", type=String.class, parameters={})
     private Output<String> statusCode;
 
     /**
-     * @return The HTTP status code
+     * @return HTTP status code
      * 
      */
     public Output<String> statusCode() {

@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetPlaceIndexArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the place index resource.
+        /// Name of the place index resource.
         /// </summary>
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Location
     public sealed class GetPlaceIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the place index resource.
+        /// Name of the place index resource.
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
@@ -124,11 +124,11 @@ namespace Pulumi.Aws.Location
     public sealed class GetPlaceIndexResult
     {
         /// <summary>
-        /// The timestamp for when the place index resource was created in ISO 8601 format.
+        /// Timestamp for when the place index resource was created in ISO 8601 format.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The data provider of geospatial data.
+        /// Data provider of geospatial data.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPlaceIndexDataSourceConfigurationResult> DataSourceConfigurations;
         /// <summary>
-        /// The optional description for the place index resource.
+        /// Optional description for the place index resource.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the place index resource.
+        /// ARN for the place index resource.
         /// </summary>
         public readonly string IndexArn;
         public readonly string IndexName;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timestamp for when the place index resource was last updated in ISO 8601 format.
+        /// Timestamp for when the place index resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

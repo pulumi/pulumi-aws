@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
@@ -47,15 +49,15 @@ export interface GetAvailabilityZoneArgs {
      */
     filters?: inputs.GetAvailabilityZoneFilter[];
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      */
     name?: string;
     /**
-     * A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+     * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     state?: string;
     /**
-     * The zone ID of the availability zone to select.
+     * Zone ID of the availability zone to select.
      */
     zoneId?: string;
 }
@@ -76,7 +78,7 @@ export interface GetAvailabilityZoneResult {
     readonly id: string;
     readonly name: string;
     /**
-     * The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+     * Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
      * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      */
@@ -90,21 +92,21 @@ export interface GetAvailabilityZoneResult {
      */
     readonly optInStatus: string;
     /**
-     * The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
     readonly parentZoneId: string;
     /**
-     * The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+     * Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
     readonly parentZoneName: string;
     /**
-     * The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
+     * Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      */
     readonly region: string;
     readonly state: string;
     readonly zoneId: string;
     /**
-     * The type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
+     * Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
      */
     readonly zoneType: string;
 }
@@ -126,15 +128,15 @@ export interface GetAvailabilityZoneOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZoneFilterArgs>[]>;
     /**
-     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      */
     name?: pulumi.Input<string>;
     /**
-     * A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+     * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     state?: pulumi.Input<string>;
     /**
-     * The zone ID of the availability zone to select.
+     * Zone ID of the availability zone to select.
      */
     zoneId?: pulumi.Input<string>;
 }

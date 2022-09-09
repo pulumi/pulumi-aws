@@ -2,13 +2,102 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides a CE Anomaly Subscription.
  *
  * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testAnomalyMonitor = new aws.costexplorer.AnomalyMonitor("testAnomalyMonitor", {
+ *     monitorType: "DIMENSIONAL",
+ *     monitorDimension: "SERVICE",
+ * });
+ * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("testAnomalySubscription", {
+ *     threshold: 100,
+ *     frequency: "DAILY",
+ *     monitorArnLists: [testAnomalyMonitor.arn],
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ * });
+ * ```
+ * ### SNS Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const costAnomalyUpdates = new aws.sns.Topic("costAnomalyUpdates", {});
+ * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
+ *     policyId: "__default_policy_ID",
+ *     statements: [
+ *         {
+ *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
+ *             actions: ["SNS:Publish"],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["costalerts.amazonaws.com"],
+ *             }],
+ *             resources: [costAnomalyUpdatesArn],
+ *         },
+ *         {
+ *             sid: "__default_statement_ID",
+ *             actions: [
+ *                 "SNS:Subscribe",
+ *                 "SNS:SetTopicAttributes",
+ *                 "SNS:RemovePermission",
+ *                 "SNS:Receive",
+ *                 "SNS:Publish",
+ *                 "SNS:ListSubscriptionsByTopic",
+ *                 "SNS:GetTopicAttributes",
+ *                 "SNS:DeleteTopic",
+ *                 "SNS:AddPermission",
+ *             ],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "AWS:SourceOwner",
+ *                 values: [_var["account-id"]],
+ *             }],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
+ *             resources: [costAnomalyUpdatesArn1],
+ *         },
+ *     ],
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
+ *     arn: costAnomalyUpdates.arn,
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ * });
+ * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomalyMonitor", {
+ *     monitorType: "DIMENSIONAL",
+ *     monitorDimension: "SERVICE",
+ * });
+ * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtimeSubscription", {
+ *     threshold: 0,
+ *     frequency: "IMMEDIATE",
+ *     monitorArnLists: [anomalyMonitor.arn],
+ *     subscribers: [{
+ *         type: "SNS",
+ *         address: costAnomalyUpdates.arn,
+ *     }],
+ * }, {
+ *     dependsOn: [_default],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -74,6 +163,9 @@ export class AnomalySubscription extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The dollar value that triggers a notification if the threshold is exceeded.
@@ -163,6 +255,9 @@ export interface AnomalySubscriptionState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The dollar value that triggers a notification if the threshold is exceeded.

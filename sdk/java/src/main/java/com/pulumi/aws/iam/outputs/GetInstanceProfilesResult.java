@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceProfilesResult {
     /**
-     * @return Set of Amazon Resource Name (ARN) specifying the instance profile.
+     * @return Set of ARNs of instance profiles.
      * 
      */
     private List<String> arns;
@@ -34,7 +34,7 @@ public final class GetInstanceProfilesResult {
 
     private GetInstanceProfilesResult() {}
     /**
-     * @return Set of Amazon Resource Name (ARN) specifying the instance profile.
+     * @return Set of ARNs of instance profiles.
      * 
      */
     public List<String> arns() {

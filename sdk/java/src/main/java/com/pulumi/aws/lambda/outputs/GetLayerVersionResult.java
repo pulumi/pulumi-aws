@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLayerVersionResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda Layer with version.
+     * @return ARN of the Lambda Layer with version.
      * 
      */
     private String arn;
@@ -26,12 +26,12 @@ public final class GetLayerVersionResult {
     private List<String> compatibleArchitectures;
     private @Nullable String compatibleRuntime;
     /**
-     * @return A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      * 
      */
     private List<String> compatibleRuntimes;
     /**
-     * @return The date this resource was created.
+     * @return Date this resource was created.
      * 
      */
     private String createdDate;
@@ -46,7 +46,7 @@ public final class GetLayerVersionResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda Layer without version.
+     * @return ARN of the Lambda Layer without version.
      * 
      */
     private String layerArn;
@@ -57,12 +57,12 @@ public final class GetLayerVersionResult {
      */
     private String licenseInfo;
     /**
-     * @return The Amazon Resource Name (ARN) of a signing job.
+     * @return ARN of a signing job.
      * 
      */
     private String signingJobArn;
     /**
-     * @return The Amazon Resource Name (ARN) for a signing profile version.
+     * @return The ARN for a signing profile version.
      * 
      */
     private String signingProfileVersionArn;
@@ -72,7 +72,7 @@ public final class GetLayerVersionResult {
      */
     private String sourceCodeHash;
     /**
-     * @return The size in bytes of the function .zip file.
+     * @return Size in bytes of the function .zip file.
      * 
      */
     private Integer sourceCodeSize;
@@ -84,7 +84,7 @@ public final class GetLayerVersionResult {
 
     private GetLayerVersionResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda Layer with version.
+     * @return ARN of the Lambda Layer with version.
      * 
      */
     public String arn() {
@@ -104,14 +104,14 @@ public final class GetLayerVersionResult {
         return Optional.ofNullable(this.compatibleRuntime);
     }
     /**
-     * @return A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      * 
      */
     public List<String> compatibleRuntimes() {
         return this.compatibleRuntimes;
     }
     /**
-     * @return The date this resource was created.
+     * @return Date this resource was created.
      * 
      */
     public String createdDate() {
@@ -132,7 +132,7 @@ public final class GetLayerVersionResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda Layer without version.
+     * @return ARN of the Lambda Layer without version.
      * 
      */
     public String layerArn() {
@@ -149,14 +149,14 @@ public final class GetLayerVersionResult {
         return this.licenseInfo;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a signing job.
+     * @return ARN of a signing job.
      * 
      */
     public String signingJobArn() {
         return this.signingJobArn;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for a signing profile version.
+     * @return The ARN for a signing profile version.
      * 
      */
     public String signingProfileVersionArn() {
@@ -170,7 +170,7 @@ public final class GetLayerVersionResult {
         return this.sourceCodeHash;
     }
     /**
-     * @return The size in bytes of the function .zip file.
+     * @return Size in bytes of the function .zip file.
      * 
      */
     public Integer sourceCodeSize() {

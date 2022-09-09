@@ -60,7 +60,7 @@ class GetCertificateResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
+        ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetCertificateResult:
     @pulumi.getter
     def certificate(self) -> str:
         """
-        The ACM-issued certificate.
+        ACM-issued certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -120,7 +120,7 @@ class GetCertificateResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags for the resource.
+        Mapping of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -177,14 +177,14 @@ def get_certificate(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+    :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
-    :param Mapping[str, str] tags: A mapping of tags for the resource.
-    :param Sequence[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Mapping[str, str] tags: Mapping of tags for the resource.
+    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -239,13 +239,13 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
+    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+    :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
-    :param Mapping[str, str] tags: A mapping of tags for the resource.
-    :param Sequence[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Mapping[str, str] tags: Mapping of tags for the resource.
+    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
     """
     ...

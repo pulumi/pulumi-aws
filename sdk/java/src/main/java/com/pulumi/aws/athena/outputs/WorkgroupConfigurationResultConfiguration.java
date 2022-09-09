@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkgroupConfigurationResultConfiguration {
     /**
-     * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     private @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration;
@@ -24,19 +24,19 @@ public final class WorkgroupConfigurationResultConfiguration {
      */
     private @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration;
     /**
-     * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     private @Nullable String expectedBucketOwner;
     /**
-     * @return The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
     private @Nullable String outputLocation;
 
     private WorkgroupConfigurationResultConfiguration() {}
     /**
-     * @return Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
     public Optional<WorkgroupConfigurationResultConfigurationAclConfiguration> aclConfiguration() {
@@ -50,14 +50,14 @@ public final class WorkgroupConfigurationResultConfiguration {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
     /**
-     * @return The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
     public Optional<String> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
     /**
-     * @return The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
     public Optional<String> outputLocation() {

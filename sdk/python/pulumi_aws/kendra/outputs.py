@@ -2481,9 +2481,9 @@ class GetExperienceConfigurationContentSourceConfigurationResult(dict):
                  direct_put_content: bool,
                  faq_ids: Sequence[str]):
         """
-        :param Sequence[str] data_source_ids: The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+        :param Sequence[str] data_source_ids: Identifiers of the data sources you want to use for your Amazon Kendra Experience.
         :param bool direct_put_content: Whether to use documents you indexed directly using the `BatchPutDocument API`.
-        :param Sequence[str] faq_ids: The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+        :param Sequence[str] faq_ids: Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
         """
         pulumi.set(__self__, "data_source_ids", data_source_ids)
         pulumi.set(__self__, "direct_put_content", direct_put_content)
@@ -2493,7 +2493,7 @@ class GetExperienceConfigurationContentSourceConfigurationResult(dict):
     @pulumi.getter(name="dataSourceIds")
     def data_source_ids(self) -> Sequence[str]:
         """
-        The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+        Identifiers of the data sources you want to use for your Amazon Kendra Experience.
         """
         return pulumi.get(self, "data_source_ids")
 
@@ -2509,7 +2509,7 @@ class GetExperienceConfigurationContentSourceConfigurationResult(dict):
     @pulumi.getter(name="faqIds")
     def faq_ids(self) -> Sequence[str]:
         """
-        The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+        Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
         """
         return pulumi.get(self, "faq_ids")
 
@@ -2538,8 +2538,8 @@ class GetExperienceEndpointResult(dict):
                  endpoint: str,
                  endpoint_type: str):
         """
-        :param str endpoint: The endpoint of your Amazon Kendra Experience.
-        :param str endpoint_type: The type of endpoint for your Amazon Kendra Experience.
+        :param str endpoint: Endpoint of your Amazon Kendra Experience.
+        :param str endpoint_type: Type of endpoint for your Amazon Kendra Experience.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -2548,7 +2548,7 @@ class GetExperienceEndpointResult(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The endpoint of your Amazon Kendra Experience.
+        Endpoint of your Amazon Kendra Experience.
         """
         return pulumi.get(self, "endpoint")
 
@@ -2556,7 +2556,7 @@ class GetExperienceEndpointResult(dict):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
         """
-        The type of endpoint for your Amazon Kendra Experience.
+        Type of endpoint for your Amazon Kendra Experience.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -2567,8 +2567,8 @@ class GetFaqS3PathResult(dict):
                  bucket: str,
                  key: str):
         """
-        :param str bucket: The name of the S3 bucket that contains the file.
-        :param str key: The name of the file.
+        :param str bucket: Name of the S3 bucket that contains the file.
+        :param str key: Name of the file.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -2577,7 +2577,7 @@ class GetFaqS3PathResult(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The name of the S3 bucket that contains the file.
+        Name of the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -2585,7 +2585,7 @@ class GetFaqS3PathResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the file.
+        Name of the file.
         """
         return pulumi.get(self, "key")
 
@@ -2627,10 +2627,10 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
                  searches: Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateSearchResult'],
                  type: str):
         """
-        :param str name: The name of the index field. Minimum length of 1. Maximum length of 30.
-        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs'] relevances: A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateSearchArgs'] searches: A block that provides information about how the field is used during a search. Documented below.
-        :param str type: The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+        :param str name: Name of the index field. Minimum length of 1. Maximum length of 30.
+        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs'] relevances: Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateSearchArgs'] searches: Block that provides information about how the field is used during a search. Documented below.
+        :param str type: Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "relevances", relevances)
@@ -2641,7 +2641,7 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the index field. Minimum length of 1. Maximum length of 30.
+        Name of the index field. Minimum length of 1. Maximum length of 30.
         """
         return pulumi.get(self, "name")
 
@@ -2649,7 +2649,7 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
     @pulumi.getter
     def relevances(self) -> Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateRelevanceResult']:
         """
-        A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
         """
         return pulumi.get(self, "relevances")
 
@@ -2657,7 +2657,7 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
     @pulumi.getter
     def searches(self) -> Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateSearchResult']:
         """
-        A block that provides information about how the field is used during a search. Documented below.
+        Block that provides information about how the field is used during a search. Documented below.
         """
         return pulumi.get(self, "searches")
 
@@ -2665,7 +2665,7 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+        Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         """
         return pulumi.get(self, "type")
 
@@ -2679,9 +2679,9 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
                  rank_order: str,
                  values_importance_map: Mapping[str, int]):
         """
-        :param str duration: Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-        :param bool freshness: Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-        :param int importance: The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+        :param str duration: Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        :param bool freshness: How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        :param int importance: Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
         :param str rank_order: Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         :param Mapping[str, int] values_importance_map: A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         """
@@ -2695,7 +2695,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def duration(self) -> str:
         """
-        Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
         """
         return pulumi.get(self, "duration")
 
@@ -2703,7 +2703,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def freshness(self) -> bool:
         """
-        Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         """
         return pulumi.get(self, "freshness")
 
@@ -2711,7 +2711,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def importance(self) -> int:
         """
-        The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+        Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
         """
         return pulumi.get(self, "importance")
 
@@ -2741,7 +2741,7 @@ class GetIndexDocumentMetadataConfigurationUpdateSearchResult(dict):
                  sortable: bool):
         """
         :param bool displayable: Determines whether the field is returned in the query response. The default is `true`.
-        :param bool facetable: Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+        :param bool facetable: Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
         :param bool searchable: Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
         :param bool sortable: Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
         """
@@ -2762,7 +2762,7 @@ class GetIndexDocumentMetadataConfigurationUpdateSearchResult(dict):
     @pulumi.getter
     def facetable(self) -> bool:
         """
-        Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+        Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
         """
         return pulumi.get(self, "facetable")
 
@@ -2789,7 +2789,7 @@ class GetIndexIndexStatisticResult(dict):
                  faq_statistics: Sequence['outputs.GetIndexIndexStatisticFaqStatisticResult'],
                  text_document_statistics: Sequence['outputs.GetIndexIndexStatisticTextDocumentStatisticResult']):
         """
-        :param Sequence['GetIndexIndexStatisticFaqStatisticArgs'] faq_statistics: A block that specifies the number of question and answer topics in the index. Documented below.
+        :param Sequence['GetIndexIndexStatisticFaqStatisticArgs'] faq_statistics: Block that specifies the number of question and answer topics in the index. Documented below.
         :param Sequence['GetIndexIndexStatisticTextDocumentStatisticArgs'] text_document_statistics: A block that specifies the number of text documents indexed.
         """
         pulumi.set(__self__, "faq_statistics", faq_statistics)
@@ -2799,7 +2799,7 @@ class GetIndexIndexStatisticResult(dict):
     @pulumi.getter(name="faqStatistics")
     def faq_statistics(self) -> Sequence['outputs.GetIndexIndexStatisticFaqStatisticResult']:
         """
-        A block that specifies the number of question and answer topics in the index. Documented below.
+        Block that specifies the number of question and answer topics in the index. Documented below.
         """
         return pulumi.get(self, "faq_statistics")
 
@@ -2836,7 +2836,7 @@ class GetIndexIndexStatisticTextDocumentStatisticResult(dict):
                  indexed_text_bytes: int,
                  indexed_text_documents_count: int):
         """
-        :param int indexed_text_bytes: The total size, in bytes, of the indexed documents.
+        :param int indexed_text_bytes: Total size, in bytes, of the indexed documents.
         :param int indexed_text_documents_count: The number of text documents indexed.
         """
         pulumi.set(__self__, "indexed_text_bytes", indexed_text_bytes)
@@ -2846,7 +2846,7 @@ class GetIndexIndexStatisticTextDocumentStatisticResult(dict):
     @pulumi.getter(name="indexedTextBytes")
     def indexed_text_bytes(self) -> int:
         """
-        The total size, in bytes, of the indexed documents.
+        Total size, in bytes, of the indexed documents.
         """
         return pulumi.get(self, "indexed_text_bytes")
 
@@ -2864,7 +2864,7 @@ class GetIndexServerSideEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str):
         """
-        :param str kms_key_id: The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+        :param str kms_key_id: Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
@@ -2872,7 +2872,7 @@ class GetIndexServerSideEncryptionConfigurationResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+        Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2964,12 +2964,12 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
                  url: str,
                  user_name_attribute_field: str):
         """
-        :param str claim_regex: The regular expression that identifies the claim.
+        :param str claim_regex: Regular expression that identifies the claim.
         :param str group_attribute_field: The group attribute field.
-        :param str issuer: The issuer of the token.
-        :param str key_location: The location of the key. Valid values are `URL` or `SECRET_MANAGER`
-        :param str secrets_manager_arn: The Amazon Resource Name (ARN) of the secret.
-        :param str url: The signing key URL.
+        :param str issuer: Issuer of the token.
+        :param str key_location: Location of the key. Valid values are `URL` or `SECRET_MANAGER`
+        :param str secrets_manager_arn: ARN of the secret.
+        :param str url: Signing key URL.
         :param str user_name_attribute_field: The user name attribute field.
         """
         pulumi.set(__self__, "claim_regex", claim_regex)
@@ -2984,7 +2984,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     @pulumi.getter(name="claimRegex")
     def claim_regex(self) -> str:
         """
-        The regular expression that identifies the claim.
+        Regular expression that identifies the claim.
         """
         return pulumi.get(self, "claim_regex")
 
@@ -3000,7 +3000,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     @pulumi.getter
     def issuer(self) -> str:
         """
-        The issuer of the token.
+        Issuer of the token.
         """
         return pulumi.get(self, "issuer")
 
@@ -3008,7 +3008,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     @pulumi.getter(name="keyLocation")
     def key_location(self) -> str:
         """
-        The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+        Location of the key. Valid values are `URL` or `SECRET_MANAGER`
         """
         return pulumi.get(self, "key_location")
 
@@ -3016,7 +3016,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
@@ -3024,7 +3024,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     @pulumi.getter
     def url(self) -> str:
         """
-        The signing key URL.
+        Signing key URL.
         """
         return pulumi.get(self, "url")
 
@@ -3043,8 +3043,8 @@ class GetQuerySuggestionsBlockListSourceS3PathResult(dict):
                  bucket: str,
                  key: str):
         """
-        :param str bucket: The name of the S3 bucket that contains the file.
-        :param str key: The name of the file.
+        :param str bucket: Name of the S3 bucket that contains the file.
+        :param str key: Name of the file.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -3053,7 +3053,7 @@ class GetQuerySuggestionsBlockListSourceS3PathResult(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The name of the S3 bucket that contains the file.
+        Name of the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -3061,7 +3061,7 @@ class GetQuerySuggestionsBlockListSourceS3PathResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the file.
+        Name of the file.
         """
         return pulumi.get(self, "key")
 
@@ -3072,8 +3072,8 @@ class GetThesaurusSourceS3PathResult(dict):
                  bucket: str,
                  key: str):
         """
-        :param str bucket: The name of the S3 bucket that contains the file.
-        :param str key: The name of the file.
+        :param str bucket: Name of the S3 bucket that contains the file.
+        :param str key: Name of the file.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -3082,7 +3082,7 @@ class GetThesaurusSourceS3PathResult(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The name of the S3 bucket that contains the file.
+        Name of the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -3090,7 +3090,7 @@ class GetThesaurusSourceS3PathResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the file.
+        Name of the file.
         """
         return pulumi.get(self, "key")
 

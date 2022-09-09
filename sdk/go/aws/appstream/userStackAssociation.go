@@ -66,7 +66,7 @@ type UserStackAssociation struct {
 
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
@@ -114,7 +114,7 @@ func GetUserStackAssociation(ctx *pulumi.Context,
 type userStackAssociationState struct {
 	// Authentication type for the user.
 	AuthenticationType *string `pulumi:"authenticationType"`
-	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
 	StackName *string `pulumi:"stackName"`
@@ -125,7 +125,7 @@ type userStackAssociationState struct {
 type UserStackAssociationState struct {
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringPtrInput
-	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringPtrInput
@@ -140,7 +140,7 @@ func (UserStackAssociationState) ElementType() reflect.Type {
 type userStackAssociationArgs struct {
 	// Authentication type for the user.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Name of the stack that is associated with the user.
 	StackName string `pulumi:"stackName"`
@@ -152,7 +152,7 @@ type userStackAssociationArgs struct {
 type UserStackAssociationArgs struct {
 	// Authentication type for the user.
 	AuthenticationType pulumi.StringInput
-	// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+	// Whether a welcome email is sent to a user after the user is created in the user pool.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringInput
@@ -252,7 +252,7 @@ func (o UserStackAssociationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+// Whether a welcome email is sent to a user after the user is created in the user pool.
 func (o UserStackAssociationOutput) SendEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.BoolPtrOutput { return v.SendEmailNotification }).(pulumi.BoolPtrOutput)
 }

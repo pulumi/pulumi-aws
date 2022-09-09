@@ -19,14 +19,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     public static final MethodSettingsSettingsArgs Empty = new MethodSettingsSettingsArgs();
 
     /**
-     * Specifies whether the cached responses are encrypted.
+     * Whether the cached responses are encrypted.
      * 
      */
     @Import(name="cacheDataEncrypted")
     private @Nullable Output<Boolean> cacheDataEncrypted;
 
     /**
-     * @return Specifies whether the cached responses are encrypted.
+     * @return Whether the cached responses are encrypted.
      * 
      */
     public Optional<Output<Boolean>> cacheDataEncrypted() {
@@ -34,14 +34,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+     * Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
      * 
      */
     @Import(name="cacheTtlInSeconds")
     private @Nullable Output<Integer> cacheTtlInSeconds;
 
     /**
-     * @return Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+     * @return Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
      * 
      */
     public Optional<Output<Integer>> cacheTtlInSeconds() {
@@ -49,14 +49,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+     * Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
      * 
      */
     @Import(name="cachingEnabled")
     private @Nullable Output<Boolean> cachingEnabled;
 
     /**
-     * @return Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+     * @return Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
      * 
      */
     public Optional<Output<Boolean>> cachingEnabled() {
@@ -64,14 +64,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+     * Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
      * 
      */
     @Import(name="dataTraceEnabled")
     private @Nullable Output<Boolean> dataTraceEnabled;
 
     /**
-     * @return Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+     * @return Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
      * 
      */
     public Optional<Output<Boolean>> dataTraceEnabled() {
@@ -79,14 +79,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+     * Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
      * 
      */
     @Import(name="loggingLevel")
     private @Nullable Output<String> loggingLevel;
 
     /**
-     * @return Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+     * @return Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
      * 
      */
     public Optional<Output<String>> loggingLevel() {
@@ -94,14 +94,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether Amazon CloudWatch metrics are enabled for this method.
+     * Whether Amazon CloudWatch metrics are enabled for this method.
      * 
      */
     @Import(name="metricsEnabled")
     private @Nullable Output<Boolean> metricsEnabled;
 
     /**
-     * @return Specifies whether Amazon CloudWatch metrics are enabled for this method.
+     * @return Whether Amazon CloudWatch metrics are enabled for this method.
      * 
      */
     public Optional<Output<Boolean>> metricsEnabled() {
@@ -109,14 +109,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether authorization is required for a cache invalidation request.
+     * Whether authorization is required for a cache invalidation request.
      * 
      */
     @Import(name="requireAuthorizationForCacheControl")
     private @Nullable Output<Boolean> requireAuthorizationForCacheControl;
 
     /**
-     * @return Specifies whether authorization is required for a cache invalidation request.
+     * @return Whether authorization is required for a cache invalidation request.
      * 
      */
     public Optional<Output<Boolean>> requireAuthorizationForCacheControl() {
@@ -124,14 +124,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+     * Throttling burst limit. Default: `-1` (throttling disabled).
      * 
      */
     @Import(name="throttlingBurstLimit")
     private @Nullable Output<Integer> throttlingBurstLimit;
 
     /**
-     * @return Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+     * @return Throttling burst limit. Default: `-1` (throttling disabled).
      * 
      */
     public Optional<Output<Integer>> throttlingBurstLimit() {
@@ -139,14 +139,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the throttling rate limit. Default: `-1` (throttling disabled).
+     * Throttling rate limit. Default: `-1` (throttling disabled).
      * 
      */
     @Import(name="throttlingRateLimit")
     private @Nullable Output<Double> throttlingRateLimit;
 
     /**
-     * @return Specifies the throttling rate limit. Default: `-1` (throttling disabled).
+     * @return Throttling rate limit. Default: `-1` (throttling disabled).
      * 
      */
     public Optional<Output<Double>> throttlingRateLimit() {
@@ -154,14 +154,14 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+     * How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
      * 
      */
     @Import(name="unauthorizedCacheControlHeaderStrategy")
     private @Nullable Output<String> unauthorizedCacheControlHeaderStrategy;
 
     /**
-     * @return Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+     * @return How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
      * 
      */
     public Optional<Output<String>> unauthorizedCacheControlHeaderStrategy() {
@@ -202,7 +202,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cacheDataEncrypted Specifies whether the cached responses are encrypted.
+         * @param cacheDataEncrypted Whether the cached responses are encrypted.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cacheDataEncrypted Specifies whether the cached responses are encrypted.
+         * @param cacheDataEncrypted Whether the cached responses are encrypted.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cacheTtlInSeconds Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+         * @param cacheTtlInSeconds Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cacheTtlInSeconds Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+         * @param cacheTtlInSeconds Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cachingEnabled Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+         * @param cachingEnabled Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cachingEnabled Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+         * @param cachingEnabled Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataTraceEnabled Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+         * @param dataTraceEnabled Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataTraceEnabled Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+         * @param dataTraceEnabled Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param loggingLevel Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+         * @param loggingLevel Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param loggingLevel Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+         * @param loggingLevel Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metricsEnabled Specifies whether Amazon CloudWatch metrics are enabled for this method.
+         * @param metricsEnabled Whether Amazon CloudWatch metrics are enabled for this method.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metricsEnabled Specifies whether Amazon CloudWatch metrics are enabled for this method.
+         * @param metricsEnabled Whether Amazon CloudWatch metrics are enabled for this method.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param requireAuthorizationForCacheControl Specifies whether authorization is required for a cache invalidation request.
+         * @param requireAuthorizationForCacheControl Whether authorization is required for a cache invalidation request.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param requireAuthorizationForCacheControl Specifies whether authorization is required for a cache invalidation request.
+         * @param requireAuthorizationForCacheControl Whether authorization is required for a cache invalidation request.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param throttlingBurstLimit Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+         * @param throttlingBurstLimit Throttling burst limit. Default: `-1` (throttling disabled).
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param throttlingBurstLimit Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+         * @param throttlingBurstLimit Throttling burst limit. Default: `-1` (throttling disabled).
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param throttlingRateLimit Specifies the throttling rate limit. Default: `-1` (throttling disabled).
+         * @param throttlingRateLimit Throttling rate limit. Default: `-1` (throttling disabled).
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param throttlingRateLimit Specifies the throttling rate limit. Default: `-1` (throttling disabled).
+         * @param throttlingRateLimit Throttling rate limit. Default: `-1` (throttling disabled).
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unauthorizedCacheControlHeaderStrategy Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+         * @param unauthorizedCacheControlHeaderStrategy How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class MethodSettingsSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unauthorizedCacheControlHeaderStrategy Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+         * @param unauthorizedCacheControlHeaderStrategy How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          * 
          * @return builder
          * 

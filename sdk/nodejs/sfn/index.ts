@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activity";
-export * from "./getActivity";
-export * from "./getStateMachine";
-export * from "./stateMachine";
+export { ActivityArgs, ActivityState } from "./activity";
+export type Activity = import("./activity").Activity;
+export const Activity: typeof import("./activity").Activity = null as any;
 
-// Import resources to register:
-import { Activity } from "./activity";
-import { StateMachine } from "./stateMachine";
+export { GetActivityArgs, GetActivityResult, GetActivityOutputArgs } from "./getActivity";
+export const getActivity: typeof import("./getActivity").getActivity = null as any;
+export const getActivityOutput: typeof import("./getActivity").getActivityOutput = null as any;
+
+export { GetStateMachineArgs, GetStateMachineResult, GetStateMachineOutputArgs } from "./getStateMachine";
+export const getStateMachine: typeof import("./getStateMachine").getStateMachine = null as any;
+export const getStateMachineOutput: typeof import("./getStateMachine").getStateMachineOutput = null as any;
+
+export { StateMachineArgs, StateMachineState } from "./stateMachine";
+export type StateMachine = import("./stateMachine").StateMachine;
+export const StateMachine: typeof import("./stateMachine").StateMachine = null as any;
+
+utilities.lazyLoad(exports, ["Activity"], () => require("./activity"));
+utilities.lazyLoad(exports, ["getActivity","getActivityOutput"], () => require("./getActivity"));
+utilities.lazyLoad(exports, ["getStateMachine","getStateMachineOutput"], () => require("./getStateMachine"));
+utilities.lazyLoad(exports, ["StateMachine"], () => require("./stateMachine"));
 
 const _module = {
     version: utilities.getVersion(),

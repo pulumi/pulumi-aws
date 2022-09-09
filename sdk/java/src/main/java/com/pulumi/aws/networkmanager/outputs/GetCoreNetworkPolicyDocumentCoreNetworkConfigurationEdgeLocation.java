@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
     /**
-     * @return The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
     private @Nullable Integer asn;
@@ -27,7 +27,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
 
     private GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation() {}
     /**
-     * @return The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+     * @return ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
      * 
      */
     public Optional<Integer> asn() {

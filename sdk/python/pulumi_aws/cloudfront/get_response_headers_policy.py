@@ -52,7 +52,7 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter
     def comment(self) -> str:
         """
-        A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+        Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -60,7 +60,7 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter(name="corsConfigs")
     def cors_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigResult']:
         """
-        A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         """
         return pulumi.get(self, "cors_configs")
 
@@ -76,7 +76,7 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        The current version of the response headers policy.
+        Current version of the response headers policy.
         """
         return pulumi.get(self, "etag")
 
@@ -102,7 +102,7 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter(name="serverTimingHeadersConfigs")
     def server_timing_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult']:
         """
-        (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         return pulumi.get(self, "server_timing_headers_configs")
 
@@ -139,8 +139,8 @@ def get_response_headers_policy(id: Optional[str] = None,
     ```
 
 
-    :param str id: The identifier for the response headers policy.
-    :param str name: A unique name to identify the response headers policy.
+    :param str id: Identifier for the response headers policy.
+    :param str name: Unique name to identify the response headers policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -176,7 +176,7 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
     ```
 
 
-    :param str id: The identifier for the response headers policy.
-    :param str name: A unique name to identify the response headers policy.
+    :param str id: Identifier for the response headers policy.
+    :param str name: Unique name to identify the response headers policy.
     """
     ...

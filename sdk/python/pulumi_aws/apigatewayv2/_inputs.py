@@ -33,11 +33,11 @@ class ApiCorsConfigurationArgs:
                  max_age: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] allow_credentials: Whether credentials are included in the CORS request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_headers: The set of allowed HTTP headers.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_methods: The set of allowed HTTP methods.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: The set of allowed origins.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: The set of exposed HTTP headers.
-        :param pulumi.Input[int] max_age: The number of seconds that the browser should cache preflight request results.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_headers: Set of allowed HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_methods: Set of allowed HTTP methods.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: Set of allowed origins.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Set of exposed HTTP headers.
+        :param pulumi.Input[int] max_age: Number of seconds that the browser should cache preflight request results.
         """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
@@ -68,7 +68,7 @@ class ApiCorsConfigurationArgs:
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The set of allowed HTTP headers.
+        Set of allowed HTTP headers.
         """
         return pulumi.get(self, "allow_headers")
 
@@ -80,7 +80,7 @@ class ApiCorsConfigurationArgs:
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The set of allowed HTTP methods.
+        Set of allowed HTTP methods.
         """
         return pulumi.get(self, "allow_methods")
 
@@ -92,7 +92,7 @@ class ApiCorsConfigurationArgs:
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The set of allowed origins.
+        Set of allowed origins.
         """
         return pulumi.get(self, "allow_origins")
 
@@ -104,7 +104,7 @@ class ApiCorsConfigurationArgs:
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The set of exposed HTTP headers.
+        Set of exposed HTTP headers.
         """
         return pulumi.get(self, "expose_headers")
 
@@ -116,7 +116,7 @@ class ApiCorsConfigurationArgs:
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds that the browser should cache preflight request results.
+        Number of seconds that the browser should cache preflight request results.
         """
         return pulumi.get(self, "max_age")
 
@@ -131,8 +131,8 @@ class AuthorizerJwtConfigurationArgs:
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-        :param pulumi.Input[str] issuer: The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+        :param pulumi.Input[str] issuer: Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -143,7 +143,7 @@ class AuthorizerJwtConfigurationArgs:
     @pulumi.getter
     def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+        List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
         """
         return pulumi.get(self, "audiences")
 
@@ -155,7 +155,7 @@ class AuthorizerJwtConfigurationArgs:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
+        Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
         """
         return pulumi.get(self, "issuer")
 
@@ -308,9 +308,9 @@ class IntegrationResponseParameterArgs:
                  mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  status_code: pulumi.Input[str]):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] mappings: A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] mappings: Key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
-        :param pulumi.Input[str] status_code: The HTTP status code in the range 200-599.
+        :param pulumi.Input[str] status_code: HTTP status code in the range 200-599.
         """
         pulumi.set(__self__, "mappings", mappings)
         pulumi.set(__self__, "status_code", status_code)
@@ -319,7 +319,7 @@ class IntegrationResponseParameterArgs:
     @pulumi.getter
     def mappings(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
-        A key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+        Key-value map. The key of ths map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
         See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         """
         return pulumi.get(self, "mappings")
@@ -332,7 +332,7 @@ class IntegrationResponseParameterArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[str]:
         """
-        The HTTP status code in the range 200-599.
+        HTTP status code in the range 200-599.
         """
         return pulumi.get(self, "status_code")
 
@@ -407,8 +407,8 @@ class StageAccessLogSettingsArgs:
                  destination_arn: pulumi.Input[str],
                  format: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] destination_arn: The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
-        :param pulumi.Input[str] format: A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+        :param pulumi.Input[str] destination_arn: ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+        :param pulumi.Input[str] format: Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "format", format)
@@ -417,7 +417,7 @@ class StageAccessLogSettingsArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+        ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -429,7 +429,7 @@ class StageAccessLogSettingsArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
         """
-        A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+        Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
         """
         return pulumi.get(self, "format")
 
@@ -450,10 +450,10 @@ class StageDefaultRouteSettingsArgs:
         :param pulumi.Input[bool] data_trace_enabled: Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Defaults to `false`. Supported only for WebSocket APIs.
         :param pulumi.Input[bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the default route. Defaults to `false`.
-        :param pulumi.Input[str] logging_level: The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] logging_level: Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[int] throttling_burst_limit: The throttling burst limit for the default route.
-        :param pulumi.Input[float] throttling_rate_limit: The throttling rate limit for the default route.
+        :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the default route.
+        :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the default route.
         """
         if data_trace_enabled is not None:
             pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
@@ -495,7 +495,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
@@ -508,7 +508,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The throttling burst limit for the default route.
+        Throttling burst limit for the default route.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -520,7 +520,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        The throttling rate limit for the default route.
+        Throttling rate limit for the default route.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
@@ -543,10 +543,10 @@ class StageRouteSettingArgs:
         :param pulumi.Input[bool] data_trace_enabled: Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Defaults to `false`. Supported only for WebSocket APIs.
         :param pulumi.Input[bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the route. Defaults to `false`.
-        :param pulumi.Input[str] logging_level: The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] logging_level: Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[int] throttling_burst_limit: The throttling burst limit for the route.
-        :param pulumi.Input[float] throttling_rate_limit: The throttling rate limit for the route.
+        :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the route.
+        :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the route.
         """
         pulumi.set(__self__, "route_key", route_key)
         if data_trace_enabled is not None:
@@ -601,7 +601,7 @@ class StageRouteSettingArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
@@ -614,7 +614,7 @@ class StageRouteSettingArgs:
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The throttling burst limit for the route.
+        Throttling burst limit for the route.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -626,7 +626,7 @@ class StageRouteSettingArgs:
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        The throttling rate limit for the route.
+        Throttling rate limit for the route.
         """
         return pulumi.get(self, "throttling_rate_limit")
 

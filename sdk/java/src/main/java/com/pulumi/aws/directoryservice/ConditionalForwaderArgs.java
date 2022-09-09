@@ -15,14 +15,14 @@ public final class ConditionalForwaderArgs extends com.pulumi.resources.Resource
     public static final ConditionalForwaderArgs Empty = new ConditionalForwaderArgs();
 
     /**
-     * The id of directory.
+     * ID of directory.
      * 
      */
     @Import(name="directoryId", required=true)
     private Output<String> directoryId;
 
     /**
-     * @return The id of directory.
+     * @return ID of directory.
      * 
      */
     public Output<String> directoryId() {
@@ -86,7 +86,7 @@ public final class ConditionalForwaderArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param directoryId The id of directory.
+         * @param directoryId ID of directory.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ConditionalForwaderArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param directoryId The id of directory.
+         * @param directoryId ID of directory.
          * 
          * @return builder
          * 

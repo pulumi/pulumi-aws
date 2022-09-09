@@ -19,14 +19,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetResourceShareArgs Empty = new GetResourceShareArgs();
 
     /**
-     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetResourceShareFilterArgs>> filters;
 
     /**
-     * @return A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * @return Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      * 
      */
     public Optional<Output<List<GetResourceShareFilterArgs>>> filters() {
@@ -34,14 +34,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name of the tag key to filter on.
+     * Name of the tag key to filter on.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the tag key to filter on.
+     * @return Name of the tag key to filter on.
      * 
      */
     public Output<String> name() {
@@ -49,14 +49,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      * 
      */
     @Import(name="resourceOwner", required=true)
     private Output<String> resourceOwner;
 
     /**
-     * @return The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+     * @return Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      * 
      */
     public Output<String> resourceOwner() {
@@ -79,14 +79,14 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The Tags attached to the RAM share
+     * Tags attached to the RAM share
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The Tags attached to the RAM share
+     * @return Tags attached to the RAM share
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -122,7 +122,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the tag key to filter on.
+         * @param name Name of the tag key to filter on.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param resourceOwner The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param resourceOwner The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags The Tags attached to the RAM share
+         * @param tags Tags attached to the RAM share
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags The Tags attached to the RAM share
+         * @param tags Tags attached to the RAM share
          * 
          * @return builder
          * 

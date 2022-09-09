@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Rds
     public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
+        /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
+        /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

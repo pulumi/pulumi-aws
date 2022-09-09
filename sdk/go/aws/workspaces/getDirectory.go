@@ -48,7 +48,7 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
-	// The directory identifier for registration in WorkSpaces service.
+	// Directory identifier for registration in WorkSpaces service.
 	DirectoryId string `pulumi:"directoryId"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
@@ -56,28 +56,28 @@ type LookupDirectoryArgs struct {
 
 // A collection of values returned by getDirectory.
 type LookupDirectoryResult struct {
-	// The directory alias.
+	// Directory alias.
 	Alias string `pulumi:"alias"`
-	// The user name for the service account.
+	// User name for the service account.
 	CustomerUserName string `pulumi:"customerUserName"`
 	DirectoryId      string `pulumi:"directoryId"`
-	// The name of the directory.
+	// Name of the directory.
 	DirectoryName string `pulumi:"directoryName"`
-	// The directory type.
+	// Directory type.
 	DirectoryType string `pulumi:"directoryType"`
-	// The IP addresses of the DNS servers for the directory.
+	// IP addresses of the DNS servers for the directory.
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
-	// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+	// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
 	IamRoleId string `pulumi:"iamRoleId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The identifiers of the IP access control groups associated with the directory.
+	// Identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
-	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+	// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode string `pulumi:"registrationCode"`
 	// The permissions to enable or disable self-service capabilities.
 	SelfServicePermissions []GetDirectorySelfServicePermission `pulumi:"selfServicePermissions"`
-	// The identifiers of the subnets where the directory resides.
+	// Identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]string `pulumi:"tags"`
@@ -104,7 +104,7 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryOutputArgs struct {
-	// The directory identifier for registration in WorkSpaces service.
+	// Directory identifier for registration in WorkSpaces service.
 	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
 	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -129,12 +129,12 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ct
 	return o
 }
 
-// The directory alias.
+// Directory alias.
 func (o LookupDirectoryResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// The user name for the service account.
+// User name for the service account.
 func (o LookupDirectoryResultOutput) CustomerUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.CustomerUserName }).(pulumi.StringOutput)
 }
@@ -143,22 +143,22 @@ func (o LookupDirectoryResultOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// The name of the directory.
+// Name of the directory.
 func (o LookupDirectoryResultOutput) DirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryName }).(pulumi.StringOutput)
 }
 
-// The directory type.
+// Directory type.
 func (o LookupDirectoryResultOutput) DirectoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryType }).(pulumi.StringOutput)
 }
 
-// The IP addresses of the DNS servers for the directory.
+// IP addresses of the DNS servers for the directory.
 func (o LookupDirectoryResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+// Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
 func (o LookupDirectoryResultOutput) IamRoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.IamRoleId }).(pulumi.StringOutput)
 }
@@ -168,12 +168,12 @@ func (o LookupDirectoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identifiers of the IP access control groups associated with the directory.
+// Identifiers of the IP access control groups associated with the directory.
 func (o LookupDirectoryResultOutput) IpGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.IpGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 func (o LookupDirectoryResultOutput) RegistrationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.RegistrationCode }).(pulumi.StringOutput)
 }
@@ -183,7 +183,7 @@ func (o LookupDirectoryResultOutput) SelfServicePermissions() GetDirectorySelfSe
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectorySelfServicePermission { return v.SelfServicePermissions }).(GetDirectorySelfServicePermissionArrayOutput)
 }
 
-// The identifiers of the subnets where the directory resides.
+// Identifiers of the subnets where the directory resides.
 func (o LookupDirectoryResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

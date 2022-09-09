@@ -7070,11 +7070,11 @@ func (o GetExperienceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExper
 }
 
 type GetExperienceConfigurationContentSourceConfiguration struct {
-	// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+	// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
 	DataSourceIds []string `pulumi:"dataSourceIds"`
 	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
 	DirectPutContent bool `pulumi:"directPutContent"`
-	// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+	// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
 	FaqIds []string `pulumi:"faqIds"`
 }
 
@@ -7090,11 +7090,11 @@ type GetExperienceConfigurationContentSourceConfigurationInput interface {
 }
 
 type GetExperienceConfigurationContentSourceConfigurationArgs struct {
-	// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+	// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
 	DataSourceIds pulumi.StringArrayInput `pulumi:"dataSourceIds"`
 	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
 	DirectPutContent pulumi.BoolInput `pulumi:"directPutContent"`
-	// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+	// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
 	FaqIds pulumi.StringArrayInput `pulumi:"faqIds"`
 }
 
@@ -7149,7 +7149,7 @@ func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperie
 	return o
 }
 
-// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) DataSourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.DataSourceIds }).(pulumi.StringArrayOutput)
 }
@@ -7159,7 +7159,7 @@ func (o GetExperienceConfigurationContentSourceConfigurationOutput) DirectPutCon
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) bool { return v.DirectPutContent }).(pulumi.BoolOutput)
 }
 
-// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) FaqIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.FaqIds }).(pulumi.StringArrayOutput)
 }
@@ -7282,9 +7282,9 @@ func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) Index(i 
 }
 
 type GetExperienceEndpoint struct {
-	// The endpoint of your Amazon Kendra Experience.
+	// Endpoint of your Amazon Kendra Experience.
 	Endpoint string `pulumi:"endpoint"`
-	// The type of endpoint for your Amazon Kendra Experience.
+	// Type of endpoint for your Amazon Kendra Experience.
 	EndpointType string `pulumi:"endpointType"`
 }
 
@@ -7300,9 +7300,9 @@ type GetExperienceEndpointInput interface {
 }
 
 type GetExperienceEndpointArgs struct {
-	// The endpoint of your Amazon Kendra Experience.
+	// Endpoint of your Amazon Kendra Experience.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The type of endpoint for your Amazon Kendra Experience.
+	// Type of endpoint for your Amazon Kendra Experience.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 }
 
@@ -7357,12 +7357,12 @@ func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutputWithContext(ct
 	return o
 }
 
-// The endpoint of your Amazon Kendra Experience.
+// Endpoint of your Amazon Kendra Experience.
 func (o GetExperienceEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The type of endpoint for your Amazon Kendra Experience.
+// Type of endpoint for your Amazon Kendra Experience.
 func (o GetExperienceEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -7388,9 +7388,9 @@ func (o GetExperienceEndpointArrayOutput) Index(i pulumi.IntInput) GetExperience
 }
 
 type GetFaqS3Path struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key string `pulumi:"key"`
 }
 
@@ -7406,9 +7406,9 @@ type GetFaqS3PathInput interface {
 }
 
 type GetFaqS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -7463,12 +7463,12 @@ func (o GetFaqS3PathOutput) ToGetFaqS3PathOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o GetFaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
+// Name of the file.
 func (o GetFaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -7600,13 +7600,13 @@ func (o GetIndexCapacityUnitArrayOutput) Index(i pulumi.IntInput) GetIndexCapaci
 }
 
 type GetIndexDocumentMetadataConfigurationUpdate struct {
-	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	// Name of the index field. Minimum length of 1. Maximum length of 30.
 	Name string `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
 	Relevances []GetIndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevances"`
-	// A block that provides information about how the field is used during a search. Documented below.
+	// Block that provides information about how the field is used during a search. Documented below.
 	Searches []GetIndexDocumentMetadataConfigurationUpdateSearch `pulumi:"searches"`
-	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+	// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
 	Type string `pulumi:"type"`
 }
 
@@ -7622,13 +7622,13 @@ type GetIndexDocumentMetadataConfigurationUpdateInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateArgs struct {
-	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	// Name of the index field. Minimum length of 1. Maximum length of 30.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
 	Relevances GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput `pulumi:"relevances"`
-	// A block that provides information about how the field is used during a search. Documented below.
+	// Block that provides information about how the field is used during a search. Documented below.
 	Searches GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput `pulumi:"searches"`
-	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+	// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7683,26 +7683,26 @@ func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMet
 	return o
 }
 
-// The name of the index field. Minimum length of 1. Maximum length of 30.
+// Name of the index field. Minimum length of 1. Maximum length of 30.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Relevances() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateRelevance {
 		return v.Relevances
 	}).(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
 }
 
-// A block that provides information about how the field is used during a search. Documented below.
+// Block that provides information about how the field is used during a search. Documented below.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Searches() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateSearch {
 		return v.Searches
 	}).(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
 }
 
-// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7728,11 +7728,11 @@ func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
-	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration string `pulumi:"duration"`
-	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness bool `pulumi:"freshness"`
-	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance int `pulumi:"importance"`
 	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder string `pulumi:"rankOrder"`
@@ -7752,11 +7752,11 @@ type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
-	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration pulumi.StringInput `pulumi:"duration"`
-	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness pulumi.BoolInput `pulumi:"freshness"`
-	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance pulumi.IntInput `pulumi:"importance"`
 	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder pulumi.StringInput `pulumi:"rankOrder"`
@@ -7815,17 +7815,17 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDo
 	return o
 }
 
-// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) bool { return v.Freshness }).(pulumi.BoolOutput)
 }
 
-// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) int { return v.Importance }).(pulumi.IntOutput)
 }
@@ -7865,7 +7865,7 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) Index(i
 type GetIndexDocumentMetadataConfigurationUpdateSearch struct {
 	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable bool `pulumi:"displayable"`
-	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+	// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 	Facetable bool `pulumi:"facetable"`
 	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
 	Searchable bool `pulumi:"searchable"`
@@ -7887,7 +7887,7 @@ type GetIndexDocumentMetadataConfigurationUpdateSearchInput interface {
 type GetIndexDocumentMetadataConfigurationUpdateSearchArgs struct {
 	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable pulumi.BoolInput `pulumi:"displayable"`
-	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+	// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 	Facetable pulumi.BoolInput `pulumi:"facetable"`
 	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
 	Searchable pulumi.BoolInput `pulumi:"searchable"`
@@ -7951,7 +7951,7 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Displayable() p
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Displayable }).(pulumi.BoolOutput)
 }
 
-// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Facetable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Facetable }).(pulumi.BoolOutput)
 }
@@ -7987,7 +7987,7 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) Index(i pu
 }
 
 type GetIndexIndexStatistic struct {
-	// A block that specifies the number of question and answer topics in the index. Documented below.
+	// Block that specifies the number of question and answer topics in the index. Documented below.
 	FaqStatistics []GetIndexIndexStatisticFaqStatistic `pulumi:"faqStatistics"`
 	// A block that specifies the number of text documents indexed.
 	TextDocumentStatistics []GetIndexIndexStatisticTextDocumentStatistic `pulumi:"textDocumentStatistics"`
@@ -8005,7 +8005,7 @@ type GetIndexIndexStatisticInput interface {
 }
 
 type GetIndexIndexStatisticArgs struct {
-	// A block that specifies the number of question and answer topics in the index. Documented below.
+	// Block that specifies the number of question and answer topics in the index. Documented below.
 	FaqStatistics GetIndexIndexStatisticFaqStatisticArrayInput `pulumi:"faqStatistics"`
 	// A block that specifies the number of text documents indexed.
 	TextDocumentStatistics GetIndexIndexStatisticTextDocumentStatisticArrayInput `pulumi:"textDocumentStatistics"`
@@ -8062,7 +8062,7 @@ func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutputWithContext(
 	return o
 }
 
-// A block that specifies the number of question and answer topics in the index. Documented below.
+// Block that specifies the number of question and answer topics in the index. Documented below.
 func (o GetIndexIndexStatisticOutput) FaqStatistics() GetIndexIndexStatisticFaqStatisticArrayOutput {
 	return o.ApplyT(func(v GetIndexIndexStatistic) []GetIndexIndexStatisticFaqStatistic { return v.FaqStatistics }).(GetIndexIndexStatisticFaqStatisticArrayOutput)
 }
@@ -8192,7 +8192,7 @@ func (o GetIndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetIndexIndexStatisticTextDocumentStatistic struct {
-	// The total size, in bytes, of the indexed documents.
+	// Total size, in bytes, of the indexed documents.
 	IndexedTextBytes int `pulumi:"indexedTextBytes"`
 	// The number of text documents indexed.
 	IndexedTextDocumentsCount int `pulumi:"indexedTextDocumentsCount"`
@@ -8210,7 +8210,7 @@ type GetIndexIndexStatisticTextDocumentStatisticInput interface {
 }
 
 type GetIndexIndexStatisticTextDocumentStatisticArgs struct {
-	// The total size, in bytes, of the indexed documents.
+	// Total size, in bytes, of the indexed documents.
 	IndexedTextBytes pulumi.IntInput `pulumi:"indexedTextBytes"`
 	// The number of text documents indexed.
 	IndexedTextDocumentsCount pulumi.IntInput `pulumi:"indexedTextDocumentsCount"`
@@ -8267,7 +8267,7 @@ func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatis
 	return o
 }
 
-// The total size, in bytes, of the indexed documents.
+// Total size, in bytes, of the indexed documents.
 func (o GetIndexIndexStatisticTextDocumentStatisticOutput) IndexedTextBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexIndexStatisticTextDocumentStatistic) int { return v.IndexedTextBytes }).(pulumi.IntOutput)
 }
@@ -8298,7 +8298,7 @@ func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexServerSideEncryptionConfiguration struct {
-	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+	// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -8314,7 +8314,7 @@ type GetIndexServerSideEncryptionConfigurationInput interface {
 }
 
 type GetIndexServerSideEncryptionConfigurationArgs struct {
-	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+	// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -8369,7 +8369,7 @@ func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEnc
 	return o
 }
 
-// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 func (o GetIndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexServerSideEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -8710,17 +8710,17 @@ func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) Ind
 }
 
 type GetIndexUserTokenConfigurationJwtTokenTypeConfiguration struct {
-	// The regular expression that identifies the claim.
+	// Regular expression that identifies the claim.
 	ClaimRegex string `pulumi:"claimRegex"`
 	// The group attribute field.
 	GroupAttributeField string `pulumi:"groupAttributeField"`
-	// The issuer of the token.
+	// Issuer of the token.
 	Issuer string `pulumi:"issuer"`
-	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+	// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
 	KeyLocation string `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretsManagerArn string `pulumi:"secretsManagerArn"`
-	// The signing key URL.
+	// Signing key URL.
 	Url string `pulumi:"url"`
 	// The user name attribute field.
 	UserNameAttributeField string `pulumi:"userNameAttributeField"`
@@ -8738,17 +8738,17 @@ type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput interface {
 }
 
 type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs struct {
-	// The regular expression that identifies the claim.
+	// Regular expression that identifies the claim.
 	ClaimRegex pulumi.StringInput `pulumi:"claimRegex"`
 	// The group attribute field.
 	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
-	// The issuer of the token.
+	// Issuer of the token.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+	// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
 	KeyLocation pulumi.StringInput `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretsManagerArn pulumi.StringInput `pulumi:"secretsManagerArn"`
-	// The signing key URL.
+	// Signing key URL.
 	Url pulumi.StringInput `pulumi:"url"`
 	// The user name attribute field.
 	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
@@ -8805,7 +8805,7 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetInde
 	return o
 }
 
-// The regular expression that identifies the claim.
+// Regular expression that identifies the claim.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ClaimRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.ClaimRegex }).(pulumi.StringOutput)
 }
@@ -8815,22 +8815,22 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) GroupAttr
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
 }
 
-// The issuer of the token.
+// Issuer of the token.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) KeyLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) SecretsManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.SecretsManagerArn }).(pulumi.StringOutput)
 }
 
-// The signing key URL.
+// Signing key URL.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -8863,9 +8863,9 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) Inde
 }
 
 type GetQuerySuggestionsBlockListSourceS3Path struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key string `pulumi:"key"`
 }
 
@@ -8881,9 +8881,9 @@ type GetQuerySuggestionsBlockListSourceS3PathInput interface {
 }
 
 type GetQuerySuggestionsBlockListSourceS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -8938,12 +8938,12 @@ func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlo
 	return o
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
+// Name of the file.
 func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -8969,9 +8969,9 @@ func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) Index(i pulumi.IntI
 }
 
 type GetThesaurusSourceS3Path struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key string `pulumi:"key"`
 }
 
@@ -8987,9 +8987,9 @@ type GetThesaurusSourceS3PathInput interface {
 }
 
 type GetThesaurusSourceS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -9044,12 +9044,12 @@ func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutputWithCont
 	return o
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o GetThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
+// Name of the file.
 func (o GetThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }

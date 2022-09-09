@@ -22,14 +22,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationArgs();
 
     /**
-     * The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
     @Import(name="customizedCapacityMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs> customizedCapacityMetricSpecification;
 
     /**
-     * @return The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>> customizedCapacityMetricSpecification() {
@@ -37,14 +37,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The customized load metric specification.
+     * Customized load metric specification.
      * 
      */
     @Import(name="customizedLoadMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs> customizedLoadMetricSpecification;
 
     /**
-     * @return The customized load metric specification.
+     * @return Customized load metric specification.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs>> customizedLoadMetricSpecification() {
@@ -52,14 +52,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The customized scaling metric specification.
+     * Customized scaling metric specification.
      * 
      */
     @Import(name="customizedScalingMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
 
     /**
-     * @return The customized scaling metric specification.
+     * @return Customized scaling metric specification.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs>> customizedScalingMetricSpecification() {
@@ -67,14 +67,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The predefined load metric specification.
+     * Predefined load metric specification.
      * 
      */
     @Import(name="predefinedLoadMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs> predefinedLoadMetricSpecification;
 
     /**
-     * @return The predefined load metric specification.
+     * @return Predefined load metric specification.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs>> predefinedLoadMetricSpecification() {
@@ -82,14 +82,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+     * Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
     @Import(name="predefinedMetricPairSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs> predefinedMetricPairSpecification;
 
     /**
-     * @return The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+     * @return Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs>> predefinedMetricPairSpecification() {
@@ -97,14 +97,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The predefined scaling metric specification.
+     * Predefined scaling metric specification.
      * 
      */
     @Import(name="predefinedScalingMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
 
     /**
-     * @return The predefined scaling metric specification.
+     * @return Predefined scaling metric specification.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs>> predefinedScalingMetricSpecification() {
@@ -112,14 +112,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
     }
 
     /**
-     * The target value for the metric.
+     * Target value for the metric.
      * 
      */
     @Import(name="targetValue", required=true)
     private Output<Integer> targetValue;
 
     /**
-     * @return The target value for the metric.
+     * @return Target value for the metric.
      * 
      */
     public Output<Integer> targetValue() {
@@ -157,7 +157,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedCapacityMetricSpecification The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedCapacityMetricSpecification The customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedLoadMetricSpecification The customized load metric specification.
+         * @param customizedLoadMetricSpecification Customized load metric specification.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedLoadMetricSpecification The customized load metric specification.
+         * @param customizedLoadMetricSpecification Customized load metric specification.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedScalingMetricSpecification The customized scaling metric specification.
+         * @param customizedScalingMetricSpecification Customized scaling metric specification.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param customizedScalingMetricSpecification The customized scaling metric specification.
+         * @param customizedScalingMetricSpecification Customized scaling metric specification.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedLoadMetricSpecification The predefined load metric specification.
+         * @param predefinedLoadMetricSpecification Predefined load metric specification.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedLoadMetricSpecification The predefined load metric specification.
+         * @param predefinedLoadMetricSpecification Predefined load metric specification.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedMetricPairSpecification The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+         * @param predefinedMetricPairSpecification Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedMetricPairSpecification The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+         * @param predefinedMetricPairSpecification Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedScalingMetricSpecification The predefined scaling metric specification.
+         * @param predefinedScalingMetricSpecification Predefined scaling metric specification.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param predefinedScalingMetricSpecification The predefined scaling metric specification.
+         * @param predefinedScalingMetricSpecification Predefined scaling metric specification.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         /**
-         * @param targetValue The target value for the metric.
+         * @param targetValue Target value for the metric.
          * 
          * @return builder
          * 

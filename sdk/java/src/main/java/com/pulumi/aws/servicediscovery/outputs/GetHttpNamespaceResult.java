@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetHttpNamespaceResult {
     /**
-     * @return The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
     private String arn;
     /**
-     * @return The description that you specify for the namespace when you create it.
+     * @return Description that you specify for the namespace when you create it.
      * 
      */
     private String description;
     /**
-     * @return The name of an HTTP namespace.
+     * @return Name of an HTTP namespace.
      * 
      */
     private String httpName;
@@ -32,28 +32,28 @@ public final class GetHttpNamespaceResult {
     private String id;
     private String name;
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     private Map<String,String> tags;
 
     private GetHttpNamespaceResult() {}
     /**
-     * @return The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description that you specify for the namespace when you create it.
+     * @return Description that you specify for the namespace when you create it.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The name of an HTTP namespace.
+     * @return Name of an HTTP namespace.
      * 
      */
     public String httpName() {
@@ -70,7 +70,7 @@ public final class GetHttpNamespaceResult {
         return this.name;
     }
     /**
-     * @return A map of tags for the resource.
+     * @return Map of tags for the resource.
      * 
      */
     public Map<String,String> tags() {

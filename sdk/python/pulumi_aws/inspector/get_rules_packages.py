@@ -32,7 +32,7 @@ class GetRulesPackagesResult:
     @pulumi.getter
     def arns(self) -> Sequence[str]:
         """
-        A list of the AWS Inspector Rules Packages arns available in the AWS region.
+        List of the AWS Inspector Rules Packages arns available in the AWS region.
         """
         return pulumi.get(self, "arns")
 

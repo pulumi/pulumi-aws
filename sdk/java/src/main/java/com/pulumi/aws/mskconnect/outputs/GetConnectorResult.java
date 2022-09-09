@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class GetConnectorResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the connector.
+     * @return ARN of the connector.
      * 
      */
     private String arn;
     /**
-     * @return A summary description of the connector.
+     * @return Summary description of the connector.
      * 
      */
     private String description;
@@ -26,21 +26,21 @@ public final class GetConnectorResult {
     private String id;
     private String name;
     /**
-     * @return The current version of the connector.
+     * @return Current version of the connector.
      * 
      */
     private String version;
 
     private GetConnectorResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the connector.
+     * @return ARN of the connector.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return A summary description of the connector.
+     * @return Summary description of the connector.
      * 
      */
     public String description() {
@@ -57,7 +57,7 @@ public final class GetConnectorResult {
         return this.name;
     }
     /**
-     * @return The current version of the connector.
+     * @return Current version of the connector.
      * 
      */
     public String version() {

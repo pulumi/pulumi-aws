@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate
     {
         /// <summary>
-        /// A local file certificate.
+        /// Local file certificate.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile? File;
         /// <summary>

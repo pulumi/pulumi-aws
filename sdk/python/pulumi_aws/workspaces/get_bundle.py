@@ -84,7 +84,7 @@ class GetBundleResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the compute type.
+        Name of the compute type.
         """
         return pulumi.get(self, "name")
 
@@ -156,9 +156,9 @@ def get_bundle(bundle_id: Optional[str] = None,
     ```
 
 
-    :param str bundle_id: The ID of the bundle.
-    :param str name: The name of the bundle. You cannot combine this parameter with `bundle_id`.
-    :param str owner: The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param str bundle_id: ID of the bundle.
+    :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
@@ -206,8 +206,8 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str bundle_id: The ID of the bundle.
-    :param str name: The name of the bundle. You cannot combine this parameter with `bundle_id`.
-    :param str owner: The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param str bundle_id: ID of the bundle.
+    :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     ...

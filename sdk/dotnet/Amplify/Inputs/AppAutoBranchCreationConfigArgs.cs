@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Amplify.Inputs
     public sealed class AppAutoBranchCreationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The basic authorization credentials for the autocreated branch.
+        /// Basic authorization credentials for the autocreated branch.
         /// </summary>
         [Input("basicAuthCredentials")]
         public Input<string>? BasicAuthCredentials { get; set; }
 
         /// <summary>
-        /// The build specification (build spec) for the autocreated branch.
+        /// Build specification (build spec) for the autocreated branch.
         /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Amplify.Inputs
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// The environment variables for the autocreated branch.
+        /// Environment variables for the autocreated branch.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Amplify.Inputs
         }
 
         /// <summary>
-        /// The framework for the autocreated branch.
+        /// Framework for the autocreated branch.
         /// </summary>
         [Input("framework")]
         public Input<string>? Framework { get; set; }
 
         /// <summary>
-        /// The Amplify environment name for the pull request.
+        /// Amplify environment name for the pull request.
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }

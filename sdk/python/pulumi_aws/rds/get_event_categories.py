@@ -36,7 +36,7 @@ class GetEventCategoriesResult:
     @pulumi.getter(name="eventCategories")
     def event_categories(self) -> Sequence[str]:
         """
-        A list of the event categories.
+        List of the event categories.
         """
         return pulumi.get(self, "event_categories")
 
@@ -91,7 +91,7 @@ def get_event_categories(source_type: Optional[str] = None,
     ```
 
 
-    :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+    :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     __args__ = dict()
     __args__['sourceType'] = source_type
@@ -131,6 +131,6 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     ```
 
 
-    :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+    :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     ...

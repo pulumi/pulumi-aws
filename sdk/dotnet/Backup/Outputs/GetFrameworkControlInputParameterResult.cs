@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class GetFrameworkControlInputParameterResult
     {
         /// <summary>
-        /// The backup framework name.
+        /// Backup framework name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of parameter, for example, hourly.
+        /// Value of parameter, for example, hourly.
         /// </summary>
         public readonly string Value;
 

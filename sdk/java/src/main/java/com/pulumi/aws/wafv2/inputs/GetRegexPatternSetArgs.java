@@ -14,14 +14,14 @@ public final class GetRegexPatternSetArgs extends com.pulumi.resources.InvokeArg
     public static final GetRegexPatternSetArgs Empty = new GetRegexPatternSetArgs();
 
     /**
-     * The name of the WAFv2 Regex Pattern Set.
+     * Name of the WAFv2 Regex Pattern Set.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the WAFv2 Regex Pattern Set.
+     * @return Name of the WAFv2 Regex Pattern Set.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class GetRegexPatternSetArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the WAFv2 Regex Pattern Set.
+         * @param name Name of the WAFv2 Regex Pattern Set.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetRegexPatternSetArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name The name of the WAFv2 Regex Pattern Set.
+         * @param name Name of the WAFv2 Regex Pattern Set.
          * 
          * @return builder
          * 

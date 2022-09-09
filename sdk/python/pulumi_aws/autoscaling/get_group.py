@@ -91,7 +91,7 @@ class GetGroupResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Auto Scaling group.
+        ARN of the Auto Scaling group.
         """
         return pulumi.get(self, "arn")
 
@@ -112,7 +112,7 @@ class GetGroupResult:
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> int:
         """
-        The desired size of the group.
+        Desired size of the group.
         """
         return pulumi.get(self, "desired_capacity")
 
@@ -120,7 +120,7 @@ class GetGroupResult:
     @pulumi.getter(name="enabledMetrics")
     def enabled_metrics(self) -> Sequence[str]:
         """
-        The list of metrics enabled for collection.
+        List of metrics enabled for collection.
         """
         return pulumi.get(self, "enabled_metrics")
 
@@ -136,7 +136,7 @@ class GetGroupResult:
     @pulumi.getter(name="healthCheckType")
     def health_check_type(self) -> str:
         """
-        The service to use for the health checks. The valid values are EC2 and ELB.
+        Service to use for the health checks. The valid values are EC2 and ELB.
         """
         return pulumi.get(self, "health_check_type")
 
@@ -173,7 +173,7 @@ class GetGroupResult:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> int:
         """
-        The maximum size of the group.
+        Maximum size of the group.
         """
         return pulumi.get(self, "max_size")
 
@@ -181,7 +181,7 @@ class GetGroupResult:
     @pulumi.getter(name="minSize")
     def min_size(self) -> int:
         """
-        The minimum size of the group.
+        Minimum size of the group.
         """
         return pulumi.get(self, "min_size")
 
@@ -202,7 +202,7 @@ class GetGroupResult:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> str:
         """
-        The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+        Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "placement_group")
 
@@ -210,7 +210,7 @@ class GetGroupResult:
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+        ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         """
         return pulumi.get(self, "service_linked_role_arn")
 
@@ -218,7 +218,7 @@ class GetGroupResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        The current state of the group when DeleteAutoScalingGroup is in progress.
+        Current state of the group when DeleteAutoScalingGroup is in progress.
         """
         return pulumi.get(self, "status")
 
@@ -226,7 +226,7 @@ class GetGroupResult:
     @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Sequence[str]:
         """
-        The Amazon Resource Names (ARN) of the target groups for your load balancer.
+        ARNs of the target groups for your load balancer.
         """
         return pulumi.get(self, "target_group_arns")
 

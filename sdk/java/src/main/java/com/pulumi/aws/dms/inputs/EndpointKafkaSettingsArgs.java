@@ -213,14 +213,14 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+     * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     @Import(name="sslCaCertificateArn")
     private @Nullable Output<String> sslCaCertificateArn;
 
     /**
-     * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     public Optional<Output<String>> sslCaCertificateArn() {
@@ -602,7 +602,7 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslCaCertificateArn ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         * @param sslCaCertificateArn The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslCaCertificateArn ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         * @param sslCaCertificateArn The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
          * 
          * @return builder
          * 

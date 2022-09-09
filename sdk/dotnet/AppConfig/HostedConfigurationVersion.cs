@@ -128,43 +128,43 @@ namespace Pulumi.Aws.AppConfig
     public partial class HostedConfigurationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+        /// ARN of the AppConfig  hosted configuration version.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration profile ID.
+        /// Configuration profile ID.
         /// </summary>
         [Output("configurationProfileId")]
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The content of the configuration or the configuration data.
+        /// Content of the configuration or the configuration data.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+        /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the hosted configuration.
+        /// Version number of the hosted configuration.
         /// </summary>
         [Output("versionNumber")]
         public Output<int> VersionNumber { get; private set; } = null!;
@@ -216,31 +216,31 @@ namespace Pulumi.Aws.AppConfig
     public sealed class HostedConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The configuration profile ID.
+        /// Configuration profile ID.
         /// </summary>
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The content of the configuration or the configuration data.
+        /// Content of the configuration or the configuration data.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+        /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// A description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -254,43 +254,43 @@ namespace Pulumi.Aws.AppConfig
     public sealed class HostedConfigurationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AppConfig  hosted configuration version.
+        /// ARN of the AppConfig  hosted configuration version.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration profile ID.
+        /// Configuration profile ID.
         /// </summary>
         [Input("configurationProfileId")]
         public Input<string>? ConfigurationProfileId { get; set; }
 
         /// <summary>
-        /// The content of the configuration or the configuration data.
+        /// Content of the configuration or the configuration data.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+        /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// A description of the configuration.
+        /// Description of the configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version number of the hosted configuration.
+        /// Version number of the hosted configuration.
         /// </summary>
         [Input("versionNumber")]
         public Input<int>? VersionNumber { get; set; }

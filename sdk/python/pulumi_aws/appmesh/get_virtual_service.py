@@ -58,7 +58,7 @@ class GetVirtualServiceResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The ARN of the virtual service.
+        ARN of the virtual service.
         """
         return pulumi.get(self, "arn")
 
@@ -66,7 +66,7 @@ class GetVirtualServiceResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
         """
-        The creation date of the virtual service.
+        Creation date of the virtual service.
         """
         return pulumi.get(self, "created_date")
 
@@ -82,7 +82,7 @@ class GetVirtualServiceResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
         """
-        The last update date of the virtual service.
+        Last update date of the virtual service.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -105,7 +105,7 @@ class GetVirtualServiceResult:
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> str:
         """
-        The resource owner's AWS account ID.
+        Resource owner's AWS account ID.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -113,7 +113,7 @@ class GetVirtualServiceResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualServiceSpecResult']:
         """
-        The virtual service specification
+        Virtual service specification
         """
         return pulumi.get(self, "specs")
 
@@ -121,7 +121,7 @@ class GetVirtualServiceResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        A map of tags.
+        Map of tags.
         """
         return pulumi.get(self, "tags")
 
@@ -173,10 +173,10 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     ```
 
 
-    :param str mesh_name: The name of the service mesh in which the virtual service exists.
-    :param str mesh_owner: The AWS account ID of the service mesh's owner.
-    :param str name: The name of the virtual service.
-    :param Mapping[str, str] tags: A map of tags.
+    :param str mesh_name: Name of the service mesh in which the virtual service exists.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the virtual service.
+    :param Mapping[str, str] tags: Map of tags.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -229,9 +229,9 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str mesh_name: The name of the service mesh in which the virtual service exists.
-    :param str mesh_owner: The AWS account ID of the service mesh's owner.
-    :param str name: The name of the virtual service.
-    :param Mapping[str, str] tags: A map of tags.
+    :param str mesh_name: Name of the service mesh in which the virtual service exists.
+    :param str mesh_owner: AWS account ID of the service mesh's owner.
+    :param str name: Name of the virtual service.
+    :param Mapping[str, str] tags: Map of tags.
     """
     ...

@@ -14,7 +14,7 @@ public final class GetVpcsFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcsFilter Empty = new GetVpcsFilter();
 
     /**
-     * The name of the field to filter by, as defined by
+     * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
      * 
      */
@@ -22,7 +22,7 @@ public final class GetVpcsFilter extends com.pulumi.resources.InvokeArgs {
     private String name;
 
     /**
-     * @return The name of the field to filter by, as defined by
+     * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
      * 
      */
@@ -73,7 +73,7 @@ public final class GetVpcsFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the field to filter by, as defined by
+         * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          * 
          * @return builder

@@ -64,23 +64,23 @@ export class UsagePlanKey extends pulumi.CustomResource {
     }
 
     /**
-     * The identifier of the API key resource.
+     * Identifier of the API key resource.
      */
     public readonly keyId!: pulumi.Output<string>;
     /**
-     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
     public readonly keyType!: pulumi.Output<string>;
     /**
-     * The name of a usage plan key.
+     * Name of a usage plan key.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Id of the usage plan resource representing to associate the key to.
+     * Id of the usage plan resource representing to associate the key to.
      */
     public readonly usagePlanId!: pulumi.Output<string>;
     /**
-     * The value of a usage plan key.
+     * Value of a usage plan key.
      */
     public /*out*/ readonly value!: pulumi.Output<string>;
 
@@ -129,23 +129,23 @@ export class UsagePlanKey extends pulumi.CustomResource {
  */
 export interface UsagePlanKeyState {
     /**
-     * The identifier of the API key resource.
+     * Identifier of the API key resource.
      */
     keyId?: pulumi.Input<string>;
     /**
-     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
     keyType?: pulumi.Input<string>;
     /**
-     * The name of a usage plan key.
+     * Name of a usage plan key.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Id of the usage plan resource representing to associate the key to.
+     * Id of the usage plan resource representing to associate the key to.
      */
     usagePlanId?: pulumi.Input<string>;
     /**
-     * The value of a usage plan key.
+     * Value of a usage plan key.
      */
     value?: pulumi.Input<string>;
 }
@@ -155,15 +155,15 @@ export interface UsagePlanKeyState {
  */
 export interface UsagePlanKeyArgs {
     /**
-     * The identifier of the API key resource.
+     * Identifier of the API key resource.
      */
     keyId: pulumi.Input<string>;
     /**
-     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
     keyType: pulumi.Input<string>;
     /**
-     * The Id of the usage plan resource representing to associate the key to.
+     * Id of the usage plan resource representing to associate the key to.
      */
     usagePlanId: pulumi.Input<string>;
 }

@@ -1253,7 +1253,7 @@ func (o NfsLocationOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 type S3LocationS3Config struct {
-	// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+	// ARN of the IAM Role used to connect to the S3 Bucket.
 	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -1269,7 +1269,7 @@ type S3LocationS3ConfigInput interface {
 }
 
 type S3LocationS3ConfigArgs struct {
-	// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+	// ARN of the IAM Role used to connect to the S3 Bucket.
 	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -1350,7 +1350,7 @@ func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigPtrOutputWithContext(ctx c
 	}).(S3LocationS3ConfigPtrOutput)
 }
 
-// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+// ARN of the IAM Role used to connect to the S3 Bucket.
 func (o S3LocationS3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v S3LocationS3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -1379,7 +1379,7 @@ func (o S3LocationS3ConfigPtrOutput) Elem() S3LocationS3ConfigOutput {
 	}).(S3LocationS3ConfigOutput)
 }
 
-// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+// ARN of the IAM Role used to connect to the S3 Bucket.
 func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3LocationS3Config) *string {
 		if v == nil {

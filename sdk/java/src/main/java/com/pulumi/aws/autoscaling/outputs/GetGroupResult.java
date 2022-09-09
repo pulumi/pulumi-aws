@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Auto Scaling group.
+     * @return ARN of the Auto Scaling group.
      * 
      */
     private String arn;
@@ -25,12 +25,12 @@ public final class GetGroupResult {
     private List<String> availabilityZones;
     private Integer defaultCooldown;
     /**
-     * @return The desired size of the group.
+     * @return Desired size of the group.
      * 
      */
     private Integer desiredCapacity;
     /**
-     * @return The list of metrics enabled for collection.
+     * @return List of metrics enabled for collection.
      * 
      */
     private List<String> enabledMetrics;
@@ -40,7 +40,7 @@ public final class GetGroupResult {
      */
     private Integer healthCheckGracePeriod;
     /**
-     * @return The service to use for the health checks. The valid values are EC2 and ELB.
+     * @return Service to use for the health checks. The valid values are EC2 and ELB.
      * 
      */
     private String healthCheckType;
@@ -61,12 +61,12 @@ public final class GetGroupResult {
      */
     private List<String> loadBalancers;
     /**
-     * @return The maximum size of the group.
+     * @return Maximum size of the group.
      * 
      */
     private Integer maxSize;
     /**
-     * @return The minimum size of the group.
+     * @return Minimum size of the group.
      * 
      */
     private Integer minSize;
@@ -77,22 +77,22 @@ public final class GetGroupResult {
     private String name;
     private Boolean newInstancesProtectedFromScaleIn;
     /**
-     * @return The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     private String placementGroup;
     /**
-     * @return The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+     * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
      */
     private String serviceLinkedRoleArn;
     /**
-     * @return The current state of the group when DeleteAutoScalingGroup is in progress.
+     * @return Current state of the group when DeleteAutoScalingGroup is in progress.
      * 
      */
     private String status;
     /**
-     * @return The Amazon Resource Names (ARN) of the target groups for your load balancer.
+     * @return ARNs of the target groups for your load balancer.
      * 
      */
     private List<String> targetGroupArns;
@@ -109,7 +109,7 @@ public final class GetGroupResult {
 
     private GetGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Auto Scaling group.
+     * @return ARN of the Auto Scaling group.
      * 
      */
     public String arn() {
@@ -126,14 +126,14 @@ public final class GetGroupResult {
         return this.defaultCooldown;
     }
     /**
-     * @return The desired size of the group.
+     * @return Desired size of the group.
      * 
      */
     public Integer desiredCapacity() {
         return this.desiredCapacity;
     }
     /**
-     * @return The list of metrics enabled for collection.
+     * @return List of metrics enabled for collection.
      * 
      */
     public List<String> enabledMetrics() {
@@ -147,7 +147,7 @@ public final class GetGroupResult {
         return this.healthCheckGracePeriod;
     }
     /**
-     * @return The service to use for the health checks. The valid values are EC2 and ELB.
+     * @return Service to use for the health checks. The valid values are EC2 and ELB.
      * 
      */
     public String healthCheckType() {
@@ -178,14 +178,14 @@ public final class GetGroupResult {
         return this.loadBalancers;
     }
     /**
-     * @return The maximum size of the group.
+     * @return Maximum size of the group.
      * 
      */
     public Integer maxSize() {
         return this.maxSize;
     }
     /**
-     * @return The minimum size of the group.
+     * @return Minimum size of the group.
      * 
      */
     public Integer minSize() {
@@ -202,28 +202,28 @@ public final class GetGroupResult {
         return this.newInstancesProtectedFromScaleIn;
     }
     /**
-     * @return The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
     public String placementGroup() {
         return this.placementGroup;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+     * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
      */
     public String serviceLinkedRoleArn() {
         return this.serviceLinkedRoleArn;
     }
     /**
-     * @return The current state of the group when DeleteAutoScalingGroup is in progress.
+     * @return Current state of the group when DeleteAutoScalingGroup is in progress.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return The Amazon Resource Names (ARN) of the target groups for your load balancer.
+     * @return ARNs of the target groups for your load balancer.
      * 
      */
     public List<String> targetGroupArns() {

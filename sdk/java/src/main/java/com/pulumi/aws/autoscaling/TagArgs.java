@@ -15,14 +15,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     public static final TagArgs Empty = new TagArgs();
 
     /**
-     * The name of the Autoscaling Group to apply the tag to.
+     * Name of the Autoscaling Group to apply the tag to.
      * 
      */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return The name of the Autoscaling Group to apply the tag to.
+     * @return Name of the Autoscaling Group to apply the tag to.
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -30,14 +30,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The tag to create. The `tag` block is documented below.
+     * Tag to create. The `tag` block is documented below.
      * 
      */
     @Import(name="tag", required=true)
     private Output<TagTagArgs> tag;
 
     /**
-     * @return The tag to create. The `tag` block is documented below.
+     * @return Tag to create. The `tag` block is documented below.
      * 
      */
     public Output<TagTagArgs> tag() {
@@ -70,7 +70,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName The name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tag The tag to create. The `tag` block is documented below.
+         * @param tag Tag to create. The `tag` block is documented below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tag The tag to create. The `tag` block is documented below.
+         * @param tag Tag to create. The `tag` block is documented below.
          * 
          * @return builder
          * 

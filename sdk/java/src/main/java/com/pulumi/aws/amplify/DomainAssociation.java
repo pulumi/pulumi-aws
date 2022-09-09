@@ -91,28 +91,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amplify/domainAssociation:DomainAssociation")
 public class DomainAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The unique ID for an Amplify app.
+     * Unique ID for an Amplify app.
      * 
      */
     @Export(name="appId", type=String.class, parameters={})
     private Output<String> appId;
 
     /**
-     * @return The unique ID for an Amplify app.
+     * @return Unique ID for an Amplify app.
      * 
      */
     public Output<String> appId() {
         return this.appId;
     }
     /**
-     * The Amazon Resource Name (ARN) for the domain association.
+     * ARN for the domain association.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the domain association.
+     * @return ARN for the domain association.
      * 
      */
     public Output<String> arn() {
@@ -133,28 +133,28 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
         return this.certificateVerificationDnsRecord;
     }
     /**
-     * The domain name for the domain association.
+     * Domain name for the domain association.
      * 
      */
     @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
-     * @return The domain name for the domain association.
+     * @return Domain name for the domain association.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The setting for the subdomain. Documented below.
+     * Setting for the subdomain. Documented below.
      * 
      */
     @Export(name="subDomains", type=List.class, parameters={DomainAssociationSubDomain.class})
     private Output<List<DomainAssociationSubDomain>> subDomains;
 
     /**
-     * @return The setting for the subdomain. Documented below.
+     * @return Setting for the subdomain. Documented below.
      * 
      */
     public Output<List<DomainAssociationSubDomain>> subDomains() {

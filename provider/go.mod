@@ -3,18 +3,18 @@ module github.com/pulumi/pulumi-aws/provider/v5
 go 1.18
 
 require (
-	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.12
-	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.16
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.13
+	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.17
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.29.2-0.20220831142229-8f701f642638
-	github.com/pulumi/pulumi/pkg/v3 v3.38.0
-	github.com/pulumi/pulumi/sdk/v3 v3.38.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.30.0
+	github.com/pulumi/pulumi/pkg/v3 v3.39.4-0.20220912155135-fd099cac650e
+	github.com/pulumi/pulumi/sdk/v3 v3.39.3
 )
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
-	github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220826155210-f0b12bc5b5d3
+	github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220905105644-be3488bf18cb
 	github.com/hashicorp/terraform-provider-aws/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
@@ -51,25 +51,26 @@ require (
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.84 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.16.11 // indirect
+	github.com/aws/aws-sdk-go v1.44.88 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.16.12 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.15.4 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.12.0 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.18 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.12 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.19 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.13 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.11 // indirect
-	github.com/aws/aws-sdk-go-v2/service/comprehend v1.18.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/fis v1.12.12 // indirect
+	github.com/aws/aws-sdk-go-v2/service/comprehend v1.18.8 // indirect
+	github.com/aws/aws-sdk-go-v2/service/fis v1.12.13 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.18.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/kendra v1.33.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kendra v1.33.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kms v1.5.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.0.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.12 // indirect
+	github.com/aws/aws-sdk-go-v2/service/medialive v1.22.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.0.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.13 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/transcribe v1.21.4 // indirect
-	github.com/aws/smithy-go v1.12.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/transcribe v1.21.5 // indirect
+	github.com/aws/smithy-go v1.13.0 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
@@ -106,7 +107,7 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.18.0 // indirect
 	github.com/hashicorp/aws-sdk-go-base v1.1.0 // indirect
-	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.17 // indirect
+	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.18 // indirect
 	github.com/hashicorp/awspolicyequivalence v1.6.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
@@ -179,11 +180,10 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.1 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.5.3 // indirect
-	github.com/pulumi/pulumi-yaml v0.5.4 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.5.4 // indirect
+	github.com/pulumi/pulumi-yaml v0.5.5 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
@@ -206,7 +206,7 @@ require (
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 	github.com/vmihailenco/tagparser v0.1.1 // indirect
-	github.com/xanzy/ssh-agent v0.3.1 // indirect
+	github.com/xanzy/ssh-agent v0.3.2 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
@@ -215,13 +215,13 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.24.0 // indirect
 	gocloud.dev/secrets/hashivault v0.24.0 // indirect
-	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
+	golang.org/x/crypto v0.0.0-20220824171710-5757bc0c5503 // indirect
 	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
 	golang.org/x/net v0.0.0-20220722155237-a158d28d115b // indirect
 	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
+	golang.org/x/sys v0.0.0-20220823224334-20c2bfdbfe24 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect

@@ -15,14 +15,14 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
     public static final VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs Empty = new VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs();
 
     /**
-     * The unit of time. Valid values: `ms`, `s`.
+     * Unit of time. Valid values: `ms`, `s`.
      * 
      */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
     /**
-     * @return The unit of time. Valid values: `ms`, `s`.
+     * @return Unit of time. Valid values: `ms`, `s`.
      * 
      */
     public Output<String> unit() {
@@ -30,14 +30,14 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
     }
 
     /**
-     * The number of time units. Minimum value of `0`.
+     * Number of time units. Minimum value of `0`.
      * 
      */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
     /**
-     * @return The number of time units. Minimum value of `0`.
+     * @return Number of time units. Minimum value of `0`.
      * 
      */
     public Output<Integer> value() {
@@ -70,7 +70,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param unit The unit of time. Valid values: `ms`, `s`.
+         * @param unit Unit of time. Valid values: `ms`, `s`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param unit The unit of time. Valid values: `ms`, `s`.
+         * @param unit Unit of time. Valid values: `ms`, `s`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param value The number of time units. Minimum value of `0`.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param value The number of time units. Minimum value of `0`.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 

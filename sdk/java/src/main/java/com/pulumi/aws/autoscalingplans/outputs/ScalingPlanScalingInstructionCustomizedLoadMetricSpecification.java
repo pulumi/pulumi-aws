@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     private @Nullable Map<String,String> dimensions;
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     private String metricName;
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     private String namespace;
     /**
-     * @return The statistic of the metric. Currently, the value must always be `Sum`.
+     * @return Statistic of the metric. Currently, the value must always be `Sum`.
      * 
      */
     private String statistic;
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     private @Nullable String unit;
 
     private ScalingPlanScalingInstructionCustomizedLoadMetricSpecification() {}
     /**
-     * @return The dimensions of the metric.
+     * @return Dimensions of the metric.
      * 
      */
     public Map<String,String> dimensions() {
         return this.dimensions == null ? Map.of() : this.dimensions;
     }
     /**
-     * @return The name of the metric.
+     * @return Name of the metric.
      * 
      */
     public String metricName() {
         return this.metricName;
     }
     /**
-     * @return The namespace of the metric.
+     * @return Namespace of the metric.
      * 
      */
     public String namespace() {
         return this.namespace;
     }
     /**
-     * @return The statistic of the metric. Currently, the value must always be `Sum`.
+     * @return Statistic of the metric. Currently, the value must always be `Sum`.
      * 
      */
     public String statistic() {
         return this.statistic;
     }
     /**
-     * @return The unit of the metric.
+     * @return Unit of the metric.
      * 
      */
     public Optional<String> unit() {

@@ -44,7 +44,7 @@ class GangliaLayerArgs:
         """
         The set of arguments for constructing a GangliaLayer resource.
         :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
@@ -128,7 +128,7 @@ class GangliaLayerArgs:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -441,7 +441,7 @@ class _GangliaLayerState:
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -730,7 +730,7 @@ class _GangliaLayerState:
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 
@@ -871,7 +871,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
@@ -1036,7 +1036,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
+        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1223,7 +1223,7 @@ class GangliaLayer(pulumi.CustomResource):
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
         """
-        The id of the stack the layer will belong to.
+        ID of the stack the layer will belong to.
         """
         return pulumi.get(self, "stack_id")
 

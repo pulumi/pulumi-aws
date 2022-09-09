@@ -114,120 +114,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/integrationResponse:IntegrationResponse")
 public class IntegrationResponse extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
     @Export(name="contentHandling", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentHandling;
 
     /**
-     * @return Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+     * @return How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
     public Output<Optional<String>> contentHandling() {
         return Codegen.optional(this.contentHandling);
     }
     /**
-     * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     @Export(name="httpMethod", type=String.class, parameters={})
     private Output<String> httpMethod;
 
     /**
-     * @return The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     * @return HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
     /**
-     * The API resource ID
+     * API resource ID.
      * 
      */
     @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**
-     * @return The API resource ID
+     * @return API resource ID.
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+     * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     @Export(name="responseParameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
     /**
-     * @return A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`
+     * @return Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     public Output<Optional<Map<String,String>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
     /**
-     * A map specifying the templates used to transform the integration response body
+     * Map of templates used to transform the integration response body.
      * 
      */
     @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
-     * @return A map specifying the templates used to transform the integration response body
+     * @return Map of templates used to transform the integration response body.
      * 
      */
     public Output<Optional<Map<String,String>>> responseTemplates() {
         return Codegen.optional(this.responseTemplates);
     }
     /**
-     * The ID of the associated REST API
+     * ID of the associated REST API.
      * 
      */
     @Export(name="restApi", type=String.class, parameters={})
     private Output<String> restApi;
 
     /**
-     * @return The ID of the associated REST API
+     * @return ID of the associated REST API.
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
     @Export(name="selectionPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> selectionPattern;
 
     /**
-     * @return Specifies the regular expression pattern used to choose
-     * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
-     * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
-     * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+     * @return Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
     public Output<Optional<String>> selectionPattern() {
         return Codegen.optional(this.selectionPattern);
     }
     /**
-     * The HTTP status code
+     * HTTP status code.
      * 
      */
     @Export(name="statusCode", type=String.class, parameters={})
     private Output<String> statusCode;
 
     /**
-     * @return The HTTP status code
+     * @return HTTP status code.
      * 
      */
     public Output<String> statusCode() {

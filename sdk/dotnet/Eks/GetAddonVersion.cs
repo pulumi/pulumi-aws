@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Eks
         public readonly string KubernetesVersion;
         public readonly bool? MostRecent;
         /// <summary>
-        /// The version of the EKS add-on.
+        /// Version of the EKS add-on.
         /// </summary>
         public readonly string Version;
 

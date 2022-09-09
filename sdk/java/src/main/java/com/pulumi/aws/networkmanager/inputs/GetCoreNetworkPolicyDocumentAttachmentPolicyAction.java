@@ -46,14 +46,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
     }
 
     /**
-     * The name of the segment.
+     * Name of the segment.
      * 
      */
     @Import(name="segment")
     private @Nullable String segment;
 
     /**
-     * @return The name of the segment.
+     * @return Name of the segment.
      * 
      */
     public Optional<String> segment() {
@@ -125,7 +125,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
         }
 
         /**
-         * @param segment The name of the segment.
+         * @param segment Name of the segment.
          * 
          * @return builder
          * 

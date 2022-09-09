@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The id for your Amazon Cognito user pool.
+        /// ID for your Amazon Cognito user pool.
         /// </summary>
         [Input("userPool", required: true)]
         public Input<string> UserPool { get; set; } = null!;

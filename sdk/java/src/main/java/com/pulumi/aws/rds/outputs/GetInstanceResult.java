@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceResult {
     /**
-     * @return The hostname of the RDS instance. See also `endpoint` and `port`.
+     * @return Hostname of the RDS instance. See also `endpoint` and `port`.
      * 
      */
     private String address;
     /**
-     * @return Specifies the allocated storage size specified in gigabytes.
+     * @return Allocated storage size specified in gigabytes.
      * 
      */
     private Integer allocatedStorage;
@@ -29,7 +29,7 @@ public final class GetInstanceResult {
      */
     private Boolean autoMinorVersionUpgrade;
     /**
-     * @return Specifies the name of the Availability Zone the DB instance is located in.
+     * @return Name of the Availability Zone the DB instance is located in.
      * 
      */
     private String availabilityZone;
@@ -39,7 +39,7 @@ public final class GetInstanceResult {
      */
     private Integer backupRetentionPeriod;
     /**
-     * @return Specifies the identifier of the CA certificate for the DB instance.
+     * @return Identifier of the CA certificate for the DB instance.
      * 
      */
     private String caCertIdentifier;
@@ -49,7 +49,7 @@ public final class GetInstanceResult {
      */
     private String dbClusterIdentifier;
     /**
-     * @return The Amazon Resource Name (ARN) for the DB instance.
+     * @return ARN for the DB instance.
      * 
      */
     private String dbInstanceArn;
@@ -60,7 +60,7 @@ public final class GetInstanceResult {
     private String dbInstanceClass;
     private String dbInstanceIdentifier;
     /**
-     * @return Specifies the port that the DB instance listens on.
+     * @return Port that the DB instance listens on.
      * 
      */
     private Integer dbInstancePort;
@@ -80,7 +80,7 @@ public final class GetInstanceResult {
      */
     private List<String> dbSecurityGroups;
     /**
-     * @return Specifies the name of the subnet group associated with the DB instance.
+     * @return Name of the subnet group associated with the DB instance.
      * 
      */
     private String dbSubnetGroup;
@@ -90,7 +90,7 @@ public final class GetInstanceResult {
      */
     private List<String> enabledCloudwatchLogsExports;
     /**
-     * @return The connection endpoint in `address:port` format.
+     * @return Connection endpoint in `address:port` format.
      * 
      */
     private String endpoint;
@@ -100,12 +100,12 @@ public final class GetInstanceResult {
      */
     private String engine;
     /**
-     * @return Indicates the database engine version.
+     * @return Database engine version.
      * 
      */
     private String engineVersion;
     /**
-     * @return The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
+     * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
      * 
      */
     private String hostedZoneId;
@@ -115,7 +115,7 @@ public final class GetInstanceResult {
      */
     private String id;
     /**
-     * @return Specifies the Provisioned IOPS (I/O operations per second) value.
+     * @return Provisioned IOPS (I/O operations per second) value.
      * 
      */
     private Integer iops;
@@ -135,22 +135,22 @@ public final class GetInstanceResult {
      */
     private String masterUsername;
     /**
-     * @return The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
     private Integer monitoringInterval;
     /**
-     * @return The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
      * 
      */
     private String monitoringRoleArn;
     /**
-     * @return Specifies if the DB instance is a Multi-AZ deployment.
+     * @return If the DB instance is a Multi-AZ deployment.
      * 
      */
     private Boolean multiAz;
     /**
-     * @return The network type of the DB instance.
+     * @return Network type of the DB instance.
      * 
      */
     private String networkType;
@@ -160,7 +160,7 @@ public final class GetInstanceResult {
      */
     private List<String> optionGroupMemberships;
     /**
-     * @return The database port.
+     * @return Database port.
      * 
      */
     private Integer port;
@@ -175,33 +175,33 @@ public final class GetInstanceResult {
      */
     private String preferredMaintenanceWindow;
     /**
-     * @return Specifies the accessibility options for the DB instance.
+     * @return Accessibility options for the DB instance.
      * 
      */
     private Boolean publiclyAccessible;
     /**
-     * @return The identifier of the source DB that this is a replica of.
+     * @return Identifier of the source DB that this is a replica of.
      * 
      */
     private String replicateSourceDb;
     /**
-     * @return The RDS Resource ID of this instance.
+     * @return RDS Resource ID of this instance.
      * 
      */
     private String resourceId;
     /**
-     * @return Specifies whether the DB instance is encrypted.
+     * @return Whether the DB instance is encrypted.
      * 
      */
     private Boolean storageEncrypted;
     /**
-     * @return Specifies the storage type associated with DB instance.
+     * @return Storage type associated with DB instance.
      * 
      */
     private String storageType;
     private Map<String,String> tags;
     /**
-     * @return The time zone of the DB instance.
+     * @return Time zone of the DB instance.
      * 
      */
     private String timezone;
@@ -213,14 +213,14 @@ public final class GetInstanceResult {
 
     private GetInstanceResult() {}
     /**
-     * @return The hostname of the RDS instance. See also `endpoint` and `port`.
+     * @return Hostname of the RDS instance. See also `endpoint` and `port`.
      * 
      */
     public String address() {
         return this.address;
     }
     /**
-     * @return Specifies the allocated storage size specified in gigabytes.
+     * @return Allocated storage size specified in gigabytes.
      * 
      */
     public Integer allocatedStorage() {
@@ -234,7 +234,7 @@ public final class GetInstanceResult {
         return this.autoMinorVersionUpgrade;
     }
     /**
-     * @return Specifies the name of the Availability Zone the DB instance is located in.
+     * @return Name of the Availability Zone the DB instance is located in.
      * 
      */
     public String availabilityZone() {
@@ -248,7 +248,7 @@ public final class GetInstanceResult {
         return this.backupRetentionPeriod;
     }
     /**
-     * @return Specifies the identifier of the CA certificate for the DB instance.
+     * @return Identifier of the CA certificate for the DB instance.
      * 
      */
     public String caCertIdentifier() {
@@ -262,7 +262,7 @@ public final class GetInstanceResult {
         return this.dbClusterIdentifier;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the DB instance.
+     * @return ARN for the DB instance.
      * 
      */
     public String dbInstanceArn() {
@@ -279,7 +279,7 @@ public final class GetInstanceResult {
         return this.dbInstanceIdentifier;
     }
     /**
-     * @return Specifies the port that the DB instance listens on.
+     * @return Port that the DB instance listens on.
      * 
      */
     public Integer dbInstancePort() {
@@ -307,7 +307,7 @@ public final class GetInstanceResult {
         return this.dbSecurityGroups;
     }
     /**
-     * @return Specifies the name of the subnet group associated with the DB instance.
+     * @return Name of the subnet group associated with the DB instance.
      * 
      */
     public String dbSubnetGroup() {
@@ -321,7 +321,7 @@ public final class GetInstanceResult {
         return this.enabledCloudwatchLogsExports;
     }
     /**
-     * @return The connection endpoint in `address:port` format.
+     * @return Connection endpoint in `address:port` format.
      * 
      */
     public String endpoint() {
@@ -335,14 +335,14 @@ public final class GetInstanceResult {
         return this.engine;
     }
     /**
-     * @return Indicates the database engine version.
+     * @return Database engine version.
      * 
      */
     public String engineVersion() {
         return this.engineVersion;
     }
     /**
-     * @return The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
+     * @return Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
      * 
      */
     public String hostedZoneId() {
@@ -356,7 +356,7 @@ public final class GetInstanceResult {
         return this.id;
     }
     /**
-     * @return Specifies the Provisioned IOPS (I/O operations per second) value.
+     * @return Provisioned IOPS (I/O operations per second) value.
      * 
      */
     public Integer iops() {
@@ -384,28 +384,28 @@ public final class GetInstanceResult {
         return this.masterUsername;
     }
     /**
-     * @return The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
     public Integer monitoringInterval() {
         return this.monitoringInterval;
     }
     /**
-     * @return The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     * @return ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
      * 
      */
     public String monitoringRoleArn() {
         return this.monitoringRoleArn;
     }
     /**
-     * @return Specifies if the DB instance is a Multi-AZ deployment.
+     * @return If the DB instance is a Multi-AZ deployment.
      * 
      */
     public Boolean multiAz() {
         return this.multiAz;
     }
     /**
-     * @return The network type of the DB instance.
+     * @return Network type of the DB instance.
      * 
      */
     public String networkType() {
@@ -419,7 +419,7 @@ public final class GetInstanceResult {
         return this.optionGroupMemberships;
     }
     /**
-     * @return The database port.
+     * @return Database port.
      * 
      */
     public Integer port() {
@@ -440,35 +440,35 @@ public final class GetInstanceResult {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * @return Specifies the accessibility options for the DB instance.
+     * @return Accessibility options for the DB instance.
      * 
      */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     /**
-     * @return The identifier of the source DB that this is a replica of.
+     * @return Identifier of the source DB that this is a replica of.
      * 
      */
     public String replicateSourceDb() {
         return this.replicateSourceDb;
     }
     /**
-     * @return The RDS Resource ID of this instance.
+     * @return RDS Resource ID of this instance.
      * 
      */
     public String resourceId() {
         return this.resourceId;
     }
     /**
-     * @return Specifies whether the DB instance is encrypted.
+     * @return Whether the DB instance is encrypted.
      * 
      */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * @return Specifies the storage type associated with DB instance.
+     * @return Storage type associated with DB instance.
      * 
      */
     public String storageType() {
@@ -478,7 +478,7 @@ public final class GetInstanceResult {
         return this.tags;
     }
     /**
-     * @return The time zone of the DB instance.
+     * @return Time zone of the DB instance.
      * 
      */
     public String timezone() {

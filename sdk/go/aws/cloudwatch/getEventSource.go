@@ -56,16 +56,16 @@ type GetEventSourceArgs struct {
 
 // A collection of values returned by getEventSource.
 type GetEventSourceResult struct {
-	// The ARN of the partner event source
+	// ARN of the partner event source
 	Arn string `pulumi:"arn"`
-	// The name of the SaaS partner that created the event source
+	// Name of the SaaS partner that created the event source
 	CreatedBy string `pulumi:"createdBy"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name of the event source
+	// Name of the event source
 	Name       string  `pulumi:"name"`
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The state of the event source (`ACTIVE` or `PENDING`)
+	// State of the event source (`ACTIVE` or `PENDING`)
 	State string `pulumi:"state"`
 }
 
@@ -107,12 +107,12 @@ func (o GetEventSourceResultOutput) ToGetEventSourceResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the partner event source
+// ARN of the partner event source
 func (o GetEventSourceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventSourceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the SaaS partner that created the event source
+// Name of the SaaS partner that created the event source
 func (o GetEventSourceResultOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventSourceResult) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
@@ -122,7 +122,7 @@ func (o GetEventSourceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventSourceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the event source
+// Name of the event source
 func (o GetEventSourceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventSourceResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,7 +131,7 @@ func (o GetEventSourceResultOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEventSourceResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// The state of the event source (`ACTIVE` or `PENDING`)
+// State of the event source (`ACTIVE` or `PENDING`)
 func (o GetEventSourceResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventSourceResult) string { return v.State }).(pulumi.StringOutput)
 }

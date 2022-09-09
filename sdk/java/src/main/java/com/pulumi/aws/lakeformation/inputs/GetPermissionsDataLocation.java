@@ -13,14 +13,14 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
     public static final GetPermissionsDataLocation Empty = new GetPermissionsDataLocation();
 
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * ARN that uniquely identifies the data location resource.
      * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      */
     public String arn() {
@@ -68,7 +68,7 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * @param arn ARN that uniquely identifies the data location resource.
          * 
          * @return builder
          * 

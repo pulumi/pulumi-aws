@@ -50,9 +50,9 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
-	// The arn of the ECS Cluster
+	// ARN of the ECS Cluster
 	ClusterArn string `pulumi:"clusterArn"`
-	// The name of the ECS Service
+	// Name of the ECS Service
 	ServiceName string `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -60,21 +60,21 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
-	// The ARN of the ECS Service
+	// ARN of the ECS Service
 	Arn        string `pulumi:"arn"`
 	ClusterArn string `pulumi:"clusterArn"`
-	// The number of tasks for the ECS Service
+	// Number of tasks for the ECS Service
 	DesiredCount int `pulumi:"desiredCount"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The launch type for the ECS Service
+	// Launch type for the ECS Service
 	LaunchType string `pulumi:"launchType"`
-	// The scheduling strategy for the ECS Service
+	// Scheduling strategy for the ECS Service
 	SchedulingStrategy string `pulumi:"schedulingStrategy"`
 	ServiceName        string `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The family for the latest ACTIVE revision
+	// Family for the latest ACTIVE revision
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
@@ -93,9 +93,9 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
-	// The arn of the ECS Cluster
+	// ARN of the ECS Cluster
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
-	// The name of the ECS Service
+	// Name of the ECS Service
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -120,7 +120,7 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the ECS Service
+// ARN of the ECS Service
 func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -129,7 +129,7 @@ func (o LookupServiceResultOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-// The number of tasks for the ECS Service
+// Number of tasks for the ECS Service
 func (o LookupServiceResultOutput) DesiredCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServiceResult) int { return v.DesiredCount }).(pulumi.IntOutput)
 }
@@ -139,12 +139,12 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The launch type for the ECS Service
+// Launch type for the ECS Service
 func (o LookupServiceResultOutput) LaunchType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.LaunchType }).(pulumi.StringOutput)
 }
 
-// The scheduling strategy for the ECS Service
+// Scheduling strategy for the ECS Service
 func (o LookupServiceResultOutput) SchedulingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.SchedulingStrategy }).(pulumi.StringOutput)
 }
@@ -158,7 +158,7 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The family for the latest ACTIVE revision
+// Family for the latest ACTIVE revision
 func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
 }

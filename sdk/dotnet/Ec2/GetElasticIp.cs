@@ -218,13 +218,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The public IP of the specific EIP to retrieve.
+        /// Public IP of the specific EIP to retrieve.
         /// </summary>
         [Input("publicIp")]
         public string? PublicIp { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -262,13 +262,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+        /// Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The public IP of the specific EIP to retrieve.
+        /// Public IP of the specific EIP to retrieve.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
         /// </summary>
         public InputMap<string> Tags
         {
@@ -296,11 +296,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetElasticIpResult
     {
         /// <summary>
-        /// The ID representing the association of the address with an instance in a VPC.
+        /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
-        /// The carrier IP address.
+        /// Carrier IP address.
         /// </summary>
         public readonly string CarrierIp;
         /// <summary>
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CustomerOwnedIpv4Pool;
         /// <summary>
-        /// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+        /// Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         /// </summary>
         public readonly string Domain;
         public readonly ImmutableArray<Outputs.GetElasticIpFilterResult> Filters;
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID of the instance that the address is associated with (if any).
+        /// ID of the instance that the address is associated with (if any).
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
@@ -333,11 +333,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string NetworkInterfaceOwnerId;
         /// <summary>
-        /// The Private DNS associated with the Elastic IP address.
+        /// Private DNS associated with the Elastic IP address.
         /// </summary>
         public readonly string PrivateDns;
         /// <summary>
-        /// The private IP address associated with the Elastic IP address.
+        /// Private IP address associated with the Elastic IP address.
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PublicIp;
         /// <summary>
-        /// The ID of an address pool.
+        /// ID of an address pool.
         /// </summary>
         public readonly string PublicIpv4Pool;
         /// <summary>
