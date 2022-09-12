@@ -170,7 +170,7 @@ class _SecurityGroupState:
         :param pulumi.Input[str] arn: ARN of the security group.
         :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[str] name: Name of the security group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] owner_id: Owner ID.
