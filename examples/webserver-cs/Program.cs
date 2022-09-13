@@ -15,6 +15,24 @@ class Program
     {
         return Deployment.RunAsync(async () => {
 
+            var vpc = new DefaultVpc("cs-web-default-vpc", new DefaultVpcArgs
+                {
+                Tags =
+                        {
+                            { "Name", "Default VPC" },
+                        },
+                }
+                );
+
+            var subnet = new Pulumi.Aws.Ec2.DefaultSubnet("cs-web-default-subnet", new DefaultSubnetArgs
+                {
+                   AvailabilityZone = "us-west-2a",
+                           Tags =
+                           {
+                               { "Name", "Default subnet for us-west-2a" },
+                           },
+                });
+
             var ami = await Pulumi.Aws.Ec2.GetAmi.InvokeAsync(new Pulumi.Aws.Ec2.GetAmiArgs
             {
                 MostRecent = true,
@@ -26,6 +44,7 @@ class Program
             var group = new SecurityGroup("web-secgrp", new SecurityGroupArgs
             {
                 Description = "Enable HTTP access",
+                VpcId = vpc.Id,
                 Ingress =
             {
                 new SecurityGroupIngressArgs
@@ -50,6 +69,7 @@ nohup python -m SimpleHTTPServer 80 &
                 VpcSecurityGroupIds = { group.Id },
                 UserData = userData,
                 Ami = ami.Id,
+                SubnetId = subnet.Id
             });
 
             return new Dictionary<string, object>
