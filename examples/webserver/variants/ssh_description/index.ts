@@ -10,7 +10,21 @@ const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 export let size: aws.ec2.InstanceType = "t2.micro";
 
+let vpc = new aws.ec2.DefaultVpc("ts-web-default-ssh-desc-vpc", {
+    tags: {
+        Name: "Default VPC",
+    },
+});
+
+let subnet = new aws.ec2.DefaultSubnet("ts-web-default-ssh-desc-subnet", {
+    availabilityZone: "us-west-2a",
+    tags: {
+        Name: "Default subnet for us-west-2a",
+    },
+});
+
 let group = new aws.ec2.SecurityGroup("ts-web-secgrp-all", {
+    vpcId: vpc.id,
     description: "Enable HTTP and SSH access",
     ingress: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
@@ -20,6 +34,8 @@ let group = new aws.ec2.SecurityGroup("ts-web-secgrp-all", {
 
 let server = new aws.ec2.Instance("web-server-www", {
     instanceType: size,
-    securityGroups: [ group.name ],
+    vpcSecurityGroupIds: [ group.id ],
     ami: getLinuxAMI(size, region),
+    subnetId: subnet.id,
 }, providerOpts);
+

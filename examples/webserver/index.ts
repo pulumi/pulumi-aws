@@ -24,7 +24,6 @@ let subnet = new aws.ec2.DefaultSubnet("ts-web-default-subnet", {
     },
 });
 
-
 let group = new aws.ec2.SecurityGroup("ts-web-secgrp-2", {
     vpcId: vpc.id,
     description: "Enable HTTP access",

@@ -8,7 +8,21 @@ const config = new pulumi.Config("aws");
 const region = <aws.Region>config.require("envRegion");
 const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
+let vpc = new aws.ec2.DefaultVpc("ts-web-comp-default-vpc", {
+    tags: {
+        Name: "Default VPC",
+    },
+});
+
+let subnet = new aws.ec2.DefaultSubnet("ts-web-comp-default-subnet", {
+    availabilityZone: "us-west-2a",
+    tags: {
+        Name: "Default subnet for us-west-2a",
+    },
+});
+
 let group = new aws.ec2.SecurityGroup("web-secgrp-comp", {
+    vpcId: vpc.id,
     description: "Enable HTTP access",
     ingress: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
@@ -21,8 +35,9 @@ export class Server {
     constructor(name: string, size: aws.ec2.InstanceType) {
         this.instance = new aws.ec2.Instance("web-server-" + name, {
             instanceType: size,
-            securityGroups: [ group.name ],
+            vpcSecurityGroupIds: [ group.id ],
             ami: getLinuxAMI(size, region),
+            subnetId: subnet.id,
         }, providerOpts);
     }
 }
