@@ -11,6 +11,19 @@ function createServer(region: aws.Region): aws.ec2.Instance {
 
     const amiParam = aws.ssm.getParameter({ name: amiParamName }, { provider });
 
+    let vpc = new aws.ec2.DefaultVpc("ts-multiple-regions-default-vpc", {
+        tags: {
+            Name: "Default VPC",
+        },
+    });
+
+    let subnet = new aws.ec2.DefaultSubnet("ts-multiple-regions-default-subnet", {
+        availabilityZone: `${region}a`,
+        tags: {
+            Name: `Default subnet for ${region}a`,
+        },
+    });
+
     const group = new aws.ec2.SecurityGroup(`secgrp-${region}`, {
         description: "Enable HTTP access",
         ingress: [
@@ -19,9 +32,11 @@ function createServer(region: aws.Region): aws.ec2.Instance {
     }, { provider });
 
     return new aws.ec2.Instance(`web-server-www-${region}`, {
+        vpcId: vpc.id,
         instanceType: size,
-        securityGroups: [ group.name ],
+        vpcSecurityGroupIds: [ group.id ],
         ami: amiParam.then(p => p.value),
+        subnetId: subnet.id,
     }, { provider });
 }
 
