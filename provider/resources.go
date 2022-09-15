@@ -2286,6 +2286,7 @@ func Provider() tfbridge.ProviderInfo {
 			// MediaLive
 			"aws_medialive_input":                {Tok: awsResource(medialiveMod, "Input")},
 			"aws_medialive_input_security_group": {Tok: awsResource(medialiveMod, "InputSecurityGroup")},
+			"aws_medialive_multiplex":            {Tok: awsResource(medialiveMod, "Multiplex")},
 
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
@@ -2562,6 +2563,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshiftserverless_namespace":       {Tok: awsResource(redshiftServerlessMod, "Namespace")},
 			"aws_redshiftserverless_workgroup":       {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
 			"aws_redshiftserverless_endpoint_access": {Tok: awsResource(redshiftServerlessMod, "EndpointAccess")},
+			"aws_redshiftserverless_usage_limit":     {Tok: awsResource(redshiftServerlessMod, "UsageLimit")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Roles Anywhere
@@ -3406,11 +3408,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codestarconnections_host":       {Tok: awsResource(codestarConnectionsMod, "Host")},
 
 			// SSO Admin
-			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
-			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
-			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
-			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
-
+			"aws_ssoadmin_managed_policy_attachment":          {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
+			"aws_ssoadmin_permission_set":                     {Tok: awsResource(ssoAdminMod, "PermissionSet")},
+			"aws_ssoadmin_permission_set_inline_policy":       {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
+			"aws_ssoadmin_account_assignment":                 {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
+			"aws_ssoadmin_customer_managed_policy_attachment": {Tok: awsResource(ssoAdminMod, "CustomerManagedPolicyAttachment")},
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},
 			"aws_prometheus_alert_manager_definition": {Tok: awsResource(ampMod, "AlertManagerDefinition")},
