@@ -18,7 +18,7 @@ class ConnectionArgs:
                  provider_type: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a Connection resource.
+        The set of arguments for constructing a Connection resource. EDITING BY HAND TO TEST
         :param pulumi.Input[str] connection_name: Name of the connection.
         :param pulumi.Input[str] provider_type: The source repository provider. Valid values: `GITHUB`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
