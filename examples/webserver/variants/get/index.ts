@@ -15,14 +15,14 @@ let vpc = new aws.ec2.DefaultVpc("ts-web-default-var-vpc", {
     tags: {
         Name: "Default VPC",
     },
-});
+}, providerOpts);
 
 let subnet = new aws.ec2.DefaultSubnet("ts-web-default-var-subnet", {
     availabilityZone: "us-west-2a",
     tags: {
         Name: "Default subnet for us-west-2a",
     },
-});
+}, providerOpts);
 
 let group = new aws.ec2.SecurityGroup("ts-web-secgrp-var", {
     vpcId: vpc.id,

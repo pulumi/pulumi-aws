@@ -19,7 +19,7 @@ let subnet = new aws.ec2.DefaultSubnet("ts-web-comp-default-subnet", {
     tags: {
         Name: "Default subnet for us-west-2a",
     },
-});
+}, providerOpts);
 
 let group = new aws.ec2.SecurityGroup("web-secgrp-comp", {
     vpcId: vpc.id,

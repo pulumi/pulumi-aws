@@ -11,13 +11,13 @@ function createServer(region: aws.Region): aws.ec2.Instance {
 
     const amiParam = aws.ssm.getParameter({ name: amiParamName }, { provider });
 
-    let vpc = new aws.ec2.DefaultVpc("ts-multiple-regions-default-vpc", {
+    let vpc = new aws.ec2.DefaultVpc(`ts-multiple-regions-default-vpc-${region}`, {
         tags: {
             Name: "Default VPC",
         },
     }, { provider });
 
-    let subnet = new aws.ec2.DefaultSubnet("ts-multiple-regions-default-subnet", {
+    let subnet = new aws.ec2.DefaultSubnet(`ts-multiple-regions-default-subnet-${region}`, {
         availabilityZone: `${region}a`,
         tags: {
             Name: `Default subnet for ${region}a`,
