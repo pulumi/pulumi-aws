@@ -12,7 +12,7 @@ let vpc = new aws.ec2.DefaultVpc("ts-web-comp-default-vpc", {
     tags: {
         Name: "Default VPC",
     },
-});
+}, providerOpts);
 
 let subnet = new aws.ec2.DefaultSubnet("ts-web-comp-default-subnet", {
     availabilityZone: "us-west-2a",

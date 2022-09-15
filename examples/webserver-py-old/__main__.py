@@ -4,6 +4,17 @@ import pulumi
 from pulumi_aws import ec2
 from ami import get_linux_ami
 
+vpc = ec2.DefaultVpc("py-web-old-default-vpc", tags={
+    "Name": "Default VPC",
+})
+
+subnet = ec2.DefaultSubnet("py-web-old-default-subnet",
+    availability_zone="us-west-2a",
+    tags={
+    "Name": "Default subnet for us-west-2a",
+    })
+
+
 size = ec2.InstanceType.T2_MICRO
 
 group = ec2.SecurityGroup('web-secgrp-old',
