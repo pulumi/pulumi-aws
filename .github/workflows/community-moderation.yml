@@ -14,10 +14,10 @@ jobs:
         filters: "changed: 'provider/cmd/**/schema.json'"
     - id: sdk_changed
       if: steps.schema_changed.outputs.changed == 'false'
-      name: Check for diff in sdk/*
+      name: Check for diff in sdk/**
       uses: dorny/paths-filter@v2
       with:
-        filters: "changed: 'sdk/*'"
+        filters: "changed: 'sdk/**'"
     - if: steps.sdk_changed.outputs.changed == 'true' &&
         github.event.pull_request.head.repo.full_name != github.repository
       name: Send codegen warning as comment on PR
