@@ -33,6 +33,7 @@ class VpnConnectionArgs:
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel1_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']] = None,
                  tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -51,6 +52,7 @@ class VpnConnectionArgs:
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel2_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']] = None,
                  tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -85,6 +87,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -103,6 +106,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -151,6 +155,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tunnel1_inside_cidr", tunnel1_inside_cidr)
         if tunnel1_inside_ipv6_cidr is not None:
             pulumi.set(__self__, "tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
+        if tunnel1_log_options is not None:
+            pulumi.set(__self__, "tunnel1_log_options", tunnel1_log_options)
         if tunnel1_phase1_dh_group_numbers is not None:
             pulumi.set(__self__, "tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
         if tunnel1_phase1_encryption_algorithms is not None:
@@ -187,6 +193,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tunnel2_inside_cidr", tunnel2_inside_cidr)
         if tunnel2_inside_ipv6_cidr is not None:
             pulumi.set(__self__, "tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
+        if tunnel2_log_options is not None:
+            pulumi.set(__self__, "tunnel2_log_options", tunnel2_log_options)
         if tunnel2_phase1_dh_group_numbers is not None:
             pulumi.set(__self__, "tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
         if tunnel2_phase1_encryption_algorithms is not None:
@@ -423,6 +431,18 @@ class VpnConnectionArgs:
         pulumi.set(self, "tunnel1_inside_ipv6_cidr", value)
 
     @property
+    @pulumi.getter(name="tunnel1LogOptions")
+    def tunnel1_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel1_log_options")
+
+    @tunnel1_log_options.setter
+    def tunnel1_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]):
+        pulumi.set(self, "tunnel1_log_options", value)
+
+    @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -639,6 +659,18 @@ class VpnConnectionArgs:
         pulumi.set(self, "tunnel2_inside_ipv6_cidr", value)
 
     @property
+    @pulumi.getter(name="tunnel2LogOptions")
+    def tunnel2_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel2_log_options")
+
+    @tunnel2_log_options.setter
+    def tunnel2_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]):
+        pulumi.set(self, "tunnel2_log_options", value)
+
+    @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -849,6 +881,7 @@ class _VpnConnectionState:
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel1_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']] = None,
                  tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -872,6 +905,7 @@ class _VpnConnectionState:
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel2_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']] = None,
                  tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -919,6 +953,7 @@ class _VpnConnectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -942,6 +977,7 @@ class _VpnConnectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -1015,6 +1051,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "tunnel1_inside_cidr", tunnel1_inside_cidr)
         if tunnel1_inside_ipv6_cidr is not None:
             pulumi.set(__self__, "tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
+        if tunnel1_log_options is not None:
+            pulumi.set(__self__, "tunnel1_log_options", tunnel1_log_options)
         if tunnel1_phase1_dh_group_numbers is not None:
             pulumi.set(__self__, "tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
         if tunnel1_phase1_encryption_algorithms is not None:
@@ -1061,6 +1099,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "tunnel2_inside_cidr", tunnel2_inside_cidr)
         if tunnel2_inside_ipv6_cidr is not None:
             pulumi.set(__self__, "tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
+        if tunnel2_log_options is not None:
+            pulumi.set(__self__, "tunnel2_log_options", tunnel2_log_options)
         if tunnel2_phase1_dh_group_numbers is not None:
             pulumi.set(__self__, "tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
         if tunnel2_phase1_encryption_algorithms is not None:
@@ -1423,6 +1463,18 @@ class _VpnConnectionState:
         pulumi.set(self, "tunnel1_inside_ipv6_cidr", value)
 
     @property
+    @pulumi.getter(name="tunnel1LogOptions")
+    def tunnel1_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel1_log_options")
+
+    @tunnel1_log_options.setter
+    def tunnel1_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']]):
+        pulumi.set(self, "tunnel1_log_options", value)
+
+    @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -1699,6 +1751,18 @@ class _VpnConnectionState:
         pulumi.set(self, "tunnel2_inside_ipv6_cidr", value)
 
     @property
+    @pulumi.getter(name="tunnel2LogOptions")
+    def tunnel2_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel2_log_options")
+
+    @tunnel2_log_options.setter
+    def tunnel2_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']]):
+        pulumi.set(self, "tunnel2_log_options", value)
+
+    @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -1936,6 +2000,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel1_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']]] = None,
                  tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1954,6 +2019,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel2_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']]] = None,
                  tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2074,6 +2140,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -2092,6 +2159,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -2231,6 +2299,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel1_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']]] = None,
                  tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2249,6 +2318,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel2_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']]] = None,
                  tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2292,6 +2362,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
             __props__.__dict__["tunnel1_inside_cidr"] = tunnel1_inside_cidr
             __props__.__dict__["tunnel1_inside_ipv6_cidr"] = tunnel1_inside_ipv6_cidr
+            __props__.__dict__["tunnel1_log_options"] = tunnel1_log_options
             __props__.__dict__["tunnel1_phase1_dh_group_numbers"] = tunnel1_phase1_dh_group_numbers
             __props__.__dict__["tunnel1_phase1_encryption_algorithms"] = tunnel1_phase1_encryption_algorithms
             __props__.__dict__["tunnel1_phase1_integrity_algorithms"] = tunnel1_phase1_integrity_algorithms
@@ -2310,6 +2381,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_ike_versions"] = tunnel2_ike_versions
             __props__.__dict__["tunnel2_inside_cidr"] = tunnel2_inside_cidr
             __props__.__dict__["tunnel2_inside_ipv6_cidr"] = tunnel2_inside_ipv6_cidr
+            __props__.__dict__["tunnel2_log_options"] = tunnel2_log_options
             __props__.__dict__["tunnel2_phase1_dh_group_numbers"] = tunnel2_phase1_dh_group_numbers
             __props__.__dict__["tunnel2_phase1_encryption_algorithms"] = tunnel2_phase1_encryption_algorithms
             __props__.__dict__["tunnel2_phase1_integrity_algorithms"] = tunnel2_phase1_integrity_algorithms
@@ -2383,6 +2455,7 @@ class VpnConnection(pulumi.CustomResource):
             tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
             tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+            tunnel1_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']]] = None,
             tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2406,6 +2479,7 @@ class VpnConnection(pulumi.CustomResource):
             tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
             tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
+            tunnel2_log_options: Optional[pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']]] = None,
             tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2458,6 +2532,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel1LogOptionsArgs']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -2481,6 +2556,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        :param pulumi.Input[pulumi.InputType['VpnConnectionTunnel2LogOptionsArgs']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
@@ -2531,6 +2607,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
         __props__.__dict__["tunnel1_inside_cidr"] = tunnel1_inside_cidr
         __props__.__dict__["tunnel1_inside_ipv6_cidr"] = tunnel1_inside_ipv6_cidr
+        __props__.__dict__["tunnel1_log_options"] = tunnel1_log_options
         __props__.__dict__["tunnel1_phase1_dh_group_numbers"] = tunnel1_phase1_dh_group_numbers
         __props__.__dict__["tunnel1_phase1_encryption_algorithms"] = tunnel1_phase1_encryption_algorithms
         __props__.__dict__["tunnel1_phase1_integrity_algorithms"] = tunnel1_phase1_integrity_algorithms
@@ -2554,6 +2631,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tunnel2_ike_versions"] = tunnel2_ike_versions
         __props__.__dict__["tunnel2_inside_cidr"] = tunnel2_inside_cidr
         __props__.__dict__["tunnel2_inside_ipv6_cidr"] = tunnel2_inside_ipv6_cidr
+        __props__.__dict__["tunnel2_log_options"] = tunnel2_log_options
         __props__.__dict__["tunnel2_phase1_dh_group_numbers"] = tunnel2_phase1_dh_group_numbers
         __props__.__dict__["tunnel2_phase1_encryption_algorithms"] = tunnel2_phase1_encryption_algorithms
         __props__.__dict__["tunnel2_phase1_integrity_algorithms"] = tunnel2_phase1_integrity_algorithms
@@ -2791,6 +2869,14 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "tunnel1_inside_ipv6_cidr")
 
     @property
+    @pulumi.getter(name="tunnel1LogOptions")
+    def tunnel1_log_options(self) -> pulumi.Output['outputs.VpnConnectionTunnel1LogOptions']:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel1_log_options")
+
+    @property
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
@@ -2973,6 +3059,14 @@ class VpnConnection(pulumi.CustomResource):
         The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         """
         return pulumi.get(self, "tunnel2_inside_ipv6_cidr")
+
+    @property
+    @pulumi.getter(name="tunnel2LogOptions")
+    def tunnel2_log_options(self) -> pulumi.Output['outputs.VpnConnectionTunnel2LogOptions']:
+        """
+        Options for logging VPN tunnel activity. See Log Options below for more details.
+        """
+        return pulumi.get(self, "tunnel2_log_options")
 
     @property
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")

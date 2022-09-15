@@ -69,6 +69,7 @@ export interface GetClusterResult {
     readonly id: string;
     readonly kmsKeyId: string;
     readonly masterUsername: string;
+    readonly networkType: string;
     readonly port: number;
     readonly preferredBackupWindow: string;
     readonly preferredMaintenanceWindow: string;

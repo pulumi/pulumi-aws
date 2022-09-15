@@ -102,16 +102,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When `use_custom_cookbooks` is set, provide this sub-object as
-     * described below.
+     * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
     @Import(name="customCookbooksSources")
     private @Nullable Output<List<StackCustomCookbooksSourceArgs>> customCookbooksSources;
 
     /**
-     * @return When `use_custom_cookbooks` is set, provide this sub-object as
-     * described below.
+     * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
     public Optional<Output<List<StackCustomCookbooksSourceArgs>>> customCookbooksSources() {
@@ -134,16 +132,16 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
      * 
      */
     @Import(name="defaultAvailabilityZone")
     private @Nullable Output<String> defaultAvailabilityZone;
 
     /**
-     * @return Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * @return Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpc_id` is set.
      * 
      */
     public Optional<Output<String>> defaultAvailabilityZone() {
@@ -151,16 +149,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
     @Import(name="defaultInstanceProfileArn")
     private @Nullable Output<String> defaultInstanceProfileArn;
 
     /**
-     * @return The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * @return The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
     public Optional<Output<String>> defaultInstanceProfileArn() {
@@ -213,16 +209,16 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn&#39;t.
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
     @Import(name="defaultSubnetId")
     private @Nullable Output<String> defaultSubnetId;
 
     /**
-     * @return Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn&#39;t.
+     * @return ID of the subnet in which instances will be created by default.
+     * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
     public Optional<Output<String>> defaultSubnetId() {
@@ -230,16 +226,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
     @Import(name="hostnameTheme")
     private @Nullable Output<String> hostnameTheme;
 
     /**
-     * @return Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * @return Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
     public Optional<Output<String>> hostnameTheme() {
@@ -379,6 +373,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     @Import(name="vpcId")
@@ -386,6 +381,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return ID of the VPC that this stack belongs to.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -555,8 +551,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as
-         * described below.
+         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
          * 
          * @return builder
          * 
@@ -567,8 +562,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as
-         * described below.
+         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
          * 
          * @return builder
          * 
@@ -578,8 +572,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as
-         * described below.
+         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
          * 
          * @return builder
          * 
@@ -610,8 +603,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAvailabilityZone Name of the availability zone where instances will be created
-         * by default. This is required unless you set `vpc_id`.
+         * @param defaultAvailabilityZone Name of the availability zone where instances will be created by default.
+         * Cannot be set when `vpc_id` is set.
          * 
          * @return builder
          * 
@@ -622,8 +615,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAvailabilityZone Name of the availability zone where instances will be created
-         * by default. This is required unless you set `vpc_id`.
+         * @param defaultAvailabilityZone Name of the availability zone where instances will be created by default.
+         * Cannot be set when `vpc_id` is set.
          * 
          * @return builder
          * 
@@ -633,8 +626,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultInstanceProfileArn The ARN of an IAM Instance Profile that created instances
-         * will have by default.
+         * @param defaultInstanceProfileArn The ARN of an IAM Instance Profile that created instances will have by default.
          * 
          * @return builder
          * 
@@ -645,8 +637,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultInstanceProfileArn The ARN of an IAM Instance Profile that created instances
-         * will have by default.
+         * @param defaultInstanceProfileArn The ARN of an IAM Instance Profile that created instances will have by default.
          * 
          * @return builder
          * 
@@ -719,8 +710,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSubnetId Id of the subnet in which instances will be created by default. Mandatory
-         * if `vpc_id` is set, and forbidden if it isn&#39;t.
+         * @param defaultSubnetId ID of the subnet in which instances will be created by default.
+         * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
          * 
          * @return builder
          * 
@@ -731,8 +722,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSubnetId Id of the subnet in which instances will be created by default. Mandatory
-         * if `vpc_id` is set, and forbidden if it isn&#39;t.
+         * @param defaultSubnetId ID of the subnet in which instances will be created by default.
+         * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
          * 
          * @return builder
          * 
@@ -742,8 +733,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostnameTheme Keyword representing the naming scheme that will be used for instance hostnames
-         * within this stack.
+         * @param hostnameTheme Keyword representing the naming scheme that will be used for instance hostnames within this stack.
          * 
          * @return builder
          * 
@@ -754,8 +744,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostnameTheme Keyword representing the naming scheme that will be used for instance hostnames
-         * within this stack.
+         * @param hostnameTheme Keyword representing the naming scheme that will be used for instance hostnames within this stack.
          * 
          * @return builder
          * 
@@ -947,6 +936,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId ID of the VPC that this stack belongs to.
+         * Defaults to the region&#39;s default VPC.
          * 
          * @return builder
          * 
@@ -958,6 +948,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId ID of the VPC that this stack belongs to.
+         * Defaults to the region&#39;s default VPC.
          * 
          * @return builder
          * 

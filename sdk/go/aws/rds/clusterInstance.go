@@ -135,11 +135,13 @@ type ClusterInstance struct {
 	// enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
 	// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
+	// The network type of the DB instance.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled pulumi.BoolOutput `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -247,11 +249,13 @@ type clusterInstanceState struct {
 	// enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
 	// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
+	// The network type of the DB instance.
+	NetworkType *string `pulumi:"networkType"`
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port *int `pulumi:"port"`
@@ -325,11 +329,13 @@ type ClusterInstanceState struct {
 	// enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
 	// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
 	MonitoringRoleArn pulumi.StringPtrInput
+	// The network type of the DB instance.
+	NetworkType pulumi.StringPtrInput
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The database port
 	Port pulumi.IntPtrInput
@@ -401,7 +407,7 @@ type clusterInstanceArgs struct {
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
@@ -462,7 +468,7 @@ type ClusterInstanceArgs struct {
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
@@ -674,6 +680,11 @@ func (o ClusterInstanceOutput) MonitoringRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.MonitoringRoleArn }).(pulumi.StringOutput)
 }
 
+// The network type of the DB instance.
+func (o ClusterInstanceOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
+}
+
 // Specifies whether Performance Insights is enabled or not.
 func (o ClusterInstanceOutput) PerformanceInsightsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.PerformanceInsightsEnabled }).(pulumi.BoolOutput)
@@ -684,7 +695,7 @@ func (o ClusterInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringOutput
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringOutput)
 }
 
-// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 func (o ClusterInstanceOutput) PerformanceInsightsRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.IntOutput { return v.PerformanceInsightsRetentionPeriod }).(pulumi.IntOutput)
 }

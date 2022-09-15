@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups.
+        /// A list of security group IDs that will be attached to the user.
         /// </summary>
         public InputList<string> SecurityGroups
         {

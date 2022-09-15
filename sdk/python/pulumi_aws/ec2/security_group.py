@@ -34,6 +34,7 @@ class SecurityGroupArgs:
         :param pulumi.Input[bool] revoke_rules_on_delete: Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -143,6 +144,7 @@ class SecurityGroupArgs:
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         VPC ID.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -178,6 +180,7 @@ class _SecurityGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -329,6 +332,7 @@ class _SecurityGroupState:
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         VPC ID.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -461,6 +465,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] revoke_rules_on_delete: Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         ...
     @overload
@@ -652,6 +657,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: VPC ID.
+               Defaults to the region's default VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -755,6 +761,7 @@ class SecurityGroup(pulumi.CustomResource):
     def vpc_id(self) -> pulumi.Output[str]:
         """
         VPC ID.
+        Defaults to the region's default VPC.
         """
         return pulumi.get(self, "vpc_id")
 

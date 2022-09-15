@@ -30998,6 +30998,634 @@ func (o VpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) VpnConnectio
 	}).(VpnConnectionRouteTypeOutput)
 }
 
+type VpnConnectionTunnel1LogOptions struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions `pulumi:"cloudwatchLogOptions"`
+}
+
+// VpnConnectionTunnel1LogOptionsInput is an input type that accepts VpnConnectionTunnel1LogOptionsArgs and VpnConnectionTunnel1LogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsInput` via:
+//
+//	VpnConnectionTunnel1LogOptionsArgs{...}
+type VpnConnectionTunnel1LogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput
+	ToVpnConnectionTunnel1LogOptionsOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsOutput
+}
+
+type VpnConnectionTunnel1LogOptionsArgs struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput `pulumi:"cloudwatchLogOptions"`
+}
+
+func (VpnConnectionTunnel1LogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsArgs) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsOutput).ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel1LogOptionsPtrInput is an input type that accepts VpnConnectionTunnel1LogOptionsArgs, VpnConnectionTunnel1LogOptionsPtr and VpnConnectionTunnel1LogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel1LogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel1LogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput
+	ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel1LogOptionsPtrType VpnConnectionTunnel1LogOptionsArgs
+
+func VpnConnectionTunnel1LogOptionsPtr(v *VpnConnectionTunnel1LogOptionsArgs) VpnConnectionTunnel1LogOptionsPtrInput {
+	return (*vpnConnectionTunnel1LogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel1LogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel1LogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel1LogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsOutput() VpnConnectionTunnel1LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel1LogOptionsOutput) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptions {
+		return &v
+	}).(VpnConnectionTunnel1LogOptionsPtrOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel1LogOptionsOutput) CloudwatchLogOptions() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) Elem() VpnConnectionTunnel1LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptions) VpnConnectionTunnel1LogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel1LogOptions
+		return ret
+	}).(VpnConnectionTunnel1LogOptionsOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel1LogOptionsPtrOutput) CloudwatchLogOptions() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled *bool `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat *string `pulumi:"logOutputFormat"`
+}
+
+// VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput is an input type that accepts VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs and VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput` via:
+//
+//	VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{...}
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
+}
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput).ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput is an input type that accepts VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs, VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtr and VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput
+	ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs
+
+func VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtr(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput {
+	return (*vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		return &v
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel1LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel1LogOptionsCloudwatchLogOptions
+		return ret
+	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogOutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptions struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions `pulumi:"cloudwatchLogOptions"`
+}
+
+// VpnConnectionTunnel2LogOptionsInput is an input type that accepts VpnConnectionTunnel2LogOptionsArgs and VpnConnectionTunnel2LogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsInput` via:
+//
+//	VpnConnectionTunnel2LogOptionsArgs{...}
+type VpnConnectionTunnel2LogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput
+	ToVpnConnectionTunnel2LogOptionsOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsOutput
+}
+
+type VpnConnectionTunnel2LogOptionsArgs struct {
+	// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+	CloudwatchLogOptions VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput `pulumi:"cloudwatchLogOptions"`
+}
+
+func (VpnConnectionTunnel2LogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsArgs) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsOutput).ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel2LogOptionsPtrInput is an input type that accepts VpnConnectionTunnel2LogOptionsArgs, VpnConnectionTunnel2LogOptionsPtr and VpnConnectionTunnel2LogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel2LogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel2LogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput
+	ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel2LogOptionsPtrType VpnConnectionTunnel2LogOptionsArgs
+
+func VpnConnectionTunnel2LogOptionsPtr(v *VpnConnectionTunnel2LogOptionsArgs) VpnConnectionTunnel2LogOptionsPtrInput {
+	return (*vpnConnectionTunnel2LogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel2LogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel2LogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel2LogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsOutput() VpnConnectionTunnel2LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel2LogOptionsOutput) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptions {
+		return &v
+	}).(VpnConnectionTunnel2LogOptionsPtrOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel2LogOptionsOutput) CloudwatchLogOptions() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) Elem() VpnConnectionTunnel2LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptions) VpnConnectionTunnel2LogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel2LogOptions
+		return ret
+	}).(VpnConnectionTunnel2LogOptionsOutput)
+}
+
+// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+func (o VpnConnectionTunnel2LogOptionsPtrOutput) CloudwatchLogOptions() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogOptions
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled *bool `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat *string `pulumi:"logOutputFormat"`
+}
+
+// VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput is an input type that accepts VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs and VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput` via:
+//
+//	VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{...}
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
+	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
+}
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput).ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx)
+}
+
+// VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput is an input type that accepts VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs, VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtr and VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput values.
+// You can construct a concrete instance of `VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput` via:
+//
+//	        VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput
+	ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput
+}
+
+type vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs
+
+func VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtr(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput {
+	return (*vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType)(v)
+}
+
+func (*vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (i *vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return i.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrType) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		return &v
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnel2LogOptionsCloudwatchLogOptions)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) ToVpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutputWithContext(ctx context.Context) VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnel2LogOptionsCloudwatchLogOptions
+		return ret
+	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
+}
+
+// Enable or disable VPN tunnel logging feature. The default is `false`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogOutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpnConnectionVgwTelemetry struct {
 	// The number of accepted routes.
 	AcceptedRouteCount *int `pulumi:"acceptedRouteCount"`
@@ -53406,6 +54034,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionRequesterPtrInput)(nil)).Elem(), VpcPeeringConnectionRequesterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteTypeInput)(nil)).Elem(), VpnConnectionRouteTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteTypeArrayInput)(nil)).Elem(), VpnConnectionRouteTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrInput)(nil)).Elem(), VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVgwTelemetryInput)(nil)).Elem(), VpnConnectionVgwTelemetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), VpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiBlockDeviceMappingInput)(nil)).Elem(), GetAmiBlockDeviceMappingArgs{})
@@ -54197,6 +54833,14 @@ func init() {
 	pulumi.RegisterOutputType(VpcPeeringConnectionRequesterPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryArrayOutput{})
 	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingOutput{})

@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
  * ```
  *
- *  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+ *  EIPs in EC2-Classic can be imported using their Public IP, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -164,7 +164,7 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      */
     public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
@@ -209,6 +209,7 @@ export class Eip extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      */
     public readonly vpc!: pulumi.Output<boolean>;
 
@@ -304,7 +305,7 @@ export interface EipState {
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      */
     domain?: pulumi.Input<string>;
     /**
@@ -349,6 +350,7 @@ export interface EipState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      */
     vpc?: pulumi.Input<boolean>;
 }
@@ -391,6 +393,7 @@ export interface EipArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      */
     vpc?: pulumi.Input<boolean>;
 }

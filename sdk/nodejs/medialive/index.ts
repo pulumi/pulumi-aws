@@ -13,8 +13,13 @@ export { InputSecurityGroupArgs, InputSecurityGroupState } from "./inputSecurity
 export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
 export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
 
+export { MultiplexArgs, MultiplexState } from "./multiplex";
+export type Multiplex = import("./multiplex").Multiplex;
+export const Multiplex: typeof import("./multiplex").Multiplex = null as any;
+
 utilities.lazyLoad(exports, ["Input"], () => require("./input"));
 utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
+utilities.lazyLoad(exports, ["Multiplex"], () => require("./multiplex"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new Input(name, <any>undefined, { urn })
             case "aws:medialive/inputSecurityGroup:InputSecurityGroup":
                 return new InputSecurityGroup(name, <any>undefined, { urn })
+            case "aws:medialive/multiplex:Multiplex":
+                return new Multiplex(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "medialive/input", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/inputSecurityGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "medialive/multiplex", _module)

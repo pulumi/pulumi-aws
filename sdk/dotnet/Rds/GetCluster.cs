@@ -139,6 +139,7 @@ namespace Pulumi.Aws.Rds
         public readonly string Id;
         public readonly string KmsKeyId;
         public readonly string MasterUsername;
+        public readonly string NetworkType;
         public readonly int Port;
         public readonly string PreferredBackupWindow;
         public readonly string PreferredMaintenanceWindow;
@@ -192,6 +193,8 @@ namespace Pulumi.Aws.Rds
 
             string masterUsername,
 
+            string networkType,
+
             int port,
 
             string preferredBackupWindow,
@@ -229,6 +232,7 @@ namespace Pulumi.Aws.Rds
             Id = id;
             KmsKeyId = kmsKeyId;
             MasterUsername = masterUsername;
+            NetworkType = networkType;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;

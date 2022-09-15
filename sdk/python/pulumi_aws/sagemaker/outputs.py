@@ -536,7 +536,7 @@ class DomainDefaultUserSettings(dict):
         :param str execution_role: The execution role ARN for the user.
         :param 'DomainDefaultUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
-        :param Sequence[str] security_groups: The security groups.
+        :param Sequence[str] security_groups: A list of security group IDs that will be attached to the user.
         :param 'DomainDefaultUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
         :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
@@ -580,7 +580,7 @@ class DomainDefaultUserSettings(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        The security groups.
+        A list of security group IDs that will be attached to the user.
         """
         return pulumi.get(self, "security_groups")
 

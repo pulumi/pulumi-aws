@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
-        /// The security groups.
+        /// A list of security group IDs that will be attached to the user.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>

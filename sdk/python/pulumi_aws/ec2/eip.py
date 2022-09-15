@@ -34,6 +34,7 @@ class EipArgs:
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+               Defaults to `true` unless the region supports EC2-Classic.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -155,6 +156,7 @@ class EipArgs:
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not.
+        Defaults to `true` unless the region supports EC2-Classic.
         """
         return pulumi.get(self, "vpc")
 
@@ -194,7 +196,7 @@ class _EipState:
         :param pulumi.Input[str] carrier_ip: Carrier IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
@@ -206,6 +208,7 @@ class _EipState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+               Defaults to `true` unless the region supports EC2-Classic.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -334,7 +337,7 @@ class _EipState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         """
         return pulumi.get(self, "domain")
 
@@ -467,6 +470,7 @@ class _EipState:
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not.
+        Defaults to `true` unless the region supports EC2-Classic.
         """
         return pulumi.get(self, "vpc")
 
@@ -574,7 +578,7 @@ class Eip(pulumi.CustomResource):
          $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
-         EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -593,6 +597,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+               Defaults to `true` unless the region supports EC2-Classic.
         """
         ...
     @overload
@@ -684,7 +689,7 @@ class Eip(pulumi.CustomResource):
          $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
-         EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -787,7 +792,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] carrier_ip: Carrier IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
@@ -799,6 +804,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+               Defaults to `true` unless the region supports EC2-Classic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -885,7 +891,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         """
         return pulumi.get(self, "domain")
 
@@ -974,6 +980,7 @@ class Eip(pulumi.CustomResource):
     def vpc(self) -> pulumi.Output[bool]:
         """
         Boolean if the EIP is in a VPC or not.
+        Defaults to `true` unless the region supports EC2-Classic.
         """
         return pulumi.get(self, "vpc")
 

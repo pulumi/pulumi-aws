@@ -250,6 +250,8 @@ type VpnConnection struct {
 	Tunnel1InsideCidr pulumi.StringOutput `pulumi:"tunnel1InsideCidr"`
 	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel1InsideIpv6Cidr pulumi.StringOutput `pulumi:"tunnel1InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsOutput `pulumi:"tunnel1LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel1Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -296,6 +298,8 @@ type VpnConnection struct {
 	Tunnel2InsideCidr pulumi.StringOutput `pulumi:"tunnel2InsideCidr"`
 	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel2InsideIpv6Cidr pulumi.StringOutput `pulumi:"tunnel2InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsOutput `pulumi:"tunnel2LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayOutput `pulumi:"tunnel2Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -423,6 +427,8 @@ type vpnConnectionState struct {
 	Tunnel1InsideCidr *string `pulumi:"tunnel1InsideCidr"`
 	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel1InsideIpv6Cidr *string `pulumi:"tunnel1InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel1LogOptions *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel1Phase1DhGroupNumbers []int `pulumi:"tunnel1Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -469,6 +475,8 @@ type vpnConnectionState struct {
 	Tunnel2InsideCidr *string `pulumi:"tunnel2InsideCidr"`
 	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel2InsideIpv6Cidr *string `pulumi:"tunnel2InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel2LogOptions *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel2Phase1DhGroupNumbers []int `pulumi:"tunnel2Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -562,6 +570,8 @@ type VpnConnectionState struct {
 	Tunnel1InsideCidr pulumi.StringPtrInput
 	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel1InsideIpv6Cidr pulumi.StringPtrInput
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsPtrInput
 	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayInput
 	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -608,6 +618,8 @@ type VpnConnectionState struct {
 	Tunnel2InsideCidr pulumi.StringPtrInput
 	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel2InsideIpv6Cidr pulumi.StringPtrInput
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsPtrInput
 	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayInput
 	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -683,6 +695,8 @@ type vpnConnectionArgs struct {
 	Tunnel1InsideCidr *string `pulumi:"tunnel1InsideCidr"`
 	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel1InsideIpv6Cidr *string `pulumi:"tunnel1InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel1LogOptions *VpnConnectionTunnel1LogOptions `pulumi:"tunnel1LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel1Phase1DhGroupNumbers []int `pulumi:"tunnel1Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -719,6 +733,8 @@ type vpnConnectionArgs struct {
 	Tunnel2InsideCidr *string `pulumi:"tunnel2InsideCidr"`
 	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel2InsideIpv6Cidr *string `pulumi:"tunnel2InsideIpv6Cidr"`
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel2LogOptions *VpnConnectionTunnel2LogOptions `pulumi:"tunnel2LogOptions"`
 	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel2Phase1DhGroupNumbers []int `pulumi:"tunnel2Phase1DhGroupNumbers"`
 	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -787,6 +803,8 @@ type VpnConnectionArgs struct {
 	Tunnel1InsideCidr pulumi.StringPtrInput
 	// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel1InsideIpv6Cidr pulumi.StringPtrInput
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel1LogOptions VpnConnectionTunnel1LogOptionsPtrInput
 	// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel1Phase1DhGroupNumbers pulumi.IntArrayInput
 	// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -823,6 +841,8 @@ type VpnConnectionArgs struct {
 	Tunnel2InsideCidr pulumi.StringPtrInput
 	// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 	Tunnel2InsideIpv6Cidr pulumi.StringPtrInput
+	// Options for logging VPN tunnel activity. See Log Options below for more details.
+	Tunnel2LogOptions VpnConnectionTunnel2LogOptionsPtrInput
 	// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 	Tunnel2Phase1DhGroupNumbers pulumi.IntArrayInput
 	// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
@@ -1079,6 +1099,11 @@ func (o VpnConnectionOutput) Tunnel1InsideIpv6Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel1InsideIpv6Cidr }).(pulumi.StringOutput)
 }
 
+// Options for logging VPN tunnel activity. See Log Options below for more details.
+func (o VpnConnectionOutput) Tunnel1LogOptions() VpnConnectionTunnel1LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnectionTunnel1LogOptionsOutput { return v.Tunnel1LogOptions }).(VpnConnectionTunnel1LogOptionsOutput)
+}
+
 // List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
 func (o VpnConnectionOutput) Tunnel1Phase1DhGroupNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.IntArrayOutput { return v.Tunnel1Phase1DhGroupNumbers }).(pulumi.IntArrayOutput)
@@ -1192,6 +1217,11 @@ func (o VpnConnectionOutput) Tunnel2InsideCidr() pulumi.StringOutput {
 // The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
 func (o VpnConnectionOutput) Tunnel2InsideIpv6Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Tunnel2InsideIpv6Cidr }).(pulumi.StringOutput)
+}
+
+// Options for logging VPN tunnel activity. See Log Options below for more details.
+func (o VpnConnectionOutput) Tunnel2LogOptions() VpnConnectionTunnel2LogOptionsOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnectionTunnel2LogOptionsOutput { return v.Tunnel2LogOptions }).(VpnConnectionTunnel2LogOptionsOutput)
 }
 
 // List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.

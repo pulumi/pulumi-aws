@@ -70,16 +70,14 @@ type Stack struct {
 	ConfigurationManagerName pulumi.StringPtrOutput `pulumi:"configurationManagerName"`
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrOutput `pulumi:"configurationManagerVersion"`
-	// When `useCustomCookbooks` is set, provide this sub-object as
-	// described below.
+	// When `useCustomCookbooks` is set, provide this sub-object as described below.
 	CustomCookbooksSources StackCustomCookbooksSourceArrayOutput `pulumi:"customCookbooksSources"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
-	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpcId`.
+	// Name of the availability zone where instances will be created by default.
+	// Cannot be set when `vpcId` is set.
 	DefaultAvailabilityZone pulumi.StringOutput `pulumi:"defaultAvailabilityZone"`
-	// The ARN of an IAM Instance Profile that created instances
-	// will have by default.
+	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn pulumi.StringOutput `pulumi:"defaultInstanceProfileArn"`
 	// Name of OS that will be installed on instances by default.
 	DefaultOs pulumi.StringPtrOutput `pulumi:"defaultOs"`
@@ -87,11 +85,10 @@ type Stack struct {
 	DefaultRootDeviceType pulumi.StringPtrOutput `pulumi:"defaultRootDeviceType"`
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName pulumi.StringPtrOutput `pulumi:"defaultSshKeyName"`
-	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpcId` is set, and forbidden if it isn't.
+	// ID of the subnet in which instances will be created by default.
+	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 	DefaultSubnetId pulumi.StringOutput `pulumi:"defaultSubnetId"`
-	// Keyword representing the naming scheme that will be used for instance hostnames
-	// within this stack.
+	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme pulumi.StringPtrOutput `pulumi:"hostnameTheme"`
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
 	ManageBerkshelf pulumi.BoolPtrOutput `pulumi:"manageBerkshelf"`
@@ -113,6 +110,7 @@ type Stack struct {
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrOutput `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
+	// Defaults to the region's default VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -165,16 +163,14 @@ type stackState struct {
 	ConfigurationManagerName *string `pulumi:"configurationManagerName"`
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion *string `pulumi:"configurationManagerVersion"`
-	// When `useCustomCookbooks` is set, provide this sub-object as
-	// described below.
+	// When `useCustomCookbooks` is set, provide this sub-object as described below.
 	CustomCookbooksSources []StackCustomCookbooksSource `pulumi:"customCookbooksSources"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson *string `pulumi:"customJson"`
-	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpcId`.
+	// Name of the availability zone where instances will be created by default.
+	// Cannot be set when `vpcId` is set.
 	DefaultAvailabilityZone *string `pulumi:"defaultAvailabilityZone"`
-	// The ARN of an IAM Instance Profile that created instances
-	// will have by default.
+	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn *string `pulumi:"defaultInstanceProfileArn"`
 	// Name of OS that will be installed on instances by default.
 	DefaultOs *string `pulumi:"defaultOs"`
@@ -182,11 +178,10 @@ type stackState struct {
 	DefaultRootDeviceType *string `pulumi:"defaultRootDeviceType"`
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName *string `pulumi:"defaultSshKeyName"`
-	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpcId` is set, and forbidden if it isn't.
+	// ID of the subnet in which instances will be created by default.
+	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 	DefaultSubnetId *string `pulumi:"defaultSubnetId"`
-	// Keyword representing the naming scheme that will be used for instance hostnames
-	// within this stack.
+	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme *string `pulumi:"hostnameTheme"`
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
 	ManageBerkshelf *bool `pulumi:"manageBerkshelf"`
@@ -208,6 +203,7 @@ type stackState struct {
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
+	// Defaults to the region's default VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -223,16 +219,14 @@ type StackState struct {
 	ConfigurationManagerName pulumi.StringPtrInput
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrInput
-	// When `useCustomCookbooks` is set, provide this sub-object as
-	// described below.
+	// When `useCustomCookbooks` is set, provide this sub-object as described below.
 	CustomCookbooksSources StackCustomCookbooksSourceArrayInput
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrInput
-	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpcId`.
+	// Name of the availability zone where instances will be created by default.
+	// Cannot be set when `vpcId` is set.
 	DefaultAvailabilityZone pulumi.StringPtrInput
-	// The ARN of an IAM Instance Profile that created instances
-	// will have by default.
+	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn pulumi.StringPtrInput
 	// Name of OS that will be installed on instances by default.
 	DefaultOs pulumi.StringPtrInput
@@ -240,11 +234,10 @@ type StackState struct {
 	DefaultRootDeviceType pulumi.StringPtrInput
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName pulumi.StringPtrInput
-	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpcId` is set, and forbidden if it isn't.
+	// ID of the subnet in which instances will be created by default.
+	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 	DefaultSubnetId pulumi.StringPtrInput
-	// Keyword representing the naming scheme that will be used for instance hostnames
-	// within this stack.
+	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme pulumi.StringPtrInput
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
 	ManageBerkshelf pulumi.BoolPtrInput
@@ -266,6 +259,7 @@ type StackState struct {
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	// ID of the VPC that this stack belongs to.
+	// Defaults to the region's default VPC.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -284,16 +278,14 @@ type stackArgs struct {
 	ConfigurationManagerName *string `pulumi:"configurationManagerName"`
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion *string `pulumi:"configurationManagerVersion"`
-	// When `useCustomCookbooks` is set, provide this sub-object as
-	// described below.
+	// When `useCustomCookbooks` is set, provide this sub-object as described below.
 	CustomCookbooksSources []StackCustomCookbooksSource `pulumi:"customCookbooksSources"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson *string `pulumi:"customJson"`
-	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpcId`.
+	// Name of the availability zone where instances will be created by default.
+	// Cannot be set when `vpcId` is set.
 	DefaultAvailabilityZone *string `pulumi:"defaultAvailabilityZone"`
-	// The ARN of an IAM Instance Profile that created instances
-	// will have by default.
+	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn string `pulumi:"defaultInstanceProfileArn"`
 	// Name of OS that will be installed on instances by default.
 	DefaultOs *string `pulumi:"defaultOs"`
@@ -301,11 +293,10 @@ type stackArgs struct {
 	DefaultRootDeviceType *string `pulumi:"defaultRootDeviceType"`
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName *string `pulumi:"defaultSshKeyName"`
-	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpcId` is set, and forbidden if it isn't.
+	// ID of the subnet in which instances will be created by default.
+	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 	DefaultSubnetId *string `pulumi:"defaultSubnetId"`
-	// Keyword representing the naming scheme that will be used for instance hostnames
-	// within this stack.
+	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme *string `pulumi:"hostnameTheme"`
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
 	ManageBerkshelf *bool `pulumi:"manageBerkshelf"`
@@ -324,6 +315,7 @@ type stackArgs struct {
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups *bool `pulumi:"useOpsworksSecurityGroups"`
 	// ID of the VPC that this stack belongs to.
+	// Defaults to the region's default VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -339,16 +331,14 @@ type StackArgs struct {
 	ConfigurationManagerName pulumi.StringPtrInput
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrInput
-	// When `useCustomCookbooks` is set, provide this sub-object as
-	// described below.
+	// When `useCustomCookbooks` is set, provide this sub-object as described below.
 	CustomCookbooksSources StackCustomCookbooksSourceArrayInput
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrInput
-	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpcId`.
+	// Name of the availability zone where instances will be created by default.
+	// Cannot be set when `vpcId` is set.
 	DefaultAvailabilityZone pulumi.StringPtrInput
-	// The ARN of an IAM Instance Profile that created instances
-	// will have by default.
+	// The ARN of an IAM Instance Profile that created instances will have by default.
 	DefaultInstanceProfileArn pulumi.StringInput
 	// Name of OS that will be installed on instances by default.
 	DefaultOs pulumi.StringPtrInput
@@ -356,11 +346,10 @@ type StackArgs struct {
 	DefaultRootDeviceType pulumi.StringPtrInput
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName pulumi.StringPtrInput
-	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpcId` is set, and forbidden if it isn't.
+	// ID of the subnet in which instances will be created by default.
+	// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 	DefaultSubnetId pulumi.StringPtrInput
-	// Keyword representing the naming scheme that will be used for instance hostnames
-	// within this stack.
+	// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 	HostnameTheme pulumi.StringPtrInput
 	// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
 	ManageBerkshelf pulumi.BoolPtrInput
@@ -379,6 +368,7 @@ type StackArgs struct {
 	// security groups apply to created instances.
 	UseOpsworksSecurityGroups pulumi.BoolPtrInput
 	// ID of the VPC that this stack belongs to.
+	// Defaults to the region's default VPC.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -498,8 +488,7 @@ func (o StackOutput) ConfigurationManagerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.ConfigurationManagerVersion }).(pulumi.StringPtrOutput)
 }
 
-// When `useCustomCookbooks` is set, provide this sub-object as
-// described below.
+// When `useCustomCookbooks` is set, provide this sub-object as described below.
 func (o StackOutput) CustomCookbooksSources() StackCustomCookbooksSourceArrayOutput {
 	return o.ApplyT(func(v *Stack) StackCustomCookbooksSourceArrayOutput { return v.CustomCookbooksSources }).(StackCustomCookbooksSourceArrayOutput)
 }
@@ -509,14 +498,13 @@ func (o StackOutput) CustomJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.CustomJson }).(pulumi.StringPtrOutput)
 }
 
-// Name of the availability zone where instances will be created
-// by default. This is required unless you set `vpcId`.
+// Name of the availability zone where instances will be created by default.
+// Cannot be set when `vpcId` is set.
 func (o StackOutput) DefaultAvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultAvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The ARN of an IAM Instance Profile that created instances
-// will have by default.
+// The ARN of an IAM Instance Profile that created instances will have by default.
 func (o StackOutput) DefaultInstanceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultInstanceProfileArn }).(pulumi.StringOutput)
 }
@@ -536,14 +524,13 @@ func (o StackOutput) DefaultSshKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DefaultSshKeyName }).(pulumi.StringPtrOutput)
 }
 
-// Id of the subnet in which instances will be created by default. Mandatory
-// if `vpcId` is set, and forbidden if it isn't.
+// ID of the subnet in which instances will be created by default.
+// Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
 func (o StackOutput) DefaultSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DefaultSubnetId }).(pulumi.StringOutput)
 }
 
-// Keyword representing the naming scheme that will be used for instance hostnames
-// within this stack.
+// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
 func (o StackOutput) HostnameTheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.HostnameTheme }).(pulumi.StringPtrOutput)
 }
@@ -595,6 +582,7 @@ func (o StackOutput) UseOpsworksSecurityGroups() pulumi.BoolPtrOutput {
 }
 
 // ID of the VPC that this stack belongs to.
+// Defaults to the region's default VPC.
 func (o StackOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -321,6 +321,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel1InsideIpv6Cidr { get; private set; } = null!;
 
         /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Output("tunnel1LogOptions")]
+        public Output<Outputs.VpnConnectionTunnel1LogOptions> Tunnel1LogOptions { get; private set; } = null!;
+
+        /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
         [Output("tunnel1Phase1DhGroupNumbers")]
@@ -457,6 +463,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("tunnel2InsideIpv6Cidr")]
         public Output<string> Tunnel2InsideIpv6Cidr { get; private set; } = null!;
+
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Output("tunnel2LogOptions")]
+        public Output<Outputs.VpnConnectionTunnel2LogOptions> Tunnel2LogOptions { get; private set; } = null!;
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
@@ -720,6 +732,12 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel1InsideIpv6Cidr")]
         public Input<string>? Tunnel1InsideIpv6Cidr { get; set; }
 
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel1LogOptions")]
+        public Input<Inputs.VpnConnectionTunnel1LogOptionsArgs>? Tunnel1LogOptions { get; set; }
+
         [Input("tunnel1Phase1DhGroupNumbers")]
         private InputList<int>? _tunnel1Phase1DhGroupNumbers;
 
@@ -869,6 +887,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2InsideIpv6Cidr")]
         public Input<string>? Tunnel2InsideIpv6Cidr { get; set; }
+
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel2LogOptions")]
+        public Input<Inputs.VpnConnectionTunnel2LogOptionsArgs>? Tunnel2LogOptions { get; set; }
 
         [Input("tunnel2Phase1DhGroupNumbers")]
         private InputList<int>? _tunnel2Phase1DhGroupNumbers;
@@ -1196,6 +1220,12 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel1InsideIpv6Cidr")]
         public Input<string>? Tunnel1InsideIpv6Cidr { get; set; }
 
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel1LogOptions")]
+        public Input<Inputs.VpnConnectionTunnel1LogOptionsGetArgs>? Tunnel1LogOptions { get; set; }
+
         [Input("tunnel1Phase1DhGroupNumbers")]
         private InputList<int>? _tunnel1Phase1DhGroupNumbers;
 
@@ -1375,6 +1405,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2InsideIpv6Cidr")]
         public Input<string>? Tunnel2InsideIpv6Cidr { get; set; }
+
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel2LogOptions")]
+        public Input<Inputs.VpnConnectionTunnel2LogOptionsGetArgs>? Tunnel2LogOptions { get; set; }
 
         [Input("tunnel2Phase1DhGroupNumbers")]
         private InputList<int>? _tunnel2Phase1DhGroupNumbers;

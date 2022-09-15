@@ -669,6 +669,200 @@ func (o InputVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type MultiplexMultiplexSettings struct {
+	// Maximum video buffer delay.
+	MaximumVideoBufferDelayMilliseconds *int `pulumi:"maximumVideoBufferDelayMilliseconds"`
+	// Transport stream bit rate.
+	TransportStreamBitrate int `pulumi:"transportStreamBitrate"`
+	// Unique ID for each multiplex.
+	TransportStreamId int `pulumi:"transportStreamId"`
+	// Transport stream reserved bit rate.
+	TransportStreamReservedBitrate *int `pulumi:"transportStreamReservedBitrate"`
+}
+
+// MultiplexMultiplexSettingsInput is an input type that accepts MultiplexMultiplexSettingsArgs and MultiplexMultiplexSettingsOutput values.
+// You can construct a concrete instance of `MultiplexMultiplexSettingsInput` via:
+//
+//	MultiplexMultiplexSettingsArgs{...}
+type MultiplexMultiplexSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexMultiplexSettingsOutput() MultiplexMultiplexSettingsOutput
+	ToMultiplexMultiplexSettingsOutputWithContext(context.Context) MultiplexMultiplexSettingsOutput
+}
+
+type MultiplexMultiplexSettingsArgs struct {
+	// Maximum video buffer delay.
+	MaximumVideoBufferDelayMilliseconds pulumi.IntPtrInput `pulumi:"maximumVideoBufferDelayMilliseconds"`
+	// Transport stream bit rate.
+	TransportStreamBitrate pulumi.IntInput `pulumi:"transportStreamBitrate"`
+	// Unique ID for each multiplex.
+	TransportStreamId pulumi.IntInput `pulumi:"transportStreamId"`
+	// Transport stream reserved bit rate.
+	TransportStreamReservedBitrate pulumi.IntPtrInput `pulumi:"transportStreamReservedBitrate"`
+}
+
+func (MultiplexMultiplexSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexMultiplexSettings)(nil)).Elem()
+}
+
+func (i MultiplexMultiplexSettingsArgs) ToMultiplexMultiplexSettingsOutput() MultiplexMultiplexSettingsOutput {
+	return i.ToMultiplexMultiplexSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexMultiplexSettingsArgs) ToMultiplexMultiplexSettingsOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexMultiplexSettingsOutput)
+}
+
+func (i MultiplexMultiplexSettingsArgs) ToMultiplexMultiplexSettingsPtrOutput() MultiplexMultiplexSettingsPtrOutput {
+	return i.ToMultiplexMultiplexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexMultiplexSettingsArgs) ToMultiplexMultiplexSettingsPtrOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexMultiplexSettingsOutput).ToMultiplexMultiplexSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexMultiplexSettingsPtrInput is an input type that accepts MultiplexMultiplexSettingsArgs, MultiplexMultiplexSettingsPtr and MultiplexMultiplexSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexMultiplexSettingsPtrInput` via:
+//
+//	        MultiplexMultiplexSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexMultiplexSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexMultiplexSettingsPtrOutput() MultiplexMultiplexSettingsPtrOutput
+	ToMultiplexMultiplexSettingsPtrOutputWithContext(context.Context) MultiplexMultiplexSettingsPtrOutput
+}
+
+type multiplexMultiplexSettingsPtrType MultiplexMultiplexSettingsArgs
+
+func MultiplexMultiplexSettingsPtr(v *MultiplexMultiplexSettingsArgs) MultiplexMultiplexSettingsPtrInput {
+	return (*multiplexMultiplexSettingsPtrType)(v)
+}
+
+func (*multiplexMultiplexSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexMultiplexSettings)(nil)).Elem()
+}
+
+func (i *multiplexMultiplexSettingsPtrType) ToMultiplexMultiplexSettingsPtrOutput() MultiplexMultiplexSettingsPtrOutput {
+	return i.ToMultiplexMultiplexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexMultiplexSettingsPtrType) ToMultiplexMultiplexSettingsPtrOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexMultiplexSettingsPtrOutput)
+}
+
+type MultiplexMultiplexSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexMultiplexSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexMultiplexSettings)(nil)).Elem()
+}
+
+func (o MultiplexMultiplexSettingsOutput) ToMultiplexMultiplexSettingsOutput() MultiplexMultiplexSettingsOutput {
+	return o
+}
+
+func (o MultiplexMultiplexSettingsOutput) ToMultiplexMultiplexSettingsOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsOutput {
+	return o
+}
+
+func (o MultiplexMultiplexSettingsOutput) ToMultiplexMultiplexSettingsPtrOutput() MultiplexMultiplexSettingsPtrOutput {
+	return o.ToMultiplexMultiplexSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexMultiplexSettingsOutput) ToMultiplexMultiplexSettingsPtrOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexMultiplexSettings) *MultiplexMultiplexSettings {
+		return &v
+	}).(MultiplexMultiplexSettingsPtrOutput)
+}
+
+// Maximum video buffer delay.
+func (o MultiplexMultiplexSettingsOutput) MaximumVideoBufferDelayMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexMultiplexSettings) *int { return v.MaximumVideoBufferDelayMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// Transport stream bit rate.
+func (o MultiplexMultiplexSettingsOutput) TransportStreamBitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v MultiplexMultiplexSettings) int { return v.TransportStreamBitrate }).(pulumi.IntOutput)
+}
+
+// Unique ID for each multiplex.
+func (o MultiplexMultiplexSettingsOutput) TransportStreamId() pulumi.IntOutput {
+	return o.ApplyT(func(v MultiplexMultiplexSettings) int { return v.TransportStreamId }).(pulumi.IntOutput)
+}
+
+// Transport stream reserved bit rate.
+func (o MultiplexMultiplexSettingsOutput) TransportStreamReservedBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexMultiplexSettings) *int { return v.TransportStreamReservedBitrate }).(pulumi.IntPtrOutput)
+}
+
+type MultiplexMultiplexSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexMultiplexSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexMultiplexSettings)(nil)).Elem()
+}
+
+func (o MultiplexMultiplexSettingsPtrOutput) ToMultiplexMultiplexSettingsPtrOutput() MultiplexMultiplexSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexMultiplexSettingsPtrOutput) ToMultiplexMultiplexSettingsPtrOutputWithContext(ctx context.Context) MultiplexMultiplexSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexMultiplexSettingsPtrOutput) Elem() MultiplexMultiplexSettingsOutput {
+	return o.ApplyT(func(v *MultiplexMultiplexSettings) MultiplexMultiplexSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexMultiplexSettings
+		return ret
+	}).(MultiplexMultiplexSettingsOutput)
+}
+
+// Maximum video buffer delay.
+func (o MultiplexMultiplexSettingsPtrOutput) MaximumVideoBufferDelayMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexMultiplexSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumVideoBufferDelayMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Transport stream bit rate.
+func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexMultiplexSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransportStreamBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Unique ID for each multiplex.
+func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexMultiplexSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransportStreamId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Transport stream reserved bit rate.
+func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamReservedBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexMultiplexSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransportStreamReservedBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationInput)(nil)).Elem(), InputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationArrayInput)(nil)).Elem(), InputDestinationArray{})
@@ -682,6 +876,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputSourceArrayInput)(nil)).Elem(), InputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcInput)(nil)).Elem(), InputVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcPtrInput)(nil)).Elem(), InputVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsPtrInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
 	pulumi.RegisterOutputType(InputDestinationOutput{})
 	pulumi.RegisterOutputType(InputDestinationArrayOutput{})
 	pulumi.RegisterOutputType(InputInputDeviceOutput{})
@@ -694,4 +890,6 @@ func init() {
 	pulumi.RegisterOutputType(InputSourceArrayOutput{})
 	pulumi.RegisterOutputType(InputVpcOutput{})
 	pulumi.RegisterOutputType(InputVpcPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexMultiplexSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexMultiplexSettingsPtrOutput{})
 }

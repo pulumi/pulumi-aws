@@ -346,6 +346,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * VPC ID.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     @Export(name="vpcId", type=String.class, parameters={})
@@ -353,6 +354,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return VPC ID.
+     * Defaults to the region&#39;s default VPC.
      * 
      */
     public Output<String> vpcId() {

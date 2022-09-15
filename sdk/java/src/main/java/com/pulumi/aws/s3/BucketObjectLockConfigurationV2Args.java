@@ -65,15 +65,15 @@ public final class BucketObjectLockConfigurationV2Args extends com.pulumi.resour
      * Configuration block for specifying the Object Lock rule for the specified object detailed below.
      * 
      */
-    @Import(name="rule", required=true)
-    private Output<BucketObjectLockConfigurationV2RuleArgs> rule;
+    @Import(name="rule")
+    private @Nullable Output<BucketObjectLockConfigurationV2RuleArgs> rule;
 
     /**
      * @return Configuration block for specifying the Object Lock rule for the specified object detailed below.
      * 
      */
-    public Output<BucketObjectLockConfigurationV2RuleArgs> rule() {
-        return this.rule;
+    public Optional<Output<BucketObjectLockConfigurationV2RuleArgs>> rule() {
+        return Optional.ofNullable(this.rule);
     }
 
     /**
@@ -190,7 +190,7 @@ public final class BucketObjectLockConfigurationV2Args extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder rule(Output<BucketObjectLockConfigurationV2RuleArgs> rule) {
+        public Builder rule(@Nullable Output<BucketObjectLockConfigurationV2RuleArgs> rule) {
             $.rule = rule;
             return this;
         }
@@ -230,7 +230,6 @@ public final class BucketObjectLockConfigurationV2Args extends com.pulumi.resour
 
         public BucketObjectLockConfigurationV2Args build() {
             $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.rule = Objects.requireNonNull($.rule, "expected parameter 'rule' to be non-null");
             return $;
         }
     }

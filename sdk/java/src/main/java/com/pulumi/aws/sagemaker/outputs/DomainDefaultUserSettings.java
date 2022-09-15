@@ -32,7 +32,7 @@ public final class DomainDefaultUserSettings {
      */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
     /**
-     * @return The security groups.
+     * @return A list of security group IDs that will be attached to the user.
      * 
      */
     private @Nullable List<String> securityGroups;
@@ -70,7 +70,7 @@ public final class DomainDefaultUserSettings {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
     /**
-     * @return The security groups.
+     * @return A list of security group IDs that will be attached to the user.
      * 
      */
     public List<String> securityGroups() {

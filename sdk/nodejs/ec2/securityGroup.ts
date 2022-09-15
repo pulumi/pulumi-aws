@@ -180,6 +180,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -272,6 +273,7 @@ export interface SecurityGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -310,6 +312,7 @@ export interface SecurityGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }

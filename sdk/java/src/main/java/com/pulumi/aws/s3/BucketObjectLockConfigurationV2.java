@@ -218,14 +218,14 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="rule", type=BucketObjectLockConfigurationV2Rule.class, parameters={})
-    private Output<BucketObjectLockConfigurationV2Rule> rule;
+    private Output</* @Nullable */ BucketObjectLockConfigurationV2Rule> rule;
 
     /**
      * @return Configuration block for specifying the Object Lock rule for the specified object detailed below.
      * 
      */
-    public Output<BucketObjectLockConfigurationV2Rule> rule() {
-        return this.rule;
+    public Output<Optional<BucketObjectLockConfigurationV2Rule>> rule() {
+        return Codegen.optional(this.rule);
     }
     /**
      * A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.

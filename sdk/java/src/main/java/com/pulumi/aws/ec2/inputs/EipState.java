@@ -123,14 +123,14 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+     * @return Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      * 
      */
     public Optional<Output<String>> domain() {
@@ -289,6 +289,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     @Import(name="vpc")
@@ -296,6 +297,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Boolean if the EIP is in a VPC or not.
+     * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
     public Optional<Output<Boolean>> vpc() {
@@ -492,7 +494,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+         * @param domain Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
          * 
          * @return builder
          * 
@@ -503,7 +505,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+         * @param domain Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
          * 
          * @return builder
          * 
@@ -724,6 +726,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpc Boolean if the EIP is in a VPC or not.
+         * Defaults to `true` unless the region supports EC2-Classic.
          * 
          * @return builder
          * 
@@ -735,6 +738,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpc Boolean if the EIP is in a VPC or not.
+         * Defaults to `true` unless the region supports EC2-Classic.
          * 
          * @return builder
          * 

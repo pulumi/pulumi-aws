@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .input import *
 from .input_security_group import *
+from .multiplex import *
 from ._inputs import *
 from . import outputs

@@ -70,6 +70,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     public readonly engine!: pulumi.Output<string>;
     public readonly engineVersion!: pulumi.Output<string>;
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */
@@ -113,6 +114,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
@@ -133,6 +135,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["globalClusterMembers"] = undefined /*out*/;
             resourceInputs["globalClusterResourceId"] = undefined /*out*/;
         }
@@ -159,6 +162,7 @@ export interface GlobalClusterState {
     deletionProtection?: pulumi.Input<boolean>;
     engine?: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
+    engineVersionActual?: pulumi.Input<string>;
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `sourceDbClusterIdentifier`.
      */

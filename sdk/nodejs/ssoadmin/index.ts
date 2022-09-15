@@ -9,6 +9,10 @@ export { AccountAssignmentArgs, AccountAssignmentState } from "./accountAssignme
 export type AccountAssignment = import("./accountAssignment").AccountAssignment;
 export const AccountAssignment: typeof import("./accountAssignment").AccountAssignment = null as any;
 
+export { CustomerManagedPolicyAttachmentArgs, CustomerManagedPolicyAttachmentState } from "./customerManagedPolicyAttachment";
+export type CustomerManagedPolicyAttachment = import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment;
+export const CustomerManagedPolicyAttachment: typeof import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment = null as any;
+
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
 
@@ -29,6 +33,7 @@ export type PermissionSetInlinePolicy = import("./permissionSetInlinePolicy").Pe
 export const PermissionSetInlinePolicy: typeof import("./permissionSetInlinePolicy").PermissionSetInlinePolicy = null as any;
 
 utilities.lazyLoad(exports, ["AccountAssignment"], () => require("./accountAssignment"));
+utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
 utilities.lazyLoad(exports, ["getInstances"], () => require("./getInstances"));
 utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
 utilities.lazyLoad(exports, ["ManagedPolicyAttachment"], () => require("./managedPolicyAttachment"));
@@ -41,6 +46,8 @@ const _module = {
         switch (type) {
             case "aws:ssoadmin/accountAssignment:AccountAssignment":
                 return new AccountAssignment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
+                return new CustomerManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
                 return new ManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionSet:PermissionSet":
@@ -53,6 +60,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)

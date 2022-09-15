@@ -77,6 +77,7 @@ type LookupClusterResult struct {
 	Id                          string            `pulumi:"id"`
 	KmsKeyId                    string            `pulumi:"kmsKeyId"`
 	MasterUsername              string            `pulumi:"masterUsername"`
+	NetworkType                 string            `pulumi:"networkType"`
 	Port                        int               `pulumi:"port"`
 	PreferredBackupWindow       string            `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  string            `pulumi:"preferredMaintenanceWindow"`
@@ -209,6 +210,10 @@ func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {

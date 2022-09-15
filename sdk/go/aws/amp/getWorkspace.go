@@ -13,6 +13,31 @@ import (
 // Provides an Amazon Managed Prometheus workspace data source.
 //
 // ## Example Usage
+// ### Basic configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amp.LookupWorkspace(ctx, &amp.LookupWorkspaceArgs{
+//				WorkspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("aws:amp/getWorkspace:getWorkspace", args, &rv, opts...)

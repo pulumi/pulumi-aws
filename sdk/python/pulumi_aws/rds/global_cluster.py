@@ -148,6 +148,7 @@ class _GlobalClusterState:
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 engine_version_actual: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
@@ -176,6 +177,8 @@ class _GlobalClusterState:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if engine_version_actual is not None:
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if global_cluster_identifier is not None:
@@ -242,6 +245,15 @@ class _GlobalClusterState:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "engine_version_actual")
+
+    @engine_version_actual.setter
+    def engine_version_actual(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version_actual", value)
 
     @property
     @pulumi.getter(name="forceDestroy")
@@ -430,6 +442,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["arn"] = None
+            __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["global_cluster_members"] = None
             __props__.__dict__["global_cluster_resource_id"] = None
         super(GlobalCluster, __self__).__init__(
@@ -447,6 +460,7 @@ class GlobalCluster(pulumi.CustomResource):
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
+            engine_version_actual: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
             global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]]] = None,
@@ -479,6 +493,7 @@ class GlobalCluster(pulumi.CustomResource):
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
         __props__.__dict__["global_cluster_members"] = global_cluster_members
@@ -520,6 +535,11 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter(name="forceDestroy")

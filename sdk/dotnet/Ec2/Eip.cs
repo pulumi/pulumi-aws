@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Ec2
     ///  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
     /// ```
     /// 
-    ///  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
+    ///  EIPs in EC2-Classic can be imported using their Public IP, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -272,6 +272,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
+        /// Defaults to `true` unless the region supports EC2-Classic.
         /// </summary>
         [Output("vpc")]
         public Output<bool> Vpc { get; private set; } = null!;
@@ -378,6 +379,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
+        /// Defaults to `true` unless the region supports EC2-Classic.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }
@@ -433,7 +435,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2 Classic (`standard`).
+        /// Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -512,6 +514,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
+        /// Defaults to `true` unless the region supports EC2-Classic.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }

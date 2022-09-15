@@ -90,8 +90,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly configurationManagerVersion!: pulumi.Output<string | undefined>;
     /**
-     * When `useCustomCookbooks` is set, provide this sub-object as
-     * described below.
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
     public readonly customCookbooksSources!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource[]>;
     /**
@@ -99,13 +98,12 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly customJson!: pulumi.Output<string | undefined>;
     /**
-     * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpcId`.
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
      */
     public readonly defaultAvailabilityZone!: pulumi.Output<string>;
     /**
-     * The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * The ARN of an IAM Instance Profile that created instances will have by default.
      */
     public readonly defaultInstanceProfileArn!: pulumi.Output<string>;
     /**
@@ -121,13 +119,12 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly defaultSshKeyName!: pulumi.Output<string | undefined>;
     /**
-     * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpcId` is set, and forbidden if it isn't.
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
      */
     public readonly defaultSubnetId!: pulumi.Output<string>;
     /**
-     * Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      */
     public readonly hostnameTheme!: pulumi.Output<string | undefined>;
     /**
@@ -167,6 +164,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -276,8 +274,7 @@ export interface StackState {
      */
     configurationManagerVersion?: pulumi.Input<string>;
     /**
-     * When `useCustomCookbooks` is set, provide this sub-object as
-     * described below.
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
     customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
     /**
@@ -285,13 +282,12 @@ export interface StackState {
      */
     customJson?: pulumi.Input<string>;
     /**
-     * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpcId`.
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
      */
     defaultAvailabilityZone?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * The ARN of an IAM Instance Profile that created instances will have by default.
      */
     defaultInstanceProfileArn?: pulumi.Input<string>;
     /**
@@ -307,13 +303,12 @@ export interface StackState {
      */
     defaultSshKeyName?: pulumi.Input<string>;
     /**
-     * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpcId` is set, and forbidden if it isn't.
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
      */
     defaultSubnetId?: pulumi.Input<string>;
     /**
-     * Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      */
     hostnameTheme?: pulumi.Input<string>;
     /**
@@ -353,6 +348,7 @@ export interface StackState {
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
      * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -382,8 +378,7 @@ export interface StackArgs {
      */
     configurationManagerVersion?: pulumi.Input<string>;
     /**
-     * When `useCustomCookbooks` is set, provide this sub-object as
-     * described below.
+     * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
     customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
     /**
@@ -391,13 +386,12 @@ export interface StackArgs {
      */
     customJson?: pulumi.Input<string>;
     /**
-     * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpcId`.
+     * Name of the availability zone where instances will be created by default.
+     * Cannot be set when `vpcId` is set.
      */
     defaultAvailabilityZone?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM Instance Profile that created instances
-     * will have by default.
+     * The ARN of an IAM Instance Profile that created instances will have by default.
      */
     defaultInstanceProfileArn: pulumi.Input<string>;
     /**
@@ -413,13 +407,12 @@ export interface StackArgs {
      */
     defaultSshKeyName?: pulumi.Input<string>;
     /**
-     * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpcId` is set, and forbidden if it isn't.
+     * ID of the subnet in which instances will be created by default.
+     * Required if `vpcId` is set to a VPC other than the default VPC, and forbidden if it isn't.
      */
     defaultSubnetId?: pulumi.Input<string>;
     /**
-     * Keyword representing the naming scheme that will be used for instance hostnames
-     * within this stack.
+     * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      */
     hostnameTheme?: pulumi.Input<string>;
     /**
@@ -454,6 +447,7 @@ export interface StackArgs {
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
      * ID of the VPC that this stack belongs to.
+     * Defaults to the region's default VPC.
      */
     vpcId?: pulumi.Input<string>;
 }

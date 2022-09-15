@@ -16,6 +16,7 @@ __all__ = [
     'InputSecurityGroupWhitelistRuleArgs',
     'InputSourceArgs',
     'InputVpcArgs',
+    'MultiplexMultiplexSettingsArgs',
 ]
 
 @pulumi.input_type
@@ -194,5 +195,74 @@ class InputVpcArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+
+@pulumi.input_type
+class MultiplexMultiplexSettingsArgs:
+    def __init__(__self__, *,
+                 transport_stream_bitrate: pulumi.Input[int],
+                 transport_stream_id: pulumi.Input[int],
+                 maximum_video_buffer_delay_milliseconds: Optional[pulumi.Input[int]] = None,
+                 transport_stream_reserved_bitrate: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] transport_stream_bitrate: Transport stream bit rate.
+        :param pulumi.Input[int] transport_stream_id: Unique ID for each multiplex.
+        :param pulumi.Input[int] maximum_video_buffer_delay_milliseconds: Maximum video buffer delay.
+        :param pulumi.Input[int] transport_stream_reserved_bitrate: Transport stream reserved bit rate.
+        """
+        pulumi.set(__self__, "transport_stream_bitrate", transport_stream_bitrate)
+        pulumi.set(__self__, "transport_stream_id", transport_stream_id)
+        if maximum_video_buffer_delay_milliseconds is not None:
+            pulumi.set(__self__, "maximum_video_buffer_delay_milliseconds", maximum_video_buffer_delay_milliseconds)
+        if transport_stream_reserved_bitrate is not None:
+            pulumi.set(__self__, "transport_stream_reserved_bitrate", transport_stream_reserved_bitrate)
+
+    @property
+    @pulumi.getter(name="transportStreamBitrate")
+    def transport_stream_bitrate(self) -> pulumi.Input[int]:
+        """
+        Transport stream bit rate.
+        """
+        return pulumi.get(self, "transport_stream_bitrate")
+
+    @transport_stream_bitrate.setter
+    def transport_stream_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "transport_stream_bitrate", value)
+
+    @property
+    @pulumi.getter(name="transportStreamId")
+    def transport_stream_id(self) -> pulumi.Input[int]:
+        """
+        Unique ID for each multiplex.
+        """
+        return pulumi.get(self, "transport_stream_id")
+
+    @transport_stream_id.setter
+    def transport_stream_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "transport_stream_id", value)
+
+    @property
+    @pulumi.getter(name="maximumVideoBufferDelayMilliseconds")
+    def maximum_video_buffer_delay_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum video buffer delay.
+        """
+        return pulumi.get(self, "maximum_video_buffer_delay_milliseconds")
+
+    @maximum_video_buffer_delay_milliseconds.setter
+    def maximum_video_buffer_delay_milliseconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_video_buffer_delay_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="transportStreamReservedBitrate")
+    def transport_stream_reserved_bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Transport stream reserved bit rate.
+        """
+        return pulumi.get(self, "transport_stream_reserved_bitrate")
+
+    @transport_stream_reserved_bitrate.setter
+    def transport_stream_reserved_bitrate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "transport_stream_reserved_bitrate", value)
 
 

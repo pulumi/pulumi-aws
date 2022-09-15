@@ -218,6 +218,10 @@ __all__ = [
     'VpcPeeringConnectionAccepterRequester',
     'VpcPeeringConnectionRequester',
     'VpnConnectionRoute',
+    'VpnConnectionTunnel1LogOptions',
+    'VpnConnectionTunnel1LogOptionsCloudwatchLogOptions',
+    'VpnConnectionTunnel2LogOptions',
+    'VpnConnectionTunnel2LogOptionsCloudwatchLogOptions',
     'VpnConnectionVgwTelemetry',
     'GetAmiBlockDeviceMappingResult',
     'GetAmiFilterResult',
@@ -14241,6 +14245,206 @@ class VpnConnectionRoute(dict):
         The current state of the static route.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class VpnConnectionTunnel1LogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogOptions":
+            suggest = "cloudwatch_log_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionTunnel1LogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionTunnel1LogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionTunnel1LogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_log_options: Optional['outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions'] = None):
+        """
+        :param 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+        if cloudwatch_log_options is not None:
+            pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogOptions")
+    def cloudwatch_log_options(self) -> Optional['outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions']:
+        """
+        Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+        return pulumi.get(self, "cloudwatch_log_options")
+
+
+@pulumi.output_type
+class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logEnabled":
+            suggest = "log_enabled"
+        elif key == "logGroupArn":
+            suggest = "log_group_arn"
+        elif key == "logOutputFormat":
+            suggest = "log_output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionTunnel1LogOptionsCloudwatchLogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionTunnel1LogOptionsCloudwatchLogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionTunnel1LogOptionsCloudwatchLogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_enabled: Optional[bool] = None,
+                 log_group_arn: Optional[str] = None,
+                 log_output_format: Optional[str] = None):
+        """
+        :param bool log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
+        :param str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        :param str log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+        if log_enabled is not None:
+            pulumi.set(__self__, "log_enabled", log_enabled)
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+        if log_output_format is not None:
+            pulumi.set(__self__, "log_output_format", log_output_format)
+
+    @property
+    @pulumi.getter(name="logEnabled")
+    def log_enabled(self) -> Optional[bool]:
+        """
+        Enable or disable VPN tunnel logging feature. The default is `false`.
+        """
+        return pulumi.get(self, "log_enabled")
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @property
+    @pulumi.getter(name="logOutputFormat")
+    def log_output_format(self) -> Optional[str]:
+        """
+        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+        return pulumi.get(self, "log_output_format")
+
+
+@pulumi.output_type
+class VpnConnectionTunnel2LogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogOptions":
+            suggest = "cloudwatch_log_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionTunnel2LogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionTunnel2LogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionTunnel2LogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_log_options: Optional['outputs.VpnConnectionTunnel2LogOptionsCloudwatchLogOptions'] = None):
+        """
+        :param 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+        if cloudwatch_log_options is not None:
+            pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogOptions")
+    def cloudwatch_log_options(self) -> Optional['outputs.VpnConnectionTunnel2LogOptionsCloudwatchLogOptions']:
+        """
+        Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+        return pulumi.get(self, "cloudwatch_log_options")
+
+
+@pulumi.output_type
+class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logEnabled":
+            suggest = "log_enabled"
+        elif key == "logGroupArn":
+            suggest = "log_group_arn"
+        elif key == "logOutputFormat":
+            suggest = "log_output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionTunnel2LogOptionsCloudwatchLogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_enabled: Optional[bool] = None,
+                 log_group_arn: Optional[str] = None,
+                 log_output_format: Optional[str] = None):
+        """
+        :param bool log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
+        :param str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        :param str log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+        if log_enabled is not None:
+            pulumi.set(__self__, "log_enabled", log_enabled)
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+        if log_output_format is not None:
+            pulumi.set(__self__, "log_output_format", log_output_format)
+
+    @property
+    @pulumi.getter(name="logEnabled")
+    def log_enabled(self) -> Optional[bool]:
+        """
+        Enable or disable VPN tunnel logging feature. The default is `false`.
+        """
+        return pulumi.get(self, "log_enabled")
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @property
+    @pulumi.getter(name="logOutputFormat")
+    def log_output_format(self) -> Optional[str]:
+        """
+        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+        return pulumi.get(self, "log_output_format")
 
 
 @pulumi.output_type

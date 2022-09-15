@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.AmpWorkspace({
+ * const example = pulumi.output(aws.amp.getWorkspace({
  *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
  * }));
  * ```

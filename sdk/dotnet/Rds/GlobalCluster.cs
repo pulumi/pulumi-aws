@@ -57,6 +57,9 @@ namespace Pulumi.Aws.Rds
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
+        [Output("engineVersionActual")]
+        public Output<string> EngineVersionActual { get; private set; } = null!;
+
         /// <summary>
         /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         /// </summary>
@@ -212,6 +215,9 @@ namespace Pulumi.Aws.Rds
 
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        [Input("engineVersionActual")]
+        public Input<string>? EngineVersionActual { get; set; }
 
         /// <summary>
         /// Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.

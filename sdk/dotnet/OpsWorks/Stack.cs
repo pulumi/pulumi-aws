@@ -86,8 +86,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string?> ConfigurationManagerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// When `use_custom_cookbooks` is set, provide this sub-object as
-        /// described below.
+        /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
         [Output("customCookbooksSources")]
         public Output<ImmutableArray<Outputs.StackCustomCookbooksSource>> CustomCookbooksSources { get; private set; } = null!;
@@ -99,15 +98,14 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string?> CustomJson { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the availability zone where instances will be created
-        /// by default. This is required unless you set `vpc_id`.
+        /// Name of the availability zone where instances will be created by default.
+        /// Cannot be set when `vpc_id` is set.
         /// </summary>
         [Output("defaultAvailabilityZone")]
         public Output<string> DefaultAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM Instance Profile that created instances
-        /// will have by default.
+        /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
         [Output("defaultInstanceProfileArn")]
         public Output<string> DefaultInstanceProfileArn { get; private set; } = null!;
@@ -131,15 +129,14 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string?> DefaultSshKeyName { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the subnet in which instances will be created by default. Mandatory
-        /// if `vpc_id` is set, and forbidden if it isn't.
+        /// ID of the subnet in which instances will be created by default.
+        /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
         [Output("defaultSubnetId")]
         public Output<string> DefaultSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Keyword representing the naming scheme that will be used for instance hostnames
-        /// within this stack.
+        /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
         [Output("hostnameTheme")]
         public Output<string?> HostnameTheme { get; private set; } = null!;
@@ -199,6 +196,7 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -283,8 +281,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.StackCustomCookbooksSourceArgs>? _customCookbooksSources;
 
         /// <summary>
-        /// When `use_custom_cookbooks` is set, provide this sub-object as
-        /// described below.
+        /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
         public InputList<Inputs.StackCustomCookbooksSourceArgs> CustomCookbooksSources
         {
@@ -299,15 +296,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? CustomJson { get; set; }
 
         /// <summary>
-        /// Name of the availability zone where instances will be created
-        /// by default. This is required unless you set `vpc_id`.
+        /// Name of the availability zone where instances will be created by default.
+        /// Cannot be set when `vpc_id` is set.
         /// </summary>
         [Input("defaultAvailabilityZone")]
         public Input<string>? DefaultAvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM Instance Profile that created instances
-        /// will have by default.
+        /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
         [Input("defaultInstanceProfileArn", required: true)]
         public Input<string> DefaultInstanceProfileArn { get; set; } = null!;
@@ -331,15 +327,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? DefaultSshKeyName { get; set; }
 
         /// <summary>
-        /// Id of the subnet in which instances will be created by default. Mandatory
-        /// if `vpc_id` is set, and forbidden if it isn't.
+        /// ID of the subnet in which instances will be created by default.
+        /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
         [Input("defaultSubnetId")]
         public Input<string>? DefaultSubnetId { get; set; }
 
         /// <summary>
-        /// Keyword representing the naming scheme that will be used for instance hostnames
-        /// within this stack.
+        /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
         [Input("hostnameTheme")]
         public Input<string>? HostnameTheme { get; set; }
@@ -396,6 +391,7 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -445,8 +441,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputList<Inputs.StackCustomCookbooksSourceGetArgs>? _customCookbooksSources;
 
         /// <summary>
-        /// When `use_custom_cookbooks` is set, provide this sub-object as
-        /// described below.
+        /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
         public InputList<Inputs.StackCustomCookbooksSourceGetArgs> CustomCookbooksSources
         {
@@ -461,15 +456,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? CustomJson { get; set; }
 
         /// <summary>
-        /// Name of the availability zone where instances will be created
-        /// by default. This is required unless you set `vpc_id`.
+        /// Name of the availability zone where instances will be created by default.
+        /// Cannot be set when `vpc_id` is set.
         /// </summary>
         [Input("defaultAvailabilityZone")]
         public Input<string>? DefaultAvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM Instance Profile that created instances
-        /// will have by default.
+        /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
         [Input("defaultInstanceProfileArn")]
         public Input<string>? DefaultInstanceProfileArn { get; set; }
@@ -493,15 +487,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? DefaultSshKeyName { get; set; }
 
         /// <summary>
-        /// Id of the subnet in which instances will be created by default. Mandatory
-        /// if `vpc_id` is set, and forbidden if it isn't.
+        /// ID of the subnet in which instances will be created by default.
+        /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
         [Input("defaultSubnetId")]
         public Input<string>? DefaultSubnetId { get; set; }
 
         /// <summary>
-        /// Keyword representing the naming scheme that will be used for instance hostnames
-        /// within this stack.
+        /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
         [Input("hostnameTheme")]
         public Input<string>? HostnameTheme { get; set; }
@@ -573,6 +566,7 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

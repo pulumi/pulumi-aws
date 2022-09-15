@@ -335,6 +335,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The network type of the DB instance.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The network type of the DB instance.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * Specifies whether Performance Insights is enabled or not.
      * 
      */
@@ -365,14 +380,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Import(name="performanceInsightsRetentionPeriod")
     private @Nullable Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Optional<Output<Integer>> performanceInsightsRetentionPeriod() {
@@ -545,6 +560,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.kmsKeyId = $.kmsKeyId;
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
+        this.networkType = $.networkType;
         this.performanceInsightsEnabled = $.performanceInsightsEnabled;
         this.performanceInsightsKmsKeyId = $.performanceInsightsKmsKeyId;
         this.performanceInsightsRetentionPeriod = $.performanceInsightsRetentionPeriod;
@@ -1034,6 +1050,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param networkType The network type of the DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The network type of the DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
+        }
+
+        /**
          * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not.
          * 
          * @return builder
@@ -1076,7 +1113,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
          * 
          * @return builder
          * 
@@ -1087,7 +1124,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+         * @param performanceInsightsRetentionPeriod Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
          * 
          * @return builder
          * 

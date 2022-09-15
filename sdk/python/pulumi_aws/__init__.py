@@ -6197,6 +6197,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "medialive/multiplex",
+  "fqn": "pulumi_aws.medialive",
+  "classes": {
+   "aws:medialive/multiplex:Multiplex": "Multiplex"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediapackage/channel",
   "fqn": "pulumi_aws.mediapackage",
   "classes": {
@@ -7249,6 +7257,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftserverless/usageLimit",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/usageLimit:UsageLimit": "UsageLimit"
   }
  },
  {
@@ -8649,6 +8665,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/accountAssignment:AccountAssignment": "AccountAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/customerManagedPolicyAttachment",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": "CustomerManagedPolicyAttachment"
   }
  },
  {

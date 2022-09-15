@@ -16,6 +16,7 @@ __all__ = [
     'InputSecurityGroupWhitelistRule',
     'InputSource',
     'InputVpc',
+    'MultiplexMultiplexSettings',
 ]
 
 @pulumi.output_type
@@ -228,5 +229,81 @@ class InputVpc(dict):
         A list of up to 5 EC2 VPC security group IDs to attach to the Input.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class MultiplexMultiplexSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transportStreamBitrate":
+            suggest = "transport_stream_bitrate"
+        elif key == "transportStreamId":
+            suggest = "transport_stream_id"
+        elif key == "maximumVideoBufferDelayMilliseconds":
+            suggest = "maximum_video_buffer_delay_milliseconds"
+        elif key == "transportStreamReservedBitrate":
+            suggest = "transport_stream_reserved_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexMultiplexSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexMultiplexSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexMultiplexSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transport_stream_bitrate: int,
+                 transport_stream_id: int,
+                 maximum_video_buffer_delay_milliseconds: Optional[int] = None,
+                 transport_stream_reserved_bitrate: Optional[int] = None):
+        """
+        :param int transport_stream_bitrate: Transport stream bit rate.
+        :param int transport_stream_id: Unique ID for each multiplex.
+        :param int maximum_video_buffer_delay_milliseconds: Maximum video buffer delay.
+        :param int transport_stream_reserved_bitrate: Transport stream reserved bit rate.
+        """
+        pulumi.set(__self__, "transport_stream_bitrate", transport_stream_bitrate)
+        pulumi.set(__self__, "transport_stream_id", transport_stream_id)
+        if maximum_video_buffer_delay_milliseconds is not None:
+            pulumi.set(__self__, "maximum_video_buffer_delay_milliseconds", maximum_video_buffer_delay_milliseconds)
+        if transport_stream_reserved_bitrate is not None:
+            pulumi.set(__self__, "transport_stream_reserved_bitrate", transport_stream_reserved_bitrate)
+
+    @property
+    @pulumi.getter(name="transportStreamBitrate")
+    def transport_stream_bitrate(self) -> int:
+        """
+        Transport stream bit rate.
+        """
+        return pulumi.get(self, "transport_stream_bitrate")
+
+    @property
+    @pulumi.getter(name="transportStreamId")
+    def transport_stream_id(self) -> int:
+        """
+        Unique ID for each multiplex.
+        """
+        return pulumi.get(self, "transport_stream_id")
+
+    @property
+    @pulumi.getter(name="maximumVideoBufferDelayMilliseconds")
+    def maximum_video_buffer_delay_milliseconds(self) -> Optional[int]:
+        """
+        Maximum video buffer delay.
+        """
+        return pulumi.get(self, "maximum_video_buffer_delay_milliseconds")
+
+    @property
+    @pulumi.getter(name="transportStreamReservedBitrate")
+    def transport_stream_reserved_bitrate(self) -> Optional[int]:
+        """
+        Transport stream reserved bit rate.
+        """
+        return pulumi.get(self, "transport_stream_reserved_bitrate")
 
 

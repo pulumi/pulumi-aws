@@ -241,6 +241,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -353,6 +354,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -452,6 +454,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC ID.
+        /// Defaults to the region's default VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
