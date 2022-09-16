@@ -33,7 +33,7 @@ jobs:
       run: echo ::set-output
         name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: Checkout Repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
